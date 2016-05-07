@@ -1,6 +1,6 @@
 var index = require('../controllers/index');
 var fonts = require('../controllers/fonts');
-var admin = require('../controllers/admin');
+var admin = require('../controllers/admin/index');
 
 module.exports = function (app) {
 

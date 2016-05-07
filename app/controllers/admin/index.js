@@ -1,11 +1,11 @@
-var Font = require('../models/font');
+var Font = require('../../models/font');
 
 exports.renderFonts = function (req, res) {
 
     Font.find(function (err, fonts) {
 
         if (err) res.send(err);
-        res.render('admin', {
+        res.render('admin/admin', {
             fonts: fonts
         });
 
@@ -18,7 +18,7 @@ exports.renderFont = function (req, res) {
     Font.findById(req.params.font_id, function (err, font) {
 
         if (err) res.send(err);
-        res.render('admin-edit', {
+        res.render('admin/edit', {
             font: font
         });
 
