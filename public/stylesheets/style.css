@@ -11,6 +11,12 @@ body {
     font-weight: 300;
 }
 
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .clearfix:after {
     content: " ";
     display: table;
@@ -40,9 +46,6 @@ body {
 }
 
 .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: none;
 }
 
@@ -58,12 +61,6 @@ body {
 /* does this need modernizr touch to avoid double taps */
 .nav-link:hover {
     background: #f6f6f6;
-}
-
-.nav-buttons {
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-button {

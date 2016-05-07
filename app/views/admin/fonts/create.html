@@ -1,0 +1,19 @@
+{% extends '../layout.html' %}
+
+{% block title %}{% parent %} - Admin{% endblock %}
+
+{% block content %}
+
+    <section class="container">
+
+        <h1>Create New Font</h1>
+
+        <form method="post" action="/admin/fonts">
+
+            {% include "./includes/form.html" %}
+
+        </form>
+
+    </section>
+
+{% endblock %}

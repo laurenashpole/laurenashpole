@@ -17,6 +17,8 @@ var FontSchema = new Schema({
     css_file: String
 });
 
-// slug should be name to lowercase with dashes replacing spaces (also get rid of ampersands)
+FontSchema.methods.generateSlug = function (name) {
+    return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();;
+};
 
 module.exports = mongoose.model('Font', FontSchema);
