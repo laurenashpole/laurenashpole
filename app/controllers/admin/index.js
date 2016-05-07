@@ -2,7 +2,7 @@ exports.render = function (req, res) {
 
     res.render('admin/index', {
         message: req.flash('error'),
-        authenticated: req.isAuthenticated()
+        signed_out: !req.isAuthenticated()
     });
 
 };

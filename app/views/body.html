@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <nav class="nav clearfix {% if font_page %}has-buttons{% endif %}">
+        <div class="nav-item nav-logo">LA</div>
+        <ul class="nav-list clearfix">
+            <li class="nav-item nav-list-item">
+                <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="/fonts" class="nav-link">Fonts</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        {% block font_buttons %}{% endblock %}
+    </nav>
+
+    {% block content %}{% endblock %}
+
+{% endblock %}

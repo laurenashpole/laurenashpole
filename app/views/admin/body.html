@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends '../layout.html' %}
 
-    <meta charset="UTF-8">
-    <title>{% block title %}Lauren Ashpole{% endblock %}</title>
-
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+{% block head %}
+    {% parent %}
     <link rel="stylesheet" href="/stylesheets/admin.css">
+{% endblock %}
 
-</head>
+{% block body %}
 
-<body>
-
-    {% if authenticated %}
+    {% if !signed_out %}
         <nav class="nav clearfix {% if font_page %}has-buttons{% endif %}">
             <div class="nav-item nav-logo">LA</div>
             <ul class="nav-list clearfix">
@@ -35,5 +29,4 @@
 
     {% block content %}{% endblock %}
 
-</body>
-</html>
+{% endblock %}

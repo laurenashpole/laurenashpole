@@ -1,21 +1,10 @@
-{% extends 'layout.html' %}
+{% extends 'body.html' %}
 
 {% block title %}{% parent %} - Admin{% endblock %}
 
 {% block content %}
 
-    {% if authenticated %}
-
-        <section class="container">
-
-            <ul>
-                <li><a href="/admin/fonts/create">Create a new font</a></li>
-                <li><a href="/admin/fonts">See Fonts</a></li>
-            </ul>
-
-        </section>
-
-    {% else %}
+    {% if signed_out %}
 
         <section class="form-container">
 
@@ -58,6 +47,17 @@
                 <button type="submit" class="button button-primary">Submit</button>
 
             </form>
+
+        </section>
+
+    {% else %}
+
+        <section class="container">
+
+            <ul>
+                <li><a href="/admin/fonts/create">Create a new font</a></li>
+                <li><a href="/admin/fonts">See Fonts</a></li>
+            </ul>
 
         </section>
 

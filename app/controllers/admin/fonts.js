@@ -6,8 +6,7 @@ exports.renderAll = function (req, res) {
 
         if (err) res.send(err);
         res.render('admin/fonts/index', {
-            fonts: fonts,
-            authenticated: true
+            fonts: fonts
         });
 
     });
@@ -20,8 +19,7 @@ exports.renderEdit = function (req, res) {
 
         if (err) res.send(err);
         res.render('admin/fonts/edit', {
-            font: font,
-            authenticated: true
+            font: font
         });
 
     });
@@ -30,9 +28,7 @@ exports.renderEdit = function (req, res) {
 
 exports.renderCreate = function (req, res) {
 
-    res.render('admin/fonts/create', {
-        authenticated: true
-    });
+    res.render('admin/fonts/create');
 
 };
 

@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'body.html' %}
 
 {% block title %}{% parent %} - Fonts{% endblock %}
 
@@ -14,7 +14,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="font-image-container vertical-align-td">
         <div class="font-image vertical-align-content" style="background-color: {{font.color}};">
             <img src="{{font.image}}" alt="{{font.name}}">
