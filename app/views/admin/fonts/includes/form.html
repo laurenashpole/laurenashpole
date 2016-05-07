@@ -24,8 +24,18 @@
 </div>
 
 <div class="input-label-inset">
+    <label for="imageRetina">Image Retina</label>
+    <input type="text" id="imageRetina" name="image_retina" {% if font.image %}value="{{font.image_retina}}"{% endif %} />
+</div>
+
+<div class="input-label-inset">
     <label for="imageThumbnail">Image Thumbnail</label>
     <input type="text" id="imageThumbnail" name="image_thumbnail" {% if font.image_thumbnail %}value="{{font.image_thumbnail}}"{% endif %} />
+</div>
+
+<div class="input-label-inset">
+    <label for="imageThumbnailRetina">Image Thumbnail Retina</label>
+    <input type="text" id="imageThumbnailRetina" name="image_thumbnail_retina" {% if font.image_thumbnail_retina %}value="{{font.image_thumbnail_retina}}"{% endif %} />
 </div>
 
 <div class="input-label-inset">

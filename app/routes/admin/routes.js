@@ -30,8 +30,8 @@ module.exports = function (app, passport) {
     app.get('/admin/fonts', isLoggedIn, fonts.renderAll);
     app.get('/admin/fonts/create', isLoggedIn, fonts.renderCreate);
     app.get('/admin/fonts/:font_id', isLoggedIn, fonts.renderEdit);
-    app.post('/admin/fonts', isLoggedIn, fonts.createFont);
-    app.put('/admin/fonts/:font_id', isLoggedIn, fonts.updateFont);
-    app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.deleteFont);
+    app.post('/admin/fonts', isLoggedIn, fonts.create);
+    app.put('/admin/fonts/:font_id', isLoggedIn, fonts.update);
+    app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.delete);
 
 }

@@ -32,7 +32,7 @@ exports.renderCreate = function (req, res) {
 
 };
 
-exports.createFont = function (req, res) {
+exports.create = function (req, res) {
 
     var font = new Font(req.body);
 
@@ -48,7 +48,7 @@ exports.createFont = function (req, res) {
 };
 
 
-exports.updateFont = function (req, res) {
+exports.update = function (req, res) {
 
     Font.findById(req.params.font_id, function (err, font) {
 
@@ -71,7 +71,7 @@ exports.updateFont = function (req, res) {
 
 };
 
-exports.deleteFont = function (req, res) {
+exports.delete = function (req, res) {
 
     Font.remove({
 
