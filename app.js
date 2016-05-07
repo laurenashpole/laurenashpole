@@ -46,8 +46,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./app/config/passport')(passport);
-require('./app/routes/routes')(app, passport);
+require('./app/config/admin/passport')(passport);
+require('./app/routes/admin/routes')(app, passport);
+require('./app/routes/routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
