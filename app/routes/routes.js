@@ -25,7 +25,13 @@ module.exports = function (app, passport) {
     app.get('/admin/logout', isLoggedIn, admin.logout);
 
     app.post('/admin/signup', passport.authenticate('local-signup', {
-        successRedirect : '/admin/fonts',
+        successRedirect : '/admin',
+        failureRedirect : '/admin',
+        failureFlash : true
+    }));
+
+    app.post('/admin/login', passport.authenticate('local-login', {
+        successRedirect : '/admin',
         failureRedirect : '/admin',
         failureFlash : true
     }));

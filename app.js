@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var session = require('express-session');
-var flash = require('connect-flash');
+var flash = require('express-flash');
 
 var app = express();
 

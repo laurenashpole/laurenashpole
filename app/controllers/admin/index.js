@@ -3,7 +3,8 @@ var Font = require('../../models/font');
 exports.render = function (req, res) {
 
     res.render('admin/index', {
-        message: req.flash('signupMessage')
+        message: req.flash('error'),
+        authenticated: req.isAuthenticated()
     });
 
 };
