@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>{% block title %}Lauren Ashpole{% endblock %}</title>
+
+    {% block head %}
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <nav class="nav clearfix {% if font_page %}has-buttons{% endif %}">
+        <div class="nav-item nav-logo">LA</div>
+        <ul class="nav-list clearfix">
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Fonts</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item nav-list-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        {% block font_buttons %}{% endblock %}
+    </nav>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 28px;
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.nav {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.nav-item {
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 59px;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    display: block;
+
+    transition: background 0.4s ease;
+}
+
+/* does this need modernizr touch to avoid double taps */
+.nav-link:hover {
+    background: #f6f6f6;
+}
+
+.nav-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 450px) {
+
+    .nav-item {
+        border-left: 1px solid #e6e6e6;
+        float: left;
+    }
+
+    .nav-logo {
+        width: 25%;
+        border-left: none;
+        line-height: 119px;
+    }
+
+    .nav-list {
+        width: 75%;
+        float: left;
+        display: block;
+    }
+
+    .nav-list-item {
+        width: 50%;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        float: left;
+    }
+
+    .nav-button {
+        width: 100%;
+        border-left: none;
+        float: left;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .nav-list-item {
+        width: 25%;
+        line-height: 119px;
+    }
+
+    .nav.has-buttons .nav-list-item {
+        line-height: 59px;
+    }
+
+    .nav-buttons {
+        width: 75%;
+    }
+
+    .nav-button {
+        width: 50%;
+    }
+
+    .nav-button {
+        border-left: 1px solid #e6e6e6;
+    }
+}
