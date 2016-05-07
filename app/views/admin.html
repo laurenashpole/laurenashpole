@@ -63,6 +63,16 @@
             <input type="text" id="commercialUseDetails" name="commercial_use_details" {% if font.commercial_use_details %}value="{{font.commercial_use_details}}"{% endif %} />
         </div>
 
+        <div class="input-wrapper">
+            <label for="commercialUseDetails">Color</label>
+            <input type="text" id="commercialUseDetails" name="color" {% if font.color %}value="{{font.color}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="commercialUseDetails">CSS File</label>
+            <input type="text" id="commercialUseDetails" name="css_file" {% if font.css_file %}value="{{font.css_file}}"{% endif %} />
+        </div>
+
         {% block form_inputs %}{% endblock %}
 
         <button type="submit">Submit</button>
@@ -72,9 +82,11 @@
     <div>
 
     <ul>
-
         {% for font in fonts %}
-            <li><a href="/admin/fonts/{{font.id}}">{{font.name}}</a></li>
+            <li>
+                <a href="/admin/fonts/{{font.id}}">{{font.name}}</a><br>
+                <form method="post" action="/admin/fonts/{{font.id}}?_method=DELETE"><button type="submit">Delete</button></form>
+            </li>
         {% endfor %}
     </ul>
 

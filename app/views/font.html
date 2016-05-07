@@ -16,14 +16,12 @@
 {% block content %}
 
     <div class="font-image-container vertical-align-td">
-        <div class="font-image vertical-align-content">
+        <div class="font-image vertical-align-content" style="background-color: {{font.color}};">
             <img src="{{font.image}}" alt="{{font.name}}">
         </div>
     </div>
 
-    <p>{{font.name}}</p>
-    <p>{{font.id}}</p>
-    <p>{{font.slug}}</p>
+    <h1>{{font.name}}</h1>
     <p>{{font.date_created}}</p>
     <p>{{font.date_modified}}</p>
     <p>{{font.price}}</p>

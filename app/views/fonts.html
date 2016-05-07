@@ -3,17 +3,19 @@
 {% block title %}{% parent %} - Fonts{% endblock %}
 
 {% block content %}
-    {% for font in fonts %}
-        <p>{{font.name}}</p>
-        <p>{{font.slug}}</p>
-        <p>{{font.date_created}}</p>
-        <p>{{font.date_modified}}</p>
-        <p>{{font.price}}</p>
-        <p>{{font.image}}</p>
-        <p>{{font.image_thumbnail}}</p>
-        <p>{{font.download_url}}</p>
-        <p>{{font.purchase_url}}</p>
-        <p>{{font.personal_use_details}}</p>
-        <p>{{font.commercial_use_details}}</p>
-    {% endfor %}
+    <section>
+        {% for font in fonts %}
+            <div class="font-listing">
+                <a href="/fonts/{{font.slug}}" class="font-listing-link">
+                    <div class="font-listing-img" style="background-image: url({{font.image}});"></div>
+                    <div class="font-overlay" style="background-color: {{font.color}};"></div>
+                    <div class="font-details">
+                        <div class="font-title">
+                            {{font.name}}
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

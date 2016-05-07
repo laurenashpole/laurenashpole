@@ -12,7 +12,9 @@ var FontSchema = new Schema({
     download_url: String,
     purchase_url: String,
     personal_use_details: String,
-    commercial_use_details: String
+    commercial_use_details: String,
+    color: String,
+    css_file: String
 });
 
 // slug should be name to lowercase with dashes replacing spaces (also get rid of ampersands)

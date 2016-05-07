@@ -43,11 +43,7 @@ exports.createFont = function (req, res) {
 
 exports.updateFont = function (req, res) {
 
-    Font.findOne({
-
-        slug: req.params.font_slug
-
-    }, function (err, font) {
+    Font.findById(req.params.font_id, function (err, font) {
 
         if (err) res.send(err);
 
@@ -70,7 +66,7 @@ exports.deleteFont = function (req, res) {
 
     Font.remove({
 
-        slug: req.params.font_slug
+        _id: req.params.font_id
 
     }, function (err,font) {
 

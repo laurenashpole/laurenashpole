@@ -51,6 +51,7 @@ body {
     text-decoration: none;
     display: block;
 
+    -webkit-transition: background 0.4s ease;
     transition: background 0.4s ease;
 }
 
@@ -97,7 +98,7 @@ body {
 
     .nav-logo {
         width: 25%;
-        border-left: none;
+        border-left: transparent;
         line-height: 119px;
     }
 
@@ -118,8 +119,8 @@ body {
 
     .nav-button {
         width: 50%;
-        border-left: none;
-        border-bottom: none;
+        border-left: transparent;
+        border-bottom: transparent;
         line-height: 60px;
         float: left;
     }
@@ -132,8 +133,17 @@ body {
         line-height: 119px;
     }
 
+    .nav.has-buttons {
+        background: #fff;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
     .nav.has-buttons .nav-list-item {
-        border-bottom: none;
+        border-bottom: transparent;
         line-height: 60px;
     }
 
@@ -142,6 +152,140 @@ body {
     }
 }
 
+
+/* font listing */
+.font-listing {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.font-listing-link {
+    display: block;
+}
+
+.font-listing-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 66.666%;
+    display: block;
+    position: relative;
+    z-index: 1;
+
+    -webkit-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+}
+
+.font-overlay {
+    background-image: url('http://www.laurenashpole.com/test-bg.png');
+    background-size: 50% 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.font-details {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+
+    -webkit-transition: font-size 0.4s;
+    transition: font-size 0.4s;
+}
+
+.font-details:before {
+    content: " ";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.font-title {
+    display: inline-block;
+}
+
+.font-listing:hover .font-listing-img {
+    opacity: 0;
+}
+
+.font-listing:hover .font-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.font-listing:hover .font-details {
+    font-size: 30px;
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (min-width: 500px) {
+
+    .font-listing {
+        width: 50%;
+        border-right: 1px solid #e6e6e6;
+    }
+
+    .font-listing:nth-child(2n + 2) {
+        border-right-color: transparent;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .font-listing {
+        width: 33.333%;
+    }
+
+    .font-listing:nth-child(2n + 2) {
+        border-right-color: #e6e6e6;
+    }
+
+    .font-listing:nth-child(3n + 3) {
+        border-right-color: transparent;
+    }
+}
+
+@media (min-width: 1500px) {
+
+    .font-listing {
+        width: 25%;
+    }
+
+    .font-listing:nth-child(3n + 3) {
+        border-right-color: #e6e6e6;
+    }
+
+    .font-listing:nth-child(4n + 4) {
+        border-right-color: transparent;
+    }
+}
+
+/* font page */
 .font-image-container {
     width: 100%;
     padding: 20px;
@@ -149,7 +293,7 @@ body {
 }
 
 .font-image {
-    background: #4E4E76 url('http://www.laurenashpole.com/test-bg.png');
+    background-image: url('http://www.laurenashpole.com/test-bg.png');
     background-size: 50% 50%;
     padding: 0 40px;
     height: 375px;
@@ -160,4 +304,11 @@ body {
     width: 100%;
     max-width: 350px;
     height: auto;
+}
+
+@media (min-width: 768px) {
+
+    .font-image-container {
+        margin-top: 120px;
+    }
 }
