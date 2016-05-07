@@ -1,5 +1,13 @@
 var Font = require('../../models/font');
 
+exports.render = function (req, res) {
+
+    res.render('admin/index', {
+        message: req.flash('signupMessage')
+    });
+
+};
+
 exports.renderFonts = function (req, res) {
 
     Font.find(function (err, fonts) {
@@ -74,5 +82,12 @@ exports.deleteFont = function (req, res) {
         res.json({ message: 'Font deleted!' });
 
     });
+
+};
+
+exports.logout = function(req, res) {
+
+    req.logout();
+    res.redirect('/admin');
 
 };
