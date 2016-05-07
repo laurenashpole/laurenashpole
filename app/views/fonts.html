@@ -3,5 +3,17 @@
 {% block title %}{% parent %} - Fonts{% endblock %}
 
 {% block content %}
-    <p>Testing fonts page.</p>
+    {% for font in fonts %}
+        <p>{{font.name}}</p>
+        <p>{{font.slug}}</p>
+        <p>{{font.date_created}}</p>
+        <p>{{font.date_modified}}</p>
+        <p>{{font.price}}</p>
+        <p>{{font.image}}</p>
+        <p>{{font.image_thumbnail}}</p>
+        <p>{{font.download_url}}</p>
+        <p>{{font.purchase_url}}</p>
+        <p>{{font.personal_use_details}}</p>
+        <p>{{font.commercial_use_details}}</p>
+    {% endfor %}
 {% endblock %}

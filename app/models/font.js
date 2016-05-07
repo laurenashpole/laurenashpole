@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var FontSchema = new Schema({
     name: String,
     slug: String,
-    date_created: Date,
-    date_modified: Date,
+    date_created: String,
+    date_modified: String,
     price: Number,
     image: String,
     image_thumbnail: String,

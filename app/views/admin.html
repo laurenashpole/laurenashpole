@@ -1,0 +1,82 @@
+{% extends 'layout-admin.html' %}
+
+{% block title %}{% parent %} - Admin{% endblock %}
+
+{% block content %}
+
+    {% block form %}
+        <form method="post" action="/admin/fonts">
+    {% endblock %}
+
+        <div class="input-wrapper">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" {% if font.name %}value="{{font.name}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="slug">Slug</label>
+            <input type="text" id="slug" name="slug" {% if font.slug %}value="{{font.slug}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="dateCreated">Date Created</label>
+            <input type="text" id="dateCreated" name="date_created" {% if font.date_created %}value="{{font.date_created}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="dateModified">Date Modified</label>
+            <input type="text" id="dateModified" name="date_modified" {% if font.date_modified %}value="{{font.date_modified}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" {% if font.price %}value="{{font.price}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="image">Image</label>
+            <input type="text" id="image" name="image" {% if font.image %}value="{{font.image}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="imageThumbnail">Image Thumbnail</label>
+            <input type="text" id="imageThumbnail" name="image_thumbnail" {% if font.image_thumbnail %}value="{{font.image_thumbnail}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="downloadUrl">Download URL</label>
+            <input type="text" id="downloadUrl" name="download_url" {% if font.download_url %}value="{{font.download_url}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="purchaseUrl">Purchase URL</label>
+            <input type="text" id="purchaseUrl" name="purchase_url" {% if font.purchase_url %}value="{{font.purchase_url}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="personalUseDetails">Personal Use Details</label>
+            <input type="text" id="personalUseDetails" name="personal_use_details" {% if font.personal %}value="{{font.personal_use_details}}"{% endif %} />
+        </div>
+
+        <div class="input-wrapper">
+            <label for="commercialUseDetails">Commercial Use Details</label>
+            <input type="text" id="commercialUseDetails" name="commercial_use_details" {% if font.commercial_use_details %}value="{{font.commercial_use_details}}"{% endif %} />
+        </div>
+
+        {% block form_inputs %}{% endblock %}
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <div>
+
+    <ul>
+
+        {% for font in fonts %}
+            <li><a href="/admin/fonts/{{font.id}}">{{font.name}}</a></li>
+        {% endfor %}
+    </ul>
+
+    </div>
+{% endblock %}

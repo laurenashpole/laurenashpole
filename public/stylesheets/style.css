@@ -11,15 +11,19 @@ body {
     font-weight: 300;
 }
 
-img {
-    max-width: 50%;
-    height: auto;
-}
-
 .clearfix:after {
     content: " ";
     display: table;
     clear: both;
+}
+
+.vertical-align-td {
+    display: table;
+}
+
+.vertical-align-content {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .nav {
@@ -61,6 +65,29 @@ img {
     padding: 0;
 }
 
+.nav-button {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nav-button-download {
+    background: #e4968d;
+    color: #fff;
+}
+
+.nav-button-download:hover {
+    background: #df8378;
+}
+
+.nav-button-buy {
+    background: #d35244;
+    color: #fff;
+}
+
+.nav-button-buy:hover {
+    background: #ce4130;
+}
+
 @media (min-width: 450px) {
 
     .nav-item {
@@ -90,8 +117,10 @@ img {
     }
 
     .nav-button {
-        width: 100%;
+        width: 50%;
         border-left: none;
+        border-bottom: none;
+        line-height: 60px;
         float: left;
     }
 }
@@ -104,18 +133,31 @@ img {
     }
 
     .nav.has-buttons .nav-list-item {
-        line-height: 59px;
+        border-bottom: none;
+        line-height: 60px;
     }
 
     .nav-buttons {
         width: 75%;
     }
+}
 
-    .nav-button {
-        width: 50%;
-    }
+.font-image-container {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
 
-    .nav-button {
-        border-left: 1px solid #e6e6e6;
-    }
+.font-image {
+    background: #4E4E76 url('http://www.laurenashpole.com/test-bg.png');
+    background-size: 50% 50%;
+    padding: 0 40px;
+    height: 375px;
+    text-align: center;
+}
+
+.font-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
 }

@@ -4,8 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-// var users = require('./routes/users');
+var methodOverride = require('method-override');
 
 var app = express();
 
@@ -25,18 +24,16 @@ db.once('open', function() {
   console.log('connected');
 });
 
-app.use(require('./app/controllers'));
-// app.use(require('./app/routes/routes'));
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/users', users);
+require('./app/routes/routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

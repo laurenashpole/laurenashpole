@@ -4,11 +4,30 @@
 
 {% block font_buttons %}
     <ul class="nav-buttons clearfix">
-        <li class="nav-button nav-item">Download</li>
-        <li class="nav-button nav-item">Buy Now</li>
+        <li class="nav-button nav-item">
+            <a href="{{font.download_url}}" class="nav-link nav-button-download">Download</a>
+        </li>
+        <li class="nav-button nav-item">
+            <a href="{{font.purchase_url}}" class="nav-link nav-button-buy">Buy Now</a>
+        </li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <p>Testing font page.</p>
+
+    <div class="font-image-container vertical-align-td">
+        <div class="font-image vertical-align-content">
+            <img src="{{font.image}}" alt="{{font.name}}">
+        </div>
+    </div>
+
+    <p>{{font.name}}</p>
+    <p>{{font.id}}</p>
+    <p>{{font.slug}}</p>
+    <p>{{font.date_created}}</p>
+    <p>{{font.date_modified}}</p>
+    <p>{{font.price}}</p>
+    <p>{{font.image_thumbnail}}</p>
+    <p>{{font.personal_use_details}}</p>
+    <p>{{font.commercial_use_details}}</p>
 {% endblock %}
