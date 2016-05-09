@@ -310,12 +310,58 @@ ul {
     }
 }
 
-.font-example {
+.font-page-details {
     padding: 20px;
 }
 
-.font-page-details {
-    padding: 20px;
+@media (min-width: 960px) {
+
+    .font-page-details {
+        width: 37.5%;
+        border-left: 1px solid #e6e6e6;
+        float: right;
+    }
+}
+
+.font-example-option-container {
+    border: 1px solid #e6e6e6;
+    padding: 0 20px;
+    float: left;
+    position: relative;
+}
+
+.font-example-option {
+    width: 100%;
+    height: 59px;
+    border: none;
+    font-size: 18px;
+}
+
+.font-example-input-container {
+    width: 80%;
+}
+
+.font-example-select-container {
+    width: 20%;
+    border-left: none;
+    border-right: none;
+}
+
+.font-example-select {
+    background: #fff;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.font-example-select-icon {
+    position: absolute;
+    right: 20px;
+    pointer-events: none;
+    color: #e6e6e6;
+    font-size: 30px;
+    line-height: 59px;
 }
 
 @media (min-width: 960px) {
@@ -325,9 +371,7 @@ ul {
         float: left;
     }
 
-    .font-page-details {
-        width: 37.5%;
-        border-left: 1px solid #e6e6e6;
-        float: right;
+    .font-example-option-container {
+        border-top: none;
     }
 }

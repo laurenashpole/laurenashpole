@@ -3,6 +3,7 @@
 {% block head %}
     {% parent %}
     <link rel="stylesheet" href="/stylesheets/fonts/{{font.css_file}}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block title %}{{font.name}} - {% parent %}{% endblock %}
@@ -55,7 +56,28 @@
             {% endif %}
         </div>
 
-        <div class="font-example">TEST</div>
+        <div class="font-example">
+            <div class="font-example-options clearfix">
+                <div class="font-example-option-container font-example-input-container">
+                    <input type="text" class="font-example-option input font-example-input js-text-input" placeholder="Type to try">
+                </div>
+                <div class="font-example-option-container font-example-select-container">
+                    <div class="font-example-select-icon">
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <select class="font-example-option select font-example-select js-font-size select">
+                        <option value="18px">18px</option>
+                        <option value="24px">24px</option>
+                        <option value="36px" selected="">36px</option>
+                        <option value="48px">48px</option>
+                        <option value="72px">72px</option>
+                        <option value="144px">144px</option>
+                    </select>
+                </div>
+            </div>
+
+            TEST
+        </div>
 
     </section>
 {% endblock %}
