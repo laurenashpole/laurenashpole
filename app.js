@@ -8,6 +8,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('express-flash');
+var multer = require('multer');
 
 var app = express();
 
@@ -47,7 +48,7 @@ app.use(passport.session());
 app.use(flash());
 
 require('./app/config/admin/passport')(passport);
-require('./app/routes/admin/routes')(app, passport);
+require('./app/routes/admin/routes')(app, passport, multer);
 require('./app/routes/routes')(app);
 
 // catch 404 and forward to error handler

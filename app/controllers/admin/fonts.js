@@ -1,3 +1,5 @@
+var fs = require('fs');
+var path = require('path');
 var Font = require('../../models/font');
 
 exports.renderAll = function (req, res) {
@@ -38,6 +40,34 @@ exports.create = function (req, res) {
 
     font.slug = font.generateSlug(font.name);
 
+    req.files.forEach(function (file) {
+
+        var targetPath;
+        var filePath = file.path;
+        var mimetype = file.mimetype;
+
+        if (mimetype.indexOf('image') !== -1) {
+
+            var targetPath = path.resolve('./public/images/', file.originalname);
+
+        } else if (mimetype.indexOf('css') !== -1) {
+
+            var targetPath = path.resolve('./public/stylesheets/fonts/', file.originalname);
+
+        }  else if (mimetype.indexOf('zip') !== -1) {
+
+            var targetPath = path.resolve('./public/downloads/', file.originalname);
+
+        }
+
+        fs.rename(filePath, targetPath, function (err) {
+            if (err) res.send(err);
+        });
+
+        font[file.fieldname] = file.originalname;
+
+    });
+
     font.save(function (err) {
 
         if (err) res.send(err);
@@ -54,11 +84,45 @@ exports.update = function (req, res) {
 
         if (err) res.send(err);
 
+    console.log(font.personal_use_details);
+
         for (prop in req.body) {
             font[prop] = req.body[prop];
         }
 
         font.slug = font.generateSlug(font.name);
+
+        req.files.forEach(function (file) {
+
+            var targetPath;
+            var filePath = file.path;
+            var mimetype = file.mimetype;
+
+            fs.unlink(path.resolve('./public/images/', font[file.fieldname]), function (err) {
+                if (err) res.send(err);
+            });
+
+            if (mimetype.indexOf('image') !== -1) {
+
+                var targetPath = path.resolve('./public/images/', file.originalname);
+
+            } else if (mimetype.indexOf('css') !== -1) {
+
+                var targetPath = path.resolve('./public/stylesheets/fonts/', file.originalname);
+
+            }  else if (mimetype.indexOf('zip') !== -1) {
+
+                var targetPath = path.resolve('./public/downloads/', file.originalname);
+
+            }
+
+            fs.rename(filePath, targetPath, function (err) {
+                if (err) res.send(err);
+            });
+
+            font[file.fieldname] = file.originalname;
+
+        });
 
         font.save(function (err) {
 
@@ -77,7 +141,30 @@ exports.delete = function (req, res) {
 
         _id: req.params.font_id
 
-    }, function (err,font) {
+    }, function (err, font) {
+
+        var files = [
+            font.image,
+            font.image_retina,
+            font.image_thumbnail,
+            font.image_thumbnail_retina,
+            font.css_file,
+            font.personal_font_file,
+            font.commercial_font_file
+        ];
+
+        files.forEach(function (file) {
+
+            if (file) {
+
+                fs.unlink(path.resolve('./public/images/', file), function (err) {
+                    if (err) res.send(err);
+                });
+
+            }
+
+        });
+
 
         if (err) res.send(err);
         res.redirect('/admin/fonts');

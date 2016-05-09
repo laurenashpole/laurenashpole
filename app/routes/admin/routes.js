@@ -10,7 +10,11 @@ function isLoggedIn (req, res, next) {
 
 }
 
-module.exports = function (app, passport) {
+module.exports = function (app, passport, multer) {
+
+    var upload = multer({
+        dest: './temp/'
+    });
 
     app.get('/admin', admin.render);
     app.get('/admin/logout', isLoggedIn, admin.logout);
@@ -30,8 +34,8 @@ module.exports = function (app, passport) {
     app.get('/admin/fonts', isLoggedIn, fonts.renderAll);
     app.get('/admin/fonts/create', isLoggedIn, fonts.renderCreate);
     app.get('/admin/fonts/:font_id', isLoggedIn, fonts.renderEdit);
-    app.post('/admin/fonts', isLoggedIn, fonts.create);
-    app.put('/admin/fonts/:font_id', isLoggedIn, fonts.update);
+    app.post('/admin/fonts',[isLoggedIn, upload.any(), fonts.create]);
+    app.put('/admin/fonts/:font_id', [isLoggedIn, upload.any(), fonts.update]);
     app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.delete);
 
 }

@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var FontSchema = new Schema({
     name: String,
     slug: String,
+    description: String,
     date_created: String,
     date_modified: String,
     price: Number,
@@ -15,34 +16,10 @@ var FontSchema = new Schema({
     purchase_url: String,
     color: String,
     css_file: String,
-    personal_use_details: {
-        true_type: {
-            type: Boolean,
-            default: false
-        },
-        open_type: {
-            type: Boolean,
-            default: false
-        }
-    },
-    commercial_use_details: {
-        true_type: {
-            type: Boolean,
-            default: false
-        },
-        open_type: {
-            type: Boolean,
-            default: false
-        },
-        web_font: {
-            type: Boolean,
-            default: false
-        },
-        addl_chars: {
-            type: Boolean,
-            default: false
-        }
-    }
+    personal_use_details: [],
+    commercial_use_details: [],
+    personal_font_file: String,
+    commercial_font_file: String
 });
 
 FontSchema.methods.generateSlug = function (name) {

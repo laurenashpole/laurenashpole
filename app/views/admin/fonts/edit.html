@@ -8,7 +8,7 @@
 
         <h1>Edit {{font.name}}</h1>
 
-        <form method="post" action="/admin/fonts/{{font.id}}?_method=PUT">
+        <form method="post" action="/admin/fonts/{{font.id}}?_method=PUT" enctype="multipart/form-data">
 
             {% include "./includes/form.html" %}
 

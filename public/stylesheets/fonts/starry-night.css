@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Starry Night';
+    src: url('../../fonts/sn326296.woff2') format('woff2'),
+         url('../../fonts/sn326296.woff') format('woff'),
+         url('../../fonts/sn326296.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.starry-night {
+    font-family: 'Starry Night';
+}

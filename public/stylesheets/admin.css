@@ -43,6 +43,32 @@ input:focus {
     left: 7px;
 }
 
+.input-check {
+    background: #f6f6f6;
+    border-color: #f6f6f6;
+    padding-top: 20px;
+}
+
+.input-check input {
+    width: auto;
+    height: auto;
+    margin: 0 7px 0 21px;
+}
+
+.input-check input:nth-child(2) {
+    margin-left: 7px;
+}
+
+.input-file {
+    background: #f6f6f6;
+    border-color: #f6f6f6;
+}
+
+.input-file input {
+    padding-top: 25px;
+    line-height: 18px;
+}
+
 button {
     border: none;
 }

@@ -1,22 +1,31 @@
 {% extends 'body.html' %}
 
-{% block title %}{% parent %} - Fonts{% endblock %}
+{% block head %}
+    {% parent %}
+    <link rel="stylesheet" href="/stylesheets/fonts/{{font.css_file}}">
+{% endblock %}
+
+{% block title %}{{font.name}} - {% parent %}{% endblock %}
 
 {% block font_buttons %}
     <ul class="nav-buttons clearfix">
-        <li class="nav-button nav-item">
-            <a href="{{font.download_url}}" class="nav-link nav-button-download">Download</a>
-        </li>
-        <li class="nav-button nav-item">
-            <a href="{{font.purchase_url}}" class="nav-link nav-button-buy">Buy Now</a>
-        </li>
+        {% if font.download_url %}
+            <li class="nav-button nav-item">
+                <a href="{{font.download_url}}" class="nav-link nav-button-download">Download</a>
+            </li>
+        {% endif %}
+        {% if font.purchase_url %}
+            <li class="nav-button nav-item">
+                <a href="{{font.purchase_url}}" class="nav-link nav-button-buy">Buy Now</a>
+            </li>
+        {% endif %}
     </ul>
 {% endblock %}
 
 {% block content %}
     <div class="font-image-container vertical-align-td">
         <div class="font-image vertical-align-content" style="background-color: {{font.color}};">
-            <img src="{{font.image}}" alt="{{font.name}}">
+            <img src="/images/{{font.image}}" alt="{{font.name}}">
         </div>
     </div>
 
@@ -27,9 +36,23 @@
             <p>{{font.date_created}}</p>
             <p>{{font.date_modified}}</p>
             <p>{{font.price}}</p>
-            <p>{{font.image_thumbnail}}</p>
-            <p>{{font.personal_use_details}}</p>
-            <p>{{font.commercial_use_details}}</p>
+            <!-- <p>{{font.image_thumbnail}}</p> -->
+            {% if font.personal_use_details %}
+            <ul>
+                <li>Personal Use Details</li>
+                {% for detail in font.personal_use_details %}
+                    <li>{{detail}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if font.commercial_use_details %}
+            <ul>
+                <li>Commercial Use Details</li>
+                {% for detail in font.commercial_use_details %}
+                    <li>{{detail}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
 
         <div class="font-example">TEST</div>

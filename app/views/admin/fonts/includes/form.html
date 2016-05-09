@@ -18,24 +18,24 @@
     <input type="text" id="price" name="price" {% if font.price %}value="{{font.price}}"{% endif %} />
 </div>
 
-<div class="input-label-inset">
-    <label for="image">Image</label>
-    <input type="text" id="image" name="image" {% if font.image %}value="{{font.image}}"{% endif %} />
+<div class="input-label-inset input-file">
+    <label for="image">Image{% if font.image %} ({{font.image}}){% endif %}</label>
+    <input type="file" id="image" name="image" />
 </div>
 
-<div class="input-label-inset">
-    <label for="imageRetina">Image Retina</label>
-    <input type="text" id="imageRetina" name="image_retina" {% if font.image %}value="{{font.image_retina}}"{% endif %} />
+<div class="input-label-inset input-file">
+    <label for="imageRetina">Image Retina{% if font.image_retina %} ({{font.image_retina}}){% endif %}</label>
+    <input type="file" id="imageRetina" name="image_retina" />
 </div>
 
-<div class="input-label-inset">
-    <label for="imageThumbnail">Image Thumbnail</label>
-    <input type="text" id="imageThumbnail" name="image_thumbnail" {% if font.image_thumbnail %}value="{{font.image_thumbnail}}"{% endif %} />
+<div class="input-label-inset input-file">
+    <label for="imageThumbnail">Image Thumbnail{% if font.image_thumbnail %} ({{font.image_thumbnail}}){% endif %}</label>
+    <input type="file" id="imageThumbnail" name="image_thumbnail" />
 </div>
 
-<div class="input-label-inset">
-    <label for="imageThumbnailRetina">Image Thumbnail Retina</label>
-    <input type="text" id="imageThumbnailRetina" name="image_thumbnail_retina" {% if font.image_thumbnail_retina %}value="{{font.image_thumbnail_retina}}"{% endif %} />
+<div class="input-label-inset input-file">
+    <label for="imageThumbnailRetina">Image Thumbnail Retina{% if font.image_thumbnail_retina %} ({{font.image_thumbnail_retina}}){% endif %}</label>
+    <input type="file" id="imageThumbnailRetina" name="image_thumbnail_retina" />
 </div>
 
 <div class="input-label-inset">
@@ -48,18 +48,18 @@
     <input type="text" id="purchaseUrl" name="purchase_url" {% if font.purchase_url %}value="{{font.purchase_url}}"{% endif %} />
 </div>
 
-<div class="">
-    <label for="personalUseDetails">Personal Use Details</label>
-    <input type="checkbox" id="personalUseDetails" name="personal_use_details.true_type" value="true" {% if font.personal_use_details.true_type %}checked="checked"{% endif %} />TrueType Font
-    <input type="checkbox" id="personalUseDetails" name="personal_use_details.open_type" value="true" {% if font.personal_use_details.open_type %}checked="checked"{% endif %} />OpenType Font
+<div class="input-label-inset input-check">
+    <label>Personal Use Details</label>
+    <input type="checkbox" name="personal_use_details" value="TrueType File"/>TrueType Font
+    <input type="checkbox" name="personal_use_details" value="OpenType File" />OpenType Font
 </div>
 
-<div class="">
-    <label for="commercialUseDetails">Commercial Use Details</label>
-    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.true_type" value="true" {% if font.commercial_use_details.true_type %}checked="checked"{% endif %} />TrueType Font
-    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.open_type" value="true" {% if font.commercial_use_details.open_type %}checked="checked"{% endif %} />OpenType Font
-    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.web_font" value="true" {% if font.commercial_use_details.web_font %}checked="checked"{% endif %} />Web Font Kit
-    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.addl_chars" value="true" % if font.commercial_use_details.addl_chars %}checked="checked"{% endif %} />Additional Characters (Latin-1)
+<div class="input-label-inset input-check">
+    <label>Commercial Use Details</label>
+    <input type="checkbox" name="commercial_use_details" value="TrueType File" />TrueType Font
+    <input type="checkbox" name="commercial_use_details" value="OpenType File" />OpenType Font
+    <input type="checkbox" name="commercial_use_details" value="Web Font Kit" />Web Font Kit
+    <input type="checkbox" name="commercial_use_details" value="Additional Characters (Latin-1)" />Additional Characters (Latin-1)
 </div>
 
 <div class="input-label-inset">
@@ -67,9 +67,19 @@
     <input type="text" id="commercialUseDetails" name="color" {% if font.color %}value="{{font.color}}"{% endif %} />
 </div>
 
-<div class="input-label-inset">
-    <label for="commercialUseDetails">CSS File</label>
-    <input type="text" id="commercialUseDetails" name="css_file" {% if font.css_file %}value="{{font.css_file}}"{% endif %} />
+<div class="input-label-inset input-file">
+    <label for="cssFile">CSS File{% if font.css_file %} ({{font.css_file}}){% endif %}</label>
+    <input type="file" id="cssFile" name="css_file" />
+</div>
+
+<div class="input-label-inset input-file">
+    <label for="peronsalFontFile">Personal Font File{% if font.personal_font_file %} ({{font.personal_font_file}}){% endif %}</label>
+    <input type="file" id="personalFontFile" name="personal_font_file" />
+</div>
+
+<div class="input-label-inset input-file">
+    <label for="commercialFontFile">Commercial Font File{% if font.commercial_font_file %} ({{font.commercial_font_file}}){% endif %}</label>
+    <input type="file" id="commercialFontFile" name="commercial_font_file" />
 </div>
 
 <button type="submit" class="button button-primary">Submit</button>
