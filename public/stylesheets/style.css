@@ -310,19 +310,24 @@ ul {
     }
 }
 
+.font-example {
+    padding: 20px;
+}
+
+.font-page-details {
+    padding: 20px;
+}
 
 @media (min-width: 960px) {
 
     .font-example {
         width: 62.5%;
-        padding: 20px;
         float: left;
     }
 
     .font-page-details {
         width: 37.5%;
         border-left: 1px solid #e6e6e6;
-        padding: 20px;
         float: right;
     }
 }

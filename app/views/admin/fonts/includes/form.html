@@ -48,14 +48,18 @@
     <input type="text" id="purchaseUrl" name="purchase_url" {% if font.purchase_url %}value="{{font.purchase_url}}"{% endif %} />
 </div>
 
-<div class="input-label-inset">
+<div class="">
     <label for="personalUseDetails">Personal Use Details</label>
-    <input type="text" id="personalUseDetails" name="personal_use_details" {% if font.personal %}value="{{font.personal_use_details}}"{% endif %} />
+    <input type="checkbox" id="personalUseDetails" name="personal_use_details.true_type" value="true" {% if font.personal_use_details.true_type %}checked="checked"{% endif %} />TrueType Font
+    <input type="checkbox" id="personalUseDetails" name="personal_use_details.open_type" value="true" {% if font.personal_use_details.open_type %}checked="checked"{% endif %} />OpenType Font
 </div>
 
-<div class="input-label-inset">
+<div class="">
     <label for="commercialUseDetails">Commercial Use Details</label>
-    <input type="text" id="commercialUseDetails" name="commercial_use_details" {% if font.commercial_use_details %}value="{{font.commercial_use_details}}"{% endif %} />
+    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.true_type" value="true" {% if font.commercial_use_details.true_type %}checked="checked"{% endif %} />TrueType Font
+    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.open_type" value="true" {% if font.commercial_use_details.open_type %}checked="checked"{% endif %} />OpenType Font
+    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.web_font" value="true" {% if font.commercial_use_details.web_font %}checked="checked"{% endif %} />Web Font Kit
+    <input type="checkbox" id="commercialUseDetails" name="commercial_use_details.addl_chars" value="true" % if font.commercial_use_details.addl_chars %}checked="checked"{% endif %} />Additional Characters (Latin-1)
 </div>
 
 <div class="input-label-inset">

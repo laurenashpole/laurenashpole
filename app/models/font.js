@@ -13,14 +13,40 @@ var FontSchema = new Schema({
     image_thumbnail_retina: String,
     download_url: String,
     purchase_url: String,
-    personal_use_details: String,
-    commercial_use_details: String,
     color: String,
-    css_file: String
+    css_file: String,
+    personal_use_details: {
+        true_type: {
+            type: Boolean,
+            default: false
+        },
+        open_type: {
+            type: Boolean,
+            default: false
+        }
+    },
+    commercial_use_details: {
+        true_type: {
+            type: Boolean,
+            default: false
+        },
+        open_type: {
+            type: Boolean,
+            default: false
+        },
+        web_font: {
+            type: Boolean,
+            default: false
+        },
+        addl_chars: {
+            type: Boolean,
+            default: false
+        }
+    }
 });
 
 FontSchema.methods.generateSlug = function (name) {
-    return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();;
+    return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
 };
 
 module.exports = mongoose.model('Font', FontSchema);
