@@ -20,11 +20,19 @@
         </div>
     </div>
 
-    <h1>{{font.name}}</h1>
-    <p>{{font.date_created}}</p>
-    <p>{{font.date_modified}}</p>
-    <p>{{font.price}}</p>
-    <p>{{font.image_thumbnail}}</p>
-    <p>{{font.personal_use_details}}</p>
-    <p>{{font.commercial_use_details}}</p>
+    <section class="clearfix">
+
+        <div class="font-page-details">
+            <h1>{{font.name}}</h1>
+            <p>{{font.date_created}}</p>
+            <p>{{font.date_modified}}</p>
+            <p>{{font.price}}</p>
+            <p>{{font.image_thumbnail}}</p>
+            <p>{{font.personal_use_details}}</p>
+            <p>{{font.commercial_use_details}}</p>
+        </div>
+
+        <div class="font-example">TEST</div>
+
+    </section>
 {% endblock %}
