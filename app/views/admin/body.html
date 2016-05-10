@@ -10,17 +10,25 @@
     {% if !signed_out %}
         <nav class="nav clearfix {% if font_page %}has-buttons{% endif %}">
             <div class="nav-item nav-logo">LA</div>
-            <ul class="nav-list clearfix">
-                <li class="nav-item nav-list-item">
+            <div class="nav-item nav-icon-container js-nav-icon">
+                <div class="nav-icon">
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                </div>
+            </div>
+            <ul class="nav-links clearfix">
+                <li class="nav-item nav-link-container">
                     <a href="/admin/fonts" class="nav-link">View Fonts</a>
                 </li>
-                <li class="nav-item nav-list-item">
+                <li class="nav-item nav-link-container">
                     <a href="/admin/fonts/create" class="nav-link">Create Font</a>
                 </li>
-                <li class="nav-item nav-list-item">
+                <li class="nav-item nav-link-container">
                     <a href="/" class="nav-link">View Live</a>
                 </li>
-                <li class="nav-item nav-list-item">
+                <li class="nav-item nav-link-container">
                     <a href="/admin/logout" class="nav-link">Logout</a>
                 </li>
             </ul>
