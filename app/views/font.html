@@ -57,26 +57,33 @@
         </div>
 
         <div class="font-example">
-            <div class="font-example-options clearfix">
-                <div class="font-example-option-container font-example-input-container">
-                    <input type="text" class="font-example-option input font-example-input js-text-input" placeholder="Type to try">
+
+            <form class="clearfix">
+
+                <div class="input-container font-example-input-container">
+                    <input type="text" class="input js-text-input" placeholder="Type to try">
                 </div>
-                <div class="font-example-option-container font-example-select-container">
-                    <div class="font-example-select-icon">
+
+                <div class="select-container font-example-select-container">
+                    <div class="select-icon">
                         <i class="fa fa-angle-down"></i>
                     </div>
-                    <select class="font-example-option select font-example-select js-font-size select">
+                    <select class="select js-font-size select">
                         <option value="18px">18px</option>
                         <option value="24px">24px</option>
-                        <option value="36px" selected="">36px</option>
+                        <option value="36px">36px</option>
                         <option value="48px">48px</option>
                         <option value="72px">72px</option>
                         <option value="144px">144px</option>
                     </select>
                 </div>
+
+            </form>
+
+            <div class="font-example-text {{font.slug}}" style="color: {{font.color}};">
+                TEST
             </div>
 
-            TEST
         </div>
 
     </section>
