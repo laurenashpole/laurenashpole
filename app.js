@@ -47,6 +47,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.locals.site_name = 'Lauren Ashpole';
+
 require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
 require('./app/routes/routes')(app);
