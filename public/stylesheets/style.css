@@ -12,7 +12,12 @@ body {
 }
 
 a {
+    color: #d35244;
     text-decoration: none;
+}
+
+a:hover {
+    color: #ce4130;
 }
 
 ul {
@@ -360,7 +365,7 @@ ul {
     user-select: none;
 }
 
-.font-details {
+.font-listing-details {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -378,7 +383,7 @@ ul {
     transition: font-size 0.4s;
 }
 
-.font-details:before {
+.font-listing-details:before {
     content: " ";
     display: inline-block;
     vertical-align: middle;
@@ -400,7 +405,7 @@ ul {
     bottom: 0;
 }
 
-.font-listing:hover .font-details {
+.font-listing:hover .font-listing-details {
     font-size: 30px;
     visibility: visible;
     opacity: 1;
@@ -477,13 +482,54 @@ ul {
 }
 
 /* Font Details */
-.font-page-details {
+.font-details {
     padding: 20px;
+}
+
+.font-details-title {
+    margin: 0;
+}
+
+.font-details-date {
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+}
+
+.font-details-price {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.font-details-list {
+    padding-bottom: 20px;
+}
+
+.font-details-list + .font-details-list {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 20px;
+}
+
+.font-details-list li {
+    margin-bottom: 2px;
+}
+
+.font-details-list-header {
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.font-details-licensing {
+    margin: 20px 20px 0 0;
+    float: left;
 }
 
 @media (min-width: 960px) {
 
-    .font-page-details {
+    .font-details {
         width: 37.5%;
         border-left: 1px solid #e6e6e6;
         float: right;

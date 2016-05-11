@@ -32,28 +32,45 @@
 
     <section class="clearfix">
 
-        <div class="font-page-details">
-            <h1>{{font.name}}</h1>
-            <p>{{font.date_created}}</p>
-            <p>{{font.date_modified}}</p>
-            <p>{{font.price}}</p>
-            <!-- <p>{{font.image_thumbnail}}</p> -->
+        <div class="font-details">
+
+            <h1 class="font-details-title">{{font.name}}</h1>
+            <div class="font-details-date">
+                Created: {{font.date_created}}
+                {% if font.date_modified %}, Modified: {{font.date_modified}}{% endif %}
+            </div>
+
+            <div class="font-details-price">
+                ${{font.price}}
+            </div>
+
             {% if font.personal_use_details %}
-            <ul>
-                <li>Personal Use Details</li>
-                {% for detail in font.personal_use_details %}
-                    <li>{{detail}}</li>
-                {% endfor %}
-            </ul>
+                <ul class="font-details-list">
+                    <li class="font-details-list-header">Personal Use Details</li>
+                    {% for detail in font.personal_use_details %}
+                        <li>{{detail}}</li>
+                    {% endfor %}
+                </ul>
             {% endif %}
+
             {% if font.commercial_use_details %}
-            <ul>
-                <li>Commercial Use Details</li>
-                {% for detail in font.commercial_use_details %}
-                    <li>{{detail}}</li>
-                {% endfor %}
-            </ul>
+                <ul class="font-details-list">
+                    <li class="font-details-list-header">Commercial Use Details</li>
+                    {% for detail in font.commercial_use_details %}
+                        <li>{{detail}}</li>
+                    {% endfor %}
+                </ul>
             {% endif %}
+
+            <ul class="clearfix">
+                <li class="font-details-licensing">
+                    <a href="#">Licensing Info</a>
+                </li>
+                <li class="font-details-licensing">
+                    <a href="#">View EULA</a>
+                </li>
+            </ul>
+
         </div>
 
         <div class="font-example">
