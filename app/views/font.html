@@ -24,9 +24,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="font-image-container vertical-align-td">
-        <div class="font-image vertical-align-content" style="background-color: {{font.color}};">
-            <img src="/images/{{font.image}}" alt="{{font.name}}">
+    <div class="font-image-bg-container">
+        <div class="font-image-bg" style="background-color: {{font.color}};">
+            <div class="font-image-container">
+                <span class="img-default">
+                    <figure class="font-image" style="background-image: url(/images/{{font.image}});"></figure>
+                </span>
+                <span class="img-retina">
+                    <figure class="font-image" style="background-image: url(/images/{{font.image_retina}});"></figure>
+                </span>
+            </div>
         </div>
     </div>
 
@@ -73,22 +80,22 @@
 
         </div>
 
-        <div class="font-example">
+        <div class="font-example {{font.slug}}" style="color: {{font.color}};">
 
             <form class="clearfix">
 
                 <div class="input-container font-example-input-container">
-                    <input type="text" class="input js-text-input" placeholder="Type to try">
+                    <input type="text" class="input js-font-example-input" placeholder="Type to try">
                 </div>
 
                 <div class="select-container font-example-select-container">
                     <div class="select-icon">
                         <i class="fa fa-angle-down"></i>
                     </div>
-                    <select class="select js-font-size select">
+                    <select class="select js-font-example-select">
                         <option value="18px">18px</option>
                         <option value="24px">24px</option>
-                        <option value="36px">36px</option>
+                        <option value="36px" selected>36px</option>
                         <option value="48px">48px</option>
                         <option value="72px">72px</option>
                         <option value="144px">144px</option>
@@ -97,9 +104,11 @@
 
             </form>
 
-            <div class="font-example-text {{font.slug}}" style="color: {{font.color}};">
+            <div class="font-example-text">
                 TEST
             </div>
+
+            <div class="font-example-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
 
         </div>
 

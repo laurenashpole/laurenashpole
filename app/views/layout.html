@@ -16,25 +16,7 @@
 
     {% block body %}{% endblock %}
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <script>
-
-        $('.js-nav-icon').on('click', function (e) {
-            e.preventDefault();
-            $('.nav').toggleClass('is-open');
-        });
-
-        $('.js-text-input').on('keyup', function () {
-            $('.js-text-display').text($(this).val());
-        });
-
-        $('.js-font-size').on('change', function () {
-            var size = $(this).val();
-            $('.js-text-display').css({'font-size': size});
-        });
-
-    </script>
+    <script src="/javascripts/javascript.js"></script>
 
 </body>
 </html>
