@@ -1,9 +1,12 @@
 var Font = require('../models/font');
+var path = require('path');
 var paypal = require('paypal-rest-sdk');
 var fs = require('fs');
+var nodemailer = require('nodemailer');
 
 var configPayPalJSON = fs.readFileSync('./app/config/paypal.json');
 var configPayPal = JSON.parse(configPayPalJSON.toString());
+var transporter = nodemailer.createTransport();
 
 exports.renderFonts = function (req, res) {
 
@@ -126,7 +129,27 @@ exports.confirm = function (req, res) {
 
             if (err) res.send(err);
 
-            console.log(payment);
+            var filePath = path.resolve('./public/downloads/', font.commercial_font_file);
+
+            fs.readFile(filePath, function (err, data) {
+
+                var mailOptions = {
+                    from: '"Lauren Ashpole" <lauren@laurenashpole.com>',
+                    to: payment.payer.payer_info.email,
+                    subject: 'Thank you for purchasing' + font.name,
+                    text: 'Here is your download!',
+                    html: 'Here is your download!',
+                    attachments: [{
+                        filename: font.commercial_font_file,
+                        content: data
+                    }]
+                };
+
+                transporter.sendMail(mailOptions, function (err, info) {
+                    if (err) res.send(err);
+                });
+
+            });
 
             var page = {
                 fonts: true,
