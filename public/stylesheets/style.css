@@ -244,6 +244,10 @@ figure {
     color: #333;
 }
 
+.nav-link.is-active {
+    background: #f6f6f6;
+}
+
 .nav-button {
     font-size: 18px;
     font-weight: 700;

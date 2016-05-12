@@ -1,3 +1,10 @@
 exports.render = function (req, res) {
-    res.render('index');
+
+    var page = {
+        home: true
+    }
+
+    res.render('index', {
+        page: page
+    });
 }

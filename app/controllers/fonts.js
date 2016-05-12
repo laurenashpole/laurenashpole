@@ -6,7 +6,13 @@ exports.renderFonts = function (req, res) {
 
         if (err) res.send(err);
 
+        var page = {
+            fonts: true,
+            title: 'Fonts'
+        }
+
         res.render('fonts', {
+            page: page,
             fonts: fonts
         });
 
@@ -23,8 +29,15 @@ exports.renderFont = function (req, res) {
     }, function (err, font) {
 
         if (err) res.send(err);
+
+        var page = {
+            fonts: true,
+            has_buttons: true,
+            title: font.name + ' - Fonts'
+        }
+
         res.render('font', {
-            font_page: true,
+            page: page,
             font: font
         });
 

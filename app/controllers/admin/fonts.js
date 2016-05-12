@@ -7,7 +7,14 @@ exports.renderAll = function (req, res) {
     Font.find(function (err, fonts) {
 
         if (err) res.send(err);
+
+        var page = {
+            all: true,
+            title: 'Admin'
+        }
+
         res.render('admin/fonts/index', {
+            page: page,
             fonts: fonts
         });
 
@@ -30,7 +37,14 @@ exports.renderEdit = function (req, res) {
 
 exports.renderCreate = function (req, res) {
 
-    res.render('admin/fonts/create');
+    var page = {
+        create: true,
+        title: 'Admin'
+    }
+
+    res.render('admin/fonts/create', {
+        page: page
+    });
 
 };
 

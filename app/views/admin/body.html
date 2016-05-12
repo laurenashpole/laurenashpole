@@ -20,10 +20,10 @@
             </div>
             <ul class="nav-links clearfix">
                 <li class="nav-item nav-link-container">
-                    <a href="/admin/fonts" class="nav-link">View Fonts</a>
+                    <a href="/admin/fonts" class="nav-link {% if page.all %}is-active{% endif %}">View Fonts</a>
                 </li>
                 <li class="nav-item nav-link-container">
-                    <a href="/admin/fonts/create" class="nav-link">Create Font</a>
+                    <a href="/admin/fonts/create" class="nav-link {% if page.create %}is-active{% endif %}">Create Font</a>
                 </li>
                 <li class="nav-item nav-link-container">
                     <a href="/" class="nav-link">View Live</a>
