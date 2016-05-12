@@ -16,7 +16,7 @@ exports.renderFonts = function (req, res) {
             title: 'Fonts'
         }
 
-        res.render('fonts', {
+        res.render('fonts/fonts', {
             page: page,
             fonts: fonts
         });
@@ -41,7 +41,7 @@ exports.renderFont = function (req, res) {
             title: font.name + ' - Fonts'
         }
 
-        res.render('font', {
+        res.render('fonts/font', {
             page: page,
             font: font
         });
@@ -110,15 +110,36 @@ exports.createPayment = function (req, res) {
 
 exports.confirm = function (req, res) {
 
-    var paymentId = req.session.paymentId;
-    var payerId = req.param('PayerID');
-    var details = { 'payer_id': payerId };
+    Font.findOne({
 
-    paypal.payment.execute(paymentId, details, function (err, payment) {
+        slug: req.params.font_slug
+
+    }, function (err, font) {
 
         if (err) res.send(err);
 
-        res.send("Hell yeah!");
+        var paymentId = req.session.paymentId;
+        var payerId = req.query['PayerID'];
+        var details = { 'payer_id': payerId };
+
+        paypal.payment.execute(paymentId, details, function (err, payment) {
+
+            if (err) res.send(err);
+
+            console.log(payment);
+
+            var page = {
+                fonts: true,
+                title: 'Thank you for purchasing ' + font.name + ' - Fonts'
+            }
+
+            res.render('fonts/confirm', {
+                page: page,
+                font: font,
+                payment: payment
+            });
+
+        });
 
     });
 

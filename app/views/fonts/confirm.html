@@ -1,0 +1,19 @@
+{% extends '../body.html' %}
+
+{% block content %}
+    <section class="container-fixed">
+        <h1>Thank you for purchasing {{font.name}}.</h1>
+
+        <p>Download the commercial version of your font <a href="{{font.commercial_font_file}}">here</a>. An email will also be sent to {{payment.payer.payer_info.email}} with the download link.</p>
+
+        <ul class="clearfix">
+            <li class="font-details-licensing">
+                <a href="#">Licensing Info</a>
+            </li>
+            <li class="font-details-licensing">
+                <a href="#">View EULA</a>
+            </li>
+        </ul>
+
+    </section>
+{% endblock %}
