@@ -62,7 +62,7 @@ exports.create = function (req, res) {
 
         if (mimetype.indexOf('image') !== -1) {
 
-            var targetPath = path.resolve('./public/images/', file.originalname);
+            var targetPath = path.resolve('./public/images/fonts/', file.originalname);
 
         } else if (mimetype.indexOf('css') !== -1) {
 
@@ -116,7 +116,7 @@ exports.update = function (req, res) {
 
             if (mimetype.indexOf('image') !== -1) {
 
-                var targetPath = path.resolve('./public/images/', file.originalname);
+                var targetPath = path.resolve('./public/images/fonts/', file.originalname);
 
             } else if (mimetype.indexOf('css') !== -1) {
 
@@ -165,6 +165,7 @@ exports.delete = function (req, res) {
             font.commercial_font_file
         ];
 
+        // This won't currently work since not all files are in images folder
         files.forEach(function (file) {
 
             if (file) {

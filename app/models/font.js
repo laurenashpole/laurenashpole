@@ -12,8 +12,6 @@ var FontSchema = new Schema({
     image_retina: String,
     image_thumbnail: String,
     image_thumbnail_retina: String,
-    download_url: String,
-    purchase_url: String,
     color: String,
     css_file: String,
     personal_use_details: [],

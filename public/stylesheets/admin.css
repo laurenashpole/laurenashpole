@@ -1,0 +1,113 @@
+.container {
+    width: 90%;
+    max-width: 768px;
+    margin: 40px auto;
+}
+
+.form-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+input {
+    font-family: 'Source Sans Pro';
+    color: #333;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-label-inset {
+    height: 60px;
+    margin-bottom: 20px;
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.input-label-inset input {
+    width: 100%;
+    height: 58px;
+    border: none;
+    padding: 15px 0 0 7px;
+    font-size: 18px;
+}
+
+.input-label-inset label {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 10px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+
+.input-check {
+    background: #f6f6f6;
+    border-color: #f6f6f6;
+    padding-top: 20px;
+}
+
+.input-check input {
+    width: auto;
+    height: auto;
+    margin: 0 7px 0 21px;
+}
+
+.input-check input:nth-child(2) {
+    margin-left: 7px;
+}
+
+.input-file {
+    background: #f6f6f6;
+    border-color: #f6f6f6;
+}
+
+.input-file input {
+    padding-top: 25px;
+    line-height: 18px;
+}
+
+button {
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.button {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+    line-height: 50px;
+    color: #fff;
+    cursor: pointer;
+
+    -webkit-transition: background 0.4s ease;
+    transition: background 0.4s ease;
+}
+
+.button-primary {
+    background: #d35244;
+}
+
+.button-primary:hover {
+    background: #ce4130;
+}
+
+.button-secondary {
+    background: #e4968d;
+}
+
+.button-secondary:hover {
+    background: #df8378;
+}
+
+.growl {
+    background: #f6f6f6;
+    padding: 20px;
+}

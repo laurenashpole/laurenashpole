@@ -1,0 +1,621 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.5;
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+}
+
+a {
+    color: #d35244;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ce4130;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.75;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+.input,
+.select,
+.button {
+    width: 100%;
+    border: none;
+    padding: 0;
+    font: 18px 'Source Sans Pro';
+    color: #333;
+    line-height: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+}
+
+.input:focus,
+.select:focus,
+.button:focus {
+    outline: none;
+}
+
+.input-container,
+.select-container {
+    border: 1px solid #e6e6e6;
+    padding: 0 20px;
+    line-height: 58px;
+    position: relative;
+}
+
+.input::-webkit-input-placeholder {
+    color: #333;
+}
+
+.input::-moz-placeholder {
+    color: #333;
+}
+
+.input:-ms-input-placeholder {
+    color: #333;
+}
+
+.input:-moz-placeholder {
+    color: #333;
+}
+
+.select {
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select::-ms-expand {
+    display: none;
+}
+
+.select-icon {
+    position: absolute;
+    right: 20px;
+    pointer-events: none;
+    color: #e6e6e6;
+    font-size: 30px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.img-default {
+    display: block;
+}
+
+.img-retina {
+    display: none;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+
+    .img-default {
+        display: none;
+    }
+
+    .img-retina {
+        display: block;
+    }
+}
+
+.vertical-align-ib:before {
+    content: " ";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.vertical-align-ib .vertical-align-content {
+    display: inline-block;
+}
+
+.container-fixed {
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Nav */
+.nav {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.nav.is-open {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.nav-item {
+    width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 59px;
+    float: left;
+}
+
+.nav-logo {
+    width: calc(100% - 60px);
+    padding: 0 20px;
+    text-align: left;
+}
+
+.nav-icon-container {
+    width: 60px;
+    border-left: 1px solid #e6e6e6;
+}
+
+.nav-icon {
+    height: 35px;
+    margin: 12px 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-icon-line {
+    background: #d35244;
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.nav-icon-line:nth-child(2),
+.nav-icon-line:nth-child(3) {
+    top: 14px;
+}
+
+.nav-icon-line:nth-child(4) {
+    top: 28px;
+}
+
+.nav.is-open .nav-icon-line:nth-child(1),
+.nav.is-open .nav-icon-line:nth-child(4) {
+    width: 0;
+    top: 14px;
+    left: 50%;
+}
+
+.nav.is-open .nav-icon-line:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.nav.is-open .nav-icon-line:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.nav-links {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    float: left;
+
+    -webkit-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+}
+
+.nav.is-open .nav-links {
+    max-height: 240px;
+}
+
+.nav-link-container:last-child {
+    border-bottom: none;
+}
+
+.nav-link {
+    color: #333;
+    display: block;
+
+    -webkit-transition: background 0.4s ease;
+    transition: background 0.4s ease;
+}
+
+.nav-link:hover {
+    background: #f6f6f6;
+    color: #333;
+}
+
+.nav-link.is-active {
+    background: #f6f6f6;
+}
+
+.nav-button {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nav-button-download {
+    background: #e4968d;
+    color: #fff;
+}
+
+.nav-button-download:hover {
+    background: #df8378;
+    color: #fff;
+}
+
+.nav-button-buy {
+    background: #d35244;
+    color: #fff;
+}
+
+.nav-button-buy:hover {
+    background: #ce4130;
+    color: #fff;
+}
+
+@media (min-width: 450px) {
+
+    .nav-item {
+        border-left: 1px solid #e6e6e6;
+    }
+
+    .nav-logo {
+        width: 25%;
+        border-left: transparent;
+        line-height: 119px;
+        text-align: center;
+    }
+
+    .nav-icon-container {
+        display: none;
+    }
+
+    .nav-links {
+        width: 75%;
+        max-height: none;
+    }
+
+    .nav-link-container {
+        width: 50%;
+    }
+
+    .nav-link-container:last-child {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        float: left;
+    }
+
+    .nav-button {
+        width: 50%;
+        border-left: transparent;
+        border-bottom: transparent;
+        line-height: 60px;
+        float: left;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .nav-link-container {
+        width: 25%;
+        line-height: 119px;
+    }
+
+    .nav.has-buttons {
+        background: #fff;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .nav.has-buttons .nav-link-container {
+        border-bottom: transparent;
+        line-height: 60px;
+    }
+
+    .nav-buttons {
+        width: 75%;
+    }
+}
+
+/* Font Listings */
+.font-listing-container {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.font-listing {
+    display: block;
+}
+
+.font-listing-image-container {
+    position: relative;
+
+    -webkit-transition: opacity 0.6s ease;
+    transition: opacity 0.6s ease;
+}
+
+.font-listing:hover .font-listing-image-container {
+    opacity: 0;
+}
+
+.font-listing-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 66.666%;
+}
+
+.font-listing-bg {
+    background-image: url('http://www.laurenashpole.com/test-bg.png');
+    background-size: 50% 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.font-listing:hover .font-listing-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.font-listing-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.font-listing:hover .font-listing-overlay {
+    font-size: 30px;
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (min-width: 500px) {
+
+    .font-listing-container {
+        width: 50%;
+        border-right: 1px solid #e6e6e6;
+    }
+
+    .font-listing-container:nth-child(2n + 2) {
+        border-right-color: transparent;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .font-listing-container {
+        width: 33.333%;
+    }
+
+    .font-listing-container:nth-child(2n + 2) {
+        border-right-color: #e6e6e6;
+    }
+
+    .font-listing-container:nth-child(3n + 3) {
+        border-right-color: transparent;
+    }
+}
+
+@media (min-width: 1500px) {
+
+    .font-listing-container {
+        width: 25%;
+    }
+
+    .font-listing-container:nth-child(3n + 3) {
+        border-right-color: #e6e6e6;
+    }
+
+    .font-listing-container:nth-child(4n + 4) {
+        border-right-color: transparent;
+    }
+}
+
+/* font page */
+.font-image-bg-container {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.font-image-bg {
+    background-image: url('http://www.laurenashpole.com/test-bg.png');
+    background-size: 50% 50%;
+}
+
+.font-image-container {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 5% 0;
+}
+
+.font-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 66.666%;
+}
+
+@media (min-width: 768px) {
+
+    .font-image-bg-container {
+        margin-top: 120px;
+    }
+}
+
+@media (min-width: 1040px) {
+
+    .font-image-container {
+        padding: 50px 0;
+    }
+}
+
+/* Font Details */
+.font-details {
+    padding: 20px;
+}
+
+.font-details-title {
+    margin: 0;
+}
+
+.font-details-date {
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+}
+
+.font-details-price {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.font-details-list {
+    padding-bottom: 20px;
+}
+
+.font-details-list + .font-details-list {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 20px;
+}
+
+.font-details-list li {
+    margin-bottom: 2px;
+}
+
+.font-details-list-header {
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.font-details-licensing {
+    margin: 20px 20px 0 0;
+    float: left;
+}
+
+@media (min-width: 960px) {
+
+    .font-details {
+        width: 37.5%;
+        width: calc(37.5% - 1px);
+        float: right;
+    }
+}
+
+/* Font Example */
+
+.font-example {
+    word-wrap: break-word;
+}
+
+.font-example-input-container {
+    width: 70%;
+    float: left;
+}
+
+.font-example-select-container {
+    width: 30%;
+    border-left: none;
+    border-right: none;
+    float: left;
+}
+
+.font-example-text {
+    margin: 0 20px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 20px 0;
+    font-size: 36px;
+}
+
+.font-example-alphabet {
+    padding: 20px 20px 40px 20px;
+    font-size: 60px;
+}
+
+@media (min-width: 960px) {
+
+    .font-example {
+        width: 62.5%;
+        width: calc(62.5% + 1px);
+        border-right: 1px solid #e6e6e6;
+        float: left;
+    }
+
+    .font-example-input-container,
+    .font-example-select-container {
+        border-top: none;
+        line-height: 59px;
+    }
+}
