@@ -24,4 +24,23 @@ FontSchema.methods.generateSlug = function (name) {
     return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
 };
 
+FontScheme.methods.setButtonState = function (font) {
+
+    if (font.personal_font_file && font.commercial_font_file) {
+        return false;
+    } else {
+        return true;
+    }
+
+};
+
+FontSchema.pre('save', function (next) {
+
+    this.slug = this.generateSlug(this.name);
+    this.has_single_button = this.setButtonState(this);
+
+    next();
+
+});
+
 module.exports = mongoose.model('Font', FontSchema);

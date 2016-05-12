@@ -52,7 +52,7 @@ exports.create = function (req, res) {
 
     var font = new Font(req.body);
 
-    font.slug = font.generateSlug(font.name);
+    // font.slug = font.generateSlug(font.name);
 
     req.files.forEach(function (file) {
 
@@ -102,7 +102,7 @@ exports.update = function (req, res) {
             font[prop] = req.body[prop];
         }
 
-        font.slug = font.generateSlug(font.name);
+        // font.slug = font.generateSlug(font.name);
 
         req.files.forEach(function (file) {
 
