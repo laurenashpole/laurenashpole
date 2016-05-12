@@ -98,8 +98,6 @@ exports.update = function (req, res) {
 
         if (err) res.send(err);
 
-    console.log(font.personal_use_details);
-
         for (prop in req.body) {
             font[prop] = req.body[prop];
         }

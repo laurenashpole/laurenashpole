@@ -31,16 +31,22 @@ figure {
 }
 
 .input,
-.select {
+.select,
+.button {
     width: 100%;
     border: none;
+    padding: 0;
     font: 18px 'Source Sans Pro';
     color: #333;
+    line-height: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
 }
 
 .input:focus,
 .select:focus,
-.button:active {
+.button:focus {
     outline: none;
 }
 
@@ -85,6 +91,10 @@ figure {
     pointer-events: none;
     color: #e6e6e6;
     font-size: 30px;
+}
+
+.button {
+    cursor: pointer;
 }
 
 .clearfix:after {

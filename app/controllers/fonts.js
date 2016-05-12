@@ -1,4 +1,9 @@
 var Font = require('../models/font');
+var paypal = require('paypal-rest-sdk');
+var fs = require('fs');
+
+var configPayPalJSON = fs.readFileSync('./app/config/paypal.json');
+var configPayPal = JSON.parse(configPayPalJSON.toString());
 
 exports.renderFonts = function (req, res) {
 
@@ -40,6 +45,80 @@ exports.renderFont = function (req, res) {
             page: page,
             font: font
         });
+
+    });
+
+};
+
+exports.createPayment = function (req, res) {
+
+    Font.findOne({
+
+        slug: req.params.font_slug
+
+    }, function (err, font) {
+
+        if (err) res.send(err);
+
+        paypal.configure(configPayPal.api);
+
+        var payment = {
+            'intent': 'sale',
+            'payer': {
+                'payment_method': 'paypal'
+            },
+            'redirect_urls': {
+                'return_url': 'http://localhost:3000/fonts/' + font.slug + '/confirm',
+                'cancel_url': 'http://localhost:3000/fonts/' + font.slug
+            },
+            'transactions': [{
+                'amount': {
+                    'total': font.price,
+                    'currency': 'USD'
+                },
+                'description': 'Font: ' + font.name
+            }]
+        };
+
+        paypal.payment.create(payment, function (err, payment) {
+
+            if (err) res.send(err);
+
+            if (payment.payer.payment_method === 'paypal') {
+
+                req.session.paymentId = payment.id;
+                var redirectUrl;
+
+                for (var i=0; i < payment.links.length; i++) {
+
+                    var link = payment.links[i];
+
+                    if (link.method === 'REDIRECT') {
+                        redirectUrl = link.href;
+                    }
+                }
+
+                res.redirect(redirectUrl);
+
+            }
+
+        });
+
+    });
+
+};
+
+exports.confirm = function (req, res) {
+
+    var paymentId = req.session.paymentId;
+    var payerId = req.param('PayerID');
+    var details = { 'payer_id': payerId };
+
+    paypal.payment.execute(paymentId, details, function (err, payment) {
+
+        if (err) res.send(err);
+
+        res.send("Hell yeah!");
 
     });
 

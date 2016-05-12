@@ -15,7 +15,9 @@
         {% endif %}
         {% if font.purchase_url %}
             <li class="nav-button nav-item">
-                <a href="{{font.purchase_url}}" class="nav-link nav-button-buy">Buy Now</a>
+                <form method="post" action="/fonts/{{font.slug}}/payment">
+                    <button type="submit" class="button nav-link nav-button-buy">Buy Now</button>
+                </form>
             </li>
         {% endif %}
     </ul>
