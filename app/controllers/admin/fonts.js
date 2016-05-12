@@ -177,7 +177,6 @@ exports.delete = function (req, res) {
 
         });
 
-
         if (err) res.send(err);
         res.redirect('/admin/fonts');
 
