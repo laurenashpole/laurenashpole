@@ -167,3 +167,29 @@ exports.confirm = function (req, res) {
     });
 
 };
+
+exports.licensing = function (req, res) {
+
+    var page = {
+        fonts: true,
+        title: 'Licensing - Fonts'
+    }
+
+    res.render('fonts/licensing', {
+        page: page
+    });
+
+};
+
+exports.eula = function (req, res) {
+
+    var page = {
+        fonts: true,
+        title: 'End-User Licensing Agreement - Fonts'
+    }
+
+    res.render('fonts/eula', {
+        page: page
+    });
+
+};
