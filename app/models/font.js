@@ -20,6 +20,15 @@ var FontSchema = new Schema({
     commercial_font_file: String
 });
 
+FontSchema.pre('save', function (next) {
+
+    this.slug = this.generateSlug(this.name);
+    this.one_download_option = this.checkDownloadOptions(this);
+
+    next();
+
+});
+
 FontSchema.methods.generateSlug = function (name) {
     return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
 };
@@ -33,14 +42,5 @@ FontSchema.methods.checkDownloadOptions = function (font) {
     }
 
 };
-
-FontSchema.pre('save', function (next) {
-
-    this.slug = this.generateSlug(this.name);
-    this.one_download_option = this.checkDownloadOptions(this);
-
-    next();
-
-});
 
 module.exports = mongoose.model('Font', FontSchema);

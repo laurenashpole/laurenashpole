@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
 }
@@ -395,7 +395,7 @@ figure {
 }
 
 .font-listing-bg {
-    background-image: url('http://www.laurenashpole.com/test-bg.png');
+    background-image: url(/images/bg.png);
     background-size: 50% 50%;
     position: absolute;
     top: 20px;
@@ -492,7 +492,7 @@ figure {
 }
 
 .font-image-bg {
-    background-image: url('http://www.laurenashpole.com/test-bg.png');
+    background-image: url(/images/bg.png);
     background-size: 50% 50%;
 }
 
@@ -560,7 +560,6 @@ figure {
 }
 
 .font-details-list-header {
-    margin-bottom: 7px;
     font-weight: 600;
 }
 
@@ -582,6 +581,7 @@ figure {
 
 .font-example {
     word-wrap: break-word;
+    line-height: 1.5;
 }
 
 .font-example-input-container {

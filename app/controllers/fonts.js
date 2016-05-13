@@ -1,4 +1,5 @@
 var Font = require('../models/font');
+
 var path = require('path');
 var paypal = require('paypal-rest-sdk');
 var fs = require('fs');
@@ -6,6 +7,7 @@ var nodemailer = require('nodemailer');
 
 var paypalConfig = require('../config/config')()['paypal'];
 var transporter = nodemailer.createTransport();
+var page = { fonts: true, has_buttons: false };
 
 exports.renderFonts = function (req, res) {
 
@@ -13,10 +15,7 @@ exports.renderFonts = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = {
-            fonts: true,
-            title: 'Fonts'
-        }
+        page.title = 'Fonts';
 
         res.render('fonts/fonts', {
             page: page,
@@ -29,10 +28,7 @@ exports.renderFonts = function (req, res) {
 
 exports.licensing = function (req, res) {
 
-    var page = {
-        fonts: true,
-        title: 'Licensing - Fonts'
-    }
+    page.title = 'Licensing - Fonts';
 
     res.render('fonts/licensing', {
         page: page
@@ -42,10 +38,7 @@ exports.licensing = function (req, res) {
 
 exports.eula = function (req, res) {
 
-    var page = {
-        fonts: true,
-        title: 'End-User Licensing Agreement - Fonts'
-    }
+    page.title = 'End-User Licensing Agreement - Fonts';
 
     res.render('fonts/eula', {
         page: page
@@ -63,11 +56,8 @@ exports.renderFont = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = {
-            fonts: true,
-            has_buttons: true,
-            title: font.name + ' - Fonts'
-        }
+        page.has_buttons = true;
+        page.title = font.name + ' - Fonts';
 
         res.render('fonts/font', {
             page: page,
@@ -176,10 +166,7 @@ exports.confirm = function (req, res) {
 
             });
 
-            var page = {
-                fonts: true,
-                title: 'Thank you for purchasing ' + font.name + ' - Fonts'
-            }
+            page.title = 'Thank you for purchasing ' + font.name + ' - Fonts';
 
             res.render('fonts/confirm', {
                 page: page,
