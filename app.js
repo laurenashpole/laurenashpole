@@ -13,6 +13,7 @@ var flash = require('express-flash');
 var multer = require('multer');
 
 var app = express();
+var locals = require('./app/config/locals')(app);
 var config = require('./app/config/config')();
 
 // View engine setup
@@ -41,8 +42,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-app.locals.site_name = 'Lauren Ashpole';
 
 require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
