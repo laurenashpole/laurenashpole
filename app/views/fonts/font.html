@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block font_buttons %}
-    <ul class="nav-buttons clearfix">
+    <ul class="nav-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
         {% if font.personal_font_file %}
             <li class="nav-button nav-item">
                 <a href="{{font.download_url}}" class="nav-link nav-button-download">Download</a>

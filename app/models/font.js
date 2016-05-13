@@ -24,7 +24,7 @@ FontSchema.methods.generateSlug = function (name) {
     return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
 };
 
-FontSchema.methods.setButtonState = function (font) {
+FontSchema.methods.checkDownloadOptions = function (font) {
 
     if (font.personal_font_file && font.commercial_font_file) {
         return false;
@@ -37,7 +37,7 @@ FontSchema.methods.setButtonState = function (font) {
 FontSchema.pre('save', function (next) {
 
     this.slug = this.generateSlug(this.name);
-    this.has_single_button = this.setButtonState(this);
+    this.one_download_option = this.checkDownloadOptions(this);
 
     next();
 

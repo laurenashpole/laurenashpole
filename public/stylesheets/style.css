@@ -331,6 +331,10 @@ figure {
         line-height: 60px;
         float: left;
     }
+
+    .nav-buttons.has-one-button .nav-button {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
