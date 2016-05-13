@@ -24,7 +24,7 @@ FontSchema.methods.generateSlug = function (name) {
     return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
 };
 
-FontScheme.methods.setButtonState = function (font) {
+FontSchema.methods.setButtonState = function (font) {
 
     if (font.personal_font_file && font.commercial_font_file) {
         return false;

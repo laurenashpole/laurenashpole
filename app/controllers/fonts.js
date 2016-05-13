@@ -4,8 +4,7 @@ var paypal = require('paypal-rest-sdk');
 var fs = require('fs');
 var nodemailer = require('nodemailer');
 
-var configPayPalJSON = fs.readFileSync('./app/config/paypal.json');
-var configPayPal = JSON.parse(configPayPalJSON.toString());
+var paypalConfig = require('../config/config')()['paypal'];
 var transporter = nodemailer.createTransport();
 
 exports.renderFonts = function (req, res) {
@@ -89,7 +88,7 @@ exports.createPayment = function (req, res) {
 
         if (err) res.send(err);
 
-        paypal.configure(configPayPal.api);
+        paypal.configure(paypalConfig.api);
 
         var payment = {
             'intent': 'sale',

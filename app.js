@@ -5,28 +5,23 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var swig = require('swig');
+var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('express-flash');
 var multer = require('multer');
 
 var app = express();
+var config = require('./app/config/config')();
 
 // View engine setup
-var swig = require('swig');
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'app/views'));
 
 // Database connection
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('connected');
-});
+mongoose.connect(config.db);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -39,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport
 app.use(session({
-    secret: 'lobstronomous',
+    secret: config.sessionSecret,
     resave: true,
     saveUninitialized: true
 }));
