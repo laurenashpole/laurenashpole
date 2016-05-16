@@ -168,10 +168,17 @@ figure {
     float: left;
 }
 
-.nav-logo {
+.nav-logo-container {
     width: calc(100% - 60px);
     padding: 0 20px;
     text-align: left;
+}
+
+.nav-logo {
+    width: 64px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-icon-container {
@@ -183,7 +190,7 @@ figure {
     height: 35px;
     margin: 12px 10px;
     position: relative;
-    cursor: pointer;
+    display: block;
 }
 
 .nav-icon-line {
@@ -295,7 +302,7 @@ figure {
         border-left: 1px solid #e6e6e6;
     }
 
-    .nav-logo {
+    .nav-logo-container {
         width: 25%;
         border-left: transparent;
         line-height: 119px;
@@ -338,6 +345,11 @@ figure {
 }
 
 @media (min-width: 768px) {
+
+    .nav-logo {
+        width: 86px;
+        height: 40px;
+    }
 
     .nav-link-container {
         width: 25%;
