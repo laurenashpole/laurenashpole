@@ -24,93 +24,102 @@
 {% endblock %}
 
 {% block content %}
-    <div class="font-image-bg-container">
-        <div class="font-image-bg" style="background-color: {{font.color}};">
-            <div class="font-image-container">
-                <span class="img-default">
-                    <figure class="font-image" style="background-image: url(/images/{{font.image}});"></figure>
-                </span>
-                <span class="img-retina">
-                    <figure class="font-image" style="background-image: url(/images/{{font.image_retina}});"></figure>
-                </span>
+
+    <section itemscope itemtype="http://schema.org/Product">
+
+        <div class="font-image-bg-container">
+            <div class="font-image-bg" style="background-color: {{font.color}};">
+                <div class="font-image-container">
+                    <span class="img-default">
+                        <figure class="font-image" style="background-image: url(/images/{{font.image}});"></figure>
+                    </span>
+                    <span class="img-retina">
+                        <figure class="font-image" style="background-image: url(/images/{{font.image_retina}});"></figure>
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <section class="clearfix">
+        <div class="clearfix">
 
-        <div class="font-details">
+            <div class="font-details">
 
-            <h1 class="font-details-title">{{font.name}}</h1>
-            <div class="font-details-date">
-                Created: {{font.date_created}}
-                {% if font.date_modified %}, Modified: {{font.date_modified}}{% endif %}
-            </div>
-
-            <div class="font-details-price">
-                ${{font.price}}
-            </div>
-
-            {% if font.personal_use_details %}
-                <ul class="font-details-list">
-                    <li class="font-details-list-header">Personal Use Details</li>
-                    {% for detail in font.personal_use_details %}
-                        <li>{{detail}}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            {% if font.commercial_use_details %}
-                <ul class="font-details-list">
-                    <li class="font-details-list-header">Commercial Use Details</li>
-                    {% for detail in font.commercial_use_details %}
-                        <li>{{detail}}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            <ul class="clearfix">
-                <li class="font-details-licensing">
-                    <a href="/fonts/licensing">Licensing Info</a>
-                </li>
-                <li class="font-details-licensing">
-                    <a href="/fonts/eula">View EULA</a>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="font-example {{font.slug}}" style="color: {{font.color}};">
-
-            <form class="clearfix">
-
-                <div class="input-container font-example-input-container">
-                    <input type="text" class="input js-font-example-input" placeholder="Type to try">
+                <h1 class="font-details-title" itemprop="name">{{font.name}}</h1>
+                <div class="font-details-date">
+                    Created: {{font.date_created}}
+                    {% if font.date_modified %}, Modified: {{font.date_modified}}{% endif %}
                 </div>
 
-                <div class="select-container font-example-select-container">
-                    <div class="select-icon">
-                        <i class="fa fa-angle-down"></i>
+                <meta itemprop="priceCurrency" content="USD" />
+                <div class="font-details-price" itemprop="price">
+                    ${{font.price}}
+                </div>
+
+                <div itemprop="description">
+                    {% if font.personal_use_details %}
+                        <ul class="font-details-list">
+                            <li class="font-details-list-header">Personal Use Details</li>
+                            {% for detail in font.personal_use_details %}
+                                <li>{{detail}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    {% if font.commercial_use_details %}
+                        <ul class="font-details-list">
+                            <li class="font-details-list-header">Commercial Use Details</li>
+                            {% for detail in font.commercial_use_details %}
+                                <li>{{detail}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <ul class="clearfix">
+                    <li class="font-details-licensing">
+                        <a href="/fonts/licensing">Licensing Info</a>
+                    </li>
+                    <li class="font-details-licensing">
+                        <a href="/fonts/eula">View EULA</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="font-example {{font.slug}}" style="color: {{font.color}};">
+
+                <form class="clearfix">
+
+                    <div class="input-container font-example-input-container">
+                        <input type="text" class="input js-font-example-input" placeholder="Type to try">
                     </div>
-                    <select class="select js-font-example-select">
-                        <option value="18px">18px</option>
-                        <option value="24px">24px</option>
-                        <option value="36px" selected>36px</option>
-                        <option value="48px">48px</option>
-                        <option value="72px">72px</option>
-                        <option value="144px">144px</option>
-                    </select>
+
+                    <div class="select-container font-example-select-container">
+                        <div class="select-icon">
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <select class="select js-font-example-select">
+                            <option value="18px">18px</option>
+                            <option value="24px">24px</option>
+                            <option value="36px" selected>36px</option>
+                            <option value="48px">48px</option>
+                            <option value="72px">72px</option>
+                            <option value="144px">144px</option>
+                        </select>
+                    </div>
+
+                </form>
+
+                <div class="font-example-text">
+                    TEST
                 </div>
 
-            </form>
+                <div class="font-example-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
 
-            <div class="font-example-text">
-                TEST
             </div>
-
-            <div class="font-example-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
 
         </div>
 
     </section>
+
 {% endblock %}

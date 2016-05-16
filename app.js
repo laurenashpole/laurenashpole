@@ -42,6 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// Routes
 require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
 require('./app/routes/routes')(app);
