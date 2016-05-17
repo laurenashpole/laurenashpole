@@ -1,6 +1,8 @@
+var Font = require('../../models/font');
+
 var fs = require('fs');
 var path = require('path');
-var Font = require('../../models/font');
+var async = require('async');
 
 exports.renderAll = function (req, res) {
 
@@ -52,40 +54,88 @@ exports.create = function (req, res) {
 
     var font = new Font(req.body);
 
-    req.files.forEach(function (file) {
+    async.each(req.files, function (file, callback) {
 
-        var targetPath;
+        var directory;
         var filePath = file.path;
         var mimetype = file.mimetype;
 
         if (mimetype.indexOf('image') !== -1) {
 
-            var targetPath = path.resolve('./public/images/fonts/', file.originalname);
+            directory = './public/images/fonts/';
 
         } else if (mimetype.indexOf('css') !== -1) {
 
-            var targetPath = path.resolve('./public/stylesheets/fonts/', file.originalname);
+            directory = './public/stylesheets/fonts/';
 
         }  else if (mimetype.indexOf('zip') !== -1) {
 
-            var targetPath = path.resolve('./public/downloads/', file.originalname);
+            directory = './public/downloads/';
 
         }
 
-        fs.rename(filePath, targetPath, function (err) {
-            if (err) res.send(err);
-        });
-
+        // probably need a promise for this to save right
         font[file.fieldname] = file.originalname;
 
-    });
+        fs.rename(filePath, path.resolve(directory, file.originalname), function (err) {
 
-    font.save(function (err) {
+            if (err) res.send(err);
+            callback();
+
+        });
+
+    }, function (err) {
 
         if (err) res.send(err);
-        res.redirect('/admin/fonts');
+
+        font.save(function (err) {
+
+            console.log('THIS HAPPENS ONCE');
+
+            if (err) res.send(err);
+            res.redirect('/admin/fonts');
+
+        });
 
     });
+
+    // req.files.forEach(function (file) {
+
+    //     var directory;
+    //     var filePath = file.path;
+    //     var mimetype = file.mimetype;
+
+    //     if (mimetype.indexOf('image') !== -1) {
+
+    //         directory = './public/images/fonts/';
+
+    //     } else if (mimetype.indexOf('css') !== -1) {
+
+    //         directory = './public/stylesheets/fonts/';
+
+    //     }  else if (mimetype.indexOf('zip') !== -1) {
+
+    //         directory = './public/downloads/';
+
+    //     }
+
+    //     // probably need a promise for this to save right
+    //     font[file.fieldname] = file.originalname;
+
+    //     fs.rename(filePath, path.resolve(directory, file.originalname), function (err) {
+
+    //         if (err) res.send(err);
+
+    //     });
+
+    // });
+
+    // font.save(function (err) {
+
+    //     if (err) res.send(err);
+    //     res.redirect('/admin/fonts');
+
+    // });
 
 };
 
@@ -100,44 +150,67 @@ exports.update = function (req, res) {
             font[prop] = req.body[prop];
         }
 
-        req.files.forEach(function (file) {
+        async.each(req.files, function (file, callback) {
 
-            var targetPath;
+        // req.files.forEach(function (file) {
+
+            var directory;
             var filePath = file.path;
             var mimetype = file.mimetype;
 
-            fs.unlink(path.resolve('./public/images/', font[file.fieldname]), function (err) {
-                if (err) res.send(err);
-            });
-
             if (mimetype.indexOf('image') !== -1) {
 
-                var targetPath = path.resolve('./public/images/fonts/', file.originalname);
+                directory = './public/images/fonts/';
 
             } else if (mimetype.indexOf('css') !== -1) {
 
-                var targetPath = path.resolve('./public/stylesheets/fonts/', file.originalname);
+                directory = './public/stylesheets/fonts/';
 
             }  else if (mimetype.indexOf('zip') !== -1) {
 
-                var targetPath = path.resolve('./public/downloads/', file.originalname);
+                directory = './public/downloads/';
 
             }
 
-            fs.rename(filePath, targetPath, function (err) {
-                if (err) res.send(err);
-            });
+            if (font[file.fieldname]) {
 
+                fs.unlink(path.resolve(directory, font[file.fieldname]), function (err) {
+                    console.log('DELETE');
+                    if (err) res.send(err);
+                });
+
+            }
+
+            // probably need a promise for this to save right
             font[file.fieldname] = file.originalname;
 
-        });
+            fs.rename(filePath, path.resolve(directory, file.originalname), function (err) {
+                console.log('MOVE');
+                if (err) res.send(err);
+                callback();
 
-        font.save(function (err) {
+            });
 
+        }, function (err) {
+
+            console.log('SAVE');
             if (err) res.send(err);
-            res.redirect('/admin/fonts');
+
+            font.save(function (err) {
+
+                if (err) res.send(err);
+                res.redirect('/admin/fonts');
+
+            });
 
         });
+
+        // font.save(function (err) {
+
+        //     if (err) res.send(err);
+        //     res.redirect('/admin/fonts');
+
+        // });
 
     });
 
@@ -145,37 +218,123 @@ exports.update = function (req, res) {
 
 exports.delete = function (req, res) {
 
-    Font.remove({
+    Font.findById(req.params.font_id, function (err, font) {
 
-        _id: req.params.font_id
+        if (err) res.send(err);
 
-    }, function (err, font) {
+        var files = {
+            images: [
+                font.image,
+                font.image_retina,
+                font.image_thumbnail,
+                font.image_thumbnail_retina
+            ],
+            css: [
+                font.css_file
+            ],
+            fonts:[
+                font.personal_font_file,
+                font.commercial_font_file
+            ]
+        };
 
-        var files = [
-            font.image,
-            font.image_retina,
-            font.image_thumbnail,
-            font.image_thumbnail_retina,
-            font.css_file,
-            font.personal_font_file,
-            font.commercial_font_file
-        ];
 
-        // This won't currently work since not all files are in images folder
-        files.forEach(function (file) {
+        async.forEachOf(files, function (fileGroup, fileType, callback) {
 
-            if (file) {
+            var directory;
 
-                fs.unlink(path.resolve('./public/images/', file), function (err) {
-                    if (err) res.send(err);
-                });
+            if (fileType === 'images') {
+
+                directory = './public/images/fonts/';
+
+            } else if (fileType === 'css') {
+
+                directory = './public/stylesheets/fonts/';
+
+            } else if (fileType === 'fonts') {
+
+                directory = './public/downloads/';
 
             }
 
+            // console.log(fileType]);
+
+            fileGroup.forEach(function (file) {
+
+                if (file) {
+
+                    fs.exists(path.resolve(directory, file), function (exists) {
+
+                        if (exists) {
+
+                            fs.unlink(path.resolve(directory, file), function (err) {
+                                if (err) res.send(err);
+                            });
+                        }
+
+                    });
+
+                }
+
+            });
+
+            callback();
+
+        }, function (err) {
+
+            if (err) res.send(err);
+
+            font.remove(function (err) {
+
+                if (err) res.send(err);
+                res.redirect('/admin/fonts');
+
+            });
+
         });
 
-        if (err) res.send(err);
-        res.redirect('/admin/fonts');
+        // for (var fileType in files) {
+
+        //     var directory;
+
+        //     if (fileType === 'images') {
+
+        //         directory = './public/images/fonts/';
+
+        //     } else if (fileType === 'css') {
+
+        //         directory = './public/stylesheets/fonts/';
+
+        //     } else if (fileType === 'fonts') {
+
+        //         directory = './public/downloads/';
+
+        //     }
+
+        //     files[fileType].forEach(function (file) {
+
+        //         if (file) {
+
+        //             if (exists) {
+
+        //                 fs.unlink(path.resolve(directory, file), function (err) {
+        //                     if (err) res.send(err);
+        //                 });
+
+        //             }
+
+        //         }
+
+        //     });
+
+        // }
+
+        // font.remove(function (err) {
+
+        //     if (err) res.send(err);
+        //     res.redirect('/admin/fonts');
+
+        // });
 
     });
 

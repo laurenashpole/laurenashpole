@@ -10,13 +10,13 @@
     <ul class="nav-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
         {% if font.personal_font_file %}
             <li class="nav-button nav-item">
-                <a href="{{font.download_url}}" class="nav-link nav-button-download">Download</a>
+                <a href="{{font.download_url}}" title="Download" class="nav-link nav-button-download">Download</a>
             </li>
         {% endif %}
         {% if font.commercial_font_file %}
             <li class="nav-button nav-item">
                 <form method="post" action="/fonts/{{font.slug}}/payment">
-                    <button type="submit" class="button nav-link nav-button-buy">Buy Now</button>
+                    <button type="submit" title="Buy Now" class="button nav-link nav-button-buy">Buy Now</button>
                 </form>
             </li>
         {% endif %}
