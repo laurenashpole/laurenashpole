@@ -1,5 +1,38 @@
 {% extends 'body.html' %}
 
 {% block content %}
-    <p>Testing swig.</p>
+    <main class="slides">
+
+        <div class="slide-container">
+            <div class="slide slide-newest">
+                <div class="slide-text">
+                    <div class="slide-circle">Newest!</div>
+                    SLIDE 1
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide slide-previous">
+                <div class="slide-text">
+                    <div class="slide-circle">Previous!</div>
+                    SLIDE 2
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide slide-next">
+                <div class="slide-text">
+                    <div class="slide-circle">Coming up!</div>
+                    SLIDE 3
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+    FOOTER
+    </footer>
 {% endblock %}

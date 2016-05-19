@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -408,7 +413,7 @@ figure {
 
 .font-listing-bg {
     background-image: url(/images/bg.png);
-    background-size: 50% 50%;
+    background-size: 580px 386px;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -496,7 +501,7 @@ figure {
     }
 }
 
-/* font page */
+/* Font Image */
 .font-image-bg-container {
     width: 100%;
     padding: 20px;
@@ -505,7 +510,7 @@ figure {
 
 .font-image-bg {
     background-image: url(/images/bg.png);
-    background-size: 50% 50%;
+    background-size: 580px 386px;
 }
 
 .font-image-container {
@@ -590,7 +595,6 @@ figure {
 }
 
 /* Font Example */
-
 .font-example {
     word-wrap: break-word;
     line-height: 1.5;
@@ -634,4 +638,91 @@ figure {
         border-top: none;
         line-height: 59px;
     }
+}
+
+/* Homepage */
+
+.slides {
+    height: 300%;
+}
+
+.slides:before {
+    content: " ";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: white;
+    height: 20px;
+    width: 100%;
+    z-index: 3;
+}
+
+.slide-container {
+    height: 33.333%;
+    position: relative;
+}
+
+.slide {
+    background: #f6f6f6;
+    background-image: url(/images/bg.png);
+    background-size: 580px 386px;
+    border-bottom: 1px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.slide-newest {
+    border-top: 20px solid #fff;
+    z-index: 2;
+}
+
+.slide-previous {
+    z-index: 1;
+}
+
+.slide-next {
+    z-index: 0;
+    bottom-border: none;
+}
+
+.slides.has-fixed-slides .slide {
+    border-top: 20px solid #fff;
+    position: fixed;
+}
+
+.slide-text {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.slide-circle {
+    background: #4e4e76;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 150px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.slide-previous .slide-circle {
+    background: #a5c9bb;
+}
+
+.slide-next .slide-circle {
+    background: #eeae62;
+}
+
+footer {
+    height: 100px;
+    background: #fff;
 }
