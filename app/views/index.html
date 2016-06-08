@@ -1,7 +1,33 @@
 {% extends 'body.html' %}
 
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="http://www.laurenashpole.com/admin/wp-content/themes/laurenashpole/font-examples.css">
+{% endblock %}
+
 {% block content %}
-    <main class="slides">
+
+    <!-- <main class="slides-container2"> -->
+        <div class="slides2">
+
+            <div class="slide2">
+                <div class="slide-content2">ABC<br>XYZ</div>
+            </div>
+
+            <div class="slide2">
+            SLIDE
+            </div>
+
+            <div class="slide2">
+            SLIDE
+            </div>
+
+        </div>
+
+    <!-- </main> -->
+
+<!--     <main class="slides">
 
         <div class="slide-container">
             <div class="slide slide-newest">
@@ -34,5 +60,5 @@
 
     <footer>
     FOOTER
-    </footer>
+    </footer> -->
 {% endblock %}

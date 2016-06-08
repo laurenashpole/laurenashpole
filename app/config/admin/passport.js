@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../../models/admin/user');
+var allowedEmail = require('../config/config')()['allowedEmail'];
 
 module.exports = function (passport) {
 
@@ -17,7 +18,7 @@ module.exports = function (passport) {
 
         process.nextTick(function () {
 
-            if (username !== 'lauren@laurenashpole.com') {
+            if (username !== allowedEmail) {
 
                 return done(null, false, { message: 'You are not authorized to create an account' });
 
