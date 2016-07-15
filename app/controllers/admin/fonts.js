@@ -10,13 +10,8 @@ exports.renderAll = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = {
-            all: true,
-            title: 'Admin'
-        }
-
         res.render('admin/fonts/index', {
-            page: page,
+            title: 'Admin',
             fonts: fonts
         });
 
@@ -30,12 +25,8 @@ exports.renderEdit = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = {
-            title: 'Admin'
-        }
-
         res.render('admin/fonts/edit', {
-            page: page,
+            title: 'Admin',
             font: font
         });
 
@@ -45,13 +36,8 @@ exports.renderEdit = function (req, res) {
 
 exports.renderCreate = function (req, res) {
 
-    var page = {
-        create: true,
-        title: 'Admin'
-    }
-
     res.render('admin/fonts/create', {
-        page: page
+        title: 'Admin'
     });
 
 };

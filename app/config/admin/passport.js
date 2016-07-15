@@ -1,6 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../../models/admin/user');
-var allowedEmail = require('../config/config')()['allowedEmail'];
+var allowedEmail = require('../config')()['allowedEmail'];
 
 module.exports = function (passport) {
 

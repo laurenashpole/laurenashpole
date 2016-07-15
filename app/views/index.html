@@ -1,64 +1,44 @@
 {% extends 'body.html' %}
 
-
 {% block head %}
-{% parent %}
-<link rel="stylesheet" href="http://www.laurenashpole.com/admin/wp-content/themes/laurenashpole/font-examples.css">
+    {% parent %}
+    <link rel="stylesheet" href="http://www.laurenashpole.com/admin/wp-content/themes/laurenashpole/font-examples.css">
 {% endblock %}
 
 {% block content %}
 
-    <!-- <main class="slides-container2"> -->
-        <div class="slides2">
-
-            <div class="slide2">
-                <div class="slide-content2">ABC<br>XYZ</div>
-            </div>
-
-            <div class="slide2">
-            SLIDE
-            </div>
-
-            <div class="slide2">
-            SLIDE
-            </div>
-
-        </div>
-
-    <!-- </main> -->
-
-<!--     <main class="slides">
-
-        <div class="slide-container">
-            <div class="slide slide-newest">
-                <div class="slide-text">
-                    <div class="slide-circle">Newest!</div>
-                    SLIDE 1
+    <div class="hero vertical-align-td slide-one slide-herbaceous">
+        <div class="vertical-align-content">
+            <div class="main-container">
+                <div class="slide-font">
+                    Herbaceous<br />Border
+                </div>
+                <div class="font-buttons">
+                    <div class="font-button-container">
+                        <div class="font-button">
+                            Buy Now
+                        </div>
+                    </div>
+                    <div class="font-button-container">
+                        <div class="font-button font-button-download">
+                            Download
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="slide-container">
-            <div class="slide slide-previous">
-                <div class="slide-text">
-                    <div class="slide-circle">Previous!</div>
-                    SLIDE 2
-                </div>
-            </div>
+    <div class="hero vertical-align-td slide-two">
+        <div class="vertical-align-content">
+            <div class="main-container">FONT 2</div>
         </div>
+    </div>
 
-        <div class="slide-container">
-            <div class="slide slide-next">
-                <div class="slide-text">
-                    <div class="slide-circle">Coming up!</div>
-                    SLIDE 3
-                </div>
-            </div>
-        </div>
+{% endblock %}
 
-    </main>
-
-    <footer>
-    FOOTER
-    </footer> -->
+{% block footer %}
+    <footer class="page-container footer">
+        Footer
+    </footer>
 {% endblock %}

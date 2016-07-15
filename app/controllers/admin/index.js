@@ -1,11 +1,7 @@
 exports.render = function (req, res) {
 
-    var page = {
-        title: 'Admin'
-    }
-
     res.render('admin/index', {
-        page: page,
+        title: 'Admin',
         message: req.flash('error'),
         signed_out: !req.isAuthenticated()
     });

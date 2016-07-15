@@ -1,109 +1,12 @@
-function Homepage () {
+var scrollPosition = function ($element) {
 
-    this.initialize();
-
-};
-
-Homepage.prototype.initialize = function () {
-
-    this.recalculatePosition = false;
-
-    this.cacheSelectors();
-    this.initListeners();
-    this.initScrollToFixed();
-
-};
-
-Homepage.prototype.cacheSelectors = function () {
-
-    this.$el = $('.slides');
-    this.$window = $(window);
-    this.$slides = this.$el.find('.slide-container');
-
-};
-
-Homepage.prototype.initListeners = function () {
-
-    this.$window.on('resize', this.debounce(this.onResize.bind(this), 250, true));
-    this.$window.on('resize', this.debounce(this.onResizeStop.bind(this), 250));
-
-};
-
-Homepage.prototype.initScrollToFixed = function () {
-
-    var _this = this;
-
-    $.each(this.$slides, function (index, slide) {
-
-        var $slide = $(slide);
-
-        window.requestAnimationFrame($.proxy(_this.checkPosition($slide, false), _this));
-
-    });
-
-    window.requestAnimationFrame($.proxy(_this.checkPosition($('.slides'), true), _this));
-
-};
-
-Homepage.prototype.onResize = function () {
-
-    this.recalculatePosition = true;
-
-};
-
-Homepage.prototype.onResizeStop = function () {
-
-    this.recalculatePosition = false;
-
-};
-
-Homepage.prototype.debounce = function (func, wait, immediate) {
-
-    var timeout;
-
-    return function() {
-
-        var context = this;
-        var args = arguments;
-
-        var later = function() {
-
-            timeout = null;
-
-            if (!immediate) {
-                func.apply(context, args);
-            }
-
-        };
-
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-
-        if (callNow) {
-            func.apply(context, args);
-        }
-
-    };
-
-};
-
-Homepage.prototype.checkPosition = function ($el, isContainer) {
-
-    var _this = this;
-    var lastScroll = 0;
-    var elementIsFixed = false;
-    var elementPosition = $el.offset().top;
-    var elementBottom = elementPosition + $el.height();
+    var lastScroll = null;
+    var secondCaptionTop = $element.find('.caption:nth-child(2)').offset().top - 250;
+    var thirdCaptionTop = $element.find('.caption:nth-child(3)').offset().top - 250;
 
     var tick = function () {
 
-        if (_this.recalculatePosition) {
-            elementPosition = $el.offset().top;
-            elementBottom = elementPosition + $el.height();
-        }
-
-        var currentScroll = _this.$window.scrollTop();
+        var currentScroll = $(window).scrollTop();
 
         if (lastScroll === currentScroll) {
 
@@ -116,41 +19,19 @@ Homepage.prototype.checkPosition = function ($el, isContainer) {
 
         }
 
-        if (lastScroll >= elementPosition) {
+        $element.removeClass('has-active-first has-active-second has-active-third');
 
-            if (isContainer) {
+        if (lastScroll >= thirdCaptionTop) {
 
-                $el.addClass('has-fixed-slides');
+            $element.addClass('has-active-third');
 
-            } else {
+        } else if (lastScroll >= secondCaptionTop) {
 
-                if (lastScroll <= elementBottom) {
-
-                    _this.translateToPosition($el, lastScroll - elementPosition);
-
-                } else {
-
-                    _this.translateToPosition($el, elementBottom);
-
-                }
-
-            }
-
-            elementIsFixed = true;
+            $element.addClass('has-active-second');
 
         } else {
 
-            if (elementIsFixed) {
-
-                _this.translateToPosition($el, 0);
-
-            }
-
-            if (isContainer) {
-                $el.removeClass('has-fixed-slides');
-            }
-
-            elementIsFixed = false;
+            $element.addClass('has-active-first');
 
         }
 
@@ -162,12 +43,4 @@ Homepage.prototype.checkPosition = function ($el, isContainer) {
 
 };
 
-Homepage.prototype.translateToPosition = function ($el, position) {
-
-    $el.find('.slide').css({
-        bottom: position + 'px'
-    });
-
-};
-
-var homepage = new Homepage();
+window.requestAnimationFrame(scrollPosition($('.captions')));

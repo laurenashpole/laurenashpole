@@ -14,10 +14,8 @@ exports.renderFonts = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = { fonts: true, title: 'Fonts'};
-
         res.render('fonts/fonts', {
-            page: page,
+            title: 'Fonts',
             fonts: fonts
         });
 
@@ -27,20 +25,16 @@ exports.renderFonts = function (req, res) {
 
 exports.licensing = function (req, res) {
 
-    var page = { fonts: true, title: 'Licensing - Fonts'};
-
     res.render('fonts/licensing', {
-        page: page
+        title: 'Licensing - Fonts'
     });
 
 };
 
 exports.eula = function (req, res) {
 
-    var page = { fonts: true, title: 'End-User Licensing Agreement - Fonts'};
-
     res.render('fonts/eula', {
-        page: page
+        title: 'End-User Licensing Agreement - Fonts'
     });
 
 };
@@ -55,10 +49,8 @@ exports.renderFont = function (req, res) {
 
         if (err) res.send(err);
 
-        var page = { fonts: true, has_buttons: true, title: font.name + ' - Fonts'};
-
         res.render('fonts/font', {
-            page: page,
+            title: font.name + ' - Fonts',
             font: font
         });
 
@@ -164,10 +156,8 @@ exports.confirm = function (req, res) {
 
             });
 
-            var page = { fonts: true, title: 'Thank you for purchasing ' + font.name + ' - Fonts'};
-
             res.render('fonts/confirm', {
-                page: page,
+                title: 'Thank you for purchasing ' + font.name + ' - Fonts',
                 font: font,
                 payment: payment
             });
