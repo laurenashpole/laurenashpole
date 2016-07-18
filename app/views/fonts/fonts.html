@@ -3,21 +3,21 @@
 {% block content %}
     <section class="clearfix">
         {% for font in fonts %}
-            <div class="font-listing-container">
-                <a href="/fonts/{{font.slug}}" class="font-listing">
+            <div class="font-grid-container">
+                <a href="/fonts/{{font.slug}}" class="font-grid" style="background-color: rgba({{font.color}}, 1);">
 
-                    <div class="font-listing-bg" style="background-color: {{font.color}};"></div>
+                    <!-- <div class="font-grid-bg" style="background-color: {{font.color}};"></div> -->
 
-                    <div class="font-listing-image-container">
+                    <div class="font-grid-image-container">
                         <span class="img-default">
-                            <figure class="font-listing-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
+                            <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
                         </span>
                         <span class="img-retina">
-                            <figure class="font-listing-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
+                            <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
                         </span>
                     </div>
 
-                    <div class="font-listing-overlay vertical-align-ib">
+                    <div class="font-grid-overlay vertical-align-abs">
                         <div class="vertical-align-content">
                             {{font.name}}
                         </div>
