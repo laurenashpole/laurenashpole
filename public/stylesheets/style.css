@@ -43,73 +43,6 @@ figure {
     margin: 0;
 }
 
-.input,
-.select,
-.button {
-    width: 100%;
-    border: none;
-    padding: 0;
-    font: 18px 'Source Sans Pro';
-    color: #333;
-    line-height: inherit;
-    text-transform: inherit;
-    letter-spacing: inherit;
-    font-weight: inherit;
-}
-
-.input:focus,
-.select:focus,
-.button:focus {
-    outline: none;
-}
-
-.input-container,
-.select-container {
-    border: 1px solid #e6e6e6;
-    padding: 0 20px;
-    line-height: 58px;
-    position: relative;
-}
-
-.input::-webkit-input-placeholder {
-    color: #333;
-}
-
-.input::-moz-placeholder {
-    color: #333;
-}
-
-.input:-ms-input-placeholder {
-    color: #333;
-}
-
-.input:-moz-placeholder {
-    color: #333;
-}
-
-.select {
-    background: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.select::-ms-expand {
-    display: none;
-}
-
-.select-icon {
-    position: absolute;
-    right: 20px;
-    pointer-events: none;
-    color: #e6e6e6;
-    font-size: 30px;
-}
-
-.button {
-    cursor: pointer;
-}
-
 .clearfix:after {
     content: " ";
     display: table;
@@ -171,6 +104,102 @@ figure {
     padding: 40px 0;
 }
 
+/* Forms */
+.input,
+.select,
+.button {
+    width: 100%;
+    border: none;
+    padding: 0;
+    font: 16px 'Source Sans Pro';
+    color: #333;
+    line-height: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+}
+
+.input:focus,
+.select:focus,
+.button:focus {
+    outline: none;
+}
+
+.input-container,
+.select-container {
+    border: 1px solid #e6e6e6;
+    padding: 0 20px;
+    line-height: 58px;
+    position: relative;
+}
+
+.input::-webkit-input-placeholder {
+    color: #333;
+}
+
+.input::-moz-placeholder {
+    color: #333;
+}
+
+.input:-ms-input-placeholder {
+    color: #333;
+}
+
+.input:-moz-placeholder {
+    color: #333;
+}
+
+.select {
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select::-ms-expand {
+    display: none;
+}
+
+.select-icon {
+    position: absolute;
+    right: 20px;
+    pointer-events: none;
+    color: #e6e6e6;
+    font-size: 30px;
+}
+
+.button {
+    background: #db644f;
+    border: 1px solid #db644f;
+    color: #fff;
+    height: 60px;
+    line-height: 58px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #d04e3e;
+    border: 1px solid #d04e3e;
+    color: #fff;
+}
+
+.button-outline {
+    background: none;
+    color: #db644f;
+}
+
+.button-outline:hover {
+    background: none;
+    border-width: 2px;
+    line-height: 56px;
+    color: #d04e3e;
+}
+
 /* Page Layout */
 .page-container {
     max-width: 1500px;
@@ -204,6 +233,26 @@ figure {
 
     .page-border {
         height: 30px;
+    }
+}
+
+/* Layout */
+.main {
+    padding-top: 60px;
+    padding-bottom: 10px;
+}
+
+.section {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+
+    .main {
+        padding-top: 0;
+        padding-bottom: 30px;
     }
 }
 
@@ -372,7 +421,7 @@ figure {
 
 }
 
-/* Font Listings */
+/* Font Grid */
 .font-grid-container {
     width: 100%;
     position: relative;
@@ -383,7 +432,7 @@ figure {
 .font-grid {
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
-    padding: 40px;
+    padding: 15%;
     display: block;
 }
 
@@ -404,7 +453,7 @@ figure {
 
 .font-grid-overlay {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 15%;
     left: 0;
     color: #fff;
     font-size: 28px;
@@ -424,7 +473,6 @@ figure {
 }
 
 .font-grid:hover .font-grid-overlay {
-    /*font-size: 30px;*/
     visibility: visible;
     opacity: 1;
 }
@@ -443,47 +491,44 @@ figure {
     }
 }
 
-/* Font Image */
-.font-image-bg-container {
+/* Font Hero */
+.font-hero {
     width: 100%;
-    padding: 20px;
-    border-bottom: 1px solid #e6e6e6;
-}
-
-.font-image-bg {
+    height: calc(100vh - 210px);
+    padding: 50px;
     background-image: url(/images/bg.png);
-    background-size: 580px 386px;
+    background-size: 400px 400px;
 }
 
-.font-image-container {
-    width: 80%;
-    max-width: 500px;
+.font-hero-image-container {
+    max-width: 750px;
     margin: 0 auto;
-    padding: 5% 0;
 }
 
-.font-image {
+.font-hero-image {
     background-size: contain;
     background-repeat: no-repeat;
-    padding-bottom: 66.666%;
+    padding-bottom: 44.4%;
 }
 
-@media (min-width: 768px) {
-
-    .font-image-bg-container {
-        margin-top: 120px;
-    }
+/* Font Buttons */
+.font-buttons {
+    margin-top: 45px;
+    text-align: center;
 }
 
-@media (min-width: 1040px) {
+.font-button-container {
+    width: 300px;
+    padding: 0 0 0 5px;
+    display: inline-block;
+}
 
-    .font-image-container {
-        padding: 50px 0;
-    }
+.font-button-container:first-child {
+    padding: 0 5px 0 0;
 }
 
 /* Font Details */
-.font-details {
+/*.font-details {
     padding: 20px;
 }
 
@@ -534,10 +579,10 @@ figure {
         width: calc(37.5% - 1px);
         float: right;
     }
-}
+}*/
 
 /* Font Example */
-.font-example {
+/*.font-example {
     word-wrap: break-word;
     line-height: 1.5;
 }
@@ -580,123 +625,13 @@ figure {
         border-top: none;
         line-height: 59px;
     }
-}
-
-/* Homepage */
-
-.slide {
-    width: 100%;
-    height: calc(100vh - 210px);
-    padding: 30px 60px;
-    display: table;
-    background-image: url(new-bg.png);
-    background-size: 400px 400px;
-    word-wrap: break-word;
-}
-
-.slide-content {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.slide-font {
-    font-size: 75px;
-    line-height: 1.5;
-}
-
-/*        .slide-one {
-    color: #4E4E76;
-    background-color: rgba(78, 78, 118, 0.1);
-    background-color: rgba(132, 181, 151, 0.1);
-    color: rgba(132, 181, 151, 1);
-
-
-    font-family: "Starry Night";
 }*/
 
-.slide-date {
-    font-weight: 300;
-    display: none;
-}
-
-.slide-herbaceous {
-    background-color: rgba(132, 181, 151, 0.1);
-}
-
-.slide-herbaceous .slide-font {
-    font-family: "Herbaceous Border";
-    color: rgba(132, 181, 151, 1);
-}
-
-.slide-two {
-    background-color: rgba(132, 181, 151, 1);
-/*            background-image: url(new-bg.png);
-    background-size: 400px 400px;*/
-}
-
+/* Footer */
 .footer {
     height: 200px;
     background: #fff;
     padding: 30px 60px;
     position: relative;
     z-index: 1;
-}
-
-.font-buttons {
-    margin-top: 45px;
-}
-
-.font-button-container {
-    width: 300px;
-    padding-right: 10px;
-    display: inline-block;
-}
-
-.font-button {
-    background: #db644f;
-    border: 1px solid #db644f;
-    color: #fff;
-    height: 60px;
-    line-height: 58px;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.125em;
-}
-
-.font-button:hover {
-    background: #d04e3e;
-    border: 1px solid #d04e3e;
-    color: #fff;
-}
-
-.font-button-download {
-    background: none;
-    color: #db644f;
-}
-
-.font-button-download:hover {
-    background: none;
-    color: #d04e3e;
-}
-
-.main-container {
-    max-width: 1144px;
-    margin: 0 auto;
-    padding: 25px;
-}
-
-@media (min-width: 768px) {
-
-    .main-container {
-        padding: 60px;
-    }
-}
-
-/* Hero */
-.hero {
-    width: 100%;
-    height: calc(100vh - 210px);
-    background-image: url(/images/bg.png);
-    background-size: 400px 400px;
 }

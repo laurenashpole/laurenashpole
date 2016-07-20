@@ -6,28 +6,53 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 {% endblock %}
 
-{% block font_buttons %}
-    <ul class="nav-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
-        {% if font.personal_font_file %}
-            <li class="nav-button nav-item">
-                <a href="{{font.download_url}}" title="Download" class="nav-link nav-button-download">Download</a>
-            </li>
-        {% endif %}
-        {% if font.commercial_font_file %}
-            <li class="nav-button nav-item">
-                <form method="post" action="/fonts/{{font.slug}}/payment">
-                    <button type="submit" title="Buy Now" class="button nav-link nav-button-buy">Buy Now</button>
-                </form>
-            </li>
-        {% endif %}
-    </ul>
-{% endblock %}
-
 {% block content %}
 
     <section itemscope itemtype="http://schema.org/Product">
 
-        <div class="font-image-bg-container">
+    <div class="font-hero vertical-align-td" style="background-color: rgba({{font.color}}, 0.1);">
+        <div class="vertical-align-content">
+
+            <div class="font-hero-image-container">
+                <span class="img-default">
+                    <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image}});"></figure>
+                </span>
+                <span class="img-retina">
+                    <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image_retina}});"></figure>
+                </span>
+            </div>
+
+            <div class="font-buttons">
+<!--                     {% if font.commercial_font_file %}
+                    <div class="font-button-container">
+                        <form method="post" action="/fonts/{{font.slug}}/payment">
+                            <button type="submit" title="Buy Now" class="font-button">Buy Now</button>
+                        </form>
+                    </div>
+                {% endif %}
+                {% if font.personal_font_file %}
+                    <div class="font-button-container">
+                        <a href="{{font.download_url}}" class="font-button font-button-download">
+                            Download
+                        </a>
+                    </div>
+                {% endif %} -->
+                <div class="font-button-container">
+                    <form method="post" action="/fonts/###/payment">
+                        <button type="submit" title="Buy Now" class="button">Buy Now</button>
+                    </form>
+                </div>
+                <div class="font-button-container">
+                    <a href="###" class="button button-outline">
+                        Download
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!--         <div class="font-image-bg-container">
             <div class="font-image-bg" style="background-color: {{font.color}};">
                 <div class="font-image-container">
                     <span class="img-default">
@@ -38,11 +63,11 @@
                     </span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="clearfix">
+        <div class="clearfix"  style="background-color: rgba({{font.color}}, 1);">
 
-            <div class="font-details">
+            <div class="section font-details">
 
                 <h1 class="font-details-title" itemprop="name">{{font.name}}</h1>
                 <div class="font-details-date">
@@ -86,7 +111,7 @@
 
             </div>
 
-            <div class="font-example {{font.slug}}" style="color: {{font.color}};">
+            <div class="section font-example {{font.slug}}" style="color: {{font.color}};">
 
                 <form class="clearfix">
 
