@@ -8,10 +8,9 @@
 
 {% block content %}
 
-    <section itemscope itemtype="http://schema.org/Product">
+    <div itemscope itemtype="http://schema.org/Product">
 
-        <!-- <div class="font-hero has-buttons vertical-align-td background" style="background-color: rgba({{font.color}}, 0.1);"> -->
-        <div class="font-hero has-buttons vertical-align-td">
+        <section class="font-hero has-buttons vertical-align-td">
             <div class="vertical-align-content">
 
                 <div class="font-hero-image-container">
@@ -23,58 +22,33 @@
                     </span>
                 </div>
 
-                <div class="font-buttons">
+                <div class="font-buttons {% if font.one_download_option %}has-one-button{% endif %}">
                     <div class="container clearfix">
-        <!--                     {% if font.commercial_font_file %}
+                        {% if font.commercial_font_file %}
                             <div class="font-button-container">
-                                <form method="post" action="/fonts/{{font.slug}}/payment">
-                                    <button type="submit" title="Buy Now" class="font-button">Buy Now</button>
+                                <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
+                                    <button type="submit" title="Buy Now" class="button vertical-align-content">
+                                        <span class="button-fine-print">Commercial Use $15</span>
+                                        Purchase
+                                    </button>
                                 </form>
                             </div>
                         {% endif %}
                         {% if font.personal_font_file %}
                             <div class="font-button-container">
-                                <a href="{{font.download_url}}" class="font-button font-button-download">
-                                    Download
-                                </a>
+                                <div class="vertical-align-td">
+                                    <a href="/downloads/{{font.personal_font_file}}" class="button button-outline vertical-align-content">
+                                        <span class="button-fine-print">Personal Use Free</span>
+                                        Download
+                                    </a>
+                                </div>
                             </div>
-                        {% endif %} -->
-                        <div class="font-button-container">
-                            <form method="post" action="/fonts/###/payment" class="vertical-align-td">
-                                <button type="submit" title="Buy Now" class="button vertical-align-content">
-                                    <span class="button-fine-print">Commercial Use $15</span>
-                                    Purchase
-                                </button>
-                            </form>
-                        </div>
-                        <div class="font-button-container">
-                            <div class="vertical-align-td">
-                                <a href="###" class="button button-outline vertical-align-content">
-                                    <span class="button-fine-print">Personal Use Free</span>
-                                    Download
-                                </a>
-                            </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
 
             </div>
-        </div>
-
-<!--         <div class="font-image-bg-container">
-            <div class="font-image-bg" style="background-color: {{font.color}};">
-                <div class="font-image-container">
-                    <span class="img-default">
-                        <figure class="font-image" style="background-image: url(/images/fonts/{{font.image}});"></figure>
-                    </span>
-                    <span class="img-retina">
-                        <figure class="font-image" style="background-image: url(/images/fonts/{{font.image_retina}});"></figure>
-                    </span>
-                </div>
-            </div>
-        </div> -->
-
-
+        </section>
 
         <section class="font-example">
 
@@ -189,6 +163,6 @@
 
         </div>
 
-    </section>
+    </div>
 
 {% endblock %}
