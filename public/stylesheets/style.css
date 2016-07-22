@@ -10,14 +10,14 @@ body {
 body {
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #474747;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
 }
 
 a {
-    color: #d35244;
+    color: #d04e3e;
     text-decoration: none;
 }
 
@@ -68,18 +68,8 @@ figure {
     }
 }
 
-.vertical-align-ib:before {
-    content: " ";
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.vertical-align-ib .vertical-align-content {
-    display: inline-block;
-}
-
 .vertical-align-td {
+    width: 100%;
     display: table;
 }
 
@@ -97,83 +87,138 @@ figure {
     transform: translate3d(0, -50%, 0);
 }
 
-.container-fixed {
-    width: 90%;
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
 /* Forms */
 .input,
-.select,
 .button {
     width: 100%;
     border: none;
     padding: 0;
-    font: 16px 'Source Sans Pro';
-    color: #333;
+    font: 300 16px 'Source Sans Pro';
+    color: #adadad;
     line-height: inherit;
     text-transform: inherit;
-    letter-spacing: inherit;
-    font-weight: inherit;
+    letter-spacing: 0.05em;
 }
 
 .input:focus,
-.select:focus,
+.input-range:focus,
 .button:focus {
     outline: none;
 }
 
-.input-container,
-.select-container {
-    border: 1px solid #e6e6e6;
-    padding: 0 20px;
+.input {
+    background: none;
+    border: 1px solid #adadad;
+    padding: 0 10px;
     line-height: 58px;
-    position: relative;
+}
+
+.input:focus {
+    border-color: #f5f5f5;
 }
 
 .input::-webkit-input-placeholder {
-    color: #333;
+    color: #adadad;
 }
 
 .input::-moz-placeholder {
-    color: #333;
+    color: #adadad;
 }
 
 .input:-ms-input-placeholder {
-    color: #333;
+    color: #adadad;
 }
 
 .input:-moz-placeholder {
-    color: #333;
+    color: #adadad;
 }
 
-.select {
-    background: none;
+.input-range {
+    margin: 10px 0;
+    width: 100%;
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
-.select::-ms-expand {
-    display: none;
+.input-range::-webkit-slider-runnable-track {
+    background: #adadad;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
 }
 
-.select-icon {
-    position: absolute;
-    right: 20px;
-    pointer-events: none;
-    color: #e6e6e6;
-    font-size: 30px;
+.input-range::-webkit-slider-thumb {
+    background: #adadad;
+    height: 14px;
+    width: 14px;
+    margin-top: -6px;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.input-range:focus::-webkit-slider-runnable-track {
+    background: #f5f5f5;
+}
+
+.input-range:focus::-webkit-slider-thumb {
+    background: #f5f5f5;
+}
+
+
+.input-range::-moz-range-track {
+    background: #adadad;
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+}
+
+.input-range::-moz-range-thumb {
+    background: #adadad;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.input-range::-ms-track {
+    background: transparent;
+    width: 100%;
+    height: 2px;
+    border-width: 9px 0;
+    border-color: transparent;
+    cursor: pointer;
+    color: transparent;
+}
+
+.input-range::-ms-fill-lower {
+    background: #adadad;
+}
+
+.input-range::-ms-fill-upper {
+    background: #adadad;
+}
+
+.input-range::-ms-thumb {
+    background: #adadad;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.input-range:focus::-ms-fill-lower {
+    background: #adadad;
+}
+
+.input-range:focus::-ms-fill-upper {
+    background: #adadad;
 }
 
 .button {
-    background: #db644f;
-    border: 1px solid #db644f;
+    background: #d04e3e;
+    border: 1px solid #d04e3e;
     color: #fff;
     height: 60px;
-    line-height: 58px;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -183,21 +228,34 @@ figure {
 }
 
 .button:hover {
-    background: #d04e3e;
-    border: 1px solid #d04e3e;
+    background: #ce4130;
+    border: 1px solid #ce4130;
     color: #fff;
 }
 
 .button-outline {
     background: none;
-    color: #db644f;
+    color: #d04e3e;
 }
 
 .button-outline:hover {
     background: none;
     border-width: 2px;
-    line-height: 56px;
-    color: #d04e3e;
+    color: #ce4130;
+}
+
+.button-fine-print {
+    font-size: 11px;
+    line-height: 15px;
+    font-weight: 600;
+    display: block;
+}
+
+@media (min-width: 768px) {
+
+    .button {
+        height: 70px;
+    }
 }
 
 /* Page Layout */
@@ -242,10 +300,15 @@ figure {
     padding-bottom: 10px;
 }
 
-.section {
-    width: 90%;
+.container {
     max-width: 1024px;
     margin: 0 auto;
+    padding: 15px;
+}
+
+.background {
+    background-image: url(/images/bg.png);
+    background-size: 400px 400px;
 }
 
 @media (min-width: 768px) {
@@ -337,10 +400,8 @@ figure {
 .nav-links {
     width: 100%;
     max-height: 0;
-    margin: 0;
     padding: 0 10px;
     overflow: hidden;
-    list-style: none;
     float: right;
 
     -webkit-transition: max-height 0.4s;
@@ -357,12 +418,12 @@ figure {
 }
 
 .nav-link {
-    color: #333;
+    color: #474747;
     display: block;
 }
 
 .nav-link:hover {
-    color: #333;
+    color: #474747;
 }
 
 @media (min-width: 768px) {
@@ -424,14 +485,12 @@ figure {
 /* Font Grid */
 .font-grid-container {
     width: 100%;
+    text-align: center;
     position: relative;
     float: left;
-    text-align: center;
 }
 
 .font-grid {
-    background-image: url(/images/bg.png);
-    background-size: 400px 400px;
     padding: 15%;
     display: block;
 }
@@ -493,11 +552,13 @@ figure {
 
 /* Font Hero */
 .font-hero {
-    width: 100%;
-    height: calc(100vh - 210px);
-    padding: 50px;
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: calc(100vh - 210px);
+    padding: 20px;
+    position: relative;
 }
 
 .font-hero-image-container {
@@ -511,121 +572,104 @@ figure {
     padding-bottom: 44.4%;
 }
 
+@media (min-width: 768px) {
+
+    .font-hero {
+        padding: 50px;
+    }
+
+    .font-hero.has-buttons {
+        padding-bottom: 150px;
+    }
+}
+
 /* Font Buttons */
 .font-buttons {
     margin-top: 45px;
     text-align: center;
 }
 
-.font-button-container {
-    width: 300px;
-    padding: 0 0 0 5px;
-    display: inline-block;
-}
+@media (min-width: 768px) {
 
-.font-button-container:first-child {
-    padding: 0 5px 0 0;
-}
-
-/* Font Details */
-/*.font-details {
-    padding: 20px;
-}
-
-.font-details-title {
-    margin: 0;
-}
-
-.font-details-date {
-    margin-bottom: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.125em;
-}
-
-.font-details-price {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.font-details-list {
-    padding-bottom: 20px;
-}
-
-.font-details-list + .font-details-list {
-    border-top: 1px solid #e6e6e6;
-    padding-top: 20px;
-}
-
-.font-details-list li {
-    margin-bottom: 2px;
-}
-
-.font-details-list-header {
-    font-weight: 600;
-}
-
-.font-details-licensing {
-    margin: 20px 20px 0 0;
-    float: left;
-}
-
-@media (min-width: 960px) {
-
-    .font-details {
-        width: 37.5%;
-        width: calc(37.5% - 1px);
-        float: right;
+    .font-buttons {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
-}*/
 
-/* Font Example */
-/*.font-example {
-    word-wrap: break-word;
-    line-height: 1.5;
-}
-
-.font-example-input-container {
-    width: 70%;
-    float: left;
-}
-
-.font-example-select-container {
-    width: 30%;
-    border-left: none;
-    border-right: none;
-    float: left;
-}
-
-.font-example-text {
-    margin: 0 20px;
-    border-bottom: 1px solid #e6e6e6;
-    padding: 20px 0;
-    font-size: 36px;
-}
-
-.font-example-alphabet {
-    padding: 20px 20px 40px 20px;
-    font-size: 60px;
-}
-
-@media (min-width: 960px) {
-
-    .font-example {
-        width: 62.5%;
-        width: calc(62.5% + 1px);
-        border-right: 1px solid #e6e6e6;
+    .font-button-container {
+        width: 50%;
+        padding: 0 0 0 7.5px;
         float: left;
     }
 
-    .font-example-input-container,
-    .font-example-select-container {
-        border-top: none;
-        line-height: 59px;
+    .font-button-container:first-child {
+        padding: 0 7.5px 0 0;
     }
-}*/
+}
+
+/* Font Example */
+.font-example-form-container {
+    background: #474747;
+}
+
+.font-example-input-container {
+    padding-bottom: 15px;
+}
+
+.font-example-setting-container {
+    width: 33.333%;
+    padding: 0 10px;
+    float: left;
+}
+
+.font-example-input-range-label {
+    font-size: 14px;
+    color: #adadad;
+}
+
+.font-example-icon-text {
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.font-example-icon-arrow {
+    vertical-align: middle;
+}
+
+.font-example-text-container {
+    background: #f5f5f5;
+    border-bottom: 2px solid #fff;
+    padding: 30px 0;
+}
+
+.font-example-text {
+    font-size: 64px;
+    line-height: 1.25;
+    word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+    .font-example-input-container {
+        width: 50%;
+        padding: 0 7.5px 0 0;
+        float: left;
+    }
+
+    .font-example-settings {
+        width: 50%;
+        padding-left: 7.5px;
+        float: left;
+    }
+}
+
+.font-details {
+    background: #f5f5f5;
+}
 
 /* Footer */
 .footer {

@@ -16,7 +16,9 @@ View.prototype.initEvents = function () {
 
     this.addEventListener('.js-nav-icon', 'click', this.toggleNav.bind(this));
     this.addEventListener('.js-font-example-input', 'keyup', this.updateFontExampleText.bind(this));
-    this.addEventListener('.js-font-example-select', 'change', this.updateFontExampleSize.bind(this));
+    this.addEventListener('.js-font-example-size', 'change', this.updateFontExampleSize.bind(this));
+    this.addEventListener('.js-font-example-spacing', 'change', this.updateFontExampleSpacing.bind(this));
+    this.addEventListener('.js-font-example-height', 'change', this.updateFontExampleHeight.bind(this));
 
 };
 
@@ -49,14 +51,39 @@ View.prototype.toggleNav = function (e) {
 View.prototype.updateFontExampleText = function (e) {
 
     e.preventDefault();
-    this.textContainer.textContent = e.target.value;
+
+    var text = e.target.value;
+
+    if (text.length === 0) {
+        text = 'Enter your preview text.';
+    }
+
+    this.textContainer.textContent = text;
 
 };
 
 View.prototype.updateFontExampleSize = function (e) {
 
     e.preventDefault();
-    this.textContainer.style['font-size'] = e.target.value;
+    this.textContainer.style['font-size'] = e.target.value + 'px';
+
+};
+
+View.prototype.updateFontExampleSpacing = function (e) {
+
+    e.preventDefault();
+
+    var letterSpacing = e.target.value / 1000;
+    this.textContainer.style['letter-spacing'] = letterSpacing + 'em';
+
+};
+
+View.prototype.updateFontExampleHeight = function (e) {
+
+    e.preventDefault();
+
+    var lineHeight = e.target.value / 100;
+    this.textContainer.style['line-height'] = lineHeight;
 
 };
 
