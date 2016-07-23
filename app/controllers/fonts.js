@@ -10,7 +10,7 @@ var transporter = nodemailer.createTransport();
 
 exports.renderFonts = function (req, res) {
 
-    Font.find(function (err, fonts) {
+    Font.find().sort({ name: 'asc' }).exec(function (err, fonts) {
 
         if (err) res.send(err);
 
