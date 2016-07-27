@@ -3,6 +3,11 @@
     <input type="text" id="name" name="name" {% if font.name %}value="{{font.name}}"{% endif %} />
 </div>
 
+<div class="input-label-inset textarea-label-inset">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="5">{% if font.description %}value="{{font.description}}"{% endif %}</textarea>
+</div>
+
 <div class="input-label-inset">
     <label for="dateCreated">Date Created</label>
     <input type="text" id="dateCreated" name="date_created" {% if font.date_created %}value="{{font.date_created}}"{% endif %} />

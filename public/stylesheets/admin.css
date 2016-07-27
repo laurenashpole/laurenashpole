@@ -12,12 +12,14 @@
     margin: 40px 0 20px 0;
 }
 
-input {
+input,
+textarea {
     font-family: 'Source Sans Pro';
     color: #333;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     outline: none;
 }
 
@@ -69,6 +71,18 @@ input:focus {
 .input-file input {
     padding-top: 25px;
     line-height: 18px;
+}
+
+.textarea-label-inset {
+    height: auto;
+}
+
+.textarea-label-inset textarea {
+    width: 100%;
+    border: none;
+    padding: 25px 7px 0 7px;
+    font-size: 18px;
+    display: block;
 }
 
 button {

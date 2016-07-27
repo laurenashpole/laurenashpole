@@ -32,7 +32,7 @@ FontSchema.pre('save', function (next) {
 });
 
 FontSchema.methods.generateSlug = function (name) {
-    return name.replace(/&/g, '').replace(/\s+/g, '-').toLowerCase();
+    return name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
 };
 
 FontSchema.methods.checkDownloadOptions = function (font) {
