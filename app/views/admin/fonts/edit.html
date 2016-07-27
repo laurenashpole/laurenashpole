@@ -4,12 +4,18 @@
 
 {% block content %}
 
-    <h1>Edit {{font.name}}</h1>
+    <section class="text-container">
+        <div class="container">
 
-    <form method="post" action="/admin/fonts/{{font.id}}?_method=PUT" enctype="multipart/form-data">
+            <h1>Edit {{font.name}}</h1>
 
-        {% include "./includes/form.html" %}
+            <form method="post" action="/admin/fonts/{{font.id}}?_method=PUT" enctype="multipart/form-data">
 
-    </form>
+                {% include "./includes/form.html" %}
+
+            </form>
+
+        </div>
+    </section>
 
 {% endblock %}

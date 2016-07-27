@@ -1,7 +1,11 @@
-.form-container {
-    width: 90%;
+.login-container {
+    background: #f3f2f2;
+    min-height: calc(100vh - 30px);
+}
+
+.login {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .form-title {
@@ -76,33 +80,7 @@ button:focus {
 }
 
 .button {
-    width: 100%;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.125em;
-    text-transform: uppercase;
-    line-height: 50px;
-    color: #fff;
-    cursor: pointer;
-
-    -webkit-transition: background 0.4s ease;
-    transition: background 0.4s ease;
-}
-
-.button-primary {
-    background: #d35244;
-}
-
-.button-primary:hover {
-    background: #ce4130;
-}
-
-.button-secondary {
-    background: #e4968d;
-}
-
-.button-secondary:hover {
-    background: #df8378;
+    height: 60px;
 }
 
 .growl {
