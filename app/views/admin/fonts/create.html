@@ -4,16 +4,12 @@
 
 {% block content %}
 
-    <section class="container">
+    <h1>Create New Font</h1>
 
-        <h1>Create New Font</h1>
+    <form method="post" action="/admin/fonts" enctype="multipart/form-data">
 
-        <form method="post" action="/admin/fonts" enctype="multipart/form-data">
+        {% include "./includes/form.html" %}
 
-            {% include "./includes/form.html" %}
-
-        </form>
-
-    </section>
+    </form>
 
 {% endblock %}

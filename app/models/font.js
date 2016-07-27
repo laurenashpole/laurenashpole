@@ -14,10 +14,12 @@ var FontSchema = new Schema({
     image_thumbnail_retina: String,
     color: String,
     css_file: String,
+    alternate_style: String,
     personal_use_details: [],
     commercial_use_details: [],
     personal_font_file: String,
-    commercial_font_file: String
+    commercial_font_file: String,
+    one_download_option: Boolean
 });
 
 FontSchema.pre('save', function (next) {

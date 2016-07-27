@@ -53,13 +53,18 @@
 </div>
 
 <div class="input-label-inset">
-    <label for="commercialUseDetails">Color</label>
-    <input type="text" id="commercialUseDetails" name="color" {% if font.color %}value="{{font.color}}"{% endif %} />
+    <label for="color">Color</label>
+    <input type="text" id="color" name="color" {% if font.color %}value="{{font.color}}"{% endif %} />
 </div>
 
 <div class="input-label-inset input-file">
     <label for="cssFile">CSS File{% if font.css_file %} ({{font.css_file}}){% endif %}</label>
     <input type="file" id="cssFile" name="css_file" />
+</div>
+
+<div class="input-label-inset">
+    <label for="alternateStyle">Alternate Style Class</label>
+    <input type="text" id="alternateStyle" name="color" {% if font.color %}value="{{font.alternate_style}}"{% endif %} />
 </div>
 
 <div class="input-label-inset input-file">

@@ -4,17 +4,13 @@
 
 {% block content %}
 
-    <section class="container">
-
-        <ul>
-            {% for font in fonts %}
-                <li>
-                    <a href="/admin/fonts/{{font.id}}">{{font.name}}</a><br>
-                    <form method="post" action="/admin/fonts/{{font.id}}?_method=DELETE"><button type="submit">Delete</button></form>
-                </li>
-            {% endfor %}
-        </ul>
-
-    </section>
+    <ul>
+        {% for font in fonts %}
+            <li>
+                <a href="/admin/fonts/{{font.id}}">{{font.name}}</a><br>
+                <form method="post" action="/admin/fonts/{{font.id}}?_method=DELETE"><button type="submit">Delete</button></form>
+            </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

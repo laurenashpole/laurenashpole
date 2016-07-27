@@ -11,6 +11,7 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('express-flash');
 var multer = require('multer');
+var sitemap = require('express-sitemap');
 
 var app = express();
 var locals = require('./app/config/locals')(app);
@@ -46,6 +47,16 @@ app.use(flash());
 require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
 require('./app/routes/routes')(app);
+
+// Sitemap
+sitemap({
+    generate: app,
+    route: {
+        '/admin': {
+            disallow: true,
+        }
+    },
+}).toFile();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
