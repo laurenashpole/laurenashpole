@@ -64,6 +64,10 @@ exports.create = function (req, res) {
 
             directory = './public/downloads/';
 
+            var timestamp = Math.floor(Date.now() / 10000000);
+            var nameArray = file.originalname.split('.');
+            file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
+
         }
 
         font[file.fieldname] = file.originalname;
@@ -118,6 +122,10 @@ exports.update = function (req, res) {
             }  else if (mimetype.indexOf('zip') !== -1) {
 
                 directory = './public/downloads/';
+
+                var timestamp = Math.floor(Date.now() / 10000000);
+                var nameArray = file.originalname.split('.');
+                file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
 
             }
 

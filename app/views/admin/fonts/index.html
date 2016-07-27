@@ -9,9 +9,9 @@
 
             <ul>
                 {% for font in fonts %}
-                    <li>
-                        <a href="/admin/fonts/{{font.id}}">{{font.name}}</a><br>
-                        <form method="post" action="/admin/fonts/{{font.id}}?_method=DELETE"><button type="submit">Delete</button></form>
+                    <li class="font-list-item">
+                        <a href="/admin/fonts/{{font.id}}">{{font.name}}</a>
+                        <form method="post" action="/admin/fonts/{{font.id}}?_method=DELETE"><button class="font-list-delete" type="submit">Delete</button></form>
                     </li>
                 {% endfor %}
             </ul>

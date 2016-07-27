@@ -30,7 +30,7 @@
                             <div class="font-button-container">
                                 <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
                                     <button type="submit" title="Buy Now" class="button vertical-align-content">
-                                        <span class="button-fine-print">Commercial Use $15</span>
+                                        <span class="button-fine-print">Commercial Use <meta itemprop="priceCurrency" content="USD" /><span itemprop="price">$15</span></span>
                                         Purchase
                                     </button>
                                 </form>
@@ -54,9 +54,7 @@
 
         <section class="font-example">
 
-            <!-- <div style="background-color: rgba({{font.color}}, 1);"> -->
             <div class="font-example-form-container">
-
                 <form class="container font-example-form clearfix">
 
                     <div class="input-container font-example-input-container">
@@ -96,90 +94,76 @@
                     </div>
 
                 </form>
-
             </div>
 
-            <!-- <div class="font-example-text-container" style="background-color: rgba({{font.color}}, 0.1);"> -->
             <div class="font-example-text-container">
-
                 <div class="container">
 
                     <div class="font-example-text {{font.slug}}">
                         Enter your preview text.
                     </div>
 
-                    <!-- <div class="font-example-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div> -->
-
                 </div>
-
             </div>
 
             {% if font.alternate_style %}
                 <div class="font-example-text-container">
-
                     <div class="container">
 
                         <div class="font-example-text {{font.alternate_style}}">
                             Enter your preview text.
                         </div>
 
-                        <!-- <div class="font-example-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div> -->
-
                     </div>
-
                 </div>
             {% endif %}
 
         </section>
 
-        <!-- <div class="font-details" style="background-color: rgba({{font.color}}, 0.1);"> -->
-        <div class="font-details">
+        <section class="font-details">
+            <div class="container clearfix">
 
-            <div class="container">
+                <div class="font-details-section">
+                    <h1 class="font-details-title" itemprop="name">{{font.name}}</h1>
+                    <div class="font-details-date">
+                        Created: {{font.date_created}}
+                        {% if font.date_modified %}, Modified: {{font.date_modified}}{% endif %}
+                    </div>
 
-                <h1 class="font-details-title" itemprop="name">{{font.name}}</h1>
-                <div class="font-details-date">
-                    Created: {{font.date_created}}
-                    {% if font.date_modified %}, Modified: {{font.date_modified}}{% endif %}
+                    <ul class="clearfix">
+                        <li class="font-details-licensing">
+                            <a href="/fonts/licensing">Licensing Info</a>
+                        </li>
+                        <li class="font-details-licensing">
+                            <a href="/fonts/eula">View EULA</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <meta itemprop="priceCurrency" content="USD" />
-                <div class="font-details-price" itemprop="price">
-                    ${{font.price}}
+                <div class="font-details-section">
+                    <div class="font-details-lists" itemprop="description">
+                        {% if font.personal_use_details %}
+                            <ul class="font-details-list">
+                                <li class="font-details-list-header">Personal Use Details</li>
+                                {% for detail in font.personal_use_details %}
+                                    <li class="font-details-list-item">{{detail}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {% if font.commercial_use_details %}
+                            <ul class="font-details-list">
+                                <li class="font-details-list-header">Commercial Use Details</li>
+                                {% for detail in font.commercial_use_details %}
+                                    <li class="font-details-list-item">{{detail}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
                 </div>
-
-                <div itemprop="description">
-                    {% if font.personal_use_details %}
-                        <ul class="font-details-list">
-                            <li class="font-details-list-header">Personal Use Details</li>
-                            {% for detail in font.personal_use_details %}
-                                <li>{{detail}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-
-                    {% if font.commercial_use_details %}
-                        <ul class="font-details-list">
-                            <li class="font-details-list-header">Commercial Use Details</li>
-                            {% for detail in font.commercial_use_details %}
-                                <li>{{detail}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </div>
-
-                <ul class="clearfix">
-                    <li class="font-details-licensing">
-                        <a href="/fonts/licensing">Licensing Info</a>
-                    </li>
-                    <li class="font-details-licensing">
-                        <a href="/fonts/eula">View EULA</a>
-                    </li>
-                </ul>
 
             </div>
-
-        </div>
+        </section>
 
     </div>
 

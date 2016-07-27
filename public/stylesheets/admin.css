@@ -87,3 +87,13 @@ button:focus {
     background: #f6f6f6;
     padding: 20px;
 }
+
+.font-list-item {
+    padding-bottom: 15px;
+}
+
+.font-list-delete {
+    background: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
