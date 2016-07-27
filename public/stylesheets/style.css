@@ -590,6 +590,15 @@ figure {
     margin: 0 auto;
 }
 
+.font-hero-mobile-image-container {
+    padding: calc(15% - 15px) 15%;
+}
+
+.font-hero-mobile-image {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .font-hero-image {
     background-size: contain;
     background-repeat: no-repeat;
@@ -807,15 +816,8 @@ figure {
     display: none;
 }
 
-.font-grid-homepage-container:nth-child(-n+1) {
+.font-grid-homepage-container:nth-child(-n+2) {
     display: block;
-}
-
-@media (min-width: 500px) {
-
-    .font-grid-homepage-container:nth-child(-n+2) {
-        display: block;
-    }
 }
 
 @media (min-width: 1000px) {
@@ -841,9 +843,22 @@ figure {
 
 /* Footer */
 .footer {
-    height: 200px;
-    background: #fff;
-    padding: 30px 60px;
+    padding: 30px 30px 40px 30px;
     position: relative;
     z-index: 1;
+}
+
+.shop-list-header {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+
+    .footer {
+        padding: 30px 60px 60px 60px;
+    }
 }

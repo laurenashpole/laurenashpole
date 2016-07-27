@@ -10,6 +10,8 @@ var FontSchema = new Schema({
     price: Number,
     image: String,
     image_retina: String,
+    image_mobile: String,
+    image_mobile_retina: String,
     image_thumbnail: String,
     image_thumbnail_retina: String,
     color: String,

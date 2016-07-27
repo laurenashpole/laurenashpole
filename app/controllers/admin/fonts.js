@@ -181,6 +181,8 @@ exports.delete = function (req, res) {
             images: [
                 font.image,
                 font.image_retina,
+                font.image_mobile,
+                font.image_mobile_retina,
                 font.image_thumbnail,
                 font.image_thumbnail_retina
             ],

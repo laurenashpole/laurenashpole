@@ -34,6 +34,16 @@
 </div>
 
 <div class="input-label-inset input-file">
+    <label for="imageMobile">Image Mobile{% if font.image_mobile %} ({{font.image_mobile}}){% endif %}</label>
+    <input type="file" id="imageMobile" name="image_mobile" />
+</div>
+
+<div class="input-label-inset input-file">
+    <label for="imageMobileRetina">Image Mobile Retina{% if font.image_mobile_retina %} ({{font.image_mobile_retina}}){% endif %}</label>
+    <input type="file" id="imageMobileRetina" name="image_mobile_retina" />
+</div>
+
+<div class="input-label-inset input-file">
     <label for="imageThumbnail">Image Thumbnail{% if font.image_thumbnail %} ({{font.image_thumbnail}}){% endif %}</label>
     <input type="file" id="imageThumbnail" name="image_thumbnail" />
 </div>
