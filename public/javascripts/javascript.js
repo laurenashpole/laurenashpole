@@ -8,7 +8,7 @@ function View () {
 View.prototype.cacheSelectors = function () {
 
     this.nav = document.querySelector('.nav');
-    this.textContainer = document.querySelector('.font-example-text');
+    this.textContainer = document.querySelectorAll('.font-example-text');
 
 };
 
@@ -58,14 +58,21 @@ View.prototype.updateFontExampleText = function (e) {
         text = 'Enter your preview text.';
     }
 
-    this.textContainer.textContent = text;
+    for (var i = 0; i < this.textContainer.length; i++) {
+        this.textContainer[i].textContent = text;
+    }
 
 };
 
 View.prototype.updateFontExampleSize = function (e) {
 
     e.preventDefault();
-    this.textContainer.style['font-size'] = e.target.value + 'px';
+
+    var size = e.target.value;
+
+    for (var i = 0; i < this.textContainer.length; i++) {
+        this.textContainer[i].style['font-size'] = size + 'px';
+    }
 
 };
 
@@ -74,7 +81,10 @@ View.prototype.updateFontExampleSpacing = function (e) {
     e.preventDefault();
 
     var letterSpacing = e.target.value / 1000;
-    this.textContainer.style['letter-spacing'] = letterSpacing + 'em';
+
+    for (var i = 0; i < this.textContainer.length; i++) {
+        this.textContainer[i].style['letter-spacing'] = letterSpacing + 'em';
+    }
 
 };
 
@@ -83,7 +93,10 @@ View.prototype.updateFontExampleHeight = function (e) {
     e.preventDefault();
 
     var lineHeight = e.target.value / 100;
-    this.textContainer.style['line-height'] = lineHeight;
+
+    for (var i = 0; i < this.textContainer.length; i++) {
+        this.textContainer[i].style['line-height'] = lineHeight;
+    }
 
 };
 
