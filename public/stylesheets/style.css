@@ -25,8 +25,9 @@ a:hover {
     color: #ce4130;
 }
 
-h1 {
-    margin-top: 0;
+h1,
+h2 {
+    margin: 0;
 }
 
 p {
@@ -539,11 +540,6 @@ figure {
     width: 100%;
     padding: 0 15%;
     left: 0;
-    color: #fff;
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
     opacity: 0;
     visibility: hidden;
 
@@ -554,6 +550,15 @@ figure {
 
     -webkit-transition: all 0.6s ease;
     transition: all 0.6s ease;
+}
+
+.font-grid-title {
+    color: #fff;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-align: center;
 }
 
 .font-grid:hover .font-grid-overlay {
@@ -585,9 +590,19 @@ figure {
     position: relative;
 }
 
+.font-hero.has-buttons {
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
 .font-hero-image-container {
     max-width: 750px;
     margin: 0 auto;
+}
+
+.font-hero-mobile {
+    background: #f3f2f2;
+    position: relative;
 }
 
 .font-hero-mobile-image-container {
@@ -597,6 +612,10 @@ figure {
 .font-hero-mobile-image {
     max-width: 400px;
     margin: 0 auto;
+}
+
+.font-hero-mobile-title {
+    color: #776d6f;
 }
 
 .font-hero-image {
@@ -619,7 +638,6 @@ figure {
 
 /* Font Buttons */
 .font-buttons {
-    margin-top: 15px;
     text-align: center;
 }
 
