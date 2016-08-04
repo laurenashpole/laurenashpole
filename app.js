@@ -23,7 +23,9 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'app/views'));
 
 // Database connection
-mongoose.connect(config.db);
+mongoose.connect(config.db, function (err) {
+    if (err) throw err;
+});;
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
