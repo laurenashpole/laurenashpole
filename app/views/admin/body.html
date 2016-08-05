@@ -38,7 +38,7 @@
         </nav>
     {% endif %}
 
-    <div class="main page-container">
+    <div class="main page-container {% if signed_out %}login-main{% endif %}">
         {% block content %}{% endblock %}
     </div>
 

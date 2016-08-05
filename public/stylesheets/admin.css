@@ -1,15 +1,27 @@
+.login-main {
+    padding-top: 0;
+}
+
 .login-container {
     background: #f3f2f2;
-    min-height: calc(100vh - 30px);
+    min-height: calc(100vh - 10px);
+}
+
+@media (min-width: 768px) {
+
+    .login-container {
+        min-height: calc(100vh - 30px);
+    }
 }
 
 .login {
-    max-width: 500px;
+    max-width: 540px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .form-title {
-    margin: 40px 0 20px 0;
+    margin: 20px 0;
 }
 
 input,
@@ -98,7 +110,7 @@ button:focus {
 }
 
 .growl {
-    background: #f6f6f6;
+    background: rgba(255, 255, 255, 0.5);
     padding: 20px;
 }
 
