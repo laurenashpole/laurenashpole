@@ -113,7 +113,7 @@
                 <div class="container">
 
                     <div class="font-example-text --{{font.slug}}">
-                        Enter your preview text.
+                        Enter your preview text
                     </div>
 
                 </div>
@@ -124,7 +124,7 @@
                     <div class="container">
 
                         <div class="font-example-text {{font.alternate_style}}">
-                            Enter your preview text.
+                            Enter your preview text
                         </div>
 
                     </div>
@@ -162,7 +162,7 @@
                 <div class="font-details-section">
                     <div class="font-details-lists" itemprop="description">
 
-                        {% if font.commercial_use_details %}
+                        {% if font.commercial_use_details.length %}
                             <ul class="font-details-list">
                                 <li class="font-details-list-header">Commercial Use Details</li>
                                 {% for detail in font.commercial_use_details %}
@@ -171,7 +171,7 @@
                             </ul>
                         {% endif %}
 
-                        {% if font.personal_use_details %}
+                        {% if font.personal_use_details.length %}
                             <ul class="font-details-list">
                                 <li class="font-details-list-header">Personal Use Details</li>
                                 {% for detail in font.personal_use_details %}
