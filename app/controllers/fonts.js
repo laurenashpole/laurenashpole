@@ -76,8 +76,8 @@ exports.createPayment = function (req, res) {
                 'payment_method': 'paypal'
             },
             'redirect_urls': {
-                'return_url': 'http://localhost:3000/fonts/' + font.slug + '/confirm',
-                'cancel_url': 'http://localhost:3000/fonts/' + font.slug
+                'return_url': paypalConfig.redirect_base + '/fonts/' + font.slug + '/confirm',
+                'cancel_url': paypalConfig.redirect_base + '/fonts/' + font.slug
             },
             'transactions': [{
                 'amount': {
