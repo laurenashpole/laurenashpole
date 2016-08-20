@@ -27,6 +27,7 @@ mongoose.connect(config.db, function (err) {
     if (err) throw err;
 });;
 
+// Middleware
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
