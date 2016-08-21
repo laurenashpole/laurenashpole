@@ -138,6 +138,8 @@ exports.confirm = function (req, res) {
 
             fs.readFile(filePath, function (err, data) {
 
+                if (err) res.send(err);
+
                 var mailOptions = {
                     from: '"Lauren Ashpole" <lauren@laurenashpole.com>',
                     to: payment.payer.payer_info.email,
