@@ -25,6 +25,12 @@ exports.renderEdit = function (req, res) {
 
         if (err) res.send(err);
 
+        if (!font) {
+            var notFound = new Error('Oops!');
+            notFound.status = 404;
+            return next(notFound);
+        }
+
         res.render('admin/fonts/edit', {
             title: 'Admin',
             font: font

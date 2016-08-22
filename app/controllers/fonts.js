@@ -4,9 +4,16 @@ var path = require('path');
 var paypal = require('paypal-rest-sdk');
 var fs = require('fs');
 var nodemailer = require('nodemailer');
-
+var xoauth2 = require('xoauth2');
 var paypalConfig = require('../config/config')()['paypal'];
-var transporter = nodemailer.createTransport();
+var smtpConfig = require('../config/config')()['mail'];
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        xoauth2: xoauth2.createXOAuth2Generator(smtpConfig)
+    }
+});
 
 exports.renderFonts = function (req, res) {
 
@@ -39,7 +46,7 @@ exports.eula = function (req, res) {
 
 };
 
-exports.renderFont = function (req, res) {
+exports.renderFont = function (req, res, next) {
 
     Font.findOne({
 
@@ -48,6 +55,12 @@ exports.renderFont = function (req, res) {
     }, function (err, font) {
 
         if (err) res.send(err);
+
+        if (!font) {
+            var notFound = new Error('Oops!');
+            notFound.status = 404;
+            return next(notFound);
+        }
 
         res.render('fonts/font', {
             title: font.name + ' - Fonts',
@@ -126,6 +139,12 @@ exports.confirm = function (req, res) {
 
         if (err) res.send(err);
 
+        if (!font) {
+            var notFound = new Error('Oops!');
+            notFound.status = 404;
+            return next(notFound);
+        }
+
         var paymentId = req.session.paymentId;
         var payerId = req.query['PayerID'];
         var details = { 'payer_id': payerId };
@@ -143,7 +162,7 @@ exports.confirm = function (req, res) {
                 var mailOptions = {
                     from: '"Lauren Ashpole" <lauren@laurenashpole.com>',
                     to: payment.payer.payer_info.email,
-                    subject: 'Thank you for purchasing' + font.name,
+                    subject: 'Thank you for purchasing ' + font.name + '!',
                     text: 'Here is your download!',
                     html: 'Here is your download!',
                     attachments: [{
