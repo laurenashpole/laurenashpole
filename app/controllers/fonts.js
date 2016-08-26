@@ -107,7 +107,6 @@ exports.createPayment = function (req, res) {
 
             if (payment.payer.payment_method === 'paypal') {
 
-                req.session.paymentId = payment.id;
                 var redirectUrl;
 
                 for (var i=0; i < payment.links.length; i++) {
@@ -145,45 +144,56 @@ exports.confirm = function (req, res) {
             return next(notFound);
         }
 
-        var paymentId = req.session.paymentId;
-        var payerId = req.query['PayerID'];
-        var details = { 'payer_id': payerId };
+        if (req.query['paymentId'] && req.query['PayerID']) {
 
-        paypal.payment.execute(paymentId, details, function (err, payment) {
+            var paymentId = req.query['paymentId'];
+            var payerId = req.query['PayerID'];
+            var details = { 'payer_id': payerId };
 
-            if (err) res.send(err);
-
-            var filePath = path.resolve('./public/downloads/', font.commercial_font_file);
-
-            fs.readFile(filePath, function (err, data) {
+            paypal.payment.execute(paymentId, details, function (err, payment) {
 
                 if (err) res.send(err);
 
-                var mailOptions = {
-                    from: '"Lauren Ashpole" <lauren@laurenashpole.com>',
-                    to: payment.payer.payer_info.email,
-                    subject: 'Thank you for purchasing ' + font.name + '!',
-                    text: 'Here is your download!',
-                    html: 'Here is your download!',
-                    attachments: [{
-                        filename: font.commercial_font_file,
-                        content: data
-                    }]
-                };
+                var filePath = path.resolve('./public/downloads/', font.commercial_font_file);
 
-                transporter.sendMail(mailOptions, function (err, info) {
+                fs.readFile(filePath, function (err, data) {
+
                     if (err) res.send(err);
+
+                    var mailOptions = {
+                        from: '"Lauren Ashpole" <lauren@laurenashpole.com>',
+                        to: payment.payer.payer_info.email,
+                        subject: 'Thank you for purchasing ' + font.name + '!',
+                        text: 'Here is your download!',
+                        html: 'Here is your download!',
+                        attachments: [{
+                            filename: font.commercial_font_file,
+                            content: data
+                        }]
+                    };
+
+                    transporter.sendMail(mailOptions, function (err, info) {
+                        if (err) res.send(err);
+                    });
+
+                });
+
+                res.render('fonts/confirm', {
+                    title: 'Thank you for purchasing ' + font.name + ' - Fonts',
+                    font: font,
+                    payment: payment
                 });
 
             });
 
+        } else {
+
             res.render('fonts/confirm', {
-                title: 'Thank you for purchasing ' + font.name + ' - Fonts',
-                font: font,
-                payment: payment
+                title: 'Page No Longer Available - Fonts',
+                font: font
             });
 
-        });
+        }
 
     });
 
