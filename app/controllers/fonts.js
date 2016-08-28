@@ -119,7 +119,7 @@ exports.createPayment = function (req, res) {
 
 };
 
-exports.confirm = function (req, res) {
+exports.confirm = function (req, res, next) {
 
     Font.findOne({
 
@@ -135,7 +135,7 @@ exports.confirm = function (req, res) {
             return next(notFound);
         }
 
-        if (req.query['paymentId'] && req.query['PayerID']) {
+        if (req.query['paymentId'] && req.query['PayerID'] && paypal.payment) {
 
             var paymentId = req.query['paymentId'];
             var payerId = req.query['PayerID'];
@@ -143,7 +143,18 @@ exports.confirm = function (req, res) {
 
             paypal.payment.execute(paymentId, details, function (err, payment) {
 
-                if (err) res.send(err);
+                if (err) {
+
+                    if (err.response && err.response.httpStatusCode) {
+                        err.status = err.response.httpStatusCode;
+                    }
+
+                    if (err.response && err.response.error_description) {
+                        err.message = err.response.error_description;
+                    }
+
+                    return next(err);
+                }
 
                 var filePath = path.resolve('./public/downloads/', font.commercial_font_file);
 

@@ -19,7 +19,7 @@ exports.renderAll = function (req, res) {
 
 };
 
-exports.renderEdit = function (req, res) {
+exports.renderEdit = function (req, res, next) {
 
     Font.findById(req.params.font_id, function (err, font) {
 

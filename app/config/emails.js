@@ -26,16 +26,16 @@ module.exports = function () {
                 '<style></style>' +
             '</head>' +
             '<body>' +
-                '<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="padding: 0 20px">' +
+                '<table border="0" cellpadding="10" cellspacing="0" height="100%" width="100%">' +
                     '<tr>' +
                         '<td align="center" valign="top">' +
-                            '<table border="0" cellpadding="20" cellspacing="0" width="100%" style="max-width: 600px; background: #f3f2f2;">' +
+                            '<table border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width: 600px; background: #f3f2f2;">' +
                                 '<tr>' +
                                     '<td valign="top">' +
-                                         '<h1 style="text-align: center;">Thank you for your purchase.</h1>' +
+                                         '<h1 style="text-align: center; margin-top: 0;">Thank you for your purchase.</h1>' +
                                          '<p>Your commercial font file is attached to this email. If you have any questions, don\'t hesitate to ask.</p>' +
                                          '<p>Thanks again!</p>' +
-                                         '<p>Lauren<br />www.laurenashpole.com</p>' +
+                                         '<p style="margin-bottom: 0;">Lauren<br />www.laurenashpole.com</p>' +
                                     '</td>' +
                                 '</tr>' +
                             '</table>' +
