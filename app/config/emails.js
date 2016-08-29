@@ -22,20 +22,19 @@ module.exports = function () {
             '<html xmlns="http://www.w3.org/1999/xhtml">' +
             '<head>' +
                 '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />' +
-                '<title></title>' +
-                '<style></style>' +
+                '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400, 700">' +
             '</head>' +
             '<body>' +
                 '<table border="0" cellpadding="10" cellspacing="0" height="100%" width="100%">' +
                     '<tr>' +
                         '<td align="center" valign="top">' +
-                            '<table border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width: 600px; background: #f3f2f2;">' +
+                            '<table border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width: 600px; background: #f3f2f2; color: #343131; font-family: \'Source Sans Pro\'">' +
                                 '<tr>' +
                                     '<td valign="top">' +
                                          '<h1 style="text-align: center; margin-top: 0;">Thank you for your purchase.</h1>' +
                                          '<p>Your commercial font file is attached to this email. If you have any questions, don\'t hesitate to ask.</p>' +
                                          '<p>Thanks again!</p>' +
-                                         '<p style="margin-bottom: 0;">Lauren<br />www.laurenashpole.com</p>' +
+                                         '<p style="margin-bottom: 0;">Lauren<br /><a href="http://www.laurenashpole.com" style="color: #d04e3e; text-decoration: none;">www.laurenashpole.com</a></p>' +
                                     '</td>' +
                                 '</tr>' +
                             '</table>' +

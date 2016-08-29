@@ -1,9 +1,7 @@
-var path = require('path');
-var rootPath = path.normalize(__dirname + '/../../..');
-
 module.exports = function (app) {
 
     app.locals.site_name = 'Lauren Ashpole';
-    app.locals.root_path = rootPath;
+    app.locals.site_description = 'Custom, handcrafted fonts and dingbats available for personal and commercial projects.';
+    app.locals.email_address = 'lauren@laurenashpole.com';
 
 };
