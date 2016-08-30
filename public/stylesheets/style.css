@@ -11,7 +11,8 @@ body {
     margin: 0;
     padding: 0;
     /*color: #333;*/
-    color: #343131;
+    /*color: #343131;*/
+    color: #303030;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
@@ -116,7 +117,8 @@ figure {
     padding: 0;
     font: 300 16px 'Source Sans Pro';
     /*color: #bbb6b7;*/
-    color: #BBB9B9;
+    /*color: #BBB9B9;*/
+    color: #bebebe;
     line-height: inherit;
     text-transform: inherit;
     letter-spacing: 0.05em;
@@ -131,34 +133,40 @@ figure {
 .input {
     background: none;
     /*border: 1px solid #bbb6b7;*/
-    border: 1px solid #BBB9B9;
+    /*border: 1px solid #BBB9B9;*/
+    border: 1px solid #bebebe;
     padding: 0 10px;
     line-height: 58px;
 }
 
 .input:focus {
     /*border-color: #f3f2f2;*/
-    border-color: #f2f3f3;
+    /*border-color: #f2f3f3;*/
+    border-color: #f5f5f5;
 }
 
 .input::-webkit-input-placeholder {
     /*color: #bbb6b7;*/
-    color: #BBB9B9;
+    /*color: #BBB9B9;*/
+    color: #bebebe;
 }
 
 .input::-moz-placeholder {
     /*color: #bbb6b7;*/
-    color: #BBB9B9;
+    /*color: #BBB9B9;*/
+    color: #bebebe;
 }
 
 .input:-ms-input-placeholder {
     /*color: #bbb6b7;*/
-    color: #BBB9B9;
+    /*color: #BBB9B9;*/
+    color: #bebebe;
 }
 
 .input:-moz-placeholder {
     /*color: #bbb6b7;*/
-    color: #BBB9B9;
+    /*color: #BBB9B9;*/
+    color: #bebebe;
 }
 
 .input-range {
@@ -169,7 +177,8 @@ figure {
 
 .input-range::-webkit-slider-runnable-track {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
     width: 100%;
     height: 2px;
     cursor: pointer;
@@ -177,7 +186,8 @@ figure {
 
 .input-range::-webkit-slider-thumb {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
     height: 14px;
     width: 14px;
     margin-top: -6px;
@@ -188,17 +198,20 @@ figure {
 
 .input-range:focus::-webkit-slider-runnable-track {
     /*background: #f3f2f2;*/
-    background: #f2f3f3
+    /*background: #f2f3f3*/
+    background: #f5f5f5;
 }
 
 .input-range:focus::-webkit-slider-thumb {
     /*background: #f3f2f2;*/
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #f5f5f5;
 }
 
 .input-range::-moz-range-track {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
     width: 100%;
     height: 2px;
     cursor: pointer;
@@ -206,7 +219,8 @@ figure {
 
 .input-range::-moz-range-thumb {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -230,12 +244,14 @@ figure {
 
 .input-range::-ms-fill-upper {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
 }
 
 .input-range::-ms-thumb {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -244,12 +260,14 @@ figure {
 
 .input-range:focus::-ms-fill-lower {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
 }
 
 .input-range:focus::-ms-fill-upper {
     /*background: #bbb6b7;*/
-    background: #BBB9B9;
+    /*background: #BBB9B9;*/
+    background: #bebebe;
 }
 
 .button {
@@ -459,19 +477,22 @@ figure {
 
 .nav-link-container {
     /*border-top: 1px solid #eee;*/
-    border-top: 1px solid #BBB9B9;
+    /*border-top: 1px solid #BBB9B9;*/
+    border-top: 1px solid #bebebe;
     line-height: 60px;
 }
 
 .nav-link {
     /*color: #333;*/
-    color: #343131;
+    /*color: #343131;*/
+    color: #303030;
     display: block;
 }
 
 .nav-link:hover {
     /*color: #333;*/
-    color: #343131;
+    /*color: #343131;*/
+    color: #303030;
 }
 
 @media (min-width: 768px) {
@@ -607,7 +628,8 @@ figure {
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
     /*background: #f3f2f2;*/
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #f5f5f5;
     width: 100%;
     padding: 30px 0;
     position: relative;
@@ -626,7 +648,8 @@ figure {
 
 .font-hero-mobile {
     /*background: #f3f2f2;*/
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #f5f5f5;
     position: relative;
 }
 
@@ -641,7 +664,8 @@ figure {
 
 .font-hero-mobile-title {
     /*color: #776d6f;*/
-    color: #615959;
+    /*color: #615959;*/
+    color: #595959;
 }
 
 .font-hero-image {
@@ -707,7 +731,8 @@ figure {
 /* Font Example */
 .font-example-form-container {
     /*background: #776d6f;*/
-    background: #615959;
+    /*background: #615959;*/
+    background: #595959;
 }
 
 .font-example-form {
@@ -800,7 +825,8 @@ figure {
 
 .font-details-list {
     /*border: 1px solid #bbb6b7;*/
-    border: 1px solid #BBB9B9;
+    /*border: 1px solid #BBB9B9;*/
+    border: 1px solid #bebebe;
     padding-bottom: 5px;
     margin-bottom: 17px;
 }
@@ -808,7 +834,8 @@ figure {
 .font-details-list-header {
     margin-bottom: 15px;
     /*border-bottom: 1px solid #bbb6b7;*/
-    border-bottom: 1px solid #BBB9B9;
+    /*border-bottom: 1px solid #BBB9B9;*/
+    border-bottom: 1px solid #bebebe;
     padding: 0 15px;
     font-size: 14px;
     font-weight: 700;
