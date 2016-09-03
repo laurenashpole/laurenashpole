@@ -4,7 +4,13 @@
     {% for font in fonts %}
 
         <div class="font-grid-container background-img" style="background-color: rgba({{font.color}}, 1);">
-            <a href="/fonts/{{font.slug}}" class="font-grid">
+            <a
+                href="/fonts/{{font.slug}}"
+                class="font-grid js-ga-trigger"
+                data-ga-category="Fonts"
+                data-ga-action="click"
+                data-ga-label="{{font.name}}"
+            >
 
                 <div class="font-grid-image-container">
                     <span class="img-default">

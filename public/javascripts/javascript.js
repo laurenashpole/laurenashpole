@@ -15,6 +15,7 @@ View.prototype.cacheSelectors = function () {
 View.prototype.initEvents = function () {
 
     this.addEventListener('.js-nav-icon', 'click', this.toggleNav.bind(this));
+    this.addEventListener('.js-ga-trigger', 'click', this.sendGA.bind(this));
     this.addEventListener('.js-font-example-input', 'keyup', this.updateFontExampleText.bind(this));
     this.addEventListener('.js-font-example-size', 'change', this.updateFontExampleSize.bind(this));
     this.addEventListener('.js-font-example-spacing', 'change', this.updateFontExampleSpacing.bind(this));
@@ -97,6 +98,16 @@ View.prototype.updateFontExampleHeight = function (e) {
     for (var i = 0; i < this.textContainer.length; i++) {
         this.textContainer[i].style['line-height'] = lineHeight;
     }
+
+};
+
+View.prototype.sendGA = function (e) {
+
+    var category = e.target.dataset.gaCategory;
+    var action = e.target.dataset.gaAction;
+    var label = e.target.dataset.gaLabel;
+
+    ga('send', 'event', category, action, label);
 
 };
 

@@ -42,7 +42,14 @@
                         {% if font.commercial_font_file %}
                             <div class="font-button-container">
                                 <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
-                                    <button type="submit" title="Buy Now" class="button vertical-align-content">
+                                    <button
+                                        type="submit"
+                                        title="Buy Now"
+                                        class="button vertical-align-content js-ga-trigger"
+                                        data-ga-category="{{font.name}} Page"
+                                        data-ga-action="click"
+                                        data-ga-label="Buy Now"
+                                    >
                                         <span class="button-fine-print">Commercial Use <meta itemprop="priceCurrency" content="USD" /><span itemprop="price">$15</span></span>
                                         Purchase
                                     </button>
@@ -52,7 +59,13 @@
                         {% if font.personal_font_file %}
                             <div class="font-button-container">
                                 <div class="vertical-align-td">
-                                    <a href="/downloads/{{font.personal_font_file}}" class="button button-outline vertical-align-content">
+                                    <a
+                                        href="/downloads/{{font.personal_font_file}}"
+                                        class="button button-outline vertical-align-content js-ga-trigger"
+                                        data-ga-category="{{font.name}} Page"
+                                        data-ga-action="click"
+                                        data-ga-label="Download"
+                                    >
                                         <span class="button-fine-print">Personal Use Free</span>
                                         Download
                                     </a>
