@@ -1,9 +1,11 @@
 var index = require('../controllers/index');
+var contact = require('../controllers/contact');
 var fonts = require('../controllers/fonts');
 
 module.exports = function (app) {
 
     app.get('/', index.render);
+    app.post('/contact/send', contact.send);
     app.get('/fonts', fonts.renderFonts);
     app.get('/fonts/licensing', fonts.licensing);
     app.get('/fonts/eula', fonts.eula);

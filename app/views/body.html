@@ -44,9 +44,9 @@
             </li>
             <li class="nav-link-container">
                 <a
-                    href="mailto:{{email_address}}"
-                    title="{{email_address}}"
-                    class="nav-link js-ga-trigger"
+                    href="javascript:void(0)"
+                    title="Contact"
+                    class="nav-link js-nav-contact js-ga-trigger"
                     data-ga-category="Nav Links"
                     data-ga-action="click"
                     data-ga-label="Contact"
@@ -61,5 +61,7 @@
     <main class="main page-container clearfix">
         {% block content %}{% endblock %}
     </main>
+
+    {% include './includes/contact-modal.html' %}
 
 {% endblock %}
