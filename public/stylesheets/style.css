@@ -175,7 +175,8 @@ figure {
 }
 
 .input:focus {
-    border-color: #f5f5f5;
+    /*border-color: #f5f5f5;*/
+    border-color: #f2f1f1;
 }
 
 .input::-webkit-input-placeholder {
@@ -258,11 +259,13 @@ figure {
 }
 
 .input-range:focus::-webkit-slider-runnable-track {
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
+    background: #f2f1f1;
 }
 
 .input-range:focus::-webkit-slider-thumb {
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
+    background: #f2f1f1;
 }
 
 .input-range::-moz-range-track {
@@ -714,7 +717,8 @@ figure {
 .font-hero {
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
+    background: #f2f1f1;
     width: 100%;
     padding: 30px 0;
     position: relative;
@@ -732,7 +736,8 @@ figure {
 }
 
 .font-hero-mobile {
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
+    background: #f2f1f1;
     position: relative;
 }
 
@@ -758,7 +763,8 @@ figure {
 @media (min-width: 768px) {
 
     .font-hero {
-        height: calc(100vh - 210px);
+        /*height: calc(100vh - 210px);*/
+        height: calc(100vh - 190px);
         padding: 50px 0;
     }
 
@@ -811,7 +817,9 @@ figure {
 
 /* Font Example */
 .font-example-form-container {
-    background: #595959;
+    /*background: #595959;*/
+    background: #5b5354;
+    /*border-bottom: 1px solid rgba(89,89,89,0.25);*/
 }
 
 .font-example-form {
@@ -846,7 +854,8 @@ figure {
 }
 
 .font-example-text-container {
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #f2f1f1;
     border-bottom: 1px solid #fff;
     padding: 15px 0;
 }
@@ -885,7 +894,9 @@ figure {
 
 /* Font Details */
 .font-details {
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #c1bbbc;
+    color: #4e4748;
 }
 
 .font-details-section {
@@ -901,14 +912,16 @@ figure {
 }
 
 .font-details-list {
-    border: 1px solid #bebebe;
+    /*border: 1px solid #bebebe;*/
+    border: 1px solid #837779;
     padding-bottom: 5px;
     margin-bottom: 17px;
 }
 
 .font-details-list-header {
     margin-bottom: 15px;
-    border-bottom: 1px solid #bebebe;
+    /*border-bottom: 1px solid #bebebe;*/
+    border-bottom: 1px solid #837779;
     padding: 0 15px;
     font-size: 14px;
     font-weight: 700;
@@ -922,17 +935,42 @@ figure {
     padding: 0 15px;
 }
 
+.font-details .container {
+    padding-top: 0;
+}
+
 @media (min-width: 768px) {
 
-    .font-details-section {
+    .font-details-title {
         width: 50%;
-        margin: 0;
-        padding: 0 0 0 7.5px;
+        line-height: 70px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0;
         float: left;
     }
 
-    .font-details-section:first-child {
-        padding: 0 7.5px 0 0;
+    .font-details-date {
+        width: 50%;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 70px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: right;
+        float: right;
+    }
+
+    .font-details-section {
+        /*width: 50%;*/
+        margin: 0;
+        /*padding: 0 7.5px 0 0;*/
+        /*float: left;*/
+    }
+
+    .font-details-section:last-child {
+        /*margin-top: 70px;*/
+        /*padding: 0 0 0 7.5px;*/
     }
 }
 
@@ -948,11 +986,11 @@ figure {
     }
 
     .font-details-section {
-        padding: 0 0 0 10px;
+        /*padding: 0 0 0 10px;*/
     }
 
     .font-details-section:first-child {
-        padding: 0 10px 0 0;
+        /*padding: 0 10px 0 0;*/
     }
 
     .font-details-line {
@@ -978,7 +1016,8 @@ figure {
 
 /* Text Pages */
 .text-container {
-    background: #f2f3f3;
+    /*background: #f2f3f3;*/
+    background: #f2f1f1;
     min-height: calc(100vh - 70px);
     padding: 10%;
 }
