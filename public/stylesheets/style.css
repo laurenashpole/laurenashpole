@@ -480,6 +480,10 @@ figure {
     padding: 15px;
 }
 
+.container.is-wider {
+    max-width: 1124px;
+}
+
 .background-img {
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
@@ -784,7 +788,6 @@ figure {
 
     .font-hero {
         height: calc(100vh - 210px);
-        /*height: calc(100vh - 190px);*/
         padding: 50px 0;
     }
 
@@ -904,7 +907,7 @@ figure {
 
     .font-details-header {
         height: 91px;
-        line-height: 50px;
+        line-height: 60px;
     }
 
     .font-details-title {
@@ -914,12 +917,6 @@ figure {
     .font-details-date {
         margin-left: 15px;
         display: inline-block;
-    }
-
-    .font-details-chevron {
-        font-size: 20px;
-        display: block;
-        float: right;
     }
 
     .font-details-content {
@@ -948,6 +945,16 @@ figure {
 }
 
 @media (min-width: 1024px) {
+
+    .font-details-header {
+        line-height: 50px;
+    }
+
+    .font-details-chevron {
+        font-size: 20px;
+        display: block;
+        float: right;
+    }
 
     .font-details-list {
         margin-bottom: 22px;
