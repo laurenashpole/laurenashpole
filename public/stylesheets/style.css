@@ -1254,3 +1254,50 @@ figure {
         padding: 0 0 0 10px;
     }
 }
+
+/* Temporary: Move to individual font files */
+.--39-smooth .is-additional {
+    display: none;
+}
+
+.--at-love .is-additional {
+    display: none;
+}
+
+.--bikes .is-symbol,
+.--bikes .is-additional {
+    display: none;
+}
+
+.--boo-boo-kitty .is-additional {
+    display: none;
+}
+
+.--hecubus .is-additional {
+    display: none;
+}
+
+.--origamibats .is-additional {
+    display: none;
+}
+
+.--scooby-doo .is-additional {
+    display: none;
+}
+
+.--sewing-patterns .is-symbol,
+.--sewing-patterns .is-additional {
+    display: none;
+}
+
+.--sewing-patterns-2 .is-symbol,
+.--sewing-patterns-2 .is-additional {
+    display: none;
+}
+
+.--southbats .is-symbol,
+.--southbats .is-number,
+.--southbats .is-lower,
+.--southbats .is-additional {
+    display: none;
+}
