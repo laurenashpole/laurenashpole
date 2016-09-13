@@ -122,7 +122,7 @@ figure {
 .text-rule:before,
 .text-rule:after {
     content: " ";
-    background: #bebebe;
+    background: #d9d6d6;
     width: 50%;
     height: 1px;
     display: inline-block;
@@ -147,6 +147,32 @@ figure {
     }
 }
 
+.list-header {
+    background: repeating-linear-gradient(
+        -45deg,
+        #d9d6d6,
+        #d9d6d6 1px,
+        transparent 2px,
+        transparent 3px
+    );
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.list-header.is-light {
+    background: repeating-linear-gradient(
+        -45deg,
+        #f5f4f4,
+        #f5f4f4 1px,
+        transparent 2px,
+        transparent 3px
+    );
+}
+
 /* Forms */
 .input,
 .button,
@@ -155,7 +181,7 @@ figure {
     border: none;
     padding: 0;
     font: 300 16px 'Source Sans Pro';
-    color: #bebebe;
+    color: #d9d6d6;
     line-height: inherit;
     text-transform: inherit;
     letter-spacing: 0.05em;
@@ -169,36 +195,35 @@ figure {
 }
 .input {
     background: none;
-    border: 1px solid #bebebe;
+    border: 1px solid #d9d6d6;
     padding: 0 10px;
     line-height: 58px;
 }
 
 .input:focus {
-    /*border-color: #f5f5f5;*/
-    border-color: #f2f1f1;
+    border-color: #f5f4f4;
 }
 
 .input::-webkit-input-placeholder {
-    color: #bebebe;
+    color: #d9d6d6;
 }
 
 .input::-moz-placeholder {
-    color: #bebebe;
+    color: #d9d6d6;
 }
 
 .input:-ms-input-placeholder {
-    color: #bebebe;
+    color: #d9d6d6;
 }
 
 .input:-moz-placeholder {
-    color: #bebebe;
+    color: #d9d6d6;
 }
 
 .input-label-inset {
     height: 60px;
     margin-bottom: 15px;
-    border: 1px solid #bebebe;
+    border: 1px solid #d9d6d6;
     position: relative;
 }
 
@@ -242,14 +267,14 @@ figure {
 }
 
 .input-range::-webkit-slider-runnable-track {
-    background: #bebebe;
+    background: #d9d6d6;
     width: 100%;
-    height: 2px;
+    height: 1px;
     cursor: pointer;
 }
 
 .input-range::-webkit-slider-thumb {
-    background: #bebebe;
+    background: #d9d6d6;
     height: 14px;
     width: 14px;
     margin-top: -6px;
@@ -259,24 +284,22 @@ figure {
 }
 
 .input-range:focus::-webkit-slider-runnable-track {
-    /*background: #f5f5f5;*/
-    background: #f2f1f1;
+    background: #f5f4f4;
 }
 
 .input-range:focus::-webkit-slider-thumb {
-    /*background: #f5f5f5;*/
-    background: #f2f1f1;
+    background: #f5f4f4;
 }
 
 .input-range::-moz-range-track {
-    background: #bebebe;
+    background: #d9d6d6;
     width: 100%;
-    height: 2px;
+    height: 1px;
     cursor: pointer;
 }
 
 .input-range::-moz-range-thumb {
-    background: #bebebe;
+    background: #d9d6d6;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -286,7 +309,7 @@ figure {
 .input-range::-ms-track {
     background: transparent;
     width: 100%;
-    height: 2px;
+    height: 1px;
     border-width: 9px 0;
     border-color: transparent;
     cursor: pointer;
@@ -294,16 +317,15 @@ figure {
 }
 
 .input-range::-ms-fill-lower {
-    background: #bebebe;
+    background: #d9d6d6;
 }
 
 .input-range::-ms-fill-upper {
-    background: #bebebe;
+    background: #d9d6d6;
 }
 
 .input-range::-ms-thumb {
-
-    background: #bebebe;
+    background: #d9d6d6;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -311,11 +333,11 @@ figure {
 }
 
 .input-range:focus::-ms-fill-lower {
-    background: #bebebe;
+    background: #d9d6d6;
 }
 
 .input-range:focus::-ms-fill-upper {
-    background: #bebebe;
+    background: #d9d6d6;
 }
 
 .label-required {
@@ -329,7 +351,7 @@ figure {
 
 .input.is-required + label .label-required,
 .textarea.is-required + label .label-required {
-    color: #bebebe;
+    background: #d9d6d6;
     font-weight: normal;
     display: inline;
 }
@@ -474,7 +496,7 @@ figure {
 @media (min-width: 1024px) {
 
     .container {
-        padding: 20px;
+        padding: 20px 30px;
     }
 }
 
@@ -572,7 +594,7 @@ figure {
 }
 
 .nav-link-container {
-    border-top: 1px solid #bebebe;
+    border-top: 1px solid #d9d6d6;
     line-height: 60px;
 }
 
@@ -717,8 +739,7 @@ figure {
 .font-hero {
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
-    /*background: #f5f5f5;*/
-    background: #f2f1f1;
+    background: #f5f4f4;
     width: 100%;
     padding: 30px 0;
     position: relative;
@@ -736,8 +757,7 @@ figure {
 }
 
 .font-hero-mobile {
-    /*background: #f5f5f5;*/
-    background: #f2f1f1;
+    background: #f5f4f4;
     position: relative;
 }
 
@@ -763,8 +783,8 @@ figure {
 @media (min-width: 768px) {
 
     .font-hero {
-        /*height: calc(100vh - 210px);*/
-        height: calc(100vh - 190px);
+        height: calc(100vh - 210px);
+        /*height: calc(100vh - 190px);*/
         padding: 50px 0;
     }
 
@@ -815,16 +835,145 @@ figure {
     }
 }
 
-/* Font Example */
-.font-example-form-container {
-    /*background: #595959;*/
-    background: #5b5354;
-    /*border-bottom: 1px solid rgba(89,89,89,0.25);*/
+/* Font Details */
+.font-details {
+    background: #d9d6d6;
+    color: #4e4748;
 }
 
-.font-example-form {
-    padding-top: 15px;
-    padding-bottom: 15px;
+.font-details-header {
+    border-bottom: 1px solid #f5f4f4;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.font-details-title {
+    font-size: 20px;
+}
+
+.font-details-date {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
+
+.font-details-chevron {
+    display: none;
+}
+
+.font-details-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.font-details-licensing {
+    margin: 0 20px 30px 0;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    float: left;
+}
+
+.font-details-description {
+    margin: 0 0 30px 0;
+}
+
+.font-details-list-container {
+    margin-bottom: 30px;
+}
+
+.font-details-list-container:last-child {
+    margin-bottom: 0;
+}
+
+.font-details-list {
+    border: 1px solid #f5f4f4;
+    padding-bottom: 5px;
+}
+
+.font-details-list-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f5f4f4;
+}
+
+.font-details-list-item {
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+@media (min-width: 768px) {
+
+    .font-details-header {
+        height: 91px;
+        line-height: 50px;
+    }
+
+    .font-details-title {
+        display: inline-block;
+    }
+
+    .font-details-date {
+        margin-left: 15px;
+        display: inline-block;
+    }
+
+    .font-details-chevron {
+        font-size: 20px;
+        display: block;
+        float: right;
+    }
+
+    .font-details-content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .font-details-licensing {
+        margin: 0 30px 40px 0;
+    }
+
+    .font-details-description {
+        margin: 0 0 40px 0;
+    }
+
+    .font-details-list-container {
+        width: 50%;
+        margin-bottom: 0;
+        padding: 0 7.5px 0 0;
+        float: left;
+    }
+
+    .font-details-list-container:last-child {
+        padding: 0 0 0 7.5px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .font-details-list {
+        margin-bottom: 22px;
+        padding-bottom: 10px;
+    }
+
+    .font-details-list-header {
+        margin-bottom: 20px;
+    }
+
+    .font-details-list-container {
+        padding: 0 10px 0 0;
+    }
+
+    .font-details-list-container:last-child {
+        padding: 0 0 0 10px;
+    }
+}
+
+/* Font Example */
+.font-example {
+    color: #4e4748;
+}
+
+.font-example-form-container {
+    background: #5b5354;
 }
 
 .font-example-input-container {
@@ -833,13 +982,22 @@ figure {
 
 .font-example-setting-container {
     width: 33.333%;
-    padding: 0 10px;
+    padding: 20px 15px 0 15px;
     float: left;
+    position: relative;
 }
 
 .font-example-input-range-label {
     font-size: 14px;
-    color: #adadad;
+    color: #d9d6d6;
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.font-example-input-range:focus + .font-example-input-range-label,
+.font-example-input-range:active + .font-example-input-range-label {
+    color: #f5f4f4;
 }
 
 .font-example-icon-text {
@@ -854,9 +1012,8 @@ figure {
 }
 
 .font-example-text-container {
-    /*background: #f2f3f3;*/
-    background: #f2f1f1;
-    border-bottom: 1px solid #fff;
+    background: #f5f4f4;
+    border-bottom: 1px solid #d9d6d6;
     padding: 15px 0;
 }
 
@@ -879,6 +1036,14 @@ figure {
         padding-left: 7.5px;
         float: left;
     }
+
+    .font-example-setting-container {
+        padding: 20px 0 0 45px;
+    }
+
+    .font-example-input-range-label {
+        left: 45px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -892,109 +1057,47 @@ figure {
     }
 }
 
-/* Font Details */
-.font-details {
-    /*background: #f2f3f3;*/
-    background: #c1bbbc;
+/* Font Glyphs */
+.font-glyphs-container {
+    background: #f5f4f4;
+    padding: 30px 0;
     color: #4e4748;
 }
 
-.font-details-section {
-    margin-bottom: 30px;
+.font-glyphs-header {
+    border: 1px solid #d9d6d6;
 }
 
-.font-details-section:last-child {
-    margin-bottom: 0;
+.font-glyphs {
+    border-left: 1px solid #d9d6d6;
 }
 
-.font-details-line {
-    margin-bottom: 15px;
-}
-
-.font-details-list {
-    /*border: 1px solid #bebebe;*/
-    border: 1px solid #837779;
-    padding-bottom: 5px;
-    margin-bottom: 17px;
-}
-
-.font-details-list-header {
-    margin-bottom: 15px;
-    /*border-bottom: 1px solid #bebebe;*/
-    border-bottom: 1px solid #837779;
-    padding: 0 15px;
-    font-size: 14px;
-    font-weight: 700;
+.font-glyph {
+    width: 20%;
+    border-right: 1px solid #d9d6d6;
+    border-bottom: 1px solid #d9d6d6;
+    font-size: 24px;
     line-height: 60px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.font-details-list-item {
-    margin-bottom: 10px;
-    padding: 0 15px;
-}
-
-.font-details .container {
-    padding-top: 0;
+    text-align: center;
+    overflow: hidden;
+    float: left;
 }
 
 @media (min-width: 768px) {
 
-    .font-details-title {
-        width: 50%;
-        line-height: 70px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        margin-bottom: 0;
-        float: left;
-    }
-
-    .font-details-date {
-        width: 50%;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 70px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        text-align: right;
-        float: right;
-    }
-
-    .font-details-section {
-        /*width: 50%;*/
-        margin: 0;
-        /*padding: 0 7.5px 0 0;*/
-        /*float: left;*/
-    }
-
-    .font-details-section:last-child {
-        /*margin-top: 70px;*/
-        /*padding: 0 0 0 7.5px;*/
+    .font-glyph {
+        width: 12.5%;
     }
 }
 
 @media (min-width: 1024px) {
 
-    .font-details-list {
-        margin-bottom: 22px;
-        padding-bottom: 10px;
+    .font-glyphs-container {
+        padding: 40px 0;
     }
 
-    .font-details-list-header {
-        margin-bottom: 20px;
-    }
-
-    .font-details-section {
-        /*padding: 0 0 0 10px;*/
-    }
-
-    .font-details-section:first-child {
-        /*padding: 0 10px 0 0;*/
-    }
-
-    .font-details-line {
-        margin-bottom: 30px;
+    .font-glyph {
+        width: 10%;
     }
 }
 
@@ -1016,8 +1119,7 @@ figure {
 
 /* Text Pages */
 .text-container {
-    /*background: #f2f3f3;*/
-    background: #f2f1f1;
+    background: #f5f4f4;
     min-height: calc(100vh - 70px);
     padding: 10%;
 }
