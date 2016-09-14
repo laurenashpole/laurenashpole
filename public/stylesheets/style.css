@@ -942,12 +942,12 @@ figure {
     .font-details-list-container {
         width: 50%;
         margin-bottom: 0;
-        padding: 0 7.5px 0 0;
+        padding: 0 0 0 7.5px;
         float: left;
     }
 
-    .font-details-list-container:last-child {
-        padding: 0 0 0 7.5px;
+    .font-details-list-container:first-child {
+        padding: 0 7.5px 0 0;
     }
 }
 
@@ -973,11 +973,11 @@ figure {
     }
 
     .font-details-list-container {
-        padding: 0 10px 0 0;
+        padding: 0 0 0 10px;
     }
 
     .font-details-list-container:last-child {
-        padding: 0 0 0 10px;
+        padding: 0 10px 0 0;
     }
 }
 
