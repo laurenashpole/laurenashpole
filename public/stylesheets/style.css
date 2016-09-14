@@ -10,7 +10,7 @@ body {
 body {
     margin: 0;
     padding: 0;
-    color: #303030;
+    color: #272324;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
@@ -148,13 +148,17 @@ figure {
 }
 
 .list-header {
-    background: repeating-linear-gradient(
+    background-image: linear-gradient(
         -45deg,
-        #d9d6d6,
-        #d9d6d6 1px,
-        transparent 2px,
-        transparent 3px
+        #d9d6d6 25%,
+        transparent 25%,
+        transparent 50%,
+        #d9d6d6 50%,
+        #d9d6d6 75%,
+        transparent 75%,
+        transparent
     );
+    background-size: 4px 4px;
     padding: 0 15px;
     font-size: 14px;
     font-weight: 700;
@@ -164,12 +168,15 @@ figure {
 }
 
 .list-header.is-light {
-    background: repeating-linear-gradient(
+    background-image: linear-gradient(
         -45deg,
-        #f5f4f4,
-        #f5f4f4 1px,
-        transparent 2px,
-        transparent 3px
+        #f5f4f4 25%,
+        transparent 25%,
+        transparent 50%,
+        #f5f4f4 50%,
+        #f5f4f4 75%,
+        transparent 75%,
+        transparent
     );
 }
 
@@ -231,7 +238,7 @@ figure {
     height: 58px;
     border: none;
     padding: 15px 0 0 7px;
-    color: #303030;
+    color: #272324;
     font-size: 18px;
 }
 
@@ -255,7 +262,7 @@ figure {
 
 .textarea-label-inset .textarea {
     padding: 25px 7px 0 7px;
-    color: #303030;
+    color: #272324;
     font-size: 18px;
     display: block;
 }
@@ -603,12 +610,12 @@ figure {
 }
 
 .nav-link {
-    color: #303030;
+    color: #272324;
     display: block;
 }
 
 .nav-link:hover {
-    color: #303030;
+    color: #272324;
 }
 
 @media (min-width: 768px) {
@@ -775,7 +782,7 @@ figure {
 }
 
 .font-hero-mobile-title {
-    color: #595959;
+    color: #4e4748;
 }
 
 .font-hero-image {
@@ -1253,51 +1260,4 @@ figure {
         width: 33.333%;
         padding: 0 0 0 10px;
     }
-}
-
-/* Temporary: Move to individual font files */
-.--39-smooth .is-additional {
-    display: none;
-}
-
-.--at-love .is-additional {
-    display: none;
-}
-
-.--bikes .is-symbol,
-.--bikes .is-additional {
-    display: none;
-}
-
-.--boo-boo-kitty .is-additional {
-    display: none;
-}
-
-.--hecubus .is-additional {
-    display: none;
-}
-
-.--origamibats .is-additional {
-    display: none;
-}
-
-.--scooby-doo .is-additional {
-    display: none;
-}
-
-.--sewing-patterns .is-symbol,
-.--sewing-patterns .is-additional {
-    display: none;
-}
-
-.--sewing-patterns-2 .is-symbol,
-.--sewing-patterns-2 .is-additional {
-    display: none;
-}
-
-.--southbats .is-symbol,
-.--southbats .is-number,
-.--southbats .is-lower,
-.--southbats .is-additional {
-    display: none;
 }
