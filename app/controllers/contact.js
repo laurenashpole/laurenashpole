@@ -12,8 +12,7 @@ var transporter = nodemailer.createTransport({
 exports.send = function (req, res) {
 
     var response = {
-        success: false,
-        message: 'There was a problem sending your message. Please try again.'
+        success: false
     }
 
     if (req.body && req.body.senderEmail && req.body.subject && req.body.message) {
@@ -31,8 +30,7 @@ exports.send = function (req, res) {
             if (!err) {
 
                 response = {
-                    success: true,
-                    message: 'Your message has been sent! Thanks for getting in touch. I\'ll try to get back to you shortly so keep an eye on your inbox.'
+                    success: true
                 }
 
             }

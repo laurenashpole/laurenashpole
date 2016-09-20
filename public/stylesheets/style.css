@@ -1221,28 +1221,21 @@ figure {
     padding: 0 0 0 7.5px;
 }
 
-.contact-form-confirm {
-    background: #fff;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-
-    -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
+.contact-form-button.is-complete {
+    background: rgba(132, 181, 151, 1);
+    border-color: rgba(132, 181, 151, 1);
 }
 
-.modal-container.is-complete .contact-form-confirm {
-    opacity: 1;
-    visibility: visible;
+.contact-form-button.is-complete:after {
+    content: "Message Sent!";
 }
 
-.contact-form-confirm-message {
-    padding: 30px;
+.contact-form-button.is-error:after {
+    content: "Error! Try Again.";
+}
+
+.contact-form-button.is-complete .contact-form-button-text {
+    display: none;
 }
 
 @media (min-width: 768px) {

@@ -111,7 +111,6 @@ ContactModal.prototype.cacheSelectors = function () {
     this.body = document.body;
     this.contactModal = document.querySelector('.js-contact-modal-container');
     this.contactForm = document.querySelector('.js-contact-form');
-    this.contactConfirmMessage = document.querySelector('.js-contact-form-confirm-message');
 };
 
 ContactModal.prototype.initEvents = function () {
@@ -132,7 +131,8 @@ ContactModal.prototype.closeContactModal = function (e) {
     e.preventDefault();
 
     this.contactModal.classList.remove('is-open');
-    this.contactModal.classList.remove('is-complete');
+    e.target.classList.remove('is-complete');
+    e.target.classList.remove('is-error');
     this.body.classList.remove('no-scroll');
 };
 
@@ -178,8 +178,12 @@ ContactModal.prototype.afterSend = function (response, e) {
     var _this = this;
 
     e.target.classList.remove('is-processing');
-    this.contactModal.classList.add('is-complete');
-    this.contactConfirmMessage.textContent = response.message;
+
+    if (response.success) {
+        e.target.classList.add('is-complete');
+    } else {
+        e.target.classList.add('is-error');
+    }
 
     setTimeout(function () {
         _this.closeContactModal(e);
