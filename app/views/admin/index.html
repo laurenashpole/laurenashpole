@@ -4,51 +4,49 @@
 
     {% if signed_out %}
 
-        <section class="login-container vertical-align-td">
-            <div class="vertical-align-content">
-                <div class="login">
+        <section class="section is-full-height is-text-only login-container">
+            <div class="login">
 
-                    {% if message.length %}
-                        <div class="growl">{{message}}</div>
-                    {% endif %}
+                {% if message.length %}
+                    <div class="growl">{{message}}</div>
+                {% endif %}
 
-                    <h1 class="form-title">Login</h1>
+                <h1 class="form-title">Login</h1>
 
-                    <form method="post" action="/admin/login">
+                <form method="post" action="/admin/login">
 
-                        <div class="input-label-inset">
-                            <label for="name">Username</label>
-                            <input type="text" id="username" name="username" />
-                        </div>
+                    <div class="input-label-inset">
+                        <label for="name">Username</label>
+                        <input type="text" id="username" name="username" />
+                    </div>
 
-                        <div class="input-label-inset">
-                            <label for="slug">Password</label>
-                            <input type="password" id="password" name="password" />
-                        </div>
+                    <div class="input-label-inset">
+                        <label for="slug">Password</label>
+                        <input type="password" id="password" name="password" />
+                    </div>
 
-                        <button type="submit" class="button button-primary">Submit</button>
+                    <button type="submit" class="button button-primary">Submit</button>
 
-                    </form>
+                </form>
 
-                    <h1 class="form-title">Sign Up</h1>
+                <h1 class="form-title">Sign Up</h1>
 
-                    <form method="post" action="/admin/signup">
+                <form method="post" action="/admin/signup">
 
-                        <div class="input-label-inset">
-                            <label for="name">Username</label>
-                            <input type="text" id="username" name="username" />
-                        </div>
+                    <div class="input-label-inset">
+                        <label for="name">Username</label>
+                        <input type="text" id="username" name="username" />
+                    </div>
 
-                        <div class="input-label-inset">
-                            <label for="slug">Password</label>
-                            <input type="password" id="password" name="password" />
-                        </div>
+                    <div class="input-label-inset">
+                        <label for="slug">Password</label>
+                        <input type="password" id="password" name="password" />
+                    </div>
 
-                        <button type="submit" class="button button-primary">Submit</button>
+                    <button type="submit" class="button button-primary">Submit</button>
 
-                    </form>
+                </form>
 
-                </div>
             </div>
         </section>
 
