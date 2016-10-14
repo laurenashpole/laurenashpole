@@ -18,63 +18,9 @@
 
 {% block body %}
 
-    <nav class="page-container nav clearfix">
+    {% include './includes/nav.html' %}
 
-        <a href="/" title="Lauren Ashpole" class="nav-logo-container">
-            <img src="/images/la.svg" class="nav-logo" alt="Lauren Ashpole">
-        </a>
-
-        <a href="javascript:void(0);" class="nav-icon-container js-nav-icon" title="Nav">
-            <span class="nav-icon">
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-            </span>
-        </a>
-
-        <ul class="nav-links clearfix">
-            <li class="nav-link-container">
-                <a
-                    href="/fonts"
-                    title="Fonts"
-                    class="nav-link js-ga-trigger"
-                    data-ga-category="Nav Links"
-                    data-ga-action="click"
-                    data-ga-label="Fonts"
-                >
-                    Fonts
-                </a>
-            </li>
-            <li class="nav-link-container">
-                <a
-                    href="http://blog.laurenashpole.com"
-                    title="Blog"
-                    class="nav-link js-ga-trigger"
-                    data-ga-category="Nav Links"
-                    data-ga-action="click"
-                    data-ga-label="Blog"
-                >
-                    Blog
-                </a>
-            </li>
-            <li class="nav-link-container">
-                <a
-                    href="javascript:void(0)"
-                    title="Contact"
-                    class="nav-link js-nav-contact js-ga-trigger"
-                    data-ga-category="Nav Links"
-                    data-ga-action="click"
-                    data-ga-label="Contact"
-                >
-                    Contact
-                </a>
-            </li>
-        </ul>
-
-    </nav>
-
-    <main class="main page-container clearfix">
+    <main class="page-container is-main clearfix">
         {% block content %}{% endblock %}
     </main>
 
