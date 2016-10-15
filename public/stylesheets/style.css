@@ -570,7 +570,7 @@ figure {
 
     .section.has-diagonal-bg:after {
         width: 50%;
-        padding-bottom: 50%;
+        padding-bottom: 100%;
         top: 0;
         left: 0;
         -webkit-transform-origin: 0 0;
@@ -1185,14 +1185,21 @@ figure {
 }
 
 .shop-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .shop-list-item {
     width: 50%;
     padding: 15px 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -1336,10 +1343,12 @@ figure {
     }
 
     .homepage-font-grid {
+        -webkit-transition: transform 0.2s;
         transition: transform 0.2s;
     }
 
     .homepage-font-grid:hover {
+        -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }
 
@@ -1352,6 +1361,7 @@ figure {
         max-width: 400px;
         margin-left: 8%;
         z-index: 1;
+        -webkit-transform: rotate(2deg);
         transform: rotate(2deg);
     }
 
@@ -1359,8 +1369,10 @@ figure {
         width: 31.25%;
         max-width: 250px;
         position: absolute;
+        top: 13%;
         left: 55%;
-        transform: translate3d(0, -40%, 0) rotate(-2deg);
+        -webkit-transform: rotate(-2deg);
+        transform: rotate(-2deg);
         z-index: 1;
     }
 
@@ -1368,7 +1380,9 @@ figure {
         width: 28.125%;
         max-width: 225px;
         position: absolute;
+        top: 52%;
         left: 59%;
-        transform: translate3d(0, 55%, 0) rotate(3deg);
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
     }
 }
