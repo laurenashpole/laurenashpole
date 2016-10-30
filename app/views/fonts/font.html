@@ -37,122 +37,110 @@
                     </div>
                 </div>
 
-                <div class="font-buttons {% if font.one_download_option %}has-one-button{% endif %}">
-                    <div class="container clearfix">
-                        {% if font.commercial_font_file %}
-                            <div class="font-button-container">
-                                <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
-                                    <button
-                                        type="submit"
-                                        title="Buy Now"
-                                        class="button vertical-align-content js-ga-trigger"
-                                        data-ga-category="{{font.name}} Page"
-                                        data-ga-action="click"
-                                        data-ga-label="Buy Now"
-                                    >
-                                        <span class="button-fine-print">Commercial Use <meta itemprop="priceCurrency" content="USD" /><span itemprop="price">$15</span></span>
-                                        Purchase
-                                    </button>
-                                </form>
-                            </div>
-                        {% endif %}
-                        {% if font.personal_font_file %}
-                            <div class="font-button-container">
-                                <div class="vertical-align-td">
-                                    <a
-                                        href="/downloads/{{font.personal_font_file}}"
-                                        class="button button-outline vertical-align-content js-ga-trigger"
-                                        data-ga-category="{{font.name}} Page"
-                                        data-ga-action="click"
-                                        data-ga-label="Download"
-                                    >
-                                        <span class="button-fine-print">Personal Use Free</span>
-                                        Download
-                                    </a>
-                                </div>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <section class="font-details">
+        <section class="font-page-section font-details-section">
+            <div class="container font-page-container font-details-container">
 
-            <header class="font-details-header">
-                <div class="container clearfix is-wider">
-
-                    <h1 class="font-details-title" itemprop="name">
-                        {{font.name}}
-                    </h1>
-
-                    <span class="font-details-date">
-                        Created: {{font.date_created}}
-                        {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
-                    </span>
-
-                    <div class="font-details-chevron">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-
+                <div class="font-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
+                    {% if font.commercial_font_file %}
+                        <div class="font-button-container">
+                            <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
+                                <button
+                                    type="submit"
+                                    title="Buy Now"
+                                    class="button vertical-align-content js-ga-trigger"
+                                    data-ga-category="{{font.name}} Page"
+                                    data-ga-action="click"
+                                    data-ga-label="Buy Now"
+                                >
+                                    <span class="button-fine-print">Commercial Use <meta itemprop="priceCurrency" content="USD" /><span itemprop="price">$15</span></span>
+                                    Purchase
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+                    {% if font.personal_font_file %}
+                        <div class="font-button-container">
+                            <div class="vertical-align-td">
+                                <a
+                                    href="/downloads/{{font.personal_font_file}}"
+                                    class="button button-outline vertical-align-content js-ga-trigger"
+                                    data-ga-category="{{font.name}} Page"
+                                    data-ga-action="click"
+                                    data-ga-label="Download"
+                                >
+                                    <span class="button-fine-print">Personal Use Free</span>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
-            </header>
 
-            <div class="container is-wider font-details-content">
+                <div class="font-details-content-container">
+                    <div class="font-details-content">
 
-                <ul class="clearfix">
-                    <li class="font-details-licensing">
-                        <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
-                    </li>
-                    <li class="font-details-licensing">
-                        <a href="/fonts/eula" title="EULA">View EULA</a>
-                    </li>
-                </ul>
+                        <h1 class="font-details-title" itemprop="name">
+                            {{font.name}}
+                        </h1>
 
-                {% if font.description %}
-                    <div class="font-details-description">
-                        {% autoescape false %}{{font.description}}{% endautoescape %}
+                        <div class="font-details-date">
+                            Created: {{font.date_created}}
+                            {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
+                        </div>
+
+                        <ul>
+                            <li class="font-details-licensing">
+                                <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
+                            </li>
+                            <li class="font-details-licensing">
+                                <a href="/fonts/eula" title="EULA">View EULA</a>
+                            </li>
+                        </ul>
+
+                        {% if font.description %}
+                            <div class="font-details-description">
+                                {% autoescape false %}{{font.description}}{% endautoescape %}
+                            </div>
+                        {% endif %}
+
                     </div>
-                {% endif %}
 
-                <div class="font-details-lists clearfix" itemprop="description">
+                    <div class="font-details-lists clearfix" itemprop="description">
 
-                    {% if font.commercial_use_details.length %}
-                        <div class="font-details-list-container">
+                        {% if font.commercial_use_details.length %}
                             <ul class="font-details-list">
-                                <li class="list-header is-light font-details-list-header">Commercial Use Details</li>
+                                <li class="list-header-text font-details-list-header">Commercial Use Details</li>
                                 {% for detail in font.commercial_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
                             </ul>
-                        </div>
-                    {% endif %}
+                        {% endif %}
 
-                    {% if font.personal_use_details.length %}
-                        <div class="font-details-list-container">
+                        {% if font.personal_use_details.length %}
                             <ul class="font-details-list">
-                                <li class="list-header is-light font-details-list-header">Personal Use Details</li>
+                                <li class="list-header-text font-details-list-header">Personal Use Details</li>
                                 {% for detail in font.personal_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
                             </ul>
-                        </div>
-                    {% endif %}
+                        {% endif %}
 
+                    </div>
                 </div>
 
             </div>
-
         </section>
 
-        <section class="font-example">
+        <section class="font-page-section font-example">
+            <div class="container font-page-container font-example-header-container font-example-form-container">
 
-            <div class="font-example-form-container">
-                <form class="container is-wider font-example-form clearfix">
+                <form class="font-example-form clearfix">
 
                     <div class="input-container font-example-input-container">
-                        <input type="text" class="input input-white-text js-font-example-input" placeholder="Enter your preview text">
+                        <input type="text" class="input font-example-input js-font-example-input" placeholder="Enter your preview text">
                     </div>
 
                     <div class="font-example-settings clearfix">
@@ -184,34 +172,29 @@
                 </form>
             </div>
 
-            <div class="font-example-text-container">
-                <div class="container is-wider">
-
-                    <div class="font-example-text font-{{font.slug}}">
-                        Enter your preview text
-                    </div>
-
+            <div class="container font-page-container font-example-container font-example-text-container">
+                <div class="font-example-text font-{{font.slug}}">
+                    Enter your preview text
                 </div>
             </div>
 
             {% if font.alternate_style %}
-                <div class="font-example-text-container">
-                    <div class="container is-wider">
-
-                        <div class="font-example-text {{font.alternate_style}}">
-                            Enter your preview text
-                        </div>
-
+                <div class="container font-page-container font-example-container font-example-text-container">
+                    <div class="font-example-text {{font.alternate_style}}">
+                        Enter your preview text
                     </div>
                 </div>
             {% endif %}
 
         </section>
 
-        <section class="font-glyphs-container">
-            <div class="container is-wider">
+        <section class="font-page-section font-example">
 
-                <div class="list-header font-glyphs-header">Glyphs</div>
+            <div class="container list-header-text font-example-header-container font-glyphs-header">
+                Glyphs
+            </div>
+
+            <div class="container font-page-container font-example-container">
 
                 <div class="font-glyphs clearfix font-{{font.slug}}">
                     <div class="font-glyph is-symbol">!</div>
@@ -425,6 +408,7 @@
                     <div class="font-glyph is-additional">&euro;</div>
                     <div class="font-glyph is-additional">&#8482;</div>
                 </div>
+
             </div>
         </section>
 
