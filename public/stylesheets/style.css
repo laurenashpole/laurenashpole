@@ -10,7 +10,7 @@ body {
 body {
     margin: 0;
     padding: 0;
-    color: #272324;
+    color: #2c2c2c;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
@@ -103,7 +103,7 @@ figure {
 .text-rule:before,
 .text-rule:after {
     content: " ";
-    background: #d9d6d6;
+    background: #ddd;
     width: 50%;
     height: 1px;
     display: inline-block;
@@ -128,14 +128,21 @@ figure {
     }
 }
 
+.list-header-text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 .list-header {
     background-image: linear-gradient(
         -45deg,
-        #d9d6d6 25%,
+        #ddd 25%,
         transparent 25%,
         transparent 50%,
-        #d9d6d6 50%,
-        #d9d6d6 75%,
+        #ddd 50%,
+        #ddd 75%,
         transparent 75%,
         transparent
     );
@@ -151,11 +158,11 @@ figure {
 .list-header.is-light {
     background-image: linear-gradient(
         -45deg,
-        #f5f4f4 25%,
+        #f6f6f6 25%,
         transparent 25%,
         transparent 50%,
-        #f5f4f4 50%,
-        #f5f4f4 75%,
+        #f6f6f6 50%,
+        #f6f6f6 75%,
         transparent 75%,
         transparent
     );
@@ -199,7 +206,7 @@ figure {
     border: none;
     padding: 0;
     font: 300 16px 'Source Sans Pro';
-    color: #d9d6d6;
+    color: #2c2c2c;
     line-height: inherit;
     text-transform: inherit;
     letter-spacing: 0.05em;
@@ -211,37 +218,37 @@ figure {
 .button:focus {
     outline: none;
 }
+
 .input {
-    background: none;
-    border: 1px solid #d9d6d6;
+    border: 1px solid #ddd;
     padding: 0 10px;
     line-height: 58px;
 }
 
 .input:focus {
-    border-color: #f5f4f4;
+    border-color: #bbb;
 }
 
 .input::-webkit-input-placeholder {
-    color: #d9d6d6;
+    color: #bbb;
 }
 
 .input::-moz-placeholder {
-    color: #d9d6d6;
+    color: #bbb;
 }
 
 .input:-ms-input-placeholder {
-    color: #d9d6d6;
+    color: #bbb;
 }
 
 .input:-moz-placeholder {
-    color: #d9d6d6;
+    color: #bbb;
 }
 
 .input-label-inset {
     height: 60px;
     margin-bottom: 15px;
-    border: 1px solid #d9d6d6;
+    border: 1px solid #ddd;
     position: relative;
 }
 
@@ -249,7 +256,7 @@ figure {
     height: 58px;
     border: none;
     padding: 15px 0 0 7px;
-    color: #272324;
+    color: #2c2c2c;
     font-size: 18px;
 }
 
@@ -273,7 +280,7 @@ figure {
 
 .textarea-label-inset .textarea {
     padding: 25px 7px 0 7px;
-    color: #272324;
+    color: #2c2c2c;
     font-size: 18px;
     display: block;
 }
@@ -285,14 +292,14 @@ figure {
 }
 
 .input-range::-webkit-slider-runnable-track {
-    background: #d9d6d6;
+    background: #ddd;
     width: 100%;
-    height: 1px;
+    height: 2px;
     cursor: pointer;
 }
 
 .input-range::-webkit-slider-thumb {
-    background: #d9d6d6;
+    background: #ddd;
     height: 14px;
     width: 14px;
     margin-top: -6px;
@@ -302,22 +309,22 @@ figure {
 }
 
 .input-range:focus::-webkit-slider-runnable-track {
-    background: #f5f4f4;
+    background: #fff;
 }
 
 .input-range:focus::-webkit-slider-thumb {
-    background: #f5f4f4;
+    background: #fff;
 }
 
 .input-range::-moz-range-track {
-    background: #d9d6d6;
+    background: #ddd;
     width: 100%;
-    height: 1px;
+    height: 2px;
     cursor: pointer;
 }
 
 .input-range::-moz-range-thumb {
-    background: #d9d6d6;
+    background: #ddd;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -327,7 +334,7 @@ figure {
 .input-range::-ms-track {
     background: transparent;
     width: 100%;
-    height: 1px;
+    height: 2px;
     border-width: 9px 0;
     border-color: transparent;
     cursor: pointer;
@@ -335,15 +342,15 @@ figure {
 }
 
 .input-range::-ms-fill-lower {
-    background: #d9d6d6;
+    background: #ddd;
 }
 
 .input-range::-ms-fill-upper {
-    background: #d9d6d6;
+    background: #ddd;
 }
 
 .input-range::-ms-thumb {
-    background: #d9d6d6;
+    background: #ddd;
     height: 14px;
     width: 14px;
     border-radius: 50%;
@@ -351,11 +358,11 @@ figure {
 }
 
 .input-range:focus::-ms-fill-lower {
-    background: #d9d6d6;
+    background: #fff;
 }
 
 .input-range:focus::-ms-fill-upper {
-    background: #d9d6d6;
+    background: #fff;
 }
 
 .label-required {
@@ -369,7 +376,6 @@ figure {
 
 .input.is-required + label .label-required,
 .textarea.is-required + label .label-required {
-    background: #d9d6d6;
     font-weight: normal;
     display: inline;
 }
@@ -459,7 +465,7 @@ figure {
 }
 
 .page-container.is-main {
-    background: #f5f4f4;
+    background: #f6f6f6;
     border-top: 60px solid #fff;
     border-bottom: 10px solid #fff;
 }
@@ -493,6 +499,7 @@ figure {
     .page-container.is-main {
         border-top: none;
         border-right: 30px solid #fff;
+        border-bottom: 30px solid #fff;
     }
 
     .page-border {
@@ -518,7 +525,7 @@ figure {
     align-items: center;
 }
 
-.section.is-text-only{
+.section.is-text-only {
     padding: 2.5%;
 }
 
@@ -526,10 +533,6 @@ figure {
     max-width: 1024px;
     margin: 0 auto;
     padding: 15px;
-}
-
-.container.is-wider {
-    max-width: 1124px;
 }
 
 @media (min-width: 768px) {
@@ -576,12 +579,9 @@ figure {
         -webkit-transform-origin: 0 0;
         transform-origin: 0 0;
     }
-}
-
-@media (min-width: 1024px) {
 
     .container {
-        padding: 20px 30px;
+        padding: 20px;
     }
 }
 
@@ -678,17 +678,17 @@ figure {
 }
 
 .nav-link-container {
-    border-top: 1px solid #d9d6d6;
+    border-top: 1px solid #ddd;
     line-height: 60px;
 }
 
 .nav-link {
-    color: #272324;
+    color: #2c2c2c;
     display: block;
 }
 
 .nav-link:hover {
-    color: #272324;
+    color: #2c2c2c;
 }
 
 @media (min-width: 768px) {
@@ -819,9 +819,25 @@ figure {
     }
 }
 
+/* Font Page Layout */
+.font-page-container {
+    background: #f6f6f6;
+}
+
+@media (min-width: 768px) {
+
+    .font-page-section {
+        padding: 0 30px;
+    }
+
+    .font-page-container {
+        background: rgba(255, 255, 255, 0.75);
+    }
+}
+
 /* Font Hero */
 .font-hero {
-    background: #f5f4f4;
+    background: #f6f6f6;
     width: 100%;
     padding: 30px 0;
     position: relative;
@@ -868,24 +884,25 @@ figure {
 /* Font Buttons */
 .font-buttons {
     text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
 }
 
 @media (min-width: 768px) {
 
     .font-buttons {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        border: none;
+        padding: 0;
     }
 
     .font-button-container {
-        width: 50%;
+        width: 40%;
         padding: 0 0 0 7.5px;
         float: left;
     }
 
     .font-button-container:first-child {
+        width: 60%;
         padding: 0 7.5px 0 0;
     }
 
@@ -908,164 +925,148 @@ figure {
 }
 
 /* Font Details */
-.font-details {
-    background: #d9d6d6;
-    color: #4e4748;
+.font-details-section {
+    background: #ddd;
 }
 
-.font-details-header {
-    border-bottom: 1px solid #f5f4f4;
-    line-height: 30px;
+.font-details-container {
+    padding-top: 0;
+}
+
+.font-details-content-container {
+    padding: 30px 0;
+}
+
+.font-details-title {
+    margin-bottom: 5px;
+    font-size: 20px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
-.font-details-title {
-    font-size: 20px;
-}
-
 .font-details-date {
+    margin-bottom: 30px;
     font-size: 13px;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-.font-details-chevron {
-    display: none;
-}
-
-.font-details-content {
-    padding-top: 30px;
-    padding-bottom: 30px;
+.font-details-description {
+    margin-bottom: 30px;
 }
 
 .font-details-licensing {
     margin: 0 20px 30px 0;
     font-weight: 400;
     letter-spacing: 0.025em;
-    float: left;
-}
-
-.font-details-description {
-    margin: 0 0 30px 0;
-}
-
-.font-details-list-container {
-    margin-bottom: 30px;
-}
-
-.font-details-list-container:last-child {
-    margin-bottom: 0;
+    display: inline-block;
 }
 
 .font-details-list {
-    border: 1px solid #f5f4f4;
-    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+.font-details-list:last-child {
+    margin: 0;
+    border: none;
+    padding: 0;
 }
 
 .font-details-list-header {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #f5f4f4;
+    padding-bottom: 15px;
 }
 
 .font-details-list-item {
     margin-bottom: 10px;
-    padding: 0 15px;
+}
+
+.font-details-list-item:last-child {
+    margin: 0;
 }
 
 @media (min-width: 768px) {
 
-    .font-details-header {
-        height: 91px;
-        line-height: 60px;
+    .font-details-container {
+        border: none;
+        padding-top: 20px;
+        position: relative;
+        z-index: 1;
+        transform: translate3d(0, -110px, 0);
     }
 
-    .font-details-title {
-        display: inline-block;
-    }
-
-    .font-details-date {
-        margin-left: 15px;
-        display: inline-block;
+    .font-details-content-container {
+        padding: 55px 0 20px 0;
+        display: flex;
+        align-items: stretch;
     }
 
     .font-details-content {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        width: 60%;
+        padding: 0 30px 0 15px;
     }
 
-    .font-details-licensing {
-        margin: 0 30px 40px 0;
+    .font-details-title {
+        font-size: 24px;
     }
 
-    .font-details-description {
-        margin: 0 0 40px 0;
+    .font-details-lists {
+        width: 40%;
+        border-left: 1px solid #ddd;
+        padding: 0 15px 0 30px;
     }
 
-    .font-details-list-container {
-        width: 50%;
-        margin-bottom: 0;
-        padding: 0 0 0 7.5px;
-        float: left;
-    }
-
-    .font-details-list-container:first-child {
-        padding: 0 7.5px 0 0;
+    .font-details-list {
+        margin-bottom: 45px;
+        border: none;
+        padding: 0;
     }
 }
 
 @media (min-width: 1024px) {
 
-    .font-details-header {
-        line-height: 50px;
-    }
-
-    .font-details-chevron {
-        font-size: 20px;
-        display: block;
-        float: right;
-    }
-
-    .font-details-list {
-        margin-bottom: 22px;
-        padding-bottom: 10px;
+    .font-details-content-container {
+        padding: 65px 0 30px 0;
     }
 
     .font-details-list-header {
-        margin-bottom: 20px;
-    }
-
-    .font-details-list-container {
-        padding: 0 0 0 10px;
-    }
-
-    .font-details-list-container:first-child {
-        padding: 0 10px 0 0;
+        padding-bottom: 20px;
     }
 }
 
 /* Font Example */
-.font-example {
-    color: #4e4748;
-}
-
-.font-example-form-container {
-    background: #5b5354;
+.font-example-header-container {
+    background: #bbb;
+    padding: 15px;
+    color: #fff;
 }
 
 .font-example-input-container {
     padding-bottom: 15px;
 }
 
+.font-example-input {
+    background: #fff;
+    margin: 0 0 15px 0;
+    border: none;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 .font-example-setting-container {
     width: 33.333%;
-    padding: 20px 15px 0 15px;
+    padding: 14px 15px 0 15px;
     float: left;
     position: relative;
 }
 
 .font-example-input-range-label {
     font-size: 14px;
-    color: #d9d6d6;
+    color: #ddd;
     position: absolute;
     top: 0;
     left: 15px;
@@ -1073,7 +1074,7 @@ figure {
 
 .font-example-input-range:focus + .font-example-input-range-label,
 .font-example-input-range:active + .font-example-input-range-label {
-    color: #f5f4f4;
+    color: #fff;
 }
 
 .font-example-icon-text {
@@ -1088,9 +1089,9 @@ figure {
 }
 
 .font-example-text-container {
-    background: #f5f4f4;
-    border-bottom: 1px solid #d9d6d6;
-    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .font-example-text {
@@ -1101,10 +1102,59 @@ figure {
 
 @media (min-width: 768px) {
 
+    .font-example {
+        padding-top: 85px;
+        padding-bottom: 55px;
+    }
+
+    .font-example + .font-example {
+        padding-top: 0;
+        padding-bottom: 110px;
+    }
+
+    .font-example-header-container {
+        padding: 15px 35px;
+    }
+
+    .font-example-container {
+        border-bottom: 1px solid #ddd;
+        padding: 35px;
+    }
+
     .font-example-input-container {
         width: 50%;
         padding: 0 7.5px 0 0;
         float: left;
+    }
+
+    .font-example-input {
+        background: none;
+        margin: 8px 0 6px 0;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding: 0;
+        line-height: 25px;
+        color: #fff;
+    }
+
+    .font-example-input:focus {
+        border-color: #fff;
+    }
+
+    .font-example-input::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input::-moz-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input:-ms-input-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input:-moz-placeholder {
+        color: #fff;
     }
 
     .font-example-settings {
@@ -1114,44 +1164,44 @@ figure {
     }
 
     .font-example-setting-container {
-        padding: 20px 0 0 45px;
+        padding: 14px 0 0 45px;
     }
 
     .font-example-input-range-label {
         left: 45px;
+    }
+
+    .font-example-text-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
 
 @media (min-width: 1024px) {
 
     .font-example-input-container {
-        padding: 0 10px 0 0;
+        padding: 0 45px 0 0;
     }
 
     .font-example-settings {
-        padding-left: 10px;
+        padding-left: 45px;
     }
 }
 
 /* Font Glyphs */
-.font-glyphs-container {
-    background: #f5f4f4;
-    padding: 30px 0;
-    color: #4e4748;
-}
-
 .font-glyphs-header {
-    border: 1px solid #d9d6d6;
+    line-height: 42px;
 }
 
 .font-glyphs {
-    border-left: 1px solid #d9d6d6;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 
 .font-glyph {
     width: 20%;
-    border-right: 1px solid #d9d6d6;
-    border-bottom: 1px solid #d9d6d6;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     font-size: 24px;
     line-height: 60px;
     text-align: center;
@@ -1167,10 +1217,6 @@ figure {
 }
 
 @media (min-width: 1024px) {
-
-    .font-glyphs-container {
-        padding: 40px 0;
-    }
 
     .font-glyph {
         width: 10%;
