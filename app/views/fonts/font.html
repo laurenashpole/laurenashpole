@@ -4,11 +4,23 @@
     {% parent %}
     <link rel="stylesheet" href="/stylesheets/fonts/{{font.css_file}}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <meta property="og:type" content="product" />
+    <meta property="og:title" content="{{font.name}}" />
+    {% if font.description %}
+        <meta property="og:description" content="{{font.description}}">
+    {% endif %}
+    <meta property="og:url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
+    <meta property="og:site_name" content="Lauren Ashpole" />
+    <meta property="og:price:amount" content="{{font.price}}" />
+    <meta property="og:price:currency" content="USD" />
+    <meta property="og:availability" content="instock" />
 {% endblock %}
 
 {% block content %}
 
     <div itemscope itemtype="http://schema.org/Product">
+        <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
         <section class="font-hero img-bg has-buttons vertical-align-td">
             <div class="vertical-align-content">
@@ -55,7 +67,11 @@
                                     data-ga-action="click"
                                     data-ga-label="Buy Now"
                                 >
-                                    <span class="button-fine-print">Commercial Use <meta itemprop="priceCurrency" content="USD" /><span itemprop="price">$15</span></span>
+                                    <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                        Commercial Use <span itemprop="price">$15</span>
+                                        <meta itemprop="priceCurrency" content="USD" />
+                                        <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
+                                    </span>
                                     Purchase
                                 </button>
                             </form>
@@ -101,7 +117,7 @@
                         </ul>
 
                         {% if font.description %}
-                            <div class="font-details-description">
+                            <div itemprop="description" class="font-details-description">
                                 {% autoescape false %}{{font.description}}{% endautoescape %}
                             </div>
                         {% endif %}
