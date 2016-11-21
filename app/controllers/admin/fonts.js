@@ -49,51 +49,42 @@ exports.renderCreate = function (req, res) {
 };
 
 exports.create = function (req, res) {
-
     var font = new Font(req.body);
 
     async.each(req.files, function (file, callback) {
-
         var directory;
         var filePath = file.path;
         var mimetype = file.mimetype;
 
         if (mimetype.indexOf('image') !== -1) {
-
             directory = './public/images/fonts/';
-
         } else if (mimetype.indexOf('css') !== -1) {
-
             directory = './public/stylesheets/fonts/';
-
-        }  else if (mimetype.indexOf('zip') !== -1) {
-
-            directory = './public/downloads/';
-
+        } else if (mimetype.indexOf('zip') !== -1) {
             var timestamp = Math.floor(Date.now() / 10000000);
             var nameArray = file.originalname.split('.');
-            file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
 
+            file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
+            directory = './public/downloads/';
         }
 
-        font[file.fieldname] = file.originalname;
+        if (file.fieldname === 'image_collection') {
+            font[file.fieldname].push(file.originalname);
+        } else {
+            font[file.fieldname] = file.originalname;
+        }
 
         fs.rename(filePath, path.resolve(directory, file.originalname), function (err) {
-
             if (err) res.send(err);
             callback();
-
         });
 
     }, function (err) {
-
         if (err) res.send(err);
 
         font.save(function (err) {
-
             if (err) res.send(err);
             res.redirect('/admin/fonts');
-
         });
 
     });
@@ -104,71 +95,92 @@ exports.create = function (req, res) {
 exports.update = function (req, res) {
 
     Font.findById(req.params.font_id, function (err, font) {
-
         if (err) res.send(err);
 
         for (prop in req.body) {
             font[prop] = req.body[prop];
         }
 
-        async.each(req.files, function (file, callback) {
+        var imageCollectionCleared = false;
 
+        async.each(req.files, function (file, callback) {
             var directory;
             var filePath = file.path;
             var mimetype = file.mimetype;
 
             if (mimetype.indexOf('image') !== -1) {
-
                 directory = './public/images/fonts/';
-
             } else if (mimetype.indexOf('css') !== -1) {
-
                 directory = './public/stylesheets/fonts/';
-
             }  else if (mimetype.indexOf('zip') !== -1) {
-
-                directory = './public/downloads/';
-
                 var timestamp = Math.floor(Date.now() / 10000000);
                 var nameArray = file.originalname.split('.');
-                file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
 
+                file.originalname = nameArray[0] + timestamp + '.' + nameArray[1];
+                directory = './public/downloads/';
             }
 
             if (font[file.fieldname]) {
 
-                fs.exists(path.resolve(directory, font[file.fieldname]), function (exists) {
+                if (file.fieldname === 'image_collection') {
 
-                    if (exists) {
+                    if (!imageCollectionCleared) {
 
-                        fs.unlink(path.resolve(directory, font[file.fieldname]), function (err) {
-                            if (err) res.send(err);
+                        font[file.fieldname].forEach(function (file) {
+                            fs.exists(path.resolve(directory, file), function (exists) {
+
+                                if (exists) {
+
+                                    fs.unlink(path.resolve(directory, file), function (err) {
+                                        if (err) res.send(err);
+                                    });
+
+                                }
+
+                            });
+
                         });
+
+                        font[file.fieldname] = [];
+                        imageCollectionCleared = true;
 
                     }
 
-                });
+                } else {
+
+                    fs.exists(path.resolve(directory, font[file.fieldname]), function (exists) {
+
+                        if (exists) {
+
+                            fs.unlink(path.resolve(directory, font[file.fieldname]), function (err) {
+                                if (err) res.send(err);
+                            });
+
+                        }
+
+                    });
+
+                }
 
             }
 
-            font[file.fieldname] = file.originalname;
+            if (file.fieldname === 'image_collection') {
+                font[file.fieldname].push(file.originalname);
+            } else {
+                font[file.fieldname] = file.originalname;
+            }
 
             fs.rename(filePath, path.resolve(directory, file.originalname), function (err) {
-
                 if (err) res.send(err);
                 callback();
-
             });
 
         }, function (err) {
-
             if (err) res.send(err);
 
             font.save(function (err) {
-
                 if (err) res.send(err);
                 res.redirect('/admin/fonts');
-
             });
 
         });
@@ -180,11 +192,11 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
 
     Font.findById(req.params.font_id, function (err, font) {
-
         if (err) res.send(err);
 
         var files = {
             images: [
+                font.image_collection,
                 font.image,
                 font.image_retina,
                 font.image_mobile,
@@ -203,7 +215,6 @@ exports.delete = function (req, res) {
 
 
         async.forEachOf(files, function (fileGroup, fileType, callback) {
-
             var directory;
 
             if (fileType === 'images') {
@@ -222,18 +233,43 @@ exports.delete = function (req, res) {
 
             fileGroup.forEach(function (file) {
 
-                if (file) {
+                if (Array.isArray(file)) {
 
-                    fs.exists(path.resolve(directory, file), function (exists) {
+                    file.forEach(function (subfile) {
 
-                        if (exists) {
+                        if (subfile) {
 
-                            fs.unlink(path.resolve(directory, file), function (err) {
-                                if (err) res.send(err);
+                            fs.exists(path.resolve(directory, subfile), function (exists) {
+
+                                if (exists) {
+
+                                    fs.unlink(path.resolve(directory, subfile), function (err) {
+                                        if (err) res.send(err);
+                                    });
+                                }
+
                             });
+
                         }
 
                     });
+
+                } else {
+
+                    if (file) {
+
+                        fs.exists(path.resolve(directory, file), function (exists) {
+
+                            if (exists) {
+
+                                fs.unlink(path.resolve(directory, file), function (err) {
+                                    if (err) res.send(err);
+                                });
+                            }
+
+                        });
+
+                    }
 
                 }
 
@@ -242,14 +278,11 @@ exports.delete = function (req, res) {
             callback();
 
         }, function (err) {
-
             if (err) res.send(err);
 
             font.remove(function (err) {
-
                 if (err) res.send(err);
                 res.redirect('/admin/fonts');
-
             });
 
         });

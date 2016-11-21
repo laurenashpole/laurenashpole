@@ -25,13 +25,13 @@
 
 {% if font.image_collection.length %}
     {% for image in font.image_collection %}
-        <img src="/images/fonts/{{image}}" />
+        <img src="/images/fonts/{{image}}" width="150" height="75" />
     {% endfor %}
 {% endif %}
 
 <div class="input-label-inset input-file">
     <label for="imageCollection">Image Collection</label>
-    <input type="file" id="imageCollection" name="image_collection" />
+    <input type="file" id="imageCollection" name="image_collection" multiple />
 </div>
 
 
