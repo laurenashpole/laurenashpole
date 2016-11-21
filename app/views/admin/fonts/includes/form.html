@@ -23,6 +23,18 @@
     <input type="text" id="price" name="price" {% if font.price %}value="{{font.price}}"{% endif %} />
 </div>
 
+{% if font.image_collection.length %}
+    {% for image in font.image_collection %}
+        <img src="/images/fonts/{{image}}" />
+    {% endfor %}
+{% endif %}
+
+<div class="input-label-inset input-file">
+    <label for="imageCollection">Image Collection</label>
+    <input type="file" id="imageCollection" name="image_collection" />
+</div>
+
+
 <div class="input-label-inset input-file">
     <label for="image">Image{% if font.image %} ({{font.image}}){% endif %}</label>
     <input type="file" id="image" name="image" />
