@@ -6,6 +6,7 @@ function View () {
 View.prototype.cacheSelectors = function () {
     this.nav = document.querySelector('.nav');
     this.textContainer = document.querySelectorAll('.font-example-text');
+    this.imageContainer = document.querySelectorAll('.font-hero-main-image');
 };
 
 View.prototype.initEvents = function () {
@@ -15,6 +16,7 @@ View.prototype.initEvents = function () {
     this.addEventListener('.js-font-example-size', 'change', this.updateFontExampleSize.bind(this));
     this.addEventListener('.js-font-example-spacing', 'change', this.updateFontExampleSpacing.bind(this));
     this.addEventListener('.js-font-example-height', 'change', this.updateFontExampleHeight.bind(this));
+    this.addEventListener('.js-font-image-thumbnail', 'click', this.updateFontImageThumbnail.bind(this));
 };
 
 View.prototype.addEventListener = function (selector, eventType, callback) {
@@ -85,6 +87,15 @@ View.prototype.updateFontExampleHeight = function (e) {
 
     for (var i = 0; i < this.textContainer.length; i++) {
         this.textContainer[i].style['line-height'] = lineHeight;
+    }
+
+};
+
+View.prototype.updateFontImageThumbnail = function (e) {
+    e.preventDefault();
+
+    for (var i = 0; i < this.imageContainer.length; i++) {
+        this.imageContainer[i].src = e.target.src;
     }
 
 };
