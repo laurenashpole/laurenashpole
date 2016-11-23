@@ -530,6 +530,7 @@ figure {
 }
 
 .container {
+    width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     padding: 15px;
@@ -884,8 +885,9 @@ figure {
 /* Font Buttons */
 .font-buttons {
     text-align: center;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
+    padding: 15px 0;
 }
 
 @media (min-width: 768px) {
@@ -1430,5 +1432,66 @@ figure {
         left: 59%;
         -webkit-transform: rotate(3deg);
         transform: rotate(3deg);
+    }
+}
+
+.font-hero-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.font-hero-main-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.font-hero-thumbnails {
+    margin-top: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.font-hero-thumbnails-image {
+    max-width: 100px;
+    height: auto;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+}
+
+.font-hero-thumbnails-image:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 768px) {
+
+    .font-hero-section {
+        padding-top: 40px;
+        padding-bottom: 150px;
+    }
+
+    .font-hero-container {
+        flex-direction: row;
+    }
+
+    .font-hero-main {
+        width: 85%;
+        padding-right: 20px;
+    }
+
+    .font-hero-thumbnails {
+        width: 15%;
+        margin: 0;
+        white-space: normal;
+    }
+
+    .font-hero-thumbnails-image {
+        max-width: 100%;
+        margin: 0 0 6.436% 0;
+        display: block;
+    }
+
+    .font-hero-thumbnails-image:last-child {
+        margin-bottom: 0;
     }
 }
