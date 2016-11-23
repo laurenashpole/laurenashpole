@@ -885,8 +885,9 @@ figure {
 /* Font Buttons */
 .font-buttons {
     text-align: center;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
+    padding: 15px 0;
 }
 
 @media (min-width: 768px) {
@@ -1434,11 +1435,6 @@ figure {
     }
 }
 
-.font-hero-section {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
 .font-hero-container {
     display: flex;
     flex-direction: column;
@@ -1470,8 +1466,6 @@ figure {
 @media (min-width: 768px) {
 
     .font-hero-section {
-        margin: 0;
-        border: none;
         padding-top: 40px;
         padding-bottom: 150px;
     }
