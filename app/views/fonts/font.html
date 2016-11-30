@@ -7,6 +7,9 @@
 
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{font.name}}" />
+    {% if font.image_collection %}
+        <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
+    {% endif %}
     {% if font.description %}
         <meta property="og:description" content="{{font.description}}">
     {% endif %}
@@ -26,6 +29,7 @@
             <section class="font-page-section font-hero-section">
                 <div class="container font-page-container font-hero-container">
                     <div class="font-hero-main">
+                        <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
                         <img src="/images/fonts/{{font.image_collection[0]}}" class="font-hero-main-image" alt="{{font.name}}" />
                     </div>
 
