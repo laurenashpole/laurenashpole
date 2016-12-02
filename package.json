@@ -14,7 +14,6 @@
     "express": "~4.13.1",
     "express-flash": "0.0.2",
     "express-session": "^1.13.0",
-    "express-sitemap": "^1.6.3",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.14",
     "morgan": "~1.6.1",

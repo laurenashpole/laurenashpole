@@ -11,7 +11,6 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('express-flash');
 var multer = require('multer');
-var sitemap = require('express-sitemap');
 
 var app = express();
 var locals = require('./app/config/locals')(app);
@@ -51,15 +50,5 @@ require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
 require('./app/routes/routes')(app);
 require('./app/routes/errors')(app);
-
-// Sitemap
-sitemap({
-    generate: app,
-    route: {
-        '/admin': {
-            disallow: true,
-        }
-    },
-}).toFile();
 
 module.exports = app;
