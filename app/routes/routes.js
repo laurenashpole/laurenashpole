@@ -18,6 +18,10 @@ module.exports = function (app) {
         res.redirect('/fonts');
     });
 
+    app.get('/fonts.html', function (req, res) {
+        res.redirect('/fonts');
+    });
+
     app.get('/downloads/thirty-nine-smooth', function (req, res) {
         res.redirect('/fonts/39-smooth');
     });
@@ -31,6 +35,10 @@ module.exports = function (app) {
     });
 
     app.get('/licensing', function (req, res) {
+        res.redirect('/fonts/licensing');
+    });
+
+    app.get('/licensing.html', function (req, res) {
         res.redirect('/fonts/licensing');
     });
 
