@@ -1269,48 +1269,9 @@ figure {
     }
 }
 
-/* Modal */
-.modal-container {
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 5;
-    opacity: 0;
-    visibility: hidden;
-
-    -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-}
-
-.modal-container.is-open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal {
-    background: #fff;
-    width: 90%;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 15px;
-    position: relative;
-    word-wrap: break-word;
-}
-
-@media (min-width: 768px) {
-
-    .modal {
-        padding: 30px;
-    }
-}
-
 /* Contact Form */
 .contact-form-header {
     margin-bottom: 10px;
-    /*font-weight: 300;*/
     font-size: 24px;
     letter-spacing: 0.025em;
 }
@@ -1327,23 +1288,6 @@ figure {
 
 .contact-form-button-container:last-child {
     padding: 0 0 0 7.5px;
-}
-
-.contact-form-button.is-complete {
-    background: rgba(132, 181, 151, 1);
-    border-color: rgba(132, 181, 151, 1);
-}
-
-.contact-form-button.is-complete:after {
-    content: "Message Sent!";
-}
-
-.contact-form-button.is-error:after {
-    content: "Error! Try Again.";
-}
-
-.contact-form-button.is-complete .contact-form-button-text {
-    display: none;
 }
 
 @media (min-width: 768px) {

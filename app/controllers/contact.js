@@ -17,6 +17,14 @@ exports.render = function (req, res) {
 
 };
 
+exports.confirm = function (req, res) {
+
+    res.render('contact-confirm', {
+        title: 'Thanks for your message! - Contact'
+    });
+
+};
+
 exports.send = function (req, res) {
 
     var response = {

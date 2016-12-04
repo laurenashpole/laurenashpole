@@ -111,49 +111,29 @@ View.prototype.sendGA = function (e) {
 
 var view = new View();
 
-function ContactModal () {
+function ContactForm () {
     View.call(this);
 };
 
-ContactModal.prototype = View.prototype;
-ContactModal.prototype.constructor = ContactModal;
+ContactForm.prototype = View.prototype;
+ContactForm.prototype.constructor = ContactForm;
 
-ContactModal.prototype.cacheSelectors = function () {
-    this.body = document.body;
-    this.contactModal = document.querySelector('.js-contact-modal-container');
+ContactForm.prototype.cacheSelectors = function () {
     this.contactForm = document.querySelector('.js-contact-form');
 };
 
-ContactModal.prototype.initEvents = function () {
-    this.addEventListener('.js-nav-contact', 'click', this.openContactModal.bind(this));
-    this.addEventListener('.js-contact-modal-close', 'click', this.closeContactModal.bind(this));
+ContactForm.prototype.initEvents = function () {
     this.addEventListener('.js-contact-send', 'click', this.sendMessage.bind(this));
     this.addEventListener('.js-contact-form-input', 'focus', this.removeError.bind(this));
 };
 
-ContactModal.prototype.openContactModal = function (e) {
-    e.preventDefault();
-
-    this.contactModal.classList.add('is-open');
-    this.body.classList.add('no-scroll');
-};
-
-ContactModal.prototype.closeContactModal = function (e) {
-    e.preventDefault();
-
-    this.contactModal.classList.remove('is-open');
-    e.target.classList.remove('is-complete');
-    e.target.classList.remove('is-error');
-    this.body.classList.remove('no-scroll');
-};
-
-ContactModal.prototype.removeError = function (e) {
+ContactForm.prototype.removeError = function (e) {
     e.preventDefault();
 
     e.target.classList.remove('is-required');
 };
 
-ContactModal.prototype.sendMessage = function (e) {
+ContactForm.prototype.sendMessage = function (e) {
     e.preventDefault();
 
     if (!this.validateForm()) {
@@ -185,24 +165,13 @@ ContactModal.prototype.sendMessage = function (e) {
 
 };
 
-ContactModal.prototype.afterSend = function (response, e) {
-    var _this = this;
-
-    e.target.classList.remove('is-processing');
-
+ContactForm.prototype.afterSend = function (response, e) {
     if (response.success) {
-        e.target.classList.add('is-complete');
-    } else {
-        e.target.classList.add('is-error');
+        window.location = 'contact/confirm';
     }
-
-    setTimeout(function () {
-        _this.closeContactModal(e);
-    }, 2000);
-
 };
 
-ContactModal.prototype.validateForm = function () {
+ContactForm.prototype.validateForm = function () {
     var valid = true;
 
     var fields = {
@@ -231,4 +200,4 @@ ContactModal.prototype.validateForm = function () {
 
 };
 
-var contactModal = new ContactModal();
+var contactForm = new ContactForm();
