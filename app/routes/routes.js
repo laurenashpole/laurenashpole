@@ -5,6 +5,7 @@ var fonts = require('../controllers/fonts');
 module.exports = function (app) {
 
     app.get('/', index.render);
+    app.get('/contact', contact.render);
     app.post('/contact/send', contact.send);
     app.get('/fonts', fonts.renderFonts);
     app.get('/fonts/licensing', fonts.licensing);

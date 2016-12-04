@@ -1309,8 +1309,14 @@ figure {
 
 /* Contact Form */
 .contact-form-header {
+    margin-bottom: 10px;
+    /*font-weight: 300;*/
+    font-size: 24px;
+    letter-spacing: 0.025em;
+}
+
+.contact-form-subheader {
     font-weight: 300;
-    font-size: 20px;
 }
 
 .contact-form-button-container {
@@ -1343,7 +1349,12 @@ figure {
 @media (min-width: 768px) {
 
     .contact-form-header {
+        margin-bottom: 20px;
         font-size: 32px;
+    }
+
+    .contact-form-subheader {
+        font-size: 20px;
     }
 
     .contact-form-button-container {

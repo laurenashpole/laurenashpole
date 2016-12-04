@@ -9,6 +9,14 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+exports.render = function (req, res) {
+
+    res.render('contact', {
+        title: 'Contact'
+    });
+
+};
+
 exports.send = function (req, res) {
 
     var response = {
