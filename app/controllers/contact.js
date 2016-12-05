@@ -31,14 +31,14 @@ exports.send = function (req, res) {
         success: false
     }
 
-    if (req.body && req.body.senderEmail && req.body.subject && req.body.message) {
+    if (req.body && req.body.senderEmail && req.body.senderName && req.body.subject && req.body.message) {
 
         var mailOptions = {
             from: '"CONTACT FORM" <lauren@laurenashpole.com>',
             to: 'lauren@laurenashpole.com',
             subject: req.body.subject,
             text: req.body.message,
-            html: '<p>Message from: ' + req.body.senderEmail + '</p><p>' + req.body.message + '</p>'
+            html: '<p>Message from: ' + req.body.senderEmail + ' (' + req.body.senderName + ')</p><p>' + req.body.message + '</p>'
         };
 
         transporter.sendMail(mailOptions, function (err, info) {

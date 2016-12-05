@@ -147,6 +147,7 @@ ContactForm.prototype.sendMessage = function (e) {
 
     var data = {
         senderEmail: this.contactForm.senderEmail.value,
+        senderName: this.contactForm.senderName.value,
         subject: this.contactForm.subject.value,
         message: this.contactForm.message.value
     };
@@ -176,6 +177,7 @@ ContactForm.prototype.validateForm = function () {
 
     var fields = {
         senderEmail: this.contactForm.senderEmail,
+        senderName: this.contactForm.senderName,
         subject: this.contactForm.subject,
         message: this.contactForm.message
     };
