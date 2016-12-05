@@ -1276,6 +1276,10 @@ figure {
 }
 
 /* Contact Form */
+.contact-form-container {
+    padding: 0;
+}
+
 .contact-form-header {
     margin-bottom: 10px;
     font-size: 24px;
@@ -1297,6 +1301,10 @@ figure {
 }
 
 @media (min-width: 768px) {
+
+    .contact-form-container {
+        padding: 20px;
+    }
 
     .contact-form-header {
         margin-bottom: 20px;
