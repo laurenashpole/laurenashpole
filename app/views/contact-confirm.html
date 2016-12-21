@@ -1,14 +1,17 @@
 {% extends 'body.html' %}
 
 {% block content %}
-
-    <section class="section is-full-height is-text-only">
-        <div class="container contact-form-container">
-
-            <h2 class="contact-form-header">Thanks for your message!</h2>
-            <p>I'll get back to you shortly.</p>
-
-        </div>
+    <section class="container is-full-height">
+        <h2 class="contact-form-header">Thanks for your message!</h2>
+        <p>I'll get back to you shortly.</p>
     </section>
+{% endblock %}
 
+{% block footer %}
+    <div class="bg-skewed is-bottom footer-bg">
+        <div class="container">
+            <div class="bg-skewed-padding footer-bg-padding">
+            </div>
+        </div>
+    </div>
 {% endblock %}

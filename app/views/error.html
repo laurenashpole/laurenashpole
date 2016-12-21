@@ -1,19 +1,23 @@
 {% extends 'body.html' %}
 
 {% block content %}
+    <section class="container is-full-height">
+        <h1>{{message}}</h1>
 
-    <section class="section is-full-height is-text-only">
-        <div class="container">
-            <h1>{{message}}</h1>
-
-            {% if error.status || error.stack %}
-                <h2>{{error.status}}</h2>
-                <pre>{{error.stack}}</pre>
-            {% else %}
-                <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
-            {% endif %}
-
-        </div>
+        {% if error.status || error.stack %}
+            <h2>{{error.status}}</h2>
+            <pre>{{error.stack}}</pre>
+        {% else %}
+            <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
+        {% endif %}
     </section>
+{% endblock %}
 
+{% block footer %}
+    <div class="bg-skewed is-bottom footer-bg">
+        <div class="container">
+            <div class="bg-skewed-padding footer-bg-padding">
+            </div>
+        </div>
+    </div>
 {% endblock %}
