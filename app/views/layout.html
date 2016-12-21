@@ -25,13 +25,10 @@
 
 </head>
 
-<body>
+<body class="{% block body-class %}{% endblock %}">
 
     {% block body %}{% endblock %}
     {% block footer %}{% endblock %}
-
-    <div class="page-border page-border-top"></div>
-    <div class="page-border page-border-bottom"></div>
 
     <script src="/javascripts/javascript.min.js"></script>
 

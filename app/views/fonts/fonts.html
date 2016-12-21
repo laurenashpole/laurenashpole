@@ -1,34 +1,35 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    {% for font in fonts %}
 
-        <div class="font-grid-container img-bg" style="background-color: rgba({{font.color}}, 1);">
-            <a
-                href="/fonts/{{font.slug}}"
-                class="font-grid js-ga-trigger"
-                data-ga-category="Fonts"
-                data-ga-action="click"
-                data-ga-label="{{font.name}}"
-            >
+    <section class="container font-grid-container">
+        {% for font in fonts %}
 
-                <div class="font-grid-image-container">
-                    <span class="img-default">
-                        <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
-                    </span>
-                    <span class="img-retina">
-                        <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
-                    </span>
-                </div>
+            <div class="font-grid-item img-bg" style="background-color: rgba({{font.color}}, 1);">
+                <a
+                    href="/fonts/{{font.slug}}"
+                    class="font-grid-link js-ga-trigger"
+                    data-ga-category="Fonts"
+                    data-ga-action="click"
+                    data-ga-label="{{font.name}}"
+                >
 
-                <div class="font-grid-overlay vertical-align-abs">
-                    <div class="vertical-align-content">
+                    <div class="font-grid-image-container">
+                        <span class="img-default">
+                            <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
+                        </span>
+                        <span class="img-retina">
+                            <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
+                        </span>
+                    </div>
+
+                    <div class="font-grid-overlay">
                         <h2 class="font-grid-title">{{font.name}}</h2>
                     </div>
-                </div>
 
-            </a>
-        </div>
+                </a>
+            </div>
 
-    {% endfor %}
+        {% endfor %}
+    </section>
 {% endblock %}

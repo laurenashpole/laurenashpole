@@ -25,9 +25,10 @@
     <div itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
-        {% if font.image_collection.length %}
-            <section class="font-page-section font-hero-section">
-                <div class="container font-page-container font-hero-container">
+        <section class="container">
+            <div class="font-hero-container">
+
+                {% if font.image_collection.length %}
                     <div class="font-hero-main">
                         <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
                         <img src="/images/fonts/{{font.image_collection[0]}}" class="font-hero-main-image" alt="{{font.name}}" />
@@ -35,55 +36,26 @@
 
                     <div class="font-hero-thumbnails">
                         {% for image in font.image_collection %}
-                            <img src="/images/fonts/{{image}}" class="font-hero-thumbnails-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
+                            <div class="font-hero-thumbnail">
+                                <img src="/images/fonts/{{image}}" class="font-hero-thumbnail-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
+                            </div>
                         {% endfor %}
                     </div>
-                </div>
-            </section>
-        {% else %}
-            <section class="font-hero img-bg has-buttons vertical-align-td font-page-section">
-
-                <div class="vertical-align-content">
-
-                    <div class="desktop container">
-                        <div class="font-hero-image-container">
-                            <span class="img-default">
-                                <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image}});"></figure>
-                            </span>
-                            <span class="img-retina">
-                                <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image_retina}});"></figure>
-                            </span>
-                        </div>
+                {% else %}
+                    <div class="font-hero-main is-legacy">
+                        <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+                        <img src="/images/fonts/{{font.image_retina}}" class="font-hero-main-image" alt="{{font.name}}" />
                     </div>
+                {% endif %}
 
-                    <div class="mobile">
-                        <div class="font-hero-mobile-image-container">
-                            <div class="font-hero-mobile-image">
-                                <span class="img-default">
-                                    <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_mobile}});"></figure>
-                                </span>
-                                <span class="img-retina">
-                                    <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_mobile_retina}});"></figure>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        {% endif %}
-
-        <section class="font-page-section font-details-section">
-            <div class="container font-page-container font-details-container">
-
-                <div class="font-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
+                <div class="font-buttons">
                     {% if font.commercial_font_file %}
                         <div class="font-button-container">
-                            <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
+                            <form method="post" action="/fonts/{{font.slug}}/payment">
                                 <button
                                     type="submit"
                                     title="Buy Now"
-                                    class="button vertical-align-content js-ga-trigger"
+                                    class="button js-ga-trigger"
                                     data-ga-category="{{font.name}} Page"
                                     data-ga-action="click"
                                     data-ga-label="Buy Now"
@@ -98,25 +70,30 @@
                             </form>
                         </div>
                     {% endif %}
+
                     {% if font.personal_font_file %}
                         <div class="font-button-container">
-                            <div class="vertical-align-td">
-                                <a
-                                    href="/downloads/{{font.personal_font_file}}"
-                                    class="button button-outline vertical-align-content js-ga-trigger"
-                                    data-ga-category="{{font.name}} Page"
-                                    data-ga-action="click"
-                                    data-ga-label="Download"
-                                >
-                                    <span class="button-fine-print">Personal Use Free</span>
-                                    Download
-                                </a>
-                            </div>
+                            <a
+                                href="/downloads/{{font.personal_font_file}}"
+                                class="button button-outline js-ga-trigger"
+                                data-ga-category="{{font.name}} Page"
+                                data-ga-action="click"
+                                data-ga-label="Download"
+                            >
+                                <span class="button-fine-print">Personal Use Free</span>
+                                Download
+                            </a>
                         </div>
                     {% endif %}
                 </div>
 
-                <div class="font-details-content-container">
+            </div>
+        </section>
+
+        <section class="bg-skewed font-details-container">
+            <div class="container">
+                <div class="bg-skewed-padding font-details">
+
                     <div class="font-details-content">
 
                         <h1 class="font-details-title" itemprop="name">
@@ -128,7 +105,7 @@
                             {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
                         </div>
 
-                        <ul>
+                        <ul class="list-unstyled">
                             <li class="font-details-licensing">
                                 <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
                             </li>
@@ -148,7 +125,7 @@
                     <div class="font-details-lists clearfix" itemprop="description">
 
                         {% if font.commercial_use_details.length %}
-                            <ul class="font-details-list">
+                            <ul class="list-unstyled font-details-list">
                                 <li class="list-header-text font-details-list-header">Commercial Use Details</li>
                                 {% for detail in font.commercial_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
@@ -157,7 +134,7 @@
                         {% endif %}
 
                         {% if font.personal_use_details.length %}
-                            <ul class="font-details-list">
+                            <ul class="list-unstyled font-details-list">
                                 <li class="list-header-text font-details-list-header">Personal Use Details</li>
                                 {% for detail in font.personal_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
@@ -166,8 +143,8 @@
                         {% endif %}
 
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
 
