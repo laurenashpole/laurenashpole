@@ -21,7 +21,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
@@ -55,17 +54,19 @@
                                 <button
                                     type="submit"
                                     title="Buy Now"
-                                    class="button js-ga-trigger"
+                                    class="js-ga-trigger"
                                     data-ga-category="{{font.name}} Page"
                                     data-ga-action="click"
                                     data-ga-label="Buy Now"
                                 >
-                                    <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                        Commercial Use <span itemprop="price">$15</span>
-                                        <meta itemprop="priceCurrency" content="USD" />
-                                        <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
-                                    </span>
-                                    Purchase
+                                    <div class="button">
+                                        <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            Commercial Use <span itemprop="price">$15</span>
+                                            <meta itemprop="priceCurrency" content="USD" />
+                                            <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
+                                        </span>
+                                        Purchase
+                                    </div>
                                 </button>
                             </form>
                         </div>
@@ -426,5 +427,13 @@
         </section>
 
     </div>
+{% endblock %}
 
+{% block footer %}
+    <div class="bg-skewed is-bottom footer-bg">
+        <div class="container">
+            <div class="bg-skewed-padding footer-bg-padding">
+            </div>
+        </div>
+    </div>
 {% endblock %}

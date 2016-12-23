@@ -11,6 +11,8 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
+    padding-top: -webkit-calc(60px + 7.5%);
+    padding-top: calc(60px + 7.5%);
     color: #222;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
@@ -57,6 +59,10 @@ figure {
 }
 
 @media (min-width: 768px) {
+
+    body {
+        padding: 0;
+    }
 
     .mobile {
         display: none;
@@ -149,7 +155,7 @@ figure {
 
 /* Forms */
 .input,
-.button,
+button,
 .textarea {
     width: 100%;
     border: none;
@@ -164,7 +170,7 @@ figure {
 .input:focus,
 .input-range:focus,
 .textarea:focus,
-.button:focus {
+button:focus {
     outline: none;
 }
 
@@ -337,6 +343,10 @@ figure {
 }
 
 /* Buttons */
+.button-default {
+    background: none;
+}
+
 .button {
     background: #d04e3e;
     border: 1px solid #d04e3e;
@@ -536,11 +546,6 @@ figure {
     z-index: 2;
 }
 
-.header + * > *:first-child {
-    padding-top: -webkit-calc(60px + 7.5%);
-    padding-top: calc(60px + 7.5%);
-}
-
 .nav {
     height: 60px;
     margin: -7.5% auto 0 auto;
@@ -700,10 +705,6 @@ figure {
         content: " ";
     }
 
-    .header + * {
-        padding-top: 0;
-    }
-
     .nav-container {
         max-width: 1024px;
         margin: 0 auto;
@@ -779,9 +780,12 @@ figure {
     justify-content: space-between;
 }
 
-.font-grid-item {
+.font-grid-item-container {
     width: 100%;
-    margin-bottom: 4.34%;
+}
+
+.font-grid-item {
+    margin-bottom: 4.5%;
 }
 
 .font-grid-link {
@@ -846,17 +850,23 @@ figure {
 
 @media (min-width: 500px) {
 
-    .font-grid-item {
+    .font-grid-item-container {
         width: 49%;
-        margin-bottom: 2%;
+    }
+
+    .font-grid-item {
+        margin-bottom: 4%;
     }
 }
 
 @media (min-width: 1000px) {
 
-    .font-grid-item {
+    .font-grid-item-container {
         width: 32.333%;
-        margin-bottom: 1.5%;
+    }
+
+    .font-grid-item {
+        margin-bottom: 4.5%;
     }
 }
 
@@ -1091,7 +1101,7 @@ figure {
 
 .font-example + .font-example {
     padding-top: 7.5%;
-    padding-bottom: 7.5%;
+    padding-bottom: 2.5%;
 }
 
 .font-example-header-container {
@@ -1431,6 +1441,10 @@ body.is-homepage .bg-skewed:after {
     overflow: hidden;
 }
 
+.footer-bg .container {
+    margin-top: 5%;
+}
+
 .footer-bg:before {
     content: " ";
     background-color: transparent;
@@ -1445,4 +1459,11 @@ body.is-homepage .bg-skewed:after {
 .footer-bg-padding {
     margin: -7.5% auto 0 auto;
     padding: 15% 0 7.5% 0;
+}
+
+@media (min-width: 768px) {
+
+    .footer-bg .container {
+        margin-top: 0;
+    }
 }
