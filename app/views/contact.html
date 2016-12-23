@@ -1,7 +1,6 @@
 {% extends 'body.html' %}
 
 {% block content %}
-
     <section class="container is-full-height">
 
         <h2 class="contact-form-header">Contact</h2>
@@ -13,22 +12,22 @@
         <form class="contact-form js-contact-form"">
             <div class="input-label-inset">
                 <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                <label for="senderEmail">Email <span class="label-required">(valid email required)</label>
+                <label for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
             </div>
 
             <div class="input-label-inset">
                 <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                <label for="senderName">Name <span class="label-required">(required)</label>
+                <label for="senderName">Name <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-label-inset">
                 <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                <label for="subject">Subject <span class="label-required">(required)</label>
+                <label for="subject">Subject <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-label-inset textarea-label-inset">
                 <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input"></textarea>
-                <label for="Message">Message <span class="label-required">(required)</label>
+                <label for="Message">Message <span class="label-required">(required)</span></label>
             </div>
 
             <div class="contact-form-buttons clearfix">
@@ -44,7 +43,6 @@
         </form>
 
     </section>
-
 {% endblock %}
 
 {% block footer %}

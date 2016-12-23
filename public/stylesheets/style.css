@@ -52,12 +52,6 @@ figure {
     font-weight: 400;
 }
 
-/*.clearfix:after {
-    content: " ";
-    display: table;
-    clear: both;
-}
-*/
 .desktop {
     display: none;
 }
@@ -335,6 +329,14 @@ figure {
     display: inline;
 }
 
+@media (min-width: 768px) {
+
+    .input-label-inset {
+        margin-bottom: 20px;
+    }
+}
+
+/* Buttons */
 .button {
     background: #d04e3e;
     border: 1px solid #d04e3e;
@@ -345,9 +347,22 @@ figure {
     text-transform: uppercase;
     letter-spacing: 0.125em;
     cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -396,10 +411,6 @@ figure {
 }
 
 @media (min-width: 768px) {
-
-    .input-label-inset {
-        margin-bottom: 20px;
-    }
 
     .button {
         height: 70px;
@@ -465,8 +476,8 @@ figure {
 }
 
 .bg-skewed-padding {
-    margin: 10% auto;
-    padding: 10% 4%;
+    margin: 12.5% auto;
+    padding: 12.5% 0;
     position: relative;
     z-index: 1;
 }
@@ -511,10 +522,6 @@ figure {
         transform: skewY(7.5deg) translate3d(0, 85%, 0);
     }
 
-    .bg-skewed-padding {
-        padding: 10% 0;
-    }
-
     .container {
         padding: 0 30px;
     }
@@ -529,10 +536,9 @@ figure {
     z-index: 2;
 }
 
-.header + * {
+.header + * > *:first-child {
     padding-top: -webkit-calc(60px + 7.5%);
     padding-top: calc(60px + 7.5%);
-    padding-bottom: 5%;
 }
 
 .nav {
@@ -696,7 +702,6 @@ figure {
 
     .header + * {
         padding-top: 0;
-        padding-bottom: 0;
     }
 
     .nav-container {
@@ -745,9 +750,17 @@ figure {
     }
 
     .nav-link {
-        margin: 0 0 0 70px;
+        margin: 0 0 0 50px;
+        padding: 0;
         border: none;
         opacity: 1;
+    }
+}
+
+@media (min-width: 968px) {
+
+    .nav-link {
+        margin: 0 0 0 70px;
     }
 }
 
@@ -813,10 +826,6 @@ figure {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     -webkit-transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
@@ -851,26 +860,105 @@ figure {
     }
 }
 
-/* Font Page Layout */
-.font-page-container {
-    background: #f6f6f6;
+/* Font Hero */
+.font-hero-container {
+    padding: 15px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.font-hero-main-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.font-hero-main.is-legacy {
+    background: #fff;
+}
+
+.font-hero-thumbnails {
+    margin-top: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.font-hero-thumbnail-image {
+    max-width: 100px;
+    height: auto;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: block;
+}
+
+.font-hero-thumbnail:last-child .font-hero-thumbnail-image {
+    margin-right: 0;
 }
 
 @media (min-width: 768px) {
 
-    .font-page-section {
-        padding: 0 30px;
+    .font-hero-container {
+        padding: 0;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        flex-direction: row;
     }
 
-    .font-page-container {
-        background: rgba(255, 255, 255, 0.75);
+    .font-hero-main {
+        width: 85%;
+        padding-right: 20px;
+    }
+
+    .font-hero-main.is-legacy {
+        width: 100%;
+        padding: 0;
+    }
+
+    .font-hero-thumbnails {
+        width: 15%;
+        margin: 0;
+        white-space: normal;
+        overflow: visible;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .font-hero-thumbnail:last-child .font-hero-thumbnail-image {
+        margin-bottom: 0;
+    }
+
+    .font-hero-thumbnail-image {
+        max-width: 100%;
+        margin-bottom: 6.436%;
     }
 }
 
 /* Font Buttons */
 .font-buttons {
     width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -881,17 +969,21 @@ figure {
 @media (min-width: 768px) {
 
     .font-buttons {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
 
     .font-button-container {
         width: 40%;
-        padding: 16px 0 0 10px;
+        padding: 20px 0 0 10px;
     }
 
     .font-button-container:first-child {
         width: 60%;
-        padding: 16px 10px 0 0;
+        padding: 20px 10px 0 0;
     }
 }
 
@@ -953,6 +1045,9 @@ figure {
 @media (min-width: 768px) {
 
     .font-details {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
     }
 
@@ -990,6 +1085,15 @@ figure {
 }
 
 /* Font Example */
+.font-example {
+    padding-top: 2.5%;
+}
+
+.font-example + .font-example {
+    padding-top: 7.5%;
+    padding-bottom: 7.5%;
+}
+
 .font-example-header-container {
     background: #bbb;
     padding: 15px;
@@ -1011,10 +1115,16 @@ figure {
     text-transform: uppercase;
 }
 
+.font-example-settings {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
 .font-example-setting-container {
     width: 33.333%;
     padding: 14px 15px 0 15px;
-    float: left;
     position: relative;
 }
 
@@ -1024,6 +1134,14 @@ figure {
     position: absolute;
     top: 0;
     left: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .font-example-input-range:focus + .font-example-input-range-label,
@@ -1034,18 +1152,13 @@ figure {
 .font-example-icon-text {
     font-size: 18px;
     font-weight: 700;
-    display: inline-block;
-    vertical-align: middle;
+    margin-right: 6px;
 }
 
-.font-example-icon-arrow {
-    vertical-align: middle;
-}
-
-.font-example-text-container {
+.font-example-container {
+    background: #fff;
     border-bottom: 1px solid #ddd;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 15px;
 }
 
 .font-example-text {
@@ -1056,16 +1169,6 @@ figure {
 
 @media (min-width: 768px) {
 
-    .font-example {
-        padding-top: 85px;
-        padding-bottom: 55px;
-    }
-
-    .font-example + .font-example {
-        padding-top: 0;
-        padding-bottom: 110px;
-    }
-
     .font-example-header-container {
         padding: 15px 35px;
     }
@@ -1075,10 +1178,16 @@ figure {
         padding: 35px;
     }
 
+    .font-example-form {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
     .font-example-input-container {
         width: 50%;
         padding: 0 7.5px 0 0;
-        float: left;
     }
 
     .font-example-input {
@@ -1150,6 +1259,13 @@ figure {
 .font-glyphs {
     border-top: 1px solid #ddd;
     border-left: 1px solid #ddd;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .font-glyph {
@@ -1160,7 +1276,6 @@ figure {
     line-height: 60px;
     text-align: center;
     overflow: hidden;
-    float: left;
 }
 
 @media (min-width: 768px) {
@@ -1220,93 +1335,8 @@ figure {
     }
 }
 
-/* Font Hero */
-.font-hero-container {
-    padding: 15px 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
-.font-hero-main-image {
-    max-width: 100%;
-    height: auto;
-}
-
-.font-hero-main.is-legacy {
-    background: #fff;
-}
-
-.font-hero-thumbnails {
-    margin-top: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-}
-
-.font-hero-thumbnail {
-    margin: 0 5px 0 0;
-}
-
-.font-hero-thumbnail:last-child {
-    margin-right: 0;
-}
-
-.font-hero-thumbnail-image {
-    max-width: 100px;
-    height: auto;
-    cursor: pointer;
-    display: block;
-}
-
-@media (min-width: 768px) {
-
-    .font-hero-container {
-        /*border: 2px solid #fff;*/
-        /*padding: 20px;*/
-        padding: 0;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-    }
-
-    .font-hero-main {
-        width: 85%;
-        padding-right: 20px;
-    }
-
-    .font-hero-main.is-legacy {
-        width: 100%;
-        padding: 0;
-    }
-
-    .font-hero-thumbnails {
-        width: 15%;
-        margin: 0;
-        white-space: normal;
-        flex-direction: column;
-    }
-
-    .font-hero-thumbnail {
-        margin: 0 0 6.436% 0;
-    }
-
-    .font-hero-thumbnail:last-child {
-        margin-bottom: 0;
-    }
-
-    .font-hero-thumbnail-image {
-        max-width: 100%;
-    }
-}
-
+/* Homepage */
 body.is-homepage {
     background-color: #fbe3dd;
     background-image: url(/images/bg.png);
@@ -1358,6 +1388,10 @@ body.is-homepage .bg-skewed:after {
 }
 
 /* Shop List */
+.shop-list-header {
+    text-align: center;
+}
+
 .shop-list {
     display: -webkit-box;
     display: -ms-flexbox;

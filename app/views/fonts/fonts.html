@@ -1,7 +1,6 @@
 {% extends '../body.html' %}
 
 {% block content %}
-
     <section class="container font-grid-container">
         {% for font in fonts %}
 
@@ -32,4 +31,13 @@
 
         {% endfor %}
     </section>
+{% endblock %}
+
+{% block footer %}
+    <div class="bg-skewed is-bottom footer-bg">
+        <div class="container">
+            <div class="bg-skewed-padding footer-bg-padding">
+            </div>
+        </div>
+    </div>
 {% endblock %}

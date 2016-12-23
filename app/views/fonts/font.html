@@ -148,9 +148,8 @@
             </div>
         </section>
 
-        <section class="font-page-section font-example">
-            <div class="container font-page-container font-example-header-container font-example-form-container">
-
+        <section class="container font-example">
+            <div class="font-example-header-container">
                 <form class="font-example-form clearfix">
 
                     <div class="input-container font-example-input-container">
@@ -186,14 +185,14 @@
                 </form>
             </div>
 
-            <div class="container font-page-container font-example-container font-example-text-container">
+            <div class="font-example-container font-example-text-container">
                 <div class="font-example-text font-{{font.slug}}">
                     Enter your preview text
                 </div>
             </div>
 
             {% if font.alternate_style %}
-                <div class="container font-page-container font-example-container font-example-text-container">
+                <div class="font-example-container font-example-text-container">
                     <div class="font-example-text {{font.alternate_style}}">
                         Enter your preview text
                     </div>
@@ -202,15 +201,15 @@
 
         </section>
 
-        <section class="font-page-section font-example">
+        <section class="container font-example">
 
-            <div class="container list-header-text font-example-header-container font-glyphs-header">
+            <div class="list-header-text font-example-header-container font-glyphs-header">
                 Glyphs
             </div>
 
-            <div class="container font-page-container font-example-container">
+            <div class="font-example-container">
 
-                <div class="font-glyphs clearfix font-{{font.slug}}">
+                <div class="font-glyphs font-{{font.slug}}">
                     <div class="font-glyph is-symbol">!</div>
                     <div class="font-glyph is-symbol">"</div>
                     <div class="font-glyph is-symbol">#</div>

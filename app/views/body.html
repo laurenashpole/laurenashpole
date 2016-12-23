@@ -19,9 +19,7 @@
 {% block body %}
 
     {% include './includes/nav.html' %}
-
-    <!-- <main class="page-container is-main clearfix"> -->
-        {% block content %}{% endblock %}
-    <!-- </main> -->
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
 
 {% endblock %}
