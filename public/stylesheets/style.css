@@ -589,6 +589,7 @@ button:focus {
 .nav-logo {
     width: 65px;
     height: 30px;
+    display: block;
 }
 
 .nav-icon-container {
@@ -712,8 +713,8 @@ button:focus {
 
     .nav {
         height: auto;
-        padding-left: 30px;
-        padding-right: 30px;
+        margin-bottom: 1.5%;
+        padding: 9% 30px 6% 30px;
         position: relative;
         z-index: 1;
     }
@@ -739,6 +740,7 @@ button:focus {
     }
 
     .nav-links-list {
+        height: 100%;
         padding: 0;
         display: -webkit-box;
         display: -webkit-flex;
@@ -748,6 +750,10 @@ button:focus {
         -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
         justify-content: flex-end;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 
     .nav-link {
@@ -755,10 +761,16 @@ button:focus {
         padding: 0;
         border: none;
         opacity: 1;
+        line-height: normal;
     }
 }
 
 @media (min-width: 968px) {
+
+    .nav {
+        margin-bottom: 2%;
+        padding: 9.5% 30px 5.5% 30px;
+    }
 
     .nav-link {
         margin: 0 0 0 70px;
@@ -1354,6 +1366,11 @@ body.is-homepage {
 }
 
 body.is-homepage .bg-skewed:after {
+    background-image: -webkit-linear-gradient(
+        rgba(232, 119, 94, 0.25) 25%,
+        transparent 25%,
+        transparent
+    );
     background-image: linear-gradient(
         rgba(232, 119, 94, 0.25) 25%,
         transparent 25%,
@@ -1363,24 +1380,67 @@ body.is-homepage .bg-skewed:after {
 
 .homepage-container {
     text-align: center;
+    padding-top: 5%;
+    padding-bottom: 10%;
 }
 
 .homepage-font-image {
-    max-width: 500px;
+    max-width: 608px;
     margin: 0 auto;
 }
 
-.homepage-text {
-    /*background: #7dc8b2;*/
-    margin: 20px 0;
-    padding: 10px;
-    display: inline-block;
-    /*box-shadow: 3px 3px 0px 0px rgba(232, 119, 94, 0.25);*/
-    /*color: #fff;*/
-    color: #222;
-    font-weight: 600;
+.homepage-banner {
+    height: 75px;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.homepage-banner-text {
+    padding: 10px 20px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    position: relative;
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+}
+
+.homepage-banner-text:before {
+    content: " ";
+    background-color: rgba(125, 200, 178, 0.75);
+    background-image: url(/images/bg.png);
+    background-size: 400px 400px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transform: skewX(15deg);
+    transform: skewX(15deg);
+}
+
+.homepage-banner-text:last-child {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+}
+
+.homepage-banner-text:last-child:before {
+    background: rgba(232, 119, 94, 0.25);
 }
 
 .homepage-shop-container:before,
@@ -1390,9 +1450,17 @@ body.is-homepage .bg-skewed:after {
 
 @media (min-width: 768px) {
 
-    .homepage-text {
-        margin: 40px;
-        padding: 15px;
+    .homepage-container {
+        padding-top: 2.5%;
+        padding-bottom: 5%;
+    }
+
+    .homepage-banner {
+        height: 100px;
+    }
+
+    .homepage-banner-text {
+        padding: 15px 30px;
         font-size: 18px;
     }
 }
