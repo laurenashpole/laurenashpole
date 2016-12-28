@@ -51,7 +51,7 @@ figure {
 }
 
 .bold {
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .desktop {
@@ -161,10 +161,11 @@ button,
     border: none;
     padding: 0;
     font: 300 16px 'Source Sans Pro';
-    color: #2c2c2c;
+    color: #222;
     line-height: inherit;
     text-transform: inherit;
     letter-spacing: 0.05em;
+    -webkit-appearance: none;
 }
 
 .input:focus,
@@ -174,70 +175,65 @@ button:focus {
     outline: none;
 }
 
-.input {
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    line-height: 58px;
-}
-
-.input:focus {
-    border-color: #bbb;
-}
-
-.input::-webkit-input-placeholder {
-    color: #bbb;
-}
-
-.input::-moz-placeholder {
-    color: #bbb;
-}
-
-.input:-ms-input-placeholder {
-    color: #bbb;
-}
-
-.input:-moz-placeholder {
-    color: #bbb;
-}
-
-.input-label-inset {
-    height: 60px;
+.input-container {
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    padding-right: 4px;
     position: relative;
 }
 
-.input-label-inset .input {
-    height: 58px;
-    border: none;
-    padding: 15px 0 0 7px;
-    color: #2c2c2c;
+.input {
+    background: #fff;
+    padding: 0 10px;
+    box-shadow: 4px 4px 0 0 #dcdcdc;
     font-size: 18px;
+    line-height: 45px;
+}
+
+.input:focus {
+    box-shadow: 4px 4px 0 0 #c4c4c4;
+}
+
+.input::-webkit-input-placeholder {
+    color: #ababab;
+}
+
+.input::-moz-placeholder {
+    color: #ababab;
+}
+
+.input:-ms-input-placeholder {
+    color: #ababab;
+}
+
+.input:-moz-placeholder {
+    color: #ababab;
+}
+
+.input-label-inset .input {
+    padding: 15px 0 0 10px;
 }
 
 .input-label-inset label {
     font-size: 10px;
     font-weight: 700;
     line-height: 10px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.125em;
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 10px;
+    left: 10px;
+    text-transform: uppercase;
 }
 
 .textarea {
+    padding: 10px;
+    box-shadow: 4px 4px 0 0 #dcdcdc;
+    font-size: 18px;
+    display: block;
     resize: none;
 }
 
-.textarea-label-inset {
-    height: auto;
-}
-
-.textarea-label-inset .textarea {
-    padding: 25px 7px 0 7px;
-    color: #2c2c2c;
-    font-size: 18px;
-    display: block;
+.textarea:focus {
+    box-shadow: 4px 4px 0 0 #c4c4c4;
 }
 
 .input-range {
@@ -326,7 +322,7 @@ button:focus {
 
 .input.is-required + label,
 .textarea.is-required + label {
-    color: #d04e3e;
+    color: #dc5a4e;
 }
 
 .input.is-required + label .label-required,
@@ -337,7 +333,7 @@ button:focus {
 
 @media (min-width: 768px) {
 
-    .input-label-inset {
+    .input-container {
         margin-bottom: 20px;
     }
 }
@@ -447,7 +443,7 @@ button:focus {
     transform: skewY(-5deg);
 }
 
-.bg-skewed:after {
+/*.bg-skewed:after {
     background-image: -webkit-linear-gradient(
         #ddd 25%,
         transparent 25%,
@@ -463,20 +459,14 @@ button:focus {
     z-index: -1;
     -webkit-transform: skewY(5deg);
     transform: skewY(5deg);
-}
+}*/
 
 .bg-skewed.is-top:before {
     transform-origin: bottom left;
 }
 
 .bg-skewed.is-bottom:before {
-    -webkit-transform: skewY(-5deg) translate3d(0, 75%, 0);
-    transform: skewY(-5deg) translate3d(0, 75%, 0);
-}
-
-.bg-skewed.is-bottom:after {
-    -webkit-transform: skewY(5deg) translate3d(0, 75%, 0);
-    transform: skewY(5deg) translate3d(0, 75%, 0);
+    transform-origin: top right;
 }
 
 .bg-skewed-padding {
@@ -520,16 +510,6 @@ button:focus {
 
 @media (min-width: 768px) {
 
-    .bg-skewed.is-bottom:before {
-        -webkit-transform: skewY(-5deg) translate3d(0, 85%, 0);
-        transform: skewY(-5deg) translate3d(0, 85%, 0);
-    }
-
-    .bg-skewed.is-bottom:after {
-        -webkit-transform: skewY(5deg) translate3d(0, 85%, 0);
-        transform: skewY(5deg) translate3d(0, 85%, 0);
-    }
-
     .container {
         padding: 0 30px;
     }
@@ -550,16 +530,7 @@ button:focus {
 
     .triangle:before {
         content: " ";
-        background-image: -webkit-linear-gradient(
-            #a6cab5 25%,
-            transparent 25%,
-            transparent
-        );
-        background-image: linear-gradient(
-            #a6cab5 25%,
-            transparent 25%,
-            transparent
-        );
+
         /*background-size: 8px 8px;*/
         background-size: 8px 8px;
         position: absolute;
@@ -571,6 +542,31 @@ button:focus {
         transform-origin: bottom left;
     }
 
+    .triangle.is-green:before {
+        background-image: -webkit-linear-gradient(
+            #a6cab5 25%,
+            transparent 25%,
+            transparent
+        );
+        background-image: linear-gradient(
+            #a6cab5 25%,
+            transparent 25%,
+            transparent
+        );
+    }
+
+    .triangle.is-pink:before {
+        background-image: -webkit-linear-gradient(
+            #dc5a4e 25%,
+            transparent 25%,
+            transparent
+        );
+        background-image: linear-gradient(
+            #dc5a4e 25%,
+            transparent 25%,
+            transparent
+        );
+    }
 }
 
 /* Header & Nav */
@@ -711,8 +707,8 @@ button:focus {
     text-transform: uppercase;
     display: block;
     opacity: 0;
-    -webkit-transition: opacity 0.05s, color 0.3s;
-    transition: opacity 0.05s, color 0.3s;
+    -webkit-transition: opacity 0.05s;
+    transition: opacity 0.05s;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
@@ -726,7 +722,7 @@ button:focus {
 }
 
 .nav-link:hover {
-    color: #cf4b3f;
+    color: #222;
 }
 
 @media (min-width: 768px) {
@@ -824,6 +820,12 @@ button:focus {
         font-size: 14px;
         line-height: normal;
         opacity: 1;
+        -webkit-transition: color 0.3s;
+        transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+        color: #cf4b3f;
     }
 }
 
@@ -1097,7 +1099,7 @@ button:focus {
 
 .font-details-licensing {
     margin: 0 20px 30px 0;
-    font-weight: 400;
+    /*font-weight: 400;*/
     letter-spacing: 0.025em;
     display: inline-block;
 }
@@ -1428,7 +1430,7 @@ body.is-homepage {
     background-size: 400px 400px;
 }
 
-body.is-homepage .bg-skewed:after {
+/*body.is-homepage .bg-skewed:after {
     background-image: -webkit-linear-gradient(
         rgba(232, 119, 94, 0.25) 25%,
         transparent 25%,
@@ -1439,7 +1441,7 @@ body.is-homepage .bg-skewed:after {
         transparent 25%,
         transparent
     );
-}
+}*/
 
 .homepage-container {
     text-align: center;
@@ -1506,8 +1508,9 @@ body.is-homepage .bg-skewed:after {
     background: rgba(232, 119, 94, 0.25);
 }
 
-.homepage-shop-container:before,
-.homepage-shop-container:after {
+.homepage-shop-container:before {
+/*.homepage-shop-container:before,
+.homepage-shop-container:after {*/
     content: " ";
 }
 
@@ -1572,29 +1575,10 @@ body.is-homepage .bg-skewed:after {
     overflow: hidden;
 }
 
-.footer-bg .container {
-    margin-top: 5%;
-}
-
 .footer-bg:before {
     content: " ";
-    background-color: transparent;
-    background-image: linear-gradient(
-        #ddd 25%,
-        transparent 25%,
-        transparent
-    );
-    background-size: 8px 8px;
 }
 
 .footer-bg-padding {
-    margin: -7.5% auto 0 auto;
-    padding: 15% 0 7.5% 0;
-}
-
-@media (min-width: 768px) {
-
-    .footer-bg .container {
-        margin-top: 0;
-    }
+    padding: 5% 0;
 }
