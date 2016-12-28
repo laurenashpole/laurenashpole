@@ -466,17 +466,9 @@ button:focus {
 }
 
 .bg-skewed.is-top:before {
-/*    -webkit-transform: skewY(-5deg) translate3d(0, -85%, 0);
-    transform: skewY(-5deg) translate3d(0, -85%, 0);*/
-
     transform-origin: bottom left;
 }
 
-/*.bg-skewed.is-top:after {
-    -webkit-transform: skewY(5deg) translate3d(0, -85%, 0);
-    transform: skewY(5deg) translate3d(0, -85%, 0);
-}
-*/
 .bg-skewed.is-bottom:before {
     -webkit-transform: skewY(-5deg) translate3d(0, 75%, 0);
     transform: skewY(-5deg) translate3d(0, 75%, 0);
@@ -541,6 +533,9 @@ button:focus {
     .container {
         padding: 0 30px;
     }
+}
+
+@media (min-width: 1024px) {
 
     .triangle {
         width: 60px;
@@ -706,18 +701,18 @@ button:focus {
 
 .nav-link {
     margin: 0 2%;
-    border-top: 1px solid #f5f5f5;
+    border-top: 1px solid #e8e8e8;
     padding: 0 2%;
     color: #222;
     line-height: 60px;
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.165em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     display: block;
     opacity: 0;
-    -webkit-transition: opacity 0.05s;
-    transition: opacity 0.05s;
+    -webkit-transition: opacity 0.05s, color 0.3s;
+    transition: opacity 0.05s, color 0.3s;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
@@ -731,7 +726,7 @@ button:focus {
 }
 
 .nav-link:hover {
-    color: #222;
+    color: #cf4b3f;
 }
 
 @media (min-width: 768px) {
@@ -764,7 +759,8 @@ button:focus {
     }
 
     .nav-logo-container {
-        transform: rotate(2.5deg);
+        -webkit-transform: rotate(5deg);
+        transform: rotate(5deg);
     }
 
     .nav-logo-container:before {
@@ -773,6 +769,12 @@ button:focus {
         border-right: 55px solid transparent;
         border-bottom: 73px solid #dc5a4e;
         display: block;
+        -webkit-transition: border-color 0.3s;
+        transition: border-color 0.3s;
+    }
+
+    .nav-logo-container:hover:before {
+        border-bottom-color: #cf4b3f;
     }
 
     .nav-logo {
