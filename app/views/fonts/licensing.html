@@ -1,9 +1,9 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <section class="container is-full-height">
+    <main class="container has-padding is-full-height">
 
-        <h1>Fonts - Licensing</h1>
+        <h1 class="text-block text-heading">Fonts - Licensing</h1>
 
         <p>Licensing fees provide the time, software, caffeine, and other necessities that go into creating new fonts and improving old ones. At the same time, I love the free font archives and downloading sprees and trying out fonts I might eventually find a use for so I don’t want to discourage any of that. In an attempt to strike a balance, different options are available depending on the type of use:</p>
 
@@ -15,14 +15,14 @@
 
         <p>This might not be the most clear cut method of categorization so feel free to <a href="mailto:{{email_address}}" title="{{email_address}}">ask</a> if you have any questions about where your project falls on the list</p>
 
-    </section>
+    </main>
 {% endblock %}
 
 {% block footer %}
-    <div class="bg-skewed is-bottom footer-bg">
+    <footer class="bg-skewed is-bottom footer-container">
         <div class="container">
-            <div class="bg-skewed-padding footer-bg-padding">
-            </div>
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </div>
+    </footer>
 {% endblock %}

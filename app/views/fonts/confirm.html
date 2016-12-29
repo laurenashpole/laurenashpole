@@ -1,11 +1,11 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <section class="container is-full-height">
+    <main class="container has-padding is-full-height">
 
         {% if payment %}
 
-            <h1>Thank you for purchasing {{font.name}}!</h1>
+            <h1 class="text-block text-heading">Thank you for purchasing {{font.name}}!</h1>
 
             <p>Download the commercial version of your font <a href="/downloads/{{font.commercial_font_file}}">here</a>. A copy will also be emailed to {{payment.payer.payer_info.email}}.</p>
 
@@ -13,20 +13,20 @@
 
         {% else %}
 
-            <h1>This page is no longer available.</h1>
+            <h1 class="text-block text-heading">This page is no longer available.</h1>
 
             <p>If you previously purchased {{font.name}} and need another copy of the commercial file or have any other questions, just email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
 
         {% endif %}
 
-    </section>
+    </main>
 {% endblock %}
 
 {% block footer %}
-    <div class="bg-skewed is-bottom footer-bg">
+    <footer class="bg-skewed is-bottom footer-container">
         <div class="container">
-            <div class="bg-skewed-padding footer-bg-padding">
-            </div>
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </div>
+    </footer>
 {% endblock %}
