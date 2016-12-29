@@ -21,10 +21,10 @@
 {% endblock %}
 
 {% block content %}
-    <div itemscope itemtype="http://schema.org/Product">
+    <main itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
-        <section class="container">
+        <section class="container has-padding">
             <div class="font-hero-container">
 
                 {% if font.image_collection.length %}
@@ -127,7 +127,7 @@
 
                         {% if font.commercial_use_details.length %}
                             <ul class="list-unstyled font-details-list">
-                                <li class="list-header-text font-details-list-header">Commercial Use Details</li>
+                                <li class="text-block font-details-list-header">Commercial Use Details</li>
                                 {% for detail in font.commercial_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
@@ -136,7 +136,7 @@
 
                         {% if font.personal_use_details.length %}
                             <ul class="list-unstyled font-details-list">
-                                <li class="list-header-text font-details-list-header">Personal Use Details</li>
+                                <li class="text-block font-details-list-header">Personal Use Details</li>
                                 {% for detail in font.personal_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
@@ -149,11 +149,11 @@
             </div>
         </section>
 
-        <section class="container font-example">
+        <section class="container has-padding font-example">
             <div class="font-example-header-container">
                 <form class="font-example-form clearfix">
 
-                    <div class="input-container font-example-input-container">
+                    <div class="font-example-input-container">
                         <input type="text" class="input font-example-input js-font-example-input" placeholder="Enter your preview text">
                     </div>
 
@@ -202,9 +202,9 @@
 
         </section>
 
-        <section class="container font-example">
+        <section class="container has-padding font-example">
 
-            <div class="list-header-text font-example-header-container font-glyphs-header">
+            <div class="text-block font-example-header-container font-glyphs-header">
                 Glyphs
             </div>
 
@@ -426,14 +426,14 @@
             </div>
         </section>
 
-    </div>
+    </main>
 {% endblock %}
 
 {% block footer %}
-    <div class="bg-skewed is-bottom footer-bg">
+    <footer class="bg-skewed is-bottom footer-container">
         <div class="container">
-            <div class="bg-skewed-padding footer-bg-padding">
-            </div>
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </div>
+    </footer>
 {% endblock %}
