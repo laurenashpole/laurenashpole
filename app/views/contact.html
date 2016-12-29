@@ -1,42 +1,41 @@
 {% extends 'body.html' %}
 
 {% block content %}
-    <section class="container is-full-height">
+    <main class="container is-full-height has-padding">
 
-        <h2 class="contact-form-header">Contact</h2>
+        <h2 class="text-block contact-form-header">Contact</h2>
 
         <h3 class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></h3>
 
-        <div class="text-rule">or</div>
+        <div class="text-block text-rule">or</div>
 
         <form class="contact-form js-contact-form"">
             <div class="input-container input-label-inset">
                 <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                <label for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
+                <label class="text-block" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                <label for="senderName">Name <span class="label-required">(required)</span></label>
+                <label class="text-block" for="senderName">Name <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                <label for="subject">Subject <span class="label-required">(required)</span></label>
+                <label class="text-block" for="subject">Subject <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-container input-label-inset textarea-label-inset">
                 <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input" placeholder="Message"></textarea>
             </div>
 
-            <div class="contact-form-buttons clearfix">
+            <div class="contact-form-buttons">
                 <div class="contact-form-button-container">
                     <button type="submit" class="contact-form-button js-contact-send">
-                        <div class="button">
-                            <span class="contact-form-button-text">Send</span>
-                        </div>
+                        <div class="button">Send</div>
                     </button>
                 </div>
+
                 <div class="contact-form-button-container">
                     <button type="reset" class="button-default">
                         <div class="button button-outline">Cancel</div>
@@ -45,15 +44,14 @@
             </div>
         </form>
 
-    </section>
+    </main>
 {% endblock %}
 
 {% block footer %}
-    <div class="bg-skewed is-bottom footer-bg">
+    <footer class="bg-skewed is-bottom footer-container">
         <div class="container">
-            <div class="footer-bg-padding">
-            <!-- <div class="bg-skewed-padding footer-bg-padding"> -->
-            </div>
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </div>
+    </footer>
 {% endblock %}

@@ -11,12 +11,12 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    padding-top: -webkit-calc(60px + 7.5%);
-    padding-top: calc(60px + 7.5%);
+    overflow-x: hidden;
     color: #222;
     line-height: 1.35;
     font-family: 'Source Sans Pro';
     font-weight: 300;
+    letter-spacing: 0.025em;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -73,6 +73,12 @@ figure {
     }
 }
 
+.text-block {
+    font-weight: 700;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+}
+
 .text-rule {
     margin: 0 0 25px 0;
     font-style: italic;
@@ -89,9 +95,9 @@ figure {
 .text-rule:before,
 .text-rule:after {
     content: " ";
-    background: #ddd;
-    height: 1px;
-    margin: 0 10px 0 0;
+    background: #dcdcdc;
+    height: 2px;
+    margin: 0 15px 0 0;
     display: block;
     -webkit-box-flex: 2;
     -webkit-flex-grow: 2;
@@ -100,7 +106,7 @@ figure {
 }
 
 .text-rule:after {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 15px;
 }
 
 @media (min-width: 768px) {
@@ -164,7 +170,7 @@ button,
     color: #222;
     line-height: inherit;
     text-transform: inherit;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.025em;
     -webkit-appearance: none;
 }
 
@@ -210,18 +216,15 @@ button:focus {
 }
 
 .input-label-inset .input {
-    padding: 15px 0 0 10px;
+    padding: 15px 10px 0 10px;
 }
 
 .input-label-inset label {
     font-size: 10px;
-    font-weight: 700;
     line-height: 10px;
-    letter-spacing: 0.125em;
     position: absolute;
     top: 10px;
     left: 10px;
-    text-transform: uppercase;
 }
 
 .textarea {
@@ -345,7 +348,7 @@ button:focus {
 
 .button {
     background: #d04e3e;
-    border: 1px solid #d04e3e;
+    border: 2px solid #d04e3e;
     color: #fff;
     height: 60px;
     font-weight: 700;
@@ -374,7 +377,7 @@ button:focus {
 
 .button:hover {
     background: #ce4130;
-    border: 1px solid #ce4130;
+    border: 2px solid #ce4130;
     color: #fff;
 }
 
@@ -405,7 +408,7 @@ button:focus {
 
 .button-outline:hover {
     background: none;
-    border-width: 2px;
+    /*border-width: 2px;*/
     color: #ce4130;
 }
 
@@ -470,8 +473,8 @@ button:focus {
 }
 
 .bg-skewed-padding {
-    margin: 12.5% auto;
-    padding: 12.5% 0;
+    margin: 10% auto;
+    padding: 10% 0;
     position: relative;
     z-index: 1;
 }
@@ -504,6 +507,11 @@ button:focus {
     justify-content: center;
 }
 
+.container.has-padding {
+    padding-top: 90px;
+    padding-bottom: 30px;
+}
+
 .triangle {
     display: none;
 }
@@ -513,26 +521,27 @@ button:focus {
     .container {
         padding: 0 30px;
     }
+
+    .container.has-padding {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
 }
 
 @media (min-width: 1024px) {
 
+    .container.has-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
     .triangle {
-        width: 60px;
-        height: 60px;
         display: block;
         overflow: hidden;
-        position: absolute;
-        right: 125%;
-        top: 30px;
-        transform: rotate(115deg);
     }
 
     .triangle:before {
         content: " ";
-
-        /*background-size: 8px 8px;*/
-        background-size: 8px 8px;
         position: absolute;
         top: 0;
         left: 0;
@@ -553,6 +562,7 @@ button:focus {
             transparent 25%,
             transparent
         );
+        background-size: 8px 8px;
     }
 
     .triangle.is-pink:before {
@@ -566,6 +576,7 @@ button:focus {
             transparent 25%,
             transparent
         );
+        background-size: 8px 8px;
     }
 }
 
@@ -755,8 +766,8 @@ button:focus {
     }
 
     .nav-logo-container {
-        -webkit-transform: rotate(5deg);
-        transform: rotate(5deg);
+        -webkit-transform: rotate(5deg) translate3d( 0, 0, 1px);
+        transform: rotate(5deg) translate3d( 0, 0, 1px);
     }
 
     .nav-logo-container:before {
@@ -834,6 +845,28 @@ button:focus {
     .header:before {
         -webkit-transform: skewY(-5deg) translate3d(0, -33.333%, 0);
         transform: skewY(-5deg) translate3d(0, -33.333%, 0);
+    }
+
+    .nav:before {
+        content: " ";
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 33px solid #a6cab5;
+        display: block;
+        position: absolute;
+        left: 104%;
+        top: 150%;
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+    }
+
+    .nav-triangle {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        right: 125%;
+        top: 30px;
+        transform: rotate(115deg);
     }
 
     .nav-link {
@@ -1382,21 +1415,26 @@ button:focus {
 .contact-form-header {
     margin-bottom: 10px;
     font-size: 24px;
-    letter-spacing: 0.025em;
 }
 
 .contact-form-subheader {
     font-weight: 300;
 }
 
-.contact-form-button-container {
-    width: 50%;
-    padding: 0 7.5px 0 0;
-    float: left;
+.contact-form-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
-.contact-form-button-container:last-child {
-    padding: 0 0 0 7.5px;
+.contact-form-button-container {
+    width: 50%;
+    padding: 4px 0 0 7.5px;
+}
+
+.contact-form-button-container:first-child {
+    padding: 4px 7.5px 0 0;
 }
 
 @media (min-width: 768px) {
@@ -1411,13 +1449,13 @@ button:focus {
     }
 
     .contact-form-button-container {
-        width: 66.666%;
-        padding: 0 10px 0 0;
+        width: 40%;
+        padding: 4px 0 0 10px;
     }
 
-    .contact-form-button-container:last-child {
-        width: 33.333%;
-        padding: 0 0 0 10px;
+    .contact-form-button-container:first-child {
+        width: 60%;
+        padding: 4px 10px 0 0;
     }
 }
 
@@ -1570,15 +1608,41 @@ body.is-homepage {
 }
 
 /* Footer */
-.footer-bg {
+.footer-container {
     width: 100%;
     overflow: hidden;
 }
 
-.footer-bg:before {
+.footer-container:before {
     content: " ";
 }
 
-.footer-bg-padding {
+.footer {
     padding: 5% 0;
+}
+
+.footer-triangle {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 102.5%;
+    top: 10%;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+}
+
+@media (min-width: 1024px) {
+
+    .footer:before {
+        content: " ";
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid #a6cab5;
+        display: block;
+        position: absolute;
+        left: 102.5%;
+        top: 30%;
+        -webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+    }
 }
