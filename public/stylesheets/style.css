@@ -1231,6 +1231,10 @@ button:focus {
     box-shadow: none;
 }
 
+.font-example-input:focus {
+    box-shadow: none;
+}
+
 .font-example-settings {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1276,14 +1280,14 @@ button:focus {
     padding: 15px;
 }
 
-.font-example-text-container {
+.font-example-text {
     border-bottom: 1px solid #dcdcdc;
     font-size: 64px;
     line-height: 1.25;
     word-break: break-word;
 }
 
-.font-example-text-container:last-child {
+.font-example-text:last-child {
     border: none;
 }
 
@@ -1354,7 +1358,7 @@ button:focus {
         left: 45px;
     }
 
-    .font-example-text-container {
+    .font-example-text {
         padding-top: 20px;
         padding-bottom: 20px;
     }
