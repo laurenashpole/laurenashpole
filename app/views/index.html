@@ -3,21 +3,23 @@
 {% block body-class %}is-homepage{% endblock %}
 
 {% block content %}
-    <div>
-        <div class="container has-padding homepage-container">
-            <div class="homepage-banner">
-                <span class="homepage-banner-text">Newest Font</span>
-                <span class="homepage-banner-text">Bar Book</span>
-            </div>
-            <div class="homepage-font-image">
-                <img src="/images/bb-home.png" class="img-responsive" />
-            </div>
-        </div>
+    <main>
+        <section class="container has-padding homepage-container">
+            <a href="/fonts/bar-book" class="homepage-link" title="Bar Book">
+                <div class="homepage-banner">
+                    <span class="text-block homepage-banner-text">Newest Font</span>
+                    <span class="text-block homepage-banner-text">Bar Book</span>
+                </div>
+                <div class="homepage-font-image">
+                    <img src="/images/bb-home.png" class="img-responsive" />
+                </div>
+            </a>
+        </section>
 
         <section class="bg-skewed homepage-shop-container">
             <div class="container">
                 <div class="bg-skewed-padding">
-                    <h3 class="text-block shop-list-header">Fonts also available at</h3>
+                    <h3 class="text-block list-header shop-list-header">Fonts also available at</h3>
 
                     <ul class="list-unstyled shop-list">
                         <li class="shop-list-item">
@@ -44,5 +46,5 @@
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 {% endblock %}
