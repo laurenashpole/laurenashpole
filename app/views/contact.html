@@ -1,50 +1,57 @@
 {% extends 'body.html' %}
 
 {% block content %}
+    <main class="container has-padding is-full-height">
 
-    <section class="section is-full-height is-text-only">
-        <div class="container contact-form-container">
+        <h2 class="text-block text-heading">Contact</h2>
 
-            <h2 class="contact-form-header">Contact</h2>
+        <h3 class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></h3>
 
-            <h3 class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></h3>
+        <div class="text-block text-rule">or</div>
 
-            <div class="text-rule">or</div>
+        <form class="contact-form js-contact-form"">
+            <div class="input-container input-label-inset">
+                <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
+                <label class="text-block" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
+            </div>
 
-            <form class="contact-form js-contact-form"">
-                <div class="input-label-inset">
-                    <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                    <label for="senderEmail">Email <span class="label-required">(valid email required)</label>
+            <div class="input-container input-label-inset">
+                <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
+                <label class="text-block" for="senderName">Name <span class="label-required">(required)</span></label>
+            </div>
+
+            <div class="input-container input-label-inset">
+                <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
+                <label class="text-block" for="subject">Subject <span class="label-required">(required)</span></label>
+            </div>
+
+            <div class="input-container input-label-inset textarea-label-inset">
+                <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input" placeholder="Message"></textarea>
+            </div>
+
+            <div class="contact-form-buttons">
+                <div class="contact-form-button-container">
+                    <button type="submit" class="contact-form-button js-contact-send">
+                        <div class="button">Send</div>
+                    </button>
                 </div>
 
-                <div class="input-label-inset">
-                    <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                    <label for="senderName">Name <span class="label-required">(required)</label>
+                <div class="contact-form-button-container">
+                    <button type="reset" class="button-default">
+                        <div class="button button-outline">Cancel</div>
+                    </button>
                 </div>
+            </div>
+        </form>
 
-                <div class="input-label-inset">
-                    <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                    <label for="subject">Subject <span class="label-required">(required)</label>
-                </div>
+    </main>
+{% endblock %}
 
-                <div class="input-label-inset textarea-label-inset">
-                    <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input"></textarea>
-                    <label for="Message">Message <span class="label-required">(required)</label>
-                </div>
-
-                <div class="contact-form-buttons clearfix">
-                    <div class="contact-form-button-container">
-                        <button type="submit" class="button contact-form-button js-contact-send">
-                            <span class="contact-form-button-text">Send</span>
-                        </button>
-                    </div>
-                    <div class="contact-form-button-container">
-                        <button type="reset" class="button button-outline">Cancel</button>
-                    </div>
-                </div>
-            </form>
-
+{% block footer %}
+    <footer class="bg-skewed is-bottom footer-container">
+        <div class="container">
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </section>
-
+    </footer>
 {% endblock %}

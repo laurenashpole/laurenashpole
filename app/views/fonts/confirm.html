@@ -1,25 +1,32 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <section class="section is-full-height is-text-only">
+    <main class="container has-padding is-full-height">
+
+        {% if payment %}
+
+            <h1 class="text-block text-heading">Thank you for purchasing {{font.name}}!</h1>
+
+            <p>Download the commercial version of your font <a href="/downloads/{{font.commercial_font_file}}">here</a>. A copy will also be emailed to {{payment.payer.payer_info.email}}.</p>
+
+            <p>If you have any questions about your purchase, view the <a href="/fonts/licensing" title="Licensing">licensing details</a> or the <a href="/fonts/eula" title="EULA">EULA</a> or email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
+
+        {% else %}
+
+            <h1 class="text-block text-heading">This page is no longer available.</h1>
+
+            <p>If you previously purchased {{font.name}} and need another copy of the commercial file or have any other questions, just email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
+
+        {% endif %}
+
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer class="bg-skewed is-bottom footer-container">
         <div class="container">
-
-            {% if payment %}
-
-                <h1>Thank you for purchasing {{font.name}}!</h1>
-
-                <p>Download the commercial version of your font <a href="/downloads/{{font.commercial_font_file}}">here</a>. A copy will also be emailed to {{payment.payer.payer_info.email}}.</p>
-
-                <p>If you have any questions about your purchase, view the <a href="/fonts/licensing" title="Licensing">licensing details</a> or the <a href="/fonts/eula" title="EULA">EULA</a> or email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
-
-            {% else %}
-
-                <h1>This page is no longer available.</h1>
-
-                <p>If you previously purchased {{font.name}} and need another copy of the commercial file or have any other questions, just email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
-
-            {% endif %}
-
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-    </section>
+    </footer>
 {% endblock %}

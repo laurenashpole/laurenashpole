@@ -1,34 +1,46 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    {% for font in fonts %}
+    <main class="container has-padding font-grid-container">
+        <h2 class="text-block text-heading">Fonts</h2>
 
-        <div class="font-grid-container img-bg" style="background-color: rgba({{font.color}}, 1);">
-            <a
-                href="/fonts/{{font.slug}}"
-                class="font-grid js-ga-trigger"
-                data-ga-category="Fonts"
-                data-ga-action="click"
-                data-ga-label="{{font.name}}"
-            >
+        {% for font in fonts %}
+            <div class="font-grid-item-container">
+                <div class="font-grid-item img-bg" style="background-color: rgba({{font.color}}, 1);">
+                    <a
+                        href="/fonts/{{font.slug}}"
+                        class="font-grid-link js-ga-trigger"
+                        data-ga-category="Fonts"
+                        data-ga-action="click"
+                        data-ga-label="{{font.name}}"
+                    >
 
-                <div class="font-grid-image-container">
-                    <span class="img-default">
-                        <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
-                    </span>
-                    <span class="img-retina">
-                        <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
-                    </span>
+                        <div class="font-grid-image-container">
+                            <span class="img-default">
+                                <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
+                            </span>
+                            <span class="img-retina">
+                                <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
+                            </span>
+                        </div>
+
+                        <div class="font-grid-overlay">
+                            <h2 class="text-block font-grid-title">{{font.name}}</h2>
+                        </div>
+
+                    </a>
                 </div>
+            </div>
+        {% endfor %}
 
-                <div class="font-grid-overlay vertical-align-abs">
-                    <div class="vertical-align-content">
-                        <h2 class="font-grid-title">{{font.name}}</h2>
-                    </div>
-                </div>
+    </main>
+{% endblock %}
 
-            </a>
+{% block footer %}
+    <footer class="bg-skewed is-bottom footer-container">
+        <div class="container">
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
         </div>
-
-    {% endfor %}
+    </footer>
 {% endblock %}

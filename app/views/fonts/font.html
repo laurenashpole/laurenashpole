@@ -21,13 +21,13 @@
 {% endblock %}
 
 {% block content %}
-
-    <div itemscope itemtype="http://schema.org/Product">
+    <main itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
-        {% if font.image_collection.length %}
-            <section class="font-page-section font-hero-section">
-                <div class="container font-page-container font-hero-container">
+        <section class="container has-padding">
+            <div class="font-hero-container">
+
+                {% if font.image_collection.length %}
                     <div class="font-hero-main">
                         <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
                         <img src="/images/fonts/{{font.image_collection[0]}}" class="font-hero-main-image" alt="{{font.name}}" />
@@ -35,88 +35,66 @@
 
                     <div class="font-hero-thumbnails">
                         {% for image in font.image_collection %}
-                            <img src="/images/fonts/{{image}}" class="font-hero-thumbnails-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
+                            <div class="font-hero-thumbnail">
+                                <img src="/images/fonts/{{image}}" class="font-hero-thumbnail-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
+                            </div>
                         {% endfor %}
                     </div>
-                </div>
-            </section>
-        {% else %}
-            <section class="font-hero img-bg has-buttons vertical-align-td font-page-section">
-
-                <div class="vertical-align-content">
-
-                    <div class="desktop container">
-                        <div class="font-hero-image-container">
-                            <span class="img-default">
-                                <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image}});"></figure>
-                            </span>
-                            <span class="img-retina">
-                                <figure class="font-hero-image" style="background-image: url(/images/fonts/{{font.image_retina}});"></figure>
-                            </span>
-                        </div>
+                {% else %}
+                    <div class="font-hero-main is-legacy">
+                        <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+                        <img src="/images/fonts/{{font.image_retina}}" class="font-hero-main-image" alt="{{font.name}}" />
                     </div>
+                {% endif %}
 
-                    <div class="mobile">
-                        <div class="font-hero-mobile-image-container">
-                            <div class="font-hero-mobile-image">
-                                <span class="img-default">
-                                    <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_mobile}});"></figure>
-                                </span>
-                                <span class="img-retina">
-                                    <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_mobile_retina}});"></figure>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        {% endif %}
-
-        <section class="font-page-section font-details-section">
-            <div class="container font-page-container font-details-container">
-
-                <div class="font-buttons clearfix {% if font.one_download_option %}has-one-button{% endif %}">
+                <div class="font-buttons">
                     {% if font.commercial_font_file %}
                         <div class="font-button-container">
-                            <form method="post" action="/fonts/{{font.slug}}/payment" class="vertical-align-td">
+                            <form method="post" action="/fonts/{{font.slug}}/payment">
                                 <button
                                     type="submit"
                                     title="Buy Now"
-                                    class="button vertical-align-content js-ga-trigger"
+                                    class="js-ga-trigger"
                                     data-ga-category="{{font.name}} Page"
                                     data-ga-action="click"
                                     data-ga-label="Buy Now"
                                 >
-                                    <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                        Commercial Use <span itemprop="price">$15</span>
-                                        <meta itemprop="priceCurrency" content="USD" />
-                                        <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
-                                    </span>
-                                    Purchase
+                                    <div class="button">
+                                        <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            Commercial Use <span itemprop="price">$15</span>
+                                            <meta itemprop="priceCurrency" content="USD" />
+                                            <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
+                                        </span>
+                                        Purchase
+                                    </div>
                                 </button>
                             </form>
                         </div>
                     {% endif %}
+
                     {% if font.personal_font_file %}
                         <div class="font-button-container">
-                            <div class="vertical-align-td">
-                                <a
-                                    href="/downloads/{{font.personal_font_file}}"
-                                    class="button button-outline vertical-align-content js-ga-trigger"
-                                    data-ga-category="{{font.name}} Page"
-                                    data-ga-action="click"
-                                    data-ga-label="Download"
-                                >
-                                    <span class="button-fine-print">Personal Use Free</span>
-                                    Download
-                                </a>
-                            </div>
+                            <a
+                                href="/downloads/{{font.personal_font_file}}"
+                                class="button button-outline js-ga-trigger"
+                                data-ga-category="{{font.name}} Page"
+                                data-ga-action="click"
+                                data-ga-label="Download"
+                            >
+                                <span class="button-fine-print">Personal Use Free</span>
+                                Download
+                            </a>
                         </div>
                     {% endif %}
                 </div>
 
-                <div class="font-details-content-container">
+            </div>
+        </section>
+
+        <section class="bg-skewed font-details-container">
+            <div class="container">
+                <div class="bg-skewed-padding font-details">
+
                     <div class="font-details-content">
 
                         <h1 class="font-details-title" itemprop="name">
@@ -128,7 +106,7 @@
                             {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
                         </div>
 
-                        <ul>
+                        <ul class="list-unstyled bold">
                             <li class="font-details-licensing">
                                 <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
                             </li>
@@ -148,8 +126,8 @@
                     <div class="font-details-lists clearfix" itemprop="description">
 
                         {% if font.commercial_use_details.length %}
-                            <ul class="font-details-list">
-                                <li class="list-header-text font-details-list-header">Commercial Use Details</li>
+                            <ul class="list-unstyled font-details-list">
+                                <li class="text-block list-header font-details-list-header">Commercial Use Details</li>
                                 {% for detail in font.commercial_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
@@ -157,8 +135,8 @@
                         {% endif %}
 
                         {% if font.personal_use_details.length %}
-                            <ul class="font-details-list">
-                                <li class="list-header-text font-details-list-header">Personal Use Details</li>
+                            <ul class="list-unstyled font-details-list">
+                                <li class="text-block list-header font-details-list-header">Personal Use Details</li>
                                 {% for detail in font.personal_use_details %}
                                     <li class="font-details-list-item">{{detail}}</li>
                                 {% endfor %}
@@ -166,289 +144,296 @@
                         {% endif %}
 
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
 
-        <section class="font-page-section font-example">
-            <div class="container font-page-container font-example-header-container font-example-form-container">
+        <section class="container has-padding font-example-container">
+            <div class="font-example">
 
-                <form class="font-example-form clearfix">
+                <div class="font-example-header-container">
+                    <form class="font-example-form">
 
-                    <div class="input-container font-example-input-container">
-                        <input type="text" class="input font-example-input js-font-example-input" placeholder="Enter your preview text">
-                    </div>
-
-                    <div class="font-example-settings clearfix">
-                        <div class="font-example-setting-container">
-                            <input type="range" min="14" max="114" id="fontSize" class="input-range font-example-input-range js-font-example-size" />
-                            <label for="fontSize" class="font-example-input-range-label">
-                                <span class="font-example-icon-text">T</span>
-                                <i class="fa fa-arrows font-example-icon-arrow"></i>
-                            </label>
+                        <div class="font-example-input-container">
+                            <input type="text" class="input font-example-input js-font-example-input" placeholder="Enter your preview text">
                         </div>
 
-                        <div class="font-example-setting-container">
-                            <input type="range" min="-50" max="50" id="fontSpacing" class="input-range font-example-input-range js-font-example-spacing" />
-                            <label for="fontSpacing" class="font-example-input-range-label">
-                                <span class="font-example-icon-text">T</span>
-                                <i class="fa fa-arrows-h font-example-icon-arrow"></i>
-                            </label>
+                        <div class="font-example-settings clearfix">
+                            <div class="font-example-setting-container">
+                                <input type="range" min="14" max="114" id="fontSize" class="input-range font-example-input-range js-font-example-size" />
+                                <label for="fontSize" class="font-example-input-range-label">
+                                    <span class="font-example-icon-text">T</span>
+                                    <i class="fa fa-arrows font-example-icon-arrow"></i>
+                                </label>
+                            </div>
+
+                            <div class="font-example-setting-container">
+                                <input type="range" min="-50" max="50" id="fontSpacing" class="input-range font-example-input-range js-font-example-spacing" />
+                                <label for="fontSpacing" class="font-example-input-range-label">
+                                    <span class="font-example-icon-text">T</span>
+                                    <i class="fa fa-arrows-h font-example-icon-arrow"></i>
+                                </label>
+                            </div>
+
+                            <div class="font-example-setting-container">
+                                <input type="range" min="75" max="175" id="fontHeight" class="input-range font-example-input-range js-font-example-height" />
+                                <label for="fontHeight" class="font-example-input-range-label">
+                                    <span class="font-example-icon-text">T</span>
+                                    <i class="fa fa-arrows-v font-example-icon-arrow"></i>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="font-example-setting-container">
-                            <input type="range" min="75" max="175" id="fontHeight" class="input-range font-example-input-range js-font-example-height" />
-                            <label for="fontHeight" class="font-example-input-range-label">
-                                <span class="font-example-icon-text">T</span>
-                                <i class="fa fa-arrows-v font-example-icon-arrow"></i>
-                            </label>
-                        </div>
-                    </div>
+                    </form>
+                </div>
 
-                </form>
-            </div>
-
-            <div class="container font-page-container font-example-container font-example-text-container">
-                <div class="font-example-text font-{{font.slug}}">
+                <div class="font-example-content font-example-text-container font-{{font.slug}}">
                     Enter your preview text
                 </div>
-            </div>
 
-            {% if font.alternate_style %}
-                <div class="container font-page-container font-example-container font-example-text-container">
-                    <div class="font-example-text {{font.alternate_style}}">
+                {% if font.alternate_style %}
+                    <div class="font-example-content font-example-text-container {{font.alternate_style}}">
                         Enter your preview text
                     </div>
-                </div>
-            {% endif %}
-
-        </section>
-
-        <section class="font-page-section font-example">
-
-            <div class="container list-header-text font-example-header-container font-glyphs-header">
-                Glyphs
-            </div>
-
-            <div class="container font-page-container font-example-container">
-
-                <div class="font-glyphs clearfix font-{{font.slug}}">
-                    <div class="font-glyph is-symbol">!</div>
-                    <div class="font-glyph is-symbol">"</div>
-                    <div class="font-glyph is-symbol">#</div>
-                    <div class="font-glyph is-symbol">$</div>
-                    <div class="font-glyph is-symbol">%</div>
-                    <div class="font-glyph is-symbol">&amp;</div>
-                    <div class="font-glyph is-symbol">'</div>
-                    <div class="font-glyph is-symbol">(</div>
-                    <div class="font-glyph is-symbol">)</div>
-                    <div class="font-glyph is-symbol">*</div>
-                    <div class="font-glyph is-symbol">+</div>
-                    <div class="font-glyph is-symbol">,</div>
-                    <div class="font-glyph is-symbol">-</div>
-                    <div class="font-glyph is-symbol">.</div>
-                    <div class="font-glyph is-symbol">/</div>
-                    <div class="font-glyph is-number">0</div>
-                    <div class="font-glyph is-number">1</div>
-                    <div class="font-glyph is-number">2</div>
-                    <div class="font-glyph is-number">3</div>
-                    <div class="font-glyph is-number">4</div>
-                    <div class="font-glyph is-number">5</div>
-                    <div class="font-glyph is-number">6</div>
-                    <div class="font-glyph is-number">7</div>
-                    <div class="font-glyph is-number">8</div>
-                    <div class="font-glyph is-number">9</div>
-                    <div class="font-glyph is-symbol">:</div>
-                    <div class="font-glyph is-symbol">;</div>
-                    <div class="font-glyph is-symbol"><</div>
-                    <div class="font-glyph is-symbol">=</div>
-                    <div class="font-glyph is-symbol">></div>
-                    <div class="font-glyph is-symbol">?</div>
-                    <div class="font-glyph is-symbol">@</div>
-                    <div class="font-glyph is-capital">A</div>
-                    <div class="font-glyph is-capital">B</div>
-                    <div class="font-glyph is-capital">C</div>
-                    <div class="font-glyph is-capital">D</div>
-                    <div class="font-glyph is-capital">E</div>
-                    <div class="font-glyph is-capital">F</div>
-                    <div class="font-glyph is-capital">G</div>
-                    <div class="font-glyph is-capital">H</div>
-                    <div class="font-glyph is-capital">I</div>
-                    <div class="font-glyph is-capital">J</div>
-                    <div class="font-glyph is-capital">K</div>
-                    <div class="font-glyph is-capital">L</div>
-                    <div class="font-glyph is-capital">M</div>
-                    <div class="font-glyph is-capital">N</div>
-                    <div class="font-glyph is-capital">O</div>
-                    <div class="font-glyph is-capital">P</div>
-                    <div class="font-glyph is-capital">Q</div>
-                    <div class="font-glyph is-capital">R</div>
-                    <div class="font-glyph is-capital">S</div>
-                    <div class="font-glyph is-capital">T</div>
-                    <div class="font-glyph is-capital">U</div>
-                    <div class="font-glyph is-capital">V</div>
-                    <div class="font-glyph is-capital">W</div>
-                    <div class="font-glyph is-capital">X</div>
-                    <div class="font-glyph is-capital">Y</div>
-                    <div class="font-glyph is-capital">Z</div>
-                    <div class="font-glyph is-symbol">[</div>
-                    <div class="font-glyph is-symbol">\</div>
-                    <div class="font-glyph is-symbol">]</div>
-                    <div class="font-glyph is-symbol">^</div>
-                    <div class="font-glyph is-symbol">_</div>
-                    <div class="font-glyph is-symbol">`</div>
-                    <div class="font-glyph is-lower">a</div>
-                    <div class="font-glyph is-lower">b</div>
-                    <div class="font-glyph is-lower">c</div>
-                    <div class="font-glyph is-lower">d</div>
-                    <div class="font-glyph is-lower">e</div>
-                    <div class="font-glyph is-lower">f</div>
-                    <div class="font-glyph is-lower">g</div>
-                    <div class="font-glyph is-lower">h</div>
-                    <div class="font-glyph is-lower">i</div>
-                    <div class="font-glyph is-lower">j</div>
-                    <div class="font-glyph is-lower">k</div>
-                    <div class="font-glyph is-lower">l</div>
-                    <div class="font-glyph is-lower">m</div>
-                    <div class="font-glyph is-lower">n</div>
-                    <div class="font-glyph is-lower">o</div>
-                    <div class="font-glyph is-lower">p</div>
-                    <div class="font-glyph is-lower">q</div>
-                    <div class="font-glyph is-lower">r</div>
-                    <div class="font-glyph is-lower">s</div>
-                    <div class="font-glyph is-lower">t</div>
-                    <div class="font-glyph is-lower">u</div>
-                    <div class="font-glyph is-lower">v</div>
-                    <div class="font-glyph is-lower">w</div>
-                    <div class="font-glyph is-lower">x</div>
-                    <div class="font-glyph is-lower">y</div>
-                    <div class="font-glyph is-lower">z</div>
-                    <div class="font-glyph is-symbol">{</div>
-                    <div class="font-glyph is-symbol">|</div>
-                    <div class="font-glyph is-symbol">}</div>
-                    <div class="font-glyph is-symbol">~</div>
-
-                    <div class="font-glyph is-additional">&iexcl;</div>
-                    <div class="font-glyph is-additional">&cent;</div>
-                    <div class="font-glyph is-additional">&pound;</div>
-                    <div class="font-glyph is-additional">&curren;</div>
-                    <div class="font-glyph is-additional">&yen;</div>
-                    <div class="font-glyph is-additional">&brvbar;</div>
-                    <div class="font-glyph is-additional">&sect;</div>
-                    <div class="font-glyph is-additional">&uml;</div>
-                    <div class="font-glyph is-additional">&copy;</div>
-                    <div class="font-glyph is-additional">&ordf;</div>
-                    <div class="font-glyph is-additional">&laquo;</div>
-                    <div class="font-glyph is-additional">&not;</div>
-                    <div class="font-glyph is-additional">&reg;</div>
-                    <!-- <div class="font-glyph is-additional">&macr;</div> -->
-                    <div class="font-glyph is-additional">&deg;</div>
-                    <div class="font-glyph is-additional">&plusmn;</div>
-                    <div class="font-glyph is-additional">&sup2;</div>
-                    <div class="font-glyph is-additional">&sup3;</div>
-                    <div class="font-glyph is-additional">&acute;</div>
-                    <div class="font-glyph is-additional">&micro;</div>
-                    <div class="font-glyph is-additional">&para;</div>
-                    <div class="font-glyph is-additional">&middot;</div>
-                    <div class="font-glyph is-additional">&cedil;</div>
-                    <div class="font-glyph is-additional">&sup1;</div>
-                    <div class="font-glyph is-additional">&ordm;</div>
-                    <div class="font-glyph is-additional">&raquo;</div>
-                    <div class="font-glyph is-additional">&frac14;</div>
-                    <div class="font-glyph is-additional">&frac12;</div>
-                    <div class="font-glyph is-additional">&frac34;</div>
-                    <div class="font-glyph is-additional">&iquest;</div>
-                    <div class="font-glyph is-additional">&Agrave;</div>
-                    <div class="font-glyph is-additional">&Aacute;</div>
-                    <div class="font-glyph is-additional">&Acirc;</div>
-                    <div class="font-glyph is-additional">&Atilde;</div>
-                    <div class="font-glyph is-additional">&Auml;</div>
-                    <div class="font-glyph is-additional">&Aring;</div>
-                    <div class="font-glyph is-additional">&AElig;</div>
-                    <div class="font-glyph is-additional">&Ccedil;</div>
-                    <div class="font-glyph is-additional">&Egrave;</div>
-                    <div class="font-glyph is-additional">&Eacute;</div>
-                    <div class="font-glyph is-additional">&Ecirc;</div>
-                    <div class="font-glyph is-additional">&Euml;</div>
-                    <div class="font-glyph is-additional">&Igrave;</div>
-                    <div class="font-glyph is-additional">&Iacute;</div>
-                    <div class="font-glyph is-additional">&Icirc;</div>
-                    <div class="font-glyph is-additional">&Iuml;</div>
-                    <div class="font-glyph is-additional">&ETH;</div>
-                    <div class="font-glyph is-additional">&Ntilde;</div>
-                    <div class="font-glyph is-additional">&Ograve;</div>
-                    <div class="font-glyph is-additional">&Oacute;</div>
-                    <div class="font-glyph is-additional">&Ocirc;</div>
-                    <div class="font-glyph is-additional">&Otilde;</div>
-                    <div class="font-glyph is-additional">&Ouml;</div>
-                    <div class="font-glyph is-additional">&times;</div>
-                    <div class="font-glyph is-additional">&Oslash;</div>
-                    <div class="font-glyph is-additional">&Ugrave;</div>
-                    <div class="font-glyph is-additional">&Uacute;</div>
-                    <div class="font-glyph is-additional">&Ucirc;</div>
-                    <div class="font-glyph is-additional">&Uuml;</div>
-                    <div class="font-glyph is-additional">&Yacute;</div>
-                    <div class="font-glyph is-additional">&THORN;</div>
-                    <div class="font-glyph is-additional">&szlig;</div>
-                    <div class="font-glyph is-additional">&agrave;</div>
-                    <div class="font-glyph is-additional">&aacute;</div>
-                    <div class="font-glyph is-additional">&acirc;</div>
-                    <div class="font-glyph is-additional">&atilde;</div>
-                    <div class="font-glyph is-additional">&auml;</div>
-                    <div class="font-glyph is-additional">&aring;</div>
-                    <div class="font-glyph is-additional">&aelig;</div>
-                    <div class="font-glyph is-additional">&ccedil;</div>
-                    <div class="font-glyph is-additional">&egrave;</div>
-                    <div class="font-glyph is-additional">&eacute;</div>
-                    <div class="font-glyph is-additional">&ecirc;</div>
-                    <div class="font-glyph is-additional">&euml;</div>
-                    <div class="font-glyph is-additional">&igrave;</div>
-                    <div class="font-glyph is-additional">&iacute;</div>
-                    <div class="font-glyph is-additional">&icirc;</div>
-                    <div class="font-glyph is-additional">&iuml;</div>
-                    <div class="font-glyph is-additional">&eth;</div>
-                    <div class="font-glyph is-additional">&ntilde;</div>
-                    <div class="font-glyph is-additional">&ograve;</div>
-                    <div class="font-glyph is-additional">&oacute;</div>
-                    <div class="font-glyph is-additional">&ocirc;</div>
-                    <div class="font-glyph is-additional">&otilde;</div>
-                    <div class="font-glyph is-additional">&ouml;</div>
-                    <div class="font-glyph is-additional">&divide;</div>
-                    <div class="font-glyph is-additional">&oslash;</div>
-                    <div class="font-glyph is-additional">&ugrave;</div>
-                    <div class="font-glyph is-additional">&uacute;</div>
-                    <div class="font-glyph is-additional">&ucirc;</div>
-                    <div class="font-glyph is-additional">&uuml;</div>
-                    <div class="font-glyph is-additional">&yacute;</div>
-                    <div class="font-glyph is-additional">&thorn;</div>
-                    <div class="font-glyph is-additional">&yuml;</div>
-                    <div class="font-glyph is-additional">&#338;</div>
-                    <div class="font-glyph is-additional">&#339;</div>
-                    <!-- <div class="font-glyph is-additional">&#352;</div> -->
-                    <!-- <div class="font-glyph is-additional">&#353;</div> -->
-                    <div class="font-glyph is-additional">&#376;</div>
-                    <!-- <div class="font-glyph is-additional">&#402;</div> -->
-                    <div class="font-glyph is-additional">&#8211;</div>
-                    <div class="font-glyph is-additional">&#8212;</div>
-                    <div class="font-glyph is-additional">&#8216;</div>
-                    <div class="font-glyph is-additional">&#8217;</div>
-                    <div class="font-glyph is-additional">&#8218;</div>
-                    <div class="font-glyph is-additional">&#8220;</div>
-                    <div class="font-glyph is-additional">&#8221;</div>
-                    <div class="font-glyph is-additional">&#8222;</div>
-                    <!-- <div class="font-glyph is-additional">&#8224;</div> -->
-                    <!-- <div class="font-glyph is-additional">&#8225;</div> -->
-                    <div class="font-glyph is-additional">&#8226;</div>
-                    <div class="font-glyph is-additional">&#8230;</div>
-                    <!-- <div class="font-glyph is-additional">&#8240;</div> -->
-                    <div class="font-glyph is-additional">&euro;</div>
-                    <div class="font-glyph is-additional">&#8482;</div>
-                </div>
+                {% endif %}
 
             </div>
         </section>
 
-    </div>
+        <section class="container has-padding font-example-container">
+            <div class="font-example">
 
+                <div class="text-block list-header font-example-header-container font-glyphs-header">
+                    Glyphs
+                </div>
+
+                <div class="font-example-content">
+                    <div class="font-glyphs font-{{font.slug}}">
+                        <div class="font-glyph is-symbol">!</div>
+                        <div class="font-glyph is-symbol">"</div>
+                        <div class="font-glyph is-symbol">#</div>
+                        <div class="font-glyph is-symbol">$</div>
+                        <div class="font-glyph is-symbol">%</div>
+                        <div class="font-glyph is-symbol">&amp;</div>
+                        <div class="font-glyph is-symbol">'</div>
+                        <div class="font-glyph is-symbol">(</div>
+                        <div class="font-glyph is-symbol">)</div>
+                        <div class="font-glyph is-symbol">*</div>
+                        <div class="font-glyph is-symbol">+</div>
+                        <div class="font-glyph is-symbol">,</div>
+                        <div class="font-glyph is-symbol">-</div>
+                        <div class="font-glyph is-symbol">.</div>
+                        <div class="font-glyph is-symbol">/</div>
+                        <div class="font-glyph is-number">0</div>
+                        <div class="font-glyph is-number">1</div>
+                        <div class="font-glyph is-number">2</div>
+                        <div class="font-glyph is-number">3</div>
+                        <div class="font-glyph is-number">4</div>
+                        <div class="font-glyph is-number">5</div>
+                        <div class="font-glyph is-number">6</div>
+                        <div class="font-glyph is-number">7</div>
+                        <div class="font-glyph is-number">8</div>
+                        <div class="font-glyph is-number">9</div>
+                        <div class="font-glyph is-symbol">:</div>
+                        <div class="font-glyph is-symbol">;</div>
+                        <div class="font-glyph is-symbol"><</div>
+                        <div class="font-glyph is-symbol">=</div>
+                        <div class="font-glyph is-symbol">></div>
+                        <div class="font-glyph is-symbol">?</div>
+                        <div class="font-glyph is-symbol">@</div>
+                        <div class="font-glyph is-capital">A</div>
+                        <div class="font-glyph is-capital">B</div>
+                        <div class="font-glyph is-capital">C</div>
+                        <div class="font-glyph is-capital">D</div>
+                        <div class="font-glyph is-capital">E</div>
+                        <div class="font-glyph is-capital">F</div>
+                        <div class="font-glyph is-capital">G</div>
+                        <div class="font-glyph is-capital">H</div>
+                        <div class="font-glyph is-capital">I</div>
+                        <div class="font-glyph is-capital">J</div>
+                        <div class="font-glyph is-capital">K</div>
+                        <div class="font-glyph is-capital">L</div>
+                        <div class="font-glyph is-capital">M</div>
+                        <div class="font-glyph is-capital">N</div>
+                        <div class="font-glyph is-capital">O</div>
+                        <div class="font-glyph is-capital">P</div>
+                        <div class="font-glyph is-capital">Q</div>
+                        <div class="font-glyph is-capital">R</div>
+                        <div class="font-glyph is-capital">S</div>
+                        <div class="font-glyph is-capital">T</div>
+                        <div class="font-glyph is-capital">U</div>
+                        <div class="font-glyph is-capital">V</div>
+                        <div class="font-glyph is-capital">W</div>
+                        <div class="font-glyph is-capital">X</div>
+                        <div class="font-glyph is-capital">Y</div>
+                        <div class="font-glyph is-capital">Z</div>
+                        <div class="font-glyph is-symbol">[</div>
+                        <div class="font-glyph is-symbol">\</div>
+                        <div class="font-glyph is-symbol">]</div>
+                        <div class="font-glyph is-symbol">^</div>
+                        <div class="font-glyph is-symbol">_</div>
+                        <div class="font-glyph is-symbol">`</div>
+                        <div class="font-glyph is-lower">a</div>
+                        <div class="font-glyph is-lower">b</div>
+                        <div class="font-glyph is-lower">c</div>
+                        <div class="font-glyph is-lower">d</div>
+                        <div class="font-glyph is-lower">e</div>
+                        <div class="font-glyph is-lower">f</div>
+                        <div class="font-glyph is-lower">g</div>
+                        <div class="font-glyph is-lower">h</div>
+                        <div class="font-glyph is-lower">i</div>
+                        <div class="font-glyph is-lower">j</div>
+                        <div class="font-glyph is-lower">k</div>
+                        <div class="font-glyph is-lower">l</div>
+                        <div class="font-glyph is-lower">m</div>
+                        <div class="font-glyph is-lower">n</div>
+                        <div class="font-glyph is-lower">o</div>
+                        <div class="font-glyph is-lower">p</div>
+                        <div class="font-glyph is-lower">q</div>
+                        <div class="font-glyph is-lower">r</div>
+                        <div class="font-glyph is-lower">s</div>
+                        <div class="font-glyph is-lower">t</div>
+                        <div class="font-glyph is-lower">u</div>
+                        <div class="font-glyph is-lower">v</div>
+                        <div class="font-glyph is-lower">w</div>
+                        <div class="font-glyph is-lower">x</div>
+                        <div class="font-glyph is-lower">y</div>
+                        <div class="font-glyph is-lower">z</div>
+                        <div class="font-glyph is-symbol">{</div>
+                        <div class="font-glyph is-symbol">|</div>
+                        <div class="font-glyph is-symbol">}</div>
+                        <div class="font-glyph is-symbol">~</div>
+
+                        <div class="font-glyph is-additional">&iexcl;</div>
+                        <div class="font-glyph is-additional">&cent;</div>
+                        <div class="font-glyph is-additional">&pound;</div>
+                        <div class="font-glyph is-additional">&curren;</div>
+                        <div class="font-glyph is-additional">&yen;</div>
+                        <div class="font-glyph is-additional">&brvbar;</div>
+                        <div class="font-glyph is-additional">&sect;</div>
+                        <div class="font-glyph is-additional">&uml;</div>
+                        <div class="font-glyph is-additional">&copy;</div>
+                        <div class="font-glyph is-additional">&ordf;</div>
+                        <div class="font-glyph is-additional">&laquo;</div>
+                        <div class="font-glyph is-additional">&not;</div>
+                        <div class="font-glyph is-additional">&reg;</div>
+                        <!-- <div class="font-glyph is-additional">&macr;</div> -->
+                        <div class="font-glyph is-additional">&deg;</div>
+                        <div class="font-glyph is-additional">&plusmn;</div>
+                        <div class="font-glyph is-additional">&sup2;</div>
+                        <div class="font-glyph is-additional">&sup3;</div>
+                        <div class="font-glyph is-additional">&acute;</div>
+                        <div class="font-glyph is-additional">&micro;</div>
+                        <div class="font-glyph is-additional">&para;</div>
+                        <div class="font-glyph is-additional">&middot;</div>
+                        <div class="font-glyph is-additional">&cedil;</div>
+                        <div class="font-glyph is-additional">&sup1;</div>
+                        <div class="font-glyph is-additional">&ordm;</div>
+                        <div class="font-glyph is-additional">&raquo;</div>
+                        <div class="font-glyph is-additional">&frac14;</div>
+                        <div class="font-glyph is-additional">&frac12;</div>
+                        <div class="font-glyph is-additional">&frac34;</div>
+                        <div class="font-glyph is-additional">&iquest;</div>
+                        <div class="font-glyph is-additional">&Agrave;</div>
+                        <div class="font-glyph is-additional">&Aacute;</div>
+                        <div class="font-glyph is-additional">&Acirc;</div>
+                        <div class="font-glyph is-additional">&Atilde;</div>
+                        <div class="font-glyph is-additional">&Auml;</div>
+                        <div class="font-glyph is-additional">&Aring;</div>
+                        <div class="font-glyph is-additional">&AElig;</div>
+                        <div class="font-glyph is-additional">&Ccedil;</div>
+                        <div class="font-glyph is-additional">&Egrave;</div>
+                        <div class="font-glyph is-additional">&Eacute;</div>
+                        <div class="font-glyph is-additional">&Ecirc;</div>
+                        <div class="font-glyph is-additional">&Euml;</div>
+                        <div class="font-glyph is-additional">&Igrave;</div>
+                        <div class="font-glyph is-additional">&Iacute;</div>
+                        <div class="font-glyph is-additional">&Icirc;</div>
+                        <div class="font-glyph is-additional">&Iuml;</div>
+                        <div class="font-glyph is-additional">&ETH;</div>
+                        <div class="font-glyph is-additional">&Ntilde;</div>
+                        <div class="font-glyph is-additional">&Ograve;</div>
+                        <div class="font-glyph is-additional">&Oacute;</div>
+                        <div class="font-glyph is-additional">&Ocirc;</div>
+                        <div class="font-glyph is-additional">&Otilde;</div>
+                        <div class="font-glyph is-additional">&Ouml;</div>
+                        <div class="font-glyph is-additional">&times;</div>
+                        <div class="font-glyph is-additional">&Oslash;</div>
+                        <div class="font-glyph is-additional">&Ugrave;</div>
+                        <div class="font-glyph is-additional">&Uacute;</div>
+                        <div class="font-glyph is-additional">&Ucirc;</div>
+                        <div class="font-glyph is-additional">&Uuml;</div>
+                        <div class="font-glyph is-additional">&Yacute;</div>
+                        <div class="font-glyph is-additional">&THORN;</div>
+                        <div class="font-glyph is-additional">&szlig;</div>
+                        <div class="font-glyph is-additional">&agrave;</div>
+                        <div class="font-glyph is-additional">&aacute;</div>
+                        <div class="font-glyph is-additional">&acirc;</div>
+                        <div class="font-glyph is-additional">&atilde;</div>
+                        <div class="font-glyph is-additional">&auml;</div>
+                        <div class="font-glyph is-additional">&aring;</div>
+                        <div class="font-glyph is-additional">&aelig;</div>
+                        <div class="font-glyph is-additional">&ccedil;</div>
+                        <div class="font-glyph is-additional">&egrave;</div>
+                        <div class="font-glyph is-additional">&eacute;</div>
+                        <div class="font-glyph is-additional">&ecirc;</div>
+                        <div class="font-glyph is-additional">&euml;</div>
+                        <div class="font-glyph is-additional">&igrave;</div>
+                        <div class="font-glyph is-additional">&iacute;</div>
+                        <div class="font-glyph is-additional">&icirc;</div>
+                        <div class="font-glyph is-additional">&iuml;</div>
+                        <div class="font-glyph is-additional">&eth;</div>
+                        <div class="font-glyph is-additional">&ntilde;</div>
+                        <div class="font-glyph is-additional">&ograve;</div>
+                        <div class="font-glyph is-additional">&oacute;</div>
+                        <div class="font-glyph is-additional">&ocirc;</div>
+                        <div class="font-glyph is-additional">&otilde;</div>
+                        <div class="font-glyph is-additional">&ouml;</div>
+                        <div class="font-glyph is-additional">&divide;</div>
+                        <div class="font-glyph is-additional">&oslash;</div>
+                        <div class="font-glyph is-additional">&ugrave;</div>
+                        <div class="font-glyph is-additional">&uacute;</div>
+                        <div class="font-glyph is-additional">&ucirc;</div>
+                        <div class="font-glyph is-additional">&uuml;</div>
+                        <div class="font-glyph is-additional">&yacute;</div>
+                        <div class="font-glyph is-additional">&thorn;</div>
+                        <div class="font-glyph is-additional">&yuml;</div>
+                        <div class="font-glyph is-additional">&#338;</div>
+                        <div class="font-glyph is-additional">&#339;</div>
+                        <!-- <div class="font-glyph is-additional">&#352;</div> -->
+                        <!-- <div class="font-glyph is-additional">&#353;</div> -->
+                        <div class="font-glyph is-additional">&#376;</div>
+                        <!-- <div class="font-glyph is-additional">&#402;</div> -->
+                        <div class="font-glyph is-additional">&#8211;</div>
+                        <div class="font-glyph is-additional">&#8212;</div>
+                        <div class="font-glyph is-additional">&#8216;</div>
+                        <div class="font-glyph is-additional">&#8217;</div>
+                        <div class="font-glyph is-additional">&#8218;</div>
+                        <div class="font-glyph is-additional">&#8220;</div>
+                        <div class="font-glyph is-additional">&#8221;</div>
+                        <div class="font-glyph is-additional">&#8222;</div>
+                        <!-- <div class="font-glyph is-additional">&#8224;</div> -->
+                        <!-- <div class="font-glyph is-additional">&#8225;</div> -->
+                        <div class="font-glyph is-additional">&#8226;</div>
+                        <div class="font-glyph is-additional">&#8230;</div>
+                        <!-- <div class="font-glyph is-additional">&#8240;</div> -->
+                        <div class="font-glyph is-additional">&euro;</div>
+                        <div class="font-glyph is-additional">&#8482;</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer class="bg-skewed is-bottom footer-container">
+        <div class="container">
+            <div class="triangle is-pink footer-triangle"></div>
+            <div class="footer"></div>
+        </div>
+    </footer>
 {% endblock %}
