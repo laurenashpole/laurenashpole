@@ -31,13 +31,25 @@
 
             <div class="contact-form-buttons">
                 <div class="contact-form-button-container">
-                    <button type="submit" class="contact-form-button js-contact-send">
+                    <button
+                        type="submit"
+                        class="contact-form-button js-contact-send js-ga-trigger"
+                        data-ga-category="Contact Page"
+                        data-ga-action="click"
+                        data-ga-label="Send"
+                    >
                         <div class="button">Send</div>
                     </button>
                 </div>
 
                 <div class="contact-form-button-container">
-                    <button type="reset" class="button-default">
+                    <button
+                        type="reset"
+                        class="button-default js-ga-trigger"
+                        data-ga-category="Contact Page"
+                        data-ga-action="click"
+                        data-ga-label="Cancel"
+                    >
                         <div class="button button-outline">Cancel</div>
                     </button>
                 </div>
