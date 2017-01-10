@@ -4,12 +4,11 @@
 
 {% block content %}
 
-    <section class="section is-full-height is-text-only">
-        <div class="container">
+    <main class="container has-padding is-full-height">
+        <div class="form-container">
+            <h2 class="text-block text-heading">Fonts</h2>
 
-            <h1>Fonts</h1>
-
-            <ul>
+            <ul class="list-unstyled">
                 {% for font in fonts %}
                     <li class="font-list-item">
                         <a href="/admin/fonts/{{font.id}}">{{font.name}}</a>
@@ -17,8 +16,7 @@
                     </li>
                 {% endfor %}
             </ul>
-
         </div>
-    </section>
+    </main>
 
 {% endblock %}

@@ -4,63 +4,56 @@
 
     {% if signed_out %}
 
-        <section class="section is-full-height is-text-only login-container">
+        <main class="container has-padding is-full-height">
             <div class="login">
 
                 {% if message.length %}
                     <div class="growl">{{message}}</div>
                 {% endif %}
 
-                <h1 class="form-title">Login</h1>
-
                 <form method="post" action="/admin/login">
-
-                    <div class="input-label-inset">
-                        <label for="name">Username</label>
-                        <input type="text" id="username" name="username" />
+                    <div class="input-container input-label-inset">
+                        <label for="name" class="text-block">Username</label>
+                        <input type="text" id="username" name="username" class="input" />
                     </div>
 
-                    <div class="input-label-inset">
-                        <label for="slug">Password</label>
-                        <input type="password" id="password" name="password" />
+                    <div class="input-container input-label-inset">
+                        <label for="slug" class="text-block">Password</label>
+                        <input type="password" id="password" name="password" class="input" />
                     </div>
 
-                    <button type="submit" class="button button-primary">Submit</button>
-
+                    <button type="submit" class="button button-primary">Log In</button>
                 </form>
 
-                <h1 class="form-title">Sign Up</h1>
+                <div class="text-block text-rule login-rule">or</div>
 
                 <form method="post" action="/admin/signup">
-
-                    <div class="input-label-inset">
-                        <label for="name">Username</label>
-                        <input type="text" id="username" name="username" />
+                    <div class="input-container input-label-inset">
+                        <label for="name" class="text-block">Username</label>
+                        <input type="text" id="username" name="username" class="input" />
                     </div>
 
-                    <div class="input-label-inset">
-                        <label for="slug">Password</label>
-                        <input type="password" id="password" name="password" />
+                    <div class="input-container input-label-inset">
+                        <label for="slug" class="text-block">Password</label>
+                        <input type="password" id="password" name="password" class="input" />
                     </div>
 
-                    <button type="submit" class="button button-primary">Submit</button>
-
+                    <button type="submit" class="button button-primary">Sign Up</button>
                 </form>
 
             </div>
-        </section>
+        </main>
 
     {% else %}
-        <section class="section is-full-height is-text-only">
-            <div class="container">
 
-                <ul>
+        <main class="container has-padding is-full-height">
+            <div class="form-container">
+                <ul class="list-unstyled">
                     <li><a href="/admin/fonts/create">Create a new font</a></li>
                     <li><a href="/admin/fonts">View all fonts</a></li>
                 </ul>
-
             </div>
-        </section>
+        </main>
 
     {% endif %}
 
