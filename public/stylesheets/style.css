@@ -1,9 +1,12 @@
 *, *:before, *:after {
     box-sizing: border-box;
+    -ms-flex: 0 1 auto;
 }
 
 html {
     height: 100%;
+    font: 300 112.5% 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -13,10 +16,6 @@ body {
     padding: 60px 0 0 0;
     overflow-x: hidden;
     color: #222;
-    line-height: 1.35;
-    font-family: 'Source Sans Pro';
-    font-weight: 300;
-    letter-spacing: 0.01em;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -37,14 +36,64 @@ a:hover {
     color: #cf4b3f;
 }
 
-h1,
-h2 {
-    margin: 0;
+p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5rem;
 }
 
-p {
-    margin: 0 0 20px 0;
-    line-height: 1.75;
+ul,
+ol {
+    margin: 1.5em 0;
+}
+
+li {
+    line-height: 1.5rem;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    line-height: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5rem;
+}
+
+h1 {
+    font-size: 2.828rem;
+    line-height: 3rem;
+}
+
+h2 {
+    font-size: 2.167rem;
+    line-height: 3rem;
+}
+
+h3 {
+    font-size: 1.414rem;
+}
+
+h4 {
+    font-size: 0.707rem;
+}
+
+h5 {
+    font-size: 0.471333rem;
+}
+
+h6 {
+    font-size: 0.3535rem;
+}
+
+code {
+    vertical-align: bottom;
 }
 
 figure {
@@ -55,12 +104,17 @@ a img {
     border: none;
 }
 
-* {
-    -ms-flex: 0 1 auto;
+.is-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
 }
 
-.bold {
+.is-bold {
     font-weight: 600;
+}
+
+.has-no-margin {
+    margin: 0;
 }
 
 .desktop {
@@ -69,13 +123,17 @@ a img {
 
 @media (min-width: 768px) {
 
-    body {
-        padding: 0;
-        font-size: 18px;
+    html {
+        font-size: 125%;
     }
 
-    p {
-        margin: 0 0 30px 0;
+    body {
+        padding: 0;
+    }
+
+    h1,
+    h2 {
+        margin-bottom: 3rem;
     }
 
     .mobile {
@@ -380,6 +438,7 @@ button:focus {
     height: 60px;
     border: 1px solid #dc5a4e;
     color: #fff;
+    font-size: inherit;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -1113,9 +1172,6 @@ button:focus {
 
 .font-details-title {
     margin-bottom: 5px;
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
 }
 
 .font-details-date {
@@ -1170,10 +1226,6 @@ button:focus {
     .font-details-content {
         width: 60%;
         padding: 0 30px 0 0;
-    }
-
-    .font-details-title {
-        font-size: 24px;
     }
 
     .font-details-lists {

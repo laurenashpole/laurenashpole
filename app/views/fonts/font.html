@@ -54,12 +54,12 @@
                                 <button
                                     type="submit"
                                     title="Buy Now"
-                                    class="js-ga-trigger"
+                                    class="button js-ga-trigger"
                                     data-ga-category="{{font.name}} Page"
                                     data-ga-action="click"
                                     data-ga-label="Buy Now"
                                 >
-                                    <div class="button">
+                                    <div>
                                         <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                                             Commercial Use <span itemprop="price">$15</span>
                                             <meta itemprop="priceCurrency" content="USD" />
@@ -97,16 +97,16 @@
 
                     <div class="font-details-content">
 
-                        <h1 class="font-details-title" itemprop="name">
+                        <h2 class="is-uppercase font-details-title" itemprop="name">
                             {{font.name}}
-                        </h1>
+                        </h2>
 
                         <div class="font-details-date">
                             Created: {{font.date_created}}
                             {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
                         </div>
 
-                        <ul class="list-unstyled bold">
+                        <ul class="list-unstyled is-bold">
                             <li class="font-details-licensing">
                                 <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
                             </li>
