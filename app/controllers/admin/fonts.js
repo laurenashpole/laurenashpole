@@ -51,8 +51,6 @@ exports.renderCreate = function (req, res) {
 exports.create = function (req, res) {
     var font = new Font(req.body);
 
-    console.log(req.body);
-
     async.each(req.files, function (file, callback) {
         var directory;
         var filePath = file.path;
