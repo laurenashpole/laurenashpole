@@ -24,133 +24,93 @@
     <main itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
-        <section class="container has-padding">
-            <div class="font-hero-container">
+        <section class="container has-padding font-page-container">
+            <div class="font-page-column">
+                <img src="http://www.laurenashpole.com/images/fonts/{{font.image_mobile_retina}}" class="font-image" alt="{{font.name}}" />
+            </div>
+        </section>
 
-                {% if font.image_collection.length %}
-                    <div class="font-hero-main">
-                        <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
-                        <img src="/images/fonts/{{font.image_collection[0]}}" class="font-hero-main-image" alt="{{font.name}}" />
-                    </div>
+        <div class="font-details-column">
+            <h3 class="is-uppercase" itemprop="name">
+                {{font.name}}
+            </h3>
 
-                    <div class="font-hero-thumbnails">
-                        {% for image in font.image_collection %}
-                            <div class="font-hero-thumbnail">
-                                <img src="/images/fonts/{{image}}" class="font-hero-thumbnail-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <div class="font-hero-main is-legacy">
-                        <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
-                        <img src="/images/fonts/{{font.image_retina}}" class="font-hero-main-image" alt="{{font.name}}" />
+            <div class="font-details-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="USD" />
+                <span itemprop="price">${{font.price}}</span>
+                <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
+            </div>
+
+            <div class="button-options {% if font.one_download_option %}has-one-options{% endif %}">
+                {% if font.commercial_font_file %}
+                    <div class="is-uppercase is-bold is-small-print button-option">
+                        <form method="post" action="/fonts/{{font.slug}}/payment">
+                            <button
+                                type="submit"
+                                title="Buy Now"
+                                class="button js-ga-trigger"
+                                data-ga-category="{{font.name}} Page"
+                                data-ga-action="click"
+                                data-ga-label="Buy Now"
+                            >
+                                Purchase<br />Commercial
+                            </button>
+                        </form>
                     </div>
                 {% endif %}
 
-                <div class="font-buttons">
-                    {% if font.commercial_font_file %}
-                        <div class="font-button-container">
-                            <form method="post" action="/fonts/{{font.slug}}/payment">
-                                <button
-                                    type="submit"
-                                    title="Buy Now"
-                                    class="button js-ga-trigger"
-                                    data-ga-category="{{font.name}} Page"
-                                    data-ga-action="click"
-                                    data-ga-label="Buy Now"
-                                >
-                                    <div>
-                                        <span class="button-fine-print" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                            Commercial Use <span itemprop="price">$15</span>
-                                            <meta itemprop="priceCurrency" content="USD" />
-                                            <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
-                                        </span>
-                                        Purchase
-                                    </div>
-                                </button>
-                            </form>
-                        </div>
-                    {% endif %}
-
-                    {% if font.personal_font_file %}
-                        <div class="font-button-container">
-                            <a
-                                href="/downloads/{{font.personal_font_file}}"
-                                class="has-no-underline button button-outline js-ga-trigger"
-                                data-ga-category="{{font.name}} Page"
-                                data-ga-action="click"
-                                data-ga-label="Download"
-                            >
-                                <span class="button-fine-print">Personal Use Free</span>
-                                Download
-                            </a>
-                        </div>
-                    {% endif %}
-                </div>
-
-            </div>
-        </section>
-
-        <section class="bg-skewed font-details-container">
-            <div class="container">
-                <div class="bg-skewed-padding font-details">
-
-                    <div class="font-details-content">
-
-                        <h2 class="is-uppercase font-details-title" itemprop="name">
-                            {{font.name}}
-                        </h2>
-
-                        <div class="font-details-date">
-                            Created: {{font.date_created}}
-                            {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
-                        </div>
-
-                        <ul class="list-unstyled is-bold">
-                            <li class="font-details-licensing">
-                                <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
-                            </li>
-                            <li class="font-details-licensing">
-                                <a href="/fonts/eula" title="EULA">View EULA</a>
-                            </li>
-                        </ul>
-
-                        {% if font.description %}
-                            <div itemprop="description" class="font-details-description">
-                                {% autoescape false %}{{font.description}}{% endautoescape %}
-                            </div>
-                        {% endif %}
-
+                {% if font.personal_font_file %}
+                    <div class="is-uppercase is-bold is-small-print button-option">
+                        <a
+                            href="/downloads/{{font.personal_font_file}}"
+                            class="button has-no-underline js-ga-trigger"
+                            data-ga-category="{{font.name}} Page"
+                            data-ga-action="click"
+                            data-ga-label="Download"
+                        >
+                            Download<br />Personal
+                        </a>
                     </div>
+                {% endif %}
+            </div>
 
-                    <div class="font-details-lists clearfix" itemprop="description">
+            <ul class="list-unstyled font-details-files">
+                <li>
+                    <i class="fa fa-desktop"></i> Desktop
+                </li>
+                <li>
+                    <i class="fa fa-code"></i> Web
+                </li>
+            </div>
+        </div>
 
-                        {% if font.commercial_use_details.length %}
-                            <ul class="list-unstyled font-details-list">
-                                <li class="text-block list-header font-details-list-header">Commercial Use Details</li>
-                                {% for detail in font.commercial_use_details %}
-                                    <li class="font-details-list-item">{{detail}}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+        {% if font.image_collection.length %}
+            <section class="bg-white">
+                <div class="font-hero-container container has-padding">
 
-                        {% if font.personal_use_details.length %}
-                            <ul class="list-unstyled font-details-list">
-                                <li class="text-block list-header font-details-list-header">Personal Use Details</li>
-                                {% for detail in font.personal_use_details %}
-                                    <li class="font-details-list-item">{{detail}}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+                    <div class="font-page-column">
+                        <h2>Additional Images</h2>
 
+                        <div class="font-hero-main">
+                            <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
+                            <img src="/images/fonts/{{font.image_collection[0]}}" class="font-hero-main-image" alt="{{font.name}}" />
+                        </div>
+
+                        <div class="font-hero-thumbnails">
+                            {% for image in font.image_collection %}
+                                <div class="font-hero-thumbnail">
+                                    <img src="/images/fonts/{{image}}" class="font-hero-thumbnail-image js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
 
         <section class="container has-padding font-example-container">
-            <div class="font-example">
+            <div class="font-example font-page-column">
 
                 <div class="font-example-header-container">
                     <form class="font-example-form">
@@ -201,14 +161,70 @@
             </div>
         </section>
 
-        <section class="container has-padding font-example-container">
-            <div class="font-example">
+        <section class="font-details-container bg-white">
+            <div class="container">
+                <div class="font-page-column">
+                    <h2>About {{font.name}}</h2>
 
-                <div class="text-block list-header font-example-header-container font-glyphs-header">
-                    Glyphs
+                    <!-- <div class="font-details-content"> -->
+                        <div class="font-details-date">
+                            Created: {{font.date_created}}
+                            {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
+                        </div>
+
+                        <ul class="list-unstyled is-bold">
+                            <li class="font-details-licensing">
+                                <a href="/fonts/licensing" title="Licensing">Licensing Info</a>
+                            </li>
+                            <li class="font-details-licensing">
+                                <a href="/fonts/eula" title="EULA">View EULA</a>
+                            </li>
+                        </ul>
+
+                        {% if font.description %}
+                            <div itemprop="description" class="font-details-description">
+                                {% autoescape false %}{{font.description}}{% endautoescape %}
+                            </div>
+                        {% endif %}
+
+                    <!-- </div> -->
+
+                    <!-- <div class="font-details-lists clearfix" itemprop="description"> -->
+
+                        {% if font.commercial_use_details.length %}
+                            <ul class="list-unstyled font-details-list">
+                                <li class="text-block list-header font-details-list-header">Commercial Use Details</li>
+                                {% for detail in font.commercial_use_details %}
+                                    <li class="font-details-list-item">{{detail}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {% if font.personal_use_details.length %}
+                            <ul class="list-unstyled font-details-list">
+                                <li class="text-block list-header font-details-list-header">Personal Use Details</li>
+                                {% for detail in font.personal_use_details %}
+                                    <li class="font-details-list-item">{{detail}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    <!-- </div> -->
+
                 </div>
+            </div>
+        </section>
 
-                <div class="font-example-content">
+        <section class="container has-padding font-example-container">
+            <div class="font-example font-page-column">
+
+                <h2>Glyphs</h2>
+
+<!--                 <div class="text-block list-header font-example-header-container font-glyphs-header">
+                    Glyphs
+                </div> -->
+
+                <!-- <div class="font-example-content"> -->
                     <div class="font-glyphs font-{{font.slug}}">
                         <div class="font-glyph is-symbol">!</div>
                         <div class="font-glyph is-symbol">"</div>
@@ -420,7 +436,7 @@
                         <!-- <div class="font-glyph is-additional">&#8240;</div> -->
                         <div class="font-glyph is-additional">&euro;</div>
                         <div class="font-glyph is-additional">&#8482;</div>
-                    </div>
+                    <!-- </div> -->
                 </div>
 
             </div>
