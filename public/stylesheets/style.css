@@ -1752,6 +1752,11 @@ body.is-homepage {
     justify-content: space-around;
 }
 
+.font-details-file {
+    display: flex;
+    align-items: center;
+}
+
 @media (min-width: 1064px) {
 
     .font-details-column {
