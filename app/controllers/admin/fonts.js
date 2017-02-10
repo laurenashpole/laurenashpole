@@ -97,8 +97,28 @@ exports.update = function (req, res) {
     Font.findById(req.params.font_id, function (err, font) {
         if (err) res.send(err);
 
-        for (prop in req.body) {
-            font[prop] = req.body[prop];
+        for (var prop in req.body) {
+
+            if (prop === 'commercial_file' || prop === 'personal_file') {
+
+                for (var fontFile in font[prop]) {
+
+                    if (font[prop][fontFile]) {
+
+                        if (req.body[prop][fontFile]) {
+                            font[prop][fontFile]['is_included'] = true;
+                        } else {
+                            font[prop][fontFile]['is_included'] = false;
+                        }
+
+                    }
+
+                }
+
+            } else {
+                font[prop] = req.body[prop];
+            }
+
         }
 
         var imageCollectionCleared = false;
