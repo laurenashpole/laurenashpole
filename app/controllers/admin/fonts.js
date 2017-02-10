@@ -108,9 +108,9 @@ exports.update = function (req, res) {
                     if (font[prop][fontFile]) {
 
                         if (req.body[prop][fontFile]) {
-                            font[prop][fontFile]['included'] = true;
+                            font[prop][fontFile]['is_included'] = true;
                         } else {
-                            font[prop][fontFile]['included'] = false;
+                            font[prop][fontFile]['is_included'] = false;
                         }
 
                     }

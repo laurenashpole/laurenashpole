@@ -22,7 +22,7 @@ var FontSchema = new Schema({
     commercial_use_details: [],
     commercial_file: {
         ttf: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },
@@ -32,7 +32,7 @@ var FontSchema = new Schema({
             }
         },
         otf: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },
@@ -42,7 +42,7 @@ var FontSchema = new Schema({
             }
         },
         webfont: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },
@@ -52,7 +52,7 @@ var FontSchema = new Schema({
             }
         },
         additional_chars: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },
@@ -64,7 +64,7 @@ var FontSchema = new Schema({
     },
     personal_file: {
         ttf: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },
@@ -74,7 +74,7 @@ var FontSchema = new Schema({
             }
         },
         otf: {
-            included: {
+            is_included: {
                 type: Boolean,
                 default: false
             },

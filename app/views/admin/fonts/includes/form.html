@@ -88,15 +88,15 @@
         <label class="text-block">Personal File Includes</label>
         <input
             type="checkbox"
-            name="personal_file[ttf][included]"
+            name="personal_file[ttf][is_included]"
             value="true"
-            {% if font.personal_file.ttf.included %} checked{% endif %}
+            {% if font.personal_file.ttf.is_included %} checked{% endif %}
         />TrueType Font
         <input
             type="checkbox"
-            name="personal_file[otf][included]"
+            name="personal_file[otf][is_included]"
             value="true"
-            {% if font.personal_file.otf.included %} checked{% endif %}
+            {% if font.personal_file.otf.is_included %} checked{% endif %}
         />OpenType Font
     </div>
 </div>
@@ -106,27 +106,27 @@
         <label class="text-block">Commercial File Includes</label>
         <input
             type="checkbox"
-            name="commercial_file[ttf][included]"
+            name="commercial_file[ttf][is_included]"
             value="true"
-            {% if font.personal_file.ttf.included %} checked{% endif %}
+            {% if font.commercial_file.ttf.is_included %} checked{% endif %}
         />TrueType Font
         <input
             type="checkbox"
-            name="commercial_file[otf][included]"
+            name="commercial_file[otf][is_included]"
             value="true"
-            {% if font.personal_file.otf.included %} checked{% endif %}
+            {% if font.commercial_file.otf.is_included %} checked{% endif %}
         />OpenType Font
         <input
             type="checkbox"
-            name="commercial_file[webfont][included]"
+            name="commercial_file[webfont][is_included]"
             value="true"
-            {% if font.personal_file.webfont.included %} checked{% endif %}
+            {% if font.commercial_file.webfont.is_included %} checked{% endif %}
         />Web Font Kit
         <input
             type="checkbox"
-            name="commercial_file[additional_chars][included]"
+            name="commercial_file[additional_chars][is_included]"
             value="true"
-            {% if font.personal_file.additional_chars.included %} checked{% endif %}
+            {% if font.commercial_file.additional_chars.is_included %} checked{% endif %}
         />Additional Characters (Latin-1)
     </div>
 </div>
