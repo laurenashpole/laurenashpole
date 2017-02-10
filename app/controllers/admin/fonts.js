@@ -51,6 +51,8 @@ exports.renderCreate = function (req, res) {
 exports.create = function (req, res) {
     var font = new Font(req.body);
 
+    console.log(req.body);
+
     async.each(req.files, function (file, callback) {
         var directory;
         var filePath = file.path;
@@ -97,8 +99,28 @@ exports.update = function (req, res) {
     Font.findById(req.params.font_id, function (err, font) {
         if (err) res.send(err);
 
-        for (prop in req.body) {
-            font[prop] = req.body[prop];
+        for (var prop in req.body) {
+
+            if (prop === 'commercial_file' || prop === 'personal_file') {
+
+                for (var fontFile in font[prop]) {
+
+                    if (font[prop][fontFile]) {
+
+                        if (req.body[prop][fontFile]) {
+                            font[prop][fontFile]['included'] = true;
+                        } else {
+                            font[prop][fontFile]['included'] = false;
+                        }
+
+                    }
+
+                }
+
+            } else {
+                font[prop] = req.body[prop];
+            }
+
         }
 
         var imageCollectionCleared = false;
