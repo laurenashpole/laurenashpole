@@ -84,12 +84,13 @@
             </div>
         </div>
 
-        {% if font.image_collection.length %}
-            <section class="bg-white">
-                <div class="font-hero-container container has-padding">
+        <section class="bg-white">
+            <div class="font-hero-container container has-padding">
 
-                    <div class="font-page-column">
-                        <h2>Additional Images</h2>
+                <div class="font-page-column">
+                    <h2>Additional Images</h2>
+
+                    {% if font.image_collection.length %}
 
                         <div class="font-hero-main">
                             <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
@@ -104,11 +105,17 @@
                             {% endfor %}
                         </div>
 
-                    </div>
+                    {% else %}
+                        <div class="font-hero-main is-legacy">
+                            <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+                            <img src="/images/fonts/{{font.image_retina}}" class="font-hero-main-image" alt="{{font.name}}" />
+                        </div>
+                    {% endif %}
 
                 </div>
-            </section>
-        {% endif %}
+
+            </div>
+        </section>
 
         <section class="container has-padding font-example-container">
             <div class="font-example font-page-column">
