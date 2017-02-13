@@ -20,6 +20,70 @@ var FontSchema = new Schema({
     alternate_style: String,
     personal_use_details: [],
     commercial_use_details: [],
+    commercial_file: {
+        ttf: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'TrueType Font'
+            }
+        },
+        otf: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'OpenType Font'
+            }
+        },
+        webfont: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'Web Font Kit'
+            }
+        },
+        additional_chars: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'Additional Characters (Latin-1)'
+            }
+        }
+    },
+    personal_file: {
+        ttf: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'TrueType Font'
+            }
+        },
+        otf: {
+            is_included: {
+                type: Boolean,
+                default: false
+            },
+            name: {
+                type: String,
+                default: 'OpenType Font'
+            }
+        }
+    },
     personal_font_file: String,
     commercial_font_file: String,
     one_download_option: Boolean

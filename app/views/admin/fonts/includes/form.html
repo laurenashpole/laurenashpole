@@ -83,6 +83,54 @@
     </div>
 </div>
 
+<div class="input-container input-label-inset input-check">
+    <div class="input">
+        <label class="text-block">Personal File Includes</label>
+        <input
+            type="checkbox"
+            name="personal_file[ttf][is_included]"
+            value="true"
+            {% if font.personal_file.ttf.is_included %} checked{% endif %}
+        />TrueType Font
+        <input
+            type="checkbox"
+            name="personal_file[otf][is_included]"
+            value="true"
+            {% if font.personal_file.otf.is_included %} checked{% endif %}
+        />OpenType Font
+    </div>
+</div>
+
+<div class="input-container input-label-inset input-check">
+    <div class="input">
+        <label class="text-block">Commercial File Includes</label>
+        <input
+            type="checkbox"
+            name="commercial_file[ttf][is_included]"
+            value="true"
+            {% if font.commercial_file.ttf.is_included %} checked{% endif %}
+        />TrueType Font
+        <input
+            type="checkbox"
+            name="commercial_file[otf][is_included]"
+            value="true"
+            {% if font.commercial_file.otf.is_included %} checked{% endif %}
+        />OpenType Font
+        <input
+            type="checkbox"
+            name="commercial_file[webfont][is_included]"
+            value="true"
+            {% if font.commercial_file.webfont.is_included %} checked{% endif %}
+        />Web Font Kit
+        <input
+            type="checkbox"
+            name="commercial_file[additional_chars][is_included]"
+            value="true"
+            {% if font.commercial_file.additional_chars.is_included %} checked{% endif %}
+        />Additional Characters (Latin-1)
+    </div>
+</div>
+
 <div class="input-container input-label-inset">
     <label for="color" class="text-block">Color</label>
     <input type="text" id="color" name="color" class="input"  {% if font.color %}value="{{font.color}}"{% endif %} />
