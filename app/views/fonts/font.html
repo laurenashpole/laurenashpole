@@ -7,17 +7,21 @@
 
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{font.name}}" />
-    {% if font.image_collection %}
-        <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
-    {% endif %}
-    {% if font.description %}
-        <meta property="og:description" content="{{font.description}}">
-    {% endif %}
     <meta property="og:url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
     <meta property="og:site_name" content="Lauren Ashpole" />
     <meta property="og:price:amount" content="{{font.price}}" />
     <meta property="og:price:currency" content="USD" />
     <meta property="og:availability" content="instock" />
+
+    {% if font.image_collection %}
+        <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
+    {% else %}
+        <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+    {% endif %}
+
+    {% if font.description %}
+        <meta property="og:description" content="{{font.description}}">
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -41,29 +45,27 @@
                 <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
             </div>
 
-            <div class="button-options {% if font.one_download_option %}has-one-options{% endif %}">
+            <div class="font-buttons is-small-print {% if !font.one_download_option %}button-block{% endif %}">
                 {% if font.commercial_font_file %}
-                    <div class="is-uppercase is-bold is-small-print button-option">
-                        <form method="post" action="/fonts/{{font.slug}}/payment">
-                            <button
-                                type="submit"
-                                title="Buy Now"
-                                class="button js-ga-trigger"
-                                data-ga-category="{{font.name}} Page"
-                                data-ga-action="click"
-                                data-ga-label="Buy Now"
-                            >
-                                Purchase<br />Commercial
-                            </button>
-                        </form>
-                    </div>
+                    <form class="font-button-container" method="post" action="/fonts/{{font.slug}}/payment">
+                        <button
+                            type="submit"
+                            title="Buy Now"
+                            class="button is-uppercase is-bold is-primary js-ga-trigger"
+                            data-ga-category="{{font.name}} Page"
+                            data-ga-action="click"
+                            data-ga-label="Buy Now"
+                        >
+                            Purchase<br />Commercial
+                        </button>
+                    </form>
                 {% endif %}
 
                 {% if font.personal_font_file %}
-                    <div class="is-uppercase is-bold is-small-print button-option">
+                    <div class="font-button-container">
                         <a
                             href="/downloads/{{font.personal_font_file}}"
-                            class="button has-no-underline js-ga-trigger"
+                            class="button is-uppercase is-bold is-secondary has-no-underline js-ga-trigger"
                             data-ga-category="{{font.name}} Page"
                             data-ga-action="click"
                             data-ga-label="Download"
