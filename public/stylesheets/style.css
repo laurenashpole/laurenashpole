@@ -243,7 +243,7 @@ button:focus {
 
 /* Buttons */
 .button {
-    height: 3rem;
+    height: 3.5rem;
     color: #fff;
     padding: 0 0.5rem;
     font-weight: 700;
@@ -322,11 +322,88 @@ button:focus {
     transform: translate3d(-50%, -50%, 0);
 }
 
-@media (min-width: 768px) {
+/* Icons */
+.icon-caret {
+    width: 9px;
+    height: 18px;
+    display: block;
+    position: relative;
+}
 
-    .button {
-        height: 3.5rem;
-    }
+.icon-caret:before,
+.icon-caret:after {
+    content: " ";
+    background: #222;
+    width: 1px;
+    height: 50%;
+    border-radius: 0.5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+}
+
+.icon-caret:after {
+    top: auto;
+    bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+}
+
+.icon-caret.is-right {
+    transform: scaleX(-1);
+}
+
+.icon-desktop {
+    margin-top: 2px;
+    width: 20px;
+    height: 17px;
+    position: relative;
+}
+
+.icon-desktop:before {
+    content: " ";
+    width: 100%;
+    height: 14px;
+    border: 1px solid #222;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon-desktop:after {
+    content: " ";
+    background: #222;
+    width: 10px;
+    height: 1px;
+    border-radius: 0.5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.icon-code-slash {
+    width: 30px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-code-slash:before {
+    content: " ";
+    background: #222;
+    height: 16px;
+    width: 1px;
+    border-radius: 0.5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(15deg) translate3d(-50%, -50%, 0);
+    transform-origin: top left;
 }
 
 /* Backgrounds */
@@ -746,40 +823,8 @@ button:focus {
     }
 }
 
-/*.list-header {
-    font-size: 15px;
-}
-
-@media (min-width: 1024px) {
-
-    .list-header {
-        font-size: 16px;
-    }
-}*/
-
 
 /* Being cleaned up */
-/*.input,
-button,
-.textarea {
-    width: 100%;
-    border: none;
-    padding: 0;
-    font: 300 16px 'Source Sans Pro';
-    color: #222;
-    line-height: inherit;
-    text-transform: inherit;
-    letter-spacing: 0.025em;
-    -webkit-appearance: none;
-}
-*/
-/*.input:focus,
-.input-range:focus,
-.textarea:focus,
-button:focus {
-    outline: none;
-}*/
-
 .input-container {
     margin-bottom: 15px;
     padding-right: 4px;
@@ -1039,8 +1084,14 @@ button:focus {
     }
 }
 
-/* Font Hero */
-.font-hero-thumbnails {
+/* Font Images */
+.font-image {
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.font-gallery {
     margin-top: 5px;
     overflow-x: auto;
     white-space: nowrap;
@@ -1051,25 +1102,25 @@ button:focus {
     display: flex;
 }
 
-.font-hero-thumbnail {
+.font-gallery-thumbnail {
     max-width: 100px;
     margin: 0 5px 0 0;
     cursor: pointer;
 }
 
-.font-hero-thumbnail:last-child {
+.font-gallery-thumbnail:last-child {
     margin-right: 0;
 }
 
 /* TO DO: Delete once new images are finished */
-.font-hero-legacy {
+.font-gallery-legacy {
     background: #f5f5f5;
     padding: 1.5rem;
 }
 
 @media (min-width: 768px) {
 
-    .font-hero-thumbnail {
+    .font-gallery-thumbnail {
         max-width: none;
         width: 20%;
     }
@@ -1080,7 +1131,7 @@ button:focus {
     flex-direction: column;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
     .font-buttons {
         flex-direction: row;
@@ -1089,6 +1140,22 @@ button:focus {
     .font-button-container {
         width: 50%;
     }
+}
+
+/* Font File Types */
+.font-file-types {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.font-file-type {
+    display: flex;
+    align-items: center;
+}
+
+.font-file-type-icon {
+    margin-right: 1rem;
 }
 
 /* Font Details */
@@ -1132,34 +1199,8 @@ button:focus {
     padding-bottom: 15px;
 }
 
-/*.font-details-list-item {
-    margin-bottom: 10px;
-}
-
-.font-details-list-item:last-child {
-    margin: 0;
-}*/
-
 @media (min-width: 768px) {
 
-/*    .font-details {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-    }*/
-
-/*    .font-details-content {
-        width: 60%;
-        padding: 0 30px 0 0;
-    }
-
-    .font-details-lists {
-        width: 40%;
-        border-left: 1px solid #ddd;
-        padding: 0 0 0 30px;
-    }
-*/
     .font-details-list {
         margin-bottom: 45px;
         border: none;
@@ -1169,24 +1210,12 @@ button:focus {
 
 @media (min-width: 1024px) {
 
-/*    .font-details-content-container {
-        padding: 65px 0 30px 0;
-    }*/
-
     .font-details-list-header {
         padding-bottom: 20px;
     }
 }
 
 /* Font Example */
-/*.font-example-container + .font-example-container {
-    padding-top: 0;
-}*/
-
-/*.font-example {
-    box-shadow: 4px 4px 0 0 #dcdcdc;
-}*/
-
 .font-example-header-container {
     background: #757575;
     padding: 15px;
@@ -1637,21 +1666,6 @@ body.is-homepage {
     margin-bottom: 2rem;
 }
 
-.font-file-types {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-around;
-}
-
-.font-file-type {
-    display: flex;
-    align-items: center;
-}
-
-.font-file-type-icon {
-    margin-right: 0.5rem;
-}
-
 /* For testing only */
 /*body.has-full-grid:before {
     content: " ";
@@ -1692,56 +1706,3 @@ body.is-homepage {
         background-size: 30px 30px;
     }
 }*/
-
-.font-file-type-desktop {
-    width: 20px;
-    height: 17px;
-    position: relative;
-}
-
-.font-file-type-desktop:before {
-    content: " ";
-    width: 100%;
-    height: 14px;
-    border: 1px solid #222;
-    border-radius: 2px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.font-file-type-desktop:after {
-    content: " ";
-    background: #222;
-    width: 10px;
-    height: 1px;
-    border-radius: 0.5px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
-}
-
-.font-file-type-web {
-    width: 30px;
-    height: 15px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.font-file-type-web:before {
-    content: " ";
-    width: 20px;
-    height: 20px;
-    border: 1px solid #222;
-    border-radius: 1px;
-    /*transform: rotate(45deg);*/
-    display: block;
-    position: absolute;
-/*    top: 50%;
-    left: 50%;*/
-    transform: rotate(45deg);
-}

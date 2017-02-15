@@ -82,13 +82,14 @@
 
             <ul class="list-unstyled font-file-types">
                 <li class="font-file-type">
-                    <span class="font-file-type-desktop font-file-type-icon"></span>
-                    <!-- <i class="fa fa-desktop font-file-type-icon"></i> -->
+                    <span class="icon-desktop font-file-type-icon"></span>
                     Desktop
                 </li>
                 <li class="font-file-type">
-                    <span class="font-file-type-web font-file-type-icon"></span>
-                    <!-- <i class="fa fa-code font-file-type-icon"></i> -->
+                    <span class="icon-code-slash font-file-type-icon">
+                        <span class="icon-caret"></span>
+                        <span class="icon-caret is-right"></span>
+                    </span>
                     Web
                 </li>
             </div>
@@ -106,17 +107,17 @@
                             <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive" alt="{{font.name}}" />
                         </div>
 
-                        <div class="font-hero-thumbnails">
+                        <div class="font-gallery">
                             {% for image in font.image_collection %}
-                                <div class="font-hero-thumbnail">
+                                <div class="font-gallery-thumbnail">
                                     <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
                                 </div>
                             {% endfor %}
                         </div>
                     {% else %}
-                        <div class="font-hero-legacy">
+                        <div class="font-gallery-legacy">
                             <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
-                            <img src="/images/fonts/{{font.image_retina}}" class="img-responsive font-hero-main-image" alt="{{font.name}}" />
+                            <img src="/images/fonts/{{font.image_retina}}" class="img-responsive" alt="{{font.name}}" />
                         </div>
                     {% endif %}
 
