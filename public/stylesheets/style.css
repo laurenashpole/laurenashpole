@@ -241,6 +241,77 @@ button:focus {
     outline: none;
 }
 
+.input-container {
+    margin-bottom: 1.5rem;
+    padding-right: 4px;
+    position: relative;
+}
+
+.input {
+    background: #fff;
+    padding: 0 0.5rem;
+    box-shadow: 4px 4px 0 0 #dcdcdc;
+    line-height: 45px;
+}
+
+.input::-webkit-input-placeholder {
+    color: #ababab;
+}
+
+.input::-moz-placeholder {
+    color: #ababab;
+}
+
+.input:-ms-input-placeholder {
+    color: #ababab;
+}
+
+.input:-moz-placeholder {
+    color: #ababab;
+}
+
+.input:focus {
+    box-shadow: 4px 4px 0 0 #c4c4c4;
+}
+
+.input-label-inset .input {
+    padding: 15px 10px 0 10px;
+}
+
+.input-label-inset label {
+    font-size: 10px;
+    line-height: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.textarea {
+    padding: 0.5rem;
+    box-shadow: 4px 4px 0 0 #dcdcdc;
+    display: block;
+    resize: none;
+}
+
+.textarea:focus {
+    box-shadow: 4px 4px 0 0 #c4c4c4;
+}
+
+.label-required {
+    display: none;
+}
+
+.input.is-required + label,
+.textarea.is-required + label {
+    color: #dd4433;
+}
+
+.input.is-required + label .label-required,
+.textarea.is-required + label .label-required {
+    font-weight: normal;
+    display: inline;
+}
+
 /* Buttons */
 .button {
     height: 3.5rem;
@@ -576,6 +647,7 @@ button:focus {
     background: #fff;
     width: 25px;
     height: 2px;
+    border-radius: 1px;
     position: absolute;
     left: 1px;
     top: 0;
@@ -825,64 +897,6 @@ button:focus {
 
 
 /* Being cleaned up */
-.input-container {
-    margin-bottom: 15px;
-    padding-right: 4px;
-    position: relative;
-}
-
-.input {
-    background: #fff;
-    padding: 0 10px;
-    box-shadow: 4px 4px 0 0 #dcdcdc;
-    font-size: 18px;
-    line-height: 45px;
-}
-
-.input:focus {
-    box-shadow: 4px 4px 0 0 #c4c4c4;
-}
-
-.input::-webkit-input-placeholder {
-    color: #ababab;
-}
-
-.input::-moz-placeholder {
-    color: #ababab;
-}
-
-.input:-ms-input-placeholder {
-    color: #ababab;
-}
-
-.input:-moz-placeholder {
-    color: #ababab;
-}
-
-.input-label-inset .input {
-    padding: 15px 10px 0 10px;
-}
-
-.input-label-inset label {
-    font-size: 10px;
-    line-height: 10px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.textarea {
-    padding: 10px;
-    box-shadow: 4px 4px 0 0 #dcdcdc;
-    font-size: 18px;
-    display: block;
-    resize: none;
-}
-
-.textarea:focus {
-    box-shadow: 4px 4px 0 0 #c4c4c4;
-}
-
 .input-range {
     margin: 10px 0;
     width: 100%;
@@ -962,30 +976,6 @@ button:focus {
 .input-range:focus::-ms-fill-upper {
     background: #fff;
 }
-
-.label-required {
-    display: none;
-}
-
-.input.is-required + label,
-.textarea.is-required + label {
-    color: #dd4433;
-}
-
-.input.is-required + label .label-required,
-.textarea.is-required + label .label-required {
-    font-weight: normal;
-    display: inline;
-}
-
-@media (min-width: 768px) {
-
-    .input-container {
-        margin-bottom: 20px;
-    }
-}
-
-
 
 /* Font Grid */
 .font-grid-container {

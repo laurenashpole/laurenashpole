@@ -5,24 +5,24 @@
 
         <h2 class="is-uppercase">Contact</h2>
 
-        <h3 class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></h3>
+        <p class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></p>
 
         <div class="text-block text-rule">or</div>
 
         <form class="contact-form js-contact-form"">
             <div class="input-container input-label-inset">
                 <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                <label class="text-block" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
+                <label class="is-uppercase is-bold" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                <label class="text-block" for="senderName">Name <span class="label-required">(required)</span></label>
+                <label class="is-uppercase is-bold" for="senderName">Name <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                <label class="text-block" for="subject">Subject <span class="label-required">(required)</span></label>
+                <label class="is-uppercase is-bold" for="subject">Subject <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-container input-label-inset textarea-label-inset">
@@ -57,13 +57,4 @@
         </form>
 
     </main>
-{% endblock %}
-
-{% block footer %}
-    <footer class="bg-skewed is-bottom footer-container">
-        <div class="container">
-            <div class="triangle is-pink footer-triangle"></div>
-            <div class="footer"></div>
-        </div>
-    </footer>
 {% endblock %}
