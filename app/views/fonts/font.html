@@ -28,17 +28,15 @@
     <main itemscope itemtype="http://schema.org/Product">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
-        <section class="container has-padding">
-            <div class="column-static">
-
+        <section class="container">
+            <div class="column-static has-padding">
                 <div class="font-image">
                     <img src="http://www.laurenashpole.com/images/fonts/{{font.image_mobile_retina}}" class="img-responsive" alt="{{font.name}}" />
                 </div>
-
             </div>
 
             <section class="column-fixed font-details-column">
-                <h3 class="is-uppercase" itemprop="name">
+                <h3 class="is-uppercase font-details-title" itemprop="name">
                     {{font.name}}
                 </h3>
 
@@ -99,7 +97,7 @@
             <div class="container has-padding">
                 <div class="column-static">
 
-                    <h2 class="is-uppercase">Additional Images</h2>
+                    <h2 class="is-uppercase font-page-heading">Additional Images</h2>
 
                     {% if font.image_collection.length %}
                         <div>
@@ -128,7 +126,7 @@
         <section class="container has-padding">
             <div class="column-static">
 
-                <h2 class="is-uppercase">Preview</h2>
+                <h2 class="is-uppercase font-page-heading">Preview</h2>
 
                 <div class="font-example-header-container">
                     <form class="font-example-form">
@@ -183,7 +181,7 @@
             <div class="container has-padding">
                 <div class="column-static">
 
-                    <h2 class="is-uppercase">About {{font.name}}</h2>
+                    <h2 class="is-uppercase font-page-heading">About {{font.name}}</h2>
 
                     <div class="font-details-date">
                         Created: {{font.date_created}}
@@ -236,7 +234,7 @@
         <section class="container has-padding">
             <div class="column-static">
 
-                <h2 class="is-uppercase">Glyphs</h2>
+                <h2 class="is-uppercase font-page-heading">Glyphs</h2>
 
                 <div class="font-glyphs-container {% if font.commercial_file.additional_chars.is_included %}has-options{% endif %}">
 
