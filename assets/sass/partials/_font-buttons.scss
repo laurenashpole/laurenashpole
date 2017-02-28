@@ -1,0 +1,38 @@
+/* Font Buttons */
+.font-buttons {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.font-button-container {
+    padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+
+    .font-buttons {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .font-button-container {
+        width: 40%;
+        padding: 20px 0 0 10px;
+    }
+
+    .font-button-container:first-child {
+        width: 60%;
+        padding: 20px 10px 0 0;
+    }
+}

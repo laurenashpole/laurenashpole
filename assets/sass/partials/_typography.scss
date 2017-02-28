@@ -1,0 +1,68 @@
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5rem;
+}
+
+h1 {
+    font-size: 2.828rem;
+    line-height: 3rem;
+}
+
+h2 {
+    font-size: 2.167rem;
+    line-height: 3rem;
+}
+
+h3 {
+    font-size: 1.414rem;
+}
+
+h4 {
+    font-size: 0.707rem;
+}
+
+h5 {
+    font-size: 0.471333rem;
+}
+
+h6 {
+    font-size: 0.3535rem;
+}
+
+p {
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5rem;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    line-height: 1.5rem;
+}
+
+code {
+    vertical-align: bottom;
+}
+
+.is-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+}
+
+.is-bold {
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+
+    h1,
+    h2 {
+        margin-bottom: 3rem;
+    }
+}

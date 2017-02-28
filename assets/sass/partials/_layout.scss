@@ -1,0 +1,135 @@
+/* Layout */
+.bg-skewed {
+    position: relative;
+}
+
+.bg-skewed:before,
+.bg-skewed:after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: block;
+}
+
+.bg-skewed:before {
+    background: #fff;
+    -webkit-transform: skewY(-5deg);
+    transform: skewY(-5deg);
+}
+
+.bg-skewed.is-top:before {
+    transform-origin: bottom left;
+}
+
+.bg-skewed.is-bottom:before {
+    transform-origin: top right;
+}
+
+.bg-skewed-padding {
+    margin: 5% auto;
+    padding: 10% 0;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1084px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.container.is-full-height {
+    -webkit-box-flex: 2;
+    -webkit-flex-grow: 2;
+    -ms-flex-positive: 2;
+    flex-grow: 2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.container.has-padding {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.triangle {
+    display: none;
+}
+
+@media (min-width: 768px) {
+
+    .container {
+        padding: 0 30px;
+    }
+
+    .container.has-padding {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .container.has-padding {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .triangle {
+        display: block;
+        overflow: hidden;
+    }
+
+    .triangle:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: skewY(45deg);
+        transform-origin: bottom left;
+    }
+
+    .triangle.is-green:before {
+        background-image: -webkit-linear-gradient(
+            #a6cab5 25%,
+            transparent 25%,
+            transparent
+        );
+        background-image: linear-gradient(
+            #a6cab5 25%,
+            transparent 25%,
+            transparent
+        );
+        background-size: 8px 8px;
+    }
+
+    .triangle.is-pink:before {
+        background-image: -webkit-linear-gradient(
+            #dc5a4e 25%,
+            transparent 25%,
+            transparent
+        );
+        background-image: linear-gradient(
+            #dc5a4e 25%,
+            transparent 25%,
+            transparent
+        );
+        background-size: 8px 8px;
+    }
+}

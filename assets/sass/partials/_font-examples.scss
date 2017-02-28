@@ -1,0 +1,174 @@
+/* Font Example */
+.font-example-container + .font-example-container {
+    padding-top: 0;
+}
+
+.font-example {
+    box-shadow: 4px 4px 0 0 #dcdcdc;
+}
+
+.font-example-header-container {
+    background: #757575;
+    padding: 15px;
+    color: #fff;
+}
+
+.font-example-input-container {
+    padding-bottom: 15px;
+}
+
+.font-example-input {
+    background: #fff;
+    margin: 0 0 15px 0;
+    border: none;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: none;
+}
+
+.font-example-input:focus {
+    box-shadow: none;
+}
+
+.font-example-settings {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.font-example-setting-container {
+    width: 33.333%;
+    padding: 14px 15px 0 15px;
+    position: relative;
+}
+
+.font-example-input-range-label {
+    font-size: 14px;
+    color: #dcdcdc;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.font-example-input-range:focus + .font-example-input-range-label,
+.font-example-input-range:active + .font-example-input-range-label {
+    color: #fff;
+}
+
+.font-example-icon-text {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.font-example-content {
+    background: #fff;
+    padding: 15px;
+}
+
+.font-example-text {
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 64px;
+    line-height: 1.25;
+    word-break: break-word;
+}
+
+.font-example-text:last-child {
+    border: none;
+}
+
+@media (min-width: 768px) {
+
+    .font-example-header-container {
+        padding: 14px 35px;
+    }
+
+    .font-example-content {
+        padding: 35px;
+    }
+
+    .font-example-form {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .font-example-input-container {
+        width: 50%;
+        padding: 0 7.5px 0 0;
+    }
+
+    .font-example-input {
+        background: none;
+        margin: 8px 0 6px 0;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding: 0;
+        font-size: 16px;
+        line-height: 25px;
+        color: #fff;
+    }
+
+    .font-example-input:focus {
+        border-color: #fff;
+    }
+
+    .font-example-input::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input::-moz-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input:-ms-input-placeholder {
+        color: #fff;
+    }
+
+    .font-example-input:-moz-placeholder {
+        color: #fff;
+    }
+
+    .font-example-settings {
+        width: 50%;
+        padding-left: 7.5px;
+        float: left;
+    }
+
+    .font-example-setting-container {
+        padding: 14px 0 0 45px;
+    }
+
+    .font-example-input-range-label {
+        left: 45px;
+    }
+
+    .font-example-text {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .font-example-input-container {
+        padding: 0 45px 0 0;
+    }
+
+    .font-example-settings {
+        padding-left: 45px;
+    }
+}

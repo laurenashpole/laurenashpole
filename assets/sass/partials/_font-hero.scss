@@ -1,0 +1,85 @@
+/* Font Hero */
+.font-hero-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.font-hero-main-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.font-hero-main.is-legacy {
+    background: #fff;
+}
+
+.font-hero-thumbnails {
+    margin-top: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.font-hero-thumbnail-image {
+    max-width: 100px;
+    height: auto;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    display: block;
+}
+
+.font-hero-thumbnail:last-child .font-hero-thumbnail-image {
+    margin-right: 0;
+}
+
+@media (min-width: 768px) {
+
+    .font-hero-container {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .font-hero-main {
+        width: 85%;
+        padding-right: 20px;
+    }
+
+    .font-hero-main.is-legacy {
+        width: 100%;
+        padding: 0;
+    }
+
+    .font-hero-thumbnails {
+        width: 15%;
+        margin: 0;
+        white-space: normal;
+        overflow: visible;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .font-hero-thumbnail:last-child .font-hero-thumbnail-image {
+        margin-bottom: 0;
+    }
+
+    .font-hero-thumbnail-image {
+        max-width: 100%;
+        margin-bottom: 6.436%;
+    }
+}

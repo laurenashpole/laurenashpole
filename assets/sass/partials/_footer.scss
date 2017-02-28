@@ -1,0 +1,39 @@
+/* Footer */
+.footer-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer-container:before {
+    content: " ";
+}
+
+.footer {
+    padding: 5% 0;
+}
+
+.footer-triangle {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 102.5%;
+    top: 10%;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+}
+
+@media (min-width: 1024px) {
+
+    .footer:before {
+        content: " ";
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid #a6cab5;
+        display: block;
+        position: absolute;
+        left: 102.5%;
+        top: 30%;
+        -webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+    }
+}
