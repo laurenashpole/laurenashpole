@@ -1,0 +1,18 @@
+.details-card {
+    background: $color-white;
+    border: 1rem solid $color-gray-lightest;
+    border-width: 1rem 0.5rem;
+    text-align: center;
+}
+
+.details-card-section {
+    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+
+    .details-card {
+        border-width: 0.5rem;
+        outline: 2px solid $color-white;
+    }
+}

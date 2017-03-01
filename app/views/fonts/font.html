@@ -30,23 +30,31 @@
 
         <section class="container">
             <div class="column-static has-padding">
-                <div class="font-image">
-                    <img src="http://www.laurenashpole.com/images/fonts/{{font.image_mobile_retina}}" class="img-responsive" alt="{{font.name}}" />
+                <div class="font-image-container">
+                    <img src="http://www.laurenashpole.com/images/fonts/{{font.image_mobile_retina}}" class="img-responsive font-image" alt="{{font.name}}" />
+
+                    <svg class="font-image-bg">
+                        <use xlink:href="/images/bg-swatches.svg#bgSwatch"></use>
+                    </svg>
+
+                    <svg class="font-image-bg">
+                        <use xlink:href="/images/bg-swatches.svg#bgSwatch2"></use>
+                    </svg>
                 </div>
             </div>
 
-            <section class="column-fixed font-details-column">
-                <h3 class="is-uppercase font-details-title" itemprop="name">
+            <section class="column-fixed details-card">
+                <h3 class="details-card-section is-uppercase has-no-margin" itemprop="name">
                     {{font.name}}
                 </h3>
 
-                <div class="font-details-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="details-card-section font-details-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                     <meta itemprop="priceCurrency" content="USD" />
                     $<span itemprop="price">{{font.price}}</span>
                     <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
                 </div>
 
-                <div class="font-buttons is-small-print {% if !font.one_download_option %}button-block{% endif %}">
+                <div class="details-card-section font-buttons is-small-print {% if !font.one_download_option %}button-block{% endif %}">
                     {% if font.commercial_font_file %}
                         <form class="font-button-container" method="post" action="/fonts/{{font.slug}}/payment">
                             <button
@@ -77,18 +85,18 @@
                     {% endif %}
                 </div>
 
-                <ul class="list-unstyled font-file-types">
-                    <li class="font-file-type">
-                        <span class="icon-desktop font-file-type-icon"></span>
+                <ul class="list-unstyled font-file-types {% if font.commercial_file.webfont.is_included %}has-two-options{% endif %}">
+                    <li class="details-card-section font-file-type">
+                        <i class="fa fa-desktop font-file-type-icon"></i>
                         Desktop
                     </li>
-                    <li class="font-file-type">
-                        <span class="icon-code-slash font-file-type-icon">
-                            <span class="icon-caret"></span>
-                            <span class="icon-caret is-right"></span>
-                        </span>
-                        Web
-                    </li>
+
+                    {% if font.commercial_file.webfont.is_included %}
+                        <li class="details-card-section font-file-type">
+                            <i class="fa fa-code font-file-type-icon"></i>
+                            Web
+                        </li>
+                    {% endif %}
                 </div>
             </section>
         </section>
