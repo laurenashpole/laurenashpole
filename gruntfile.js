@@ -18,9 +18,13 @@ module.exports = function( grunt ) {
                     style: 'expanded',
                     sourcemap: 'none'
                 },
-                files: {
-                    'assets/css/style.css' : 'assets/sass/style.scss'
-                }
+                files: [{
+                    expand: true,
+                    cwd: 'assets/sass',
+                    src: ['*.scss'],
+                    dest: 'assets/css',
+                    ext: '.css'
+                }]
             }
         },
         cssmin: {
