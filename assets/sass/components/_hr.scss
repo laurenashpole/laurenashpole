@@ -12,7 +12,7 @@
 .hr-text:before,
 .hr-text:after {
     content: " ";
-    background: #dcdcdc;
+    background: $border-gray;
     height: 1px;
     margin: 0 15px 0 0;
     display: block;

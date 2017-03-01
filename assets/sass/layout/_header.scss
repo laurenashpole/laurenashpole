@@ -38,11 +38,11 @@
     width: 65px;
     height: 30px;
     display: block;
-    color: #dd4433;
+    color: $header-color-primary;
 }
 
 .nav-icon-container {
-    background: #dd4433;
+    background: $header-color-secondary;
     margin: 0.5rem;
     padding: 10px 9px 11px 9px;
 }
@@ -102,7 +102,7 @@
 .nav-links {
     background: $color-white;
     width: 100%;
-    border-bottom: 1px solid #efb3a2;
+    border-bottom: 1px solid $header-color-secondary;
     -webkit-transform: translate3d(0, -webkit-calc(-100% + 1px), 0);
     transform: translate3d(0, calc(-100% + 1px), 0);
     -webkit-transition: transform 0.4s;
@@ -125,7 +125,7 @@
 
 .nav-link {
     margin: 0 0.5rem;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid $header-color-gray;
     padding: 0 0.25rem;
     line-height: 62px;
     font-size: 0.75rem;
@@ -167,7 +167,7 @@
     }
 
     .nav-logo-container {
-        background: #dd4433;
+        background: $header-color-primary;
         width: 75px;
         height: 75px;
         padding: 0;

@@ -1,6 +1,30 @@
 $font-family: 'Source Sans Pro', sans-serif;
 
 $color-white: #fff;
-$color-gray-dark: #222;
-$color-gray-light: #f5f5f5;
+$color-gray-darkest: #222;
+$color-gray-dark: #ababab;
+$color-gray-medium: #c4c4c4;
+$color-gray-light: #dcdcdc;
+$color-gray-lightest: #f5f5f5;
 $color-green-light: #d5e7db;
+$color-red: #dd4433;
+$color-red-hover: #d43f29;
+$color-red-light: #e26051;
+$color-red-light-hover: #dd5c4b;
+
+$border-gray: $color-gray-light;
+
+$header-color-primary: $color-red;
+$header-color-secondary: $color-red;
+$header-color-gray: $border-gray;
+
+$button-color-primary: $color-red;
+$button-color-primary-hover: $color-red-hover;
+$button-color-secondary: $color-red-light;
+$button-color-secondary-hover: $color-red-light-hover;
+
+$form-color-primary: $color-white;
+$form-color-secondary: $border-gray;
+$form-color-placeholder: $color-gray-dark;
+$form-color-focus: $color-gray-medium;
+$form-color-error: $color-red;

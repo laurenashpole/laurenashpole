@@ -25,30 +25,30 @@ button:focus {
 }
 
 .input {
-    background: $color-white;
+    background: $form-color-primary;
     padding: 0 0.5rem;
-    box-shadow: 4px 4px 0 0 #dcdcdc;
+    box-shadow: 4px 4px 0 0 $form-color-secondary;
     line-height: 2rem;
 }
 
 .input::-webkit-input-placeholder {
-    color: #ababab;
+    color: $form-color-placeholder;
 }
 
 .input::-moz-placeholder {
-    color: #ababab;
+    color: $form-color-placeholder;
 }
 
 .input:-ms-input-placeholder {
-    color: #ababab;
+    color: $form-color-placeholder;
 }
 
 .input:-moz-placeholder {
-    color: #ababab;
+    color: $form-color-placeholder;
 }
 
 .input:focus {
-    box-shadow: 4px 4px 0 0 #c4c4c4;
+    box-shadow: 4px 4px 0 0 $form-color-focus;
 }
 
 .input-label-inset .input {
@@ -65,13 +65,13 @@ button:focus {
 
 .textarea {
     padding: 0.5rem;
-    box-shadow: 4px 4px 0 0 #dcdcdc;
+    box-shadow: 4px 4px 0 0 $form-color-secondary;
     display: block;
     resize: none;
 }
 
 .textarea:focus {
-    box-shadow: 4px 4px 0 0 #c4c4c4;
+    box-shadow: 4px 4px 0 0 $form-color-focus;
 }
 
 .label-required {
@@ -80,7 +80,7 @@ button:focus {
 
 .input.is-required + label .label-required,
 .textarea.is-required + label .label-required {
-    color: #dd4433;
+    color: $form-color-error;
     font-weight: normal;
     display: inline;
 }

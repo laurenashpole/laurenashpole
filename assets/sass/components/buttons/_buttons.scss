@@ -2,9 +2,9 @@
     height: 3.5rem;
     color: $color-white;
     padding: 0 0.5rem;
-    font-weight: 700;
     text-align: center;
     cursor: pointer;
+    position: relative;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -25,36 +25,35 @@
 }
 
 .button.is-primary {
-    background: #dd4433;
+    background: $button-color-primary;
 }
 
 .button.is-primary:hover {
-    background: #d43f29;
+    background: $button-color-primary-hover;
 }
 
 .button.is-secondary {
-    background: #e26051;
+    background: $button-color-secondary;
 }
 
 .button.is-secondary:hover {
-    background: #dd5c4b;
+    background: $button-color-secondary-hover;
 }
 
 /* NOTE: Update to match style */
 .button.is-processing {
-    color: transparent;
+    font-size: 0;
 }
 
 .button.is-processing:after {
     content: " ";
     width: 30px;
     height: 30px;
-    border: 5px solid $color-white;
-    border-top: 5px solid #f8e4e2;
+    border: 5px solid $button-color-secondary;
+    border-top: 5px solid $color-white;
     border-radius: 50%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-    position: absolute;
 }
 
 @-webkit-keyframes spin {

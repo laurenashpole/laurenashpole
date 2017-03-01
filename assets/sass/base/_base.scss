@@ -10,12 +10,12 @@ html {
 }
 
 body {
-    background-color: $color-gray-light;
+    background-color: $color-gray-lightest;
     min-height: 100%;
     margin: 0;
     padding: 63px 0 0 0;
     overflow-x: hidden;
-    color: $color-gray-dark;
+    color: $color-gray-darkest;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;

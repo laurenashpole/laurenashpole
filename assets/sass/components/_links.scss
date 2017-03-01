@@ -15,7 +15,7 @@ a,
     background-position: 0.15em 0;
     background-repeat: no-repeat;
     padding-right: 0.15em;
-    color: $color-gray-dark;
+    color: $color-gray-darkest;
     font-weight: 400;
     text-decoration: none;
     position: relative;
@@ -24,7 +24,7 @@ a,
 
 a:hover,
 .link:hover {
-    color: $color-gray-dark;
+    color: $color-gray-darkest;
 }
 
 .has-no-underline {
