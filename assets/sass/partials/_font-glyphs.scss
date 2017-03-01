@@ -1,0 +1,86 @@
+.font-glyphs-header {
+    line-height: 42px;
+}
+
+.font-glyphs {
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.font-glyph-radio {
+    display: none;
+}
+
+.font-glyph-radio-label {
+    margin: 0 15px 15px 0;
+    display: none;
+}
+
+.font-example-content.has-options .font-glyph-radio-label {
+    display: inline-block;
+}
+
+.font-glyphs {
+    display: none;
+}
+
+.font-glyph-radio-basic:checked ~ .font-glyphs-basic {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.font-glyph-radio-additional:checked ~ .font-glyphs-additional {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.font-glyph {
+    width: 20%;
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.font-glyph-label {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    line-height: 12px;
+    color: #c4c4c4;
+}
+
+@media (min-width: 768px) {
+
+    .font-glyph-radio-label {
+        margin: 0 30px 30px 0;
+    }
+
+    .font-glyph {
+        width: 12.5%;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .font-glyph {
+        width: 10%;
+    }
+}
