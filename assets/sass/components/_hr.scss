@@ -1,0 +1,33 @@
+.hr-text {
+    margin: 0 0 25px 0;
+    font-style: italic;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.hr-text:before,
+.hr-text:after {
+    content: " ";
+    background: #dcdcdc;
+    height: 1px;
+    margin: 0 15px 0 0;
+    display: block;
+    -webkit-box-flex: 2;
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+}
+
+.hr-text:after {
+    margin: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+
+    .hr-text {
+        margin: 10px 0 35px 0;
+    }
+}

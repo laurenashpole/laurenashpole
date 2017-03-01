@@ -1,0 +1,95 @@
+.icon-caret {
+    width: 9px;
+    height: 18px;
+    display: block;
+    position: relative;
+}
+
+.icon-caret:before,
+.icon-caret:after {
+    content: " ";
+    background: #222;
+    width: 1px;
+    height: -webkit-calc(50% - 1px);
+    height: calc(50% - 1px);
+    border-radius: 0.5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+}
+
+.icon-caret:after {
+    top: auto;
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+}
+
+.icon-caret.is-right {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.icon-desktop {
+    margin-top: 2px;
+    width: 20px;
+    height: 17px;
+    position: relative;
+}
+
+.icon-desktop:before {
+    content: " ";
+    width: 100%;
+    height: 14px;
+    border: 1px solid #222;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon-desktop:after {
+    content: " ";
+    background: #222;
+    width: 10px;
+    height: 1px;
+    border-radius: 0.5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
+
+.icon-code-slash {
+    width: 30px;
+    height: 18px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.icon-code-slash:before {
+    content: " ";
+    background: #222;
+    height: 16px;
+    width: 1px;
+    border-radius: 0.5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: rotate(15deg) translate3d(-50%, -50%, 0);
+    transform: rotate(15deg) translate3d(-50%, -50%, 0);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+}

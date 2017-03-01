@@ -1,24 +1,29 @@
-// TO DO: Better file structure as you redesign
+/* Base */
+@import 'base/base';
+@import 'base/typography';
 
-@import 'partials/body';
-@import 'partials/typography';
-@import 'partials/links';
-@import 'partials/lists';
-@import 'partials/images';
-@import 'partials/inputs';
-@import 'partials/buttons';
-@import 'partials/layout';
-@import 'partials/header';
-@import 'partials/footer';
-@import 'partials/font-grid';
-@import 'partials/font-hero';
-@import 'partials/font-buttons';
-@import 'partials/font-details';
-@import 'partials/font-examples';
-@import 'partials/font-glyphs';
-@import 'partials/contact';
-@import 'partials/homepage';
-@import 'partials/shop-list';
-@import 'partials/misc';
+/* Components */
+@import 'components/backgrounds';
+@import 'components/hr';
+@import 'components/icons';
+@import 'components/images';
+@import 'components/links';
+@import 'components/lists';
+@import 'components/buttons/buttons';
+@import 'components/buttons/contact-buttons';
+@import 'components/buttons/font-buttons';
+@import 'components/forms/inputs';
+@import 'components/forms/ranges';
 
+/* Layout */
+@import 'layout/layout';
+@import 'layout/header';
+
+/* Pages */
+@import 'pages/homepage';
+@import 'pages/font-grid';
+@import 'pages/font-images';
+@import 'pages/font-details';
+@import 'pages/font-examples';
+@import 'pages/font-glyphs';
 
