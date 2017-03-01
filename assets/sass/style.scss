@@ -1,9 +1,13 @@
+/* Settings */
+@import 'settings';
+
 /* Base */
 @import 'base/base';
 @import 'base/typography';
 
 /* Components */
 @import 'components/backgrounds';
+@import 'components/gallery';
 @import 'components/hr';
 @import 'components/icons';
 @import 'components/images';

@@ -54,7 +54,7 @@
 }
 
 .nav-icon-line {
-    background: #fff;
+    background: $color-white;
     width: 25px;
     height: 2px;
     border-radius: 1px;
@@ -99,7 +99,7 @@
 }
 
 .nav-links {
-    background: #fff;
+    background: $color-white;
     width: 100%;
     border-bottom: 1px solid #efb3a2;
     -webkit-transform: translate3d(0, -webkit-calc(-100% + 1px), 0);

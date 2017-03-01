@@ -1,6 +1,6 @@
 .button {
     height: 3.5rem;
-    color: #fff;
+    color: $color-white;
     padding: 0 0.5rem;
     font-weight: 700;
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .button:hover {
-    color: #fff;
+    color: $color-white;
 }
 
 .button.is-primary {
@@ -49,7 +49,7 @@
     content: " ";
     width: 30px;
     height: 30px;
-    border: 5px solid #fff;
+    border: 5px solid $color-white;
     border-top: 5px solid #f8e4e2;
     border-radius: 50%;
     -webkit-animation: spin 2s linear infinite;
@@ -76,7 +76,7 @@
 
 .button-block:before {
     content: "or";
-    background: #fff;
+    background: $color-white;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;

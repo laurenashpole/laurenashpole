@@ -17,6 +17,7 @@ a img {
 .img-responsive {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {

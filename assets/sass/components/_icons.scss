@@ -8,7 +8,7 @@
 .icon-caret:before,
 .icon-caret:after {
     content: " ";
-    background: #222;
+    background: $color-gray-dark;
     width: 1px;
     height: -webkit-calc(50% - 1px);
     height: calc(50% - 1px);
@@ -47,7 +47,7 @@
     content: " ";
     width: 100%;
     height: 14px;
-    border: 1px solid #222;
+    border: 1px solid $color-gray-dark;
     border-radius: 2px;
     position: absolute;
     top: 0;
@@ -56,7 +56,7 @@
 
 .icon-desktop:after {
     content: " ";
-    background: #222;
+    background: $color-gray-dark;
     width: 10px;
     height: 1px;
     border-radius: 0.5px;
@@ -81,7 +81,7 @@
 
 .icon-code-slash:before {
     content: " ";
-    background: #222;
+    background: $color-gray-dark;
     height: 16px;
     width: 1px;
     border-radius: 0.5px;

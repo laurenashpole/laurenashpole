@@ -23,11 +23,11 @@
 }
 
 .input-range:focus::-webkit-slider-runnable-track {
-    background: #fff;
+    background: $color-white;
 }
 
 .input-range:focus::-webkit-slider-thumb {
-    background: #fff;
+    background: $color-white;
 }
 
 .input-range::-moz-range-track {
@@ -74,9 +74,9 @@
 }
 
 .input-range:focus::-ms-fill-lower {
-    background: #fff;
+    background: $color-white;
 }
 
 .input-range:focus::-ms-fill-upper {
-    background: #fff;
+    background: $color-white;
 }

@@ -1,3 +1,4 @@
+/* Settings */
 /* Base */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -6,7 +7,7 @@
 
 html {
   height: 100%;
-  font: 300 112.5% 'Source Sans Pro', sans-serif;
+  font: 300 112.5% "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -124,6 +125,41 @@ code {
   background-size: 400px 400px;
 }
 
+/* TO DO: Delete once new images are finished */
+.gallery-main.is-legacy {
+  background: #f5f5f5;
+  padding: 1.5rem;
+}
+
+.gallery-thumbnails {
+  margin-top: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.gallery-thumbnail {
+  margin: 0 0.5rem 0 0;
+  cursor: pointer;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  flex: 0 0 100px;
+}
+
+.gallery-thumbnail:last-child {
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .gallery-thumbnail {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 20%;
+    flex: 0 1 20%;
+  }
+}
 .hr-text {
   margin: 0 0 25px 0;
   font-style: italic;
@@ -271,6 +307,7 @@ a img {
 .img-responsive {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
@@ -1213,38 +1250,6 @@ body.is-homepage {
   margin: 0 auto;
 }
 
-.font-gallery {
-  margin-top: 5px;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-
-.font-gallery-thumbnail {
-  max-width: 100px;
-  margin: 0 5px 0 0;
-  cursor: pointer;
-}
-
-.font-gallery-thumbnail:last-child {
-  margin-right: 0;
-}
-
-/* TO DO: Delete once new images are finished */
-.font-gallery-legacy {
-  background: #f5f5f5;
-  padding: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .font-gallery-thumbnail {
-    max-width: none;
-    width: 20%;
-  }
-}
 .font-file-types {
   margin-top: 1.5rem;
   display: -webkit-box;

@@ -100,20 +100,20 @@
                     <h2 class="is-uppercase font-page-heading">Additional Images</h2>
 
                     {% if font.image_collection.length %}
-                        <div>
+                        <div class="gallery-main">
                             <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
                             <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive" alt="{{font.name}}" />
                         </div>
 
-                        <div class="font-gallery">
+                        <div class="gallery-thumbnails">
                             {% for image in font.image_collection %}
-                                <div class="font-gallery-thumbnail">
+                                <div class="gallery-thumbnail">
                                     <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
                                 </div>
                             {% endfor %}
                         </div>
                     {% else %}
-                        <div class="font-gallery-legacy">
+                        <div class="gallery-main is-legacy">
                             <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
                             <img src="/images/fonts/{{font.image_retina}}" class="img-responsive" alt="{{font.name}}" />
                         </div>

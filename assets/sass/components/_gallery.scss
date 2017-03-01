@@ -1,0 +1,36 @@
+/* TO DO: Delete once new images are finished */
+.gallery-main.is-legacy {
+    background: $color-gray-light;
+    padding: 1.5rem;
+}
+
+.gallery-thumbnails {
+    margin-top: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.gallery-thumbnail {
+    margin: 0 0.5rem 0 0;
+    cursor: pointer;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100px;
+    flex: 0 0 100px;
+}
+
+.gallery-thumbnail:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 768px) {
+
+    .gallery-thumbnail {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 20%;
+        flex: 0 1 20%;
+    }
+}

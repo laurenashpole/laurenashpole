@@ -43,7 +43,7 @@
 
 .font-example-input-range:focus + .font-example-input-range-label,
 .font-example-input-range:active + .font-example-input-range-label {
-    color: #fff;
+    color: $color-white;
 }
 
 .font-example-icon-text {
@@ -53,7 +53,7 @@
 }
 
 .font-example-content {
-    background: #fff;
+    background: $color-white;
     padding: 1rem;
 }
 
@@ -91,30 +91,30 @@
         background: none;
         margin: 8px 0 6px 0;
         border: none;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $color-white;
         padding: 0;
         line-height: 25px;
-        color: #fff;
+        color: $color-white;
     }
 
     .font-example-input:focus {
-        border-color: #fff;
+        border-color: $color-white;
     }
 
     .font-example-input::-webkit-input-placeholder {
-        color: #fff;
+        color: $color-white;
     }
 
     .font-example-input::-moz-placeholder {
-        color: #fff;
+        color: $color-white;
     }
 
     .font-example-input:-ms-input-placeholder {
-        color: #fff;
+        color: $color-white;
     }
 
     .font-example-input:-moz-placeholder {
-        color: #fff;
+        color: $color-white;
     }
 
     .font-example-settings {

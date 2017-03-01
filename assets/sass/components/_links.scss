@@ -2,20 +2,20 @@ a,
 .link {
     background-image: -webkit-linear-gradient(
         transparent 64.733%,
-        #d5e7db 64.733%,
-        #d5e7db 93.333%,
+        $color-green-light 64.733%,
+        $color-green-light 93.333%,
         transparent 93.333%
     );
     background-image: linear-gradient(
         transparent 64.733%,
-        #d5e7db 64.733%,
-        #d5e7db 93.333%,
+        $color-green-light 64.733%,
+        $color-green-light 93.333%,
         transparent 93.333%
     );
     background-position: 0.15em 0;
     background-repeat: no-repeat;
     padding-right: 0.15em;
-    color: #222;
+    color: $color-gray-dark;
     font-weight: 400;
     text-decoration: none;
     position: relative;
@@ -24,7 +24,7 @@ a,
 
 a:hover,
 .link:hover {
-    color: #222;
+    color: $color-gray-dark;
 }
 
 .has-no-underline {
@@ -39,7 +39,7 @@ a:hover,
 
     .has-hover-underline:before {
         content: " ";
-        background: #d5e7db;
+        background: $color-green-light;
         height: 0.429em;
         position: absolute;
         bottom: 0.1em;
