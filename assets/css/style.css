@@ -36,7 +36,6 @@ body {
     padding: 0;
   }
 }
-/* Typography */
 h1,
 h2,
 h3,
@@ -103,7 +102,6 @@ code {
     margin-bottom: 3rem;
   }
 }
-/* Links */
 a,
 .link {
   background-image: -webkit-linear-gradient(transparent 64.733%, #c5dccf 64.733%, #c5dccf 93.333%, transparent 93.333%);
@@ -150,7 +148,6 @@ a:hover,
     right: 0;
   }
 }
-/* Lists */
 ul,
 ol {
   margin: 1.5em 0;
@@ -166,7 +163,6 @@ li {
   list-style: none;
 }
 
-/* Images */
 figure {
   margin: 0;
 }
@@ -202,7 +198,6 @@ a img {
     display: block;
   }
 }
-/* Forms */
 .input,
 button,
 .textarea {
@@ -382,7 +377,6 @@ button:focus {
     margin-bottom: 20px;
   }
 }
-/* Buttons */
 .button-default {
   background: none;
 }
@@ -468,7 +462,6 @@ button:focus {
     height: 70px;
   }
 }
-/* Layout */
 .bg-skewed {
   position: relative;
 }
@@ -584,7 +577,6 @@ button:focus {
     background-size: 8px 8px;
   }
 }
-/* Header & Nav */
 .header {
   width: 100%;
   position: fixed;
@@ -871,7 +863,6 @@ button:focus {
     margin: 0 0 0 70px;
   }
 }
-/* Footer */
 .footer-container {
   width: 100%;
   overflow: hidden;
@@ -909,7 +900,6 @@ button:focus {
     transform: rotate(60deg);
   }
 }
-/* Font Grid */
 .font-grid-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1002,7 +992,6 @@ button:focus {
     width: 31.666%;
   }
 }
-/* Font Hero */
 .font-hero-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1086,7 +1075,6 @@ button:focus {
     margin-bottom: 6.436%;
   }
 }
-/* Font Buttons */
 .font-buttons {
   width: 100%;
   display: -webkit-box;
@@ -1123,7 +1111,6 @@ button:focus {
     padding: 20px 10px 0 0;
   }
 }
-/* Font Details */
 .font-details-container:before {
   content: " ";
 }
@@ -1206,7 +1193,6 @@ button:focus {
     padding-bottom: 20px;
   }
 }
-/* Font Example */
 .font-example-container + .font-example-container {
   padding-top: 0;
 }
@@ -1377,7 +1363,6 @@ button:focus {
     padding-left: 45px;
   }
 }
-/* Font Glyphs */
 .font-glyphs-header {
   line-height: 42px;
 }
@@ -1461,7 +1446,6 @@ button:focus {
     width: 10%;
   }
 }
-/* Contact Form */
 .contact-form-subheader {
   margin-top: 0;
   font-weight: 300;
@@ -1498,7 +1482,6 @@ button:focus {
     padding: 4px 10px 0 0;
   }
 }
-/* Homepage */
 body.is-homepage {
   background-color: #f7e3db;
 }
@@ -1598,7 +1581,6 @@ body.is-homepage {
     padding-bottom: 177px;
   }
 }
-/* Shop List */
 .shop-list-header {
   text-align: center;
 }
