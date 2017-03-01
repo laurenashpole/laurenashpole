@@ -1,14 +1,16 @@
 module.exports = function( grunt ) {
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         watch: {
-            files: 'assets/sass/**/*.scss',
+            files: [
+                'assets/sass/**/*.scss',
+                'assets/js/*.js'
+            ],
             tasks: [
                 'sass',
-                'cssmin'
-            ],
-            options: {
-                livereload: true
-            }
+                'cssmin',
+                'uglify'
+            ]
         },
         sass: {
             dist: {
@@ -17,7 +19,7 @@ module.exports = function( grunt ) {
                     sourcemap: 'none'
                 },
                 files: {
-                    'public/stylesheets/style.css' : 'assets/sass/style.scss'
+                    'assets/css/style.css' : 'assets/sass/style.scss'
                 }
             }
         },
@@ -25,11 +27,21 @@ module.exports = function( grunt ) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'public/stylesheets',
+                    cwd: 'assets/css',
                     src: ['*.css', '!*.min.css'],
                     dest: 'public/stylesheets',
                     ext: '.min.css'
                 }]
+            }
+        },
+        uglify: {
+            options: {
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+            },
+            build: {
+                files: {
+                    'public/js/javascript.min.js': 'assets/js/javascript.js'
+                }
             }
         }
     });
@@ -37,6 +49,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['sass']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'watch']);
 };
