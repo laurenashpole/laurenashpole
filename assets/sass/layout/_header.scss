@@ -38,6 +38,7 @@
     width: 65px;
     height: 30px;
     display: block;
+    color: #dd4433;
 }
 
 .nav-icon-container {
@@ -181,15 +182,12 @@
         justify-content: center;
     }
 
-    .nav-logo-container.mobile {
-        display: none;
-    }
-
     .nav-logo {
         width: 55px;
         height: 25px;
         position: relative;
         z-index: 1;
+        color: $color-white;
     }
 
     .nav-links,
