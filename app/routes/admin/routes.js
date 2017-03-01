@@ -1,5 +1,6 @@
 var admin = require('../../controllers/admin/index');
 var fonts = require('../../controllers/admin/fonts');
+var fontServices = require('../../services/fonts');
 
 function isLoggedIn (req, res, next) {
 
@@ -31,11 +32,12 @@ module.exports = function (app, passport, multer) {
         failureFlash : true
     }));
 
-    app.get('/admin/fonts', isLoggedIn, fonts.renderAll);
-    app.get('/admin/fonts/create', isLoggedIn, fonts.renderCreate);
-    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.renderEdit);
-    app.post('/admin/fonts',[isLoggedIn, upload.any(), fonts.create]);
-    app.put('/admin/fonts/:font_id', [isLoggedIn, upload.any(), fonts.update]);
-    app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.delete);
+    app.get('/admin/fonts', isLoggedIn, fonts.all);
+    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.edit);
+    app.get('/admin/fonts/create', isLoggedIn, fonts.create);
+
+    app.post('/services/fonts',[isLoggedIn, upload.any(), fontServices.create]);
+    app.put('/services/fonts/:font_id', [isLoggedIn, upload.any(), fontServices.update]);
+    app.delete('/services/fonts/:font_id', isLoggedIn, fontServices.delete);
 
 }

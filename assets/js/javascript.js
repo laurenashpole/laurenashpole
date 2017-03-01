@@ -152,7 +152,7 @@ ContactForm.prototype.sendMessage = function (e) {
         message: this.contactForm.message.value
     };
 
-    request.open('POST', '/contact/send');
+    request.open('POST', '/services/contact/send');
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     request.onload = function () {

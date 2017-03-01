@@ -7,7 +7,7 @@
         <div class="form-container">
             <h2 class="text-block text-heading">Edit {{font.name}}</h2>
 
-            <form method="post" action="/admin/fonts/{{font.id}}?_method=PUT" enctype="multipart/form-data">
+            <form method="post" action="/services/fonts/{{font.id}}?_method=PUT" enctype="multipart/form-data">
                 {% include "./includes/form.html" %}
             </form>
         </div>
