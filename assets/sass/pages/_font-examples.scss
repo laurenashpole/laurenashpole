@@ -10,53 +10,22 @@
 }
 
 .font-example-input {
-    line-height: 3rem;
-    box-shadow: none;
+    margin: 0.5rem 0;
 }
 
 .font-example-input:focus {
-    box-shadow: none;
-}
-
-.font-example-settings {
-    @include flex();
-}
-
-.font-example-setting-container {
-    width: 33.333%;
-    padding: 0.75rem 0.75rem 0 0.75rem;
-    position: relative;
-}
-
-.font-example-input-range-label {
-    color: $form-color-placeholder;
-    position: absolute;
-    top: 0;
-    left: 0;
-    // left: 0.75rem;
-    @include flex();
-    @include flex-align(center);
-}
-
-// .font-example-input-range:focus + .font-example-input-range-label,
-// .font-example-input-range:active + .font-example-input-range-label {
-//     color: $color-white;
-// }
-
-.font-example-icon-text {
-    font-size: 18px;
-    font-weight: 700;
-    margin-right: 6px;
-}
-
-.font-example-content {
     background: $color-gray-lightest;
-    padding: 1rem;
+}
+
+.font-example-select {
+    margin: 0.5rem 0;
 }
 
 .font-example-text {
+    background: $color-gray-lightest;
     margin-bottom: 2px;
-    font-size: 3rem;
+    padding: 1rem;
+    font-size: 60px;
     line-height: 1.25;
     word-break: break-word;
 }
@@ -78,9 +47,5 @@
 
     .font-example-form-section +  .font-example-form-section {
         border-width: 2px 2px 0 1px;
-    }
-
-    .font-example-input-range-label {
-        left: 0.75rem;
     }
 }

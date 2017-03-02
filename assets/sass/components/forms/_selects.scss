@@ -1,0 +1,22 @@
+.select-container {
+    position: relative;
+}
+
+.select {
+    background: $form-color-primary;
+    padding: 0 0.5rem;
+    line-height: 2rem;
+}
+
+.select-icon-caret-container {
+    height: 100%;
+    border-left: 2px solid $color-gray-lightest;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    pointer-events: none;
+    @include flex();
+    @include flex-align(center);
+}

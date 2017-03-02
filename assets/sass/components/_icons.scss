@@ -9,10 +9,9 @@
 .icon-caret:after {
     content: " ";
     background: $color-gray-darkest;
-    width: 1px;
-    height: -webkit-calc(50% - 1px);
-    height: calc(50% - 1px);
-    border-radius: 0.5px;
+    width: 2px;
+    height: 50%;
+    border-radius: 1px;
     position: absolute;
     top: 0;
     left: 0;

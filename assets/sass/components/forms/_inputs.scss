@@ -1,7 +1,9 @@
 input,
 textarea,
-button {
+button,
+select {
     width: 100%;
+    background: none;
     border: none;
     color: inherit;
     font-family: inherit;
@@ -14,7 +16,8 @@ button {
 
 input:focus,
 textarea:focus,
-button:focus {
+button:focus,
+select:focus {
     outline: none;
 }
 
@@ -27,7 +30,7 @@ button:focus {
 .input {
     background: $form-color-primary;
     padding: 0 0.5rem;
-    box-shadow: 4px 4px 0 0 $form-color-secondary;
+    // box-shadow: 4px 4px 0 0 $form-color-secondary;
     line-height: 2rem;
 }
 
@@ -48,7 +51,7 @@ button:focus {
 }
 
 .input:focus {
-    box-shadow: 4px 4px 0 0 $form-color-focus;
+    // box-shadow: 4px 4px 0 0 $form-color-focus;
 }
 
 .input-label-inset .input {
