@@ -46,8 +46,7 @@ a:hover,
         left: 50%;
         right: 50%;
         z-index: -1;
-        -webkit-transition: left 0.3s, right 0.3s;
-        transition: left 0.3s, right 0.3s;
+        @include transition(left 0.3s, right 0.3s);
     }
 
     .has-hover-underline:hover:before {

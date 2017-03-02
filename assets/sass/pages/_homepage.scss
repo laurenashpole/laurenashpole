@@ -34,8 +34,7 @@ body.is-homepage {
 .homepage-banner-text {
     padding: 10px 20px;
     position: relative;
-    -webkit-transform: translate3d(10%, 0, 0);
-    transform: translate3d(10%, 0, 0);
+    @include transform(translate3d(10%, 0, 0));
 }
 
 .homepage-banner-text:before {
@@ -49,14 +48,12 @@ body.is-homepage {
     top: 0;
     left: 0;
     z-index: -1;
-    -webkit-transform: skewX(15deg);
-    transform: skewX(15deg);
+    @include transform(skewX(15deg));
 }
 
 .homepage-banner-text:last-child {
     @include flex-child-align(flex-end);
-    -webkit-transform: translate3d(-10%, 0, 0);
-    transform: translate3d(-10%, 0, 0);
+    @include transform(translate3d(-10%, 0, 0));
 }
 
 .homepage-banner-text:last-child:before {

@@ -21,8 +21,7 @@
 }
 
 .font-grid-image-container {
-    -webkit-transition: opacity 0.6s ease;
-    transition: opacity 0.6s ease;
+    @include transition(opacity 0.6s ease);
 }
 
 .font-grid-link:hover .font-grid-image-container {
@@ -47,8 +46,7 @@
     @include flex();
     @include flex-align(center);
     @include flex-justify(center);
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
+    @include transition(all 0.6s ease);
 }
 
 .font-grid-title {

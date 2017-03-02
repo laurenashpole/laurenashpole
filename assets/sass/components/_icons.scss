@@ -16,19 +16,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    -webkit-transform-origin: bottom left;
-    transform-origin: bottom left;
+    @include transform(rotate(45deg));
+    @include transform-origin(bottom left);
 }
 
 .icon-caret:after {
     top: auto;
     bottom: 0;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
+    @include transform(rotate(-45deg));
+    @include transform-origin(top left);
 }
 
 .icon-caret.is-right {
@@ -63,20 +59,15 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    @include transform(translate3d(-50%, 0, 0));
 }
 
 .icon-code-slash {
     width: 30px;
     height: 18px;
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+    @include flex();
+    @include flex-justify(space-between);
 }
 
 .icon-code-slash:before {
@@ -88,8 +79,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: rotate(15deg) translate3d(-50%, -50%, 0);
-    transform: rotate(15deg) translate3d(-50%, -50%, 0);
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
+    @include transform(rotate(15deg) translate3d(-50%, -50%, 0));
+    @include transform-origin(top left);
 }

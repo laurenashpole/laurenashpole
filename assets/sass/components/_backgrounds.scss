@@ -34,7 +34,7 @@
     position: absolute;
     top: 5%;
     left: 15%;
-    transform: rotate(30deg);
+    @include transform(rotate(30deg));
 }
 
 @media (min-width: 1024px) {

@@ -39,3 +39,23 @@
     -webkit-align-self: $align;
     align-self: $align;
 }
+
+@mixin transform ($transform) {
+    -webkit-transform: $transform;
+    transform: $transform;
+}
+
+@mixin transform-origin ($origin) {
+    -webkit-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+@mixin transition ($transition...) {
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transition-delay ($delay) {
+    -webkit-transition-delay: $delay;
+    transition-delay: $delay;
+}
