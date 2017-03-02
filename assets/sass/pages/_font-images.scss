@@ -4,37 +4,7 @@
     margin: 0 auto;
 }
 
-.font-image-container:before {
-    content: " ";
-    width: 320px;
-    height: 400px;
-    background-image: radial-gradient(
-        #fff 20%,
-        transparent 21%
-    );
-    background-size: 40px 40px;
-    position: absolute;
-    top: 5%;
-    left: 15%;
-    transform: rotate(30deg);
-}
-
 .font-image {
     position: relative;
     z-index: 2;
-}
-
-.font-image-bg {
-    width: 90%;
-    height: 90%;
-    color: #FEE2DE;
-    position: absolute;
-    top: 0;
-    left: 1.5rem;
-}
-
-.font-image-bg:last-child {
-    width: 60%;
-    height: 60%;
-    color: #D6F0EF;
 }

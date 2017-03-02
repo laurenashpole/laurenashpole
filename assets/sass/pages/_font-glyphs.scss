@@ -1,9 +1,6 @@
-.font-glyphs-container {
-    margin-right: -3px;
-    margin-left: -3px;
-}
-
 .font-glyphs {
+    border: 2px solid #fff;
+    padding: 0.4rem;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -16,7 +13,7 @@
 }
 
 .font-glyph-radio-label {
-    margin: 0 15px 15px 0;
+    margin: 0 1.5rem 1.5rem 0;
     display: none;
 }
 
@@ -44,7 +41,7 @@
     width: 20%;
     background: $color-white;
     padding-top: 20px;
-    border: 3px solid $color-gray-lightest;
+    border: 0.1rem solid $color-gray-lightest;
     font-size: 24px;
     line-height: 60px;
     text-align: center;
@@ -60,7 +57,7 @@
 .font-glyph:hover {
     z-index: 1;
     -webkit-transform: scale(1.25);
-            transform: scale(1.25);
+    transform: scale(1.25);
 }
 
 .font-glyph-label {
@@ -68,7 +65,7 @@
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid $color-gray-lightest;
+    border-bottom: 2px solid $color-gray-lightest;
     font-size: 12px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
@@ -77,10 +74,6 @@
 }
 
 @media (min-width: 768px) {
-
-    .font-glyph-radio-label {
-        margin: 0 30px 30px 0;
-    }
 
     .font-glyph {
         width: 12.5%;

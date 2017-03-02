@@ -1,10 +1,12 @@
-.font-example-header-container {
-    background: #757575;
-    padding: 0.75rem;
+.font-example {
+    border: 2px solid $color-gray-lightest;
+    padding: 0.5rem;
 }
 
-.font-example-input-container {
-    margin-bottom: 0.75rem;
+.font-example-form-section {
+    border: 2px solid $color-gray-lightest;
+    border-bottom: none;
+    padding: 0.5rem;
 }
 
 .font-example-input {
@@ -29,7 +31,7 @@
 }
 
 .font-example-input-range-label {
-    color: #dcdcdc;
+    color: $form-color-placeholder;
     position: absolute;
     top: 0;
     left: 0.75rem;
@@ -53,12 +55,12 @@
 }
 
 .font-example-content {
-    background: $color-white;
+    background: $color-gray-lightest;
     padding: 1rem;
 }
 
 .font-example-text {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
     font-size: 3rem;
     line-height: 1.25;
     word-break: break-word;
@@ -70,60 +72,23 @@
 
 @media (min-width: 768px) {
 
-    .font-example-header-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
     .font-example-form {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
     }
 
-    .font-example-input-container {
+    .font-example-form-section {
         width: 50%;
-        margin: 0;
-        padding-right: 0.5rem;
+        border-width: 2px 1px 0 2px;
+    }
+
+    .font-example-form-section +  .font-example-form-section {
+        border-width: 2px 2px 0 1px;
     }
 
     .font-example-input {
         background: none;
-        margin: 8px 0 6px 0;
-        border: none;
-        border-bottom: 1px solid $color-white;
-        padding: 0;
-        line-height: 25px;
-        color: $color-white;
-    }
-
-    .font-example-input:focus {
-        border-color: $color-white;
-    }
-
-    .font-example-input::-webkit-input-placeholder {
-        color: $color-white;
-    }
-
-    .font-example-input::-moz-placeholder {
-        color: $color-white;
-    }
-
-    .font-example-input:-ms-input-placeholder {
-        color: $color-white;
-    }
-
-    .font-example-input:-moz-placeholder {
-        color: $color-white;
-    }
-
-    .font-example-settings {
-        width: 50%;
-        padding-left: 0.5rem;
-    }
-
-    .font-example-setting-container {
-        padding: 14px 0 0 1rem;
     }
 
     .font-example-input-range-label {

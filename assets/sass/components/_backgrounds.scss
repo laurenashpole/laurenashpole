@@ -6,3 +6,44 @@
     background-image: url(/images/bg.png);
     background-size: 400px 400px;
 }
+
+.bg-abstract {
+    width: 90%;
+    height: 60%;
+    color: #FEE2DE;
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+}
+
+.bg-abstract.is-alt {
+    width: 60%;
+    height: 40%;
+    color: #D6F0EF;
+}
+
+.bg-dots-rectangle:before {
+    content: " ";
+    width: 320px;
+    height: 400px;
+    background-image: radial-gradient(
+        #fff 20%,
+        transparent 21%
+    );
+    background-size: 40px 40px;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    transform: rotate(30deg);
+}
+
+@media (min-width: 1024px) {
+
+    .bg-abstract {
+        height: 90%;
+    }
+
+    .bg-abstract.is-alt {
+        height: 60%;
+    }
+}

@@ -4,8 +4,18 @@
     padding: 1.5rem;
 }
 
+.gallery-main {
+    border: 2px solid $color-gray-lightest;
+    padding: 0.5rem;
+}
+
+.gallery-thumbnails-container {
+    border: 2px solid $color-gray-lightest;
+    border-top: none;
+    padding: 0.5rem;
+}
+
 .gallery-thumbnails {
-    margin-top: 0.5rem;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
