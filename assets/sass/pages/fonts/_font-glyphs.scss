@@ -1,11 +1,8 @@
 .font-glyphs {
     border: 2px solid #fff;
     padding: 0.4rem;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    @include flex();
+    @include flex-wrap(wrap);
 }
 
 .font-glyph-radio {
@@ -26,15 +23,11 @@
 }
 
 .font-glyph-radio-basic:checked ~ .font-glyphs-basic {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+    @include flex();
 }
 
 .font-glyph-radio-additional:checked ~ .font-glyphs-additional {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+    @include flex();
 }
 
 .font-glyph {

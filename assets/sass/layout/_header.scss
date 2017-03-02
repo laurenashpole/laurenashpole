@@ -8,14 +8,9 @@
 
 .nav {
     height: 63px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+    @include flex();
+    @include flex-wrap(wrap);
+    @include flex-justify(space-between);
 }
 
 .nav-header {
@@ -23,15 +18,9 @@
     padding: 0 0 0 0.5rem;
     position: relative;
     z-index: 2;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(space-between);
 }
 
 .nav-logo {
@@ -171,15 +160,9 @@
         width: 75px;
         height: 75px;
         padding: 0;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
+        @include flex();
+        @include flex-align(center);
+        @include flex-justify(center);
     }
 
     .nav-logo {
@@ -210,15 +193,9 @@
     .nav-links-list {
         height: 100%;
         padding: 0;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: end;
-        -webkit-justify-content: flex-end;
-        justify-content: flex-end;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+        @include flex();
+        @include flex-justify(flex-end);
+        @include flex-align(center);
     }
 
     .nav-link {

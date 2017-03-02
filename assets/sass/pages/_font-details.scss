@@ -1,9 +1,7 @@
 .font-file-types {
     border-top: 2px solid $color-gray-lightest;
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+    @include flex();
 }
 
 .font-file-types.has-two-options:before {
@@ -19,18 +17,10 @@
 
 .font-file-type {
     padding: 0.75rem 1rem;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 50%;
-    flex: 1 1 50%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    @include flex-child(1, 1, 50%);
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
 }
 
 .font-file-type-icon {

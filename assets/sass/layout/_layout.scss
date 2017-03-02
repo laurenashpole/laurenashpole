@@ -10,19 +10,10 @@
 }
 
 .container.is-full-height {
-    -webkit-box-flex: 2;
-    -webkit-flex-grow: 2;
-    flex-grow: 2;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    @include flex-child(2);
+    @include flex();
+    @include flex-direction(column);
+    @include flex-justify(center);
 }
 
 .has-padding {

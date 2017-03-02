@@ -6,7 +6,7 @@
 .font-example-form-section {
     border: 2px solid $color-gray-lightest;
     border-bottom: none;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
 }
 
 .font-example-input {
@@ -19,9 +19,7 @@
 }
 
 .font-example-settings {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+    @include flex();
 }
 
 .font-example-setting-container {
@@ -34,19 +32,16 @@
     color: $form-color-placeholder;
     position: absolute;
     top: 0;
-    left: 0.75rem;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+    left: 0;
+    // left: 0.75rem;
+    @include flex();
+    @include flex-align(center);
 }
 
-.font-example-input-range:focus + .font-example-input-range-label,
-.font-example-input-range:active + .font-example-input-range-label {
-    color: $color-white;
-}
+// .font-example-input-range:focus + .font-example-input-range-label,
+// .font-example-input-range:active + .font-example-input-range-label {
+//     color: $color-white;
+// }
 
 .font-example-icon-text {
     font-size: 18px;
@@ -73,9 +68,7 @@
 @media (min-width: 768px) {
 
     .font-example-form {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
+        @include flex();
     }
 
     .font-example-form-section {
@@ -87,11 +80,7 @@
         border-width: 2px 2px 0 1px;
     }
 
-    .font-example-input {
-        background: none;
-    }
-
     .font-example-input-range-label {
-        left: 1rem;
+        left: 0.75rem;
     }
 }
