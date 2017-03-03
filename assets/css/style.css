@@ -208,7 +208,7 @@ li {
 .bg-abstract-hero.is-secondary {
   width: 60%;
   height: 40%;
-  color: #d6ecf0;
+  color: #d5e7db;
 }
 
 .bg-abstract-tile {
@@ -561,6 +561,14 @@ figure {
 
 a img {
   border: none;
+}
+
+.img-bg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-bottom: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .img-default {
@@ -1107,11 +1115,6 @@ a img {
 }
 
 .font-grid-image {
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-bottom: 100%;
-  position: relative;
-  z-index: 1;
   opacity: 1;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;

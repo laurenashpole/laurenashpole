@@ -6,6 +6,14 @@ a img {
     border: none;
 }
 
+.img-bg {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 100%;
+    position: relative;
+    z-index: 1;
+}
+
 .img-default {
     display: block;
 }

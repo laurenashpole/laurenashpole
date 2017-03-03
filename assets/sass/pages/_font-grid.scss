@@ -107,11 +107,6 @@
 }
 
 .font-grid-image {
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-bottom: 100%;
-    position: relative;
-    z-index: 1;
     opacity: 1;
     @include transition(opacity 0.3s);
 }
