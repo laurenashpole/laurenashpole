@@ -33,8 +33,8 @@ module.exports = function (app, passport, multer) {
     }));
 
     app.get('/admin/fonts', isLoggedIn, fonts.all);
-    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.edit);
     app.get('/admin/fonts/create', isLoggedIn, fonts.create);
+    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.edit);
 
     app.post('/services/fonts',[isLoggedIn, upload.any(), fontServices.create]);
     app.put('/services/fonts/:font_id', [isLoggedIn, upload.any(), fontServices.update]);

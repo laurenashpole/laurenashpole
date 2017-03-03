@@ -56,6 +56,16 @@
 </div>
 
 <div class="input-container input-label-inset input-file">
+    <label for="imageMain" class="is-uppercase is-extra-bold">Image Main{% if font.image_main %} ({{font.image_main}}){% endif %}</label>
+    <input type="file" id="imageMain" name="image_main" class="input" />
+</div>
+
+<div class="input-container input-label-inset input-file">
+    <label for="imageMainRetina" class="is-uppercase is-extra-bold">Image Main Retina{% if font.image_main_retina %} ({{font.image_main_retina}}){% endif %}</label>
+    <input type="file" id="imageMainRetina" name="image_main_retina" class="input" />
+</div>
+
+<div class="input-container input-label-inset input-file">
     <label for="imageThumbnail" class="text-block">Image Thumbnail{% if font.image_thumbnail %} ({{font.image_thumbnail}}){% endif %}</label>
     <input type="file" id="imageThumbnail" name="image_thumbnail" class="input" />
 </div>
