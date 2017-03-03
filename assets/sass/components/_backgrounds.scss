@@ -11,8 +11,9 @@
     width: 90%;
     height: 60%;
     color: #FEE2DE;
+    color: #fae3e1;
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 1.5rem;
 }
 
@@ -20,6 +21,15 @@
     width: 60%;
     height: 40%;
     color: #D6F0EF;
+    color: #d6ecf0;
+}
+
+.bg-abstract.is-tile {
+    width: 120%;
+    height: 120%;
+    left: -10%;
+    top: -10%;
+    color: rgba(255, 255, 255, 0.25);
 }
 
 .bg-dots-rectangle:before {
@@ -35,6 +45,16 @@
     top: 5%;
     left: 15%;
     @include transform(rotate(30deg));
+}
+
+.bg-dots-rectangle.is-tile:before {
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.5) 20%,
+        transparent 21%
+    );
+    top: -10%;
+    bottom: -10%;
+    right: -10%;
 }
 
 @media (min-width: 1024px) {

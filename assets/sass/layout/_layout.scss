@@ -1,8 +1,5 @@
 .container {
     width: 100%;
-
-    /* TO DO: Higher max-width */
-    max-width: 1084px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 0.5rem;
@@ -62,8 +59,8 @@
     }
 
     .column-fixed {
-        width: -webkit-calc(33.333% - 15px);
-        width: calc(33.333% - 15px);
+        width: -webkit-calc(33.333% - 20px);
+        width: calc(33.333% - 20px);
         position: absolute;
         top: 50%;
         right: 30px;

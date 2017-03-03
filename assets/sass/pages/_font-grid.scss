@@ -6,12 +6,47 @@
 
 .font-grid-item-container {
     width: 100%;
-    padding: 0 4px 4px 0;
+    position: relative;
+    margin-bottom: 3rem;
+    border: 2px solid $color-white;
+    padding: 0.5rem;
 }
 
 .font-grid-item {
-    margin-bottom: 9%;
-    box-shadow: 4px 4px 0 0 #dcdcdc;
+    overflow: hidden;
+}
+
+.font-grid-item-container:nth-child(4n + 1) .font-grid-item {
+    background-color: $color-pastel-pink;
+}
+
+.font-grid-item-container:nth-child(4n + 1) .bg-abstract {
+    color: $color-pastel-green;
+    color: #726882;
+}
+
+.font-grid-item-container:nth-child(4n + 2) .font-grid-item {
+    background-color: $color-pastel-blue;
+}
+
+.font-grid-item-container:nth-child(4n + 2) .bg-abstract {
+    color: $color-pastel-yellow;
+}
+
+.font-grid-item-container:nth-child(4n + 3) .font-grid-item {
+    background-color: $color-pastel-green;
+}
+
+.font-grid-item-container:nth-child(4n + 3) .bg-abstract {
+    color: $color-pastel-blue;
+}
+
+.font-grid-item-container:nth-child(4n + 4) .font-grid-item {
+    background-color: $color-pastel-yellow;
+}
+
+.font-grid-item-container:nth-child(4n + 4) .bg-abstract {
+    color: $color-pastel-pink;
 }
 
 .font-grid-link {
@@ -20,45 +55,38 @@
     position: relative;
 }
 
-.font-grid-image-container {
-    @include transition(opacity 0.6s ease);
-}
-
-.font-grid-link:hover .font-grid-image-container {
-    opacity: 0;
-}
-
 .font-grid-image {
     background-size: contain;
     background-repeat: no-repeat;
     padding-bottom: 100%;
-}
-
-.font-grid-overlay {
-    width: 100%;
-    height: 100%;
-    padding: 0 15%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    visibility: hidden;
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
-    @include transition(all 0.6s ease);
+    position: relative;
+    z-index: 1;
 }
 
 .font-grid-title {
-    color: $color-white;
-    font-size: 28px;
-    letter-spacing: 0.1em;
-    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transition(transform 0.3s);
+    @include transform(translate3d(0, -100%, 0));
 }
 
-.font-grid-link:hover .font-grid-overlay {
-    visibility: visible;
-    opacity: 1;
+.font-grid-link:hover .font-grid-title {
+    @include transform(translate3d(0, 0, 0));
+}
+
+.font-grid-link:before {
+    @include transform(rotate(0deg));
+    @include transition(transform 0.3s);
+}
+
+.font-grid-link:hover:before {
+    @include transform(translate3d(0, -20%, 0) rotate(15deg));
+}
+
+.font-grid-title {
+    padding: 1rem;
+    color: $color-white;
 }
 
 @media (min-width: 500px) {
@@ -66,11 +94,23 @@
     .font-grid-item-container {
         width: 48%;
     }
+
+    .font-grid-item-container:nth-child(2n + 2) {
+        @include transform(translate3d(0, 2rem, 0));
+    }
 }
 
 @media (min-width: 1000px) {
 
     .font-grid-item-container {
         width: 31.666%;
+    }
+
+    .font-grid-item-container:nth-child(2n + 2) {
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .font-grid-item-container:nth-child(3n + 2) {
+        @include transform(translate3d(0, 3rem, 0));
     }
 }

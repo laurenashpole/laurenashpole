@@ -22,6 +22,7 @@ h2 {
 
 h3 {
     font-size: 1.414rem;
+    line-height: 2rem;
 }
 
 h4 {
@@ -65,6 +66,10 @@ code {
 
 .is-small-print {
     font-size: 0.75rem;
+}
+
+.has-heading-font {
+    font-family: $font-family-headings;
 }
 
 .has-no-margin {

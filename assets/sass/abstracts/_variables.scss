@@ -1,17 +1,25 @@
 $font-family-default: 'Source Sans Pro', sans-serif;
 $font-family-headings: 'brandon-grotesque', $font-family-default;
 
+$max-width: 1200px;
+// $max-width-narrow: 900px;
+
 $color-white: #fff;
-$color-gray-darkest: #222;
+$color-gray-darkest: #242120;
 $color-gray-dark: #ababab;
 $color-gray-medium: #c4c4c4;
 $color-gray-light: #dcdcdc;
-$color-gray-lightest: #f5f5f5;
+$color-gray-lightest: #f6f5f4;
 $color-green-light: #d5e7db;
 $color-red: #dd4433;
 $color-red-hover: #d43f29;
 $color-red-light: #e26051;
 $color-red-light-hover: #dd5c4b;
+
+$color-pastel-yellow: #fdeecd;
+$color-pastel-pink: #fae3e1;
+$color-pastel-green: #d5e7db;
+$color-pastel-blue: #d6ecf0;
 
 $border-gray: $color-gray-light;
 
