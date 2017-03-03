@@ -34,11 +34,11 @@
 .bg-dots:before {
     content: " ";
     background-image: -webkit-radial-gradient(
-        #fff 20%,
+        $color-white 20%,
         transparent 21%
     );
     background-image: radial-gradient(
-        #fff 20%,
+        $color-white 20%,
         transparent 21%
     );
     background-size: 40px 40px;

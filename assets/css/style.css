@@ -469,6 +469,11 @@ select:focus {
   outline: none;
 }
 
+.form-container {
+  padding: 0.5rem 0;
+  border: 2px solid #fff;
+}
+
 .input-container {
   padding: 0 0.5rem 0.5rem 0.5rem;
   border-bottom: 2px solid #fff;
@@ -935,11 +940,6 @@ a img {
   }
 }
 /* Pages */
-.contact-form {
-  padding: 0.5rem 0;
-  border: 2px solid #fff;
-}
-
 .contact-buttons {
   padding: 0 0.5rem;
 }
