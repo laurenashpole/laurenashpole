@@ -7,15 +7,14 @@
         <section class="font-grid-container">
             {% for font in fonts %}
                 <div class="font-grid-item-container">
-                    <div class="font-grid-item bg-img">
+                    <div class="font-grid-item">
                         <a
                             href="/fonts/{{font.slug}}"
-                            class="has-no-underline font-grid-link bg-dots-rectangle is-tile js-ga-trigger"
+                            class="has-no-underline font-grid-link bg-dots is-tile js-ga-trigger"
                             data-ga-category="Fonts"
                             data-ga-action="click"
                             data-ga-label="{{font.name}}"
                         >
-
                             <div class="font-grid-image-container">
                                 <span class="img-default">
                                     <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
@@ -25,14 +24,21 @@
                                 </span>
                             </div>
 
-                            <svg class="bg-abstract is-tile">
+                            <svg class="bg-abstract-tile">
+                                <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+                            </svg>
+
+                            <svg class="bg-abstract-tile is-secondary">
                                 <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
                             </svg>
 
-                            <!-- <div class="font-grid-overlay"> -->
-                                <h3 class="has-no-margin is-uppercase font-grid-title">{{font.name}}</h3>
-                            <!-- </div> -->
+                            <h3 class="has-no-margin is-uppercase font-grid-title">
+                                {{font.name}}
+                            </h3>
 
+                            <div class="font-grid-cta is-extra-bold">
+                                Go!
+                            </div>
                         </a>
                     </div>
                 </div>

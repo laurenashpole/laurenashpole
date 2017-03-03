@@ -7,63 +7,66 @@
     background-size: 400px 400px;
 }
 
-.bg-abstract {
+.bg-abstract-hero {
     width: 90%;
     height: 60%;
-    color: #FEE2DE;
-    color: #fae3e1;
+    color: $color-abstract-pink;
     position: absolute;
-    top: 30px;
+    top: 1.5rem;
     left: 1.5rem;
 }
 
-.bg-abstract.is-alt {
+.bg-abstract-hero.is-secondary {
     width: 60%;
     height: 40%;
-    color: #D6F0EF;
-    color: #d6ecf0;
+    color: $color-abstract-blue;
 }
 
-.bg-abstract.is-tile {
-    width: 120%;
-    height: 120%;
-    left: -10%;
-    top: -10%;
-    color: rgba(255, 255, 255, 0.25);
+.bg-abstract-tile {
+    width: 170%;
+    height: 170%;
+    position: absolute;
+    left: -35%;
+    top: -35%;
+    @include transform(scaleY(-1));
 }
 
-.bg-dots-rectangle:before {
+.bg-dots:before {
     content: " ";
-    width: 320px;
-    height: 400px;
+    background-image: -webkit-radial-gradient(
+        #fff 20%,
+        transparent 21%
+    );
     background-image: radial-gradient(
         #fff 20%,
         transparent 21%
     );
     background-size: 40px 40px;
     position: absolute;
-    top: 5%;
-    left: 15%;
     @include transform(rotate(30deg));
 }
 
-.bg-dots-rectangle.is-tile:before {
-    background-image: radial-gradient(
-        rgba(255, 255, 255, 0.5) 20%,
-        transparent 21%
-    );
-    top: -10%;
-    bottom: -10%;
+.bg-dots.is-hero:before {
+    width: 320px;
+    height: 400px;
+    top: 5%;
+    left: 15%;
+}
+
+.bg-dots.is-tile:before {
+    width: 280px;
+    height: 600px;
+    top: 0;
     right: -10%;
 }
 
 @media (min-width: 1024px) {
 
-    .bg-abstract {
+    .bg-abstract-hero {
         height: 90%;
     }
 
-    .bg-abstract.is-alt {
+    .bg-abstract-hero.is-secondary {
         height: 60%;
     }
 }

@@ -1,29 +1,6 @@
-input,
-textarea,
-button,
-select {
-    width: 100%;
-    background: none;
-    border: none;
-    color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    text-transform: inherit;
-    line-height: inherit;
-    -webkit-appearance: none;
-}
-
-input:focus,
-textarea:focus,
-button:focus,
-select:focus {
-    outline: none;
-}
-
 .input-container {
     margin-bottom: 1.25rem;
-    padding-right: 4px;
+    // padding-right: 4px;
     position: relative;
 }
 
@@ -67,15 +44,16 @@ select:focus {
 }
 
 .textarea {
+    background: $form-color-primary;
     padding: 0.5rem;
-    box-shadow: 4px 4px 0 0 $form-color-secondary;
+    // box-shadow: 4px 4px 0 0 $form-color-secondary;
     display: block;
     resize: none;
 }
 
-.textarea:focus {
-    box-shadow: 4px 4px 0 0 $form-color-focus;
-}
+// .textarea:focus {
+//     box-shadow: 4px 4px 0 0 $form-color-focus;
+// }
 
 .label-required {
     display: none;
