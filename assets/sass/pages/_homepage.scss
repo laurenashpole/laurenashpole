@@ -1,90 +1,19 @@
-body.is-homepage {
-    background-color: #f7e3db;
-}
-
 .homepage-container {
-    text-align: center;
-}
-
-.homepage-container.has-padding {
-    padding-bottom: 70px;
-}
-
-.homepage-link {
-    color: $color-gray-darkest;
-}
-
-.homepage-link:hover {
-    color: $color-gray-darkest;
-}
-
-.homepage-font-image {
-    max-width: 608px;
-    margin: 0 auto;
-}
-
-.homepage-banner {
-    height: 75px;
-    margin-bottom: 15px;
+    padding-bottom: 90px;
     @include flex();
-    @include flex-justify(center);
-    @include flex-align(flex-start);
+    @include flex-align(center);
 }
 
-.homepage-banner-text {
-    padding: 10px 20px;
+.homepage-image-container {
+    min-height: 500px;
+    @include flex();
+    @include flex-align(center);
+}
+
+.homepage-column {
+    width: 33.333%;
     position: relative;
-    @include transform(translate3d(10%, 0, 0));
-}
-
-.homepage-banner-text:before {
-    content: " ";
-    background-color: rgba(125, 200, 178, 0.75);
-    background-image: url(/images/bg.png);
-    background-size: 400px 400px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    @include transform(skewX(15deg));
-}
-
-.homepage-banner-text:last-child {
-    @include flex-child-align(flex-end);
-    @include transform(translate3d(-10%, 0, 0));
-}
-
-.homepage-banner-text:last-child:before {
-    background: rgba(232, 119, 94, 0.25);
-}
-
-.homepage-shop-container:before {
-    content: " ";
-}
-
-@media (min-width: 768px) {
-
-    .homepage-container.has-padding {
-        padding-bottom: 143px;
-    }
-
-    .homepage-banner {
-        height: 100px;
-    }
-
-    .homepage-banner-text {
-        padding: 15px 30px;
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    .homepage-container.has-padding {
-        padding-bottom: 177px;
-    }
+    z-index: 1;
 }
 
 .shop-list-header {

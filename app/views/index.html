@@ -4,21 +4,37 @@
 
 {% block content %}
     <main>
-        <section class="container has-padding homepage-container">
-            <a href="/fonts/bar-book" class="homepage-link" title="Bar Book">
-                <div class="homepage-banner">
-                    <span class="text-block homepage-banner-text">Newest Font</span>
-                    <span class="text-block homepage-banner-text">Bar Book</span>
+        <section class="container homepage-container">
+            <div class="column-static has-padding">
+                <div class="hero-image-container bg-dots is-hero homepage-image-container">
+                    <a href="/fonts/bar-book" title="Bar Book" class="has-no-underline">
+                        <img src="/images/bb-home.png" class="img-responsive hero-image" alt="Bar Book" />
+                    </a>
+
+                    <svg class="bg-abstract-hero">
+                        <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+                    </svg>
+
+                    <svg class="bg-abstract-hero is-secondary">
+                        <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
+                    </svg>
                 </div>
-                <div class="homepage-font-image">
-                    <img src="/images/bb-home.png" class="img-responsive" />
+            </div>
+
+            <section class="homepage-column details-card">
+                <h3 class="details-card-section is-uppercase has-no-margin" itemprop="name">
+                    New Font:<br />Bar Book
+                </h3>
+
+                <div class="details-card-section">
+                    <a href="/fonts/bar-book" title="Bar Book" class="button is-uppercase is-extra-bold is-primary has-no-underline">View Font</a>
                 </div>
-            </a>
+            </section>
         </section>
 
         <section class="bg-white homepage-shop-container">
             <div class="container has-padding">
-                <h3 class="text-block list-header shop-list-header">Fonts also available at</h3>
+                <h3 class="is-uppercase shop-list-header">Fonts also available at</h3>
 
                 <ul class="list-unstyled shop-list">
                     <li class="shop-list-item">
