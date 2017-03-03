@@ -1,6 +1,6 @@
 .hr-text {
     margin: 0 0 25px 0;
-    font-style: italic;
+    // font-style: italic;
     @include flex();
     @include flex-align(center);
 }
@@ -9,7 +9,7 @@
 .hr-text:after {
     content: " ";
     background: $border-gray;
-    height: 1px;
+    height: 2px;
     margin: 0 15px 0 0;
     display: block;
     @include flex-child(2);

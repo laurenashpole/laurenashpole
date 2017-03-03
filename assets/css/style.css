@@ -319,7 +319,6 @@ li {
 }
 .hr-text {
   margin: 0 0 25px 0;
-  font-style: italic;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -331,8 +330,8 @@ li {
 .hr-text:before,
 .hr-text:after {
   content: " ";
-  background: #dcdcdc;
-  height: 1px;
+  background: #dedbda;
+  height: 2px;
   margin: 0 15px 0 0;
   display: block;
   -ms-flex: 2 1 auto;
@@ -471,7 +470,9 @@ select:focus {
 }
 
 .input-container {
-  margin-bottom: 1.25rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 
@@ -506,7 +507,7 @@ select:focus {
   line-height: 0.5rem;
   position: absolute;
   top: 0.5rem;
-  left: 0.5rem;
+  left: 1rem;
 }
 
 .textarea {
@@ -815,7 +816,7 @@ a img {
 
 .nav-link {
   margin: 0 0.5rem;
-  border-top: 1px solid #dcdcdc;
+  border-top: 1px solid #dedbda;
   padding: 0 0.25rem;
   line-height: 62px;
   font-size: 0.75rem;
@@ -926,6 +927,15 @@ a img {
   }
 }
 /* Pages */
+.contact-form {
+  padding: 0.5rem 0;
+  border: 2px solid #fff;
+}
+
+.contact-buttons {
+  padding: 0 0.5rem;
+}
+
 .contact-button-container {
   width: 50%;
 }
