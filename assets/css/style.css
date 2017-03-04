@@ -1186,7 +1186,7 @@ a img {
 }
 @media (min-width: 1000px) {
   .font-grid-item-container {
-    width: calc(33.332% - (1.5rem * 0.666));
+    width: calc(33.2% - (1.5rem * 0.666));
     margin-right: 1.5rem;
   }
 
