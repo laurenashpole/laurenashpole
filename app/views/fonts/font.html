@@ -73,7 +73,7 @@
                     <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability" content="http://schema.org/InStock" />
                 </div>
 
-                <div class="details-card-section font-buttons is-small-print {% if !font.one_download_option %}button-block{% endif %}">
+                <div class="details-card-section font-buttons is-small-print {% if font.one_download_option %}has-one-button{% else %}button-block{% endif %}">
                     {% if font.commercial_font_file %}
                         <form class="font-button-container" method="post" action="/fonts/{{font.slug}}/payment">
                             <button
@@ -129,13 +129,13 @@
                     {% if font.image_collection.length %}
                         <div class="gallery-main">
                             <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
-                            <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive" alt="{{font.name}}" />
+                            <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive js-font-image-main" alt="{{font.name}}" />
                         </div>
 
                         <div class="gallery-thumbnails-container">
                             <div class="gallery-thumbnails">
                                 {% for image in font.image_collection %}
-                                    <div class="gallery-thumbnail">
+                                    <div class="gallery-thumbnail js-font-image-thumbnail">
                                         <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
                                     </div>
                                 {% endfor %}

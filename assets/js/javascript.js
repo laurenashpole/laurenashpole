@@ -6,7 +6,7 @@ function View () {
 View.prototype.cacheSelectors = function () {
     this.nav = document.querySelector('.nav');
     this.textContainer = document.querySelectorAll('.font-example-text');
-    this.imageContainer = document.querySelectorAll('.font-hero-main-image');
+    this.imageContainer = document.querySelectorAll('.js-font-image-main');
 };
 
 View.prototype.initEvents = function () {
