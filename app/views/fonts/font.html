@@ -31,26 +31,14 @@
         <section class="container">
             <div class="column-static has-padding">
                 <div class="hero-image-container bg-dots is-hero">
-
-                    {% if font.image_main %}
-                        <div>
-                            <span class="img-default">
-                                <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
-                            </span>
-                            <span class="img-retina">
-                                <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
-                            </span>
-                        </div>
-                    {% else %}
-                        <div>
-                            <span class="img-default">
-                                <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_mobile}});"></figure>
-                            </span>
-                            <span class="img-retina">
-                                <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_mobile_retina}});"></figure>
-                            </span>
-                        </div>
-                    {% endif %}
+                    <div>
+                        <span class="img-default">
+                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
+                        </span>
+                        <span class="img-retina">
+                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
+                        </span>
+                    </div>
 
                     <svg class="bg-abstract-hero">
                         <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
