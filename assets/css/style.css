@@ -1414,7 +1414,7 @@ a img {
     width: 50%;
   }
 
-  .font-buttons.has-one-button {
+  .font-buttons.has-one-button .font-button-container {
     width: 100%;
   }
 }
