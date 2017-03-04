@@ -1,0 +1,109 @@
+.button {
+    height: 3.5rem;
+    color: $color-white;
+    padding: 0 0.5rem;
+    text-align: center;
+    line-height: 1.35em;
+    cursor: pointer;
+    position: relative;
+    // overflow: hidden;
+    @include flex();
+    @include flex-direction(column);
+    @include flex-justify(center);
+    @include flex-align(center);
+}
+
+.button:hover {
+    color: $color-white;
+}
+
+.button.is-primary {
+    background: $button-color-primary;
+}
+
+
+// .button.is-primary:before {
+//     content: " ";
+//     width: 100%;
+//     height: 100%;
+//     background-image: radial-gradient(
+//         $button-color-secondary 20%,
+//         transparent 21%
+//     );
+//     background-size: 20px 20px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     @include transform(rotate(30deg));
+// }
+
+
+.button.is-primary:hover {
+    background: $button-color-primary-hover;
+}
+
+.button.is-secondary {
+    background: $button-color-secondary;
+}
+
+.button.is-secondary:hover {
+    background: $button-color-secondary-hover;
+}
+
+/* NOTE: Update to match style */
+.button.is-processing {
+    font-size: 0;
+}
+
+.button.is-processing:after {
+    content: "Processing";
+    font-size: 0.75rem;
+    letter-spacing: 0.075em;
+    // width: 30px;
+    // height: 30px;
+    // border: 5px solid $button-color-secondary;
+    // border-top: 5px solid $color-white;
+    // border-radius: 50%;
+    // -webkit-animation: spin 2s linear infinite;
+    // animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        @include transform(rotate(0deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+@keyframes spin {
+    0% {
+        @include transform(rotate(0deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+.button-block {
+    position: relative;
+    @include flex();
+}
+
+.button-block:before {
+    content: "or";
+    background: $color-white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    @include transform(translate3d(-50%, -50%, 0));
+}

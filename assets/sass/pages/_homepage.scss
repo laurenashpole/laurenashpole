@@ -1,0 +1,47 @@
+.homepage-container {
+    padding-bottom: 90px;
+    @include flex();
+    @include flex-align(center);
+}
+
+.homepage-image-container {
+    min-height: 500px;
+    @include flex();
+    @include flex-align(center);
+}
+
+.homepage-column {
+    width: 33.333%;
+    position: relative;
+    z-index: 1;
+}
+
+.shop-list-header {
+    text-align: center;
+}
+
+.shop-list {
+    @include flex();
+    @include flex-wrap(wrap);
+}
+
+.shop-list-item {
+    width: 50%;
+    padding: 15px 5%;
+    @include flex();
+    @include flex-align(center);
+}
+
+.shop-list-link {
+    max-width: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+
+    .shop-list-item {
+        width: 25%;
+        position: relative;
+    }
+}

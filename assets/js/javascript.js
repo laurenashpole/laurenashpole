@@ -14,8 +14,6 @@ View.prototype.initEvents = function () {
     this.addEventListener('.js-ga-trigger', 'click', this.sendGA.bind(this));
     this.addEventListener('.js-font-example-input', 'keyup', this.updateFontExampleText.bind(this));
     this.addEventListener('.js-font-example-size', 'change', this.updateFontExampleSize.bind(this));
-    this.addEventListener('.js-font-example-spacing', 'change', this.updateFontExampleSpacing.bind(this));
-    this.addEventListener('.js-font-example-height', 'change', this.updateFontExampleHeight.bind(this));
     this.addEventListener('.js-font-image-thumbnail', 'click', this.updateFontImageThumbnail.bind(this));
 };
 
@@ -65,28 +63,6 @@ View.prototype.updateFontExampleSize = function (e) {
 
     for (var i = 0; i < this.textContainer.length; i++) {
         this.textContainer[i].style['font-size'] = size + 'px';
-    }
-
-};
-
-View.prototype.updateFontExampleSpacing = function (e) {
-    e.preventDefault();
-
-    var letterSpacing = e.target.value / 1000;
-
-    for (var i = 0; i < this.textContainer.length; i++) {
-        this.textContainer[i].style['letter-spacing'] = letterSpacing + 'em';
-    }
-
-};
-
-View.prototype.updateFontExampleHeight = function (e) {
-    e.preventDefault();
-
-    var lineHeight = e.target.value / 100;
-
-    for (var i = 0; i < this.textContainer.length; i++) {
-        this.textContainer[i].style['line-height'] = lineHeight;
     }
 
 };

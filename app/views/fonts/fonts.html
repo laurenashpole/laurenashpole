@@ -1,46 +1,49 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <main class="container has-padding font-grid-container">
+    <main class="container has-padding">
         <h2 class="is-uppercase">Fonts</h2>
 
-        {% for font in fonts %}
-            <div class="font-grid-item-container">
-                <div class="font-grid-item img-bg" style="background-color: rgba({{font.color}}, 1);">
-                    <a
-                        href="/fonts/{{font.slug}}"
-                        class="has-no-underline font-grid-link js-ga-trigger"
-                        data-ga-category="Fonts"
-                        data-ga-action="click"
-                        data-ga-label="{{font.name}}"
-                    >
+        <section class="font-grid-container">
+            {% for font in fonts %}
+                <div class="font-grid-item-container">
+                    <div class="font-grid-item">
+                        <a
+                            href="/fonts/{{font.slug}}"
+                            class="has-no-underline font-grid-link bg-dots is-tile js-ga-trigger"
+                            data-ga-category="Fonts"
+                            data-ga-action="click"
+                            data-ga-label="{{font.name}}"
+                        >
+                            <div class="font-grid-image-container">
+                                <span class="img-default">
+                                    <figure class="img-bg font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
+                                </span>
+                                <span class="img-retina">
+                                    <figure class="img-bg font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
+                                </span>
+                            </div>
 
-                        <div class="font-grid-image-container">
-                            <span class="img-default">
-                                <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
-                            </span>
-                            <span class="img-retina">
-                                <figure class="font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
-                            </span>
-                        </div>
+                            <svg class="bg-abstract-tile">
+                                <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+                            </svg>
 
-                        <div class="font-grid-overlay">
-                            <h3 class="has-no-margin is-uppercase font-grid-title">{{font.name}}</h3>
-                        </div>
+                            <svg class="bg-abstract-tile is-secondary">
+                                <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
+                            </svg>
 
-                    </a>
+                            <h3 class="has-no-margin is-uppercase font-grid-title">
+                                {{font.name}}
+                            </h3>
+
+                            <div class="font-grid-cta is-extra-bold">
+                                Go!
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </section>
 
     </main>
-{% endblock %}
-
-{% block footer %}
-    <footer class="bg-skewed is-bottom footer-container">
-        <div class="container">
-            <div class="triangle is-pink footer-triangle"></div>
-            <div class="footer"></div>
-        </div>
-    </footer>
 {% endblock %}

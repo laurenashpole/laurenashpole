@@ -1,0 +1,27 @@
+input,
+textarea,
+button,
+select {
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    line-height: inherit;
+    -webkit-appearance: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+    outline: none;
+}
+
+.form-container {
+    padding: 0.5rem 0;
+    border: 2px solid $color-white;
+}

@@ -1,0 +1,58 @@
+.input-container {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    border-bottom: 2px solid $color-white;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.input {
+    background: $form-color-primary;
+    padding: 0 0.5rem;
+    line-height: 2rem;
+}
+
+.input::-webkit-input-placeholder {
+    color: $form-color-placeholder;
+}
+
+.input::-moz-placeholder {
+    color: $form-color-placeholder;
+}
+
+.input:-ms-input-placeholder {
+    color: $form-color-placeholder;
+}
+
+.input:-moz-placeholder {
+    color: $form-color-placeholder;
+}
+
+.input-label-inset .input {
+    padding: 1rem 0.5rem 0 0.5rem;
+}
+
+.input-label-inset label {
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+}
+
+.textarea {
+    background: $form-color-primary;
+    padding: 0.5rem;
+    display: block;
+    resize: none;
+}
+
+.label-required {
+    display: none;
+}
+
+.input.is-required + label .label-required,
+.textarea.is-required + label .label-required {
+    color: $form-color-error;
+    font-weight: normal;
+    display: inline;
+}

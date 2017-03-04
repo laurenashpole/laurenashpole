@@ -1,0 +1,186 @@
+.font-grid-container {
+    @include flex();
+    @include flex-wrap(wrap);
+}
+
+.font-grid-item-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    border: 2px solid $color-white;
+    padding: 0.5rem;
+}
+
+.font-grid-item {
+    overflow: hidden;
+}
+
+.font-grid-item-container:nth-child(4n + 1) .font-grid-item {
+    background-image: -webkit-linear-gradient(
+        $color-abstract-pink 50%,
+        $color-abstract-yellow 51%
+    );
+    background-image: linear-gradient(
+        $color-abstract-pink 50%,
+        $color-abstract-yellow 51%
+    );
+}
+
+.font-grid-item-container:nth-child(4n + 1) .bg-abstract-tile {
+    color: $color-abstract-green;
+}
+
+.font-grid-item-container:nth-child(4n + 1) .bg-abstract-tile.is-secondary {
+    color: $color-abstract-purple;
+}
+
+.font-grid-item-container:nth-child(4n + 2) .font-grid-item {
+    background-image: -webkit-linear-gradient(
+        $color-abstract-blue 50%,
+        $color-abstract-green 51%
+    );
+    background-image: linear-gradient(
+        $color-abstract-blue 50%,
+        $color-abstract-green 51%
+    );
+}
+
+.font-grid-item-container:nth-child(4n + 2) .bg-abstract-tile {
+    color: $color-abstract-yellow;
+}
+
+.font-grid-item-container:nth-child(4n + 2) .bg-abstract-tile.is-secondary {
+    color: $color-abstract-orange;
+}
+
+.font-grid-item-container:nth-child(4n + 3) .font-grid-item {
+    background-image: -webkit-linear-gradient(
+        $color-abstract-green 50%,
+        $color-abstract-pink 51%
+    );
+    background-image: linear-gradient(
+        $color-abstract-green 50%,
+        $color-abstract-pink 51%
+    );
+}
+
+.font-grid-item-container:nth-child(4n + 3) .bg-abstract-tile {
+    color: $color-abstract-blue;
+}
+
+.font-grid-item-container:nth-child(4n + 3) .bg-abstract-tile.is-secondary {
+    color: $color-abstract-turquoise;
+}
+
+.font-grid-item-container:nth-child(4n + 4) .font-grid-item {
+    background-image: -webkit-linear-gradient(
+        $color-abstract-yellow 50%,
+        $color-abstract-green 51%
+    );
+    background-image: linear-gradient(
+        $color-abstract-yellow 50%,
+        $color-abstract-green 51%
+    );
+}
+
+.font-grid-item-container:nth-child(4n + 4) .bg-abstract-tile {
+    color: $color-abstract-pink;
+}
+
+.font-grid-item-container:nth-child(4n + 4) .bg-abstract-tile.is-secondary {
+    color: $color-abstract-red;
+}
+
+.font-grid-link {
+    padding: 30% 15%;
+    display: block;
+    position: relative;
+}
+
+.font-grid-link:before {
+    @include transform(rotate(0deg));
+    @include transition(transform 0.3s);
+}
+
+.font-grid-link:hover:before {
+    @include transform(translate3d(0, -20%, 0) rotate(15deg));
+}
+
+.font-grid-image {
+    opacity: 1;
+    @include transition(opacity 0.3s);
+}
+
+.font-grid-link:hover .font-grid-image {
+    opacity: 0;
+}
+
+.font-grid-title {
+    padding: 1rem;
+    color: $color-white;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transition(opacity 0.3s);
+    @include transform(translate3d(-50%, -50%, 0));
+}
+
+.font-grid-link:hover .font-grid-title {
+    opacity: 1;
+}
+
+.font-grid-cta {
+    background: $color-red;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: $color-white;
+    opacity: 0;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    @include transition(opacity 0.3s);
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
+}
+
+.font-grid-link:hover .font-grid-cta {
+    opacity: 1;
+}
+
+@media (min-width: 500px) {
+
+    .font-grid-item-container {
+        width: calc(50% - (1rem * 0.5));
+        margin-right: 1rem;
+    }
+
+    .font-grid-item-container:nth-child(2n + 2) {
+        margin-right: 0;
+        @include transform(translate3d(0, 2rem, 0));
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .font-grid-item-container {
+        width: calc(33.2% - (1.5rem * 0.666));
+        margin-right: 1.5rem;
+    }
+
+    .font-grid-item-container:nth-child(2n + 2) {
+        margin-right: 1.5rem;
+        @include transform(translate3d(0, 0, 0));
+    }
+
+    .font-grid-item-container:nth-child(3n + 2) {
+        @include transform(translate3d(0, 3rem, 0));
+    }
+
+    .font-grid-item-container:nth-child(3n + 3) {
+        margin-right: 0;
+    }
+}

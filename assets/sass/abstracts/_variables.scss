@@ -1,0 +1,42 @@
+$font-family-default: 'Source Sans Pro', sans-serif;
+$font-family-headings: 'brandon-grotesque', $font-family-default;
+
+$max-width: 1200px;
+// $max-width-narrow: 900px;
+
+$color-white: #fff;
+$color-gray-darkest: #242120;
+$color-gray-dark: #ababab;
+$color-gray-medium: #c4c4c4;
+$color-gray-light: #dedbda;
+$color-gray-lightest: #f6f5f4;
+$color-green-light: #d5e7db;
+$color-red: #dd4433;
+$color-red-hover: #d43f29;
+$color-red-light: #e26051;
+$color-red-light-hover: #dd5c4b;
+
+$color-abstract-yellow: #fdeecd;
+$color-abstract-pink: #fae3e1;
+$color-abstract-green: #d5e7db;
+$color-abstract-blue: #d6ecf0;
+
+$color-abstract-turquoise: #46aebc;
+$color-abstract-orange: #e67c53;
+$color-abstract-red: $color-red-light;
+$color-abstract-purple: #726882;
+
+$border-gray: $color-gray-light;
+
+$header-color-primary: $color-red;
+$header-color-secondary: $color-red;
+$header-color-gray: $border-gray;
+
+$button-color-primary: $color-red;
+$button-color-primary-hover: $color-red-hover;
+$button-color-secondary: $color-red-light;
+$button-color-secondary-hover: $color-red-light-hover;
+
+$form-color-primary: $color-white;
+$form-color-placeholder: $color-gray-dark;
+$form-color-error: $color-red;

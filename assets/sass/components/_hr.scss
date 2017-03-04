@@ -1,0 +1,27 @@
+.hr-text {
+    margin: 0 0 25px 0;
+    // font-style: italic;
+    @include flex();
+    @include flex-align(center);
+}
+
+.hr-text:before,
+.hr-text:after {
+    content: " ";
+    background: $border-gray;
+    height: 2px;
+    margin: 0 15px 0 0;
+    display: block;
+    @include flex-child(2);
+}
+
+.hr-text:after {
+    margin: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+
+    .hr-text {
+        margin: 10px 0 35px 0;
+    }
+}

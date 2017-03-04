@@ -7,6 +7,7 @@ h6 {
     width: 100%;
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
+    font-family: $font-family-headings;
 }
 
 h1 {
@@ -21,6 +22,7 @@ h2 {
 
 h3 {
     font-size: 1.414rem;
+    line-height: 2rem;
 }
 
 h4 {
@@ -55,7 +57,23 @@ code {
 }
 
 .is-bold {
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.is-extra-bold {
+    font-weight: 700;
+}
+
+.is-small-print {
+    font-size: 0.75rem;
+}
+
+.has-heading-font {
+    font-family: $font-family-headings;
+}
+
+.has-no-margin {
+    margin: 0;
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,72 @@
+.bg-white {
+    background: $color-white;
+}
+
+.bg-img {
+    background-image: url(/images/bg.png);
+    background-size: 400px 400px;
+}
+
+.bg-abstract-hero {
+    width: 90%;
+    height: 60%;
+    color: $color-abstract-pink;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+.bg-abstract-hero.is-secondary {
+    width: 60%;
+    height: 40%;
+    color: $color-abstract-green;
+}
+
+.bg-abstract-tile {
+    width: 170%;
+    height: 170%;
+    position: absolute;
+    left: -35%;
+    top: -35%;
+    @include transform(scaleY(-1));
+}
+
+.bg-dots:before {
+    content: " ";
+    background-image: -webkit-radial-gradient(
+        $color-white 20%,
+        transparent 21%
+    );
+    background-image: radial-gradient(
+        $color-white 20%,
+        transparent 21%
+    );
+    background-size: 40px 40px;
+    position: absolute;
+    @include transform(rotate(30deg));
+}
+
+.bg-dots.is-hero:before {
+    width: 320px;
+    height: 400px;
+    top: 5%;
+    left: 15%;
+}
+
+.bg-dots.is-tile:before {
+    width: 280px;
+    height: 600px;
+    top: 0;
+    right: -10%;
+}
+
+@media (min-width: 1024px) {
+
+    .bg-abstract-hero {
+        height: 90%;
+    }
+
+    .bg-abstract-hero.is-secondary {
+        height: 60%;
+    }
+}

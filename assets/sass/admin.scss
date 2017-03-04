@@ -1,1 +1,5 @@
-@import 'admin/admin.scss';
+/* Abstracts */
+@import 'abstracts/variables.scss';
+
+/* Pages */
+@import 'pages/admin.scss';

@@ -1,25 +1,25 @@
 <div class="input-container input-label-inset">
-    <label for="name" class="text-block">Name</label>
+    <label for="name" class="is-uppercase is-extra-bold">Name</label>
     <input type="text" id="name" name="name" class="input" {% if font.name %}value="{{font.name}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset textarea-label-inset">
-    <label for="description" class="text-block">Description</label>
+    <label for="description" class="is-uppercase is-extra-bold">Description</label>
     <textarea id="description" name="description" rows="5" class="textarea">{% if font.description %}{{font.description}}{% endif %}</textarea>
 </div>
 
 <div class="input-container input-label-inset">
-    <label for="dateCreated" class="text-block">Date Created</label>
+    <label for="dateCreated" class="is-uppercase is-extra-bold">Date Created</label>
     <input type="text" id="dateCreated" name="date_created" class="input" {% if font.date_created %}value="{{font.date_created}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset">
-    <label for="dateModified" class="text-block">Date Modified</label>
+    <label for="dateModified" class="is-uppercase is-extra-bold">Date Modified</label>
     <input type="text" id="dateModified" name="date_modified" class="input" {% if font.date_modified %}value="{{font.date_modified}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset">
-    <label for="price" class="text-block">Price</label>
+    <label for="price" class="is-uppercase is-extra-bold">Price</label>
     <input type="text" id="price" name="price" class="input" {% if font.price %}value="{{font.price}}"{% endif %} />
 </div>
 
@@ -30,28 +30,28 @@
 {% endif %}
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageCollection" class="text-block">Image Collection</label>
+    <label for="imageCollection" class="is-uppercase is-extra-bold">Image Collection</label>
     <input type="file" id="imageCollection" name="image_collection"  class="input" multiple />
 </div>
 
 
 <div class="input-container input-label-inset input-file">
-    <label for="image" class="text-block">Image{% if font.image %} ({{font.image}}){% endif %}</label>
+    <label for="image" class="is-uppercase is-extra-bold">Image{% if font.image %} ({{font.image}}){% endif %}</label>
     <input type="file" id="image" name="image" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageRetina" class="text-block">Image Retina{% if font.image_retina %} ({{font.image_retina}}){% endif %}</label>
+    <label for="imageRetina" class="is-uppercase is-extra-bold">Image Retina{% if font.image_retina %} ({{font.image_retina}}){% endif %}</label>
     <input type="file" id="imageRetina" name="image_retina" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageMobile" class="text-block">Image Mobile{% if font.image_mobile %} ({{font.image_mobile}}){% endif %}</label>
+    <label for="imageMobile" class="is-uppercase is-extra-bold">Image Mobile{% if font.image_mobile %} ({{font.image_mobile}}){% endif %}</label>
     <input type="file" id="imageMobile" name="image_mobile" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageMobileRetina" class="text-block">Image Mobile Retina{% if font.image_mobile_retina %} ({{font.image_mobile_retina}}){% endif %}</label>
+    <label for="imageMobileRetina" class="is-uppercase is-extra-bold">Image Mobile Retina{% if font.image_mobile_retina %} ({{font.image_mobile_retina}}){% endif %}</label>
     <input type="file" id="imageMobileRetina" name="image_mobile_retina" class="input" />
 </div>
 
@@ -66,18 +66,18 @@
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageThumbnail" class="text-block">Image Thumbnail{% if font.image_thumbnail %} ({{font.image_thumbnail}}){% endif %}</label>
+    <label for="imageThumbnail" class="is-uppercase is-extra-bold">Image Thumbnail{% if font.image_thumbnail %} ({{font.image_thumbnail}}){% endif %}</label>
     <input type="file" id="imageThumbnail" name="image_thumbnail" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="imageThumbnailRetina" class="text-block">Image Thumbnail Retina{% if font.image_thumbnail_retina %} ({{font.image_thumbnail_retina}}){% endif %}</label>
+    <label for="imageThumbnailRetina" class="is-uppercase is-extra-bold">Image Thumbnail Retina{% if font.image_thumbnail_retina %} ({{font.image_thumbnail_retina}}){% endif %}</label>
     <input type="file" id="imageThumbnailRetina" name="image_thumbnail_retina" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-check">
     <div class="input">
-        <label class="text-block">Personal Use Details</label>
+        <label class="is-uppercase is-extra-bold">Personal Use Details</label>
         <input type="checkbox" name="personal_use_details" value="TrueType File"/>TrueType Font
         <input type="checkbox" name="personal_use_details" value="OpenType File" />OpenType Font
     </div>
@@ -85,7 +85,7 @@
 
 <div class="input-container input-label-inset input-check">
     <div class="input">
-        <label class="text-block">Commercial Use Details</label>
+        <label class="is-uppercase is-extra-bold">Commercial Use Details</label>
         <input type="checkbox" name="commercial_use_details" value="TrueType File" />TrueType Font
         <input type="checkbox" name="commercial_use_details" value="OpenType File" />OpenType Font
         <input type="checkbox" name="commercial_use_details" value="Web Font Kit" />Web Font Kit
@@ -95,7 +95,7 @@
 
 <div class="input-container input-label-inset input-check">
     <div class="input">
-        <label class="text-block">Personal File Includes</label>
+        <label class="is-uppercase is-extra-bold">Personal File Includes</label>
         <input
             type="checkbox"
             name="personal_file[ttf][is_included]"
@@ -113,7 +113,7 @@
 
 <div class="input-container input-label-inset input-check">
     <div class="input">
-        <label class="text-block">Commercial File Includes</label>
+        <label class="is-uppercase is-extra-bold">Commercial File Includes</label>
         <input
             type="checkbox"
             name="commercial_file[ttf][is_included]"
@@ -142,28 +142,28 @@
 </div>
 
 <div class="input-container input-label-inset">
-    <label for="color" class="text-block">Color</label>
+    <label for="color" class="is-uppercase is-extra-bold">Color</label>
     <input type="text" id="color" name="color" class="input"  {% if font.color %}value="{{font.color}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="cssFile" class="text-block">CSS File{% if font.css_file %} ({{font.css_file}}){% endif %}</label>
+    <label for="cssFile" class="is-uppercase is-extra-bold">CSS File{% if font.css_file %} ({{font.css_file}}){% endif %}</label>
     <input type="file" id="cssFile" name="css_file" class="input" />
 </div>
 
 <div class="input-container input-label-inset">
-    <label for="alternateStyle" class="text-block">Alternate Style Class</label>
+    <label for="alternateStyle" class="is-uppercase is-extra-bold">Alternate Style Class</label>
     <input type="text" id="alternateStyle" name="alternate_style" class="input" {% if font.alternate_style %}value="{{font.alternate_style}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="peronsalFontFile" class="text-block">Personal Font File{% if font.personal_font_file %} ({{font.personal_font_file}}){% endif %}</label>
+    <label for="peronsalFontFile" class="is-uppercase is-extra-bold">Personal Font File{% if font.personal_font_file %} ({{font.personal_font_file}}){% endif %}</label>
     <input type="file" id="personalFontFile" name="personal_font_file" class="input" />
 </div>
 
 <div class="input-container input-label-inset input-file">
-    <label for="commercialFontFile" class="text-block">Commercial Font File{% if font.commercial_font_file %} ({{font.commercial_font_file}}){% endif %}</label>
+    <label for="commercialFontFile" class="is-uppercase is-extra-bold">Commercial Font File{% if font.commercial_font_file %} ({{font.commercial_font_file}}){% endif %}</label>
     <input type="file" id="commercialFontFile" name="commercial_font_file" class="input" />
 </div>
 
-<button type="submit" class="button button-primary">Submit</button>
+<button type="submit" class="button is-primary">Submit</button>

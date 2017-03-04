@@ -6,6 +6,14 @@ a img {
     border: none;
 }
 
+.img-bg {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 100%;
+    position: relative;
+    z-index: 1;
+}
+
 .img-default {
     display: block;
 }
@@ -17,11 +25,7 @@ a img {
 .img-responsive {
     max-width: 100%;
     height: auto;
-}
-
-.img-bg {
-    background-image: url(/images/bg.png);
-    background-size: 400px 400px;
+    display: block;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {

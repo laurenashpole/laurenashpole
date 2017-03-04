@@ -1,0 +1,14 @@
+.font-buttons {
+    @include flex-direction(column);
+}
+
+@media (min-width: 768px) {
+
+    .font-buttons {
+        @include flex-direction(row);
+    }
+
+    .font-button-container {
+        width: 50%;
+    }
+}

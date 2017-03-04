@@ -20,8 +20,6 @@ var FontSchema = new Schema({
     color: String,
     css_file: String,
     alternate_style: String,
-    personal_use_details: [],
-    commercial_use_details: [],
     commercial_file: {
         ttf: {
             is_included: {

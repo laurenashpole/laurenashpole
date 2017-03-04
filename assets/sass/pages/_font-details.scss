@@ -1,0 +1,50 @@
+.font-file-types {
+    border-top: 2px solid $color-gray-lightest;
+    position: relative;
+    @include flex();
+}
+
+.font-file-types.has-two-options:before {
+    content: " ";
+    background: $color-gray-lightest;
+    width: 2px;
+    height: 100%;
+    margin: -1px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.font-file-type {
+    padding: 0.75rem 1rem;
+    @include flex-child(1, 1, 50%);
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
+}
+
+.font-file-type-icon {
+    margin-right: 0.75rem;
+}
+
+.font-details-date {
+    margin-bottom: 30px;
+}
+
+.font-details-description {
+    margin-bottom: 30px;
+}
+
+.font-details-licensing {
+    margin: 0 20px 30px 0;
+    display: inline-block;
+}
+
+.font-details-list {
+    border-top: 2px solid #fff;
+    padding-top: 1rem;
+}
+
+.font-details-list + .font-details-list {
+    border: none;
+}

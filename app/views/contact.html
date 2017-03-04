@@ -5,65 +5,54 @@
 
         <h2 class="is-uppercase">Contact</h2>
 
-        <h3 class="contact-form-subheader">Email me at: <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a></h3>
+        <p>Email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a> or use the form below.</p>
 
-        <div class="text-block text-rule">or</div>
-
-        <form class="contact-form js-contact-form"">
+        <form class="form-container js-contact-form"">
             <div class="input-container input-label-inset">
                 <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                <label class="text-block" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
+                <label class="is-uppercase is-extra-bold" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                <label class="text-block" for="senderName">Name <span class="label-required">(required)</span></label>
+                <label class="is-uppercase is-extra-bold" for="senderName">Name <span class="label-required">(required)</span></label>
             </div>
 
             <div class="input-container input-label-inset">
                 <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                <label class="text-block" for="subject">Subject <span class="label-required">(required)</span></label>
+                <label class="is-uppercase is-extra-bold" for="subject">Subject <span class="label-required">(required)</span></label>
             </div>
 
-            <div class="input-container input-label-inset textarea-label-inset">
+            <div class="input-container">
                 <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input" placeholder="Message"></textarea>
             </div>
 
-            <div class="contact-form-buttons">
-                <div class="contact-form-button-container">
+            <div class="contact-buttons button-block">
+                <div class="contact-button-container">
                     <button
                         type="submit"
-                        class="contact-form-button js-contact-send js-ga-trigger"
+                        class="button is-uppercase is-extra-bold is-primary js-contact-send js-ga-trigger"
                         data-ga-category="Contact Page"
                         data-ga-action="click"
                         data-ga-label="Send"
                     >
-                        <div class="button">Send</div>
+                        Send
                     </button>
                 </div>
 
-                <div class="contact-form-button-container">
+                <div class="contact-button-container">
                     <button
                         type="reset"
-                        class="button-default js-ga-trigger"
+                        class="button is-uppercase is-extra-bold is-secondary js-ga-trigger"
                         data-ga-category="Contact Page"
                         data-ga-action="click"
                         data-ga-label="Cancel"
                     >
-                        <div class="button button-outline">Cancel</div>
+                        Cancel
                     </button>
                 </div>
             </div>
         </form>
 
     </main>
-{% endblock %}
-
-{% block footer %}
-    <footer class="bg-skewed is-bottom footer-container">
-        <div class="container">
-            <div class="triangle is-pink footer-triangle"></div>
-            <div class="footer"></div>
-        </div>
-    </footer>
 {% endblock %}

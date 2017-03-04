@@ -1,0 +1,70 @@
+.font-glyphs {
+    border: 2px solid #fff;
+    padding: 0.4rem;
+    @include flex();
+    @include flex-wrap(wrap);
+}
+
+.font-glyph-radio {
+    display: none;
+}
+
+.font-glyph-radio-label {
+    margin: 0 1.5rem 1.5rem 0;
+    display: none;
+}
+
+.font-glyphs-container.has-options .font-glyph-radio-label {
+    display: inline-block;
+}
+
+.font-glyphs {
+    display: none;
+}
+
+.font-glyph-radio-basic:checked ~ .font-glyphs-basic {
+    @include flex();
+}
+
+.font-glyph-radio-additional:checked ~ .font-glyphs-additional {
+    @include flex();
+}
+
+.font-glyph {
+    width: 20%;
+    background: $color-white;
+    padding-top: 20px;
+    border: 0.1rem solid $color-gray-lightest;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+    @include transition(transform 0.25s ease-in-out);
+}
+
+.font-glyph:hover {
+    z-index: 1;
+    @include transform(scale(1.25));
+}
+
+.font-glyph-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid $color-gray-lightest;
+    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-gray-medium;
+}
+
+@media (min-width: 768px) {
+
+    .font-glyph {
+        width: 12.5%;
+    }
+}
