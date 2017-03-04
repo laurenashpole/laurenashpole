@@ -274,7 +274,6 @@ li {
 }
 /* TO DO: Delete once new images are finished */
 .gallery-main.is-legacy {
-  background: #f6f5f4;
   padding: 1.5rem;
 }
 
@@ -883,6 +882,10 @@ a img {
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
+  }
+
+  .nav-logo-container:hover {
+    background: #d43f29;
   }
 
   .nav-logo {

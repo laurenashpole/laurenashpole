@@ -153,6 +153,10 @@
         @include flex-justify(center);
     }
 
+    .nav-logo-container:hover {
+        background: $color-red-hover;
+    }
+
     .nav-logo {
         width: 55px;
         height: 25px;
