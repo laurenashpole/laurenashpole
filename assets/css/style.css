@@ -9,7 +9,7 @@ html {
   height: 100%;
   font: 300 112.5% "Source Sans Pro", sans-serif;
   line-height: 1.5rem;
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -444,19 +444,19 @@ select:focus {
 }
 
 .input::-webkit-input-placeholder {
-  color: #968c8a;
+  color: #afa8a7;
 }
 
 .input::-moz-placeholder {
-  color: #968c8a;
+  color: #afa8a7;
 }
 
 .input:-ms-input-placeholder {
-  color: #968c8a;
+  color: #afa8a7;
 }
 
 .input:-moz-placeholder {
-  color: #968c8a;
+  color: #afa8a7;
 }
 
 .input-label-inset .input {
@@ -1390,7 +1390,7 @@ a img {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   line-height: 20px;
-  color: #968c8a;
+  color: #afa8a7;
 }
 
 @media (min-width: 768px) {
