@@ -11,27 +11,11 @@
 @import 'components/lists';
 @import 'components/backgrounds';
 @import 'components/details-card';
-@import 'components/hr';
 @import 'components/buttons/buttons';
 @import 'components/forms/base';
 @import 'components/forms/inputs';
-@import 'components/forms/selects';
 @import 'components/images/images';
-@import 'components/images/gallery';
-@import 'components/images/heros';
-
-// TO DO: Figure out consistent icon style
-// @import 'components/icons';
 
 /* Layout */
 @import 'layout/layout';
 @import 'layout/header';
-
-/* Pages */
-@import 'pages/contact';
-@import 'pages/homepage';
-@import 'pages/font-grid';
-@import 'pages/font-details';
-@import 'pages/font-examples';
-@import 'pages/fonts/font-glyphs';
-@import 'pages/fonts/font-buttons';

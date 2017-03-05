@@ -89,7 +89,7 @@
 .nav-links {
     background: $color-white;
     width: 100%;
-    border-bottom: 1px solid $header-color-secondary;
+    border-bottom: 2px solid $color-abstract-pink;
     @include transform(translate3d(0, calc(-100% + 1px), 0));
     @include transition(transform 0.4s);
 }
