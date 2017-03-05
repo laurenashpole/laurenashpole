@@ -9,7 +9,7 @@ html {
   height: 100%;
   font: 300 112.5% "Source Sans Pro", sans-serif;
   line-height: 1.5rem;
-  overflow: hidden;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
