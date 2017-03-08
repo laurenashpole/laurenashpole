@@ -10,6 +10,7 @@
 
     .contact-buttons:before {
         left: 66.666%;
+        @include transform(translate3d(-66.666%, -50%, 0));
     }
 
     .contact-button-container {

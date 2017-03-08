@@ -50,22 +50,30 @@
     background: $button-color-secondary-hover;
 }
 
-/* NOTE: Update to match style */
 .button.is-processing {
     font-size: 0;
 }
 
+
+.button.is-processing:after,
+.button.is-processing:before {
+    content: " ";
+    height: 3px;
+    border-radius: 1.5px;
+}
+
 .button.is-processing:after {
-    content: "Processing";
-    font-size: 0.75rem;
-    letter-spacing: 0.075em;
-    // width: 30px;
-    // height: 30px;
-    // border: 5px solid $button-color-secondary;
-    // border-top: 5px solid $color-white;
-    // border-radius: 50%;
-    // -webkit-animation: spin 2s linear infinite;
-    // animation: spin 2s linear infinite;
+    background: $color-abstract-pink;
+    width: 40px;
+    -webkit-animation: spin 6s infinite linear;
+    animation: spin 6s infinite linear;
+}
+
+.button.is-processing:before {
+    background: $color-abstract-green;
+    width: 40px;
+    -webkit-animation: spin-counter 4s infinite linear;
+    animation: spin-counter 4s infinite linear;
 }
 
 @-webkit-keyframes spin {
@@ -83,6 +91,24 @@
     }
     100% {
         @include transform(rotate(360deg));
+    }
+}
+
+@-webkit-keyframes spin-counter {
+    0% {
+        @include transform(rotate(360deg));
+    }
+    100% {
+        @include transform(rotate(0deg));
+    }
+}
+
+@keyframes spin-counter {
+    0% {
+        @include transform(rotate(360deg));
+    }
+    100% {
+        @include transform(rotate(0deg));
     }
 }
 

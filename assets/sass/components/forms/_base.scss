@@ -22,6 +22,7 @@ select:focus {
 }
 
 .form-container {
+    background: $form-color-background;
     padding: 0.5rem 0;
     border: 2px solid $color-white;
 }

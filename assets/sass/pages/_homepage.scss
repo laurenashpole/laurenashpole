@@ -1,17 +1,18 @@
 .homepage-container {
-    padding-bottom: 90px;
+    padding-bottom: 0.5rem;
     @include flex();
     @include flex-align(center);
+    @include flex-wrap(wrap);
 }
 
 .homepage-image-container {
-    min-height: 500px;
+    min-height: 300px;
     @include flex();
     @include flex-align(center);
 }
 
 .homepage-column {
-    width: 33.333%;
+    width: 100%;
     position: relative;
     z-index: 1;
 }
@@ -40,8 +41,21 @@
 
 @media (min-width: 768px) {
 
+    .homepage-container {
+        padding-bottom: 90px;
+    }
+
+    .homepage-image-container {
+        min-height: 500px;
+    }
+
+    .homepage-column {
+        width: 33.333%;
+    }
+
     .shop-list-item {
         width: 25%;
         position: relative;
     }
+
 }

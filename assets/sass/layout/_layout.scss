@@ -13,6 +13,13 @@
     @include flex-justify(center);
 }
 
+.container-static {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
 .has-padding {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;

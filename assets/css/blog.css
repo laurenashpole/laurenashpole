@@ -222,6 +222,18 @@ li {
   transform: scaleY(-1);
 }
 
+.bg-abstract-hero.is-static {
+  display: none;
+}
+
+.bg-abstract-hero.is-secondary.is-static {
+  display: none;
+}
+
+.bg-dots.is-static:before {
+  display: none;
+}
+
 .bg-dots:before {
   content: " ";
   background-image: -webkit-radial-gradient(#fff 20%, transparent 21%);
@@ -253,6 +265,33 @@ li {
 
   .bg-abstract-hero.is-secondary {
     height: 60%;
+  }
+
+  .bg-abstract-hero.is-static {
+    height: 750px;
+    top: 4.5rem;
+    left: 55%;
+    color: #d5e7db;
+    transform: translate3d(-50%, 0, 0);
+    display: block;
+    z-index: -1;
+  }
+
+  .bg-abstract-hero.is-static.is-secondary {
+    height: 500px;
+    top: 4.5rem;
+    left: 50%;
+    color: #d6ecf0;
+    transform: translate3d(-70%, 0, 0);
+    display: block;
+    z-index: -1;
+  }
+
+  .bg-dots.is-static:before {
+    left: 25%;
+    top: 4.5rem;
+    display: block;
+    z-index: -2;
   }
 }
 .details-card {
@@ -315,15 +354,29 @@ li {
   background: #dd5c4b;
 }
 
-/* NOTE: Update to match style */
 .button.is-processing {
   font-size: 0;
 }
 
+.button.is-processing:after,
+.button.is-processing:before {
+  content: " ";
+  height: 3px;
+  border-radius: 1.5px;
+}
+
 .button.is-processing:after {
-  content: "Processing";
-  font-size: 0.75rem;
-  letter-spacing: 0.075em;
+  background: #fae3e1;
+  width: 40px;
+  -webkit-animation: spin 6s infinite linear;
+  animation: spin 6s infinite linear;
+}
+
+.button.is-processing:before {
+  background: #d5e7db;
+  width: 40px;
+  -webkit-animation: spin-counter 4s infinite linear;
+  animation: spin-counter 4s infinite linear;
 }
 
 @-webkit-keyframes spin {
@@ -344,6 +397,26 @@ li {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin-counter {
+  0% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes spin-counter {
+  0% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 .button-block {
@@ -395,6 +468,7 @@ select:focus {
 }
 
 .form-container {
+  background: #f6f5f4;
   padding: 0.5rem 0;
   border: 2px solid #fff;
 }
@@ -519,6 +593,13 @@ a img {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+}
+
+.container-static {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  z-index: 1;
 }
 
 .has-padding {
