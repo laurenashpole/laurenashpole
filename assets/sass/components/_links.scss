@@ -32,26 +32,50 @@ a:hover,
     padding: 0;
 }
 
-.has-hover-underline {
+.has-hover-border {
     background: none;
+    padding: 0;
 }
 
 @media (min-width: 768px) {
 
-    .has-hover-underline:before {
-        content: " ";
-        background: $color-green-light;
-        height: 0.429em;
-        position: absolute;
-        bottom: 0.1em;
-        left: 50%;
-        right: 50%;
-        z-index: -1;
-        @include transition(left 0.3s, right 0.3s);
+    .has-hover-border {
+        padding: 0.5rem;
     }
 
-    .has-hover-underline:hover:before {
-        left: 0.15em;
+    .has-hover-border:before,
+    .has-hover-border:after {
+        content: " ";
+        width: 0;
+        height: 0;
+        border: 2px solid transparent;
+        position: absolute;
+    }
+
+    .has-hover-border:before {
+        top: 0;
+        left: 0;
+    }
+
+    .has-hover-border:after {
+        bottom: 0;
         right: 0;
+    }
+
+    .has-hover-border:hover:before,
+    .has-hover-border:hover:after {
+        width: 100%;
+        height: 100%;
+        @include transition(transition: width 0.15s ease-out, height 0.15s ease-out 0.15s);
+    }
+
+    .has-hover-border:hover:before {
+        border-top-color: $color-green-light;
+        border-right-color: $color-green-light;
+    }
+
+    .has-hover-border:hover:after {
+        border-bottom-color: $color-green-light;
+        border-left-color: $color-green-light;
     }
 }
