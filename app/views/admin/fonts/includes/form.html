@@ -67,24 +67,6 @@
 
 <div class="input-container input-label-inset input-check">
     <div class="input">
-        <label class="is-uppercase is-extra-bold">Personal Use Details</label>
-        <input type="checkbox" name="personal_use_details" value="TrueType File"/>TrueType Font
-        <input type="checkbox" name="personal_use_details" value="OpenType File" />OpenType Font
-    </div>
-</div>
-
-<div class="input-container input-label-inset input-check">
-    <div class="input">
-        <label class="is-uppercase is-extra-bold">Commercial Use Details</label>
-        <input type="checkbox" name="commercial_use_details" value="TrueType File" />TrueType Font
-        <input type="checkbox" name="commercial_use_details" value="OpenType File" />OpenType Font
-        <input type="checkbox" name="commercial_use_details" value="Web Font Kit" />Web Font Kit
-        <input type="checkbox" name="commercial_use_details" value="Additional Characters (Latin-1)" />Additional Characters (Latin-1)
-    </div>
-</div>
-
-<div class="input-container input-label-inset input-check">
-    <div class="input">
         <label class="is-uppercase is-extra-bold">Personal File Includes</label>
         <input
             type="checkbox"
@@ -129,11 +111,6 @@
             {% if font.commercial_file.additional_chars.is_included %} checked{% endif %}
         />Additional Characters (Latin-1)
     </div>
-</div>
-
-<div class="input-container input-label-inset">
-    <label for="color" class="is-uppercase is-extra-bold">Color</label>
-    <input type="text" id="color" name="color" class="input"  {% if font.color %}value="{{font.color}}"{% endif %} />
 </div>
 
 <div class="input-container input-label-inset input-file">
