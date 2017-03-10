@@ -3,6 +3,7 @@
     @include flex();
     @include flex-align(center);
     @include flex-wrap(wrap);
+    @include flex-justify(center);
 }
 
 .homepage-image-container {
@@ -39,7 +40,40 @@
     display: block;
 }
 
+.is-homepage .footer-container {
+    background: $color-gray-lightest;
+    margin-top: 0;
+}
+
+.is-homepage .footer-social-icon {
+    border-color: $color-white;
+}
+
+.is-homepage .footer-form-container {
+    border-color: $color-white;
+}
+
+.is-homepage .footer-input {
+    background: $color-white;
+}
+
+.is-homepage .footer-button-container {
+    border-color: $color-white;
+}
+
 @media (min-width: 768px) {
+
+    .shop-list-item {
+        width: 25%;
+        position: relative;
+    }
+
+    .is-homepage .footer-social {
+        border-color: $color-white;
+    }
+}
+
+@media (min-width: 1024px) {
 
     .homepage-container {
         padding-bottom: 90px;
@@ -52,10 +86,4 @@
     .homepage-column {
         width: 33.333%;
     }
-
-    .shop-list-item {
-        width: 25%;
-        position: relative;
-    }
-
 }

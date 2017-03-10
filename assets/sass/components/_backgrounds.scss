@@ -39,10 +39,6 @@
     display: none;
 }
 
-.bg-dots.is-static:before {
-    display: none;
-}
-
 .bg-dots:before {
     content: " ";
     background-image: -webkit-radial-gradient(
@@ -70,6 +66,27 @@
     height: 600px;
     top: 0;
     right: -10%;
+}
+
+.bg-dots.is-static:before {
+    display: none;
+}
+
+.bg-dots.is-footer:before {
+    background-image: -webkit-radial-gradient(
+        $color-abstract-pink 20%,
+        transparent 21%
+    );
+    background-image: radial-gradient(
+        $color-abstract-pink 20%,
+        transparent 21%
+    );
+    width: 150px;
+    height: 520px;
+    top: 0;
+    right: 0;
+    transform-origin: top left;
+    @include transform(rotate(80deg));
 }
 
 @media (min-width: 1024px) {
