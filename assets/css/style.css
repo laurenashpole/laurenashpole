@@ -1254,14 +1254,8 @@ a img {
   justify-content: center;
 }
 
-.homepage-image-container {
-  min-height: 300px;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+.homepage-image-link {
+  display: block;
 }
 
 .homepage-column {

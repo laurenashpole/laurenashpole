@@ -6,10 +6,14 @@
     @include flex-justify(center);
 }
 
-.homepage-image-container {
-    min-height: 300px;
-    @include flex();
-    @include flex-align(center);
+// .homepage-image-container {
+//     min-height: 300px;
+//     @include flex();
+//     @include flex-align(center);
+// }
+
+.homepage-image-link {
+    display: block;
 }
 
 .homepage-column {
