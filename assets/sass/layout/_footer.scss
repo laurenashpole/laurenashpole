@@ -8,16 +8,16 @@
 }
 
 .footer-social {
-    display: flex;
+    @include flex();
 }
 
 .footer-social-icon {
     width: 25%;
     height: 3.5rem;
     border-right: 2px solid $color-gray-lightest;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
 }
 
 .footer-social-icon:last-child {
@@ -30,9 +30,9 @@
     height: 2.5rem;
     border-radius: 50%;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
     @include transition(all 0.25s);
 }
 

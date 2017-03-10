@@ -1109,6 +1109,8 @@ a img {
 }
 
 .footer-social {
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 
@@ -1116,8 +1118,14 @@ a img {
   width: 25%;
   height: 3.5rem;
   border-right: 2px solid #f6f5f4;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
   align-items: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 
@@ -1131,8 +1139,14 @@ a img {
   height: 2.5rem;
   border-radius: 50%;
   color: #fff;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
   align-items: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
