@@ -986,3 +986,132 @@ a img {
     margin: 0 0 0 70px;
   }
 }
+.footer-container {
+  background: #fff;
+  margin-top: 2.5rem;
+}
+
+.footer {
+  padding: 0;
+}
+
+.footer-social {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.footer-social-icon {
+  width: 25%;
+  height: 3.5rem;
+  border-right: 2px solid #f6f5f4;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.footer-social-icon:last-child {
+  border: none;
+}
+
+.footer-social-link {
+  background: #726882;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: #fff;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.footer-social-link:hover {
+  background: #675e75;
+  color: #fff;
+}
+
+.footer-form-container {
+  border-top: 2px solid #f6f5f4;
+  -ms-flex: 2 1 auto;
+  -webkit-flex: 2 1 auto;
+  flex: 2 1 auto;
+}
+
+.footer-form {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.footer-input-container {
+  width: 66.666%;
+  padding: 0.5rem;
+}
+
+.footer-input {
+  background: #f6f5f4;
+  height: 2.5rem;
+}
+
+.footer-button-container {
+  width: 33.333%;
+  padding: 0.5rem;
+  border-left: 2px solid #f6f5f4;
+}
+
+.footer-button {
+  background: #726882;
+  height: 2.5rem;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+}
+
+.footer-button:hover {
+  background: #675e75;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 0 0.5rem;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  .footer-social {
+    border-right: 2px solid #f6f5f4;
+  }
+
+  .footer-social-icon {
+    width: 3.5rem;
+  }
+
+  .footer-social-link:hover {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0;
+  }
+
+  .footer-form-container {
+    border-top: none;
+  }
+}
+@media (min-width: 1024px) {
+  .footer {
+    padding: 0 1rem;
+  }
+}
