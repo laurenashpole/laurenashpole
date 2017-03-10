@@ -160,7 +160,9 @@
 
                 {% if font.description %}
                     <div itemprop="description" class="font-details-description">
-                        {% autoescape false %}{{font.description}}{% endautoescape %}
+                        <p>
+                            {% autoescape false %}{{font.description}}{% endautoescape %}
+                        </p>
                     </div>
                 {% endif %}
 
