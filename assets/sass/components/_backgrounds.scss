@@ -17,6 +17,14 @@
     color: $color-abstract-green;
 }
 
+.bg-abstract-hero.is-static {
+    display: none;
+}
+
+.bg-abstract-hero.is-secondary.is-static {
+    display: none;
+}
+
 .bg-abstract-tile {
     width: 170%;
     height: 170%;
@@ -24,14 +32,6 @@
     left: -35%;
     top: -35%;
     @include transform(scaleY(-1));
-}
-
-.bg-abstract-hero.is-static {
-    display: none;
-}
-
-.bg-abstract-hero.is-secondary.is-static {
-    display: none;
 }
 
 .bg-dots:before {

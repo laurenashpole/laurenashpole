@@ -33,16 +33,11 @@
   margin: 0 auto;
 }
 
-.form-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 .input-check input {
   width: auto;
   height: auto;
   margin: 0 7px 0 21px;
+  -webkit-appearance: checkbox;
 }
 
 .input-check input:nth-child(2) {
