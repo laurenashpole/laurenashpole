@@ -113,14 +113,12 @@
     letter-spacing: 0.2em;
     display: block;
     opacity: 0;
-    @include transition(opacity 0.05s);
-    @include transition-delay(0s);
+    @include transition(opacity 0.05s linear 0s);
 }
 
 .nav.is-open .nav-link {
     opacity: 1;
-    @include transition(opacity 0.4s);
-    @include transition(0.2s);
+    @include transition(opacity 0.4s linear 0.2s);
 }
 
 @media (min-width: 768px) {
