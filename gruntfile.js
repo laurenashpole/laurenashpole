@@ -1,4 +1,13 @@
-module.exports = function( grunt ) {
+module.exports = function (grunt) {
+    var jsFiles = [
+        'assets/js/view.js',
+        'assets/js/analytics.js',
+        'assets/js/nav.js',
+        'assets/js/font-page.js',
+        'assets/js/contact-form.js',
+        'assets/js/router.js'
+    ];
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
@@ -44,7 +53,7 @@ module.exports = function( grunt ) {
             },
             build: {
                 files: {
-                    'public/js/javascript.min.js': 'assets/js/javascript.js'
+                    'public/js/javascript.min.js': jsFiles
                 }
             }
         }

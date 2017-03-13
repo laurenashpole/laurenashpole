@@ -867,18 +867,14 @@ a img {
   letter-spacing: 0.2em;
   display: block;
   opacity: 0;
-  -webkit-transition: opacity 0.05s;
-  transition: opacity 0.05s;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
+  -webkit-transition: opacity 0.05s linear 0s;
+  transition: opacity 0.05s linear 0s;
 }
 
 .nav.is-open .nav-link {
   opacity: 1;
-  -webkit-transition: opacity 0.4s;
-  transition: opacity 0.4s;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: opacity 0.4s linear 0.2s;
+  transition: opacity 0.4s linear 0.2s;
 }
 
 @media (min-width: 768px) {
