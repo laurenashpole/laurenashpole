@@ -2,11 +2,6 @@
     background: $color-white;
 }
 
-.bg-img {
-    background-image: url(/images/bg.png);
-    background-size: 400px 400px;
-}
-
 .bg-abstract-hero {
     width: 90%;
     height: 60%;
@@ -70,23 +65,6 @@
 
 .bg-dots.is-static:before {
     display: none;
-}
-
-.bg-dots.is-footer:before {
-    background-image: -webkit-radial-gradient(
-        $color-abstract-pink 20%,
-        transparent 21%
-    );
-    background-image: radial-gradient(
-        $color-abstract-pink 20%,
-        transparent 21%
-    );
-    width: 150px;
-    height: 520px;
-    top: 0;
-    right: 0;
-    transform-origin: top left;
-    @include transform(rotate(80deg));
 }
 
 @media (min-width: 1024px) {

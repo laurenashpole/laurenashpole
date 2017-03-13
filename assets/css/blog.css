@@ -216,11 +216,6 @@ li {
   background: #fff;
 }
 
-.bg-img {
-  background-image: url(/images/bg.png);
-  background-size: 400px 400px;
-}
-
 .bg-abstract-hero {
   width: 90%;
   height: 60%;
@@ -280,18 +275,6 @@ li {
 
 .bg-dots.is-static:before {
   display: none;
-}
-
-.bg-dots.is-footer:before {
-  background-image: -webkit-radial-gradient(#fae3e1 20%, transparent 21%);
-  background-image: radial-gradient(#fae3e1 20%, transparent 21%);
-  width: 150px;
-  height: 520px;
-  top: 0;
-  right: 0;
-  transform-origin: top left;
-  -webkit-transform: rotate(80deg);
-  transform: rotate(80deg);
 }
 
 @media (min-width: 1024px) {
@@ -653,6 +636,7 @@ a img {
   margin: 0 auto;
   padding: 0 0.5rem;
   position: relative;
+  overflow: hidden;
 }
 
 .container.is-full-height {

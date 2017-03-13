@@ -4,10 +4,6 @@
     margin: 0 auto;
 }
 
-.login-rule {
-    margin: 20px 0;
-}
-
 .form-container {
     width: 100%;
     max-width: 900px;
@@ -42,17 +38,21 @@
     display: block;
 }
 
-button {
-    border: none;
+.button-container {
+    padding: 0 0.5rem;
 }
 
-button:focus {
-    outline: none;
-}
+// button {
+//     border: none;
+// }
 
-.button {
-    height: 60px;
-}
+// button:focus {
+//     outline: none;
+// }
+
+// .button {
+//     height: 60px;
+// }
 
 .growl {
     background: rgba(255, 255, 255, 0.8);

@@ -1,5 +1,9 @@
 /* Abstracts */
 @import 'abstracts/variables.scss';
+@import 'abstracts/mixins.scss';
+
+/* Components */
+@import 'components/hr';
 
 /* Pages */
 @import 'pages/admin.scss';

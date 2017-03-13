@@ -4,14 +4,23 @@
 
     {% if signed_out %}
 
-        <main class="container has-padding is-full-height">
+        <main class="container has-padding is-full-height bg-dots is-hero is-static">
+
+            <svg class="bg-abstract-hero is-static">
+                <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+            </svg>
+
+            <svg class="bg-abstract-hero is-static is-secondary">
+                <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
+            </svg>
+
             <div class="login">
 
                 {% if message.length %}
                     <div class="growl">{{message}}</div>
                 {% endif %}
 
-                <form method="post" action="/admin/login">
+                <form class="form-container" method="post" action="/admin/login">
                     <div class="input-container input-label-inset">
                         <label for="name" class="text-block">Username</label>
                         <input type="text" id="username" name="username" class="input" />
@@ -22,12 +31,14 @@
                         <input type="password" id="password" name="password" class="input" />
                     </div>
 
-                    <button type="submit" class="button button-primary">Log In</button>
+                    <div class="button-container">
+                        <button type="submit" class="button is-primary is-uppercase is-extra-bold">Log In</button>
+                    </div>
                 </form>
 
                 <div class="text-block hr-text login-rule">or</div>
 
-                <form method="post" action="/admin/signup">
+                <form class="form-container" method="post" action="/admin/signup">
                     <div class="input-container input-label-inset">
                         <label for="name" class="text-block">Username</label>
                         <input type="text" id="username" name="username" class="input" />
@@ -38,7 +49,9 @@
                         <input type="password" id="password" name="password" class="input" />
                     </div>
 
-                    <button type="submit" class="button button-primary">Sign Up</button>
+                    <div class="button-container">
+                        <button type="submit" class="button is-primary is-uppercase is-extra-bold">Sign Up</button>
+                    </div>
                 </form>
 
             </div>
