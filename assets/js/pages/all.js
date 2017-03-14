@@ -3,12 +3,15 @@ function All () {
 }
 
 All.prototype.initialize = function () {
+    // TO DO: Dev only, delete this line
+    window.localStorage.clear();
+
     var analytics = new Analytics();
     var nav = new Nav();
 
     this.checkHover();
     this.checkReferrer();
-}
+};
 
 All.prototype.checkHover = function () {
 
@@ -25,7 +28,7 @@ All.prototype.checkReferrer = function () {
     if (referrer === 'email') {
         window.localStorage.setItem('hideEmailModal', true);
     }
-}
+};
 
 All.prototype.getUrlParameter = function (name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');

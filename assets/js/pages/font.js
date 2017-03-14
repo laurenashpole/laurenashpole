@@ -1,4 +1,4 @@
-function FontPage (options) {
+function Font (options) {
     var defaults = {
         el: document.querySelector('.js-font-page'),
         events: [
@@ -21,7 +21,12 @@ function FontPage (options) {
                 selector: '.js-font-download',
                 eventType: 'click',
                 callback: this.openDownloadModal.bind(this)
-            }
+            },
+            // {
+            //     selector: '.js-font-download-close',
+            //     eventType: 'click',
+            //     callback: this.closeDownloadModal.bind(this)
+            // }
         ]
     };
 
@@ -30,14 +35,14 @@ function FontPage (options) {
     this.cacheSelectors();
 }
 
-FontPage.prototype = new View();
+Font.prototype = new View();
 
-FontPage.prototype.cacheSelectors = function () {
+Font.prototype.cacheSelectors = function () {
     this.textContainer = this.el.querySelectorAll('.font-example-text');
     this.imageContainer = this.el.querySelectorAll('.js-font-image-main');
 };
 
-FontPage.prototype.updateFontExampleText = function (e) {
+Font.prototype.updateFontExampleText = function (e) {
     e.preventDefault();
 
     var text = e.target.value;
@@ -52,7 +57,7 @@ FontPage.prototype.updateFontExampleText = function (e) {
 
 };
 
-FontPage.prototype.updateFontExampleSize = function (e) {
+Font.prototype.updateFontExampleSize = function (e) {
     e.preventDefault();
 
     var size = e.target.value;
@@ -63,7 +68,7 @@ FontPage.prototype.updateFontExampleSize = function (e) {
 
 };
 
-FontPage.prototype.updateFontImageThumbnail = function (e) {
+Font.prototype.updateFontImageThumbnail = function (e) {
     e.preventDefault();
 
     for (var i = 0; i < this.imageContainer.length; i++) {
@@ -72,13 +77,13 @@ FontPage.prototype.updateFontImageThumbnail = function (e) {
 
 };
 
-FontPage.prototype.openDownloadModal = function (e) {
+Font.prototype.openDownloadModal = function (e) {
     e.preventDefault();
 
     var downloadUrl = e.target.href;
-    var hideModal = window.localStorage.getItem('hideEmailModal');
+    this.hideModal = window.localStorage.getItem('hideEmailModal');
 
-    if (hideModal) {
+    if (this.hideModal) {
         window.location = downloadUrl;
     } else {
 
@@ -93,3 +98,17 @@ FontPage.prototype.openDownloadModal = function (e) {
         this.modal.openModal(e);
     }
 };
+
+// Font.prototype.closeDownloadModal = function (e) {
+//     // e.preventDefault();
+
+//     if (!this.hideModal) {
+//         console.log('i happen once');
+//         this.modal.closeModal(e);
+//         // console.log(e);
+//         // e.target.click();
+
+//         var click = new Event('click');  // (*)
+//         e.target.dispatchEvent(click);
+//     }
+// }

@@ -1,4 +1,4 @@
-function ContactForm (options) {
+function Contact (options) {
     var defaults = {
         el: document.querySelector('.js-contact-form'),
         events: [
@@ -19,14 +19,14 @@ function ContactForm (options) {
     View.call(this, this.options);
 }
 
-ContactForm.prototype = new View();
+Contact.prototype = new View();
 
-ContactForm.prototype.removeError = function (e) {
+Contact.prototype.removeError = function (e) {
     e.preventDefault();
     e.target.classList.remove('is-required');
 };
 
-ContactForm.prototype.sendMessage = function (e) {
+Contact.prototype.sendMessage = function (e) {
     e.preventDefault();
 
     if (!this.validateForm()) {
@@ -59,13 +59,13 @@ ContactForm.prototype.sendMessage = function (e) {
 
 };
 
-ContactForm.prototype.afterSend = function (response, e) {
+Contact.prototype.afterSend = function (response, e) {
     if (response.success) {
         window.location = 'contact/confirm';
     }
 };
 
-ContactForm.prototype.validateForm = function () {
+Contact.prototype.validateForm = function () {
     var valid = true;
     var regex = /\S+@\S+\.\S+/;
 
