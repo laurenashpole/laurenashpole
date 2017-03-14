@@ -21,6 +21,7 @@ html.modal-open {
 
 .modal {
     background: $color-white;
+    width: 90%;
     max-width: 500px;
     padding: 1.5rem 1.5rem 1.75rem 1.5rem;
     text-align: center;
@@ -28,7 +29,7 @@ html.modal-open {
 
 .modal-form-container {
     border: 2px solid $color-gray-lightest;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .modal-input-container {
@@ -37,12 +38,11 @@ html.modal-open {
 }
 
 .modal-input-container .input {
-    background: $color-white;
     text-align: center;
 }
 
-.modal-input-container .input:focus {
-    background: $color-gray-lightest;
+.modal-button-container .button {
+    height: 2.5rem
 }
 
 .modal-button-container {

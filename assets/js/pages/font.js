@@ -20,7 +20,7 @@ function FontPage (options) {
             {
                 selector: '.js-font-download',
                 eventType: 'click',
-                callback: this.downloadModal.bind(this)
+                callback: this.openDownloadModal.bind(this)
             }
         ]
     };
@@ -72,15 +72,24 @@ FontPage.prototype.updateFontImageThumbnail = function (e) {
 
 };
 
-FontPage.prototype.downloadModal = function (e) {
+FontPage.prototype.openDownloadModal = function (e) {
     e.preventDefault();
 
-    var modal = new Modal({
-        modal: document.querySelector('.js-modal-container'),
-        callback: function () {
-            console.log('test');
-        }
-    });
+    var downloadUrl = e.target.href;
+    var hideModal = window.localStorage.getItem('hideDownloadModal');
 
-    modal.openModal(e);
+    if (hideModal) {
+        window.location = downloadUrl;
+    } else {
+
+        var modal = new Modal({
+            modal: document.querySelector('.js-modal-container'),
+            callback: function () {
+                window.location = downloadUrl;
+                window.localStorage.setItem('hideDownloadModal', true);
+            }
+        });
+
+        modal.openModal(e);
+    }
 };

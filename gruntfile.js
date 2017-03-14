@@ -1,11 +1,12 @@
 module.exports = function (grunt) {
     var jsFiles = [
-        'assets/js/view.js',
-        'assets/js/analytics.js',
-        'assets/js/nav.js',
-        'assets/js/modal.js',
-        'assets/js/font-page.js',
-        'assets/js/contact-form.js',
+        'assets/js/components/view.js',
+        'assets/js/components/analytics.js',
+        'assets/js/components/nav.js',
+        'assets/js/components/modal.js',
+        'assets/js/pages/all.js',
+        'assets/js/pages/font.js',
+        'assets/js/pages/contact.js',
         'assets/js/router.js'
     ];
 
@@ -14,7 +15,8 @@ module.exports = function (grunt) {
         watch: {
             files: [
                 'assets/sass/**/*.scss',
-                'assets/js/*.js'
+                'assets/js/*.js',
+                'assets/js/**/*.js'
             ],
             tasks: [
                 'sass',

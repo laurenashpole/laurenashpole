@@ -1,6 +1,5 @@
 (function Router () {
-    var analytics = new Analytics();
-    var nav = new Nav();
+    var all = new All();
 
     if (window.location.href.indexOf('fonts/') !== -1) {
         var fontPage = new FontPage();
