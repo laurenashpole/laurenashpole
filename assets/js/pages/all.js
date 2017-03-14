@@ -23,7 +23,7 @@ All.prototype.checkReferrer = function () {
     var referrer = this.getUrlParameter('referrer');
 
     if (referrer === 'email') {
-        window.localStorage.setItem('hideDownloadModal', true);
+        window.localStorage.setItem('hideEmailModal', true);
     }
 }
 

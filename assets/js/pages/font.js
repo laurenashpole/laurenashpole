@@ -76,20 +76,20 @@ FontPage.prototype.openDownloadModal = function (e) {
     e.preventDefault();
 
     var downloadUrl = e.target.href;
-    var hideModal = window.localStorage.getItem('hideDownloadModal');
+    var hideModal = window.localStorage.getItem('hideEmailModal');
 
     if (hideModal) {
         window.location = downloadUrl;
     } else {
 
-        var modal = new Modal({
+         this.modal = new Modal({
             modal: document.querySelector('.js-modal-container'),
             callback: function () {
                 window.location = downloadUrl;
-                window.localStorage.setItem('hideDownloadModal', true);
+                window.localStorage.setItem('hideEmailModal', true);
             }
         });
 
-        modal.openModal(e);
+        this.modal.openModal(e);
     }
 };
