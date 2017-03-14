@@ -1,5 +1,5 @@
 function FontPage (options) {
-    var options = {
+    var defaults = {
         el: document.querySelector('.js-font-page'),
         events: [
             {
@@ -16,11 +16,17 @@ function FontPage (options) {
                 selector: '.js-font-image-thumbnail',
                 eventType: 'click',
                 callback: this.updateFontImageThumbnail.bind(this)
+            },
+            {
+                selector: '.js-font-download',
+                eventType: 'click',
+                callback: this.downloadModal.bind(this)
             }
         ]
     };
 
-    View.call(this, options);
+    this.options = this.extend(defaults, options);
+    View.call(this, this.options);
     this.cacheSelectors();
 }
 
@@ -64,4 +70,17 @@ FontPage.prototype.updateFontImageThumbnail = function (e) {
         this.imageContainer[i].src = e.target.src;
     }
 
+};
+
+FontPage.prototype.downloadModal = function (e) {
+    e.preventDefault();
+
+    var modal = new Modal({
+        modal: document.querySelector('.js-modal-container'),
+        callback: function () {
+            console.log('test');
+        }
+    });
+
+    modal.openModal(e);
 };

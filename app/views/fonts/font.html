@@ -77,7 +77,7 @@
                     {% endif %}
 
                     {% if font.personal_font_file %}
-                        <div class="font-button-container">
+                        <div class="font-button-container js-font-download">
                             <a
                                 href="/downloads/{{font.personal_font_file}}"
                                 class="button is-uppercase is-extra-bold is-secondary has-no-underline js-ga-trigger"
@@ -1082,4 +1082,7 @@
         </section>
 
     </main>
+
+    {% include './includes/modal-mailing.html' %}
+
 {% endblock %}

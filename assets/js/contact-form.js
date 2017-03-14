@@ -1,5 +1,5 @@
-function ContactForm () {
-    var options = {
+function ContactForm (options) {
+    var defaults = {
         el: document.querySelector('.js-contact-form'),
         events: [
             {
@@ -15,7 +15,8 @@ function ContactForm () {
         ]
     };
 
-    View.call(this, options);
+    this.options = this.extend(defaults, options);
+    View.call(this, this.options);
 }
 
 ContactForm.prototype = new View();

@@ -3,6 +3,7 @@ module.exports = function (grunt) {
         'assets/js/view.js',
         'assets/js/analytics.js',
         'assets/js/nav.js',
+        'assets/js/modal.js',
         'assets/js/font-page.js',
         'assets/js/contact-form.js',
         'assets/js/router.js'

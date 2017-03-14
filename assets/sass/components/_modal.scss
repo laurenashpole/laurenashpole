@@ -1,0 +1,50 @@
+html.modal-open {
+    overflow: hidden;
+}
+
+.modal-container {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: none;
+    @include flex-align(center);
+    @include flex-justify(center);
+}
+
+.modal-container.is-open {
+    @include flex();
+}
+
+.modal {
+    background: $color-white;
+    max-width: 500px;
+    padding: 1.5rem 1.5rem 1.75rem 1.5rem;
+    text-align: center;
+}
+
+.modal-form-container {
+    border: 2px solid $color-gray-lightest;
+    margin-bottom: 1rem;
+}
+
+.modal-input-container {
+    border-bottom: 2px solid $color-gray-lightest;
+    padding: 0.5rem;
+}
+
+.modal-input-container .input {
+    background: $color-white;
+    text-align: center;
+}
+
+.modal-input-container .input:focus {
+    background: $color-gray-lightest;
+}
+
+.modal-button-container {
+    padding: 0.5rem;
+}
