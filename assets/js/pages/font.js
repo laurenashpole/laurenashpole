@@ -18,15 +18,15 @@ function Font (options) {
                 callback: this.updateFontImageThumbnail.bind(this)
             },
             {
-                selector: '.js-font-download',
+                selector: '.js-font-modal-open',
                 eventType: 'click',
                 callback: this.openDownloadModal.bind(this)
             },
-            // {
-            //     selector: '.js-font-download-close',
-            //     eventType: 'click',
-            //     callback: this.closeDownloadModal.bind(this)
-            // }
+            {
+                selector: '.js-font-modal-signup',
+                eventType: 'click',
+                callback: this.updateDownloadModal.bind(this)
+            }
         ]
     };
 
@@ -88,7 +88,7 @@ Font.prototype.openDownloadModal = function (e) {
     } else {
 
          this.modal = new Modal({
-            modal: document.querySelector('.js-modal-container'),
+            modal: this.el.querySelector('.js-modal-container'),
             callback: function () {
                 window.location = downloadUrl;
                 window.localStorage.setItem('hideEmailModal', true);
@@ -99,16 +99,7 @@ Font.prototype.openDownloadModal = function (e) {
     }
 };
 
-// Font.prototype.closeDownloadModal = function (e) {
-//     // e.preventDefault();
-
-//     if (!this.hideModal) {
-//         console.log('i happen once');
-//         this.modal.closeModal(e);
-//         // console.log(e);
-//         // e.target.click();
-
-//         var click = new Event('click');  // (*)
-//         e.target.dispatchEvent(click);
-//     }
-// }
+Font.prototype.updateDownloadModal = function (e) {
+    this.el.querySelector('.js-font-modal-form').classList.add('hidden');
+    this.el.querySelector('.js-font-modal-close').innerHTML = 'I got \'em. Now download that font!'
+}
