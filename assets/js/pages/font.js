@@ -40,6 +40,9 @@ Font.prototype = new View();
 Font.prototype.cacheSelectors = function () {
     this.textContainer = this.el.querySelectorAll('.font-example-text');
     this.imageContainer = this.el.querySelectorAll('.js-font-image-main');
+    this.modalForm = this.el.querySelector('.js-font-modal-form');
+    this.modalClose = this.el.querySelector('.js-font-modal-close');
+    this.modalContainer = this.el.querySelector('.js-modal-container');
 };
 
 Font.prototype.updateFontExampleText = function (e) {
@@ -81,25 +84,29 @@ Font.prototype.openDownloadModal = function (e) {
     e.preventDefault();
 
     var downloadUrl = e.target.href;
-    this.hideModal = window.localStorage.getItem('hideEmailModal');
+    var hideModal = window.localStorage.getItem('hideEmailModal');
+    var category = e.target.dataset.gaCategory;
+    var action = e.target.dataset.gaAction;
 
-    if (this.hideModal) {
+    if (hideModal) {
+        ga('send', 'event', category, action, 'Download');
         window.location = downloadUrl;
     } else {
 
-         this.modal = new Modal({
-            modal: this.el.querySelector('.js-modal-container'),
+         var modal = new Modal({
+            modal: this.modalContainer,
             callback: function () {
                 window.location = downloadUrl;
                 window.localStorage.setItem('hideEmailModal', true);
             }
         });
 
-        this.modal.openModal(e);
+        ga('send', 'event', category, action, 'Download Modal');
+        modal.openModal(e);
     }
 };
 
 Font.prototype.updateDownloadModal = function (e) {
-    this.el.querySelector('.js-font-modal-form').classList.add('hidden');
-    this.el.querySelector('.js-font-modal-close').innerHTML = 'I got \'em. Now download that font!'
+    this.modalForm.classList.add('hidden');
+    this.modalClose.innerHTML = 'I got \'em. Now download that font!'
 }

@@ -18,7 +18,15 @@
                 </form>
             </div>
 
-            <a href="javascript:void(0);" class="js-close-modal js-font-modal-close">Nope, just download the font.</a>
+            <a
+                href="javascript:void(0);"
+                class="js-close-modal js-font-modal-close js-ga-trigger"
+                data-ga-category="{{font.name}} Page"
+                data-ga-action="click"
+                data-ga-label="Finish Download"
+            >
+                Nope, just download the font.
+            </a>
 
         </div>
     </div>
