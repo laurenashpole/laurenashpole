@@ -10,6 +10,11 @@ function Modal (options) {
                 selector: '.js-close-modal',
                 eventType: 'click',
                 callback: this.closeModal.bind(this)
+            },
+            {
+                selector: '.js-close-modal-background',
+                eventType: 'click',
+                callback: this.closeModalBackground.bind(this)
             }
         ]
     };
@@ -36,4 +41,11 @@ Modal.prototype.closeModal = function (e) {
     if (this.options.callback && this.options.callback instanceof Function) {
         this.options.callback(e);
     }
+}
+
+Modal.prototype.closeModalBackground = function (e) {
+    e.preventDefault();
+
+    this.options.modal.classList.remove('is-open');
+    document.querySelector('html').classList.remove('modal-open');
 }
