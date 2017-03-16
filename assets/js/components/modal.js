@@ -44,8 +44,11 @@ Modal.prototype.closeModal = function (e) {
 }
 
 Modal.prototype.closeModalBackground = function (e) {
-    e.preventDefault();
 
-    this.options.modal.classList.remove('is-open');
-    document.querySelector('html').classList.remove('modal-open');
+    if (e.target.classList.contains('js-close-modal-background')) {
+        e.preventDefault();
+
+        this.options.modal.classList.remove('is-open');
+        document.querySelector('html').classList.remove('modal-open');
+    }
 }

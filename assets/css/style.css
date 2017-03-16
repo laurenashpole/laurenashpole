@@ -589,7 +589,9 @@ select {
   font-weight: inherit;
   text-transform: inherit;
   line-height: inherit;
+  -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 input:focus,
@@ -669,6 +671,7 @@ select:focus {
 }
 
 .select {
+  height: 2rem;
   background: #fff;
   padding: 0 0.5rem;
   line-height: 2rem;
@@ -721,7 +724,7 @@ a img {
   display: block;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
   .img-default {
     display: none;
   }
