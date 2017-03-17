@@ -3,23 +3,19 @@ function All () {
 }
 
 All.prototype.initialize = function () {
-    // TO DO: Dev only, delete this line
-    window.localStorage.clear();
-
     var analytics = new Analytics();
     var nav = new Nav();
 
-    this.checkHover();
+    this.checkTouch();
     this.checkReferrer();
 };
 
-All.prototype.checkHover = function () {
+All.prototype.checkTouch = function () {
 
-    window.addEventListener('mouseover', function onFirstHover () {
-        document.querySelector('html').classList.add('has-hover');
-        window.removeEventListener('mouseover', onFirstHover, false);
+    window.addEventListener('touchstart', function onFirstTouch() {
+        document.querySelector('html').classList.remove('is-not-touch');
+        window.removeEventListener('touchstart', onFirstTouch, false);
     }, false);
-
 };
 
 All.prototype.checkReferrer = function () {

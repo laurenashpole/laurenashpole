@@ -151,7 +151,7 @@
         @include flex-justify(center);
     }
 
-    .nav-logo-container:hover {
+    .is-not-touch .nav-logo-container:hover {
         background: $color-red-hover;
     }
 

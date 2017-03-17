@@ -36,7 +36,7 @@
     @include transition(all 0.25s);
 }
 
-.footer-social-link:hover {
+.is-not-touch .footer-social-link:hover {
     background: #675e75;
     color: $color-white;
 }
@@ -72,7 +72,7 @@
     @include transition(background 0.25s);
 }
 
-.footer-button:hover {
+.is-not-touch .footer-button:hover {
     background: #675e75;
 }
 
@@ -91,7 +91,7 @@
         width: 3.5rem;
     }
 
-    .footer-social-link:hover {
+    .is-not-touch .footer-social-link:hover {
         width: 3.5rem;
         height: 3.5rem;
         border-radius: 0;

@@ -136,8 +136,8 @@ a,
   cursor: pointer;
 }
 
-a:hover,
-.link:hover {
+.is-not-touch a:hover,
+.is-not-touch .link:hover {
   color: #242120;
 }
 
@@ -175,20 +175,20 @@ a:hover,
     right: 0;
   }
 
-  .has-hover-border:hover:before,
-  .has-hover-border:hover:after {
+  .is-not-touch .has-hover-border:hover:before,
+  .is-not-touch .has-hover-border:hover:after {
     width: 100%;
     height: 100%;
     -webkit-transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
     transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
   }
 
-  .has-hover-border:hover:before {
+  .is-not-touch .has-hover-border:hover:before {
     border-top-color: #d5e7db;
     border-right-color: #d5e7db;
   }
 
-  .has-hover-border:hover:after {
+  .is-not-touch .has-hover-border:hover:after {
     border-bottom-color: #d5e7db;
     border-left-color: #d5e7db;
   }
@@ -342,7 +342,7 @@ li {
   display: block;
 }
 
-.button:hover {
+.is-not-touch .button:hover {
   color: #fff;
 }
 
@@ -365,8 +365,8 @@ li {
   right: 0.375rem;
 }
 
-.button:hover:before,
-.button:hover:after {
+.is-not-touch .button:hover:before,
+.is-not-touch .button:hover:after {
   width: calc(100% - 0.75rem);
   height: calc(100% - 0.75rem);
   -webkit-transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
@@ -381,22 +381,22 @@ li {
   background: #e26051;
 }
 
-.button.is-primary:hover:before {
+.is-not-touch .button.is-primary:hover:before {
   border-top-color: #e26051;
   border-right-color: #e26051;
 }
 
-.button.is-primary:hover:after {
+.is-not-touch .button.is-primary:hover:after {
   border-bottom-color: #e26051;
   border-left-color: #e26051;
 }
 
-.button.is-secondary:hover:before {
+.is-not-touch .button.is-secondary:hover:before {
   border-top-color: #dd4433;
   border-right-color: #dd4433;
 }
 
-.button.is-secondary:hover:after {
+.is-not-touch .button.is-secondary:hover:after {
   border-bottom-color: #dd4433;
   border-left-color: #dd4433;
 }
@@ -405,67 +405,11 @@ li {
   font-size: 0;
 }
 
-.button.is-processing:after,
-.button.is-processing:before {
-  content: " ";
-  height: 3px;
-  border-radius: 1.5px;
+.button.is-processing .button-content:before {
+  content: "Processing";
+  font-size: 1rem;
 }
 
-.button.is-processing:after {
-  background: #fae3e1;
-  width: 40px;
-  -webkit-animation: spin 6s infinite linear;
-  animation: spin 6s infinite linear;
-}
-
-.button.is-processing:before {
-  background: #d5e7db;
-  width: 40px;
-  -webkit-animation: spin-counter 4s infinite linear;
-  animation: spin-counter 4s infinite linear;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spin-counter {
-  0% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-@keyframes spin-counter {
-  0% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
 .button-content {
   height: 100%;
   display: -ms-flexbox;
@@ -925,7 +869,7 @@ a img {
     justify-content: center;
   }
 
-  .nav-logo-container:hover {
+  .is-not-touch .nav-logo-container:hover {
     background: #d43f29;
   }
 
@@ -1041,7 +985,7 @@ a img {
   transition: all 0.25s;
 }
 
-.footer-social-link:hover {
+.is-not-touch .footer-social-link:hover {
   background: #675e75;
   color: #fff;
 }
@@ -1082,7 +1026,7 @@ a img {
   transition: background 0.25s;
 }
 
-.footer-button:hover {
+.is-not-touch .footer-button:hover {
   background: #675e75;
 }
 
@@ -1102,7 +1046,7 @@ a img {
     width: 3.5rem;
   }
 
-  .footer-social-link:hover {
+  .is-not-touch .footer-social-link:hover {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0;

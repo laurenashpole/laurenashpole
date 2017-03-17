@@ -9,7 +9,7 @@
     display: block;
 }
 
-.button:hover {
+.is-not-touch .button:hover {
     color: $color-white;
 }
 
@@ -32,8 +32,8 @@
     right: 0.375rem;
 }
 
-.button:hover:before,
-.button:hover:after {
+.is-not-touch .button:hover:before,
+.is-not-touch .button:hover:after {
     width: calc(100% - 0.75rem);
     height: calc(100% - 0.75rem);
     @include transition(width 0.25s ease-out, height 0.25s ease-out 0.25s);
@@ -47,22 +47,22 @@
     background: $button-color-secondary;
 }
 
-.button.is-primary:hover:before {
+.is-not-touch .button.is-primary:hover:before {
     border-top-color: $button-color-secondary;
     border-right-color: $button-color-secondary;
 }
 
-.button.is-primary:hover:after {
+.is-not-touch .button.is-primary:hover:after {
     border-bottom-color: $button-color-secondary;
     border-left-color: $button-color-secondary;
 }
 
-.button.is-secondary:hover:before {
+.is-not-touch .button.is-secondary:hover:before {
     border-top-color: $button-color-primary;
     border-right-color: $button-color-primary;
 }
 
-.button.is-secondary:hover:after {
+.is-not-touch .button.is-secondary:hover:after {
     border-bottom-color: $button-color-primary;
     border-left-color: $button-color-primary;
 }
@@ -71,61 +71,9 @@
     font-size: 0;
 }
 
-.button.is-processing:after,
-.button.is-processing:before {
-    content: " ";
-    height: 3px;
-    border-radius: 1.5px;
-}
-
-.button.is-processing:after {
-    background: $color-abstract-pink;
-    width: 40px;
-    -webkit-animation: spin 6s infinite linear;
-    animation: spin 6s infinite linear;
-}
-
-.button.is-processing:before {
-    background: $color-abstract-green;
-    width: 40px;
-    -webkit-animation: spin-counter 4s infinite linear;
-    animation: spin-counter 4s infinite linear;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        @include transform(rotate(0deg));
-    }
-    100% {
-        @include transform(rotate(360deg));
-    }
-}
-
-@keyframes spin {
-    0% {
-        @include transform(rotate(0deg));
-    }
-    100% {
-        @include transform(rotate(360deg));
-    }
-}
-
-@-webkit-keyframes spin-counter {
-    0% {
-        @include transform(rotate(360deg));
-    }
-    100% {
-        @include transform(rotate(0deg));
-    }
-}
-
-@keyframes spin-counter {
-    0% {
-        @include transform(rotate(360deg));
-    }
-    100% {
-        @include transform(rotate(0deg));
-    }
+.button.is-processing .button-content:before {
+    content: "Processing";
+    font-size: 1rem;
 }
 
 .button-content {

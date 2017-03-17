@@ -22,7 +22,7 @@
 }
 
 .gallery-thumbnail {
-    margin: 0 0.5rem 0 0;
+    margin: 0 0.25rem 0 0;
     cursor: pointer;
     @include flex-child(0, 1, 100px);
 }
@@ -34,6 +34,7 @@
 @media (min-width: 768px) {
 
     .gallery-thumbnail {
+        margin: 0 0.5rem 0 0;
         @include flex-child(0, 1, calc(20% - (0.5rem * 0.8)));
     }
 }

@@ -33,7 +33,7 @@ Contact.prototype.sendMessage = function (e) {
         return false;
     }
 
-    e.target.classList.add('is-processing');
+    this.el.querySelector('.js-contact-send').classList.add('is-processing');
 
     var _this = this;
     var request = new XMLHttpRequest();
