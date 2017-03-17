@@ -102,7 +102,7 @@
     @include transition(transform 0.3s);
 }
 
-.font-grid-link:hover:before {
+.is-not-touch .font-grid-link:hover:before {
     @include transform(translate3d(0, -20%, 0) rotate(15deg));
 }
 
@@ -111,7 +111,7 @@
     @include transition(opacity 0.3s);
 }
 
-.font-grid-link:hover .font-grid-image {
+.is-not-touch .font-grid-link:hover .font-grid-image {
     opacity: 0;
 }
 
@@ -127,7 +127,7 @@
     @include transform(translate3d(-50%, -50%, 0));
 }
 
-.font-grid-link:hover .font-grid-title {
+.is-not-touch .font-grid-link:hover .font-grid-title {
     opacity: 1;
 }
 
@@ -147,7 +147,7 @@
     @include flex-justify(center);
 }
 
-.font-grid-link:hover .font-grid-cta {
+.is-not-touch .font-grid-link:hover .font-grid-cta {
     opacity: 1;
 }
 

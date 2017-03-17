@@ -1,5 +1,5 @@
 function Nav (options) {
-    var options = {
+    var defaults = {
         el: document.querySelector('.js-nav'),
         events: [
             {
@@ -10,7 +10,8 @@ function Nav (options) {
         ]
     };
 
-    View.call(this, options);
+    this.options = this.extend(defaults, options);
+    View.call(this, this.options);
 }
 
 Nav.prototype = new View();

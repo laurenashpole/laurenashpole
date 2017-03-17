@@ -22,8 +22,8 @@ a,
     cursor: pointer;
 }
 
-a:hover,
-.link:hover {
+.is-not-touch a:hover,
+.is-not-touch .link:hover {
     color: $color-gray-darkest;
 }
 
@@ -62,19 +62,19 @@ a:hover,
         right: 0;
     }
 
-    .has-hover-border:hover:before,
-    .has-hover-border:hover:after {
+    .is-not-touch .has-hover-border:hover:before,
+    .is-not-touch .has-hover-border:hover:after {
         width: 100%;
         height: 100%;
         @include transition(width 0.15s ease-out, height 0.15s ease-out 0.15s);
     }
 
-    .has-hover-border:hover:before {
+    .is-not-touch .has-hover-border:hover:before {
         border-top-color: $color-green-light;
         border-right-color: $color-green-light;
     }
 
-    .has-hover-border:hover:after {
+    .is-not-touch .has-hover-border:hover:after {
         border-bottom-color: $color-green-light;
         border-left-color: $color-green-light;
     }

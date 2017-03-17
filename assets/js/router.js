@@ -1,13 +1,12 @@
 (function Router () {
-    var analytics = new Analytics();
-    var nav = new Nav();
+    var allPages = new All();
 
     if (window.location.href.indexOf('fonts/') !== -1) {
-        var fontPage = new FontPage();
+        var fontPage = new Font();
     }
 
     if (window.location.href.indexOf('contact') !== -1) {
-        var contactForm = new ContactForm();
+        var contactPage = new Contact();
     }
 
 })();

@@ -27,3 +27,13 @@ View.prototype.addEventListener = function (selector, eventType, callback) {
         });
     }
 };
+
+View.prototype.extend = function (defaults, options) {
+    for (var key in options) {
+        if (options.hasOwnProperty(key)) {
+            defaults[key] = options[key];
+        }
+    }
+
+    return defaults;
+};

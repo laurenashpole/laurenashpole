@@ -1,5 +1,5 @@
 function Analytics (options) {
-    var options = {
+    var defaults = {
         events: [
             {
                 selector: '.js-ga-trigger',
@@ -9,7 +9,8 @@ function Analytics (options) {
         ]
     };
 
-    View.call(this, options);
+    this.options = this.extend(defaults, options);
+    View.call(this, this.options);
 }
 
 Analytics.prototype = new View();

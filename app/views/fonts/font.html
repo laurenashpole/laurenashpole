@@ -71,21 +71,24 @@
                                 data-ga-action="click"
                                 data-ga-label="Buy Now"
                             >
-                                Purchase Commercial
+                                <span class="button-content">
+                                    Purchase Commercial
+                                </span>
                             </button>
                         </form>
                     {% endif %}
 
                     {% if font.personal_font_file %}
-                        <div class="font-button-container">
+                        <div class="font-button-container js-font-modal-open">
                             <a
                                 href="/downloads/{{font.personal_font_file}}"
-                                class="button is-uppercase is-extra-bold is-secondary has-no-underline js-ga-trigger"
+                                class="button is-uppercase is-extra-bold is-secondary has-no-underline"
                                 data-ga-category="{{font.name}} Page"
                                 data-ga-action="click"
-                                data-ga-label="Download"
                             >
-                                Download Personal
+                                <span class="button-content">
+                                    Download Personal
+                                </span>
                             </a>
                         </div>
                     {% endif %}
@@ -1081,5 +1084,8 @@
             </div>
         </section>
 
+        {% include './includes/modal-mailing.html' %}
+
     </main>
+
 {% endblock %}
