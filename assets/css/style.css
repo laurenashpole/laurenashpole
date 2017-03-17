@@ -413,18 +413,7 @@ html.modal-open {
   line-height: 1.35em;
   cursor: pointer;
   position: relative;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+  display: block;
 }
 
 .button:hover {
@@ -551,6 +540,22 @@ html.modal-open {
     transform: rotate(0deg);
   }
 }
+.button-content {
+  height: 100%;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
 .button-block {
   position: relative;
   display: -ms-flexbox;
@@ -582,7 +587,9 @@ button,
 select {
   width: 100%;
   background: none;
+  margin: 0;
   border: none;
+  padding: 0;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -1097,6 +1104,12 @@ a img {
   .nav-links {
     background: none;
     border: none;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: stretch;
+    -webkit-align-items: stretch;
+    align-items: stretch;
   }
 
   .nav-links:before,
@@ -1105,7 +1118,6 @@ a img {
   }
 
   .nav-links-list {
-    height: 100%;
     padding: 0;
     display: -ms-flexbox;
     display: -webkit-flex;

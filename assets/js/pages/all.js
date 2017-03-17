@@ -3,6 +3,9 @@ function All () {
 }
 
 All.prototype.initialize = function () {
+    // TO DO: Dev only, delete this line
+    window.localStorage.clear();
+
     var analytics = new Analytics();
     var nav = new Nav();
 
