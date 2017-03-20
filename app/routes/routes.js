@@ -25,6 +25,26 @@ module.exports = function (app) {
         res.redirect('/fonts');
     });
 
+    app.get('/fontbikes.html', function (req, res) {
+        res.redirect('/fonts/bikes');
+    });
+
+    app.get('/fontcandy.html', function (req, res) {
+        res.redirect('/fonts/candy-randy');
+    });
+
+    app.get('/fonthecubus.html', function (req, res) {
+        res.redirect('/fonts/hecubus');
+    });
+
+    app.get('/fontsewing.html', function (req, res) {
+        res.redirect('/fonts/sewing-patterns');
+    });
+
+    app.get('/fontsewing2.html', function (req, res) {
+        res.redirect('/fonts/sewing-patterns-2');
+    });
+
     app.get('/downloads/thirty-nine-smooth', function (req, res) {
         res.redirect('/fonts/39-smooth');
     });
