@@ -25,6 +25,10 @@ module.exports = function (app) {
         res.redirect('/fonts');
     });
 
+    app.get('/font39smooth.html', function (req, res) {
+        res.redirect('/fonts/39-smooth');
+    });
+
     app.get('/fontbikes.html', function (req, res) {
         res.redirect('/fonts/bikes');
     });

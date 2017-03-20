@@ -11,6 +11,7 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('express-flash');
 var multer = require('multer');
+var compression = require('compression');
 
 var app = express();
 var locals = require('./app/config/locals')(app);
@@ -34,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression());
 
 // Passport
 app.use(session({
