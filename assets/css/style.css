@@ -1582,15 +1582,48 @@ a img {
   display: inline-block;
 }
 
-.font-details-list {
-  border-top: 2px solid #fff;
-  padding-top: 1rem;
+.font-details-lists {
+  border: 2px solid #fff;
 }
 
 .font-details-list + .font-details-list {
-  border: none;
+  border-top: 2px solid #fff;
 }
 
+.font-details-list-heading {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #fff;
+  padding: 0.75rem 1rem;
+}
+
+.font-details-list-item {
+  padding: 0 0.75rem;
+}
+
+.font-details-list-item:last-child {
+  padding-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .font-details-lists {
+    border-right-width: 1px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  .font-details-list {
+    border-right: 1px solid #fff;
+    -ms-flex: 1 0 50%;
+    -webkit-flex: 1 0 50%;
+    flex: 1 0 50%;
+  }
+
+  .font-details-list + .font-details-list {
+    border-top: none;
+    border-left: 1px solid #fff;
+  }
+}
 .font-example {
   border: 2px solid #f6f5f4;
   padding: 0.5rem;

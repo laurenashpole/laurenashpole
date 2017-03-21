@@ -172,7 +172,7 @@
                 <div class="font-details-lists">
                     {% if font.commercial_font_file %}
                         <ul class="list-unstyled font-details-list">
-                            <li class="list-heading is-bold">Commercial Use Details</li>
+                            <li class="font-details-list-heading is-bold">Commercial Use Details</li>
 
                             {% for detail in font.commercial_file %}
                                 {% if detail.is_included %}
@@ -184,7 +184,7 @@
 
                     {% if font.personal_font_file %}
                         <ul class="list-unstyled font-details-list">
-                            <li class="list-heading is-bold">Personal Use Details</li>
+                            <li class="font-details-list-heading is-bold">Personal Use Details</li>
 
                             {% for detail in font.personal_file %}
                                 {% if detail.is_included %}
