@@ -10,7 +10,6 @@ var transporter = nodemailer.createTransport({
 });
 
 exports.send = function (req, res) {
-
     var response = {
         success: false
     }
@@ -28,11 +27,7 @@ exports.send = function (req, res) {
         transporter.sendMail(mailOptions, function (err, info) {
 
             if (!err) {
-
-                response = {
-                    success: true
-                }
-
+                response.success = true
             }
 
             res.json(response);

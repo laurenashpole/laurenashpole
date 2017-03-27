@@ -3,6 +3,23 @@ var fs = require('fs');
 var path = require('path');
 var async = require('async');
 
+exports.findAll = function (req, res) {
+
+    Font.find().sort({ name: 'asc' }).exec(function (err, fonts) {
+        var response = {
+            success: false
+        }
+
+        if (!err) {
+            response.success = true;
+            response.fonts = fonts;
+        }
+
+        res.json(response);
+    });
+
+};
+
 exports.create = function (req, res) {
     var font = new Font(req.body);
 

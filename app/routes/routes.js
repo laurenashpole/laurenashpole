@@ -2,6 +2,7 @@ var index = require('../controllers/index');
 var contact = require('../controllers/contact');
 var contactServices = require('../services/contact');
 var fonts = require('../controllers/fonts');
+var fontServices = require('../services/fonts');
 
 module.exports = function (app) {
 
@@ -10,6 +11,7 @@ module.exports = function (app) {
     app.get('/contact/confirm', contact.confirm);
     app.post('/services/contact/send', contactServices.send);
     app.get('/fonts', fonts.renderFonts);
+    app.get('/services/fonts/all', fontServices.findAll);
     app.get('/fonts/licensing', fonts.licensing);
     app.get('/fonts/eula', fonts.eula);
     app.get('/fonts/:font_slug', fonts.renderFont);
