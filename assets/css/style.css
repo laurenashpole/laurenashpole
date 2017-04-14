@@ -628,10 +628,10 @@ select:focus {
   line-height: 2rem;
 }
 
-.select-icon-caret-container {
+.select-caret {
   height: 100%;
   border-left: 2px solid #f6f5f4;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -643,6 +643,10 @@ select:focus {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+}
+
+.select-label-inset {
+  padding: 0;
 }
 
 figure {
@@ -1645,6 +1649,10 @@ a img {
 
 .font-example-select {
   margin: 0.5rem 0;
+}
+
+.font-example-select-caret {
+  padding-right: 0.5rem;
 }
 
 .font-example-text {

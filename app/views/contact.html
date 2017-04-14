@@ -28,8 +28,18 @@
                 </div>
 
                 <div class="input-container input-label-inset">
-                    <input type="text" id="subject" name="subject" placeholder="Technical issues, licensing, etc." class="input js-contact-form-input" />
-                    <label class="is-uppercase is-extra-bold" for="subject">Subject <span class="label-required">(required)</span></label>
+                    <div class="select-container input">
+                        <select class="select select-label-inset" id="subject" name="subject">
+                            <option value="Font Licensing">Font Licensing</option>
+                            <option value="Technical Issues">Technical Issues</option>
+                            <option value="Tumblr Themes">Tumblr Themes</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="select-caret">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </div>
+                    <label class="is-uppercase is-extra-bold" for="subject">Subject</label>
                 </div>
 
                 <div class="input-container">

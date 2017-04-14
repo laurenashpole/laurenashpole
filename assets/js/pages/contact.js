@@ -72,7 +72,6 @@ Contact.prototype.validateForm = function () {
     var fields = {
         senderEmail: this.el.senderEmail,
         senderName: this.el.senderName,
-        subject: this.el.subject,
         message: this.el.message
     };
 
