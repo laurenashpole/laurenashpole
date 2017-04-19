@@ -122,7 +122,9 @@ code {
 .wf-loading h5,
 .wf-loading h6,
 .wf-loading .has-heading-font {
-  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
 }
 
 @media (min-width: 768px) {
