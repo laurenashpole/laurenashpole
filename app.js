@@ -14,6 +14,7 @@ var multer = require('multer');
 var compression = require('compression');
 
 var app = express();
+app.use(compression());
 var locals = require('./app/config/locals')(app);
 var config = require('./app/config/config')();
 
@@ -28,7 +29,6 @@ mongoose.connect(config.db, function (err) {
 });;
 
 // Middleware
-app.use(compression());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
