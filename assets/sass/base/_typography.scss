@@ -8,6 +8,7 @@ h6 {
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
     font-family: $font-family-headings;
+    @include transition(opacity 150ms ease-in-out);
 }
 
 h1 {
@@ -70,6 +71,7 @@ code {
 
 .has-heading-font {
     font-family: $font-family-headings;
+    @include transition(opacity 150ms ease-in-out);
 }
 
 .has-no-margin {
@@ -84,7 +86,6 @@ code {
 .wf-loading h6,
 .wf-loading .has-heading-font {
     opacity: 0;
-    @include transition(opacity 150ms ease-in-out);
 }
 
 @media (min-width: 768px) {
