@@ -76,6 +76,16 @@ code {
     margin: 0;
 }
 
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading h4,
+.wf-loading h5,
+.wf-loading h6,
+.wf-loading .has-heading-font {
+    visibility: hidden
+}
+
 @media (min-width: 768px) {
 
     h1,
