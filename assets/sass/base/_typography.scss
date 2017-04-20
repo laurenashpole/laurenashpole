@@ -41,6 +41,7 @@ h6 {
 p {
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
+    @include transition(opacity 150ms ease-in-out);
 }
 
 blockquote {
@@ -50,6 +51,10 @@ blockquote {
 
 code {
     vertical-align: bottom;
+}
+
+i {
+    @include transition(opacity 150ms ease-in-out);
 }
 
 .is-uppercase {
@@ -84,7 +89,9 @@ code {
 .wf-loading h4,
 .wf-loading h5,
 .wf-loading h6,
-.wf-loading .has-heading-font {
+.wf-loading .has-heading-font,
+.wf-loading p,
+.wf-loading i {
     opacity: 0;
 }
 
