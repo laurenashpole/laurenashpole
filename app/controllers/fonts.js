@@ -55,6 +55,7 @@ exports.renderFont = function (req, res, next) {
 
         res.render('fonts/font', {
             title: font.name + ' - Fonts',
+            description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
             font: font
         });
 
