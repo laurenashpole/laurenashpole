@@ -53,6 +53,10 @@ exports.renderFont = function (req, res, next) {
             return next(notFound);
         }
 
+        if (font.alternate_style) {
+            font.alternate_styles = font.alternate_style.split(', ');
+        }
+
         res.render('fonts/font', {
             title: font.name + ' - Fonts',
             description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
