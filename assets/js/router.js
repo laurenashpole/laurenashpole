@@ -8,5 +8,4 @@
     if (window.location.href.indexOf('contact') !== -1) {
         var contactPage = new Contact();
     }
-
 })();
