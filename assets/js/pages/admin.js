@@ -19,7 +19,6 @@ Admin.prototype.deleteFont = function (e) {
     e.preventDefault();
 
     if (confirm('Are you sure you want to delete this font?')) {
-        var data = {};
         var endpoint = (e.target).action;
 
         this.xmlRequest(endpoint);
@@ -36,16 +35,16 @@ Admin.prototype.xmlRequest = function (endpoint) {
     request.onload = function () {
         if (request.status === 200) {
             var response = JSON.parse(request.responseText);
-            _this.redirect.call(_this, response, e);
+            _this.redirect.call(_this, response);
         }
     };
 
     request.send();
 };
 
-Admin.prototype.redirect = function (response, e) {
+Admin.prototype.redirect = function (response) {
     if (response.success) {
-        window.location = 'admin/fonts';
+        window.location = '/admin/fonts';
     }
 };
 

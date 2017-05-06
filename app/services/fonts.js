@@ -21,10 +21,6 @@ exports.findAll = function (req, res) {
 };
 
 exports.create = function (req, res) {
-    var response = {
-        success: false
-    };
-
     var font = new Font(req.body);
 
     async.each(req.files, function (file, callback) {
@@ -44,8 +40,7 @@ exports.create = function (req, res) {
         font.save(function (err) {
             if (err) res.send(err);
 
-            response.success = true;
-            res.json(response);
+            res.redirect('/admin/fonts');
         });
 
     });
@@ -54,9 +49,6 @@ exports.create = function (req, res) {
 
 
 exports.update = function (req, res) {
-    var response = {
-        success: false
-    };
 
     Font.findById(req.params.font_id, function (err, font) {
         if (err) res.send(err);
@@ -97,8 +89,7 @@ exports.update = function (req, res) {
             font.save(function (err) {
                 if (err) res.send(err);
 
-                response.success = true;
-                res.json(response);
+                res.redirect('/admin/fonts');
             });
 
         });
