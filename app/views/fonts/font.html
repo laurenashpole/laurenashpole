@@ -124,11 +124,19 @@
 
                         <div class="gallery-thumbnails-container">
                             <div class="gallery-thumbnails">
-                                {% for image in font.image_collection %}
-                                    <div class="gallery-thumbnail js-font-image-thumbnail">
-                                        <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
-                                    </div>
-                                {% endfor %}
+                                {% if font.image_collection_thumbnails.length %}
+                                    {% for index, image in font.image_collection_thumbnails %}
+                                        <div class="gallery-thumbnail">
+                                            <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{font.image_collection[index]}}" />
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for image in font.image_collection %}
+                                        <div class="gallery-thumbnail">
+                                            <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{image}}"/>
+                                        </div>
+                                    {% endfor %}
+                                {% endif%}
                             </div>
                         </div>
                     {% else %}

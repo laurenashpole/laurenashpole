@@ -72,7 +72,14 @@ exports.update = function (req, res) {
                             deleteFile(imageFile, directory);
                         });
 
+                        if (font['image_collection_thumbnails']) {
+                            font['image_collection_thumbnails'].forEach(function (imageFile) {
+                                deleteFile(imageFile, directory);
+                            });
+                        }
+
                         font[file.fieldname] = [];
+                        font['image_collection_thumbnails'] = [];
                         imageCollectionCleared = true;
                     }
                 } else {
@@ -125,7 +132,6 @@ exports.delete = function (req, res) {
                 font.commercial_font_file
             ]
         };
-
 
         async.forEachOf(files, function (fileGroup, fileType, callback) {
             var directory = getDirectoryByFile(fileType);
@@ -247,9 +253,9 @@ var createThumbnails = function (font, file, directory) {
         destination: directory,
         suffix: suffix,
         width: 360
-    }, function (files, err, stdout, stderr) {
-        font['image_collection_thumbnails'].push(thumbName);
     });
+
+    font['image_collection_thumbnails'].push(thumbName);
 };
 
 var deleteFile = function (file, directory) {

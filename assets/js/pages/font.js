@@ -39,7 +39,7 @@ Font.prototype = new View();
 
 Font.prototype.cacheSelectors = function () {
     this.textContainer = this.el.querySelectorAll('.font-example-text');
-    this.imageContainer = this.el.querySelectorAll('.js-font-image-main');
+    this.imageContainer = this.el.querySelector('.js-font-image-main');
     this.modalForm = this.el.querySelector('.js-font-modal-form');
     this.modalClose = this.el.querySelector('.js-font-modal-close');
     this.modalContainer = this.el.querySelector('.js-modal-container');
@@ -74,10 +74,8 @@ Font.prototype.updateFontExampleSize = function (e) {
 Font.prototype.updateFontImageThumbnail = function (e) {
     e.preventDefault();
 
-    for (var i = 0; i < this.imageContainer.length; i++) {
-        this.imageContainer[i].src = e.target.src;
-    }
-
+    var imageSrc = '/images/fonts/' + e.target.getAttribute('data-image');
+    this.imageContainer.src = imageSrc;
 };
 
 Font.prototype.openDownloadModal = function (e) {
