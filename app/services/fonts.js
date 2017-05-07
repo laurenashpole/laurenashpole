@@ -2,6 +2,7 @@ var Font = require('../models/font');
 var fs = require('fs');
 var path = require('path');
 var async = require('async');
+var thumbnail = require('node-thumbnail').thumb;
 
 exports.findAll = function (req, res) {
     var response = {
@@ -32,7 +33,7 @@ exports.create = function (req, res) {
         }
 
         setFileValues(font, file);
-        uploadFile(file, directory, callback);
+        uploadFile(font, file, directory, callback);
 
     }, function (err) {
         if (err) res.send(err);
@@ -46,7 +47,6 @@ exports.create = function (req, res) {
     });
 
 };
-
 
 exports.update = function (req, res) {
 
@@ -81,7 +81,7 @@ exports.update = function (req, res) {
             }
 
             setFileValues(font, file);
-            uploadFile(file, directory, callback);
+            uploadFile(font, file, directory, callback);
 
         }, function (err) {
             if (err) res.send(err);
@@ -109,6 +109,7 @@ exports.delete = function (req, res) {
         var files = {
             images: [
                 font.image_collection,
+                font.image_collection_thumbnails,
                 font.image,
                 font.image_retina,
                 font.image_main,
@@ -191,11 +192,9 @@ var getDirectoryByFile = function (file) {
 };
 
 var getZipName = function (originalName) {
-    var zipName;
     var timestamp = Math.floor(Date.now() / 10000000);
     var nameArray = originalName.split('.');
-
-    zipName = nameArray[0] + timestamp + '.' + nameArray[1];
+    var zipName = nameArray[0] + timestamp + '.' + nameArray[1];
 
     return zipName;
 };
@@ -226,10 +225,30 @@ var setFontProperties = function (req, font) {
     }
 };
 
-var uploadFile = function (file, directory, callback) {
+var uploadFile = function (font, file, directory, callback) {
     fs.rename(file.path, path.resolve(directory, file.originalname), function (err) {
         if (err) res.send(err);
+
+        if (file.fieldname === 'image_collection') {
+            createThumbnails(font, file, directory);
+        }
+
         callback();
+    });
+};
+
+var createThumbnails = function (font, file, directory) {
+    var suffix = '-thumb';
+    var nameArray = file.originalname.split('.');
+    var thumbName = nameArray[0] + suffix + '.' + nameArray[1];
+
+    thumbnail({
+        source: directory + file.originalname,
+        destination: directory,
+        suffix: suffix,
+        width: 360
+    }, function (files, err, stdout, stderr) {
+        font['image_collection_thumbnails'].push(thumbName);
     });
 };
 
