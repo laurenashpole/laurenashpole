@@ -32,6 +32,11 @@
     font-size: 60px;
     line-height: 1.25;
     word-break: break-word;
+    @include transition(opacity 150ms ease-in-out);
+}
+
+.css-loading .font-example-text {
+    opacity: 0;
 }
 
 .font-example-text:last-child {

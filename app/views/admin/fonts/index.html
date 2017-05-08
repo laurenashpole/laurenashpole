@@ -12,7 +12,9 @@
                 {% for font in fonts %}
                     <li class="font-list-item">
                         <a href="/admin/fonts/{{font.id}}">{{font.name}}</a>
-                        <form method="post" action="/services/fonts/{{font.id}}?_method=DELETE"><button class="font-list-delete" type="submit">Delete</button></form>
+                        <form class="js-admin-delete" method="post" action="/services/fonts/{{font.id}}?_method=DELETE">
+                            <button class="font-list-delete" type="submit">Delete</button>
+                        </form>
                     </li>
                 {% endfor %}
             </ul>

@@ -33,16 +33,26 @@ function Font (options) {
     this.options = this.extend(defaults, options);
     View.call(this, this.options);
     this.cacheSelectors();
+    this.injectCSS();
 }
 
 Font.prototype = new View();
 
 Font.prototype.cacheSelectors = function () {
+    this.head = document.querySelector('head');
+    this.body = document.querySelector('body');
     this.textContainer = this.el.querySelectorAll('.font-example-text');
-    this.imageContainer = this.el.querySelectorAll('.js-font-image-main');
+    this.imageContainer = this.el.querySelector('.js-font-image-main');
     this.modalForm = this.el.querySelector('.js-font-modal-form');
     this.modalClose = this.el.querySelector('.js-font-modal-close');
     this.modalContainer = this.el.querySelector('.js-modal-container');
+};
+
+Font.prototype.injectCSS = function () {
+    var css = this.el.getAttribute('data-css');
+
+    this.head.innerHTML += '<link rel="stylesheet" href="' + css + '">';
+    this.body.classList.remove('css-loading');
 };
 
 Font.prototype.updateFontExampleText = function (e) {
@@ -74,10 +84,8 @@ Font.prototype.updateFontExampleSize = function (e) {
 Font.prototype.updateFontImageThumbnail = function (e) {
     e.preventDefault();
 
-    for (var i = 0; i < this.imageContainer.length; i++) {
-        this.imageContainer[i].src = e.target.src;
-    }
-
+    var imageSrc = '/images/fonts/' + e.target.getAttribute('data-image');
+    this.imageContainer.src = imageSrc;
 };
 
 Font.prototype.openDownloadModal = function (e) {

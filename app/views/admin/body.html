@@ -14,3 +14,8 @@
     {% block content %}{% endblock %}
 
 {% endblock %}
+
+{% block footer %}
+    {% parent %}
+    <script src="/js/admin.min.js"></script>
+{% endblock %}

@@ -10,6 +10,10 @@ module.exports = function (grunt) {
         'assets/js/router.js'
     ];
 
+    var jsAdminFiles = [
+        'assets/js/pages/admin.js',
+    ];
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
@@ -56,7 +60,8 @@ module.exports = function (grunt) {
             },
             build: {
                 files: {
-                    'public/js/javascript.min.js': jsFiles
+                    'public/js/javascript.min.js': jsFiles,
+                    'public/js/admin.min.js': jsAdminFiles
                 }
             }
         }

@@ -2,7 +2,6 @@
 
 {% block head %}
     {% parent %}
-    <link rel="stylesheet" href="/stylesheets/fonts/{{font.css_file}}">
 
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{font.name}}" />
@@ -23,8 +22,10 @@
     {% endif %}
 {% endblock %}
 
+{% block body-class %}css-loading{% endblock %}
+
 {% block content %}
-    <main class="js-font-page" itemscope itemtype="http://schema.org/Product">
+    <main class="js-font-page" itemscope itemtype="http://schema.org/Product" data-css="/stylesheets/fonts/{{font.css_file}}">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
         <section class="container">
@@ -124,11 +125,19 @@
 
                         <div class="gallery-thumbnails-container">
                             <div class="gallery-thumbnails">
-                                {% for image in font.image_collection %}
-                                    <div class="gallery-thumbnail js-font-image-thumbnail">
-                                        <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" />
-                                    </div>
-                                {% endfor %}
+                                {% if font.image_collection_thumbnails.length %}
+                                    {% for index, image in font.image_collection_thumbnails %}
+                                        <div class="gallery-thumbnail">
+                                            <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{font.image_collection[index]}}" />
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for image in font.image_collection %}
+                                        <div class="gallery-thumbnail">
+                                            <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{image}}"/>
+                                        </div>
+                                    {% endfor %}
+                                {% endif%}
                             </div>
                         </div>
                     {% else %}
