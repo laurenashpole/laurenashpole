@@ -1685,6 +1685,12 @@ a img {
   font-size: 60px;
   line-height: 1.25;
   word-break: break-word;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
+}
+
+.css-loading .font-example-text {
+  opacity: 0;
 }
 
 .font-example-text:last-child {
@@ -1716,6 +1722,12 @@ a img {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out;
+}
+
+.css-loading .font-glyphs {
+  opacity: 0;
 }
 
 .font-glyph-radio {

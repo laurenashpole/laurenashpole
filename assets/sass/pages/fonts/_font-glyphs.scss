@@ -3,6 +3,11 @@
     padding: 0.4rem;
     @include flex();
     @include flex-wrap(wrap);
+    @include transition(opacity 150ms ease-in-out);
+}
+
+.css-loading .font-glyphs {
+    opacity: 0;
 }
 
 .font-glyph-radio {

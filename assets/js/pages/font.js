@@ -33,16 +33,26 @@ function Font (options) {
     this.options = this.extend(defaults, options);
     View.call(this, this.options);
     this.cacheSelectors();
+    this.injectCSS();
 }
 
 Font.prototype = new View();
 
 Font.prototype.cacheSelectors = function () {
+    this.head = document.querySelector('head');
+    this.body = document.querySelector('body');
     this.textContainer = this.el.querySelectorAll('.font-example-text');
     this.imageContainer = this.el.querySelector('.js-font-image-main');
     this.modalForm = this.el.querySelector('.js-font-modal-form');
     this.modalClose = this.el.querySelector('.js-font-modal-close');
     this.modalContainer = this.el.querySelector('.js-modal-container');
+};
+
+Font.prototype.injectCSS = function () {
+    var css = this.el.getAttribute('data-css');
+
+    this.head.innerHTML += '<link rel="stylesheet" href="' + css + '">';
+    this.body.classList.remove('css-loading');
 };
 
 Font.prototype.updateFontExampleText = function (e) {

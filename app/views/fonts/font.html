@@ -2,7 +2,6 @@
 
 {% block head %}
     {% parent %}
-    <link rel="stylesheet" href="/stylesheets/fonts/{{font.css_file}}">
 
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{font.name}}" />
@@ -23,8 +22,10 @@
     {% endif %}
 {% endblock %}
 
+{% block body-class %}css-loading{% endblock %}
+
 {% block content %}
-    <main class="js-font-page" itemscope itemtype="http://schema.org/Product">
+    <main class="js-font-page" itemscope itemtype="http://schema.org/Product" data-css="/stylesheets/fonts/{{font.css_file}}">
         <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
         <section class="container">
