@@ -1,70 +1,60 @@
 var Font = require('../models/font');
-
 var path = require('path');
 var paypal = require('paypal-rest-sdk');
 var fs = require('fs');
 var paypalConfig = require('../config/config')()['paypal'];
 var fontEmail = require('../config/emails')();
+var fontHelper = require('../helpers/fonts');
 
 exports.renderFonts = function (req, res) {
-
-    Font.find().sort({ name: 'asc' }).exec(function (err, fonts) {
-
-        if (err) res.send(err);
-
-        res.render('fonts/fonts', {
-            title: 'Fonts',
-            fonts: fonts
+    fontHelper.findAll()
+        .then (function (data) {
+            res.render('fonts/fonts', {
+                title: 'Fonts',
+                fonts: data.fonts
+            });
+        })
+        .catch(function (err) {
+            res.send(err);
         });
-
-    });
-
 };
 
 exports.licensing = function (req, res) {
-
     res.render('fonts/licensing', {
         title: 'Licensing - Fonts'
     });
-
 };
 
 exports.eula = function (req, res) {
-
     res.render('fonts/eula', {
         title: 'End-User Licensing Agreement - Fonts'
     });
-
 };
 
 exports.renderFont = function (req, res, next) {
+    fontHelper.findBySlug(req.params.font_slug)
+        .then(function (data) {
+            if (data.success) {
+                var font = data.font;
 
-    Font.findOne({
+                if (font.alternate_style) {
+                    font.alternate_styles = font.alternate_style.split(', ');
+                }
 
-        slug: req.params.font_slug
-
-    }, function (err, font) {
-
-        if (err) res.send(err);
-
-        if (!font) {
-            var notFound = new Error('Oops!');
-            notFound.status = 404;
-            return next(notFound);
-        }
-
-        if (font.alternate_style) {
-            font.alternate_styles = font.alternate_style.split(', ');
-        }
-
-        res.render('fonts/font', {
-            title: font.name + ' - Fonts',
-            description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
-            font: font
+                res.render('fonts/font', {
+                    title: font.name + ' - Fonts',
+                    description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
+                    font: font
+                });
+            } else {
+                var notFound = new Error('Oops!');
+                notFound.status = 404;
+                return next(notFound);
+            }
+        })
+        .catch(function (err) {
+            res.send(err);
         });
-
-    });
-
 };
 
 exports.createPayment = function (req, res) {

@@ -20,7 +20,6 @@ Admin.prototype.deleteFont = function (e) {
 
     if (confirm('Are you sure you want to delete this font?')) {
         var endpoint = (e.target).action;
-
         this.xmlRequest(endpoint);
     }
 };
