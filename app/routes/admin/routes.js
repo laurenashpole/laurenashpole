@@ -13,7 +13,7 @@ module.exports = function (app, passport, multer) {
         dest: './temp/'
     });
 
-    /* Admin */
+    /* Home */
     app.get('/admin', admin.render);
 
     /* Login */

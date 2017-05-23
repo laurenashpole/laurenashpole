@@ -1,6 +1,5 @@
 var index = require('../controllers/index');
 var contact = require('../controllers/contact');
-var contactServices = require('../services/contact');
 var fonts = require('../controllers/fonts');
 
 module.exports = function (app) {
@@ -11,7 +10,7 @@ module.exports = function (app) {
     /* Contact */
     app.get('/contact', contact.render);
     app.get('/contact/confirm', contact.confirm);
-    app.post('/services/contact/send', contactServices.send);
+    app.post('/contact/send', contact.send);
 
     /* Fonts Pages */
     app.get('/fonts', fonts.renderFonts);
