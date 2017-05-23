@@ -51,8 +51,6 @@ exports.findBySlug = function (slug) {
         Font.findOne({slug: slug}, function (err, font) {
             if (err) reject(err);
 
-            console.log(font);
-
             if (font) {
                 response.success = true;
                 response.font = font;
