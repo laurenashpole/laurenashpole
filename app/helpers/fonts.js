@@ -89,8 +89,6 @@ exports.updateFont = function (req, font, isNew) {
             success: false
         };
 
-        // var imageCollectionCleared = false;
-
         if (!isNew) {
             _setFontProperties(req, font);
         }
@@ -107,43 +105,6 @@ exports.updateFont = function (req, font, isNew) {
                 resolve(response);
             });
         });
-
-        // async.each(req.files, function (file, callback) {
-        //     var mimetype = file.mimetype;
-        //     var directory = _getDirectoryByMimetype(mimetype);
-
-        //     if (mimetype.indexOf('zip') !== -1) {
-        //         file.originalname = _getZipName(file.originalname);
-        //     }
-
-        //     if (!isNew) {
-        //         if (font[file.fieldname]) {
-        //             if (file.fieldname === 'image_collection') {
-        //                 if (!imageCollectionCleared) {
-        //                     _deleteImageCollections(font, directory, file.fieldname);
-        //                     imageCollectionCleared = true;
-        //                 }
-        //             } else {
-        //                 _deleteFile(font[file.fieldname], directory);
-        //             }
-        //         }
-        //     }
-
-        //     _setFileValues(font, file);
-        //     _uploadFile(font, file, directory, callback);
-
-        // }, function (err) {
-        //     if (err) reject(err);
-
-        //     font.save(function (err) {
-        //         if (err) reject(err);
-
-        //         response.success = true;
-        //         response.font = font;
-
-        //         resolve(response);
-        //     });
-        // });
     });
 };
 
