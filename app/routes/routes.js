@@ -1,24 +1,28 @@
 var index = require('../controllers/index');
 var contact = require('../controllers/contact');
-var contactServices = require('../services/contact');
 var fonts = require('../controllers/fonts');
-var fontServices = require('../services/fonts');
 
 module.exports = function (app) {
 
+    /* Home */
     app.get('/', index.render);
+
+    /* Contact */
     app.get('/contact', contact.render);
     app.get('/contact/confirm', contact.confirm);
-    app.post('/services/contact/send', contactServices.send);
+    app.post('/contact/send', contact.send);
+
+    /* Fonts Pages */
     app.get('/fonts', fonts.renderFonts);
-    app.get('/services/fonts/all', fontServices.findAll);
     app.get('/fonts/licensing', fonts.licensing);
     app.get('/fonts/eula', fonts.eula);
     app.get('/fonts/:font_slug', fonts.renderFont);
+
+    /* Fonts Actions */
     app.post('/fonts/:font_slug/payment', fonts.createPayment);
     app.get('/fonts/:font_slug/confirm', fonts.confirm);
 
-    // Legacy Redirects
+    /* Legacy Redirects */
     app.get('/downloads', function (req, res) {
         res.redirect('/fonts');
     });
@@ -74,5 +78,4 @@ module.exports = function (app) {
     app.get('/eula', function (req, res) {
         res.redirect('/fonts/eula');
     });
-
 };

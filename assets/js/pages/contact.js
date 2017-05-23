@@ -45,7 +45,7 @@ Contact.prototype.sendMessage = function (e) {
         message: this.el.message.value
     };
 
-    request.open('POST', '/services/contact/send');
+    request.open('POST', '/contact/send');
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     request.onload = function () {

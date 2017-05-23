@@ -1,23 +1,22 @@
 var admin = require('../../controllers/admin/index');
 var fonts = require('../../controllers/admin/fonts');
-var fontServices = require('../../services/fonts');
 
 function isLoggedIn (req, res, next) {
-
     if (req.isAuthenticated())
         return next();
 
     res.redirect('/admin');
-
 }
 
 module.exports = function (app, passport, multer) {
-
     var upload = multer({
         dest: './temp/'
     });
 
+    /* Home */
     app.get('/admin', admin.render);
+
+    /* Login */
     app.get('/admin/logout', isLoggedIn, admin.logout);
 
     app.post('/admin/signup', passport.authenticate('local-signup', {
@@ -32,12 +31,13 @@ module.exports = function (app, passport, multer) {
         failureFlash : true
     }));
 
+    /* Font Pages */
     app.get('/admin/fonts', isLoggedIn, fonts.all);
-    app.get('/admin/fonts/create', isLoggedIn, fonts.create);
-    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.edit);
+    app.get('/admin/fonts/create', isLoggedIn, fonts.renderCreate);
+    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.renderEdit);
 
-    app.post('/services/fonts',[isLoggedIn, upload.any(), fontServices.create]);
-    app.put('/services/fonts/:font_id', [isLoggedIn, upload.any(), fontServices.update]);
-    app.delete('/services/fonts/:font_id', isLoggedIn, fontServices.delete);
-
+    /* Font Actions */
+    app.post('/admin/fonts',[isLoggedIn, upload.any(), fonts.create]);
+    app.put('/admin/fonts/:font_id', [isLoggedIn, upload.any(), fonts.edit]);
+    app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.delete);
 }
