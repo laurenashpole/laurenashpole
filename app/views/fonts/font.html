@@ -5,7 +5,7 @@
 
     <meta property="og:type" content="product" />
     <meta property="og:title" content="{{font.name}}" />
-    <meta property="og:url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
+    <meta property="og:url" content="https://www.laurenashpole.com/fonts/{{font.slug}}"/>
     <meta property="og:site_name" content="Lauren Ashpole" />
     <meta property="og:price:amount" content="{{font.price}}" />
     <meta property="og:price:currency" content="USD" />
@@ -26,7 +26,7 @@
 
 {% block content %}
     <main class="js-font-page" itemscope itemtype="http://schema.org/Product" data-css="/stylesheets/fonts/{{font.css_file}}">
-        <meta itemprop="url" content="http://www.laurenashpole.com/fonts/{{font.slug}}"/>
+        <meta itemprop="url" content="https://www.laurenashpole.com/fonts/{{font.slug}}"/>
 
         <section class="container">
             <div class="column-static has-padding">
@@ -119,7 +119,7 @@
 
                     {% if font.image_collection.length %}
                         <div class="gallery-main">
-                            <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
+                            <meta itemprop="image" content="https://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
                             <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive js-font-image-main" alt="{{font.name}}" />
                         </div>
 
@@ -136,7 +136,7 @@
                         {% endif%}
                     {% else %}
                         <div class="gallery-main is-legacy">
-                            <meta itemprop="image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+                            <meta itemprop="image" content="https://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
                             <img src="/images/fonts/{{font.image_retina}}" class="img-responsive" alt="{{font.name}}" />
                         </div>
                     {% endif %}
