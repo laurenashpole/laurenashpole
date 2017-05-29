@@ -28,11 +28,11 @@
         <div class="font-details-lists">
             {% if font.commercial_font_file %}
                 <ul class="list-unstyled font-details-list">
-                    <li class="font-details-list-heading is-bold">Commercial Use Details</li>
+                    <li class="font-details-list-heading text is-bold">Commercial Use Details</li>
 
                     {% for detail in font.commercial_file %}
                         {% if detail.is_included %}
-                            <li class="font-details-list-item">{{detail.name}}</li>
+                            <li class="font-details-list-item text">{{detail.name}}</li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -40,11 +40,11 @@
 
             {% if font.personal_font_file %}
                 <ul class="list-unstyled font-details-list">
-                    <li class="font-details-list-heading is-bold">Personal Use Details</li>
+                    <li class="font-details-list-heading text is-bold">Personal Use Details</li>
 
                     {% for detail in font.personal_file %}
                         {% if detail.is_included %}
-                            <li class="font-details-list-item">{{detail.name}}</li>
+                            <li class="font-details-list-item text">{{detail.name}}</li>
                         {% endif %}
                     {% endfor %}
                 </ul>

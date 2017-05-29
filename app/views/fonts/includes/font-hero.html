@@ -25,7 +25,7 @@
             {{font.name}}
         </h3>
 
-        <div class="details-card-section font-details-price is-bold">
+        <div class="details-card-section font-details-price text is-bold">
             ${{font.price}}
         </div>
 
@@ -64,13 +64,13 @@
         </div>
 
         <ul class="list-unstyled font-file-types {% if font.commercial_file.webfont.is_included %}has-two-options{% endif %}">
-            <li class="details-card-section font-file-type">
+            <li class="details-card-section font-file-type text">
                 <i class="fa fa-desktop font-file-type-icon"></i>
                 Desktop
             </li>
 
             {% if font.commercial_file.webfont.is_included %}
-                <li class="details-card-section font-file-type">
+                <li class="details-card-section font-file-type text">
                     <i class="fa fa-code font-file-type-icon"></i>
                     Web
                 </li>
