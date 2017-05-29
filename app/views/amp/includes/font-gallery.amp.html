@@ -1,0 +1,51 @@
+<section class="bg-white">
+    <div class="container has-padding">
+        <div class="column-static">
+            <h2 class="is-uppercase is-centered-mobile font-page-heading">Additional Images</h2>
+
+            {% if font.image_collection.length %}
+                <div class="gallery-main">
+                    <amp-carousel id="carousel-with-preview"
+                        width="768"
+                        height="384"
+                        layout="responsive"
+                        type="slides"
+                    >
+                        {% for image in font.image_collection %}
+                            <amp-img src="{{host_url}}/images/fonts/{{image}}"
+                                width="768"
+                                height="384"
+                                layout="responsive"
+                                alt="{{font.name}}"
+                            >
+                            </amp-img>
+                        {% endfor %}
+                    </amp-carousel>
+                </div>
+
+                {% if font.image_collection_thumbnails.length %}
+                    <div class="gallery-thumbnails-container">
+                        <div class="carousel-preview gallery-thumbnails">
+                            {% for index, image in font.image_collection_thumbnails %}
+                                <button class="gallery-thumbnail" on="tap:carousel-with-preview.goToSlide(index={{index}})">
+                                    <amp-img src="{{host_url}}/images/fonts/{{image}}"
+                                        width="200"
+                                        height="100"
+                                        layout="responsive"
+                                        alt="{{font.name}} Thumbnail"
+                                    >
+                                    </amp-img>
+                                </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif%}
+            {% else %}
+                <div class="gallery-main is-legacy">
+                    <amp-img class="img-bg" src="{{host_url}}/images/fonts/{{font.image}}" alt="{{font.name}}" height="768" width="384" layout="responsive"></amp-img>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</section>

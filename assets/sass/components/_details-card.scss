@@ -1,8 +1,10 @@
 .details-card {
     background: $color-white;
     border: 1rem solid $color-gray-lightest;
-    border-width: 1rem 0.5rem;
+    border-width: 0.75rem 0rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .details-card-section {

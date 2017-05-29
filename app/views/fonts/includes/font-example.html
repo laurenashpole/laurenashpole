@@ -1,0 +1,50 @@
+<section class="bg-white">
+    <div class="container has-padding">
+        <div class="column-static">
+
+            <h2 class="is-uppercase is-centered-mobile font-page-heading">Preview</h2>
+
+            <div class="font-example-header">
+                <form class="font-example-form">
+
+                    <div class="font-example-form-section font-example-input-container">
+                        <input type="text" class="input is-bold font-example-input js-font-example-input" value="Enter your preview text" />
+                    </div>
+
+                    <div class="font-example-form-section font-example-settings">
+                        <div class="select-container">
+                            <select class="select font-example-select is-bold js-font-example-size">
+                                <option value="16">16px</option>
+                                <option value="24">24px</option>
+                                <option value="36">36px</option>
+                                <option value="48">48px</option>
+                                <option value="60" selected>60px</option>
+                                <option value="72">72px</option>
+                                <option value="144">144px</option>
+                            </select>
+                            <span class="select-caret font-example-select-caret">
+                                <i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="font-example">
+                <div class="font-example-text font-{{font.slug}}">
+                    Enter your preview text
+                </div>
+
+                {% if font.alternate_styles %}
+                    {% for className in font.alternate_styles %}
+                        <div class="font-example-text {{className}}">
+                            Enter your preview text
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>

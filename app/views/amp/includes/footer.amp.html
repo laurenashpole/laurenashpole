@@ -24,7 +24,7 @@
         </ul>
 
         <div class="footer-form-container">
-            <form action="/mailing/signup" method="post" class="footer-form js-mailing-form">
+            <form action-xhr="{{host_url}}/amp/mailing/signup" method="post" class="footer-form" target="_top">
                 <div class="footer-input-container">
                     <input type="email" value="" name="email" class="input footer-input is-centered-mobile" id="email" placeholder="Enter your email address">
                 </div>
@@ -32,10 +32,11 @@
                 <div class="footer-input-test" aria-hidden="true"><input type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabindex="-1" value=""></div>
 
                 <div class="footer-button-container">
-                    <button type="submit" name="subscribe" class="button footer-button is-uppercase is-extra-bold is-small-print js-mailing-signup">
-                        <span class="button-content">
+                    <button type="submit" name="subscribe" class="button footer-button is-uppercase is-extra-bold is-small-print">
+                        <span class="button-content is-default">
                             Get Updates!
                         </span>
+                        <span class="button-content is-message"></span>
                     </button>
                 </div>
             </form>

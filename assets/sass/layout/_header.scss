@@ -14,8 +14,10 @@
 }
 
 .nav-header {
+    background: #fff;
     width: 100%;
-    padding: 0 0 0 0.5rem;
+    height: 63px;
+    padding: 0 0 0 0.65rem;
     position: relative;
     z-index: 2;
     @include flex();
@@ -30,10 +32,19 @@
     color: $header-color-primary;
 }
 
+.nav-checkbox {
+    display: none;
+}
+
 .nav-icon-container {
     background: $header-color-secondary;
-    margin: 0.5rem;
+    margin: 0.5rem 0.65rem;
     padding: 10px 9px 11px 9px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    cursor: pointer;
 }
 
 .nav-icon {
@@ -68,19 +79,19 @@
     left: 5px;
 }
 
-.nav.is-open .nav-icon-line:nth-child(1),
-.nav.is-open .nav-icon-line:nth-child(4) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(1),
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(4) {
     width: 0;
     top: 10px;
     left: 50%;
 }
 
-.nav.is-open .nav-icon-line:nth-child(2) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(2) {
     width: 27px;
     @include transform(rotate(45deg));
 }
 
-.nav.is-open .nav-icon-line:nth-child(3) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(3) {
     width: 27px;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
@@ -90,11 +101,11 @@
     background: $color-white;
     width: 100%;
     border-bottom: 2px solid $color-abstract-pink;
-    @include transform(translate3d(0, calc(-100% + 1px), 0));
+    @include transform(translate3d(0, calc(-100% + 2px), 0));
     @include transition(transform 0.4s);
 }
 
-.nav.is-open .nav-links {
+.nav-checkbox:checked ~ .nav-links {
     @include transform(translate3d(0, -63px, 0));
 }
 
@@ -105,7 +116,7 @@
 }
 
 .nav-link {
-    margin: 0 0.5rem;
+    margin: 0 0.65rem;
     border-top: 1px solid $header-color-gray;
     padding: 0 0.25rem;
     line-height: 62px;
@@ -116,7 +127,7 @@
     @include transition(opacity 0.05s linear 0s);
 }
 
-.nav.is-open .nav-link {
+.nav-checkbox:checked ~ .nav-links .nav-link {
     opacity: 1;
     @include transition(opacity 0.4s linear 0.2s);
 }

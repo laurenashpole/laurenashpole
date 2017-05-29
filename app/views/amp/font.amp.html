@@ -1,0 +1,79 @@
+<!doctype html>
+<html amp lang="en" class="amp-border-box">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+        <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+        <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+        <title>{{title}} - {{site_name}}</title>
+        <link rel="canonical" href="{{host_url}}/fonts/{{font.slug}}" />
+
+        {% include '../fonts/includes/meta.html' %}
+        {% include './includes/styles.amp.html' %}
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        {% include './includes/nav.amp.html' %}
+
+        <main>
+            {% include './includes/font-hero.amp.html' %}
+            {% include './includes/font-gallery.amp.html' %}
+            {% include '../fonts/includes/font-description.html' %}
+            {% include './includes/font-example.amp.html' %}
+            {% include '../fonts/includes/font-glyphs.html' %}
+        </main>
+
+        {% include './includes/footer.amp.html' %}
+
+        <amp-analytics type="googleanalytics">
+            <script type="application/json">
+                {
+                    "vars": {
+                        "account": "UA-12207477-3"
+                    },
+                    "triggers": {
+                        "trackPageview": {
+                            "on": "visible",
+                            "request": "pageview"
+                        },
+                        "trackNavClicks": {
+                            "on": "click",
+                            "request": "event",
+                            "selector": "js-ga-nav",
+                            "vars": {
+                                "eventCategory": "Nav Link",
+                                "eventAction": "Click"
+                            }
+                        },
+                        "trackBuyClick": {
+                            "on": "click",
+                            "request": "event",
+                            "selector": "js-ga-buy",
+                            "vars": {
+                                "eventCategory": "Buy Button",
+                                "eventAction": "Click"
+                            }
+                        },
+                        "trackDownloadClick": {
+                            "on": "click",
+                            "request": "event",
+                            "selector": "js-ga-download",
+                            "vars": {
+                                "eventCategory": "Download Button",
+                                "eventAction": "Click"
+                            }
+                        }
+                    }
+                }
+            </script>
+        </amp-analytics>
+
+    </body>
+</html>

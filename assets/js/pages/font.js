@@ -21,17 +21,17 @@ function Font (options) {
                 selector: '.js-font-modal-open',
                 eventType: 'click',
                 callback: this.openDownloadModal.bind(this)
-            },
-            {
-                selector: '.js-font-modal-signup',
-                eventType: 'click',
-                callback: this.updateDownloadModal.bind(this)
             }
         ]
     };
 
     this.options = this.extend(defaults, options);
     View.call(this, this.options);
+
+    if (this.el instanceof HTMLDocument) {
+        return;
+    };
+
     this.cacheSelectors();
     this.injectCSS();
 }
@@ -43,16 +43,16 @@ Font.prototype.cacheSelectors = function () {
     this.body = document.querySelector('body');
     this.textContainer = this.el.querySelectorAll('.font-example-text');
     this.imageContainer = this.el.querySelector('.js-font-image-main');
-    this.modalForm = this.el.querySelector('.js-font-modal-form');
-    this.modalClose = this.el.querySelector('.js-font-modal-close');
     this.modalContainer = this.el.querySelector('.js-modal-container');
 };
 
 Font.prototype.injectCSS = function () {
-    var css = this.el.getAttribute('data-css');
+    var css = this.el.getAttribute('data-css') || false;
 
-    this.head.innerHTML += '<link rel="stylesheet" href="' + css + '">';
-    this.body.classList.remove('css-loading');
+    if (css) {
+        this.head.innerHTML += '<link rel="stylesheet" href="' + css + '">';
+        this.body.classList.remove('css-loading');
+    }
 };
 
 Font.prototype.updateFontExampleText = function (e) {
@@ -91,30 +91,42 @@ Font.prototype.updateFontImageThumbnail = function (e) {
 Font.prototype.openDownloadModal = function (e) {
     e.preventDefault();
 
-    var downloadUrl = e.target.href;
+    var target = e.currentTarget;
+    var downloadUrl = target.href;
     var hideModal = window.localStorage.getItem('hideEmailModal');
-    var category = e.target.dataset.gaCategory;
-    var action = e.target.dataset.gaAction;
+    var category = target.dataset.gaCategory;
+    var action = target.dataset.gaAction;
 
     if (hideModal) {
         ga('send', 'event', category, action, 'Download');
         window.location = downloadUrl;
     } else {
-
-         var modal = new Modal({
-            modal: this.modalContainer,
-            callback: function () {
-                window.location = downloadUrl;
-                window.localStorage.setItem('hideEmailModal', true);
-            }
-        });
-
-        ga('send', 'event', category, action, 'Download Modal');
-        modal.openModal(e);
+        this.initDownloadModal(e, category, action, downloadUrl);
     }
 };
 
-Font.prototype.updateDownloadModal = function (e) {
-    this.modalForm.classList.add('hidden');
-    this.modalClose.innerHTML = 'I got \'em. Now download that font!'
-}
+Font.prototype.initDownloadModal = function (e, category, action, downloadUrl) {
+    var _this = this;
+
+    var modal = new Modal({
+        modal: this.modalContainer,
+        openCallback: function () {
+            var mailing = new Mailing({
+                el: _this.modalContainer.querySelector('.js-modal-mailing-form')
+            });
+
+            mailing.el.addEventListener('onSignup', function (e) {
+                setTimeout(function () {
+                    modal.closeModal(e);
+                }, 1500);
+            });
+        },
+        closeCallback: function () {
+            window.location = downloadUrl;
+            window.localStorage.setItem('hideEmailModal', true);
+        }
+    });
+
+    ga('send', 'event', category, action, 'Download Modal');
+    modal.openModal(e);
+};

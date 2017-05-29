@@ -30,6 +30,10 @@ Modal.prototype.openModal = function (e) {
 
     this.options.modal.classList.add('is-open');
     document.querySelector('html').classList.add('modal-open');
+
+    if (this.options.openCallback && this.options.openCallback instanceof Function) {
+        this.options.openCallback(e);
+    }
 };
 
 Modal.prototype.closeModal = function (e) {
@@ -38,8 +42,8 @@ Modal.prototype.closeModal = function (e) {
     this.options.modal.classList.remove('is-open');
     document.querySelector('html').classList.remove('modal-open');
 
-    if (this.options.callback && this.options.callback instanceof Function) {
-        this.options.callback(e);
+    if (this.options.closeCallback && this.options.closeCallback instanceof Function) {
+        this.options.closeCallback(e);
     }
 }
 

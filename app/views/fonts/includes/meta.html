@@ -1,0 +1,35 @@
+<meta property="og:type" content="product" />
+<meta property="og:title" content="{{font.name}}" />
+<meta property="og:url" content="{{host_url}}/fonts/{{font.slug}}"/>
+<meta property="og:site_name" content="Lauren Ashpole" />
+<meta property="og:price:amount" content="{{font.price}}" />
+<meta property="og:price:currency" content="USD" />
+<meta property="og:availability" content="instock" />
+
+{% if font.image_collection %}
+    <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
+{% else %}
+    <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
+{% endif %}
+
+{% if font.description %}
+    <meta property="og:description" content="{{font.description|striptags|escape}}">
+{% endif %}
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "category": "font",
+        "url": "{{host_url}}/fonts/{{font.slug}}",
+        "name": "{{font.name}}",
+        "image": "{% if font.image_collection.length %}{{host_url}}/images/fonts/{{font.image_collection[0]}}{% else %}{{host_url}}/images/fonts/{{font.image_retina}}{% endif %}",
+        {% if font.description %}"description": "{{font.description|striptags|escape}}",{% endif %}
+        "offers": {
+            "@type": "Offer",
+            "availability": "http://schema.org/InStock",
+            "price": "{{font.price}}",
+            "priceCurrency": "USD"
+        }
+    }
+</script>

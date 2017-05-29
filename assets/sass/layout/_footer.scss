@@ -46,14 +46,8 @@
     @include flex-child(2);
 }
 
-.footer-form {
-    @include flex();
-}
-
 .footer-input-container {
-    width: 50%;
-    border-right: 2px solid $color-gray-lightest;
-    padding: 0.5rem;
+    padding: 0.65rem;
 }
 
 .footer-input {
@@ -61,15 +55,40 @@
     height: 2.5rem;
 }
 
+.footer-input::-webkit-input-placeholder {
+    color: $color-gray-darkest;
+}
+
+.footer-input::-moz-placeholder {
+    color: $color-gray-darkest;
+}
+
+.footer-input:-ms-input-placeholder {
+    color: $color-gray-darkest;
+}
+
+.footer-input:-moz-placeholder {
+    color: $color-gray-darkest;
+}
+
+.footer-input-test {
+    position: absolute;
+    left: -5000px;
+}
+
 .footer-button-container {
-    width: 50%;
-    padding: 0.5rem;
+    border-top: 2px solid $color-gray-lightest;
+    padding: 0.65rem;
 }
 
 .footer-button {
     background: #726882;
     height: 2.5rem;
     @include transition(background 0.25s);
+}
+
+.footer-button.is-processing .button-content:before {
+    font-size: 0.75rem;
 }
 
 .is-not-touch .footer-button:hover {
@@ -101,12 +120,20 @@
         border-top: none;
     }
 
+    .footer-form {
+        @include flex();
+    }
+
     .footer-input-container {
         width: 66.666%;
+        border-right: 2px solid $color-gray-lightest;
+        padding: 0.5rem;
     }
 
     .footer-button-container {
         width: 33.333%;
+        border: none;
+        padding: 0.5rem;
     }
 }
 

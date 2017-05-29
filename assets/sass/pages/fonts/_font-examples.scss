@@ -6,7 +6,7 @@
 .font-example-form-section {
     border: 2px solid $color-gray-lightest;
     border-bottom: none;
-    padding: 0 0.5rem;
+    padding: 0 0.25rem;
 }
 
 .font-example-input {
@@ -19,6 +19,7 @@
 
 .font-example-select {
     margin: 0.5rem 0;
+    padding-right: 0.75rem;
 }
 
 .font-example-select-caret {
@@ -52,9 +53,14 @@
     .font-example-form-section {
         width: 50%;
         border-width: 2px 1px 0 2px;
+        padding: 0 0.5rem;
     }
 
     .font-example-form-section +  .font-example-form-section {
         border-width: 2px 2px 0 1px;
+    }
+
+    .font-example-select {
+        padding-right: 0.5rem;
     }
 }

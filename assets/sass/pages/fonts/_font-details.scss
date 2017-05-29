@@ -27,17 +27,29 @@
     margin-right: 0.75rem;
 }
 
+.font-file-type-icon.fa-desktop {
+    margin-top: 2px;
+    font-size: 0.95em;
+}
+
 .font-details-date {
-    margin-bottom: 30px;
+    margin-bottom: 0.65rem;
+    font-size: 0.9rem;
 }
 
 .font-details-description {
-    margin-bottom: 30px;
+    margin-bottom: 1rem;
+    padding: 0 calc(0.75rem + 2px);
 }
 
 .font-details-licensing {
-    margin: 0 20px 30px 0;
+    margin: 0 0.5rem 2rem 0;
+    font-size: 0.9rem;
     display: inline-block;
+}
+
+.font-details-licensing:last-child {
+    margin: 0 0 2rem 0.5rem;
 }
 
 .font-details-lists {
@@ -51,7 +63,7 @@
 .font-details-list-heading {
     margin-bottom: 1rem;
     border-bottom: 2px solid $color-white;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem;
 }
 
 .font-details-list-item {
@@ -63,6 +75,11 @@
 }
 
 @media (min-width: 768px) {
+
+    .font-details-description {
+        margin-bottom: 2rem;
+        padding: 0;
+    }
 
     .font-details-lists {
         border-right-width: 1px;

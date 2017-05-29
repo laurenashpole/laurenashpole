@@ -25,6 +25,7 @@
     "passport-local": "^1.0.0",
     "paypal-rest-sdk": "^1.6.8",
     "serve-favicon": "~2.3.0",
+    "superagent": "^3.5.2",
     "swig": "^1.4.2",
     "xoauth2": "^1.2.0"
   },

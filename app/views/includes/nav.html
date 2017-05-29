@@ -1,22 +1,23 @@
 <header class="header">
-    <nav class="nav js-nav">
-
+    <nav class="nav">
         <div class="nav-header">
             <a href="/" title="Lauren Ashpole" class="has-no-underline nav-logo-container">
                 <svg class="nav-logo">
                     <use xlink:href="/images/logo.svg#logo"></use>
                 </svg>
             </a>
-
-            <a href="javascript:void(0);" class="mobile nav-icon-container js-nav-icon" title="Nav">
-                <span class="nav-icon">
-                    <span class="nav-icon-line"></span>
-                    <span class="nav-icon-line"></span>
-                    <span class="nav-icon-line"></span>
-                    <span class="nav-icon-line"></span>
-                </span>
-            </a>
         </div>
+
+        <input type="checkbox" id="navCheckbox" class="nav-checkbox">
+
+        <label for="navCheckbox" class="mobile nav-icon-container" title="Nav">
+            <span class="nav-icon">
+                <span class="nav-icon-line"></span>
+                <span class="nav-icon-line"></span>
+                <span class="nav-icon-line"></span>
+                <span class="nav-icon-line"></span>
+            </span>
+        </label>
 
         <div class="nav-links has-heading-font">
             <ul class="list-unstyled nav-links-list">
@@ -58,6 +59,5 @@
                 </li>
             </ul>
         </div>
-
     </nav>
 </header>

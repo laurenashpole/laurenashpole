@@ -4,7 +4,7 @@ function All () {
 
 All.prototype.initialize = function () {
     var analytics = new Analytics();
-    var nav = new Nav();
+    var mailing = new Mailing();
 
     this.checkTouch();
     this.checkReferrer();

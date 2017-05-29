@@ -1,0 +1,12 @@
+.font-page-heading {
+    font-size: 1.414rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    .font-page-heading {
+        font-size: 2.167rem;
+        line-height: 3rem;
+    }
+}

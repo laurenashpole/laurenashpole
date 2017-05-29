@@ -15,8 +15,8 @@ var compression = require('compression');
 
 var app = express();
 app.use(compression());
-var locals = require('./app/config/locals')(app);
 var config = require('./app/config/config')();
+var locals = require('./app/config/locals')(app, config);
 
 // View engine setup
 app.engine('html', swig.renderFile);
@@ -50,7 +50,7 @@ app.use(flash());
 // Routes
 require('./app/config/admin/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
-require('./app/routes/routes')(app);
+require('./app/routes/routes')(app, multer);
 require('./app/routes/errors')(app);
 
 module.exports = app;

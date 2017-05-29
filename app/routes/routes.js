@@ -1,8 +1,10 @@
 var index = require('../controllers/index');
 var contact = require('../controllers/contact');
+var mailing = require('../controllers/mailing');
 var fonts = require('../controllers/fonts');
 
-module.exports = function (app) {
+module.exports = function (app, multer) {
+    var multipart = multer();
 
     /* Home */
     app.get('/', index.render);
@@ -12,15 +14,22 @@ module.exports = function (app) {
     app.get('/contact/confirm', contact.confirm);
     app.post('/contact/send', contact.send);
 
+    /* Mailing List */
+    app.post('/mailing/signup', mailing.signup);
+    app.post('/amp/mailing/signup', multipart.fields([]), mailing.signup);
+
     /* Fonts Pages */
     app.get('/fonts', fonts.renderFonts);
     app.get('/fonts/licensing', fonts.licensing);
     app.get('/fonts/eula', fonts.eula);
     app.get('/fonts/:font_slug', fonts.renderFont);
+    app.get('/amp/fonts/:font_slug', fonts.renderFont);
 
     /* Fonts Actions */
     app.post('/fonts/:font_slug/payment', fonts.createPayment);
+    app.post('/amp/fonts/:font_slug/payment', fonts.createPayment);
     app.get('/fonts/:font_slug/confirm', fonts.confirm);
+    app.post('/amp/fonts/update-example', multipart.fields([]), fonts.updateExample);
 
     /* Legacy Redirects */
     app.get('/downloads', function (req, res) {

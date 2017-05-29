@@ -94,7 +94,8 @@ code {
   vertical-align: bottom;
 }
 
-i {
+i,
+.text {
   -webkit-transition: opacity 150ms ease-in-out;
   transition: opacity 150ms ease-in-out;
 }
@@ -116,6 +117,10 @@ i {
   font-size: 0.75rem;
 }
 
+.is-centered-mobile {
+  text-align: center;
+}
+
 .has-heading-font {
   font-family: "brandon-grotesque", "Source Sans Pro", sans-serif;
   -webkit-transition: opacity 150ms ease-in-out;
@@ -134,7 +139,8 @@ i {
 .wf-loading h6,
 .wf-loading .has-heading-font,
 .wf-loading p,
-.wf-loading i {
+.wf-loading i,
+.wf-loading .text {
   opacity: 0;
 }
 
@@ -142,6 +148,10 @@ i {
   h1,
   h2 {
     margin-bottom: 3rem;
+  }
+
+  .is-centered-mobile {
+    text-align: left;
   }
 }
 /* Components */
@@ -339,8 +349,10 @@ li {
 .details-card {
   background: #fff;
   border: 1rem solid #f6f5f4;
-  border-width: 1rem 0.5rem;
+  border-width: 0.75rem 0rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .details-card-section {
@@ -420,12 +432,12 @@ html.modal-open {
   text-align: center;
 }
 
-.modal-button-container .button {
-  height: 2.5rem;
-}
-
 .modal-button-container {
   padding: 0.5rem;
+}
+
+.button.modal-button {
+  height: 2.5rem;
 }
 
 .button {
@@ -505,6 +517,7 @@ html.modal-open {
 .button.is-processing .button-content:before {
   content: "Processing";
   font-size: 1rem;
+  letter-spacing: 0.075em;
 }
 
 .button-content {
@@ -737,7 +750,7 @@ a img {
 }
 
 .gallery-thumbnail {
-  margin: 0 0.25rem 0 0;
+  margin: 0 1px 0 0;
   cursor: pointer;
   -ms-flex: 0 1 100px;
   -webkit-flex: 0 1 100px;
@@ -772,7 +785,7 @@ a img {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0 0.65rem;
   position: relative;
   overflow: hidden;
 }
@@ -801,7 +814,7 @@ a img {
 
 .has-padding {
   padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3rem;
 }
 
 .column-static {
@@ -823,7 +836,7 @@ a img {
 
   .has-padding {
     padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    padding-bottom: 4rem;
   }
 
   .mobile {
@@ -841,7 +854,7 @@ a img {
 
   .has-padding {
     padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-bottom: 5rem;
   }
 
   .column-static {
@@ -899,8 +912,10 @@ a img {
 }
 
 .nav-header {
+  background: #fff;
   width: 100%;
-  padding: 0 0 0 0.5rem;
+  height: 63px;
+  padding: 0 0 0 0.65rem;
   position: relative;
   z-index: 2;
   display: -ms-flexbox;
@@ -921,10 +936,19 @@ a img {
   color: #dd4433;
 }
 
+.nav-checkbox {
+  display: none;
+}
+
 .nav-icon-container {
   background: #dd4433;
-  margin: 0.5rem;
+  margin: 0.5rem 0.65rem;
   padding: 10px 9px 11px 9px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  cursor: pointer;
 }
 
 .nav-icon {
@@ -960,20 +984,20 @@ a img {
   left: 5px;
 }
 
-.nav.is-open .nav-icon-line:nth-child(1),
-.nav.is-open .nav-icon-line:nth-child(4) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(1),
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(4) {
   width: 0;
   top: 10px;
   left: 50%;
 }
 
-.nav.is-open .nav-icon-line:nth-child(2) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(2) {
   width: 27px;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.nav.is-open .nav-icon-line:nth-child(3) {
+.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(3) {
   width: 27px;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -983,13 +1007,13 @@ a img {
   background: #fff;
   width: 100%;
   border-bottom: 2px solid #fae3e1;
-  -webkit-transform: translate3d(0, calc(-100% + 1px), 0);
-  transform: translate3d(0, calc(-100% + 1px), 0);
+  -webkit-transform: translate3d(0, calc(-100% + 2px), 0);
+  transform: translate3d(0, calc(-100% + 2px), 0);
   -webkit-transition: transform 0.4s;
   transition: transform 0.4s;
 }
 
-.nav.is-open .nav-links {
+.nav-checkbox:checked ~ .nav-links {
   -webkit-transform: translate3d(0, -63px, 0);
   transform: translate3d(0, -63px, 0);
 }
@@ -1001,7 +1025,7 @@ a img {
 }
 
 .nav-link {
-  margin: 0 0.5rem;
+  margin: 0 0.65rem;
   border-top: 1px solid #dedbda;
   padding: 0 0.25rem;
   line-height: 62px;
@@ -1013,7 +1037,7 @@ a img {
   transition: opacity 0.05s linear 0s;
 }
 
-.nav.is-open .nav-link {
+.nav-checkbox:checked ~ .nav-links .nav-link {
   opacity: 1;
   -webkit-transition: opacity 0.4s linear 0.2s;
   transition: opacity 0.4s linear 0.2s;
@@ -1182,16 +1206,8 @@ a img {
   flex: 2 1 auto;
 }
 
-.footer-form {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
 .footer-input-container {
-  width: 50%;
-  border-right: 2px solid #f6f5f4;
-  padding: 0.5rem;
+  padding: 0.65rem;
 }
 
 .footer-input {
@@ -1199,9 +1215,30 @@ a img {
   height: 2.5rem;
 }
 
+.footer-input::-webkit-input-placeholder {
+  color: #242120;
+}
+
+.footer-input::-moz-placeholder {
+  color: #242120;
+}
+
+.footer-input:-ms-input-placeholder {
+  color: #242120;
+}
+
+.footer-input:-moz-placeholder {
+  color: #242120;
+}
+
+.footer-input-test {
+  position: absolute;
+  left: -5000px;
+}
+
 .footer-button-container {
-  width: 50%;
-  padding: 0.5rem;
+  border-top: 2px solid #f6f5f4;
+  padding: 0.65rem;
 }
 
 .footer-button {
@@ -1209,6 +1246,10 @@ a img {
   height: 2.5rem;
   -webkit-transition: background 0.25s;
   transition: background 0.25s;
+}
+
+.footer-button.is-processing .button-content:before {
+  font-size: 0.75rem;
 }
 
 .is-not-touch .footer-button:hover {
@@ -1241,12 +1282,22 @@ a img {
     border-top: none;
   }
 
+  .footer-form {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
   .footer-input-container {
     width: 66.666%;
+    border-right: 2px solid #f6f5f4;
+    padding: 0.5rem;
   }
 
   .footer-button-container {
     width: 33.333%;
+    border: none;
+    padding: 0.5rem;
   }
 }
 @media (min-width: 1024px) {
@@ -1351,6 +1402,10 @@ a img {
   border-color: #fff;
 }
 
+.is-homepage .footer-button-container {
+  border-color: #fff;
+}
+
 .is-homepage .footer-input {
   background: #fff;
 }
@@ -1376,6 +1431,17 @@ a img {
 
   .homepage-column {
     width: 33.333%;
+  }
+}
+.font-page-heading {
+  font-size: 1.414rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .font-page-heading {
+    font-size: 2.167rem;
+    line-height: 3rem;
   }
 }
 .font-grid-container {
@@ -1596,17 +1662,29 @@ a img {
   margin-right: 0.75rem;
 }
 
+.font-file-type-icon.fa-desktop {
+  margin-top: 2px;
+  font-size: 0.95em;
+}
+
 .font-details-date {
-  margin-bottom: 30px;
+  margin-bottom: 0.65rem;
+  font-size: 0.9rem;
 }
 
 .font-details-description {
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
+  padding: 0 calc(0.75rem + 2px);
 }
 
 .font-details-licensing {
-  margin: 0 20px 30px 0;
+  margin: 0 0.5rem 2rem 0;
+  font-size: 0.9rem;
   display: inline-block;
+}
+
+.font-details-licensing:last-child {
+  margin: 0 0 2rem 0.5rem;
 }
 
 .font-details-lists {
@@ -1620,7 +1698,7 @@ a img {
 .font-details-list-heading {
   margin-bottom: 1rem;
   border-bottom: 2px solid #fff;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem;
 }
 
 .font-details-list-item {
@@ -1632,6 +1710,11 @@ a img {
 }
 
 @media (min-width: 768px) {
+  .font-details-description {
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
   .font-details-lists {
     border-right-width: 1px;
     display: -ms-flexbox;
@@ -1659,7 +1742,7 @@ a img {
 .font-example-form-section {
   border: 2px solid #f6f5f4;
   border-bottom: none;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
 }
 
 .font-example-input {
@@ -1672,6 +1755,7 @@ a img {
 
 .font-example-select {
   margin: 0.5rem 0;
+  padding-right: 0.75rem;
 }
 
 .font-example-select-caret {
@@ -1707,10 +1791,15 @@ a img {
   .font-example-form-section {
     width: 50%;
     border-width: 2px 1px 0 2px;
+    padding: 0 0.5rem;
   }
 
   .font-example-form-section + .font-example-form-section {
     border-width: 2px 2px 0 1px;
+  }
+
+  .font-example-select {
+    padding-right: 0.5rem;
   }
 }
 .font-glyphs {
@@ -1735,8 +1824,13 @@ a img {
 }
 
 .font-glyph-radio-label {
-  margin: 0 1.5rem 1.5rem 0;
+  margin: 0 0.5rem 1.5rem 0;
+  font-size: 0.9rem;
   display: none;
+}
+
+.font-glyph-radio-label:last-of-type {
+  margin: 0 0 1.5rem 0.5rem;
 }
 
 .font-glyphs-container.has-options .font-glyph-radio-label {

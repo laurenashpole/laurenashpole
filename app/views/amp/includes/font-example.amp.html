@@ -1,0 +1,73 @@
+<section class="bg-white">
+    <div class="container has-padding">
+        <div class="column-static">
+            <h2 class="is-uppercase is-centered-mobile font-page-heading">Preview</h2>
+
+            <form class="font-example-form" method="post" action-xhr="{{host_url}}/amp/fonts/update-example" target="_top">
+                <div class="font-example-header">
+                    <div class="font-example-form-section font-example-input-container">
+                        <input type="text" name="example" id="example" class="input is-bold font-example-input" value="Enter your preview text"/>
+                    </div>
+
+                    <div class="font-example-form-section font-example-settings">
+                        <div class="select-container">
+                            <select class="select font-example-select is-bold js-font-example-size" name="size" id="size">
+                                <option value="16">16px</option>
+                                <option value="24">24px</option>
+                                <option value="36">36px</option>
+                                <option value="48">48px</option>
+                                <option value="60" selected>60px</option>
+                                <option value="72">72px</option>
+                                <option value="144">144px</option>
+                            </select>
+                            <span class="select-caret font-example-select-caret">
+                                <i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="font-example-form-section font-example-form-button-container">
+                        <button type="submit" title="Try It" class="button is-uppercase is-extra-bold is-primary is-small-print font-example-form-button">
+                            Try It
+                        </button>
+                    </div>
+                </div>
+
+                <div class="font-example-default">
+                    <div class="font-example font-60">
+                        <div class="font-example-text font-{{font.slug}}">
+                            Enter your preview text
+                        </div>
+
+                        {% if font.alternate_styles %}
+                            {% for className in font.alternate_styles %}
+                                <div class="font-example-text {{className}}">
+                                    Enter your preview text
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div submit-success>
+                    <template type="amp-mustache">
+                        <div class="font-example font-{% raw %}{{size}}{% endraw %}">
+                            <div class="font-example-text font-{{font.slug}}">
+                                {% raw %}{{example}}{% endraw %}
+                            </div>
+
+                            {% if font.alternate_styles %}
+                                {% for className in font.alternate_styles %}
+                                    <div class="font-example-text {{className}}">
+                                        {% raw %}{{example}}{% endraw %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </template>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

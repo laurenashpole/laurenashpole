@@ -53,7 +53,8 @@ code {
     vertical-align: bottom;
 }
 
-i {
+i,
+.text {
     @include transition(opacity 150ms ease-in-out);
 }
 
@@ -74,6 +75,10 @@ i {
     font-size: 0.75rem;
 }
 
+.is-centered-mobile {
+    text-align: center;
+}
+
 .has-heading-font {
     font-family: $font-family-headings;
     @include transition(opacity 150ms ease-in-out);
@@ -91,7 +96,8 @@ i {
 .wf-loading h6,
 .wf-loading .has-heading-font,
 .wf-loading p,
-.wf-loading i {
+.wf-loading i,
+.wf-loading .text {
     opacity: 0;
 }
 
@@ -100,5 +106,9 @@ i {
     h1,
     h2 {
         margin-bottom: 3rem;
+    }
+
+    .is-centered-mobile {
+        text-align: left;
     }
 }

@@ -22,7 +22,7 @@
 }
 
 .gallery-thumbnail {
-    margin: 0 0.25rem 0 0;
+    margin: 0 1px 0 0;
     cursor: pointer;
     @include flex-child(0, 1, 100px);
 }
