@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         'assets/js/pages/all.js',
         'assets/js/pages/font.js',
         'assets/js/pages/contact.js',
+        'assets/js/libs/vanilla-tilt.js',
         'assets/js/router.js'
     ];
 

@@ -5,8 +5,10 @@
 {% block content %}
     <main>
         <section class="container homepage-container">
-            <div class="column-static has-padding">
-                <div class="hero-image-container bg-dots is-hero">
+            <div class="column-static has-padding has-half-padding" data-tilt data-tilt-parent="true" data-tilt-reset="false">
+                <div class="homepage-dots bg-dots is-hero" data-tilt-child data-tile-z="-10px"></div>
+
+                <div class="hero-image-container">
                     <a href="/fonts/sewing-patterns-3" title="Sewing Patterns 3" class="has-no-underline homepage-image-links">
                         <span class="img-default">
                             <figure class="img-bg" style="background-image: url(/images/fonts/sewing3-main.png);"></figure>
@@ -16,11 +18,11 @@
                         </span>
                     </a>
 
-                    <svg class="bg-abstract-hero">
+                    <svg class="bg-abstract-hero" data-tilt-child>
                         <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
                     </svg>
 
-                    <svg class="bg-abstract-hero is-secondary">
+                    <svg class="bg-abstract-hero is-secondary" data-tilt-child data-tilt-z="10px">
                         <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
                     </svg>
                 </div>

@@ -3,17 +3,17 @@
 }
 
 .bg-abstract-hero {
-    width: 90%;
+    width: 95%;
     height: 60%;
     color: $color-abstract-pink;
     position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
+    top: 2.5%;
+    left: 2.5%;
 }
 
 .bg-abstract-hero.is-secondary {
-    width: 60%;
-    height: 40%;
+    width: 80%;
+    height: 35%;
     color: $color-abstract-green;
 }
 
@@ -71,9 +71,12 @@
 
     .bg-abstract-hero {
         height: 90%;
+        top: 1.5rem;
+        left: 1.5rem;
     }
 
     .bg-abstract-hero.is-secondary {
+        width: 60%;
         height: 60%;
     }
 

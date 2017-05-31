@@ -250,17 +250,17 @@ li {
 }
 
 .bg-abstract-hero {
-  width: 90%;
+  width: 95%;
   height: 60%;
   color: #fae3e1;
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 2.5%;
+  left: 2.5%;
 }
 
 .bg-abstract-hero.is-secondary {
-  width: 60%;
-  height: 40%;
+  width: 80%;
+  height: 35%;
   color: #d5e7db;
 }
 
@@ -313,9 +313,12 @@ li {
 @media (min-width: 1024px) {
   .bg-abstract-hero {
     height: 90%;
+    top: 1.5rem;
+    left: 1.5rem;
   }
 
   .bg-abstract-hero.is-secondary {
+    width: 60%;
     height: 60%;
   }
 
@@ -653,6 +656,11 @@ a img {
 .has-padding {
   padding-top: 2.5rem;
   padding-bottom: 3rem;
+}
+
+.has-half-padding {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .column-static {
