@@ -50,8 +50,23 @@ function createHttpsServer (app, credentials) {
  * Set SSL credentials.
  */
 function setCredentials (ssl) {
+    var ca = [];
+    var cert = [];
+    var chain = ssl.ca.split('\n');
+
+    for (var i = 0; i < chain.length; i++) {
+        if (chain[i].length !== 0) {
+            cert.push(chain[i]);
+
+            if (chain[i].match(/-END CERTIFICATE-/)) {
+                ca.push(cert.join('\n'));
+                cert = [];
+            }
+        }
+    }
+
     return {
-        ca: ssl.ca,
+        ca: ca,
         key: ssl.key,
         cert: ssl.cert
     };
