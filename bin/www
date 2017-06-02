@@ -23,7 +23,7 @@ function createHttpServer (app) {
     var port = normalizePort('8080');
 
     var server = http.createServer(function (req, res) {
-        res.writeHead(301, { 'Location': 'https://www.' + req.headers.host + req.url });
+        res.writeHead(301, { 'Location': 'https://' + req.headers.host + req.url });
         res.end();
     });
 
