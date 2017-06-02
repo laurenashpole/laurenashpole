@@ -9,7 +9,7 @@ var app = require('../app');
 var debug = require('debug')('laurenashpole:server');
 var ssl = require('../app/config/config')()['ssl'];
 var credentials = setCredentials(ssl);
-
+debug(credentials);
 /**
  * Initialize servers.
  */
