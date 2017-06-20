@@ -5,6 +5,7 @@
 <!doctype html>
 <html lang="en" class="is-not-touch">
 <head>
+
     <!-- Web Font Loading -->
     <script>
         (function() {
@@ -49,6 +50,38 @@
         }
     </script>
 
+    {block:PermalinkPage}
+        {block:Posts}
+            <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Article",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "{Permalink}"
+                    },
+                    "headline": "{block:PostSummary}{PostSummary}{/block:PostSummary}",
+                    "datePublished": "{block:Date}{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}{/block:Date}",
+                    "dateModified": "{block:Date}{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}{/block:Date}",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Lauren Ashpole"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Lauren Ashpole",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "http://static.tumblr.com/w45vvio/Nckorte6y/logo-structured-data.pn",
+                            "width": 60,
+                            "height": 60
+                        }
+                    }
+                }
+            </script>
+        {/block:Posts}
+    {/block:PermalinkPage}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="j7rp4JhwKeTvhJYae4BTu4jPAP6ZBahys3beaQ5lGA8" />
@@ -56,8 +89,8 @@
 
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="icon" type="image/png" href="https://www.laurenashpole.com/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="https://www.laurenashpole.com/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/Lo8ortbs4/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/RcCortbrz/favicon-16x16.png" sizes="16x16" />
 
     <!-- Blog Title -->
     <title>{block:PostSummary}{PostSummary} - {/block:PostSummary} Blog - {Title}</title>
@@ -311,14 +344,6 @@
 
         .post-note-count + .post-note-count {
             margin: 0;
-        }
-
-        @media (min-width: 768px) {
-
-            .post-reblog,
-            .post-note-count {
-                /*margin-top: 18px;*/
-            }
         }
 
         /* Post Content */
