@@ -73,12 +73,20 @@
                         "logo": {
                             "@type": "ImageObject",
                             "url": "http://static.tumblr.com/w45vvio/Nckorte6y/logo-structured-data.pn",
-                            "width": 60,
+                            "width": 600,
                             "height": 60
                         }
                     }
                 }
             </script>
+
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="{block:PostSummary}{PostSummary}{/block:PostSummary}" />
+            <meta property="og:description" content="{block:Text}{PlaintextBody}{/block:Text}{block:Photo}{PlaintextCaption}{/block:Photo}{block:Panorama}{PlaintextCaption}{/block:Panorama}{block:Photoset}{PlaintextCaption}{/block:Photoset}{block:Quote}{PlaintextQuote}{/block:Quote}{block:Link}{PlaintextDescription}{/block:Link}{block:Chat}{block:Lines}{block:Label}{PlaintextLabel}: {/block:Label}{PlaintextLine}{/block:Lines}{/block:Chat}{block:Video}{PlaintextCaption}{/block:Video}{block:Audio}{PlaintextCaption}{/block:Audio}{block:Answer}{PlaintextQuestion}{/block:Answer}" />
+            <meta property="og:url" content="{Permalink}" />
+            <meta property="og:site_name" content="Blog - Lauren Ashpole" />
+            <meta property="article:published_time" content="{block:Date}{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}{/block:Date}" />
+            <meta property="article:author" content="Lauren Ashpole" />
         {/block:Posts}
     {/block:PermalinkPage}
 
@@ -105,7 +113,7 @@
     <meta name="text:Disqus Shortname" content="" />
 
     <!-- External Stylesheets -->
-    <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/wrEoqkwu1/blog.min.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/7Hvorv1bw/blog.min.css">
 
     {block:IfGoogleAnalyticsID}
         <!-- Google Analytics -->
@@ -486,17 +494,6 @@
             }
         }
 
-        /* Photoset */
-        {block:IndexPage}
-            .post-photoset img {
-                display: none;
-            }
-
-            .post-photoset img:first-child {
-                display: block;
-            }
-        {/block:IndexPage}
-
         /* Video */
         .post-video-player {
             position: relative;
@@ -548,6 +545,21 @@
             font-size: 1.414rem;
             line-height: 2rem;
             margin-bottom: 1.5rem;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .post-link-icon {
+            margin-right: 1rem;
+            color: #726882;
+        }
+
+        .post-link:hover .post-link-icon {
+            color: #675e75;
         }
 
         /* Notes */
@@ -730,8 +742,7 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav has-heading-font js-nav">
-
+        <nav class="nav">
             <div class="nav-header">
                 <a href="https://www.laurenashpole.com" title="Lauren Ashpole" class="has-no-underline nav-logo-container">
                     <svg class="nav-logo" viewBox="0 0 106.000000 49.000000" preserveAspectRatio="xMinYMid">
@@ -740,18 +751,20 @@
                         </g>
                     </svg>
                 </a>
-
-                <a href="javascript:void(0);" class="mobile nav-icon-container js-nav-icon" title="Nav">
-                    <span class="nav-icon">
-                        <span class="nav-icon-line"></span>
-                        <span class="nav-icon-line"></span>
-                        <span class="nav-icon-line"></span>
-                        <span class="nav-icon-line"></span>
-                    </span>
-                </a>
             </div>
 
-            <div class="nav-links">
+            <input type="checkbox" id="navCheckbox" class="nav-checkbox">
+
+            <label for="navCheckbox" class="mobile nav-icon-container" title="Nav">
+                <span class="nav-icon">
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                    <span class="nav-icon-line"></span>
+                </span>
+            </label>
+
+            <div class="nav-links has-heading-font">
                 <ul class="list-unstyled nav-links-list">
                     <li>
                         <a
@@ -791,7 +804,6 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </header>
 
@@ -944,22 +956,19 @@
                         {block:Photo}
                             <div class="post-photo {block:Caption}has-caption{/block:Caption}">
                                 <div class="post-photo-img">
-                                    {block:IndexPage}
-                                        <a class="has-no-underline" href="{Permalink}">
-                                            {block:HighRes}
-                                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-                                            {/block:HighRes}
+                                    {block:LinkURL}
+                                        <a class="has-no-underline" href="{LinkURL}">
+                                    {/block:LinkURL}
 
-                                            <img class="{block:HighRes}is-hidden{/block:HighRes}" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                                    {block:HighRes}
+                                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+                                    {/block:HighRes}
+
+                                    <img class="{block:HighRes}is-hidden{/block:HighRes}" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                                    {block:LinkURL}
                                         </a>
-                                    {block:IndexPage}
-                                    {block:PermalinkPage}
-                                        {block:HighRes}
-                                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-                                        {/block:HighRes}
-
-                                        <img class="{block:HighRes}is-hidden{/block:HighRes}" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                                    {/block:PermalinkPage}
+                                    {/block:LinkURL}
                                 </div>
 
                                 {block:Caption}
@@ -972,12 +981,15 @@
                         {block:Panorama}
                             <div class="post-photo {block:Caption}has-caption{/block:Caption}">
                                 <div class="post-photo-img">
-                                    {block:IndexPage}
-                                        <a class="has-no-underline" href="{Permalink}"><img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/></a>
-                                    {block:IndexPage}
-                                    {block:PermalinkPage}
-                                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                                    {/block:PermalinkPage}
+                                    {block:LinkURL}
+                                        <a class="has-no-underline" href="{LinkURL}">
+                                    {/block:LinkURL}
+
+                                    <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/></a>
+
+                                    {block:LinkURL}
+                                        </a>
+                                    {/block:LinkURL}
                                 </div>
 
                                 {block:Caption}
@@ -990,18 +1002,9 @@
                         {block:Photoset}
                             <div class="post-photo post-photoset {block:Caption}has-caption{/block:Caption}">
                                 <div class="post-photo-img">
-                                    {block:IndexPage}
-                                        <a class="has-no-underline" href="{Permalink}">
-                                            {block:Photos}
-                                                <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                                            {/block:Photos}
-                                        </a>
-                                    {block:IndexPage}
-                                    {block:PermalinkPage}
-                                        {block:Photos}
-                                            <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                                        {/block:Photos}
-                                    {/block:PermalinkPage}
+                                    {block:Photos}
+                                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                                    {/block:Photos}
                                 </div>
 
                                 {block:Caption}
@@ -1021,7 +1024,10 @@
 
                         <!-- Link -->
                         {block:Link}
-                            <a class="has-no-underline post-link" href="{URL}" {Target}>{Name}</a>
+                            <a class="has-no-underline post-link" href="{URL}" {Target}>
+                                <i class="fa fa-lg fa-link fa-flip-horizontal post-link-icon"></i>
+                                {Name}
+                            </a>
 
                             {block:Excerpt}
                                 <blockquote class="post-blockquote">{Excerpt}</blockquote>
@@ -1461,6 +1467,6 @@
         </div>
     </footer>
 
-    <script src="http://static.tumblr.com/w45vvio/P8Joqkwyj/javascript.min.js"></script>
+    <script src="http://static.tumblr.com/w45vvio/E3Jorv1dn/javascript.min.js"></script>
 </body>
 </html>
