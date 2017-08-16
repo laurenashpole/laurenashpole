@@ -1,40 +1,28 @@
 a,
 .link {
-    background-image: -webkit-linear-gradient(
-        transparent 64.733%,
-        $color-green-light 64.733%,
-        $color-green-light 93.333%,
-        transparent 93.333%
-    );
-    background-image: linear-gradient(
-        transparent 64.733%,
-        $color-green-light 64.733%,
-        $color-green-light 93.333%,
-        transparent 93.333%
-    );
-    background-position: 0.15em 0;
-    background-repeat: no-repeat;
-    padding-right: 0.15em;
-    color: $color-gray-darkest;
+    border-bottom: 2px solid transparent;
+    color: $color-red;
     font-weight: 400;
     text-decoration: none;
     position: relative;
     cursor: pointer;
+    transition: border-bottom-color 0.1s linear;
 }
 
 .is-not-touch a:hover,
 .is-not-touch .link:hover {
-    color: $color-gray-darkest;
+    color: $color-red;
+    border-bottom-color: $color-red;
 }
 
-.has-no-underline {
-    background: none;
-    padding: 0;
+.has-no-underline,
+.has-no-underline:hover {
+    border-bottom: none;
 }
 
-.has-hover-border {
-    background: none;
-    padding: 0;
+.has-hover-border,
+.has-hover-border:hover {
+    border-bottom: none;
 }
 
 @media (min-width: 768px) {

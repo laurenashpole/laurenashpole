@@ -157,31 +157,29 @@ i,
 /* Components */
 a,
 .link {
-  background-image: -webkit-linear-gradient(transparent 64.733%, #d5e7db 64.733%, #d5e7db 93.333%, transparent 93.333%);
-  background-image: linear-gradient(transparent 64.733%, #d5e7db 64.733%, #d5e7db 93.333%, transparent 93.333%);
-  background-position: 0.15em 0;
-  background-repeat: no-repeat;
-  padding-right: 0.15em;
-  color: #242120;
+  border-bottom: 2px solid transparent;
+  color: #dd4433;
   font-weight: 400;
   text-decoration: none;
   position: relative;
   cursor: pointer;
+  transition: border-bottom-color 0.1s linear;
 }
 
 .is-not-touch a:hover,
 .is-not-touch .link:hover {
-  color: #242120;
+  color: #dd4433;
+  border-bottom-color: #dd4433;
 }
 
-.has-no-underline {
-  background: none;
-  padding: 0;
+.has-no-underline,
+.has-no-underline:hover {
+  border-bottom: none;
 }
 
-.has-hover-border {
-  background: none;
-  padding: 0;
+.has-hover-border,
+.has-hover-border:hover {
+  border-bottom: none;
 }
 
 @media (min-width: 768px) {
@@ -815,6 +813,10 @@ a img {
   z-index: 1;
 }
 
+.container--narrow {
+  max-width: 700px;
+}
+
 .has-padding {
   padding-top: 2.5rem;
   padding-bottom: 3rem;
@@ -1038,11 +1040,16 @@ a img {
   padding: 0 0.25rem;
   line-height: 62px;
   font-size: 0.75rem;
+  color: #242120;
   letter-spacing: 0.2em;
   display: block;
   opacity: 0;
   -webkit-transition: opacity 0.05s linear 0s;
   transition: opacity 0.05s linear 0s;
+}
+
+.is-not-touch .nav-link:hover {
+  color: #242120;
 }
 
 .nav-checkbox:checked ~ .nav-links .nav-link {
@@ -1411,44 +1418,20 @@ a img {
 }
 
 .shop-list-link {
+  width: 100%;
   max-width: 150px;
   margin: 0 auto;
   display: block;
 }
 
 .is-homepage .footer-container {
-  background: #f6f5f4;
   margin-top: 0;
-}
-
-.is-homepage .footer-social-icon {
-  border-color: #fff;
-}
-
-.is-homepage .footer-form-container {
-  border-color: #fff;
-}
-
-.is-homepage .footer-input-container {
-  border-color: #fff;
-}
-
-.is-homepage .footer-button-container {
-  border-color: #fff;
-}
-
-.is-homepage .footer-input {
-  background: #fff;
 }
 
 @media (min-width: 768px) {
   .shop-list-item {
     width: 25%;
     position: relative;
-  }
-
-  .is-homepage .footer-social {
-    border-color: #fff;
   }
 }
 @media (min-width: 1024px) {

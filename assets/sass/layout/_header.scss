@@ -121,10 +121,15 @@
     padding: 0 0.25rem;
     line-height: 62px;
     font-size: 0.75rem;
+    color: $color-gray-darkest;
     letter-spacing: 0.2em;
     display: block;
     opacity: 0;
     @include transition(opacity 0.05s linear 0s);
+}
+
+.is-not-touch .nav-link:hover {
+    color: $color-gray-darkest;
 }
 
 .nav-checkbox:checked ~ .nav-links .nav-link {

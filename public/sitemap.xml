@@ -4,7 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
   <loc>https://www.laurenashpole.com/</loc>
@@ -46,6 +45,9 @@
   <loc>https://www.laurenashpole.com/fonts/hellmuth</loc>
 </url>
 <url>
+  <loc>https://www.laurenashpole.com/fonts/herbaceous-border</loc>
+</url>
+<url>
   <loc>https://www.laurenashpole.com/fonts/horseshoes-lemonade</loc>
 </url>
 <url>
@@ -56,6 +58,9 @@
 </url>
 <url>
   <loc>https://www.laurenashpole.com/fonts/paper-hearts</loc>
+</url>
+<url>
+  <loc>https://www.laurenashpole.com/fonts/parallel-lines</loc>
 </url>
 <url>
   <loc>https://www.laurenashpole.com/fonts/publicite-depoque</loc>
@@ -70,6 +75,9 @@
   <loc>https://www.laurenashpole.com/fonts/sewing-patterns-2</loc>
 </url>
 <url>
+  <loc>https://www.laurenashpole.com/fonts/sewing-patterns-3</loc>
+</url>
+<url>
   <loc>https://www.laurenashpole.com/fonts/southbats</loc>
 </url>
 <url>
@@ -80,9 +88,6 @@
 </url>
 <url>
   <loc>https://www.laurenashpole.com/fonts/eula</loc>
-</url>
-<url>
-  <loc>https://www.laurenashpole.com/fonts/eula/</loc>
 </url>
 <url>
   <loc>https://www.laurenashpole.com/contact</loc>

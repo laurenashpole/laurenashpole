@@ -9,12 +9,12 @@
                 <div class="homepage-dots bg-dots is-hero" data-tilt-child data-tile-z="-10px"></div>
 
                 <div class="hero-image-container">
-                    <a href="/fonts/sewing-patterns-3" title="Sewing Patterns 3" class="has-no-underline homepage-image-links">
+                    <a href="/fonts/{{font.slug}}" title="{{font.name}}" class="has-no-underline homepage-image-links">
                         <span class="img-default">
-                            <figure class="img-bg" style="background-image: url(/images/fonts/sewing3-main.png);"></figure>
+                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
                         </span>
                         <span class="img-retina">
-                            <figure class="img-bg" style="background-image: url(/images/fonts/sewing3-main-retina.png);"></figure>
+                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
                         </span>
                     </a>
 
@@ -30,11 +30,11 @@
 
             <section class="homepage-column details-card">
                 <h3 class="details-card-section is-uppercase has-no-margin" itemprop="name">
-                    New Font!<br />Sewing Patterns 3
+                    New Font!<br />{{font.name}}
                 </h3>
 
                 <div class="details-card-section">
-                    <a href="/fonts/sewing-patterns-3" title="Bar Book" class="button is-uppercase is-extra-bold is-primary has-no-underline">
+                    <a href="/fonts/{{font.slug}}" title="{{font.name}}" class="button is-uppercase is-extra-bold is-primary has-no-underline">
                         <span class="button-content">
                             Check It Out
                         </span>
@@ -44,6 +44,14 @@
         </section>
 
         <section class="bg-white homepage-shop-container">
+            <div class="container container--narrow has-padding">
+                <h3 class="is-uppercase shop-list-header">About me</h3>
+
+                <p>I've been designing fonts and dingbats in my spare time for years and you can find them all here. When I'm not working on my side projects, I'm a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code">code snippets</a> on my blog.</p>
+            </div>
+        </section>
+
+        <section class="homepage-shop-container">
             <div class="container has-padding">
                 <h3 class="is-uppercase shop-list-header">Fonts also available at</h3>
 
@@ -60,7 +68,7 @@
                     </li>
                     <li class="shop-list-item">
                         <a href="http://www.fonts.com/font/lauren-ashpole" class="has-no-underline shop-list-link">
-                            <img src="/images/fonts.png" alt="Fonts.com" class="img-responsive" data-pin-nopin="true" />
+                            <img src="/images/fontscom-logo.svg" alt="Fonts.com" class="img-responsive" data-pin-nopin="true" />
                         </a>
                     </li>
                     <li class="shop-list-item">
