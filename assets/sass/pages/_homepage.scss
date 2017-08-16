@@ -54,34 +54,14 @@
 }
 
 .shop-list-link {
+    width: 100%;
     max-width: 150px;
     margin: 0 auto;
     display: block;
 }
 
 .is-homepage .footer-container {
-    background: $color-gray-lightest;
     margin-top: 0;
-}
-
-.is-homepage .footer-social-icon {
-    border-color: $color-white;
-}
-
-.is-homepage .footer-form-container {
-    border-color: $color-white;
-}
-
-.is-homepage .footer-input-container {
-    border-color: $color-white;
-}
-
-.is-homepage .footer-button-container {
-    border-color: $color-white;
-}
-
-.is-homepage .footer-input {
-    background: $color-white;
 }
 
 @media (min-width: 768px) {
@@ -89,10 +69,6 @@
     .shop-list-item {
         width: 25%;
         position: relative;
-    }
-
-    .is-homepage .footer-social {
-        border-color: $color-white;
     }
 }
 
