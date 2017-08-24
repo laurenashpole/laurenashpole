@@ -6,6 +6,8 @@ var paymentHelper = require('../helpers/payments');
 exports.renderFonts = function (req, res) {
     fontHelper.findAll()
         .then (function (data) {
+            _setBackgroundColors(data.fonts);
+
             res.render('fonts/fonts', {
                 title: 'Fonts',
                 fonts: data.fonts
@@ -140,5 +142,32 @@ exports.updateExample = function (req, res) {
         res.setHeader('AMP-Access-Control-Allow-Source-Origin', 'https://' + req.headers.host);
         res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
         res.json(response);
+    }
+};
+
+var _setBackgroundColors = function (fonts) {
+    var darkShades = [
+        'purple',
+        'orange',
+        'blue',
+        'red'
+    ];
+
+    var lightShades = [
+        'light-green',
+        'yellow',
+        'light-blue',
+        'pink'
+    ];
+
+    for (var i = 0; i < fonts.length; i++) {
+        var bgColors = [];
+
+        bgColors.push(darkShades[i % darkShades.length]);
+        bgColors.push(lightShades[i % lightShades.length]);
+        bgColors.push(lightShades[(i + 1) % lightShades.length]);
+        bgColors.push(lightShades[(i + 2) % lightShades.length]);
+
+        fonts[i]['bgColors'] = bgColors;
     }
 };

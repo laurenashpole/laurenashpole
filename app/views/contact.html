@@ -1,75 +1,66 @@
 {% extends 'body.html' %}
 
 {% block content %}
-    <main class="container has-padding is-full-height bg-dots is-hero is-static">
-
-        <svg class="bg-abstract-hero is-static">
-            <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
-        </svg>
-
-        <svg class="bg-abstract-hero is-static is-secondary">
-            <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
-        </svg>
-
-        <div class="container-static">
-            <h2 class="is-uppercase">Contact</h2>
+    <main class="container container--full-height container--vertical-padding bg-dots bg-dots--hero bg-dots--static">
+        <div class="container__content container__content-medium">
+            <h2 class="text--uppercase">Contact</h2>
 
             <p>Email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a> or use the form below.</p>
 
-            <form class="form-container js-contact-form"">
-                <div class="input-container input-label-inset">
-                    <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input js-contact-form-input" />
-                    <label class="is-uppercase is-extra-bold" for="senderEmail">Email <span class="label-required">(valid email required)</span></label>
+            <form class="form js-contact-form"">
+                <div class="form__row">
+                    <input type="type" id="senderEmail" name="senderEmail" placeholder="Your Email" class="input input--label-inset js-contact-form-input" />
+                    <label class="text--uppercase text--extra-bold" for="senderEmail">Email <span class="label__required">(valid email required)</span></label>
                 </div>
 
-                <div class="input-container input-label-inset">
-                    <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input js-contact-form-input" />
-                    <label class="is-uppercase is-extra-bold" for="senderName">Name <span class="label-required">(required)</span></label>
+                <div class="form__row">
+                    <input type="type" id="senderName" name="senderName" placeholder="Your Name" class="input input--label-inset js-contact-form-input" />
+                    <label class="text--uppercase text--extra-bold" for="senderName">Name <span class="label__required">(required)</span></label>
                 </div>
 
-                <div class="input-container input-label-inset">
-                    <div class="select-container input">
-                        <select class="select select-label-inset" id="subject" name="subject">
+                <div class="form__row">
+                    <div class="select select--label-inset">
+                        <select class="select__input" id="subject" name="subject">
                             <option value="Font Licensing">Font Licensing</option>
                             <option value="Technical Issues">Technical Issues</option>
                             <option value="Tumblr Themes">Tumblr Themes</option>
                             <option value="Other">Other</option>
                         </select>
-                        <span class="select-caret">
+                        <span class="select__caret">
                             <i class="fa fa-angle-down"></i>
                         </span>
                     </div>
-                    <label class="is-uppercase is-extra-bold" for="subject">Subject</label>
+                    <label class="text--uppercase text--extra-bold" for="subject">Subject</label>
                 </div>
 
-                <div class="input-container">
+                <div class="form__row">
                     <textarea id="message" name="message" rows="5" class="textarea js-contact-form-input" placeholder="Message"></textarea>
                 </div>
 
-                <div class="contact-buttons button-block">
-                    <div class="contact-button-container">
+                <div class="form__row form__row--inline">
+                    <div class="contact__button-section">
                         <button
                             type="submit"
-                            class="button is-uppercase is-extra-bold is-primary js-contact-send js-ga-trigger"
+                            class="button button--cta-primary button--hover-border text--uppercase text--extra-bold js-contact-send js-ga-trigger"
                             data-ga-category="Contact Page"
                             data-ga-action="click"
                             data-ga-label="Send"
                         >
-                            <span class="button-content">
+                            <span class="button__text">
                                 Send
                             </span>
                         </button>
                     </div>
 
-                    <div class="contact-button-container">
+                    <div class="contact__button-section">
                         <button
                             type="reset"
-                            class="button is-uppercase is-extra-bold is-secondary js-ga-trigger"
+                            class="button button--cta-secondary button--hover-border text--uppercase text--extra-bold js-ga-trigger"
                             data-ga-category="Contact Page"
                             data-ga-action="click"
                             data-ga-label="Cancel"
                         >
-                            <span class="button-content">
+                            <span class="button__text">
                                 Cancel
                             </span>
                         </button>
@@ -78,5 +69,12 @@
             </form>
         </div>
 
+        <svg class="bg-abstract--static">
+            <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+        </svg>
+
+        <svg class="bg-abstract--static-secondary">
+            <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
+        </svg>
     </main>
 {% endblock %}

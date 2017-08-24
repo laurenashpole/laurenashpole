@@ -1,31 +1,104 @@
-.bg-white {
+.bg-solid--white {
     background: $color-white;
 }
 
-.bg-abstract-hero {
+.bg-solid--yellow-light-blue {
+    background-image: -webkit-linear-gradient(
+        $bg-color-light-blue 50%,
+        $bg-color-yellow 50%
+    );
+    background-image: linear-gradient(
+        $bg-color-light-blue 50%,
+        $bg-color-yellow 50%
+    );
+}
+
+.bg-solid--light-blue-pink {
+    background-image: -webkit-linear-gradient(
+        $bg-color-pink 50%,
+        $bg-color-light-blue 50%
+    );
+    background-image: linear-gradient(
+        $bg-color-pink 50%,
+        $bg-color-light-blue 50%
+    );
+}
+
+.bg-solid--pink-light-green {
+    background-image: -webkit-linear-gradient(
+        $bg-color-light-green 50%,
+        $bg-color-pink 50%
+    );
+    background-image: linear-gradient(
+        $bg-color-light-green 50%,
+        $bg-color-pink 50%
+    );
+}
+
+.bg-solid--light-green-yellow {
+    background-image: -webkit-linear-gradient(
+        $bg-color-yellow 50%,
+        $bg-color-light-green 50%
+    );
+    background-image: linear-gradient(
+        $bg-color-yellow 50%,
+        $bg-color-light-green 50%
+    );
+}
+
+.bg-dots:before {
+    content: " ";
+    background-image: -webkit-radial-gradient(
+        $color-white 20%,
+        transparent 20%
+    );
+    background-image: radial-gradient(
+        $color-white 20%,
+        transparent 20%
+    );
+    background-size: 40px 40px;
+    position: absolute;
+    z-index: 0;
+    @include transform(rotate(30deg));
+}
+
+.bg-dots--hero:before {
+    width: 320px;
+    height: 400px;
+    top: 5%;
+    left: 15%;
+}
+
+.bg-dots--tile:before {
+    width: 280px;
+    height: 600px;
+    top: 0;
+    right: -10%;
+}
+
+.bg-dots--static:before {
+    display: none;
+}
+
+.bg-abstract--hero {
     width: 95%;
     height: 60%;
-    color: $color-abstract-pink;
+    color: $bg-color-pink;
     position: absolute;
     top: 2.5%;
     left: 2.5%;
 }
 
-.bg-abstract-hero.is-secondary {
+.bg-abstract--hero-secondary {
     width: 80%;
     height: 35%;
-    color: $color-abstract-green;
+    color: $bg-color-light-green;
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
 }
 
-.bg-abstract-hero.is-static {
-    display: none;
-}
-
-.bg-abstract-hero.is-secondary.is-static {
-    display: none;
-}
-
-.bg-abstract-tile {
+.bg-abstract--tile {
     width: 170%;
     height: 170%;
     position: absolute;
@@ -34,76 +107,87 @@
     @include transform(scaleY(-1));
 }
 
-.bg-dots:before {
-    content: " ";
-    background-image: -webkit-radial-gradient(
-        $color-white 20%,
-        transparent 21%
-    );
-    background-image: radial-gradient(
-        $color-white 20%,
-        transparent 21%
-    );
-    background-size: 40px 40px;
-    position: absolute;
-    @include transform(rotate(30deg));
-}
-
-.bg-dots.is-hero:before {
-    width: 320px;
-    height: 400px;
-    top: 5%;
-    left: 15%;
-}
-
-.bg-dots.is-tile:before {
-    width: 280px;
-    height: 600px;
-    top: 0;
-    right: -10%;
-}
-
-.bg-dots.is-static:before {
+.bg-abstract--static {
     display: none;
+}
+
+.bg-abstract--static-secondary {
+    display: none;
+}
+
+.bg-abstract--red {
+    color: $bg-color-red;
+}
+
+.bg-abstract--purple {
+    color: $bg-color-purple;
+}
+
+.bg-abstract--orange {
+    color: $bg-color-orange;
+}
+
+.bg-abstract--blue {
+    color: $bg-color-blue;
+}
+
+.bg-abstract--yellow {
+    color: $bg-color-yellow;
+}
+
+.bg-abstract--pink {
+    color: $bg-color-pink;
+}
+
+.bg-abstract--light-green {
+    color: $bg-color-light-green;
+}
+
+.bg-abstract--light-blue {
+    color: $bg-color-light-blue;
 }
 
 @media (min-width: 1024px) {
 
-    .bg-abstract-hero {
+    .bg-dots--static:before {
+        left: 25%;
+        top: 4.5rem;
+        display: block;
+        z-index: -2;
+    }
+
+    .bg-abstract--hero {
         height: 90%;
         top: 1.5rem;
         left: 1.5rem;
     }
 
-    .bg-abstract-hero.is-secondary {
+    .bg-abstract--hero-secondary {
         width: 60%;
         height: 60%;
     }
 
-    .bg-abstract-hero.is-static {
+    .bg-abstract--static {
+        width: 1000px;
         height: 750px;
+        position: absolute;
         top: 4.5rem;
-        left: 55%;
-        color: #d5e7db;
+        left: 50%;
+        color: $bg-color-light-green;
         transform: translate3d(-50%, 0, 0);
         display: block;
         z-index: -1;
     }
 
-    .bg-abstract-hero.is-static.is-secondary {
+    .bg-abstract--static-secondary {
+        width: 640px;
         height: 500px;
-        top: 4.5rem;
+        position: absolute;
+        top: 5rem;
         left: 50%;
-        color: #d6ecf0;
+        color: $bg-color-light-blue;
         transform: translate3d(-70%, 0, 0);
         display: block;
         z-index: -1;
-    }
-
-    .bg-dots.is-static:before {
-        left: 25%;
-        top: 4.5rem;
-        display: block;
-        z-index: -2;
     }
 }

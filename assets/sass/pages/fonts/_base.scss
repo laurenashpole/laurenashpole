@@ -1,11 +1,15 @@
-.font-page-heading {
+.font__section-heading {
     font-size: 1.414rem;
     line-height: 2rem;
 }
 
+.font__button + .font__button {
+    margin-top: 2px;
+}
+
 @media (min-width: 768px) {
 
-    .font-page-heading {
+    .font__section-heading {
         font-size: 2.167rem;
         line-height: 3rem;
     }

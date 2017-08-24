@@ -1,39 +1,39 @@
 /* TO DO: Delete once new images are finished */
-.gallery-main.is-legacy {
+.gallery__main--is-legacy {
     padding: 1.5rem;
 }
 
-.gallery-main {
-    border: 2px solid $color-gray-lightest;
+.gallery__main {
+    border: 2px solid $color-gray-light;
     padding: 0.5rem;
 }
 
-.gallery-thumbnails-container {
-    border: 2px solid $color-gray-lightest;
+.gallery__thumbnails {
+    border: 2px solid $color-gray-light;
     border-top: none;
     padding: 0.5rem;
 }
 
-.gallery-thumbnails {
+.gallery__thumbnails-inner {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     @include flex();
 }
 
-.gallery-thumbnail {
+.gallery__thumbnail {
     margin: 0 1px 0 0;
     cursor: pointer;
     @include flex-child(0, 1, 100px);
 }
 
-.gallery-thumbnail:last-child {
+.gallery__thumbnail:last-child {
     margin-right: 0;
 }
 
 @media (min-width: 768px) {
 
-    .gallery-thumbnail {
+    .gallery__thumbnail {
         margin: 0 0.5rem 0 0;
         @include flex-child(0, 1, calc(20% - (0.5rem * 0.8)));
     }

@@ -1,23 +1,14 @@
-.contact-buttons {
-    padding: 0 0.5rem;
-}
-
-.contact-button-container {
+.contact__button-section {
     width: 50%;
 }
 
 @media (min-width: 768px) {
 
-    .contact-buttons:before {
-        left: 66.666%;
-        @include transform(translate3d(-66.666%, -50%, 0));
-    }
-
-    .contact-button-container {
+    .contact__button-section {
         width: 66.666%;
     }
 
-    .contact-button-container:last-child {
+    .contact__button-section:last-child {
         width: 33.333%;
     }
 }

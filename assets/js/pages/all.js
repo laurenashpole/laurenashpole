@@ -13,7 +13,7 @@ All.prototype.initialize = function () {
 All.prototype.checkTouch = function () {
 
     window.addEventListener('touchstart', function onFirstTouch() {
-        document.querySelector('html').classList.remove('is-not-touch');
+        document.querySelector('html').classList.remove('is-not-touch', 'no-touch');
         window.removeEventListener('touchstart', onFirstTouch, false);
     }, false);
 };

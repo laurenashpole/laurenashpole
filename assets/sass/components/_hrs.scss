@@ -1,11 +1,11 @@
-.hr-text {
+.hr--text {
     margin: 1rem 0;
     @include flex();
     @include flex-align(center);
 }
 
-.hr-text:before,
-.hr-text:after {
+.hr--text:before,
+.hr--text:after {
     content: " ";
     background: $color-white;
     height: 2px;
@@ -14,6 +14,6 @@
     @include flex-child(2);
 }
 
-.hr-text:after {
+.hr--text:after {
     margin: 0 0 0 0.75rem;
 }

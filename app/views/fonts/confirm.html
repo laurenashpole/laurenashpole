@@ -1,11 +1,11 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <main class="container has-padding is-full-height">
-        <div class="container-static">
+    <main class="container container--full-height container--vertical-padding">
+        <div class="container__content container__content-medium">
             {% if payment %}
 
-                <h2 class="is-uppercase">Thank you for purchasing {{font.name}}!</h2>
+                <h2 class="text--uppercase">Thank you for purchasing {{font.name}}!</h2>
 
                 <p>Download the commercial version of your font <a href="/downloads/{{font.commercial_font_file}}">here</a>. A copy will also be emailed to {{payment.payer.payer_info.email}}.</p>
 
@@ -13,7 +13,7 @@
 
             {% else %}
 
-                <h1 class="text-block text-heading">This page is no longer available.</h1>
+                <h2 class="text--uppercase">This page is no longer available.</h2>
 
                 <p>If you previously purchased {{font.name}} and need another copy of the commercial file or have any other questions, just email me at <a href="mailto:{{email_address}}" title="{{email_address}}">{{email_address}}</a>.</p>
 

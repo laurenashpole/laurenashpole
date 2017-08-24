@@ -1,42 +1,42 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <main class="container has-padding">
-        <h2 class="is-uppercase">Fonts</h2>
+    <main class="container container--vertical-padding">
+        <h2 class="text--uppercase">Fonts</h2>
 
-        <section class="font-grid-container">
+        <section class="font-grid">
             {% for font in fonts %}
-                <div class="font-grid-item-container">
-                    <div class="font-grid-item">
+                <div class="font-grid__item">
+                    <div class="font-grid__bg bg-solid--{{font.bgColors[2]}}-{{font.bgColors[3]}}">
                         <a
                             href="/fonts/{{font.slug}}"
-                            class="has-no-underline font-grid-link bg-dots is-tile js-ga-trigger"
+                            class="font-grid__link bg-dots bg-dots--tile link--no-underline js-ga-trigger"
                             data-ga-category="Fonts"
                             data-ga-action="click"
                             data-ga-label="{{font.name}}"
                         >
-                            <div class="font-grid-image-container">
-                                <span class="img-default">
-                                    <figure class="img-bg font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
+                            <div>
+                                <span class="img--default">
+                                    <figure class="img--bg font-grid__img" style="background-image: url(/images/fonts/{{font.image_thumbnail}});"></figure>
                                 </span>
-                                <span class="img-retina">
-                                    <figure class="img-bg font-grid-image" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
+                                <span class="img--retina">
+                                    <figure class="img--bg font-grid__img" style="background-image: url(/images/fonts/{{font.image_thumbnail_retina}});"></figure>
                                 </span>
                             </div>
 
-                            <svg class="bg-abstract-tile">
+                            <svg class="bg-abstract--tile bg-abstract--{{font.bgColors[1]}}">
                                 <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
                             </svg>
 
-                            <svg class="bg-abstract-tile is-secondary">
+                            <svg class="bg-abstract--tile bg-abstract--{{font.bgColors[0]}}">
                                 <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
                             </svg>
 
-                            <h3 class="has-no-margin is-uppercase font-grid-title">
+                            <h3 class="font-grid__title u--no-margin text--uppercase">
                                 {{font.name}}
                             </h3>
 
-                            <div class="font-grid-cta is-extra-bold">
+                            <div class="font-grid__cta text--extra-bold">
                                 Go!
                             </div>
                         </a>

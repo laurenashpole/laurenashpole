@@ -1,50 +1,41 @@
-.font-glyphs {
-    border: 2px solid #fff;
-    padding: 0.4rem;
+.font-glyphs__label {
+    margin: 0 0.75rem 1.5rem 0;
+    display: none;
+}
+
+.font-glyphs__label:last-of-type {
+    margin: 0 0 1.5rem 0.75rem;
+}
+
+.font-glyphs.has-options .font-glyphs__label {
+    display: inline-block;
+}
+
+.font-glyphs__radio--basic:checked ~ .font-glyphs__chars--basic {
     @include flex();
+}
+
+.font-glyphs__radio--additional:checked ~ .font-glyphs__chars--additional {
+    @include flex();
+}
+
+.font-glyphs__chars {
+    border: 2px solid #fff;
+    padding: 0.5rem;
+    display: none;
     @include flex-wrap(wrap);
     @include transition(opacity 150ms ease-in-out);
 }
 
-.css-loading .font-glyphs {
+.css-loading .font-glyphs__chars {
     opacity: 0;
 }
 
-.font-glyph-radio {
-    display: none;
-}
-
-.font-glyph-radio-label {
-    margin: 0 0.5rem 1.5rem 0;
-    font-size: 0.9rem;
-    display: none;
-}
-
-.font-glyph-radio-label:last-of-type {
-    margin: 0 0 1.5rem 0.5rem;
-}
-
-.font-glyphs-container.has-options .font-glyph-radio-label {
-    display: inline-block;
-}
-
-.font-glyphs {
-    display: none;
-}
-
-.font-glyph-radio-basic:checked ~ .font-glyphs-basic {
-    @include flex();
-}
-
-.font-glyph-radio-additional:checked ~ .font-glyphs-additional {
-    @include flex();
-}
-
-.font-glyph {
+.font-glyphs__char {
     width: 20%;
     background: $color-white;
     padding-top: 20px;
-    border: 0.1rem solid $color-gray-lightest;
+    border: 0.1rem solid $color-gray-light;
     font-size: 24px;
     line-height: 60px;
     text-align: center;
@@ -54,17 +45,17 @@
     @include transition(transform 0.25s ease-in-out);
 }
 
-.is-not-touch .font-glyph:hover {
+.is-not-touch .font-glyphs__char:hover {
     z-index: 1;
     @include transform(scale(1.25));
 }
 
-.font-glyph-label {
+.font-glyphs__key {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 2px solid $color-gray-lightest;
+    border-bottom: 2px solid $color-gray-light;
     font-size: 12px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
@@ -74,7 +65,7 @@
 
 @media (min-width: 768px) {
 
-    .font-glyph {
+    .font-glyphs__char {
         width: 12.5%;
     }
 }

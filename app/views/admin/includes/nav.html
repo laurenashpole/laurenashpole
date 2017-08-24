@@ -1,36 +1,38 @@
-<header class="header">
-    <nav class="nav js-nav">
-        <div class="nav-header">
-            <a href="/" title="Lauren Ashpole" class="has-no-underline nav-logo-container">
-                <svg class="nav-logo">
+<header class="header container--sticky-mobile">
+    <nav class="nav">
+        <div class="nav__header">
+            <a href="/" title="Lauren Ashpole" class="nav__logo link--no-underline">
+                <svg class="nav__logo-svg">
                     <use xlink:href="/images/logo.svg#logo"></use>
                 </svg>
             </a>
         </div>
 
-        <input type="checkbox" id="navCheckbox" class="nav-checkbox">
+        <input type="checkbox" id="navCheckbox" class="nav__checkbox u--hidden">
 
-        <label for="navCheckbox" class="mobile nav-icon-container" title="Nav">
-            <span class="nav-icon">
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-                <span class="nav-icon-line"></span>
-            </span>
+        <label for="navCheckbox" class="nav__icon u--mobile" title="Nav">
+            <span class="nav__icon-line"></span>
+            <span class="nav__icon-line"></span>
+            <span class="nav__icon-line"></span>
+            <span class="nav__icon-line"></span>
         </label>
 
-        <div class="nav-links has-heading-font">
-            <ul class="list-unstyled nav-links-list">
-                <li>
-                    <a href="/admin/fonts" title="View Fonts" class="has-hover-border is-uppercase is-extra-bold nav-link">View Fonts</a>
-                </li>
-                <li>
-                    <a href="/admin/fonts/create" title="Create Font" class="has-hover-border is-uppercase is-extra-bold nav-link">Create Font</a>
-                </li>
-                <li>
-                    <a href="/admin/logout" title="Logout" class="has-hover-border is-uppercase is-extra-bold nav-link">Logout</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav__links list--unstyled text--heading text--uppercase">
+            <li>
+                <a href="/admin/fonts" title="View Fonts" class="nav__link text--extra-bold link--hover-border">
+                    View Fonts
+                </a>
+            </li>
+            <li>
+                <a href="/admin/fonts/create" title="Create Font" class="nav__link text--extra-bold link--hover-border">
+                    Create Font
+                </a>
+            </li>
+            <li>
+                <a href="/admin/logout" title="Logout" class="nav__link text--extra-bold link--hover-border">
+                    Logout
+                </a>
+            </li>
+        </ul>
     </nav>
 </header>

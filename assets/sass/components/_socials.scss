@@ -1,0 +1,54 @@
+.social {
+    width: 25%;
+    height: 3.5rem;
+    border-right: 2px solid $color-gray-light;
+    position: relative;
+    @include flex();
+    @include flex-align(stretch);
+}
+
+.social:last-child {
+    border: none;
+}
+
+.social:before {
+    content: " ";
+    background: $button-color;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transition(all 0.25s);
+    @include transform(translate3d(-50%, -50%, 0));
+}
+
+.no-touch .social:hover:before {
+    background: $button-color-hover;
+}
+
+.social__link {
+    width: 100%;
+    color: $color-white;
+    @include flex();
+    @include flex-align(center);
+    @include flex-justify(center);
+}
+
+.no-touch .social__link:hover {
+    color: $color-white;
+}
+
+@media (min-width: 768px) {
+
+    .social {
+        width: 3.5rem;
+    }
+
+    .no-touch .social:hover:before {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}

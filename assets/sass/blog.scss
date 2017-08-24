@@ -5,18 +5,20 @@
 /* Base */
 @import 'base/base';
 @import 'base/typography';
+@import 'base/utilities';
 
 /* Components */
 @import 'components/links';
 @import 'components/lists';
 @import 'components/backgrounds';
-@import 'components/details-card';
-@import 'components/buttons/buttons';
+@import 'components/socials';
 @import 'components/forms/base';
+@import 'components/forms/buttons';
 @import 'components/forms/inputs';
-@import 'components/images/images';
+@import 'components/images/base';
 
 /* Layout */
-@import 'layout/layout';
-@import 'layout/header';
+@import 'layout/nav';
+@import 'layout/containers';
+@import 'layout/columns';
 @import 'layout/footer';

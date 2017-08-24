@@ -5,35 +5,36 @@
 /* Base */
 @import 'base/base';
 @import 'base/typography';
+@import 'base/utilities';
+
+/* Layout */
+@import 'layout/nav';
+@import 'layout/containers';
+@import 'layout/columns';
+@import 'layout/footer';
 
 /* Components */
+@import 'components/forms/base';
+@import 'components/forms/buttons';
+@import 'components/forms/inputs';
+@import 'components/forms/selects';
+@import 'components/images/base';
+@import 'components/images/gallery';
+@import 'components/heros';
 @import 'components/links';
 @import 'components/lists';
 @import 'components/backgrounds';
-@import 'components/details-card';
-@import 'components/modal';
-@import 'components/buttons/buttons';
-@import 'components/forms/base';
-@import 'components/forms/inputs';
-@import 'components/forms/selects';
-@import 'components/images/images';
-@import 'components/images/gallery';
-@import 'components/images/heros';
-
-// TO DO: Figure out consistent icon style
-// @import 'components/icons';
-
-/* Layout */
-@import 'layout/layout';
-@import 'layout/header';
-@import 'layout/footer';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/socials';
 
 /* Pages */
 @import 'pages/contact';
-@import 'pages/homepage';
+@import 'pages/homepage/base';
+@import 'pages/homepage/shops';
 @import 'pages/fonts/base';
+@import 'pages/fonts/font-files';
 @import 'pages/fonts/font-grid';
 @import 'pages/fonts/font-details';
 @import 'pages/fonts/font-examples';
 @import 'pages/fonts/font-glyphs';
-@import 'pages/fonts/font-buttons';

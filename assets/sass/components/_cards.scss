@@ -1,21 +1,25 @@
-.details-card {
+.card {
     background: $color-white;
-    border: 1rem solid $color-gray-lightest;
     border-width: 0.75rem 0rem;
     text-align: center;
-    position: relative;
     z-index: 1;
 }
 
-.details-card-section {
+.card__section {
+    margin: 0;
     padding: 1rem;
+    border: none;
+}
+
+.card__section + .card__section {
+    padding-top: 0;
 }
 
 @media (min-width: 1024px) {
 
-    .details-card {
+    .card {
         border: 2px solid $color-white;
         padding: 0.5rem;
-        box-shadow: 0 0 0 0.5rem $color-gray-lightest inset;
+        box-shadow: 0 0 0 0.5rem $bg-color-default inset;
     }
 }

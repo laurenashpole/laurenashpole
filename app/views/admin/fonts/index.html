@@ -3,22 +3,23 @@
 {% block title %}{% parent %} - Admin{% endblock %}
 
 {% block content %}
+    <main class="container container--full-height container--vertical-padding">
+        <div class="container__content container__content-medium">
+            <h2 class="text--uppercase">Fonts</h2>
 
-    <main class="container has-padding is-full-height">
-        <div class="container-static">
-            <h2 class="text-block text-heading">Fonts</h2>
-
-            <ul class="list-unstyled">
+            <ul class="list--unstyled admin-list">
                 {% for font in fonts %}
-                    <li class="font-list-item">
-                        <a href="/admin/fonts/{{font.id}}">{{font.name}}</a>
+                    <li class="admin-list__item">
+                        <a href="/admin/fonts/{{font.id}}" class="link--no-underline">{{font.name}}</a>
+
                         <form class="js-admin-delete" method="post" action="/admin/fonts/{{font.id}}?_method=DELETE">
-                            <button class="font-list-delete" type="submit">Delete</button>
+                            <button class="admin-list__delete" type="submit">
+                                Delete
+                            </button>
                         </form>
                     </li>
                 {% endfor %}
             </ul>
         </div>
     </main>
-
 {% endblock %}

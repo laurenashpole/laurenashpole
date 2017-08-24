@@ -4,38 +4,52 @@
 
 {% block content %}
     <main>
-        <section class="container homepage-container">
-            <div class="column-static has-padding has-half-padding" data-tilt data-tilt-parent="true" data-tilt-reset="false">
-                <div class="homepage-dots bg-dots is-hero" data-tilt-child data-tile-z="-10px"></div>
-
-                <div class="hero-image-container">
-                    <a href="/fonts/{{font.slug}}" title="{{font.name}}" class="has-no-underline homepage-image-links">
-                        <span class="img-default">
-                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
+        <section class="homepage__container container container--vertical-padding">
+            <div class="column--static" data-tilt data-tilt-parent="true" data-tilt-reset="false">
+                <div class="hero__image">
+                    <a
+                        href="/fonts/{{font.slug}}"
+                        title="{{font.name}}"
+                        class="link--no-underline js-ga-trigger"
+                        data-ga-category="Homepage Hero"
+                        data-ga-action="click"
+                        data-ga-label="Hero Image"
+                    >
+                        <span class="img--default">
+                            <figure class="img--bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
                         </span>
-                        <span class="img-retina">
-                            <figure class="img-bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
+                        <span class="img--retina">
+                            <figure class="img--bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
                         </span>
                     </a>
 
-                    <svg class="bg-abstract-hero" data-tilt-child>
+                    <div class="homepage__bg-dots bg-dots bg-dots--hero" data-tilt-child data-tile-z="-10px"></div>
+
+                    <svg class="bg-abstract--hero" data-tilt-child>
                         <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
                     </svg>
 
-                    <svg class="bg-abstract-hero is-secondary" data-tilt-child data-tilt-z="10px">
+                    <svg class="homepage__bg-abstract bg-abstract--hero-secondary" data-tilt-child data-tilt-z="10px">
                         <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
                     </svg>
                 </div>
             </div>
 
-            <section class="homepage-column details-card">
-                <h3 class="details-card-section is-uppercase has-no-margin" itemprop="name">
+            <section class="homepage-column card">
+                <h3 class="card__section text--uppercase u--no-margin" itemprop="name">
                     New Font!<br />{{font.name}}
                 </h3>
 
-                <div class="details-card-section">
-                    <a href="/fonts/{{font.slug}}" title="{{font.name}}" class="button is-uppercase is-extra-bold is-primary has-no-underline">
-                        <span class="button-content">
+                <div class="card__section">
+                    <a
+                        href="/fonts/{{font.slug}}"
+                        title="{{font.name}}"
+                        class="button button--cta-primary button--hover-border text--uppercase text--extra-bold js-ga-trigger"
+                        data-ga-category="Homepage Hero"
+                        data-ga-action="click"
+                        data-ga-label="Hero Button"
+                    >
+                        <span class="button__text">
                             Check It Out
                         </span>
                     </a>
@@ -43,41 +57,41 @@
             </section>
         </section>
 
-        <section class="bg-white homepage-shop-container">
-            <div class="container container--narrow has-padding">
-                <h3 class="is-uppercase shop-list-header">About me</h3>
+        <section class="bg-solid--white">
+            <div class="container container--vertical-padding">
+                <div class="container__content container__content--narrow">
+                    <h3 class="text--uppercase u--center">About me</h3>
 
-                <p>I've been designing fonts and dingbats in my spare time for years and you can find them all here. When I'm not working on my side projects, I'm a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code">code snippets</a> on my blog.</p>
+                    <p>I've been designing fonts and dingbats in my spare time for years and you can find them all here. When I'm not working on my side projects, I'm a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" class="js-ga-trigger" data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" class="js-ga-trigger" data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Code Snippets">code snippets</a> on my blog.</p>
+                </div>
             </div>
         </section>
 
-        <section class="homepage-shop-container">
-            <div class="container has-padding">
-                <h3 class="is-uppercase shop-list-header">Fonts also available at</h3>
+        <section class="container container--vertical-padding">
+            <h3 class="text--uppercase u--center">Fonts also available at</h3>
 
-                <ul class="list-unstyled shop-list">
-                    <li class="shop-list-item">
-                        <a href="http://creativemarket.com/laurenashpole?u=laurenashpole" class="has-no-underline shop-list-link">
-                            <img src="/images/creativemarket.png" alt="Creative Market" class="img-responsive" data-pin-nopin="true" />
-                        </a>
-                    </li>
-                    <li class="shop-list-item">
-                        <a href="https://www.myfonts.com/foundry/Lauren_Ashpole/" class="has-no-underline shop-list-link">
-                            <img src="/images/myfonts.svg" alt="MyFonts" class="img-responsive" data-pin-nopin="true" />
-                        </a>
-                    </li>
-                    <li class="shop-list-item">
-                        <a href="http://www.fonts.com/font/lauren-ashpole" class="has-no-underline shop-list-link">
-                            <img src="/images/fontscom-logo.svg" alt="Fonts.com" class="img-responsive" data-pin-nopin="true" />
-                        </a>
-                    </li>
-                    <li class="shop-list-item">
-                        <a href="https://www.etsy.com/shop/laurenashpole" class="has-no-underline shop-list-link">
-                            <img src="/images/etsy.png" alt="Etsy" class="img-responsive" data-pin-nopin="true" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="list--unstyled shops">
+                <li class="shops__item">
+                    <a href="http://creativemarket.com/laurenashpole?u=laurenashpole" class="link--no-underline shops__link">
+                        <img src="/images/creativemarket.png" alt="Creative Market" class="img--responsive" data-pin-nopin="true" />
+                    </a>
+                </li>
+                <li class="shops__item">
+                    <a href="https://www.myfonts.com/foundry/Lauren_Ashpole/" class="link--no-underline shops__link">
+                        <img src="/images/myfonts.svg" alt="MyFonts" class="img--responsive" data-pin-nopin="true" />
+                    </a>
+                </li>
+                <li class="shops__item">
+                    <a href="http://www.fonts.com/font/lauren-ashpole" class="link--no-underline shops__link">
+                        <img src="/images/fontscom-logo.svg" alt="Fonts.com" class="img--responsive" data-pin-nopin="true" />
+                    </a>
+                </li>
+                <li class="shops__item">
+                    <a href="https://www.etsy.com/shop/laurenashpole" class="link--no-underline shops__link">
+                        <img src="/images/etsy.png" alt="Etsy" class="img--responsive" data-pin-nopin="true" />
+                    </a>
+                </li>
+            </ul>
         </section>
     </main>
 {% endblock %}

@@ -1,98 +1,62 @@
-.font-file-types {
-    border-top: 2px solid $color-gray-lightest;
-    position: relative;
-    @include flex();
-}
-
-.font-file-types.has-two-options:before {
-    content: " ";
-    background: $color-gray-lightest;
-    width: 2px;
-    height: 100%;
-    margin: -1px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-}
-
-.font-file-type {
-    padding: 0.75rem 1rem;
-    @include flex-child(1, 1, 50%);
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
-}
-
-.font-file-type-icon {
-    margin-right: 0.75rem;
-}
-
-.font-file-type-icon.fa-desktop {
-    margin-top: 2px;
-    font-size: 0.95em;
-}
-
-.font-details-date {
-    margin-bottom: 0.65rem;
-    font-size: 0.9rem;
-}
-
-.font-details-description {
-    margin-bottom: 1rem;
-    padding: 0 calc(0.75rem + 2px);
-}
-
-.font-details-licensing {
+.font-details__licensing {
     margin: 0 0.5rem 2rem 0;
-    font-size: 0.9rem;
     display: inline-block;
 }
 
-.font-details-licensing:last-child {
+.font-details__licensing:last-child {
     margin: 0 0 2rem 0.5rem;
 }
 
-.font-details-lists {
-    border: 2px solid $color-white;
+.font-details__content {
+    border: 2px solid #fff;
 }
 
-.font-details-list + .font-details-list {
-    border-top: 2px solid $color-white;
-}
-
-.font-details-list-heading {
-    margin-bottom: 1rem;
+.font-details__section {
     border-bottom: 2px solid $color-white;
     padding: 0.75rem;
 }
 
-.font-details-list-item {
-    padding: 0 0.75rem;
+.font-details__date {
+    line-height: 1.5rem;
 }
 
-.font-details-list-item:last-child {
+.font-details__description {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.font-details__list + .font-details__list {
+    border-top: 2px solid $color-white;
+}
+
+.font-details__list-item {
+    padding-bottom: 0;
+    border: none;
+}
+
+.font-details__list-item:last-child {
     padding-bottom: 0.75rem;
 }
 
 @media (min-width: 768px) {
 
-    .font-details-description {
-        margin-bottom: 2rem;
-        padding: 0;
-    }
-
-    .font-details-lists {
+    .font-details__lists {
         border-right-width: 1px;
         @include flex();
     }
 
-    .font-details-list {
-        border-right: 1px solid $color-white;
+    .font-details__list {
         @include flex-child(1, 0, 50%);
+        @include flex();
+        @include flex-direction(column);
     }
 
-    .font-details-list + .font-details-list {
+    .font-details__list + .font-details__list {
         border-top: none;
-        border-left: 1px solid $color-white;
+        border-left: 2px solid $color-white;
+    }
+
+    .font-details__list-item:last-child {
+        @include flex-child(1);
     }
 }

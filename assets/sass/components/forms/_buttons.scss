@@ -1,0 +1,101 @@
+.button {
+    background: $button-color;
+    width: 100%;
+    height: 3.5rem;
+    padding: 0 0.5rem;
+    color: $color-white;
+    text-align: center;
+    line-height: 1.05em;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    @include transition(background 0.25s);
+}
+
+.no-touch .button:hover {
+    background: $button-color-hover;
+    color: $color-white;
+}
+
+.button.is-processing {
+    font-size: 0;
+}
+
+.button__text {
+    height: 100%;
+    @include flex();
+    @include flex-direction(column);
+    @include flex-justify(center);
+    @include flex-align(center);
+}
+
+.button.is-processing .button__text:before {
+    content: "Processing";
+    font-size: 1rem;
+    letter-spacing: 0.075em;
+}
+
+.button--small {
+    height: 2.5rem;
+    font-size: 0.75rem;
+}
+
+.button--small.is-processing .button__text:before {
+    font-size: 0.75rem;
+}
+
+.button--cta-primary,
+.no-touch .button--cta-primary:hover {
+    background: $button-color-cta-primary;
+}
+
+.button--cta-secondary,
+.no-touch .button--cta-secondary:hover {
+    background: $button-color-cta-secondary;
+}
+
+.button--hover-border:before,
+.no-touch .button--hover-border:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+    position: absolute;
+}
+
+.button--hover-border:before {
+    top: 0.35rem;
+    left: 0.35rem;
+}
+
+.button--hover-border:after {
+    bottom: 0.35rem;
+    right: 0.35rem;
+}
+
+.no-touch .button--hover-border:hover:before,
+.no-touch .button--hover-border:hover:after {
+    width: calc(100% - 0.7rem);
+    height: calc(100% - 0.7rem);
+    @include transition(width 0.25s ease-out, height 0.25s ease-out 0.25s);
+}
+
+.no-touch .button--hover-border.button--cta-primary:hover:before {
+    border-top-color: $button-color-cta-secondary;
+    border-right-color: $button-color-cta-secondary;
+}
+
+.no-touch .button--hover-border.button--cta-primary:hover:after {
+    border-bottom-color: $button-color-cta-secondary;
+    border-left-color: $button-color-cta-secondary;
+}
+
+.no-touch .button--hover-border.button--cta-secondary:hover:before {
+    border-top-color: $button-color-cta-primary;
+    border-right-color: $button-color-cta-primary;
+}
+
+.no-touch .button--hover-border.button--cta-secondary:hover:after {
+    border-bottom-color: $button-color-cta-primary;
+    border-left-color: $button-color-cta-primary;
+}

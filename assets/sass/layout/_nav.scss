@@ -1,11 +1,3 @@
-.header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-}
-
 .nav {
     height: 63px;
     @include flex();
@@ -13,8 +5,8 @@
     @include flex-justify(space-between);
 }
 
-.nav-header {
-    background: #fff;
+.nav__header {
+    background: $color-white;
     width: 100%;
     height: 63px;
     padding: 0 0 0 0.65rem;
@@ -25,19 +17,17 @@
     @include flex-justify(space-between);
 }
 
-.nav-logo {
+.nav__logo-svg {
     width: 65px;
     height: 30px;
     display: block;
-    color: $header-color-primary;
+    color: $header-color;
 }
 
-.nav-checkbox {
-    display: none;
-}
-
-.nav-icon-container {
-    background: $header-color-secondary;
+.nav__icon {
+    background: $header-color;
+    width: 45px;
+    height: 45px;
     margin: 0.5rem 0.65rem;
     padding: 10px 9px 11px 9px;
     position: absolute;
@@ -47,118 +37,103 @@
     cursor: pointer;
 }
 
-.nav-icon {
-    width: 27px;
-    height: 24px;
-    position: relative;
-    display: block;
-}
-
-.nav-icon-line {
+.nav__icon-line {
     background: $color-white;
     width: 25px;
     height: 2px;
     border-radius: 1px;
     position: absolute;
-    left: 1px;
-    top: 0;
+    left: 10px;
+    top: 10px;
     display: block;
     @include transition(all 0.25s ease-in-out);
 }
 
-.nav-icon-line:nth-child(2),
-.nav-icon-line:nth-child(3) {
+.nav__icon-line:nth-child(2),
+.nav__icon-line:nth-child(3) {
     width: 20px;
-    left: 0;
-    top: 11px;
+    left: 9px;
+    top: 21px;
 }
 
-.nav-icon-line:nth-child(4) {
+.nav__icon-line:nth-child(4) {
     width: 22px;
-    top: 22px;
-    left: 5px;
+    left: 14px;
+    top: 32px;
 }
 
-.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(1),
-.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(4) {
+.nav__checkbox:checked + .nav__icon .nav__icon-line:nth-child(1),
+.nav__checkbox:checked + .nav__icon .nav__icon-line:nth-child(4) {
     width: 0;
-    top: 10px;
+    top: 21px;
     left: 50%;
 }
 
-.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(2) {
+.nav__checkbox:checked + .nav__icon .nav__icon-line:nth-child(2) {
     width: 27px;
     @include transform(rotate(45deg));
 }
 
-.nav-checkbox:checked + .nav-icon-container .nav-icon-line:nth-child(3) {
+.nav__checkbox:checked + .nav__icon .nav__icon-line:nth-child(3) {
     width: 27px;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 
-.nav-links {
+.nav__links {
     background: $color-white;
     width: 100%;
-    border-bottom: 2px solid $color-abstract-pink;
+    border-bottom: 2px solid $header-color-accent;
+    padding: 63px 0 0 0;
+    position: relative;
+    z-index: 1;
     @include transform(translate3d(0, calc(-100% + 2px), 0));
     @include transition(transform 0.4s);
 }
 
-.nav-checkbox:checked ~ .nav-links {
+.nav__checkbox:checked ~ .nav__links {
     @include transform(translate3d(0, -63px, 0));
 }
 
-.nav-links-list {
-    padding: 63px 0 0 0;
-    position: relative;
-    z-index: 1;
-}
-
-.nav-link {
+.nav__link {
     margin: 0 0.65rem;
-    border-top: 1px solid $header-color-gray;
+    border-top: 1px solid $border-color;
     padding: 0 0.25rem;
     line-height: 62px;
+    color: $color-black;
     font-size: 0.75rem;
-    color: $color-gray-darkest;
     letter-spacing: 0.2em;
     display: block;
     opacity: 0;
     @include transition(opacity 0.05s linear 0s);
 }
 
-.is-not-touch .nav-link:hover {
-    color: $color-gray-darkest;
+.no-touch .nav__link:hover {
+    color: $color-black;
 }
 
-.nav-checkbox:checked ~ .nav-links .nav-link {
+.nav__checkbox:checked ~ .nav__links .nav__link {
     opacity: 1;
     @include transition(opacity 0.4s linear 0.2s);
 }
 
 @media (min-width: 768px) {
 
-    .header {
-        position: relative;
-    }
-
     .nav {
-        max-width: 1200px;
         height: auto;
-        margin: 0 auto;
-        padding: 15px 30px 0 30px;
+        padding-top: 0.75rem;
         position: relative;
         z-index: 1;
     }
 
-    .nav-header {
+    .nav__header {
         width: auto;
+        height: auto;
         padding: 0;
     }
 
-    .nav-logo-container {
-        background: $header-color-primary;
+    .nav__logo {
+        background: $header-color;
         width: 75px;
         height: 75px;
         padding: 0;
@@ -167,11 +142,11 @@
         @include flex-justify(center);
     }
 
-    .is-not-touch .nav-logo-container:hover {
-        background: $color-red-hover;
+    .no-touch .nav__logo:hover {
+        background: $header-color-hover;
     }
 
-    .nav-logo {
+    .nav__logo-svg {
         width: 55px;
         height: 25px;
         position: relative;
@@ -179,32 +154,22 @@
         color: $color-white;
     }
 
-    .nav-links,
-    .nav.is-open .nav-links {
+    .nav__links,
+    .nav.is-open .nav__links {
         width: auto;
         @include transform(translate3d(0, 0, 0));
     }
 
-    .nav-links {
+    .nav__links {
         background: none;
         border: none;
-        @include flex();
-        @include flex-align(stretch);
-    }
-
-    .nav-links:before,
-    .nav-links:after {
-        content: none;
-    }
-
-    .nav-links-list {
         padding: 0;
         @include flex();
         @include flex-justify(flex-end);
         @include flex-align(center);
     }
 
-    .nav-link {
+    .nav__link {
         margin: 0 0 0 50px;
         padding: 0.5rem calc(0.75rem - 0.2rem) 0.5rem 0.75rem;
         border: none;
@@ -216,7 +181,7 @@
 
 @media (min-width: 1024px) {
 
-    .nav-link {
+    .nav__link {
         margin: 0 0 0 70px;
     }
 }

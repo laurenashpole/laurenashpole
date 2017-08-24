@@ -6,7 +6,7 @@ a img {
     border: none;
 }
 
-.img-bg {
+.img--bg {
     background-size: contain;
     background-repeat: no-repeat;
     padding-bottom: 100%;
@@ -14,15 +14,15 @@ a img {
     z-index: 1;
 }
 
-.img-default {
+.img--default {
     display: block;
 }
 
-.img-retina {
+.img--retina {
     display: none;
 }
 
-.img-responsive {
+.img--responsive {
     max-width: 100%;
     height: auto;
     display: block;
@@ -30,11 +30,11 @@ a img {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
 
-    .img-default {
+    .img--default {
         display: none;
     }
 
-    .img-retina {
+    .img--retina {
         display: block;
     }
 }

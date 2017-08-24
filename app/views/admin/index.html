@@ -1,81 +1,76 @@
 {% extends 'body.html' %}
 
 {% block content %}
-
     {% if signed_out %}
-
-        <main class="container has-padding is-full-height bg-dots is-hero is-static">
-
-            <svg class="bg-abstract-hero is-static">
-                <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
-            </svg>
-
-            <svg class="bg-abstract-hero is-static is-secondary">
-                <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
-            </svg>
-
-            <div class="login">
-
+        <main class="container container--vertical-padding container--full-height bg-dots bg-dots--hero bg-dots--static">
+            <div class="admin-login">
                 {% if message.length %}
                     <div class="growl">{{message}}</div>
                 {% endif %}
 
-                <form class="form-container" method="post" action="/admin/login">
-                    <div class="input-container input-label-inset">
-                        <label for="name" class="text-block">Username</label>
-                        <input type="text" id="username" name="username" class="input" />
+                <form class="form" method="post" action="/admin/login">
+                    <div class="form__row">
+                        <input type="text" id="username" name="username" class="input input--label-inset" />
+                        <label for="name" class="text--uppercase text--extra-bold">Username</label>
                     </div>
 
-                    <div class="input-container input-label-inset">
-                        <label for="slug" class="text-block">Password</label>
-                        <input type="password" id="password" name="password" class="input" />
+                    <div class="form__row">
+                        <input type="password" id="password" name="password" class="input input--label-inset" />
+                        <label for="slug" class="text--uppercase text--extra-bold">Password</label>
                     </div>
 
-                    <div class="button-container">
-                        <button type="submit" class="button is-primary is-uppercase is-extra-bold">
-                            <span class="button-content">
+                    <div class="form__row">
+                        <button type="submit" class="button button--cta-primary button--hover-border text--uppercase text--extra-bold">
+                            <span class="button__text">
                                 Log In
                             </span>
                         </button>
                     </div>
                 </form>
 
-                <div class="hr-text">or</div>
+                <div class="hr--text">or</div>
 
-                <form class="form-container" method="post" action="/admin/signup">
-                    <div class="input-container input-label-inset">
-                        <label for="name" class="text-block">Username</label>
-                        <input type="text" id="username" name="username" class="input" />
+                <form class="form" method="post" action="/admin/signup">
+                    <div class="form__row">
+                        <input type="text" id="username" name="username" class="input input--label-inset" />
+                        <label for="name" class="text--uppercase text--extra-bold">Username</label>
                     </div>
 
-                    <div class="input-container input-label-inset">
-                        <label for="slug" class="text-block">Password</label>
-                        <input type="password" id="password" name="password" class="input" />
+                    <div class="form__row">
+                        <input type="password" id="password" name="password" class="input input--label-inset" />
+                        <label for="slug" class="text--uppercase text--extra-bold">Password</label>
                     </div>
 
-                    <div class="button-container">
-                        <button type="submit" class="button is-primary is-uppercase is-extra-bold">
-                            <span class="button-content">
+                    <div class="form__row">
+                        <button type="submit" class="button button--cta-primary button--hover-border text--uppercase text--extra-bold">
+                            <span class="button__text">
                                 Sign Up
                             </span>
                         </button>
                     </div>
                 </form>
-
             </div>
+
+            <svg class="bg-abstract--static">
+                <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
+            </svg>
+
+            <svg class="bg-abstract--static-secondary">
+                <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
+            </svg>
         </main>
-
     {% else %}
-
-        <main class="container has-padding is-full-height">
-            <div class="container-static">
-                <ul class="list-unstyled">
-                    <li><a href="/admin/fonts/create">Create a new font</a></li>
-                    <li><a href="/admin/fonts">View all fonts</a></li>
+        <main class="container container--full-height container--vertical-padding">
+            <div class="container__content container__content-medium">
+                <ul class="list--unstyled admin-list">
+                    <li class="admin-list__item">
+                        <a href="/admin/fonts/create" class="link--no-underline">Create a new font</a>
+                    </li>
+                    <li class="admin-list__item">
+                        <a href="/admin/fonts" class="link--no-underline">View all fonts</a>
+                    </li>
                 </ul>
             </div>
         </main>
-
     {% endif %}
-
 {% endblock %}

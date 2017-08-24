@@ -3,11 +3,11 @@
 {% block title %}{% parent %} - Admin{% endblock %}
 
 {% block content %}
-    <main class="container has-padding is-full-height">
-        <div class="container-static">
-            <h2 class="text-block text-heading">Create New Font</h2>
+    <main class="container container--full-height container--vertical-padding">
+        <div class="container__content container__content-medium">
+            <h2 class="text--uppercase">Create New Font</h2>
 
-            <form class="form-container" method="post" action="/admin/fonts" enctype="multipart/form-data">
+            <form class="form" method="post" action="/admin/fonts" enctype="multipart/form-data">
                 {% include "./includes/form.html" %}
             </form>
         </div>

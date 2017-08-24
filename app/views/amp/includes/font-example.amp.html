@@ -1,17 +1,17 @@
-<section class="bg-white">
-    <div class="container has-padding">
-        <div class="column-static">
-            <h2 class="is-uppercase is-centered-mobile font-page-heading">Preview</h2>
+<section class="bg-solid--white">
+    <div class="container container--vertical-padding">
+        <div class="column--static">
+            <h2 class="font__section-heading text--uppercase u--center-mobile">Preview</h2>
 
-            <form class="font-example-form" method="post" action-xhr="{{host_url}}/amp/fonts/update-example" target="_top">
-                <div class="font-example-header">
-                    <div class="font-example-form-section font-example-input-container">
-                        <input type="text" name="example" id="example" class="input is-bold font-example-input" value="Enter your preview text"/>
+            <form class="font-example" method="post" action-xhr="{{host_url}}/amp/fonts/update-example" target="_top">
+                <div>
+                    <div class="font-example__form-section">
+                        <input type="text" name="example" id="example" class="input text--bold font-example__input" value="Enter your preview text"/>
                     </div>
 
-                    <div class="font-example-form-section font-example-settings">
-                        <div class="select-container">
-                            <select class="select font-example-select is-bold js-font-example-size" name="size" id="size">
+                    <div class="font-example__form-section">
+                        <div class="select">
+                            <select class="font-example__select select__input text--bold js-font-example-size" name="size" id="size">
                                 <option value="16">16px</option>
                                 <option value="24">24px</option>
                                 <option value="36">36px</option>
@@ -20,28 +20,28 @@
                                 <option value="72">72px</option>
                                 <option value="144">144px</option>
                             </select>
-                            <span class="select-caret font-example-select-caret">
+                            <span class="select__caret">
                                 <i class="fa fa-angle-down"></i>
                             </span>
                         </div>
                     </div>
 
-                    <div class="font-example-form-section font-example-form-button-container">
-                        <button type="submit" title="Try It" class="button is-uppercase is-extra-bold is-primary is-small-print font-example-form-button">
+                    <div class="font-example__form-section font-example__button">
+                        <button type="submit" title="Try It" class="button button--small text--uppercase text--extra-bold">
                             Try It
                         </button>
                     </div>
                 </div>
 
-                <div class="font-example-default">
-                    <div class="font-example font-60">
-                        <div class="font-example-text font-{{font.slug}}">
+                <div class="font-example__default">
+                    <div class="font-example__content font-60">
+                        <div class="font-example__text font-{{font.slug}}">
                             Enter your preview text
                         </div>
 
                         {% if font.alternate_styles %}
                             {% for className in font.alternate_styles %}
-                                <div class="font-example-text {{className}}">
+                                <div class="font-example__text {{className}}">
                                     Enter your preview text
                                 </div>
                             {% endfor %}
@@ -51,14 +51,14 @@
 
                 <div submit-success>
                     <template type="amp-mustache">
-                        <div class="font-example font-{% raw %}{{size}}{% endraw %}">
-                            <div class="font-example-text font-{{font.slug}}">
+                        <div class="font-example__content font-{% raw %}{{size}}{% endraw %}">
+                            <div class="font-example__text font-{{font.slug}}">
                                 {% raw %}{{example}}{% endraw %}
                             </div>
 
                             {% if font.alternate_styles %}
                                 {% for className in font.alternate_styles %}
-                                    <div class="font-example-text {{className}}">
+                                    <div class="font-example__text {{className}}">
                                         {% raw %}{{example}}{% endraw %}
                                     </div>
                                 {% endfor %}

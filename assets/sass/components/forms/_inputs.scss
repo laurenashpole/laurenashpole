@@ -1,13 +1,7 @@
-.input-container {
-    padding: 0 0.5rem 0.5rem 0.5rem;
-    border-bottom: 2px solid $color-white;
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
 .input {
     background: $form-color-primary;
-    padding: 0 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem;
     line-height: 2rem;
 }
 
@@ -27,11 +21,32 @@
     color: $form-color-placeholder;
 }
 
-.input-label-inset .input {
+.input--gray {
+    background: $color-gray-light;
+    height: 2.5rem;
+}
+
+.input--gray::-webkit-input-placeholder {
+    color: $color-black;
+}
+
+.input--gray::-moz-placeholder {
+    color: $color-black;
+}
+
+.input--gray:-ms-input-placeholder {
+    color: $color-black;
+}
+
+.input--gray:-moz-placeholder {
+    color: $color-black;
+}
+
+.input--label-inset {
     padding: 1rem 0.5rem 0 0.5rem;
 }
 
-.input-label-inset label {
+.input--label-inset + label {
     font-size: 0.5rem;
     line-height: 0.5rem;
     position: absolute;
@@ -46,12 +61,12 @@
     resize: none;
 }
 
-.label-required {
+.label__required {
     display: none;
 }
 
-.input.is-required + label .label-required,
-.textarea.is-required + label .label-required {
+.input.is-required + label .label__required,
+.textarea.is-required + label .label__required {
     color: $form-color-error;
     font-weight: normal;
     display: inline;

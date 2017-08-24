@@ -9,30 +9,30 @@ a,
     transition: border-bottom-color 0.1s linear;
 }
 
-.is-not-touch a:hover,
-.is-not-touch .link:hover {
+.no-touch a:hover,
+.no-touch .link:hover {
     color: $color-red;
     border-bottom-color: $color-red;
 }
 
-.has-no-underline,
-.has-no-underline:hover {
+.link--no-underline,
+.no-touch .link--no-underline:hover {
     border-bottom: none;
 }
 
-.has-hover-border,
-.has-hover-border:hover {
+.link--hover-border,
+.no-touch .link--hover-border:hover {
     border-bottom: none;
 }
 
 @media (min-width: 768px) {
 
-    .has-hover-border {
+    .link--hover-border {
         padding: 0.5rem 0.75rem;
     }
 
-    .has-hover-border:before,
-    .has-hover-border:after {
+    .link--hover-border:before,
+    .link--hover-border:after {
         content: " ";
         width: 0;
         height: 0;
@@ -40,29 +40,29 @@ a,
         position: absolute;
     }
 
-    .has-hover-border:before {
+    .link--hover-border:before {
         top: 0;
         left: 0;
     }
 
-    .has-hover-border:after {
+    .link--hover-border:after {
         bottom: 0;
         right: 0;
     }
 
-    .is-not-touch .has-hover-border:hover:before,
-    .is-not-touch .has-hover-border:hover:after {
+    .no-touch .link--hover-border:hover:before,
+    .no-touch .link--hover-border:hover:after {
         width: 100%;
         height: 100%;
         @include transition(width 0.15s ease-out, height 0.15s ease-out 0.15s);
     }
 
-    .is-not-touch .has-hover-border:hover:before {
+    .no-touch .link--hover-border:hover:before {
         border-top-color: $color-green-light;
         border-right-color: $color-green-light;
     }
 
-    .is-not-touch .has-hover-border:hover:after {
+    .no-touch .link--hover-border:hover:after {
         border-bottom-color: $color-green-light;
         border-left-color: $color-green-light;
     }

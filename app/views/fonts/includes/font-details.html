@@ -1,0 +1,53 @@
+<section class="container container--vertical-padding">
+    <div class="column--static">
+        <h2 class="font__section-heading text--uppercase u--center-mobile">About {{font.name}}</h2>
+
+        <ul class="text--uppercase text--medium list--unstyled u--center-mobile">
+            <li class="font-details__licensing">
+                <a class="text--extra-bold" href="{{host_url}}/fonts/licensing" title="Licensing">Licensing Info</a>
+            </li>
+            <li class="font-details__licensing">
+                <a class="text--extra-bold" href="{{host_url}}/fonts/eula" title="EULA">View EULA</a>
+            </li>
+        </ul>
+
+        <div class="font-details__content">
+            <div class="font-details__section font-details__date text--bold text">
+                Created: {{font.date_created}}
+                {% if font.date_modified %}/ Modified: {{font.date_modified}}{% endif %}
+            </div>
+
+            {% if font.description %}
+                <div class="font-details__section font-details__description">
+                    {% autoescape false %}{{font.description}}{% endautoescape %}
+                </div>
+            {% endif %}
+
+            <div class="font-details__lists">
+                {% if font.commercial_font_file %}
+                    <ul class="list--unstyled font-details__list">
+                        <li class="font-details__section font-details__list-heading text text--bold">Commercial Use Details</li>
+
+                        {% for detail in font.commercial_file %}
+                            {% if detail.is_included %}
+                                <li class="font-details__section font-details__list-item text">{{detail.name}}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if font.personal_font_file %}
+                    <ul class="list--unstyled font-details__list">
+                        <li class="font-details__section font-details__list-heading text text--bold">Personal Use Details</li>
+
+                        {% for detail in font.personal_file %}
+                            {% if detail.is_included %}
+                                <li class="font-details__section font-details__list-item text">{{detail.name}}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

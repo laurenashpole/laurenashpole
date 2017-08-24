@@ -1,27 +1,31 @@
-<section class="bg-white">
-    <div class="container has-padding">
-        <div class="column-static">
-            <h2 class="is-uppercase is-centered-mobile font-page-heading">Additional Images</h2>
+<section class="bg-solid--white">
+    <div class="container container--vertical-padding">
+        <div class="column--static">
+            <h2 class="font__section-heading text--uppercase u--center-mobile">Additional Images</h2>
 
             {% if font.image_collection.length %}
-                <div class="gallery-main">
-                    <img src="/images/fonts/{{font.image_collection[0]}}" class="img-responsive js-font-image-main" alt="{{font.name}}" />
-                </div>
-
-                {% if font.image_collection_thumbnails.length %}
-                    <div class="gallery-thumbnails-container">
-                        <div class="gallery-thumbnails">
-                            {% for index, image in font.image_collection_thumbnails %}
-                                <div class="gallery-thumbnail">
-                                    <img src="/images/fonts/{{image}}" class="img-responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{font.image_collection[index]}}" />
-                                </div>
-                            {% endfor %}
-                        </div>
+                <div class="gallery">
+                    <div class="gallery__main">
+                        <img src="/images/fonts/{{font.image_collection[0]}}" class="img--responsive js-font-image-main" alt="{{font.name}}" />
                     </div>
-                {% endif%}
+
+                    {% if font.image_collection_thumbnails.length %}
+                        <div class="gallery__thumbnails">
+                            <div class="gallery__thumbnails-inner">
+                                {% for index, image in font.image_collection_thumbnails %}
+                                    <div class="gallery__thumbnail">
+                                        <img src="/images/fonts/{{image}}" class="img--responsive js-font-image-thumbnail" alt="{{font.name}} Thumbnail" data-image="{{font.image_collection[index]}}" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif%}
+                </div>
             {% else %}
-                <div class="gallery-main is-legacy">
-                    <img src="/images/fonts/{{font.image_retina}}" class="img-responsive" alt="{{font.name}}" />
+                <div class="gallery">
+                    <div class="gallery__main gallery__main--legacy">
+                        <img src="/images/fonts/{{font.image_retina}}" class="img--responsive" alt="{{font.name}}" />
+                    </div>
                 </div>
             {% endif %}
 
