@@ -1,19 +1,29 @@
 module.exports = function (grunt) {
     var jsFiles = [
-        'assets/js/components/view.js',
+        'assets/js/utilities/utilities.js',
+        'assets/js/components/base.js',
         'assets/js/components/analytics.js',
+        'assets/js/components/contact.js',
+        'assets/js/components/download-button.js',
+        'assets/js/components/filter.js',
+        'assets/js/components/form-bind.js',
+        'assets/js/components/gallery.js',
         'assets/js/components/nav.js',
         'assets/js/components/modal.js',
         'assets/js/components/mailing.js',
-        'assets/js/pages/all.js',
+        'assets/js/pages/base.js',
         'assets/js/pages/font.js',
+        'assets/js/pages/fonts.js',
         'assets/js/pages/contact.js',
         'assets/js/libs/vanilla-tilt.js',
         'assets/js/router.js'
     ];
 
     var jsAdminFiles = [
-        'assets/js/pages/admin.js',
+        'assets/js/utilities/utilities.js',
+        'assets/js/components/base.js',
+        'assets/js/components/admin.js',
+        'assets/js/pages/admin.js'
     ];
 
     grunt.initConfig({
@@ -73,6 +83,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
     grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'watch']);
 };

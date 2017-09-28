@@ -1,58 +1,48 @@
-function Modal (options) {
-    var defaults = {
-        events: [
-            {
-                selector: '.js-open-modal',
-                eventType: 'click',
-                callback: this.openModal.bind(this)
-            },
-            {
-                selector: '.js-close-modal',
-                eventType: 'click',
-                callback: this.closeModal.bind(this)
-            },
-            {
-                selector: '.js-close-modal-background',
-                eventType: 'click',
-                callback: this.closeModalBackground.bind(this)
-            }
-        ]
+var App = App || {};
+App.View = App.View || {};
+
+App.View.Modal = (function () {
+    var events = {
+        'click .js-open-modal': 'open',
+        'click .js-close-modal': 'close'
     };
 
-    this.options = this.extend(defaults, options);
-    View.call(this, this.options);
-}
-
-Modal.prototype = new View();
-
-Modal.prototype.openModal = function (e) {
-    e.preventDefault();
-
-    this.options.modal.classList.add('is-open');
-    document.querySelector('html').classList.add('modal-open');
-
-    if (this.options.openCallback && this.options.openCallback instanceof Function) {
-        this.options.openCallback(e);
+    function Modal (options) {
+        this.setup(options, events);
+        this.cacheSelectors();
     }
-};
 
-Modal.prototype.closeModal = function (e) {
-    e.preventDefault();
+    Modal.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+        cacheSelectors: function () {
+            this.$modal = this.$el.querySelector(this.options.modalClass);
+        },
 
-    this.options.modal.classList.remove('is-open');
-    document.querySelector('html').classList.remove('modal-open');
+        open: function (e) {
+            e.preventDefault();
 
-    if (this.options.closeCallback && this.options.closeCallback instanceof Function) {
-        this.options.closeCallback(e);
-    }
-}
+            this.$modal.classList.add('is-open');
+            this.$el.classList.add('modal-open');
 
-Modal.prototype.closeModalBackground = function (e) {
+            if (this.options.openCallback && this.options.openCallback instanceof Function) {
+                this.options.openCallback(e);
+            }
+        },
 
-    if (e.target.classList.contains('js-close-modal-background')) {
-        e.preventDefault();
+        close: function (e) {
+            e.preventDefault();
 
-        this.options.modal.classList.remove('is-open');
-        document.querySelector('html').classList.remove('modal-open');
-    }
-}
+            if (e.target.classList.contains('js-close-modal')) {
+                var cancelCallback = e.target.getAttribute('data-cancel-callback');
+
+                this.$modal.classList.remove('is-open');
+                this.$el.classList.remove('modal-open');
+
+                if (!cancelCallback && this.options.closeCallback && this.options.closeCallback instanceof Function) {
+                    this.options.closeCallback(e);
+                }
+            }
+        }
+    });
+
+    return Modal;
+})();

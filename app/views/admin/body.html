@@ -6,16 +6,13 @@
 {% endblock %}
 
 {% block body %}
-
     {% if !signed_out %}
         {% include './includes/nav.html' %}
     {% endif %}
 
     {% block content %}{% endblock %}
-
 {% endblock %}
 
-{% block footer %}
-    {% parent %}
+{% block scripts %}
     <script src="/js/admin.min.js"></script>
 {% endblock %}

@@ -1,12 +1,19 @@
 {% extends '../body.html' %}
 
 {% block content %}
-    <main class="container container--vertical-padding">
+    <main class="container container--vertical-padding container--full-height container--justify-top">
         <h2 class="text--uppercase">Fonts</h2>
 
-        <section class="font-grid">
+        <section class="font-grid js-font-filter not-filtered">
+            <form class="font-grid__filter">
+                <input type="text" id="Filter" name="Filter" placeholder="Search fonts" class="input font-grid__filter-input js-filter-input" />
+                <div class="font-grid__filter-reset js-filter-reset" aria-label="Reset search">
+                    <i class="fa fa-times"></i>
+                </div>
+            </form>
+
             {% for font in fonts %}
-                <div class="font-grid__item">
+                <div class="font-grid__item js-filter-item" data-filter-term="{{font.name}}">
                     <div class="font-grid__bg bg-solid--{{font.bgColors[2]}}-{{font.bgColors[3]}}">
                         <a
                             href="/fonts/{{font.slug}}"
@@ -43,6 +50,8 @@
                     </div>
                 </div>
             {% endfor %}
+
+            <div class="u--hidden js-filter-no-results">No results found.</div>
         </section>
 
     </main>

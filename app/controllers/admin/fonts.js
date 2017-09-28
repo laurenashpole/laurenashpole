@@ -1,3 +1,4 @@
+var Font = require('../../models/font');
 var fontHelper = require('../../helpers/fonts');
 
 exports.all = function (req, res) {

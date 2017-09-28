@@ -1,76 +1,63 @@
-function Mailing (options) {
-    var defaults = {
-        el: document.querySelector('.js-mailing-form'),
-        events: [
-            {
-                selector: '.js-mailing-signup',
-                eventType: 'click',
-                callback: this.signup.bind(this)
+var App = App || {};
+App.View = App.View || {};
+
+App.View.Mailing = (function () {
+    var events = {
+        'click .js-mailing-signup': 'signup'
+    };
+
+    function Mailing (options) {
+        this.setup(options, events);
+        this.cacheSelectors();
+    }
+
+    Mailing.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+        cacheSelectors: function () {
+            this.$button = this.$el.querySelector('.js-mailing-signup');
+        },
+
+        signup: function (e) {
+            e.preventDefault();
+
+            var data = {
+                email: this.$el.email.value
+            };
+
+            if (!this.validateEmail(data.email)) {
+                this.$button.classList.add('is-error');
+                return false;
             }
-        ]
-    };
 
-    this.options = this.extend(defaults, options);
-    View.call(this, this.options);
+            this.$button.classList.add('is-processing');
 
-    this.cacheSelectors();
-}
+            App.Utilities.request(this.$el.action, data, this.afterSignup.bind(this));
+        },
 
-Mailing.prototype = new View();
+        afterSignup: function (response) {
+            this.$button.classList.remove('is-processing');
 
-Mailing.prototype.cacheSelectors = function () {
-    this.button = this.el.querySelector('.js-mailing-signup');
-};
+            if (response.success) {
+                var signupEvent = new Event('onSignup');
 
-Mailing.prototype.signup = function (e) {
-    e.preventDefault();
+                this.$el.dispatchEvent(signupEvent);
+                this.$button.innerHTML = 'Success!';
+            } else {
+                this.$button.innerHTML = 'Error! Try again.';
+            }
+        },
 
-    var _this = this;
-    var email = this.el.email.value;
+        validateEmail: function (email) {
+            var valid = true;
+            var regex = /\S+@\S+\.\S+/;
 
-    if (!this.validateForm(email)) {
-        this.button.classList.add('is-error');
-        return false;
-    }
 
-    this.button.classList.add('is-processing');
+            if (!email || !regex.test(email)) {
+                valid = false;
+            }
 
-    var request = new XMLHttpRequest();
-
-    request.open('POST', this.el.action);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-
-    request.onload = function () {
-        if (request.status === 200) {
-            var response = JSON.parse(request.responseText);
-            _this.afterSignup.call(_this, response, e);
+            return valid;
         }
-    };
+    });
 
-    request.send(JSON.stringify({email: email}));
-
-};
-
-Mailing.prototype.afterSignup = function (response, e) {
-    this.button.classList.remove('is-processing');
-
-    if (response.success) {
-        var signupEvent = new Event('onSignup');
-        this.el.dispatchEvent(signupEvent);
-        this.button.innerHTML = 'Success!';
-    } else {
-        this.button.innerHTML = 'Error! Try again.';
-    }
-};
-
-Mailing.prototype.validateForm = function (email) {
-    var valid = true;
-    var regex = /\S+@\S+\.\S+/;
-
-
-    if (!email || !regex.test(email)) {
-        valid = false;
-    }
-
-    return valid;
-};
+    return Mailing;
+})();

@@ -3,6 +3,48 @@
     @include flex-wrap(wrap);
 }
 
+.font-grid__filter {
+    background: $color-white;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.font-grid__filter-input::-webkit-input-placeholder {
+    color: $color-black;
+}
+
+.font-grid__filter-input::-moz-placeholder {
+    color: $color-black;
+}
+
+.font-grid__filter-input:-ms-input-placeholder {
+    color: $color-black;
+}
+
+.font-grid__filter-input:-moz-placeholder {
+    color: $color-black;
+}
+
+.font-grid__filter-reset {
+    background: $color-gray-medium;
+    width: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    color: $color-white;
+    text-align: center;
+    @include transform(translate3d(0, -50%, 0));
+}
+
+.font-grid__filter-reset.is-active {
+    background: $color-purple;
+    cursor: pointer;
+}
+
 .font-grid__item {
     width: 100%;
     position: relative;
@@ -82,7 +124,8 @@
         margin-right: 1rem;
     }
 
-    .font-grid__item:nth-child(2n + 2) {
+    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
+    .font-grid__item.is-2n-2 {
         margin-right: 0;
         @include transform(translate3d(0, 2rem, 0));
     }
@@ -95,16 +138,19 @@
         margin-right: 1.5rem;
     }
 
-    .font-grid__item:nth-child(2n + 2) {
+    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
+    .font-grid__item.is-2n-2 {
         margin-right: 1.5rem;
         @include transform(translate3d(0, 0, 0));
     }
 
-    .font-grid__item:nth-child(3n + 2) {
+    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 2),
+    .font-grid__item.is-3n-2 {
         @include transform(translate3d(0, 3rem, 0));
     }
 
-    .font-grid__item:nth-child(3n + 3) {
+    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 3),
+    .font-grid__item.is-3n-3 {
         margin-right: 0;
     }
 }

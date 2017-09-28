@@ -92,7 +92,7 @@
 }
 
 .nav__checkbox:checked ~ .nav__links {
-    @include transform(translate3d(0, -63px, 0));
+    @include transform(translate3d(0, 0, 0));
 }
 
 .nav__link {

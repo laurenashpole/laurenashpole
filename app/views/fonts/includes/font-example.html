@@ -28,13 +28,13 @@
                 </div>
 
                 <div class="font-example__content">
-                    <div class="font-example__text font-{{font.slug}}">
+                    <div class="font-example__text font-{{font.slug}} js-font-example">
                         Enter your preview text
                     </div>
 
                     {% if font.alternate_styles %}
                         {% for className in font.alternate_styles %}
-                            <div class="font-example__text {{className}}">
+                            <div class="font-example__text {{className}} js-font-example">
                                 Enter your preview text
                             </div>
                         {% endfor %}
