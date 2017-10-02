@@ -1,11 +1,19 @@
-(function Router () {
-    var allPages = new All();
+var App = App || {};
 
-    if (window.location.href.indexOf('fonts/') !== -1) {
-        var fontPage = new Font();
+App.Router = (function () {
+    var path = window.location.pathname;
+
+    App.Page.Base.init();
+
+    if (path.indexOf('fonts') !== -1) {
+        if (path.match(/fonts\/(.*)/)[1]) {
+            App.Page.Font.init();
+        } else {
+            App.Page.Fonts.init();
+        }
     }
 
-    if (window.location.href.indexOf('contact') !== -1) {
-        var contactPage = new Contact();
+    if (path.indexOf('contact') !== -1) {
+        App.Page.Contact.init();
     }
 })();

@@ -890,8 +890,8 @@ a img {
 }
 
 .nav__checkbox:checked ~ .nav__links {
-  -webkit-transform: translate3d(0, -63px, 0);
-  transform: translate3d(0, -63px, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .nav__link {
@@ -1034,6 +1034,12 @@ a img {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+}
+
+.container--justify-top {
+  -ms-flex-pack: flex-start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .container--sticky-mobile {

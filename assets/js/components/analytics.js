@@ -1,24 +1,26 @@
-function Analytics (options) {
-    var defaults = {
-        events: [
-            {
-                selector: '.js-ga-trigger',
-                eventType: 'click',
-                callback: this.sendEvent.bind(this)
-            }
-        ]
+var App = App || {};
+App.View = App.View || {};
+
+App.View.Analytics = (function () {
+    var events = {
+        'click .js-ga-trigger': 'sentEvent'
     };
 
-    this.options = this.extend(defaults, options);
-    View.call(this, this.options);
-}
+    function Analytics (options) {
+        this.setup(options, events);
+    }
 
-Analytics.prototype = new View();
+    Analytics.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+        sendEvent: function (e) {
+            var category = e.target.dataset.gaCategory;
+            var action = e.target.dataset.gaAction;
+            var label = e.target.dataset.gaLabel;
 
-Analytics.prototype.sendEvent = function (e) {
-    var category = e.target.dataset.gaCategory;
-    var action = e.target.dataset.gaAction;
-    var label = e.target.dataset.gaLabel;
+            console.log(category);
 
-    ga('send', 'event', category, action, label);
-};
+            ga('send', 'event', category, action, label);
+        }
+    });
+
+    return Analytics;
+})();
