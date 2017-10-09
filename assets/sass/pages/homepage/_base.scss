@@ -1,15 +1,30 @@
 .homepage__container {
     @include flex();
     @include flex-align(center);
-    @include flex-wrap(wrap);
     @include flex-justify(center);
+    @include flex-wrap(wrap);
     overflow: visible;
 }
 
-.homepage-column {
+.homepage__column {
     width: 100%;
     position: relative;
     z-index: 1;
+}
+
+.homepage__well {
+    width: 100%;
+    border: 0.5rem solid $color-white;
+    outline: 3px solid $color-gray-light;
+    padding: 1.5rem;
+}
+
+.homepage__well img {
+    padding: 0 1.5rem;
+}
+
+.homepage__about {
+    padding-bottom: 1.5rem;
 }
 
 .homepage__bg-abstract {
@@ -37,13 +52,22 @@
     margin-top: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
-    .homepage-image-container {
-        min-height: 500px;
+    .homepage__well {
+        width: 33.333%;
     }
 
-    .homepage-column {
+    .homepage__about {
+        width: 66.666%;
+        padding: 0 0 0 2.5rem;
+        @include flex-order(1);
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .homepage__column {
         width: 33.333%;
     }
 }

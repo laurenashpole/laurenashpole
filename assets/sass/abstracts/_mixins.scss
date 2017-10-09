@@ -40,6 +40,12 @@
     align-self: $align;
 }
 
+@mixin flex-order ($order) {
+    -webkit-box-ordinal-group: $order + 1;
+    -ms-flex-order: $order;
+    order: $order;
+}
+
 @mixin transform ($transform) {
     -webkit-transform: $transform;
     transform: $transform;

@@ -8,7 +8,7 @@ h6 {
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
     font-family: $font-family-headings;
-    @include transition(opacity 150ms ease-in-out);
+    font-weight: 900;
 }
 
 h1 {
@@ -41,7 +41,6 @@ h6 {
 p {
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
-    @include transition(opacity 150ms ease-in-out);
 }
 
 blockquote {
@@ -53,28 +52,8 @@ code {
     vertical-align: bottom;
 }
 
-i,
-.text,
-.text--heading {
-    @include transition(opacity 150ms ease-in-out);
-}
-
-.wf-loading h1,
-.wf-loading h2,
-.wf-loading h3,
-.wf-loading h4,
-.wf-loading h5,
-.wf-loading h6,
-.wf-loading p,
-.wf-loading i,
-.wf-loading .text,
-.wf-loading .text--heading {
-    opacity: 0;
-}
-
 .text--heading {
     font-family: $font-family-headings;
-    @include transition(opacity 150ms ease-in-out);
 }
 
 .text--uppercase {
@@ -100,6 +79,14 @@ i,
 
 .text--extra-small {
     font-size: 0.6rem;
+}
+
+i {
+    @include transition(opacity 150ms ease-in-out);
+}
+
+.wf-loading i {
+    opacity: 0;
 }
 
 @media (min-width: 768px) {
