@@ -8,27 +8,10 @@
 
     <!-- Web Font Loading -->
     <script>
-        (function() {
-            if (sessionStorage.fonts) {
-                document.documentElement.classList.add('wf-active');
-            }
-        })();
-    </script>
-
-    <script>
         WebFontConfig = {
-            typekit: {
-                id: 'iuh6zxb'
-            },
-            google: {
-                families: ['Source+Sans+Pro:300,400,700']
-            },
             custom: {
                 families: ['FontAwesome'],
                 urls: ['//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css']
-            },
-            active: function () {
-                sessionStorage.fonts = true;
             }
         };
 
@@ -113,6 +96,7 @@
     <meta name="text:Disqus Shortname" content="" />
 
     <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
     <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/44Hov65to/blog.min.css">
 
     {block:IfGoogleAnalyticsID}
@@ -1026,6 +1010,7 @@
 
                         <!-- Answer -->
                         {block:Answer}
+                            <p>{lang:Asker asked}:</p>
                             <h2 class="post__header">{Question}</h2>
                             <div class="post-answer">{Answer}</div>
                         {/block:Answer}
