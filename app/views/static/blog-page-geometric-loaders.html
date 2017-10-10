@@ -8,27 +8,10 @@
 
     <!-- Web Font Loading -->
     <script>
-        (function() {
-            if (sessionStorage.fonts) {
-                document.documentElement.classList.add('wf-active');
-            }
-        })();
-    </script>
-
-    <script>
         WebFontConfig = {
-            typekit: {
-                id: 'iuh6zxb'
-            },
-            google: {
-                families: ['Source+Sans+Pro:300,400,700']
-            },
             custom: {
                 families: ['FontAwesome'],
                 urls: ['//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css']
-            },
-            active: function () {
-                sessionStorage.fonts = true;
             }
         };
 
@@ -64,7 +47,8 @@
     <meta name="description" content="Custom, handcrafted fonts and dingbats available for personal and commercial projects." />
 
     <!-- External Stylesheets -->
-    <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/44Hov65to/blog.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/m3Boxl3kq/blog.min.css">
 
     <!-- Google Analytics -->
     <script>
