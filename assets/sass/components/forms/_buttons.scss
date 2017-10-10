@@ -29,6 +29,10 @@
     @include flex-align(center);
 }
 
+.button__fine-print {
+    margin-top: 2px;
+}
+
 .button.is-processing .button__text:before {
     content: "Processing";
     font-size: 1rem;

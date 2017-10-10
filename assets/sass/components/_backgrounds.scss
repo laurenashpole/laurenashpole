@@ -2,6 +2,10 @@
     background: $color-white;
 }
 
+.bg-solid--gray {
+    background: $color-gray-light;
+}
+
 .bg-solid--yellow-light-blue {
     background-image: -webkit-linear-gradient(
         $bg-color-light-blue 50%,

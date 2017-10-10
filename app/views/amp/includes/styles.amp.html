@@ -3,18 +3,18 @@
 <style amp-custom>
     html {
         height: 100%;
-        font: 300 112.5% "Source Sans Pro", sans-serif;
-        line-height: 1.5rem;
+        font: 112.5% "museo-sans-rounded", sans-serif;
+        line-height: 1.5;
         -webkit-font-smoothing: antialiased;
     }
 
     body {
-        background-color: #f6f5f4;
+        background-color: #f4f4f4;
         min-height: 100%;
         margin: 0;
         padding: 63px 0 0 0;
         overflow-x: hidden;
-        color: #242120;
+        color: #202020;
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
@@ -29,7 +29,7 @@
         width: 100%;
         margin: 0 0 1.5rem 0;
         line-height: 1.5rem;
-        font-family: "brandon-grotesque", "Source Sans Pro", sans-serif;
+        font-family: "museo-sans-rounded", sans-serif;
     }
 
     h1 {
@@ -62,7 +62,7 @@
     }
 
     .text--heading {
-        font-family: "brandon-grotesque", "Source Sans Pro", sans-serif;
+        font-family: "museo-sans-rounded", sans-serif;
     }
 
     .text--uppercase {
@@ -246,16 +246,16 @@
     }
 
     .nav__checkbox:checked ~ .nav__links {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, -63px, 0);
+        transform: translate3d(0, -63px, 0);
     }
 
     .nav__link {
         margin: 0 0.65rem;
-        border-top: 1px solid #dedbda;
+        border-top: 1px solid #dadada;
         padding: 0 0.25rem;
         line-height: 62px;
-        color: #242120;
+        color: #202020;
         font-size: 0.75rem;
         letter-spacing: 0.2em;
         display: block;
@@ -265,7 +265,7 @@
     }
 
     .no-touch .nav__link:hover {
-        color: #242120;
+        color: #202020;
     }
 
     .nav__checkbox:checked ~ .nav__links .nav__link {
@@ -435,7 +435,7 @@
     }
 
     .form {
-        background: #f6f5f4;
+        background: #f4f4f4;
         padding: 0.5rem 0;
         border: 2px solid #fff;
     }
@@ -477,40 +477,40 @@
     }
 
     .input::-webkit-input-placeholder {
-        color: #afa8a7;
+        color: #a7a7a7;
     }
 
     .input::-moz-placeholder {
-        color: #afa8a7;
+        color: #a7a7a7;
     }
 
     .input:-ms-input-placeholder {
-        color: #afa8a7;
+        color: #a7a7a7;
     }
 
     .input:-moz-placeholder {
-        color: #afa8a7;
+        color: #a7a7a7;
     }
 
     .input--gray {
-        background: #f6f5f4;
+        background: #f4f4f4;
         height: 2.5rem;
     }
 
     .input--gray::-webkit-input-placeholder {
-        color: #242120;
+        color: #202020;
     }
 
     .input--gray::-moz-placeholder {
-        color: #242120;
+        color: #202020;
     }
 
     .input--gray:-ms-input-placeholder {
-        color: #242120;
+        color: #202020;
     }
 
     .input--gray:-moz-placeholder {
-        color: #242120;
+        color: #202020;
     }
 
     .select {
@@ -526,7 +526,7 @@
 
     .select__caret {
         height: 100%;
-        border-left: 2px solid #f6f5f4;
+        border-left: 2px solid #f4f4f4;
         padding: 0.5rem 1rem;
         position: absolute;
         top: 0;
@@ -612,7 +612,7 @@
 
     /* Font Files */
     .font-files {
-        border-top: 2px solid #f6f5f4;
+        border-top: 2px solid #f4f4f4;
         position: relative;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -621,7 +621,7 @@
 
     .font-files.has-two-options:before {
         content: " ";
-        background: #f6f5f4;
+        background: #f4f4f4;
         width: 2px;
         height: 100%;
         margin: -1px;
@@ -672,12 +672,12 @@
     }
 
     .gallery__main {
-        border: 2px solid #f6f5f4;
+        border: 2px solid #f4f4f4;
         padding: 0.5rem;
     }
 
     .gallery__thumbnails {
-        border: 2px solid #f6f5f4;
+        border: 2px solid #f4f4f4;
         border-top: none;
         padding: 0.5rem;
     }
@@ -709,7 +709,7 @@
     }
 
     .font-example__form-section {
-        border: 2px solid #f6f5f4;
+        border: 2px solid #f4f4f4;
         border-bottom: none;
     }
 
@@ -719,7 +719,7 @@
     }
 
     .font-example__input:focus {
-        background: #f6f5f4;
+        background: #f4f4f4;
     }
 
     .font-example__select {
@@ -727,17 +727,17 @@
     }
 
     .font-example__button {
-        border-top: 2px solid #f6f5f4;
+        border-top: 2px solid #f4f4f4;
         padding: 0.5rem;
     }
 
     .font-example__content {
-        border: 2px solid #f6f5f4;
+        border: 2px solid #f4f4f4;
         padding: 0.5rem;
     }
 
     .font-example__text {
-        background: #f6f5f4;
+        background: #f4f4f4;
         margin-bottom: 2px;
         padding: 1rem;
         line-height: 1.25;
@@ -819,7 +819,7 @@
         width: 20%;
         background: #fff;
         padding-top: 20px;
-        border: 0.1rem solid #f6f5f4;
+        border: 0.1rem solid #f4f4f4;
         font-size: 24px;
         line-height: 60px;
         text-align: center;
@@ -835,19 +835,19 @@
         top: 0;
         left: 0;
         right: 0;
-        border-bottom: 2px solid #f6f5f4;
+        border-bottom: 2px solid #f4f4f4;
         font-size: 12px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 400;
         line-height: 20px;
-        color: #afa8a7;
+        color: #a7a7a7;
     }
 
     /* Social Links */
     .social {
         width: 25%;
         height: 3.5rem;
-        border-right: 2px solid #f6f5f4;
+        border-right: 2px solid #f4f4f4;
         position: relative;
         display: -ms-flexbox;
         display: -webkit-flex;
@@ -906,7 +906,7 @@
     }
 
     .footer__form-section {
-        border-top: 2px solid #f6f5f4;
+        border-top: 2px solid #f4f4f4;
         -ms-flex: 2 1 auto;
         -webkit-flex: 2 1 auto;
         flex: 2 1 auto;
@@ -919,7 +919,7 @@
 
     .footer__button-section {
         width: 100%;
-        border-top: 2px solid #f6f5f4;
+        border-top: 2px solid #f4f4f4;
         padding: 0.65rem;
     }
 
