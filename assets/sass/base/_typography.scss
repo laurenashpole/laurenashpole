@@ -81,14 +81,6 @@ code {
     font-size: 0.6rem;
 }
 
-i {
-    @include transition(opacity 150ms ease-in-out);
-}
-
-.wf-loading i {
-    opacity: 0;
-}
-
 @media (min-width: 768px) {
 
     h1,
