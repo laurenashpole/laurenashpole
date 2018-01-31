@@ -1,32 +1,34 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-var swig = require('swig');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var session = require('express-session');
-var flash = require('express-flash');
-var multer = require('multer');
-var compression = require('compression');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let methodOverride = require('method-override');
+let swig = require('swig');
+let mongoose = require('mongoose');
+let passport = require('passport');
+let session = require('express-session');
+let flash = require('express-flash');
+let multer = require('multer');
+let compression = require('compression');
 
-var app = express();
+// App
+let app = express();
+let config = require('./app/config/config')();
+let locals = require('./app/config/locals')(app, config);
+
+// View Engine
 app.use(compression());
-var config = require('./app/config/config')();
-var locals = require('./app/config/locals')(app, config);
-
-// View engine setup
+require('./app/helpers/assets')(swig);
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'app/views'));
 
-// Database connection
-mongoose.connect(config.db, function (err) {
-    if (err) throw err;
-});;
+// Database
+mongoose.connect(config.db, (err) => {
+  if (err) throw err;
+});
 
 // Middleware
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,13 +37,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
+app.use('/js', express.static(path.join(__dirname, 'public/js'), { maxAge: '30d' }));
+app.use('/css', express.static(path.join(__dirname, 'public/css'), { maxAge: '30d' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport
 app.use(session({
-    secret: config.sessionSecret,
-    resave: true,
-    saveUninitialized: true
+  secret: config.sessionSecret,
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());

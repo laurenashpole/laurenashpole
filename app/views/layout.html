@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" class="is-not-touch no-touch">
 <head>
-    {% include './includes/header-scripts.html' %}
+  {% include './includes/header-scripts.html' %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="j7rp4JhwKeTvhJYae4BTu4jPAP6ZBahys3beaQ5lGA8" />
-    <meta name="p:domain_verify" content="ae31078d4a7b4e349540d765890c0737"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="j7rp4JhwKeTvhJYae4BTu4jPAP6ZBahys3beaQ5lGA8" />
+  <meta name="p:domain_verify" content="ae31078d4a7b4e349540d765890c0737"/>
 
-    <title>{% if title %}{{title}} - {% endif %}{{site_name}}</title>
+  <title>{% if title %}{{title}} - {% endif %}{{site_name}}</title>
 
-    {% if description %}
-        <meta name="description" content="{{description}}" />
-    {% endif%}
+  {% if description %}
+    <meta name="description" content="{{description}}" />
+  {% endif%}
 
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 
-    {% block head %}
-        <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
-        <link rel="stylesheet" href="/css/style.min.css">
-    {% endblock %}
+  {% block head %}
+    <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
+    <link rel="stylesheet" href="{% asset 'css/style.min.css' %}">
+  {% endblock %}
 </head>
 
 <body class="{% block body-class %}{% endblock %}">
-    {% block body %}{% endblock %}
+  {% block body %}{% endblock %}
 
-    {% block scripts %}
-        <script src="/js/javascript.min.js"></script>
-    {% endblock %}
+  {% block scripts %}
+    <script src="{% asset 'js/javascript.min.js' %}"></script>
+  {% endblock %}
 </body>
 </html>
