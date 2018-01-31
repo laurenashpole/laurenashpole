@@ -106,7 +106,7 @@ var _emailFont = function (payment, font) {
             success: false
         };
 
-        var filePath = path.resolve('./public/downloads/', font.commercial_font_file);
+        var filePath = path.resolve('./public/downloads/fonts/', font.commercial_font_file);
 
         fs.readFile(filePath, function (err, data) {
             if (err) reject(err);

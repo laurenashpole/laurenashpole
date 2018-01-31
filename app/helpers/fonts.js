@@ -112,9 +112,9 @@ var _getDirectoryByMimetype = function (mimetype) {
     if (mimetype.indexOf('image') !== -1) {
         directory = './public/images/fonts/';
     } else if (mimetype.indexOf('css') !== -1) {
-        directory = './public/stylesheets/fonts/';
+        directory = './public/css/fonts/';
     }  else if (mimetype.indexOf('zip') !== -1) {
-        directory = './public/downloads/';
+        directory = './public/downloads/fonts/';
     }
 
     return directory;
@@ -126,9 +126,9 @@ var _getDirectoryByFile = function (file) {
     if (file === 'images') {
         directory = './public/images/fonts/';
     } else if (file === 'css') {
-        directory = './public/stylesheets/fonts/';
+        directory = './public/css/fonts/';
     } else if (file === 'fonts') {
-        directory = './public/downloads/';
+        directory = './public/downloads/fonts/';
     }
 
     return directory;

@@ -1,9 +1,9 @@
 node_modules/
 app/config/config.js
 app/config/ssl
-public/downloads
+public/downloads/fonts
 public/images/fonts
-public/stylesheets/fonts
+public/css/fonts
 temp
 npm-debug.log
 .sass-cache

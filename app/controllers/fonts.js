@@ -44,7 +44,7 @@ exports.renderFont = function (req, res, next) {
 
                 if (/\/amp\//.test(req.path)) {
                     if (font.css_file) {
-                        var filePath = path.resolve('./public/stylesheets/fonts/', font.css_file);
+                        var filePath = path.resolve('./public/css/fonts/', font.css_file);
                         var cssString = fs.readFileSync(filePath);
 
                         if (cssString) {
