@@ -1,18 +1,18 @@
 {% extends '../layout.html' %}
 
 {% block head %}
-    {% parent %}
-    <link rel="stylesheet" href="/css/admin.min.css">
+  {% parent %}
+  <link rel="stylesheet" href="{% asset 'css/admin.min.css' %}">
 {% endblock %}
 
 {% block body %}
-    {% if !signed_out %}
-        {% include './includes/nav.html' %}
-    {% endif %}
+  {% if !signed_out %}
+    {% include './includes/nav.html' %}
+  {% endif %}
 
-    {% block content %}{% endblock %}
+  {% block content %}{% endblock %}
 {% endblock %}
 
 {% block scripts %}
-    <script src="/js/admin.min.js"></script>
+  <script src="{% asset 'js/admin.min.js' %}"></script>
 {% endblock %}

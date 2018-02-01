@@ -37,7 +37,9 @@ module.exports = function (grunt) {
             tasks: [
                 'sass',
                 'cssmin',
-                'uglify'
+                'uglify',
+                'assets_hash',
+                'clean'
             ]
         },
         sass: {
@@ -76,6 +78,22 @@ module.exports = function (grunt) {
                     'public/js/admin.min.js': jsAdminFiles
                 }
             }
+        },
+        assets_hash: {
+            assets: {
+                options: {
+                    algorithm: 'sha1',
+                    jsonFile: 'public/assets.json',
+                    suffix: true,
+                    removeFromPath: 'public/',
+                    clear: true
+                },
+                src: ['public/css/*.css', 'public/js/*.js']
+            }
+        },
+        clean: {
+            css: ['public/css/*.min.css', '!public/css/*.min.*.css'],
+            js: ['public/js/*.min.js', '!public/js/*.min.*.js']
         }
     });
 
@@ -83,5 +101,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'watch']);
+    grunt.loadNpmTasks('grunt-assets-hash');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'assets_hash', 'watch', 'clean']);
 };
