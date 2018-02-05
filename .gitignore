@@ -3,7 +3,9 @@ app/config/config.js
 app/config/ssl
 public/downloads/fonts
 public/images/fonts
-public/css/fonts
+public/css
+public/js
+public/assets.json
 temp
 npm-debug.log
 .sass-cache
