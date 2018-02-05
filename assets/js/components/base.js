@@ -1,7 +1,4 @@
-var App = App || {};
-App.View = App.View || {};
-
-App.View.Base = (function () {
+export const Base = (function () {
     function Base () {}
 
     Base.prototype = {

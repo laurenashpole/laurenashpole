@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend } from '../utilities/utilities';
 
-App.View.DownloadButton = (function () {
+export const DownloadButton = (function () {
     var events = {
         'click': 'onClick'
     };
@@ -11,7 +11,7 @@ App.View.DownloadButton = (function () {
         this.firstClick = true;
     }
 
-    DownloadButton.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    DownloadButton.prototype = extend(Object.create(Base.prototype), {
         onClick: function (e) {
             e.preventDefault();
 

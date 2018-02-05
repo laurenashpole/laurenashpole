@@ -1,7 +1,6 @@
-var App = App || {};
-App.Page = App.Page || {};
+import { Contact } from '../components/contact';
 
-App.Page.Contact = (function () {
+export const ContactPage = (function () {
     function init () {
         $el = document.querySelector('.js-contact-form');
 
@@ -9,7 +8,7 @@ App.Page.Contact = (function () {
             return;
         };
 
-        var contact = new App.View.Contact({
+        var contact = new Contact({
             el: '.js-contact-form'
         });
     }

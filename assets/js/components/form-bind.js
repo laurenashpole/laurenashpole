@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend } from '../utilities/utilities';
 
-App.View.FormBind = (function () {
+export const FormBind = (function () {
     function FormBind (options) {
         if (!options.eventType) {
             return;
@@ -13,7 +13,7 @@ App.View.FormBind = (function () {
         this.setup(options, events);
     }
 
-    FormBind.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    FormBind.prototype = extend(Object.create(Base.prototype), {
         onChange: function (e) {
             e.preventDefault();
 

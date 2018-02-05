@@ -1,14 +1,14 @@
-var App = App || {};
-App.Page = App.Page || {};
+import { Analytics } from '../components/analytics';
+import { Mailing } from '../components/mailing';
 
-App.Page.Base = (function () {
+export const BasePage = (function () {
     function init () {
         checkTouch();
         checkReferrer();
 
-        var analytics = new App.View.Analytics();
+        var analytics = new Analytics();
 
-        var mailing = new App.View.Mailing({
+        var mailing = new Mailing({
             el: '.js-mailing-form'
         });
     }

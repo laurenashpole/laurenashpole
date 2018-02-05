@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend } from '../utilities/utilities';
 
-App.View.Gallery = (function () {
+export const Gallery = (function () {
     var events = {
         'click .js-font-image-thumbnail': 'updateImage'
     };
@@ -11,7 +11,7 @@ App.View.Gallery = (function () {
         this.cacheSelectors();
     }
 
-    Gallery.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Gallery.prototype = extend(Object.create(Base.prototype), {
         cacheSelectors: function () {
             this.$imageContainer = this.$el.querySelector('.js-font-image-main');
         },

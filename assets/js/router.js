@@ -1,19 +1,22 @@
-var App = App || {};
+import { BasePage } from './pages/base';
+import { FontPage } from './pages/font';
+import { FontsPage } from './pages/fonts';
+import { ContactPage } from './pages/contact';
 
-App.Router = (function () {
+let Router = (function () {
     var path = window.location.pathname;
 
-    App.Page.Base.init();
+    BasePage.init();
 
     if (path.indexOf('fonts') !== -1) {
         if (path.match(/fonts\/(.*)/)[1]) {
-            App.Page.Font.init();
+            FontPage.init();
         } else {
-            App.Page.Fonts.init();
+            FontsPage.init();
         }
     }
 
     if (path.indexOf('contact') !== -1) {
-        App.Page.Contact.init();
+        ContactPage.init();
     }
 })();

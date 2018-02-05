@@ -1,9 +1,8 @@
-var App = App || {};
-App.Page = App.Page || {};
+import { Admin } from '../components/admin';
 
-App.Page.Admin = (function () {
+let AdminPage = (function () {
     function init () {
-        var admin = new App.View.Admin();
+        var admin = new Admin();
     }
 
     return {
@@ -11,4 +10,4 @@ App.Page.Admin = (function () {
     }
 })();
 
-App.Page.Admin.init();
+AdminPage.init();
