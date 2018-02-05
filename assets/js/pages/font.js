@@ -1,7 +1,8 @@
-var App = App || {};
-App.Page = App.Page || {};
+import { DownloadButton } from '../components/download-button';
+import { FormBind } from '../components/form-bind';
+import { Gallery } from '../components/gallery';
 
-App.Page.Font = (function () {
+export const FontPage = (function () {
     var $el,
         $head,
         $body,
@@ -35,11 +36,11 @@ App.Page.Font = (function () {
     }
 
     function initComponents () {
-        var downloadButton = new App.View.DownloadButton({
+        var downloadButton = new DownloadButton({
             el: '.js-font-modal-open'
         });
 
-        var fontText = new App.View.FormBind({
+        var fontText = new FormBind({
             el: '.js-font-example-input',
             eventType: 'keyup',
             callback: function (value) {
@@ -53,7 +54,7 @@ App.Page.Font = (function () {
             }
         });
 
-        var fontSize = new App.View.FormBind({
+        var fontSize = new FormBind({
             el: '.js-font-example-size',
             eventType: 'change',
             callback: function (value) {
@@ -63,7 +64,7 @@ App.Page.Font = (function () {
             }
         });
 
-        var gallery = new App.View.Gallery({
+        var gallery = new Gallery({
             el: '.js-font-page'
         });
     }

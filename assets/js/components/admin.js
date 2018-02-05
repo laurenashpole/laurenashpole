@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend, request } from '../utilities/utilities';
 
-App.View.Admin = (function () {
+export const Admin = (function () {
     var events = {
         'submit .js-admin-delete': 'deleteFont'
     };
@@ -10,12 +10,12 @@ App.View.Admin = (function () {
         this.setup(options, events);
     }
 
-    Admin.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Admin.prototype = extend(Object.create(Base.prototype), {
         deleteFont: function (e) {
             e.preventDefault();
 
             if (confirm('Are you sure you want to delete this font?')) {
-                App.Utilities.request(e.target.action, {}, this.redirect);
+                request(e.target.action, {}, this.redirect);
             }
         },
 

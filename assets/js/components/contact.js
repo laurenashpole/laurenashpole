@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend, request } from '../utilities/utilities';
 
-App.View.Contact = (function () {
+export const Contact = (function () {
     var events = {
         'click .js-contact-send': 'sendMessage',
         'focus .js-contact-form-input': 'removeError'
@@ -12,7 +12,7 @@ App.View.Contact = (function () {
         this.cacheSelectors();
     }
 
-    Contact.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Contact.prototype = extend(Object.create(Base.prototype), {
         cacheSelectors: function () {
             this.$button = this.$el.querySelector('.js-contact-send');
             this.$inputs = this.$el.querySelectorAll('.js-contact-form-input');
@@ -34,7 +34,7 @@ App.View.Contact = (function () {
 
             this.$button.classList.add('is-processing');
 
-            App.Utilities.request('/contact/send', formValues.data, this.afterSend.bind(this));
+            request('/contact/send', formValues.data, this.afterSend.bind(this));
         },
 
         afterSend: function (response) {

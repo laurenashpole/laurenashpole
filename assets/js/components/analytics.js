@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend } from '../utilities/utilities';
 
-App.View.Analytics = (function () {
+export const Analytics = (function () {
     var events = {
         'click .js-ga-trigger': 'sentEvent'
     };
@@ -10,7 +10,7 @@ App.View.Analytics = (function () {
         this.setup(options, events);
     }
 
-    Analytics.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Analytics.prototype = extend(Object.create(Base.prototype), {
         sendEvent: function (e) {
             var category = e.target.dataset.gaCategory;
             var action = e.target.dataset.gaAction;

@@ -1,6 +1,4 @@
-var App = App || {};
-
-App.Utilities = (function () {
+let Utilities = (function () {
     function extend (target, object) {
         for (var key in object) {
             if (Object.prototype.hasOwnProperty.call(object, key)) {
@@ -35,3 +33,6 @@ App.Utilities = (function () {
         request: request
     }
 })();
+
+export const extend =  Utilities.extend;
+export const request =  Utilities.request;

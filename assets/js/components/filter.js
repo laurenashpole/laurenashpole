@@ -1,7 +1,8 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { FormBind } from './form-bind';
+import { extend } from '../utilities/utilities';
 
-App.View.Filter = (function () {
+export const Filter = (function () {
     var events = {
         'click .js-filter-reset': 'reset'
     };
@@ -14,7 +15,7 @@ App.View.Filter = (function () {
         this.init();
     }
 
-    Filter.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Filter.prototype = extend(Object.create(Base.prototype), {
         cacheSelectors: function () {
             this.$searchItems = this.$el.querySelectorAll('.js-filter-item');
             this.$noResults = this.$el.querySelector('.js-filter-no-results');
@@ -23,7 +24,7 @@ App.View.Filter = (function () {
         },
 
         init: function () {
-            var search = new App.View.FormBind({
+            var search = new FormBind({
                 el: '.js-filter-input',
                 eventType: 'keyup',
                 callback: this.updateResults.bind(this)

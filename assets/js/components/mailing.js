@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend, request } from '../utilities/utilities';
 
-App.View.Mailing = (function () {
+export const Mailing = (function () {
     var events = {
         'click .js-mailing-signup': 'signup'
     };
@@ -11,7 +11,7 @@ App.View.Mailing = (function () {
         this.cacheSelectors();
     }
 
-    Mailing.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Mailing.prototype = extend(Object.create(Base.prototype), {
         cacheSelectors: function () {
             this.$button = this.$el.querySelector('.js-mailing-signup');
         },
@@ -30,7 +30,7 @@ App.View.Mailing = (function () {
 
             this.$button.classList.add('is-processing');
 
-            App.Utilities.request(this.$el.action, data, this.afterSignup.bind(this));
+            request(this.$el.action, data, this.afterSignup.bind(this));
         },
 
         afterSignup: function (response) {

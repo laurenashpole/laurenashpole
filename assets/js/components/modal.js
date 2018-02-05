@@ -1,7 +1,7 @@
-var App = App || {};
-App.View = App.View || {};
+import { Base } from './base';
+import { extend } from '../utilities/utilities';
 
-App.View.Modal = (function () {
+export const Modal = (function () {
     var events = {
         'click .js-open-modal': 'open',
         'click .js-close-modal': 'close'
@@ -12,7 +12,7 @@ App.View.Modal = (function () {
         this.cacheSelectors();
     }
 
-    Modal.prototype = App.Utilities.extend(Object.create(App.View.Base.prototype), {
+    Modal.prototype = extend(Object.create(Base.prototype), {
         cacheSelectors: function () {
             this.$modal = this.$el.querySelector(this.options.modalClass);
         },

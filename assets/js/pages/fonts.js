@@ -1,13 +1,12 @@
-var App = App || {};
-App.Page = App.Page || {};
+import { Filter } from '../components/filter';
 
-App.Page.Fonts = (function () {
+export const FontsPage = (function () {
     function init () {
         initFilter();
     }
 
     function initFilter () {
-        var filter = new App.View.Filter({
+        var filter = new Filter({
             el: '.js-font-filter',
             gaCategory: 'Fonts',
             itemCallback: function ($item, isHidden, totalResults) {
