@@ -2,8 +2,24 @@
 @import 'abstracts/variables.scss';
 @import 'abstracts/mixins.scss';
 
+/* Base */
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+/* Layout */
+// @import 'layout/nav';
+// @import 'layout/containers';
+
 /* Components */
-@import 'components/hrs';
+// @import 'components/hrs';
+@import 'components/forms/admin';
+@import 'components/lists';
+@import 'admin/layout';
+@import 'admin/backgrounds';
+@import 'admin/buttons';
+@import 'admin/header';
+@import 'admin/forms';
 
 /* Pages */
-@import 'pages/admin.scss';
+// @import 'pages/admin.scss';

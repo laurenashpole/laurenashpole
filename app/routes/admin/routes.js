@@ -1,43 +1,58 @@
-var admin = require('../../controllers/admin/index');
-var fonts = require('../../controllers/admin/fonts');
-
-function isLoggedIn (req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-
-    res.redirect('/admin');
-}
+let admin = require('../../controllers/admin');
+let usersApi = require('../../controllers/api/users');
+let fontsApi = require('../../controllers/api/fonts');
 
 module.exports = function (app, passport, multer) {
-    var upload = multer({
-        dest: './temp/'
-    });
+  let upload = multer({
+    dest: './temp/'
+  });
 
-    /* Home */
-    app.get('/admin', admin.render);
+  let isAuthenticated = function (req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
 
-    /* Login */
-    app.get('/admin/logout', isLoggedIn, admin.logout);
+    res.redirect('/admin');
+  };
 
-    app.post('/admin/signup', passport.authenticate('local-signup', {
-        successRedirect : '/admin',
-        failureRedirect : '/admin',
-        failureFlash : true
-    }));
+  let authenticate = function (req, res, next, strategy) {
+    passport.authenticate(strategy, function (err, user, info) {
+      if (err) {
+        return next(err);
+      }
 
-    app.post('/admin/login', passport.authenticate('local-login', {
-        successRedirect : '/admin',
-        failureRedirect : '/admin',
-        failureFlash : true
-    }));
+      if (!user) {
+        req.info = info || null;
+        return next();
+      }
 
-    /* Font Pages */
-    app.get('/admin/fonts', isLoggedIn, fonts.all);
-    app.get('/admin/fonts/create', isLoggedIn, fonts.renderCreate);
-    app.get('/admin/fonts/:font_id', isLoggedIn, fonts.renderEdit);
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
 
-    /* Font Actions */
-    app.post('/admin/fonts',[isLoggedIn, upload.any(), fonts.create]);
-    app.put('/admin/fonts/:font_id', [isLoggedIn, upload.any(), fonts.edit]);
-    app.delete('/admin/fonts/:font_id', isLoggedIn, fonts.delete);
+        req.user = user || null;
+        return next();
+      });
+    })(req, res, next);
+  };
+
+  // Render
+  app.get('/admin*', admin.all);
+
+  // Login
+  app.post('/admin/login', (req, res, next) => {
+    authenticate(req, res, next, 'local-login');
+  }, usersApi.authenticate);
+
+  app.post('/admin/signup', (req, res, next) => {
+    authenticate(req, res, next, 'local-signup');
+  }, usersApi.authenticate);
+
+  app.post('/admin/logout', isAuthenticated, usersApi.logout);
+
+  // Actions
+  app.post('/admin/fonts', [isAuthenticated, upload.any(), fontsApi.create]);
+  app.put('/admin/fonts/:font_id', [isAuthenticated, upload.any(), fontsApi.edit]);
+  app.delete('/admin/fonts/:font_id', isAuthenticated, fontsApi.delete);
 }

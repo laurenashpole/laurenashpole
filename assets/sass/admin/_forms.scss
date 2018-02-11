@@ -1,0 +1,105 @@
+input,
+textarea,
+button,
+select {
+  width: 100%;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  line-height: inherit;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+  outline: none;
+}
+
+.form__row {
+  position: relative;
+}
+
+.form__row + .form__row {
+  margin-top: 1rem;
+}
+
+.input {
+  background: $color-gray-light;
+  min-height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  line-height: 2.5rem;
+}
+
+.input::-webkit-input-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input::-moz-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input:-ms-input-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input:-moz-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input--label-inset {
+  padding: 1rem 0.5rem 0 0.5rem;
+}
+
+.input--label-inset + label {
+  font-size: 0.5rem;
+  line-height: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.textarea {
+  background: $color-gray-light;
+  padding: 0.5rem;
+  display: block;
+  resize: none;
+}
+
+.input--file {
+  padding-top: 37px;
+  padding-bottom: 12px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.input__checkbox-label {
+  padding-top: 0.5rem;
+  font-size: 16px;
+  line-height: 1.5em;
+  display: block;
+}
+
+.input__checkbox-label:last-child {
+  padding-bottom: 0.65em;
+}
+
+.input__checkbox {
+  width: auto;
+  height: auto;
+  margin-right: 0.5rem;
+  vertical-align: 2px;
+  -webkit-appearance: checkbox;
+}

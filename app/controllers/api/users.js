@@ -7,7 +7,7 @@ exports.authenticate = function (req, res) {
     response.success = true;
     response.data = req.user;
   } else if (req.info) {
-    response.err = req.info;
+    response.err = req.info.message || 'Authentication failed.';
   }
 
   res.json(response);

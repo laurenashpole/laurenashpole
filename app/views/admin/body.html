@@ -1,18 +1,23 @@
 {% extends '../layout.html' %}
 
 {% block head %}
-  {% parent %}
+  <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
   <link rel="stylesheet" href="{% asset 'admin.css' %}">
 {% endblock %}
 
 {% block body %}
-  {% if !signed_out %}
-    {% include './includes/nav.html' %}
-  {% endif %}
-
-  {% block content %}{% endblock %}
+  <div id="admin" class="root bg--static"></div>
 {% endblock %}
 
 {% block scripts %}
+  <script>
+    window.APP = window.APP || {};
+    window.APP.isAuthenticated = {{isAuthenticated}} || false;
+
+    {% if !signed_out && fonts %}
+      window.APP.fonts = {{fonts|raw|json}}
+    {% endif %}
+  </script>
+
   <script src="{% asset 'admin.js' %}"></script>
 {% endblock %}

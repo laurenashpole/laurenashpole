@@ -9,7 +9,7 @@ let inProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: {
     admin: [
-      './assets/js/admin.js',
+      './assets/js/admin/index.jsx',
       './assets/sass/admin.scss'
     ],
     main: [
@@ -34,7 +34,7 @@ module.exports = {
         })
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
@@ -53,7 +53,10 @@ module.exports = {
       fileName: 'assets.json',
       publicPath: '/'
     })
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };
 
 if (inProduction) {

@@ -74,6 +74,8 @@ exports.deleteFont = function (req, res, font) {
         if (err) reject(err);
 
         response.success = true;
+        response.font = font;
+
         resolve(response);
       });
     });
@@ -152,12 +154,8 @@ let _setFontProperties = function (req, font) {
   for (let prop in req.body) {
     if (prop === 'commercial_file' || prop === 'personal_file') {
       for (let fontFile in font[prop]) {
-        if (font[prop][fontFile]) {
-          if (req.body[prop][fontFile]) {
-            font[prop][fontFile]['is_included'] = true;
-          } else {
-            font[prop][fontFile]['is_included'] = false;
-          }
+        if (font[prop][fontFile] && req.body[prop][fontFile]) {
+          font[prop][fontFile]['is_included'] = req.body[prop][fontFile]['is_included'];
         }
       }
     } else {

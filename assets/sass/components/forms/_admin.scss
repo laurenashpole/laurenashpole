@@ -1,0 +1,61 @@
+a {
+  text-decoration: none;
+}
+
+.well {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 6px;
+}
+
+.well + .well {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+
+  .well {
+    padding: 1.5rem;
+  }
+}
+
+// .form--narrow {
+//   width: 100%;
+//   max-width: 540px;
+//   margin: 0 auto;
+// }
+
+
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+.text--uppercase {
+  letter-spacing: 0.125em;
+}
+
+.login-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-link a {
+  text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+}
+
+.create-button {
+  margin-bottom: 1.5rem;
+  align-self: flex-end;
+}
+
+.create-button:after {
+  content: "\002B";
+  font-size: 22px;
+  margin-left: 1rem;
+  margin-bottom: 4px;
+}
