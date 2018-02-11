@@ -112,10 +112,10 @@ class Form extends Component {
         {this.state.error && <Growl message={this.state.error} />}
         {this.state.fireRedirect && <Redirect to={"/admin"} />}
 
-        <div className="well">        
+        <div className="well">
           <div className="form__row">
             <input type="text" id="name" name="name" className="input input--label-inset" onChange={this.handleChange} value={this.state.name} />
-            <label htmlFor="name" className="text--uppercase text--extra-bold">Name</label>
+            <label htmlFor="name">Name</label>
           </div>
 
           <div className="form__row">
@@ -124,22 +124,22 @@ class Form extends Component {
 
           <div className="form__row">
             <input type="text" id="dateCreated" name="date_created" className="input input--label-inset" onChange={this.handleChange} value={this.state.date_created} />
-            <label htmlFor="dateCreated" className="text--uppercase text--extra-bold">Date Created</label>
+            <label htmlFor="dateCreated">Date Created</label>
           </div>
 
           <div className="form__row">
             <input type="text" id="dateModified" name="date_modified" className="input input--label-inset" onChange={this.handleChange} value={this.state.date_modified} />
-            <label htmlFor="dateModified" className="text--uppercase text--extra-bold">Date Modified</label>
+            <label htmlFor="dateModified">Date Modified</label>
           </div>
 
           <div className="form__row">
             <input type="text" id="price" name="price" className="input input--label-inset" onChange={this.handleChange} value={this.state.price} />
-            <label htmlFor="price" className="text--uppercase text--extra-bold">Price</label>
+            <label htmlFor="price">Price</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageCollection" name="image_collection"  className="input input--file input--label-inset" onChange={this.handleChange} multiple />
-            <label htmlFor="imageCollection" className="text--uppercase text--extra-bold">Image Collection</label>
+            <label htmlFor="imageCollection">Image Collection</label>
           </div>
 
           <div className="form__row">
@@ -152,32 +152,32 @@ class Form extends Component {
 
           <div className="form__row">
             <input type="file" id="image" name="image" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="image" className="text--uppercase text--extra-bold">Image {this.state.image && <span>({this.state.image})</span>}</label>
+            <label htmlFor="image">Image {this.state.image && <span>({this.state.image})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageRetina" name="image_retina" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="imageRetina" className="text--uppercase text--extra-bold">Image Retina {this.state.image_retina && <span>({this.state.image_retina})</span>}</label>
+            <label htmlFor="imageRetina">Image Retina {this.state.image_retina && <span>({this.state.image_retina})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageMain" name="image_main" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="imageMain" className="text--uppercase text--extra-bold">Image Main {this.state.image_main && <span>({this.state.image_main})</span>}</label>
+            <label htmlFor="imageMain">Image Main {this.state.image_main && <span>({this.state.image_main})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageMainRetina" name="image_main_retina" className="input input--file  input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="imageMainRetina" className="text--uppercase text--extra-bold">Image Main Retina {this.state.image_main_retina && <span>({this.state.image_main_retina})</span>}</label>
+            <label htmlFor="imageMainRetina">Image Main Retina {this.state.image_main_retina && <span>({this.state.image_main_retina})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageThumbnail" name="image_thumbnail" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="imageThumbnail" className="text--uppercase text--extra-bold">Image Thumbnail {this.state.image_thumbnail && <span>({this.state.image_thumbnail})</span>}</label>
+            <label htmlFor="imageThumbnail">Image Thumbnail {this.state.image_thumbnail && <span>({this.state.image_thumbnail})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="imageThumbnailRetina" name="image_thumbnail_retina" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="imageThumbnailRetina" className="text--uppercase text--extra-bold">Image Thumbnail Retina {this.state.image_thumbnail_retina && <span>({this.state.image_thumbnail_retina})</span>}</label>
+            <label htmlFor="imageThumbnailRetina">Image Thumbnail Retina {this.state.image_thumbnail_retina && <span>({this.state.image_thumbnail_retina})</span>}</label>
           </div>
 
           <div className="form__row">
@@ -203,7 +203,7 @@ class Form extends Component {
                 OpenType Font
               </label>
             </div>
-            <label className="text--uppercase text--extra-bold">Personal File Includes</label>
+            <label>Personal File Includes</label>
           </div>
 
           <div className="form__row">
@@ -218,7 +218,7 @@ class Form extends Component {
                 />
                 TrueType Font
               </label>
-              <label className="input__checkbox-label">            
+              <label className="input__checkbox-label">
                 <input
                   type="checkbox"
                   name="commercial_file.otf.is_included"
@@ -228,7 +228,7 @@ class Form extends Component {
                 />
                 OpenType Font
               </label>
-              <label className="input__checkbox-label">            
+              <label className="input__checkbox-label">
                 <input
                   type="checkbox"
                   name="commercial_file.webfont.is_included."
@@ -238,7 +238,7 @@ class Form extends Component {
                 />
                 Web Font Kit
               </label>
-              <label className="input__checkbox-label">          
+              <label className="input__checkbox-label">
                 <input
                   type="checkbox"
                   name="commercial_file.additional_chars.is_included"
@@ -249,31 +249,31 @@ class Form extends Component {
                 Additional Characters (Latin-1)
               </label>
             </div>
-            <label className="text--uppercase text--extra-bold">Commercial File Includes</label>
+            <label>Commercial File Includes</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="cssFile" name="css_file" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="cssFile" className="text--uppercase text--extra-bold">CSS File {this.state.css_file && <span>({this.state.css_file})</span>}</label>
+            <label htmlFor="cssFile">CSS File {this.state.css_file && <span>({this.state.css_file})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="text" id="alternateStyle" name="alternate_style" className="input input--label-inset" onChange={this.handleChange} value={this.state.alternate_style} />
-            <label htmlFor="alternateStyle" className="text--uppercase text--extra-bold">Alternate Style Class</label>
+            <label htmlFor="alternateStyle">Alternate Style Class</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="personalFontFile" name="personal_font_file" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="personalFontFile" className="text--uppercase text--extra-bold">Personal Font File {this.state.personal_font_file && <span>({this.state.personal_font_file})</span>}</label>
+            <label htmlFor="personalFontFile">Personal Font File {this.state.personal_font_file && <span>({this.state.personal_font_file})</span>}</label>
           </div>
 
           <div className="form__row">
             <input type="file" id="commercialFontFile" name="commercial_font_file" className="input input--file input--label-inset" onChange={this.handleChange} />
-            <label htmlFor="commercialFontFile" className="text--uppercase text--extra-bold">Commercial Font File {this.state.commercial_font_file && <span>({this.state.commercial_font_file})</span>}</label>
+            <label htmlFor="commercialFontFile">Commercial Font File {this.state.commercial_font_file && <span>({this.state.commercial_font_file})</span>}</label>
           </div>
 
           <div className="form__row">
-            <button type="submit" className="button button--cta-primary button--hover-border text--uppercase text--extra-bold">
+            <button type="submit" className="button button--cta-primary">
               {this.props.buttonText}
             </button>
           </div>

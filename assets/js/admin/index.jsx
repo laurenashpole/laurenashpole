@@ -6,8 +6,8 @@ import Admin from './Admin';
 let isAuthenticated = window.APP.isAuthenticated;
 
 render(
-	<BrowserRouter>
-		<Admin isAuthenticated={isAuthenticated} />
-	</BrowserRouter>,
-	document.getElementById('admin')
+  <BrowserRouter>
+    <Admin isAuthenticated={isAuthenticated} />
+  </BrowserRouter>,
+  document.getElementById('admin')
 );

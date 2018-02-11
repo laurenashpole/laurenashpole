@@ -5,8 +5,8 @@ select {
   width: 100%;
   background: none;
   margin: 0;
-  border: none;
   padding: 0;
+  border: none;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -18,11 +18,15 @@ select {
   appearance: none;
 }
 
-input:focus,
-textarea:focus,
-button:focus,
-select:focus {
+.input:focus,
+.textarea:focus,
+.button:focus {
   outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: $color-gray-medium;
 }
 
 .form__row {
@@ -35,26 +39,11 @@ select:focus {
 
 .input {
   background: $color-gray-light;
-  min-height: 2.5rem;
+  min-height: 3rem;
   padding: 0.5rem;
+  border: 2px solid transparent;
   border-radius: 3px;
-  line-height: 2.5rem;
-}
-
-.input::-webkit-input-placeholder {
-  color: $form-color-placeholder;
-}
-
-.input::-moz-placeholder {
-  color: $form-color-placeholder;
-}
-
-.input:-ms-input-placeholder {
-  color: $form-color-placeholder;
-}
-
-.input:-moz-placeholder {
-  color: $form-color-placeholder;
+  line-height: 2.3rem;
 }
 
 .input--label-inset {
@@ -66,6 +55,7 @@ select:focus {
   line-height: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+  font-weight: 700;
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
@@ -74,6 +64,8 @@ select:focus {
 .textarea {
   background: $color-gray-light;
   padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
   display: block;
   resize: none;
 }
@@ -92,8 +84,12 @@ select:focus {
   display: block;
 }
 
+.input__checkbox-label:first-child {
+  padding-top: 1rem;
+}
+
 .input__checkbox-label:last-child {
-  padding-bottom: 0.65em;
+  padding-bottom: 0.65rem;
 }
 
 .input__checkbox {

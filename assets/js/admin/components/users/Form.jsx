@@ -42,19 +42,19 @@ class Form extends Component {
       <form method="post" action="{this.props.action}" onSubmit={this.handleSubmit}>
         {this.state.error && <Growl message={this.state.error}/>}
 
-        <div className="well">        
+        <div className="well">
           <div className="form__row">
             <input type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} className="input input--label-inset" />
-            <label htmlFor="name" className="text--uppercase text--extra-bold">Username</label>
+            <label htmlFor="name">Username</label>
           </div>
 
           <div className="form__row">
             <input type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} className="input input--label-inset" />
-            <label htmlFor="password" className="text--uppercase text--extra-bold">Password</label>
+            <label htmlFor="password">Password</label>
           </div>
 
           <div className="form__row">
-            <button type="submit" className="button button--cta-primary button--hover-border text--uppercase text--extra-bold">
+            <button type="submit" className="button button--cta-primary">
               {this.props.buttonText}
             </button>
           </div>

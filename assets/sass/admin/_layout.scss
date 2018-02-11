@@ -1,7 +1,3 @@
-body {
-  padding: 0;
-}
-
 .root {
   @include flex-child(2);
   @include flex();

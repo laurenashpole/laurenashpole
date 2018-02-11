@@ -1,0 +1,16 @@
+.well {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 6px;
+}
+
+.well + .well {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+
+  .well {
+    padding: 1.5rem;
+  }
+}

@@ -11,6 +11,36 @@ class Nav extends Component {
     };
   }
 
+  componentDidMount () {
+    document.addEventListener('keydown', this.handleKeydown, false);
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.handleKeydown, false);
+  }
+
+  handleKeydown = (e) => {
+    if (e.keyCode === 9) {
+      if (e.shiftKey) {
+        if (document.activeElement === this.firstElement) {
+          e.preventDefault();
+          this.lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === this.lastElement) {
+          e.preventDefault();
+          this.firstElement.focus();
+        }
+      }
+    }
+
+    if (e.keyCode === 27) {
+      this.setState({
+        showNav: false
+      });
+    }
+  }
+
   handleNavToggle = (e) => {
     this.setState(prevState => ({
       showNav: !prevState.showNav
@@ -31,14 +61,21 @@ class Nav extends Component {
         </a>
 
         <nav className="header__nav">
-          <a href="javascript:void(0);" className={`header__icon u--mobile ${(this.state.showNav ? 'is-active' : '')}`} onClick={this.handleNavToggle} title="Toggle Nav">
+          <button
+            className="header__icon u--mobile"
+            onClick={this.handleNavToggle}
+            ref={(el) => { this.firstElement = el; }}
+            aria-expanded={this.state.showNav}
+            aria-controls="nav"
+            aria-label="Toggle Nav"
+          >
             <span className="header__icon-line"></span>
             <span className="header__icon-line"></span>
             <span className="header__icon-line"></span>
             <span className="header__icon-line"></span>
-          </a>
+          </button>
 
-          <ul className="header__links list--unstyled text--uppercase text--extra-bold">
+          <ul id="nav" className="header__links list--unstyled text--uppercase text--extra-bold">
             <li className="header__link">
               <NavLink to="/admin" exact={true} activeClassName="is-active" onClick={this.handleLinkClick}>View Fonts</NavLink>
             </li>
@@ -46,7 +83,7 @@ class Nav extends Component {
               <NavLink to="/admin/fonts/create" activeClassName="is-active" onClick={this.handleLinkClick}>Create Font</NavLink>
             </li>
             <li className="header__link">
-             <Logout />
+             <Logout inputRef={(el) => { this.lastElement = el; }} />
             </li>
           </ul>
         </nav>

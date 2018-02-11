@@ -6,20 +6,18 @@
 @import 'base/base';
 @import 'base/typography';
 @import 'base/utilities';
+@import 'admin/base';
 
 /* Layout */
-// @import 'layout/nav';
-// @import 'layout/containers';
+@import 'admin/layout';
+@import 'admin/header';
 
 /* Components */
-// @import 'components/hrs';
-@import 'components/forms/admin';
 @import 'components/lists';
-@import 'admin/layout';
 @import 'admin/backgrounds';
 @import 'admin/buttons';
-@import 'admin/header';
 @import 'admin/forms';
+@import 'admin/links';
+@import 'admin/wells';
 
-/* Pages */
-// @import 'pages/admin.scss';
+@import 'components/forms/admin';

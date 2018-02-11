@@ -6,6 +6,6 @@ const Create = (props) => (
     <h2 className="text--uppercase">Create New Font</h2>
     <Form action="/admin/fonts" buttonText="Create Font" listener={props.onCreate} />
   </Fragment>
-)
+);
 
 export default Create;

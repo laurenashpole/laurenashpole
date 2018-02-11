@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { request } from '../../../utilities/request';
 
 class Delete extends Component {
-  constructor (props) {
-    super(props);
-  }
-
   handleClick = (e) => {
     e.preventDefault();
 
@@ -20,9 +16,9 @@ class Delete extends Component {
 
   render () {
     return(
-      <a className="button button--inline button--small text--uppercase text--extra-bold" href="javascript:void(0);" onClick={this.handleClick}>
+      <button className="button button--inline button--small" onClick={this.handleClick}>
         Delete
-      </a>
+      </button>
     )
   }
 };

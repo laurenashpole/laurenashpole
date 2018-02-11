@@ -19,16 +19,16 @@ class List extends Component {
     return (
       <Fragment>
         <h2 className="text--uppercase">Fonts</h2>
-        <Link className="button button--cta-primary button--inline button--small text--uppercase text--extra-bold create-button" to="/admin/fonts/create">
+        <Link className="button button--cta-primary button--inline button--small button--add" to="/admin/fonts/create">
           Create new font
         </Link>
-        <ul className="font-list list--unstyled">
+        <ul className="list--unstyled">
           {this.state.fonts.map((font) => {
             return (
               <li className="well" key={font._id}>
                 <h3>{font.name}</h3>
                 <div className="buttons">
-                  <Link className="button button--inline button--small text--uppercase text--extra-bold" to={`/admin/fonts/${font._id}`}>Edit</Link>
+                  <Link className="button button--inline button--small" to={`/admin/fonts/${font._id}`}>Edit</Link>
                   <Delete action={`/admin/fonts/${font._id}?_method=DELETE`} onDelete={this.props.onDelete} />
                 </div>
               </li>

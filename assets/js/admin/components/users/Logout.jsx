@@ -14,7 +14,7 @@ class Logout extends Component {
 
   render () {
     return(
-      <a href="javascript:void(0);" onClick={this.handleClick}>
+      <a href="javascript:void(0);" onClick={this.handleClick} ref={this.props.inputRef}>
         Logout
       </a>
     )
