@@ -60,7 +60,7 @@
 
 .button--add {
   margin-bottom: 1.5rem;
-  align-self: flex-end;
+  @include flex-child-align(flex-end);
 }
 
 .button--add:after {

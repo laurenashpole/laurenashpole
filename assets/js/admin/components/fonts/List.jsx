@@ -12,7 +12,9 @@ class List extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({ fonts: nextProps.fonts });
+    this.setState({
+      fonts: nextProps.fonts
+    });
   }
 
   render () {
