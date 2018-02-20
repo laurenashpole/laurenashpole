@@ -7,11 +7,11 @@ module.exports = function (app, multer) {
     var multipart = multer();
 
     /* Home */
-    app.get('/', index.render);
+    app.get('/*', index.render);
 
     /* Contact */
-    app.get('/contact', contact.render);
-    app.get('/contact/confirm', contact.confirm);
+    // app.get('/contact', contact.render);
+    // app.get('/contact/confirm', contact.confirm);
     app.post('/contact/send', contact.send);
 
     /* Mailing List */
@@ -19,16 +19,16 @@ module.exports = function (app, multer) {
     app.post('/amp/mailing/signup', multipart.fields([]), mailing.signup);
 
     /* Fonts Pages */
-    app.get('/fonts', fonts.renderFonts);
-    app.get('/fonts/licensing', fonts.licensing);
-    app.get('/fonts/eula', fonts.eula);
-    app.get('/fonts/:font_slug', fonts.renderFont);
+    // app.get('/fonts', fonts.renderFonts);
+    // app.get('/fonts/licensing', fonts.licensing);
+    // app.get('/fonts/eula', fonts.eula);
+    // app.get('/fonts/:font_slug', fonts.renderFont);
     app.get('/amp/fonts/:font_slug', fonts.renderFont);
 
     /* Fonts Actions */
     app.post('/fonts/:font_slug/payment', fonts.createPayment);
     app.post('/amp/fonts/:font_slug/payment', fonts.createPayment);
-    app.get('/fonts/:font_slug/confirm', fonts.confirm);
+    // app.get('/fonts/:font_slug/confirm', fonts.confirm);
     app.post('/amp/fonts/update-example', multipart.fields([]), fonts.updateExample);
 
     /* Legacy Redirects */

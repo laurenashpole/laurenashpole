@@ -16,12 +16,16 @@ module.exports = {
       './assets/js/index.js',
       './assets/sass/style.scss'
     ],
+    new: [
+      './assets/js/new/index.jsx',
+      './assets/sass/new.scss'
+    ],
     blog: [
       './assets/sass/blog.scss'
     ]
   },
   output: {
-    filename: 'js/[name].[chunkhash].js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
@@ -45,7 +49,6 @@ module.exports = {
       root: path.resolve(__dirname, 'public'),
       exclude: ['fonts']
     }),
-    new ExtractTextPlugin('css/[name].[chunkhash].css'),
     new webpack.LoaderOptionsPlugin({
       minimize: inProduction
     }),
@@ -64,5 +67,18 @@ if (inProduction) {
     new UglifyJsPlugin({
       test: /\.jsx$/
     })
+  );
+
+  module.exports.plugins.push(
+    new ExtractTextPlugin('css/[name].[chunkhash].css'),
+  );
+
+  module.exports.output = {
+    filename: 'js/[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'public')
+  }
+} else {
+  module.exports.plugins.push(
+    new ExtractTextPlugin('css/[name].css'),
   );
 }

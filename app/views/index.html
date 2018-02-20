@@ -1,9 +1,30 @@
-{% extends 'body.html' %}
+{% extends 'layout.html' %}
 
-{% block body-class %}is-homepage{% endblock %}
+{% block head %}
+  {% parent %}
 
-{% block content %}
-    <main>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-12207477-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
+  <link rel="stylesheet" href="{% asset 'new.css' %}">
+{% endblock %}
+
+{% block body %}
+  <div id="root" class="root"></div>
+
+<!--     <main>
         <section class="homepage__container container container--vertical-padding">
             <div class="column--static" data-tilt data-tilt-parent="true" data-tilt-reset="false">
                 <div class="hero__image">
@@ -98,5 +119,17 @@
                 </li>
             </ul>
         </section>
-    </main>
+    </main> -->
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    window.APP = window.APP || {};
+
+    {% if fonts %}
+      window.APP.fonts = {{fonts|raw|json}}
+    {% endif %}
+  </script>
+
+  <script src="{% asset 'new.js' %}"></script>
 {% endblock %}
