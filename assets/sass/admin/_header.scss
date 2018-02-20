@@ -1,0 +1,238 @@
+.header {
+  background: $color-white;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.65rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  @include flex();
+  @include flex-align(center);
+  @include flex-justify(space-between);
+}
+
+.header__logo-svg {
+  width: 65px;
+  height: 30px;
+  display: block;
+  color: $header-color;
+}
+
+.header__icon {
+  background: $header-color;
+  width: 45px;
+  height: 45px;
+  padding: 10px 9px 11px 9px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  display: block;
+  cursor: pointer;
+}
+
+.header__icon-line {
+  background: $color-white;
+  width: 25px;
+  height: 2px;
+  border-radius: 1px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: block;
+  @include transition(all 0.25s ease-in-out);
+}
+
+.header__icon-line:nth-child(2),
+.header__icon-line:nth-child(3) {
+  width: 20px;
+  left: 9px;
+  top: 21px;
+}
+
+.header__icon-line:nth-child(4) {
+  width: 22px;
+  left: 14px;
+  top: 32px;
+}
+
+.header__icon[aria-expanded="true"] .header__icon-line:nth-child(1),
+.header__icon[aria-expanded="true"] .header__icon-line:nth-child(4) {
+  width: 0;
+  top: 21px;
+  left: 50%;
+}
+
+.header__icon[aria-expanded="true"] .header__icon-line:nth-child(2) {
+  width: 27px;
+  @include transform(rotate(45deg));
+}
+
+.header__icon[aria-expanded="true"] .header__icon-line:nth-child(3) {
+  width: 27px;
+  @include transform(rotate(-45deg));
+}
+
+.header__links {
+  background: $header-color;
+  border-radius: 3px;
+  position: fixed;
+  top: 0.65rem;
+  right: 0.65rem;
+  bottom: calc(100% - 0.65rem - 45px);
+  left: calc(100% - 0.65rem - 45px);
+  overflow: hidden;
+  @include flex();
+  @include flex-direction(column);
+  @include flex-justify(center);
+  @include transition(all 0.3s ease-in-out 0.2s);
+}
+
+.header__icon[aria-expanded="true"] + .header__links {
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @include transition(all 0.3s ease-in-out 0s);
+}
+
+.header__link {
+  visibility: hidden;
+  opacity: 0;
+  @include transform(translate3d(-1rem, 0, 0));
+  @include transition(all 0.2s linear 0s);
+}
+
+.header__icon[aria-expanded="true"] + .header__links .header__link {
+  visibility: visible;
+  opacity: 1;
+  @include transform(translate3d(0, 0, 0));
+  @include transition(all 0.2s linear 0.3s);
+}
+
+.header__link a {
+  margin: 0.5rem 1.65rem;
+  border: none;
+  color: #fff;
+  display: inline-block;
+}
+
+.header__link a:hover,
+.header__link a:focus {
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+
+  .header {
+    background: none;
+    padding: 1rem 1rem 0 1rem;
+    position: relative;
+  }
+
+  .header__logo {
+    background: $header-color;
+    border-radius: 3px;
+    padding: 25px 10px;
+  }
+
+  .header__logo:hover,
+  .header__logo:focus {
+    background: #c63d2d;
+  }
+
+  .header__logo-svg {
+    width: 55px;
+    height: 25px;
+    color: $color-white;
+  }
+
+  .header__icon {
+    display: none;
+  }
+
+  .header__links {
+    background: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15rem;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    overflow: visible;
+    @include flex-direction(row);
+    @include transition(none);
+  }
+
+  .header__link {
+    visibility: visible;
+    opacity: 1;
+    @include transform(none);
+    @include transition(none);
+  }
+
+  .header__link a {
+    margin: 0 0 0 50px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 3px;
+    color: $color-black;
+    position: relative;
+    @include transition(background 0.15s linear 0.1s);
+  }
+
+  .header__link a.is-active,
+  .header__link a:hover,
+  .header__link a:focus {
+    color: $color-black;
+    background: $color-white;
+    @include transition(background 0.15s linear 0.3s);
+  }
+
+  .header__link a:before,
+  .header__link a:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    position: absolute;
+  }
+
+  .header__link a:before {
+    top: 0;
+    left: 0;
+  }
+
+  .header__link a:after {
+    bottom: 0;
+    right: 0;
+  }
+
+  .header__link a:hover:before,
+  .header__link a:hover:after {
+    width: 100%;
+    height: 100%;
+    @include transition(width 0.15s ease-out, height 0.15s ease-out 0.15s);
+  }
+
+  .header__link a:hover:before {
+    border-top-color: $color-white;
+    border-right-color: $color-white;
+  }
+
+  .header__link a:hover:after {
+    border-bottom-color: $color-white;
+    border-left-color: $color-white;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .header {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
