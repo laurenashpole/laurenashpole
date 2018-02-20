@@ -7,7 +7,7 @@
     "forever-start": "NODE_ENV=production forever start ./bin/www",
     "forever-stop": "NODE_ENV=production forever stop ./bin/www",
     "dev": "webpack",
-    "prod": "NODE_ENV=production npm run dev",
+    "prod": "npm run dev -- -p",
     "watch": "npm run dev -- --watch",
     "deploy": "npm run prod && npm run forever-stop && npm run forever-start"
   },
