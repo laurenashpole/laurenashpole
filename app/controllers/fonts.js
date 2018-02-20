@@ -83,8 +83,8 @@ exports.createPayment = function (req, res) {
                 if (/\/amp\//.test(req.path)) {
                     res.setHeader('Content-type', 'application/json');
                     res.setHeader('Access-Control-Allow-Credentials', true);
-                    res.setHeader('Access-Control-Allow-Origin', '*.ampproject.org');
-                    res.setHeader('AMP-Access-Control-Allow-Source-Origin', 'https://' + req.headers.host);
+                    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+                    res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
                     res.setHeader('AMP-Redirect-To', data.redirectUrl);
                     res.setHeader('Access-Control-Expose-Headers', 'AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin');
                     res.json(data);

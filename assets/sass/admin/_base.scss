@@ -2,18 +2,6 @@ body {
   padding: 0;
 }
 
-a {
-  border-bottom: 2px solid transparent;
-  text-decoration: none;
-  color: $color-red;
-}
-
-a:hover,
-a:focus {
-  color: $color-red;
-  border-bottom-color: $color-red;
-}
-
 h2 {
   margin-bottom: 2rem;
 }
