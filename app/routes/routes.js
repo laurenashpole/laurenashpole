@@ -1,7 +1,8 @@
 var index = require('../controllers/index');
 var contact = require('../controllers/contact');
-var mailing = require('../controllers/mailing');
 var fonts = require('../controllers/fonts');
+var mailingApi = require('../controllers/api/mailing');
+var contactsApi = require('../controllers/api/contact');
 
 module.exports = function (app, multer) {
     var multipart = multer();
@@ -12,11 +13,11 @@ module.exports = function (app, multer) {
     /* Contact */
     app.get('/contact', contact.render);
     app.get('/contact/confirm', contact.confirm);
-    app.post('/contact/send', contact.send);
+    app.post('/contact/send', contactsApi.send);
 
     /* Mailing List */
-    app.post('/mailing/signup', mailing.signup);
-    app.post('/amp/mailing/signup', multipart.fields([]), mailing.signup);
+    app.post('/mailing/signup', mailingApi.signup);
+    app.post('/amp/mailing/signup', multipart.fields([]), mailingApi.signup);
 
     /* Fonts Pages */
     app.get('/fonts', fonts.renderFonts);

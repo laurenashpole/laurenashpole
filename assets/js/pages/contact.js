@@ -2,7 +2,7 @@ import { Contact } from '../components/contact';
 
 export const ContactPage = (function () {
     function init () {
-        $el = document.querySelector('.js-contact-form');
+        var $el = document.querySelector('.js-contact-form');
 
         if (!$el) {
             return;
