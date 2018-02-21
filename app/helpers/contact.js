@@ -3,38 +3,50 @@ var xoauth2 = require('xoauth2');
 var smtpConfig = require('../config/config')()['mail'];
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        xoauth2: xoauth2.createXOAuth2Generator(smtpConfig)
-    }
+  service: 'gmail',
+  auth: {
+    xoauth2: xoauth2.createXOAuth2Generator(smtpConfig)
+  }
 });
 
 exports.send = function (req) {
-    return new Promise (function (resolve, reject) {
-        var response = {
-            success: false
-        };
+  return new Promise (function (resolve, reject) {
+    var response = {
+      success: false
+    };
 
-        if (req.body && req.body.senderEmail && req.body.senderName && req.body.subject && req.body.message) {
+    if (!req.body) {
+      resolve(response);
+    }
 
-            var mailOptions = {
-                from: '"CONTACT FORM" <lauren@laurenashpole.com>',
-                to: 'lauren@laurenashpole.com',
-                subject: req.body.subject,
-                text: req.body.message,
-                html: '<p>Message from: ' + req.body.senderEmail + ' (' + req.body.senderName + ')</p><p>' + req.body.message + '</p>'
-            };
+    if (!req.body.senderEmail) {
+      response.err = 'Sender email required!';
+      resolve(response);
+    }
 
-            transporter.sendMail(mailOptions, function (err, info) {
-                if (err) reject(err);
+    if (!req.body.senderName) {
+      response.err = 'Sender name required!';
+      resolve(response);
+    }
 
-                response.success = true
+    if (!req.body.message) {
+      response.err = 'Message required!';
+      resolve(response);
+    }
 
-                resolve(response);
-            });
+    var mailOptions = {
+      from: '"CONTACT FORM" <lauren@laurenashpole.com>',
+      to: 'lauren@laurenashpole.com',
+      subject: req.body.subject || 'General Questions',
+      text: req.body.message,
+      html: `<p>Message from: ${req.body.senderEmail} (${req.body.senderName})</p><p>${req.body.message}</p>`
+    };
 
-        } else {
-            resolve(response);
-        }
+    transporter.sendMail(mailOptions, function (err, info) {
+      if (err) reject(err);
+
+      response.success = true
+      resolve(response);
     });
+  });
 };

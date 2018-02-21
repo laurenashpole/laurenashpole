@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'js/[name].js',
+    filename: 'js/[name].[chunkhash].js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
@@ -41,17 +41,25 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].css'),
+    new ExtractTextPlugin('css/[name].[chunkhash].css'),
     new CleanWebpackPlugin(['css', 'js'], {
       root: path.resolve(__dirname, 'public'),
       exclude: ['fonts']
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: false
+      minimize: true
     }),
     new ManifestPlugin({
       fileName: 'assets.json',
       publicPath: '/'
+    }),
+    new UglifyJsPlugin({
+      test: /\.jsx$/
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
   ],
   resolve: {
