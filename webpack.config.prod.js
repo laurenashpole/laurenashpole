@@ -6,7 +6,6 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 let ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
   target: 'web',
   entry: {
     admin: [
@@ -17,16 +16,12 @@ module.exports = {
       './assets/js/index.js',
       './assets/sass/style.scss'
     ],
-    new: [
-      './assets/js/new/index.jsx',
-      './assets/sass/new.scss'
-    ],
     blog: [
       './assets/sass/blog.scss'
     ]
   },
   output: {
-    filename: 'js/[name].js',
+    filename: 'js/[name].[chunkhash].js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
@@ -46,17 +41,25 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].css'),
+    new ExtractTextPlugin('css/[name].[chunkhash].css'),
     new CleanWebpackPlugin(['css', 'js'], {
       root: path.resolve(__dirname, 'public'),
       exclude: ['fonts']
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: false
+      minimize: true
     }),
     new ManifestPlugin({
       fileName: 'assets.json',
       publicPath: '/'
+    }),
+    new UglifyJsPlugin({
+      test: /\.jsx$/
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
   ],
   resolve: {

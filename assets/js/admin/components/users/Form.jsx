@@ -39,7 +39,7 @@ class Form extends Component {
 
   render () {
     return(
-      <form method="post" action="{this.props.action}" onSubmit={this.handleSubmit}>
+      <form method="post" onSubmit={this.handleSubmit}>
         {this.state.error && <Growl message={this.state.error}/>}
 
         <div className="well">

@@ -13,11 +13,13 @@
 @import 'layout/header';
 
 /* Components */
-@import 'components/lists';
 @import 'admin/backgrounds';
-@import 'admin/buttons';
-@import 'admin/forms';
-@import 'admin/links';
+@import 'components/forms/base';
+@import 'components/forms/buttons';
+@import 'components/forms/inputs';
+@import 'components/forms/checkboxes';
+@import 'components/links';
+@import 'components/lists';
 @import 'admin/wells';
 
 @import 'components/forms/admin';

@@ -1,0 +1,22 @@
+.input__checkbox-label {
+  padding-top: 0.5rem;
+  font-size: 16px;
+  line-height: 1.5em;
+  display: block;
+}
+
+.input__checkbox-label:first-child {
+  padding-top: 1rem;
+}
+
+.input__checkbox-label:last-child {
+  padding-bottom: 0.65rem;
+}
+
+.input__checkbox {
+  width: auto;
+  height: auto;
+  margin-right: 0.5rem;
+  vertical-align: 2px;
+  -webkit-appearance: checkbox;
+}

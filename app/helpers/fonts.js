@@ -75,7 +75,6 @@ exports.deleteFont = function (req, res, font) {
 
         response.success = true;
         response.font = font;
-
         resolve(response);
       });
     });
@@ -83,6 +82,7 @@ exports.deleteFont = function (req, res, font) {
 };
 
 exports.updateFont = function (req, res, font, isNew) {
+  console.log(req);
   return new Promise ((resolve, reject) => {
     let response = {
       success: false
@@ -178,8 +178,9 @@ let _uploadFile = function (res, font, file, directory, callback) {
 
 let _uploadFiles = function (req, res, font, isNew, finalCallback) {
   let imageCollectionCleared = false;
-
+  console.log(req.files);
   async.each(req.files, (file, callback) => {
+    console.log(file);
     let mimetype = file.mimetype;
     let directory = _getDirectoryByMimetype(mimetype);
 
@@ -258,6 +259,7 @@ let _deleteFiles = function (res, font, finalCallback) {
 let _createThumbnails = function (font, file, directory) {
   let suffix = '-thumb';
   let nameArray = file.originalname.split('.');
+  console.log(file.originalname);
   let thumbName = nameArray[0] + suffix + '.' + nameArray[1];
 
   thumbnail({

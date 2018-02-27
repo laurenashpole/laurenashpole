@@ -108,7 +108,7 @@ class Form extends Component {
 
   render () {
     return(
-      <form method="post" action="{this.props.action}" onSubmit={this.handleSubmit}  encType="multipart/form-data">
+      <form method="post" onSubmit={this.handleSubmit} encType="multipart/form-data">
         {this.state.error && <Growl message={this.state.error} />}
         {this.state.fireRedirect && <Redirect to={"/admin"} />}
 

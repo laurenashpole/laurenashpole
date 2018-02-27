@@ -1,22 +1,20 @@
 import React, { Fragment } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
+import Fonts from './components/Fonts';
 
-const Login = () => (
+const Site = () => (
   <Fragment>
     <Header />
-    <main>
-      <Route exact path="/" render={(props) => {
-        return <h2>Homepage</h2>
-      }}/>
-      <Route path="/fonts" render={(props) => {
-        return <h2>Fonts</h2>
-      }}/>
-      <Route path="/contact" render={(props) => {
-        return <h2>Contact</h2>
-      }}/>
-    </main>
+    <Route exact path="/" render={(props) => {
+      return <main className="main">Homepage</main>
+    }}/>
+    <Route path="/fonts"  component={Fonts} />
+    <Route path="/contact"  component={Contact} />
+    <Footer />
   </Fragment>
 );
 
-export default Login;
+export default Site;

@@ -1,156 +1,239 @@
 .font-grid {
-    @include flex();
-    @include flex-wrap(wrap);
-}
-
-.font-grid__filter {
-    background: $color-white;
-    width: 100%;
-    margin-bottom: 2rem;
-    padding-left: 2.5rem;
-    position: relative;
-}
-
-.font-grid__filter-input::-webkit-input-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input::-moz-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input:-ms-input-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input:-moz-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-reset {
-    background: $color-gray-medium;
-    width: 2rem;
-    line-height: 2rem;
-    border-radius: 50%;
-    position: absolute;
-    left: 0.5rem;
-    top: 50%;
-    color: $color-white;
-    text-align: center;
-    @include transform(translate3d(0, -50%, 0));
-}
-
-.font-grid__filter-reset.is-active {
-    background: $color-purple;
-    cursor: pointer;
+  @include flex();
+  @include flex-wrap(wrap);
 }
 
 .font-grid__item {
-    width: 100%;
-    position: relative;
-    margin-bottom: 2rem;
-    border: 2px solid $color-white;
-    padding: 0.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
 }
 
-.font-grid__bg {
-    overflow: hidden;
+.font-grid__image {
+  position: relative;
 }
 
-.font-grid__link {
-    padding: 30% 15%;
-    display: block;
-    position: relative;
-}
-
-.font-grid__link:before {
-    @include transform(rotate(0deg));
-    @include transition(transform 0.3s);
-}
-
-.no-touch .font-grid__link:hover:before {
-    @include transform(translate3d(0, -20%, 0) rotate(15deg));
-}
-
-.font-grid__img {
-    opacity: 1;
-    @include transition(opacity 0.3s);
-}
-
-.no-touch .font-grid__link:hover .font-grid__img {
-    opacity: 0;
-}
-
-.font-grid__title {
-    padding: 1rem;
-    color: $color-white;
-    text-align: center;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transition(opacity 0.3s);
-    @include transform(translate3d(-50%, -50%, 0));
-}
-
-.no-touch .font-grid__link:hover .font-grid__title {
-    opacity: 1;
-}
-
-.font-grid__cta {
-    background: $color-red;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    color: $color-white;
-    opacity: 0;
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    @include transition(opacity 0.3s);
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
-}
-
-.no-touch .font-grid__link:hover .font-grid__cta {
-    opacity: 1;
+.font-grid__image {
+  content: " ";
+  background-image:
+    url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20542.8%20403.5%22%3E%3Cpath%20fill%3D%22%23d6ecf0%22%20stroke%3D%22none%22%20d%3D%22M359.7%2C401.3c29.9-4.9%2C9.6-62.1%2C36.3-79.4c27.9-18.1%2C68.4-0.1%2C98.7-13.6c51.9-23.2%2C68.4-87.2%2C13.7-111%20c-45.2-19.6-81.3-26.4-120.1-60.5c-23.4-20.5-43.4-57.9-69.1-73.3c-35.5-21.3-56%2C8.4-91.4%2C2.1c-34-6.1-47.1-49.6-80.8-60.4%20c-87.3-28-30.3%2C78.8-69.7%2C100.7C55%2C118.2%2C27.8%2C78.1%2C7%2C101.3c-17.2%2C19.2%2C4%2C72.4%2C13.8%2C89.6c40.1%2C70.4%2C105.7%2C57.5%2C164.7%2C91.8%20C251.7%2C321.1%2C263%2C417.1%2C359.7%2C401.3z%22/%3E%3C/svg%3E'),
+    url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20552%20419%22%3E%3Cpath%20fill%3D%22%23d5e7db%22%20stroke%3D%22none%22%20d%3D%22M183.6%2C414.2c-32.8-5.4-20.7-42.9-36.6-62c-19.5-23.3-63.6-23.1-91.4-27.4c-54.9-8.4-80.7-22.7-20.2-47.8%20c72-29.9%2C138.8-54.5%2C199.4-106.3c33.7-28.7%2C61.3-62.4%2C89.3-96.6c16.8-20.6%2C43-63.5%2C70.6-71c83.2-22.5%2C45.2%2C107.2%2C81.3%2C136%20c17.5%2C14%2C51%2C2.1%2C67%2C18.9c18.3%2C19.3%2C3%2C61.1-5.3%2C83.3C487.5%2C375.9%2C316%2C435.9%2C183.6%2C414.2z%22/%3E%3C/svg%3E');
+  // background-size: 112.5% auto, 135% auto;
+  background-size: 100%;
+  // background-position: 25% 40%, 60% 70%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 @media (min-width: 500px) {
 
-    .font-grid__item {
-        width: calc(50% - (1rem * 0.5));
-        margin-right: 1rem;
-    }
+  .font-grid__item {
+    width: calc(50% - (2rem * 0.5));
+    margin-right: 2rem;
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
-    .font-grid__item.is-2n-2 {
-        margin-right: 0;
-        @include transform(translate3d(0, 2rem, 0));
-    }
+  .font-grid__item:nth-child(2n + 2) {
+    margin-right: 0;
+    @include transform(translate3d(0, 2rem, 0));
+  }
 }
 
 @media (min-width: 1000px) {
 
-    .font-grid__item {
-        width: calc(33.2% - (1.5rem * 0.666));
-        margin-right: 1.5rem;
-    }
+  .font-grid__item {
+    width: calc(33.2% - (3rem * 0.666));
+    margin-right: 3rem;
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
-    .font-grid__item.is-2n-2 {
-        margin-right: 1.5rem;
-        @include transform(translate3d(0, 0, 0));
-    }
+  .font-grid__item:nth-child(2n + 2) {
+    margin-right: 3rem;
+    @include transform(translate3d(0, 0, 0));
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 2),
-    .font-grid__item.is-3n-2 {
-        @include transform(translate3d(0, 3rem, 0));
-    }
+  .font-grid__item:nth-child(3n + 2) {
+    @include transform(translate3d(0, 3rem, 0));
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 3),
-    .font-grid__item.is-3n-3 {
-        margin-right: 0;
-    }
+  .font-grid__item:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+
+
+//     .font-grid__item.is-2n-2 {
+//         margin-right: 1.5rem;
+//         @include transform(translate3d(0, 0, 0));
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 2),
+//     .font-grid__item.is-3n-2 {
+//         @include transform(translate3d(0, 3rem, 0));
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 3),
+//     .font-grid__item.is-3n-3 {
+//         margin-right: 0;
+//     }
 }
+
+// .font-grid {
+//     @include flex();
+//     @include flex-wrap(wrap);
+// }
+
+// .font-grid__filter {
+//     background: $color-white;
+//     width: 100%;
+//     margin-bottom: 2rem;
+//     padding-left: 2.5rem;
+//     position: relative;
+// }
+
+// .font-grid__filter-input::-webkit-input-placeholder {
+//     color: $color-black;
+// }
+
+// .font-grid__filter-input::-moz-placeholder {
+//     color: $color-black;
+// }
+
+// .font-grid__filter-input:-ms-input-placeholder {
+//     color: $color-black;
+// }
+
+// .font-grid__filter-input:-moz-placeholder {
+//     color: $color-black;
+// }
+
+// .font-grid__filter-reset {
+//     background: $color-gray-medium;
+//     width: 2rem;
+//     line-height: 2rem;
+//     border-radius: 50%;
+//     position: absolute;
+//     left: 0.5rem;
+//     top: 50%;
+//     color: $color-white;
+//     text-align: center;
+//     @include transform(translate3d(0, -50%, 0));
+// }
+
+// .font-grid__filter-reset.is-active {
+//     background: $color-purple;
+//     cursor: pointer;
+// }
+
+// .font-grid__item {
+//     width: 100%;
+//     position: relative;
+//     margin-bottom: 2rem;
+//     border: 2px solid $color-white;
+//     padding: 0.5rem;
+// }
+
+// .font-grid__bg {
+//     overflow: hidden;
+// }
+
+// .font-grid__link {
+//     padding: 30% 15%;
+//     display: block;
+//     position: relative;
+// }
+
+// .font-grid__link:before {
+//     @include transform(rotate(0deg));
+//     @include transition(transform 0.3s);
+// }
+
+// .no-touch .font-grid__link:hover:before {
+//     @include transform(translate3d(0, -20%, 0) rotate(15deg));
+// }
+
+// .font-grid__img {
+//     opacity: 1;
+//     @include transition(opacity 0.3s);
+// }
+
+// .no-touch .font-grid__link:hover .font-grid__img {
+//     opacity: 0;
+// }
+
+// .font-grid__title {
+//     padding: 1rem;
+//     color: $color-white;
+//     text-align: center;
+//     opacity: 0;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     @include transition(opacity 0.3s);
+//     @include transform(translate3d(-50%, -50%, 0));
+// }
+
+// .no-touch .font-grid__link:hover .font-grid__title {
+//     opacity: 1;
+// }
+
+// .font-grid__cta {
+//     background: $color-red;
+//     width: 70px;
+//     height: 70px;
+//     border-radius: 50%;
+//     color: $color-white;
+//     opacity: 0;
+//     position: absolute;
+//     bottom: 1.5rem;
+//     right: 1.5rem;
+//     @include transition(opacity 0.3s);
+//     @include flex();
+//     @include flex-align(center);
+//     @include flex-justify(center);
+// }
+
+// .no-touch .font-grid__link:hover .font-grid__cta {
+//     opacity: 1;
+// }
+
+// @media (min-width: 500px) {
+
+//     .font-grid__item {
+//         width: calc(50% - (1rem * 0.5));
+//         margin-right: 1rem;
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
+//     .font-grid__item.is-2n-2 {
+//         margin-right: 0;
+//         @include transform(translate3d(0, 2rem, 0));
+//     }
+// }
+
+// @media (min-width: 1000px) {
+
+//     .font-grid__item {
+//         width: calc(33.2% - (1.5rem * 0.666));
+//         margin-right: 1.5rem;
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
+//     .font-grid__item.is-2n-2 {
+//         margin-right: 1.5rem;
+//         @include transform(translate3d(0, 0, 0));
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 2),
+//     .font-grid__item.is-3n-2 {
+//         @include transform(translate3d(0, 3rem, 0));
+//     }
+
+//     .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 3),
+//     .font-grid__item.is-3n-3 {
+//         margin-right: 0;
+//     }
+// }

@@ -1,69 +1,26 @@
 a,
 .link {
-    border-bottom: 2px solid transparent;
-    color: $color-red;
-    font-weight: 400;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-    transition: border-bottom-color 0.1s linear;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  color: $color-red;
 }
 
-.no-touch a:hover,
-.no-touch .link:hover {
-    color: $color-red;
-    border-bottom-color: $color-red;
+a:hover,
+a:focus,
+.link:hover,
+.link:focus {
+  color: $color-red;
+  border-bottom-color: $color-red;
 }
 
-.link--no-underline,
-.no-touch .link--no-underline:hover {
-    border-bottom: none;
+.link--secondary {
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  color: $color-purple;
 }
 
-.link--hover-border,
-.no-touch .link--hover-border:hover {
-    border-bottom: none;
-}
-
-@media (min-width: 768px) {
-
-    .link--hover-border {
-        padding: 0.5rem 0.75rem;
-    }
-
-    .link--hover-border:before,
-    .link--hover-border:after {
-        content: " ";
-        width: 0;
-        height: 0;
-        border: 2px solid transparent;
-        position: absolute;
-    }
-
-    .link--hover-border:before {
-        top: 0;
-        left: 0;
-    }
-
-    .link--hover-border:after {
-        bottom: 0;
-        right: 0;
-    }
-
-    .no-touch .link--hover-border:hover:before,
-    .no-touch .link--hover-border:hover:after {
-        width: 100%;
-        height: 100%;
-        @include transition(width 0.15s ease-out, height 0.15s ease-out 0.15s);
-    }
-
-    .no-touch .link--hover-border:hover:before {
-        border-top-color: $color-green-light;
-        border-right-color: $color-green-light;
-    }
-
-    .no-touch .link--hover-border:hover:after {
-        border-bottom-color: $color-green-light;
-        border-left-color: $color-green-light;
-    }
+.link--secondary:hover,
+.link--secondary:focus {
+  color: $color-purple;
+  border-bottom-color: $color-purple;
 }
