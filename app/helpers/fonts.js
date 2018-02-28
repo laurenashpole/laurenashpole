@@ -151,15 +151,19 @@ let _setFileValues = function (font, file) {
 };
 
 let _setFontProperties = function (req, font) {
-  for (let prop in req.body) {
+  for (let prop in font) {
     if (prop === 'commercial_file' || prop === 'personal_file') {
       for (let fontFile in font[prop]) {
-        if (font[prop][fontFile] && req.body[prop][fontFile]) {
-          font[prop][fontFile]['is_included'] = req.body[prop][fontFile]['is_included'];
+        if (req.body[prop] && req.body[prop][fontFile]) {
+          font[prop][fontFile]['is_included'] = true;
+        } else {
+          font[prop][fontFile]['is_included'] = false;
         }
       }
     } else {
-      font[prop] = req.body[prop];
+      if (req.body[prop]) {
+        font[prop] = req.body[prop];
+      }
     }
   }
 };
