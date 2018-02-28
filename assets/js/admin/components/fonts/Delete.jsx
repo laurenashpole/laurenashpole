@@ -6,7 +6,7 @@ class Delete extends Component {
     e.preventDefault();
 
     if (confirm('Are you sure you want to delete this font?')) {
-      request(this.props.action, null, (response) => {
+      request(this.props.action, {}, (response) => {
         if (response.success) {
           this.props.onDelete(response.data);
         }

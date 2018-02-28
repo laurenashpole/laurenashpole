@@ -5,7 +5,7 @@ class Logout extends Component {
   handleClick = (e) => {
     e.preventDefault();
 
-    request('/admin/logout', null, function (response) {
+    request('/admin/logout', {}, function (response) {
       if (response.success) {
         location.reload();
       }
