@@ -40,14 +40,14 @@ class Fonts extends Component {
         <Header />
         <main className="main main--medium">
           <Switch>
-            <Route exact path="/admin" render={(props) => 
+            <Route exact path="/admin" render={(props) =>
               <List fonts={this.state.fonts} onDelete={this.handleDelete} {...props} />
             }/>
-            <Route path="/admin/fonts/create" render={(props) => 
-              <Create fonts={this.state.fonts} onCreate={this.handleCreate} {...props} /> 
+            <Route path="/admin/fonts/create" render={(props) =>
+              <Create fonts={this.state.fonts} onCreate={this.handleCreate} {...props} />
             }/>
-            <Route path="/admin/fonts/:id" render={(props) => 
-              <Edit fonts={this.state.fonts} onEdit={this.handleEdit} {...props} /> 
+            <Route path="/admin/fonts/:id" render={(props) =>
+              <Edit fonts={this.state.fonts} onEdit={this.handleEdit} {...props} />
             }/>
             <Redirect to="/admin" />
           </Switch>

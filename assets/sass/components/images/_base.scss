@@ -6,6 +6,11 @@ a img {
     border: none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .img--bg {
     background-size: contain;
     background-repeat: no-repeat;

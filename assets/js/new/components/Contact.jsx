@@ -35,7 +35,7 @@ class Contact extends Component {
         senderName: false,
         message: false
       }
-    });   
+    });
   }
 
   handleSubmit = (e) => {
@@ -109,7 +109,7 @@ class Contact extends Component {
               <Fragment>
                 <h3>Thanks for your message!</h3>
                 <div>I'll get back to you shortly.</div>
-              </Fragment>              
+              </Fragment>
             ) : (
               <Fragment>
                 <p>Email me at <a href="mailto:lauren@laurenashpole.com" title="mailto:lauren@laurenashpole.com">lauren@laurenashpole.com</a> or use the form below.</p>

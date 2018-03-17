@@ -1,5 +1,4 @@
 var index = require('../controllers/index');
-var contact = require('../controllers/contact');
 var fonts = require('../controllers/fonts');
 var mailingApi = require('../controllers/api/mailing');
 var contactsApi = require('../controllers/api/contact');
@@ -11,10 +10,7 @@ module.exports = function (app, multer) {
     app.get('/*', index.render);
 
     /* Contact */
-    // app.get('/contact', contact.render);
-    // app.get('/contact/confirm', contact.confirm);
     app.post('/contact/send', contactsApi.send);
-
 
     /* Mailing List */
     app.post('/mailing/signup', mailingApi.signup);

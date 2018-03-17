@@ -6,6 +6,7 @@
 
 .main {
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2.5rem 0.65rem 3rem 0.65rem;
   @include flex-child(2);
