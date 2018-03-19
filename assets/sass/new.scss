@@ -17,7 +17,6 @@
 /* Components */
 @import 'components/images/base';
 @import 'components/images/gallery';
-@import 'components/heros';
 @import 'admin/backgrounds';
 @import 'components/forms/base';
 @import 'components/forms/buttons';
@@ -25,14 +24,12 @@
 @import 'components/forms/selects';
 @import 'components/links';
 @import 'components/lists';
-@import 'admin/wells';
 // @import 'components/backgrounds';
-// @import 'components/cards';
 // @import 'components/modals';
 @import 'components/socials';
+@import 'components/wells';
 
 /* Pages */
-@import 'pages/contact';
 @import 'pages/homepage/base';
 @import 'pages/homepage/shops';
 @import 'pages/fonts/base';

@@ -6,7 +6,6 @@
 @import 'base/base';
 @import 'base/typography';
 @import 'base/utilities';
-@import 'admin/base';
 
 /* Layout */
 @import 'admin/layout';
@@ -20,6 +19,6 @@
 @import 'components/forms/checkboxes';
 @import 'components/links';
 @import 'components/lists';
-@import 'admin/wells';
+@import 'components/wells';
 
 @import 'components/forms/admin';

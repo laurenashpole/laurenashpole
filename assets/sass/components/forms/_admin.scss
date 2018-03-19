@@ -2,15 +2,6 @@
   margin-top: 1.5rem;
 }
 
-.login-link a {
-  color: $color-purple;
-}
-
-.login-link a:hover,
-.login-link a:focus {
-  color: $color-purple;
-}
-
 .button--add {
   margin-bottom: 1.5rem;
   @include flex-child-align(flex-end);
