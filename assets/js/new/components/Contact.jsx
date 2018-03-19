@@ -98,7 +98,7 @@ class Contact extends Component {
 
   render () {
     return(
-      <main className="main main--v-center main--medium bg--static">
+      <main className="main main--v-center container container--medium bg--abstract bg--abstract-fixed">
         <h2 className="text--uppercase">Contact</h2>
 
         <form method="post" onSubmit={this.handleSubmit}>

@@ -86,7 +86,6 @@ class Nav extends Component {
             <li className="header__link">
               <NavLink
                 to="/fonts"
-                exact={true}
                 className="js-ga-trigger"
                 activeClassName="is-active"
                 onClick={this.handleLinkClick}

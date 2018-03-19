@@ -1,16 +1,42 @@
-.font__section-heading {
-    font-size: 1.414rem;
-    line-height: 2rem;
+.font__section + .font__section {
+  border-top: 2px solid $color-white;
 }
 
-.font__button + .font__button {
-    margin-top: 2px;
+.font__heading {
+  font-size: 1.414rem;
+  line-height: 2rem;
+}
+
+.font__heading-link:last-child {
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
 
-    .font__section-heading {
-        font-size: 2.167rem;
-        line-height: 3rem;
-    }
+  .font__section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .font__heading {
+    font-size: 2.167rem;
+    line-height: 3rem;
+  }
+
+  .font__heading-link {
+    margin: 0 0.75rem 2rem 0;
+    display: inline-block;
+  }
+
+  .font__heading-link + .font__heading-link {
+    margin: 0 0 2rem 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .font__section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }

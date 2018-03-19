@@ -1,0 +1,20 @@
+.font-hero__well {
+  text-align: center;
+}
+
+.font-hero__files {
+  padding: 1rem;
+  font-size: 17px;
+  @include flex();
+  @include flex-align(center);
+  @include flex-justify(center);
+}
+
+.font-hero__files-icon {
+  margin: 2px 0.75rem 0 0;
+}
+
+.font-hero__files-icon.fa-desktop {
+  margin-top: 4px;
+  font-size: 0.95em;
+}

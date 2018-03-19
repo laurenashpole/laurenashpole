@@ -30,6 +30,10 @@
   color: #5b5368;
 }
 
+.button + .button {
+  margin-top: 0.5rem;
+}
+
 .button--cta-primary {
   background: $button-color-cta-primary;
 }
@@ -54,18 +58,17 @@
   letter-spacing: 0.125em;
 }
 
-.button--cta-secondary {
-  background: $button-color-cta-secondary;
-}
-
-.button--cta-secondary:hover {
-  background: $button-color-cta-primary;
-}
-
-.button--cta-secondary:focus {
-  background: transparent;
+.button--outline {
+  background: none;
   border-color: $button-color-cta-primary;
   color: $button-color-cta-primary;
+}
+
+.button--outline:hover,
+.button--outline:focus {
+  background: none;
+  border-color: #c63d2d;
+  color: #c63d2d;
 }
 
 .button--inline {
@@ -74,10 +77,18 @@
 }
 
 .button--inline + .button--inline {
-  margin-left: 0.65rem;
+  margin: 0 0 0 0.65rem;
 }
 
 .button--small {
   height: 2.5rem;
   font-size: 0.75rem;
+}
+
+.button__text {
+  line-height: normal;
+
+  div {
+    margin-top: 4px;
+  }
 }

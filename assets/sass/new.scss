@@ -11,13 +11,13 @@
 @import 'layout/header';
 @import 'admin/layout';
 // @import 'layout/containers';
-// @import 'layout/columns';
+@import 'layout/columns';
 @import 'layout/footer';
 
 /* Components */
 @import 'components/images/base';
-// @import 'components/images/gallery';
-// @import 'components/heros';
+@import 'components/images/gallery';
+@import 'components/heros';
 @import 'admin/backgrounds';
 @import 'components/forms/base';
 @import 'components/forms/buttons';
@@ -36,8 +36,8 @@
 @import 'pages/homepage/base';
 @import 'pages/homepage/shops';
 @import 'pages/fonts/base';
-@import 'pages/fonts/font-files';
+@import 'pages/fonts/font-hero';
 @import 'pages/fonts/font-grid';
 @import 'pages/fonts/font-details';
-@import 'pages/fonts/font-examples';
+@import 'pages/fonts/font-preview';
 @import 'pages/fonts/font-glyphs';

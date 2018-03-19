@@ -8,9 +8,54 @@
   margin-top: 1.5rem;
 }
 
+.well--no-padding {
+  padding: 0;
+}
+
+.well--gray {
+  background: $color-gray-light;
+}
+
+.well__row {
+  @include flex();
+  position: relative;
+}
+
+.well__row + .well__row {
+  border-top: 2px solid $color-gray-light;
+}
+
+.well__column {
+  @include flex-child(1, 1, 100%);
+  padding: 1.25rem;
+}
+
+.well__column + .well__column:before {
+  content: " ";
+  background: $color-gray-light;
+  height: 100%;
+  width: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  @include transform(translateX(-50%));
+}
+
 @media (min-width: 768px) {
 
   .well {
+    padding: 1.5rem;
+  }
+
+  .well--no-padding {
+    padding: 0;
+  }
+
+  .well--extra-padding {
+    padding: 3rem;
+  }
+
+  .well__column {
     padding: 1.5rem;
   }
 }

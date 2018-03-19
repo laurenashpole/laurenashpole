@@ -6,17 +6,9 @@ class Fonts extends Component {
     super(props);
 
     this.state = {
-      fonts: [],
-      filteredFonts: [],
+      filteredFonts: props.fonts || [],
       filter: ''
     };
-  }
-
-  componentDidMount () {
-    this.setState({
-      fonts: window.APP.fonts,
-      filteredFonts: window.APP.fonts
-    });
   }
 
   handleChange = (e) => {
@@ -31,14 +23,14 @@ class Fonts extends Component {
 
   handleFilter = () => {
     this.setState({
-      filteredFonts: this.state.fonts.filter((font) => font.name.toUpperCase().indexOf(this.state.filter.toUpperCase()) > -1)
+      filteredFonts: this.props.fonts.filter((font) => font.name.toUpperCase().indexOf(this.state.filter.toUpperCase()) > -1)
     });
   }
 
   render () {
     return(
-      <main className="main">
-        <h2>Fonts</h2>
+      <main className="main container container--large">
+        <h2 className="text--uppercase">Fonts</h2>
 
         <form className="font-grid__filter">
           <input className="input font-grid__filter-input" type="text" id="filter" name="filter" placeholder="Search fonts" value={this.state.filter} onChange={this.handleChange} />
