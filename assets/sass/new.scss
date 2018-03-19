@@ -8,23 +8,21 @@
 @import 'base/utilities';
 
 /* Layout */
-@import 'layout/header';
-@import 'admin/layout';
-// @import 'layout/containers';
+@import 'layout/base';
 @import 'layout/columns';
 @import 'layout/footer';
+@import 'layout/header';
 
 /* Components */
 @import 'components/images/base';
 @import 'components/images/gallery';
-@import 'admin/backgrounds';
+@import 'components/backgrounds';
 @import 'components/forms/base';
 @import 'components/forms/buttons';
 @import 'components/forms/inputs';
 @import 'components/forms/selects';
 @import 'components/links';
 @import 'components/lists';
-// @import 'components/backgrounds';
 // @import 'components/modals';
 @import 'components/socials';
 @import 'components/wells';
