@@ -1,8 +1,8 @@
-var nodemailer = require('nodemailer');
-var xoauth2 = require('xoauth2');
-var smtpConfig = require('../config/config')()['mail'];
+let nodemailer = require('nodemailer');
+let xoauth2 = require('xoauth2');
+let smtpConfig = require('../config/config')()['mail'];
 
-var transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     xoauth2: xoauth2.createXOAuth2Generator(smtpConfig)
@@ -10,8 +10,8 @@ var transporter = nodemailer.createTransport({
 });
 
 exports.send = function (req) {
-  return new Promise (function (resolve, reject) {
-    var response = {
+  return new Promise ((resolve, reject) => {
+    let response = {
       success: false
     };
 
@@ -34,7 +34,7 @@ exports.send = function (req) {
       return resolve(response);
     }
 
-    var mailOptions = {
+    let mailOptions = {
       from: '"CONTACT FORM" <lauren@laurenashpole.com>',
       to: 'lauren@laurenashpole.com',
       subject: req.body.subject || 'General Questions',
@@ -42,7 +42,7 @@ exports.send = function (req) {
       html: `<p>Message from: ${req.body.senderEmail} (${req.body.senderName})</p><p>${req.body.message}</p>`
     };
 
-    transporter.sendMail(mailOptions, function (err, info) {
+    transporter.sendMail(mailOptions, (err, info) => {
       if (err) reject(err);
 
       response.success = true

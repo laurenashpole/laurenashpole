@@ -2,7 +2,7 @@ import React from 'react';
 
 const Licensing = () => {
   return(
-    <main className="main main--v-center container container--medium bg--abstract bg--abstract-fixed">
+    <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
       <h2 className="text--uppercase">Licensing</h2>
 
       <div className="well well--extra-padding">

@@ -18,6 +18,10 @@
     padding-bottom: 1rem;
   }
 
+  .font__section:first-child {
+    padding-top: 0;
+  }
+
   .font__heading {
     font-size: 2.167rem;
     line-height: 3rem;

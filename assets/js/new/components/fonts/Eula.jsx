@@ -2,7 +2,7 @@ import React from 'react';
 
 const Eula = () => {
   return(
-    <main className="main main--v-center container container--medium bg--abstract bg--abstract-fixed">
+    <main className="main main--v-center container container--medium bg-dot bg-dots--fixed bg-abstract--fixed">
       <h2 className="text--uppercase">End-User Licensing Agreement</h2>
 
       <div className="well well--extra-padding">

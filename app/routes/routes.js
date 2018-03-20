@@ -6,8 +6,8 @@ var contactsApi = require('../controllers/api/contact');
 module.exports = function (app, multer) {
     var multipart = multer();
 
-    /* Home */
-    app.get('/*', index.render);
+    // /* Home */
+    // app.get('/*', index.render);
 
     /* Contact */
     app.post('/contact/send', contactsApi.send);
@@ -85,4 +85,7 @@ module.exports = function (app, multer) {
     app.get('/eula', function (req, res) {
         res.redirect('/fonts/eula');
     });
+
+    /* Home */
+    app.get('/*', index.render);
 };

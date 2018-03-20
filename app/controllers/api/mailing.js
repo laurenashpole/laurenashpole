@@ -2,7 +2,7 @@ var request = require('superagent');
 var mailchimpConfig = require('../../config/config')()['mailchimp'];
 
 exports.signup = function (req, res) {
-  var response = {
+  let response = {
     success: false
   };
 
