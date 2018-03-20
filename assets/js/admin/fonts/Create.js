@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Form from './Form';
+import Form from './components/Form';
 
 const Create = (props) => (
   <Fragment>

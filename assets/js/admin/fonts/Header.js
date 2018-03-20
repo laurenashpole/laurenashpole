@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logout from '../users/Logout';
+import Logout from '../users/components/Logout';
 
 class Nav extends Component {
   constructor (props) {

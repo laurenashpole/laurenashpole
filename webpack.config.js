@@ -10,7 +10,7 @@ module.exports = {
   target: 'web',
   entry: {
     admin: [
-      './assets/js/admin/index.jsx',
+      './assets/js/admin/index.js',
       './assets/sass/admin.scss'
     ],
     main: [

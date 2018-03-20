@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Delete from './Delete';
+import Delete from './components/Delete';
 
 class List extends Component {
   constructor (props) {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Users from './components/users/Users';
-import Fonts from './components/fonts/Fonts';
+import Users from './users/Users';
+import Fonts from './fonts/Fonts';
 
 function Admin (props) {
   let isAuthenticated = props.isAuthenticated;

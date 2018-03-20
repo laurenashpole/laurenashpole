@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Form from './Form';
+import Form from './components/Form';
 
 class Edit extends Component {
   constructor (props) {

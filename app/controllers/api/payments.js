@@ -4,22 +4,11 @@ exports.createPayment = function (req, res) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
       if (data.success) {
-        return paymentHelper.create(data.font)
+        paymentHelper.create(data.font)
       }
     })
     .then((data) => res.json(data))
-    .catch((err) => res.send(err));
-
-
-    .then((data) => res.json({
-      success: true,
-      data: data.font
-    }))
-    .catch((err) => res.json({
-      sucess: false,
-      error: err
-    }));
-
+    .catch((err) => res.json(err));
 };
 
 exports.confirm = function (req, res, next) {
