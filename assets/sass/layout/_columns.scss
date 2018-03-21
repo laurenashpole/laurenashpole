@@ -31,6 +31,10 @@
     .column--fixed {
         position: fixed;
     }
+
+    .column--absolute {
+        position: absolute;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -46,5 +50,3 @@
         right: calc(50% - (1140px / 2));
     }
 }
-
-
