@@ -2,6 +2,7 @@ var index = require('../controllers/index');
 var fonts = require('../controllers/fonts');
 var mailingApi = require('../controllers/api/mailing');
 var contactsApi = require('../controllers/api/contact');
+var paymentsApi = require('../controllers/api/payments');
 
 module.exports = function (app, multer) {
     var multipart = multer();
@@ -24,9 +25,10 @@ module.exports = function (app, multer) {
     app.get('/amp/fonts/:font_slug', fonts.renderFont);
 
     /* Fonts Actions */
-    app.post('/fonts/:font_slug/payment', fonts.createPayment);
+    app.post('/fonts/:font_slug/payment', paymentsApi.create);
+    app.post('/fonts/:font_slug/confirm', paymentsApi.confirm);
+
     app.post('/amp/fonts/:font_slug/payment', fonts.createPayment);
-    // app.get('/fonts/:font_slug/confirm', fonts.confirm);
     app.post('/amp/fonts/update-example', multipart.fields([]), fonts.updateExample);
 
     /* Legacy Redirects */

@@ -32,7 +32,7 @@ class Glyphs extends Component {
               </ul>
             }
 
-            <div className={`well font-glyphs ${this.props.font.slug}`}>
+            <div className={`well font-glyphs font-${this.props.font.slug}`}>
               {this.state.activeGlyphs === 'basic' ? (
                 <Fragment>
                   <div className="font-glyphs__char is-symbol">

@@ -8,7 +8,7 @@ class Delete extends Component {
     if (confirm('Are you sure you want to delete this font?')) {
       request(this.props.action, {}, (response) => {
         if (response.success) {
-          this.props.onDelete(response.data);
+          this.props.onDelete(response.font);
         }
       });
     }

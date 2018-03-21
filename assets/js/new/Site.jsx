@@ -7,6 +7,7 @@ import Fonts from './components/Fonts';
 import Font from './components/Font';
 import Licensing from './components/fonts/Licensing';
 import Eula from './components/fonts/Eula';
+import Confirmation from './components/fonts/Confirmation';
 
 class Site extends Component {
   constructor (props) {
@@ -36,8 +37,11 @@ class Site extends Component {
           }/>
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />
-          <Route path="/fonts/:slug" render={(props) =>
+          <Route exact path="/fonts/:slug" render={(props) =>
             <Font fonts={this.state.fonts} {...props} />
+          }/>
+          <Route path="/fonts/:slug/confirm" render={(props) =>
+            <Confirmation fonts={this.state.fonts} {...props} />
           }/>
           <Route path="/contact" component={Contact} />
         </Switch>

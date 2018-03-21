@@ -3,12 +3,14 @@ import { request } from '../../../utilities/request';
 
 class Purchase extends Component {
   handleSubmit = (e) => {
-    request(`/fonts/${this.props.font.slug}/payment`, {}, (response) => {
+    e.preventDefault();
+
+    request(`/fonts/${this.props.font.slug}/payment`, this.props.font, (response) => {
       if (response.success) {
-        console.log(response);
+        document.location = response.redirectUrl;
       } else {
         if (response.err) {
-          console.log(response.err);
+          console.log(response);
         }
       }
     });
@@ -16,13 +18,13 @@ class Purchase extends Component {
 
   render () {
     return(
-      <form className="text--medium" method="post" action="/fonts/{this.props.font.slug}/payment">
+      <form className="text--medium" method="post" action={`/fonts/${this.props.font.slug}/payment`}>
         {this.props.font.commercial_font_file &&
           <button
             type="submit"
             title="Buy Now"
             className="button button--cta-primary"
-            data-ga-category="{this.props.font.name} Page"
+            data-ga-category={`${this.props.font.name} Page`}
             data-ga-action="click"
             data-ga-label="Buy Now"
             onClick={this.handleSubmit}
