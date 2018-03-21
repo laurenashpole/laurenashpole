@@ -4,7 +4,6 @@
 }
 
 .font-example__text {
-  color: $color-black;
   line-height: 1.25;
   word-break: break-word;
   @include transition(opacity 0.15s ease-in-out);

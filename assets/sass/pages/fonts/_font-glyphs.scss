@@ -7,7 +7,6 @@
   width: 20%;
   padding-top: 20px;
   border: 1px solid $color-white;
-  color: $color-black;
   font-size: 24px;
   line-height: 60px;
   text-align: center;
@@ -16,7 +15,7 @@
   @include transition(opacity 0.15s ease-in-out);
 }
 
-.css-loading .font-glyphs__chars {
+.css-loading .font-glyphs__char {
   color: transparent;
 }
 

@@ -20,6 +20,7 @@ class Font extends Component {
     element.setAttribute('rel', 'stylesheet');
     element.setAttribute('href', `/css/fonts/${this.state.font.css_file}`);
     document.getElementsByTagName('head')[0].appendChild(element);
+    this.main.classList.remove('css-loading');
   }
 
   render () {
