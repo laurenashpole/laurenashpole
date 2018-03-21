@@ -1,6 +1,6 @@
 let admin = require('../../controllers/admin');
-let usersApi = require('../../controllers/api/users');
-let fontsApi = require('../../controllers/api/fonts');
+let users = require('../../controllers/api/users');
+let fonts = require('../../controllers/api/fonts');
 
 module.exports = function (app, passport, multer) {
   let upload = multer({
@@ -43,16 +43,16 @@ module.exports = function (app, passport, multer) {
   // Login
   app.post('/admin/login', (req, res, next) => {
     authenticate(req, res, next, 'local-login');
-  }, usersApi.authenticate);
+  }, users.authenticate);
 
   app.post('/admin/signup', (req, res, next) => {
     authenticate(req, res, next, 'local-signup');
-  }, usersApi.authenticate);
+  }, users.authenticate);
 
-  app.post('/admin/logout', isAuthenticated, usersApi.logout);
+  app.post('/admin/logout', isAuthenticated, users.logout);
 
   // Actions
-  app.post('/admin/fonts', [isAuthenticated, upload.any(), fontsApi.create]);
-  app.put('/admin/fonts/:font_id', [isAuthenticated, upload.any(), fontsApi.edit]);
-  app.delete('/admin/fonts/:font_id', isAuthenticated, fontsApi.delete);
+  app.post('/admin/fonts', [isAuthenticated, upload.any(), fonts.create]);
+  app.put('/admin/fonts/:font_id', [isAuthenticated, upload.any(), fonts.edit]);
+  app.delete('/admin/fonts/:font_id', isAuthenticated, fonts.delete);
 }
