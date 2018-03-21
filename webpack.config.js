@@ -18,7 +18,7 @@ module.exports = {
     //   './assets/sass/style.scss'
     // ],
     new: [
-      './assets/js/new/index.jsx',
+      './assets/js/new/index.js',
       './assets/sass/new.scss'
     ],
     blog: [
@@ -58,8 +58,5 @@ module.exports = {
       fileName: 'assets.json',
       publicPath: '/'
     })
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
+  ]
 };

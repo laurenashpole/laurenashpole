@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Mailing from './mailing';
+import Mailing from './Mailing';
 
 const Footer = () => (
   <footer className="footer bg-solid--white">

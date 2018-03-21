@@ -61,8 +61,5 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     })
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
+  ]
 };
