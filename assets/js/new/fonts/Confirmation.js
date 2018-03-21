@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { request } from '../../../utilities/request';
+import { request } from '../../utilities/request';
 
 class Confirmation extends Component {
   constructor (props) {
@@ -27,7 +27,6 @@ class Confirmation extends Component {
     }
 
     request(endpoint, this.state.font, (response) => {
-      console.log(response);
       if (response.success) {
         this.setState({
           payment: response.payment

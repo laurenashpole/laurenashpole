@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Hero from './fonts/Hero';
-import Details from './fonts/Details';
-import Gallery from './fonts/Gallery';
-import Preview from './fonts/Preview';
-import Glyphs from './fonts/Glyphs';
+import Hero from './components/Hero';
+import Details from './components/Details';
+import Gallery from './components/Gallery';
+import Preview from './components/Preview';
+import Glyphs from './components/Glyphs';
 
 class Font extends Component {
   constructor (props) {
@@ -15,11 +15,10 @@ class Font extends Component {
   }
 
   componentDidMount () {
-    let head = document.querySelector('head');
-    let body = document.querySelector('body');
-
-    head.innerHTML += `<link rel="stylesheet" href="/css/fonts/${this.state.font.css_file}">`;
-    this.main.classList.remove('css-loading');
+    let element = document.createElement('link');
+    element.setAttribute('rel', 'stylesheet');
+    element.setAttribute('href', `/css/fonts/${this.state.font.css_file}`);
+    document.getElementsByTagName('head')[0].appendChild(element);
   }
 
   render () {

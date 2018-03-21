@@ -2,12 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Contact from './components/Contact';
-import Fonts from './components/Fonts';
-import Font from './components/Font';
-import Licensing from './components/fonts/Licensing';
-import Eula from './components/fonts/Eula';
-import Confirmation from './components/fonts/Confirmation';
+import Contact from './contact/Contact';
+import Fonts from './fonts/Fonts';
+import Font from './fonts/Font';
+import Licensing from './fonts/Licensing';
+import Eula from './fonts/Eula';
+import Confirmation from './fonts/Confirmation';
 
 class Site extends Component {
   constructor (props) {
