@@ -27,7 +27,9 @@ const Footer = () => (
         </li>
       </ul>
 
-      <Mailing />
+      <div className="footer__form-section">
+        <Mailing customClasses="mailing--inline" />
+      </div>
     </div>
   </footer>
 );

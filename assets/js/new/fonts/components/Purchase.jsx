@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { request } from '../../../utilities/request';
 
 class Purchase extends Component {
@@ -18,12 +18,12 @@ class Purchase extends Component {
 
   render () {
     return(
-      <form className="text--medium" method="post" action={`/fonts/${this.props.font.slug}/payment`}>
+      <Fragment>
         {this.props.font.commercial_font_file &&
           <button
             type="submit"
             title="Buy Now"
-            className="button button--cta-primary"
+            className="button button--cta-primary text--medium"
             data-ga-category={`${this.props.font.name} Page`}
             data-ga-action="click"
             data-ga-label="Buy Now"
@@ -35,7 +35,7 @@ class Purchase extends Component {
             </div>
           </button>
         }
-      </form>
+      </Fragment>
     );
   }
 };

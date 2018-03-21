@@ -12,10 +12,10 @@ module.exports = {
       './assets/js/admin/index.js',
       './assets/sass/admin.scss'
     ],
-    main: [
-      './assets/js/index.js',
-      './assets/sass/style.scss'
-    ],
+    // main: [
+    //   './assets/js/index.js',
+    //   './assets/sass/style.scss'
+    // ],
     blog: [
       './assets/sass/blog.scss'
     ]

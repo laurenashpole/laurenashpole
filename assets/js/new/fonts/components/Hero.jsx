@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Purchase from './Purchase';
+import Download from './Download';
 
 class Hero extends Component {
   constructor (props) {
@@ -37,20 +38,7 @@ class Hero extends Component {
                 </h3>
 
                 <Purchase font={this.props.font} />
-
-                {this.props.font.personal_font_file &&
-                  <a
-                    href={`/downloads/fonts/${this.props.font.personal_font_file}`}
-                    className="button button--outline"
-                    data-ga-category={`${this.props.font.name} Page`}
-                    data-ga-action="click"
-                  >
-                    <div className="button__text">
-                      Download
-                      <div className="text--extra-small">$0 Personal Use</div>
-                    </div>
-                  </a>
-                }
+                <Download font={this.props.font} />
               </div>
             </div>
 

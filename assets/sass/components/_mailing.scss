@@ -1,0 +1,43 @@
+.mailing__input-section {
+  width: 100%;
+  padding-bottom: 0.75rem;
+
+  input {
+    text-align: center;
+  }
+}
+
+.mailing__button-section {
+  width: 100%;
+}
+
+.mailing--inline {
+
+  .mailing__input-section {
+    padding: 0.65rem;
+  }
+
+  .mailing__button-section {
+    border-top: 2px solid $color-gray-light;
+    padding: 0.65rem;
+  }
+
+  @media (min-width: 768px) {
+
+    .mailing__input-section {
+      width: 66.666%;
+      border-right: 2px solid $color-gray-light;
+      padding: 0.5rem;
+
+      input {
+        text-align: left;
+      }
+    }
+
+    .mailing__button-section {
+      width: 33.333%;
+      border: none;
+      padding: 0.5rem;
+    }
+  }
+}

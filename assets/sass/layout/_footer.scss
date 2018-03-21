@@ -12,17 +12,6 @@
   @include flex-child(2);
 }
 
-.footer__input-section {
-  width: 100%;
-  padding: 0.65rem;
-}
-
-.footer__button-section {
-  width: 100%;
-  border-top: 2px solid $color-gray-light;
-  padding: 0.65rem;
-}
-
 @media (min-width: 768px) {
 
   .footer__content {
@@ -38,18 +27,6 @@
 
   .footer__form-section {
     border-top: none;
-  }
-
-  .footer__input-section {
-    width: 66.666%;
-    border-right: 2px solid $color-gray-light;
-    padding: 0.5rem;
-  }
-
-  .footer__button-section {
-    width: 33.333%;
-    border: none;
-    padding: 0.5rem;
   }
 }
 
