@@ -83,3 +83,10 @@
 .modal__form {
   margin-bottom: 1.25rem;
 }
+
+@media (min-width: 768px) {
+
+  .modal__content {
+    padding: 2.5rem;
+  }
+}
