@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
 
@@ -99,6 +100,10 @@ class Contact extends Component {
   render () {
     return(
       <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
+        <Helmet>
+          <title>Contact - Lauren Ashpole</title>
+        </Helmet>
+
         <h2 className="text--uppercase">Contact</h2>
 
         <form method="post" onSubmit={this.handleSubmit}>

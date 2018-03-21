@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Licensing = () => {
   return(
     <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
+      <Helmet>
+        <title>Licensing - Fonts - Lauren Ashpole</title>
+      </Helmet>
+
       <h2 className="text--uppercase">Licensing</h2>
 
       <div className="well well--extra-padding">

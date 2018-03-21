@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 class Fonts extends Component {
@@ -30,6 +31,10 @@ class Fonts extends Component {
   render () {
     return(
       <main className="main container container--large">
+        <Helmet>
+          <title>Fonts - Lauren Ashpole</title>
+        </Helmet>
+
         <h2 className="text--uppercase">Fonts</h2>
 
         <form className="font-grid__filter">

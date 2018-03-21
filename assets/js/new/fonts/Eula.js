@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Eula = () => {
   return(
     <main className="main main--v-center container container--medium bg-dot bg-dots--fixed bg-abstract--fixed">
+      <Helmet>
+        <title>End-User Licensing Agreement - Fonts - Lauren Ashpole</title>
+      </Helmet>
+
       <h2 className="text--uppercase">End-User Licensing Agreement</h2>
 
       <div className="well well--extra-padding">

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { request } from '../../utilities/request';
 
@@ -43,6 +44,10 @@ class Confirmation extends Component {
   render () {
     return(
       <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
+        <Helmet>
+          <title>Thanks for your purchase! - Fonts - Lauren Ashpole</title>
+        </Helmet>
+
         {this.state.payment ? (
           <div className="well well--extra-padding">
             <h2>Thank you for purchasing {this.state.font.name}!</h2>
