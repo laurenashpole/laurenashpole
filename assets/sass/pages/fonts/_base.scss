@@ -2,6 +2,10 @@
   border-top: 2px solid $color-white;
 }
 
+.font__section:first-child .container {
+  padding-top: 0.75rem;
+}
+
 .font__heading {
   font-size: 1.414rem;
   line-height: 2rem;

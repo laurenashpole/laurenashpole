@@ -72,7 +72,6 @@ exports.confirm = function (data) {
 };
 
 exports.fulfill = function (data) {
-  console.log(data);
   return new Promise ((resolve, reject) => {
     let response = {
       success: false

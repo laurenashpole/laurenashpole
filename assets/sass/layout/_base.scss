@@ -5,6 +5,7 @@
 }
 
 .main {
+  overflow: hidden;
   @include flex-child(2);
   @include flex();
   @include flex-direction(column);

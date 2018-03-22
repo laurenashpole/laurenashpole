@@ -56,7 +56,7 @@ exports.payment = function (req, res) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
       if (data.success) {
-        paymentHelper.create(data.font)
+        return paymentHelper.create(data.font)
       }
     })
     .then((data) => {

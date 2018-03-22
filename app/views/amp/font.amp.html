@@ -13,7 +13,7 @@
     <title>{{title}} - {{site_name}}</title>
     <link rel="canonical" href="{{host_url}}/fonts/{{font.slug}}" />
 
-    {% include '../fonts/includes/meta.html' %}
+    {% include './includes/meta.amp.html' %}
     {% include './includes/styles.amp.html' %}
 
     <link rel="stylesheet" href="https://use.typekit.net/iuh6zxb.css">
@@ -22,15 +22,15 @@
   <body>
     {% include './includes/header.amp.html' %}
 
-      <main>
-          {% include './includes/font-hero.amp.html' %}
-          {% include './includes/font-gallery.amp.html' %}
-          {% include '../fonts/includes/font-details.html' %}
-        {% include './includes/font-preview.amp.html' %}
-          {% include '../fonts/includes/font-glyphs.html' %}
-      </main>
+    <main class="main">
+      {% include './includes/font-hero.amp.html' %}
+      {% include './includes/font-gallery.amp.html' %}
+      {% include './includes/font-details.amp.html' %}
+      {% include './includes/font-preview.amp.html' %}
+      {% include './includes/font-glyphs.amp.html' %}
+    </main>
 
-        {% include './includes/footer.amp.html' %}
+    {% include './includes/footer.amp.html' %}
 
     <amp-analytics type="googleanalytics">
       <script type="application/json">

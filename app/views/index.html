@@ -2,6 +2,7 @@
 
 {% block head %}
   {% parent %}
+  <link rel="stylesheet" href="{% asset 'main.css' %}" />
 
   <!-- Google Analytics -->
   <script>
@@ -13,9 +14,6 @@
       ga('create', 'UA-12207477-1', 'auto');
   </script>
   <!-- End Google Analytics -->
-
-  <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
-  <link rel="stylesheet" href="{% asset 'main.css' %}">
 {% endblock %}
 
 {% block body %}

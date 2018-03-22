@@ -12,10 +12,6 @@
   padding: 0;
 }
 
-.well--gray {
-  background: $color-gray-light;
-}
-
 .well__row {
   @include flex();
   position: relative;
