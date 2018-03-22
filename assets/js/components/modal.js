@@ -47,6 +47,6 @@ class Modal extends React.Component {
       this.el,
     );
   }
-};
+}
 
 export default Modal;

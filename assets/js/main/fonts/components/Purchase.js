@@ -36,6 +36,6 @@ class Purchase extends Component {
       </Fragment>
     );
   }
-};
+}
 
 export default Purchase;

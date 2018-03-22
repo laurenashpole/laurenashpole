@@ -17,8 +17,8 @@ class Logout extends Component {
       <a href="javascript:void(0);" onClick={this.handleClick} ref={this.props.inputRef}>
         Logout
       </a>
-    )
+    );
   }
-};
+}
 
 export default Logout;

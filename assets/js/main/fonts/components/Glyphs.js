@@ -656,6 +656,6 @@ class Glyphs extends Component {
       </section>
     );
   }
-};
+}
 
 export default Glyphs;

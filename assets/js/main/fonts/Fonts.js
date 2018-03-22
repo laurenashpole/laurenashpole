@@ -75,6 +75,6 @@ class Fonts extends Component {
       </main>
     );
   }
-};
+}
 
 export default Fonts;

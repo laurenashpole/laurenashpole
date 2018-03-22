@@ -207,8 +207,8 @@ class Form extends Component {
           </div>
         </div>
       </form>
-    )
+    );
   }
-};
+}
 
 export default Form;

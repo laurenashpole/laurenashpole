@@ -56,6 +56,6 @@ class Gallery extends Component {
       </section>
     );
   }
-};
+}
 
 export default Gallery;

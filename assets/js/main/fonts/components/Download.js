@@ -88,6 +88,6 @@ class Download extends Component {
       </Fragment>
     );
   }
-};
+}
 
 export default Download;

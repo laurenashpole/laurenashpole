@@ -29,6 +29,6 @@ class Homepage extends Component {
       </main>
     );
   }
-};
+}
 
 export default Homepage;

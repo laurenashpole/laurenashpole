@@ -28,6 +28,6 @@ class Edit extends Component {
       </Fragment>
     );
   }
-};
+}
 
 export default Edit;

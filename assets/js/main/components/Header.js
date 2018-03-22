@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { sendEvent } from '../../utilities/analytics';
 
-class Nav extends Component {
+class Header extends Component {
   constructor (props) {
     super(props);
 
@@ -131,8 +131,8 @@ class Nav extends Component {
           </ul>
         </nav>
       </header>
-    )
+    );
   }
-};
+}
 
-export default Nav;
+export default Header;

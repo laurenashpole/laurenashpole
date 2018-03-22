@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Cta = (props) => {
   return(
     <section className="well column--fixed column--absolute u--center">

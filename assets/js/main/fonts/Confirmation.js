@@ -71,6 +71,6 @@ class Confirmation extends Component {
       </main>
     );
   }
-};
+}
 
 export default Confirmation;

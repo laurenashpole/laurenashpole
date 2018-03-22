@@ -55,6 +55,6 @@ class Fonts extends Component {
       </Fragment>
     );
   }
-};
+}
 
 export default Fonts;

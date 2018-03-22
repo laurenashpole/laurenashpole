@@ -68,6 +68,6 @@ class Preview extends Component {
       </section>
     );
   }
-};
+}
 
 export default Preview;

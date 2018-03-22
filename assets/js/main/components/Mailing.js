@@ -72,8 +72,8 @@ class Mailing extends Component {
           </button>
         </div>
       </form>
-    )
+    );
   }
-};
+}
 
 export default Mailing;

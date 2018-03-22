@@ -19,8 +19,8 @@ class Delete extends Component {
       <button className="button button--inline button--small" onClick={this.handleClick}>
         Delete
       </button>
-    )
+    );
   }
-};
+}
 
 export default Delete;
