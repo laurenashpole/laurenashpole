@@ -1,7 +1,7 @@
 .header {
   background: $color-white;
   width: 100%;
-  padding: 0.65rem;
+  padding: 0.5rem 0.65rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +9,10 @@
   @include flex();
   @include flex-align(center);
   @include flex-justify(space-between);
+}
+
+.header__logo {
+  border-bottom: none;
 }
 
 .header__logo-svg {
@@ -28,6 +32,10 @@
   z-index: 1;
   display: block;
   cursor: pointer;
+}
+
+.header__icon:focus {
+  outline: none;
 }
 
 .header__icon-line {
@@ -76,9 +84,9 @@
   background: $header-color;
   border-radius: 3px;
   position: fixed;
-  top: 0.65rem;
+  top: 0.5rem;
   right: 0.65rem;
-  bottom: calc(100% - 0.65rem - 45px);
+  bottom: calc(100% - 0.5rem - 45px);
   left: calc(100% - 0.65rem - 45px);
   overflow: hidden;
   @include flex();
