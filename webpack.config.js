@@ -9,17 +9,13 @@ module.exports = {
   devtool: 'inline-source-map',
   target: 'web',
   entry: {
+    main: [
+      './assets/js/main/index.js',
+      './assets/sass/main.scss'
+    ],
     admin: [
       './assets/js/admin/index.js',
       './assets/sass/admin.scss'
-    ],
-    // main: [
-    //   './assets/js/index.js',
-    //   './assets/sass/style.scss'
-    // ],
-    new: [
-      './assets/js/new/index.js',
-      './assets/sass/new.scss'
     ],
     blog: [
       './assets/sass/blog.scss'

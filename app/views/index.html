@@ -5,18 +5,17 @@
 
   <!-- Google Analytics -->
   <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-12207477-1', 'auto');
-  ga('send', 'pageview');
+      ga('create', 'UA-12207477-1', 'auto');
   </script>
   <!-- End Google Analytics -->
 
   <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
-  <link rel="stylesheet" href="{% asset 'new.css' %}">
+  <link rel="stylesheet" href="{% asset 'main.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -125,9 +124,9 @@
     window.APP = window.APP || {};
 
     {% if fonts %}
-      window.APP.fonts = {{fonts|raw|json}}
+      window.APP.fonts = {{fonts|raw|json}};
     {% endif %}
   </script>
 
-  <script src="{% asset 'new.js' %}"></script>
+  <script src="{% asset 'main.js' %}"></script>
 {% endblock %}
