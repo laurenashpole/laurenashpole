@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { sendEvent } from '../../utilities/analytics';
 
 class Nav extends Component {
   constructor (props) {
@@ -40,16 +41,20 @@ class Nav extends Component {
     }
   }
 
-  handleNavToggle = (e) => {
+  handleNavToggle = () => {
     this.setState(prevState => ({
       showNav: !prevState.showNav
     }));
   }
 
-  handleLinkClick = () => {
+  handleLinkNavToggle = () => {
     if (!window.matchMedia('(min-width: 768px)').matches) {
       this.handleNavToggle();
     }
+  }
+
+  handleLinkClick = (e) => {
+    sendEvent(e);
   }
 
   render () {
@@ -58,7 +63,8 @@ class Nav extends Component {
         <NavLink
           to="/"
           exact={true}
-          className="header__logo js-ga-trigger"
+          className="header__logo"
+          onClick={this.handleLinkClick}
           aria-label="Home"
           data-ga-category="Nav Links"
           data-ga-action="click"
@@ -86,9 +92,8 @@ class Nav extends Component {
             <li className="header__link">
               <NavLink
                 to="/fonts"
-                className="js-ga-trigger"
                 activeClassName="is-active"
-                onClick={this.handleLinkClick}
+                onClick={(e) => { this.handleLinkNavToggle(); this.handleLinkClick(e); }}
                 title="Fonts"
                 data-ga-category="Nav Links"
                 data-ga-action="click"
@@ -101,7 +106,7 @@ class Nav extends Component {
               <a
                 href="http://blog.laurenashpole.com"
                 title="Blog"
-                className="js-ga-trigger"
+                onClick={this.handleLinkClick}
                 data-ga-category="Nav Links"
                 data-ga-action="click"
                 data-ga-label="Blog"
@@ -113,9 +118,8 @@ class Nav extends Component {
               <NavLink
                 to="/contact"
                 exact={true}
-                className="js-ga-trigger"
                 activeClassName="is-active"
-                onClick={this.handleLinkClick}
+                onClick={(e) => { this.handleLinkNavToggle(); this.handleLinkClick(e); }}
                 title="Contact"
                 data-ga-category="Nav Links"
                 data-ga-action="click"

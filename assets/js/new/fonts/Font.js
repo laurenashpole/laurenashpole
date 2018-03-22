@@ -6,6 +6,7 @@ import Details from './components/Details';
 import Gallery from './components/Gallery';
 import Preview from './components/Preview';
 import Glyphs from './components/Glyphs';
+import { sendPageview } from '../../utilities/analytics';
 
 class Font extends Component {
   constructor (props) {
@@ -17,7 +18,13 @@ class Font extends Component {
   }
 
   componentDidMount () {
+    this.injectStylesheet();
+    sendPageview();
+  }
+
+  injectStylesheet = () => {
     let element = document.createElement('link');
+
     element.setAttribute('rel', 'stylesheet');
     element.setAttribute('href', `/css/fonts/${this.state.font.css_file}`);
     document.getElementsByTagName('head')[0].appendChild(element);

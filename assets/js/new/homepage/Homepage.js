@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Hero from '../../components/Hero';
 import Cta from './components/Cta';
+import { sendPageview } from '../../utilities/analytics';
 
 class Homepage extends Component {
   constructor (props) {
@@ -9,6 +10,10 @@ class Homepage extends Component {
     this.state = {
       font: this.props.fonts.find((font) => font.slug === '39-smooth')
     };
+  }
+
+  componentDidMount () {
+    sendPageview();
   }
 
   render () {

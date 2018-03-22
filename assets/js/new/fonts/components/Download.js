@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Modal from '../../../components/Modal';
 import Mailing from '../../components/Mailing';
+import { sendEvent } from '../../../utilities/analytics';
 
 class Download extends Component {
   constructor (props) {
@@ -15,6 +16,7 @@ class Download extends Component {
   handleOpenClick = (e) => {
     if (!this.state.disableModal) {
       e.preventDefault();
+      sendEvent(e);
 
       document.documentElement.style.overflow = 'hidden';
 
@@ -26,6 +28,7 @@ class Download extends Component {
 
   handleCloseClick = (e) => {
     e.preventDefault();
+    sendEvent(e);
 
     this.handleClose();
     window.localStorage.setItem('hideEmailModal', true);
@@ -48,7 +51,13 @@ class Download extends Component {
     return(
       <Fragment>
         {this.props.font.personal_font_file &&
-          <a href={`/downloads/fonts/${this.props.font.personal_font_file}`} className="button button--outline text--medium" onClick={this.handleOpenClick} data-ga-category={`${this.props.font.name} Page`} data-ga-action="click"
+          <a
+            href={`/downloads/fonts/${this.props.font.personal_font_file}`}
+            className="button button--outline text--medium"
+            onClick={this.handleOpenClick}
+            data-ga-category={`${this.props.font.name} Page`}
+            data-ga-action="click"
+            data-ga-label="Download"
           >
             <div className="button__text">
               Download

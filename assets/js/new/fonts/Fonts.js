@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { sendPageview } from '../../utilities/analytics';
 
 class Fonts extends Component {
   constructor (props) {
@@ -10,6 +11,10 @@ class Fonts extends Component {
       filteredFonts: props.fonts || [],
       filter: ''
     };
+  }
+
+  componentDidMount () {
+    sendPageview();
   }
 
   handleChange = (e) => {

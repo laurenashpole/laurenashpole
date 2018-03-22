@@ -1,17 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { request } from '../../../utilities/request';
+import { sendEvent } from '../../../utilities/analytics';
 
 class Purchase extends Component {
-  handleSubmit = (e) => {
+  handleClick = (e) => {
     e.preventDefault();
+    sendEvent(e);
 
     request(`/fonts/${this.props.font.slug}/payment`, this.props.font, (response) => {
       if (response.success) {
         document.location = response.redirectUrl;
-      } else {
-        if (response.err) {
-          console.log(response);
-        }
       }
     });
   }
@@ -24,10 +22,10 @@ class Purchase extends Component {
             type="submit"
             title="Buy Now"
             className="button button--cta-primary text--medium"
+            onClick={this.handleClick}
             data-ga-category={`${this.props.font.name} Page`}
             data-ga-action="click"
             data-ga-label="Buy Now"
-            onClick={this.handleSubmit}
           >
             <div className="button__text">
               Purchase
