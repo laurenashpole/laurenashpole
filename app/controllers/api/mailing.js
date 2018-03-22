@@ -1,5 +1,5 @@
-var request = require('superagent');
-var mailchimpConfig = require('../../config/config')()['mailchimp'];
+let request = require('superagent');
+let mailchimpConfig = require('../../config/config')()['mailchimp'];
 
 exports.signup = function (req, res) {
   let response = {

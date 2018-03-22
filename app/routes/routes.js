@@ -1,5 +1,6 @@
 let index = require('../controllers/index');
 let fonts = require('../controllers/fonts');
+let amp = require('../controllers/amp');
 let mailing = require('../controllers/api/mailing');
 let contacts = require('../controllers/api/contact');
 let payments = require('../controllers/api/payments');
@@ -7,31 +8,23 @@ let payments = require('../controllers/api/payments');
 module.exports = function (app, multer) {
   let multipart = multer();
 
-    // /* Home */
-    // app.get('/*', index.render);
+  // Contact
+  app.post('/contact/send', contacts.send);
 
-    /* Contact */
-    app.post('/contact/send', contacts.send);
+  // Payment
+  app.post('/fonts/:font_slug/payment', payments.create);
+  app.post('/fonts/:font_slug/confirm', payments.confirm);
 
-    /* Mailing List */
-    app.post('/mailing/signup', mailing.signup);
-    app.post('/amp/mailing/signup', multipart.fields([]), mailing.signup);
+  // Mailing List
+  app.post('/mailing/signup', mailing.signup);
 
-    /* Fonts Pages */
-    // app.get('/fonts', fonts.renderFonts);
-    // app.get('/fonts/licensing', fonts.licensing);
-    // app.get('/fonts/eula', fonts.eula);
-    // app.get('/fonts/:font_slug', fonts.renderFont);
-    app.get('/amp/fonts/:font_slug', fonts.renderFont);
+  // AMP Pages
+  app.get('/amp/fonts/:font_slug', amp.render);
+  app.post('/amp/fonts/:font_slug/payment', amp.payment);
+  app.post('/amp/fonts/update', multipart.fields([]), amp.update);
+  app.post('/amp/mailing/signup', multipart.fields([]), amp.mailing);
 
-    /* Fonts Actions */
-    app.post('/fonts/:font_slug/payment', payments.create);
-    app.post('/fonts/:font_slug/confirm', payments.confirm);
-
-    app.post('/amp/fonts/:font_slug/payment', fonts.createPayment);
-    app.post('/amp/fonts/update-example', multipart.fields([]), fonts.updateExample);
-
-  /* Legacy Redirects */
+  // Legacy Redirects
   app.get('/downloads', function (req, res) {
     res.redirect('/fonts');
   });
@@ -88,6 +81,6 @@ module.exports = function (app, multer) {
     res.redirect('/fonts/eula');
   });
 
-  /* Home */
+  // Home
   app.get('/*', index.render);
 };
