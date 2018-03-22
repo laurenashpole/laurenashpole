@@ -48,7 +48,8 @@
   color: #c63d2d;
 }
 
-.button--cta-primary.is-processing {
+.button--cta-primary.is-processing,
+.button--cta-primary.is-processing * {
   font-size: 0;
 }
 

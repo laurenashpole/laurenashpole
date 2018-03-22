@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
 import { sendPageview } from '../../utilities/analytics';
+import { sendEvent } from '../../utilities/analytics';
 
 class Contact extends Component {
   constructor (props) {
@@ -46,6 +47,7 @@ class Contact extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    sendEvent(e);
 
     let isValid = this.validate();
 
@@ -111,7 +113,7 @@ class Contact extends Component {
 
         <h2 className="text--uppercase">Contact</h2>
 
-        <form method="post" onSubmit={this.handleSubmit}>
+        <form>
           {this.state.error && <Growl message={this.state.error}/>}
 
           <div className="well">
@@ -156,7 +158,8 @@ class Contact extends Component {
                 <div className="form__row">
                   <button
                     type="submit"
-                    className={"button button--cta-primary js-ga-trigger" + (this.state.isProcessing ? ' is-processing' : '')}
+                    className={"button button--cta-primary" + (this.state.isProcessing ? ' is-processing' : '')}
+                    onClick={this.handleSubmit}
                     data-ga-category="Contact Page"
                     data-ga-action="click"
                     data-ga-label="Send"

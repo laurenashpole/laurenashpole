@@ -1,5 +1,4 @@
 let index = require('../controllers/index');
-let fonts = require('../controllers/fonts');
 let amp = require('../controllers/amp');
 let mailing = require('../controllers/api/mailing');
 let contacts = require('../controllers/api/contact');

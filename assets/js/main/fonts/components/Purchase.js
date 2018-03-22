@@ -3,9 +3,21 @@ import { request } from '../../../utilities/request';
 import { sendEvent } from '../../../utilities/analytics';
 
 class Purchase extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      isProcessing: false
+    };
+  }
+
   handleClick = (e) => {
     e.preventDefault();
     sendEvent(e);
+
+    this.setState({
+      isProcessing: true
+    });
 
     request(`/fonts/${this.props.font.slug}/payment`, this.props.font, (response) => {
       if (response.success) {
@@ -21,7 +33,7 @@ class Purchase extends Component {
           <button
             type="submit"
             title="Buy Now"
-            className="button button--cta-primary text--medium"
+            className={"button button--cta-primary text--medium" + (this.state.isProcessing ? ' is-processing' : '')}
             onClick={this.handleClick}
             data-ga-category={`${this.props.font.name} Page`}
             data-ga-action="click"

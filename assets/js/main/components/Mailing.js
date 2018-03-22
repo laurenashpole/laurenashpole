@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { request } from '../../utilities/request';
+import { sendEvent } from '../../utilities/analytics';
 
 class Mailing extends Component {
   constructor (props) {
@@ -19,6 +21,7 @@ class Mailing extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    sendEvent(e);
 
     if (this.state.email.length === 0 || !(/\S+@\S+\.\S+/.test(this.state.email))) {
       this.handleError('Invalid email');
@@ -50,7 +53,7 @@ class Mailing extends Component {
 
   render () {
     return (
-      <form className={"form__row--inline " + (this.props.customClasses ? this.props.customClasses : '')} method="post" onSubmit={this.handleSubmit}>
+      <form className={"form__row--inline " + (this.props.customClasses ? this.props.customClasses : '')}>
         <div className="mailing__input-section">
           <input className="input input--small u--center-mobile" type="email" name="email"  id="email" placeholder="Enter your email address" onChange={this.handleChange} value={this.state.email} />
         </div>
@@ -63,7 +66,8 @@ class Mailing extends Component {
           <button
             type="submit"
             name="subscribe"
-            className="button button--small js-ga-trigger"
+            className="button button--small"
+            onClick={this.handleSubmit}
             data-ga-category="Footer"
             data-ga-action="click"
             data-ga-label="Get Updates!"

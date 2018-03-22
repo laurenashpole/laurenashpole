@@ -2,10 +2,10 @@
   @include flex-child(2);
   @include flex();
   @include flex-direction(column);
+  overflow: hidden;
 }
 
 .main {
-  overflow: hidden;
   @include flex-child(2);
   @include flex();
   @include flex-direction(column);
