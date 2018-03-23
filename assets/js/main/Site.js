@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Error from './components/Error';
 import Homepage from './homepage/Homepage';
 import Contact from './contact/Contact';
 import Fonts from './fonts/Fonts';
@@ -47,6 +48,7 @@ class Site extends Component {
               <Confirmation fonts={this.state.fonts} {...props} />
             }/>
             <Route path="/contact" component={Contact} />
+            <Route component={Error} />
           </Switch>
           <Footer />
         </ScrollToTop>

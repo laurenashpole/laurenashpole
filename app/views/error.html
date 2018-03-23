@@ -1,16 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <main class="container container--full-height container--vertical-padding">
-        <div class="container__content container__content-medium">
-            <h2 class="text--uppercase">{{message}}</h2>
-
-            {% if error.status || error.stack %}
-                <h2>{{error.status}}</h2>
-                <pre>{{error.stack}}</pre>
-            {% else %}
-                <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
-            {% endif %}
-        </div>
-    </main>
+  <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
+    <div className="well well--extra-padding">
+      {% if error.status || error.stack %}
+        <h2>{{error.status}}</h2>
+        <pre>{{error.stack}}</pre>
+      {% else %}
+        <h2 class="text--uppercase">{{message}}</h2>
+        <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
+      {% endif %}
+    </div>
+  </main>
 {% endblock %}

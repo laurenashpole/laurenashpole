@@ -28,8 +28,7 @@ const Details = (props) => {
                 </div>
 
                 {props.font.description &&
-                  <div className="font-details__description">
-                    {props.font.description}
+                  <div className="font-details__description" dangerouslySetInnerHTML={{ __html: props.font.description }}>
                   </div>
                 }
               </div>
