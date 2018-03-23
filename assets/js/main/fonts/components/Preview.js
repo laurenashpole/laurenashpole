@@ -51,14 +51,16 @@ class Preview extends Component {
                 </div>
               </div>
 
-              {this.props.font.alternate_styles &&
+              {this.props.font.alternate_style &&
                 <Fragment>
-                  {this.props.font.alternate_styles.map((className) => {
-                    <div className={`well__row font-preview__text ${className}`} style={{fontSize: `${this.state.previewSize}px`}} key={className}>
-                      <div className="well__column">
-                        {this.state.previewText}
+                  {this.props.font.alternate_style.split(', ').map((className) => {
+                    return(
+                      <div className={`well__row font-preview__text ${className}`} style={{fontSize: `${this.state.previewSize}px`}} key={className}>
+                        <div className="well__column">
+                          {this.state.previewText}
+                        </div>
                       </div>
-                    </div>
+                    );
                   })}
                 </Fragment>
               }

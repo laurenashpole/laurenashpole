@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { sendPageview } from '../../utilities/analytics';
+import { sendPageview, sendEvent } from '../../utilities/analytics';
 
 class Fonts extends Component {
   constructor (props) {
@@ -33,6 +33,10 @@ class Fonts extends Component {
     });
   }
 
+  handleClick = (e) => {
+    sendEvent(e);
+  }
+
   render () {
     return(
       <main className="main container container--large">
@@ -52,7 +56,15 @@ class Fonts extends Component {
         <div className="font-grid">
           {this.state.filteredFonts.map((font) => {
             return (
-              <Link className="well font-grid__item" to={`/fonts/${font.slug}`} key={font._id}>
+              <Link
+                className="well font-grid__item"
+                to={`/fonts/${font.slug}`}
+                key={font._id}
+                onClick={this.handleClick}
+                data-ga-category="Fonts"
+                data-ga-action="click"
+                data-ga-label={font.name}
+              >
                 <div className="font-grid__image">
                   <span className="img--default">
                     <figure className="img--bg font-grid__img" style={{backgroundImage: `url(/images/fonts/${font.image_main})`}}></figure>

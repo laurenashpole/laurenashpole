@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Hero from '../../components/Hero';
 import Cta from './components/Cta';
+import About from './components/About';
+import Distributors from './components/Distributors';
 import { sendPageview } from '../../utilities/analytics';
 
 class Homepage extends Component {
@@ -25,6 +27,14 @@ class Homepage extends Component {
             image_url_retina={`/images/fonts/${this.state.font.image_main_retina}`}
             cta={<Cta font={this.state.font} />}
           />
+        </section>
+
+        <section className="font__section">
+          <About />
+        </section>
+
+        <section className="font__section">
+          <Distributors />
         </section>
       </main>
     );

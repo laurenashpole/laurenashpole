@@ -81,5 +81,5 @@ module.exports = function (app, multer) {
   });
 
   // Home
-  app.get('/*', index.render);
+  app.get('*', index.render);
 };

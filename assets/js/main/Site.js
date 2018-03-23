@@ -16,14 +16,14 @@ class Site extends Component {
     super(props);
 
     this.state = {
-      fonts: []
+      fonts: window.APP.fonts,
     };
   }
 
-  componentWillMount () {
-    this.setState({
-      fonts: window.APP.fonts
-    });
+  componentDidMount () {
+    if (window.APP.settings.hideEmailModal) {
+      window.localStorage.setItem('hideEmailModal', true);
+    }
   }
 
   render () {

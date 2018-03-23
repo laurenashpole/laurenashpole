@@ -4,117 +4,19 @@
   {% parent %}
   <link rel="stylesheet" href="{% asset 'main.css' %}" />
 
-  <!-- Google Analytics -->
   <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-12207477-1', 'auto');
+    ga('create', 'UA-12207477-1', 'auto');
   </script>
-  <!-- End Google Analytics -->
 {% endblock %}
 
 {% block body %}
   <div id="root" class="root"></div>
   <div id="downloadModalRoot"></div>
-<!--     <main>
-        <section class="homepage__container container container--vertical-padding">
-            <div class="column--static" data-tilt data-tilt-parent="true" data-tilt-reset="false">
-                <div class="hero__image">
-                    <a
-                        href="/fonts/{{font.slug}}"
-                        title="{{font.name}}"
-                        class="link--no-underline js-ga-trigger"
-                        data-ga-category="Homepage Hero"
-                        data-ga-action="click"
-                        data-ga-label="Hero Image"
-                    >
-                        <span class="img--default">
-                            <figure class="img--bg" style="background-image: url(/images/fonts/{{font.image_main}});"></figure>
-                        </span>
-                        <span class="img--retina">
-                            <figure class="img--bg" style="background-image: url(/images/fonts/{{font.image_main_retina}});"></figure>
-                        </span>
-                    </a>
-
-                    <div class="homepage__bg-dots bg-dots bg-dots--hero" data-tilt-child data-tile-z="-10px"></div>
-
-                    <svg class="bg-abstract--hero" data-tilt-child>
-                        <use xlink:href="/images/bg-abstract.svg#bgAbstract"></use>
-                    </svg>
-
-                    <svg class="homepage__bg-abstract bg-abstract--hero-secondary" data-tilt-child data-tilt-z="10px">
-                        <use xlink:href="/images/bg-abstract.svg#bgAbstract2"></use>
-                    </svg>
-                </div>
-            </div>
-
-            <section class="homepage__column card">
-                <h3 class="card__section text--uppercase u--no-margin" itemprop="name">
-                    New Font!<br />{{font.name}}
-                </h3>
-
-                <div class="card__section">
-                    <a
-                        href="/fonts/{{font.slug}}"
-                        title="{{font.name}}"
-                        class="button button--cta-primary button--hover-border text--uppercase text--extra-bold js-ga-trigger"
-                        data-ga-category="Homepage Hero"
-                        data-ga-action="click"
-                        data-ga-label="Hero Button"
-                    >
-                        <span class="button__text">
-                            Check It Out
-                        </span>
-                    </a>
-                </div>
-            </section>
-        </section>
-
-        <section class="bg-solid--white">
-            <div class="container container--vertical-padding homepage__container">
-                <div class="homepage__about">
-                    <h3 class="text--uppercase u--center">About me</h3>
-
-                    <p>I've been designing fonts and dingbats in my spare time for years and you can find them all here. When I'm not working on my side projects, I'm a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" class="js-ga-trigger" data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" class="js-ga-trigger" data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Code Snippets">code snippets</a> on my blog.</p>
-                </div>
-
-                <div class="bg-solid--gray homepage__well u--center text--medium">
-                    <p>Here's a sneak peek of my next font. Sign up at the bottom of the page to find out when it's done.</p>
-                    <img src="/images/font-next.png" class="img--responsive" alt="New Font!">
-                </div>
-            </div>
-        </section>
-
-        <section class="container container--vertical-padding">
-            <h3 class="text--uppercase u--center">Fonts also available at</h3>
-
-            <ul class="list--unstyled shops">
-                <li class="shops__item">
-                    <a href="http://creativemarket.com/laurenashpole?u=laurenashpole" class="link--no-underline shops__link">
-                        <img src="/images/creativemarket.png" alt="Creative Market" class="img--responsive" data-pin-nopin="true" />
-                    </a>
-                </li>
-                <li class="shops__item">
-                    <a href="https://www.myfonts.com/foundry/Lauren_Ashpole/" class="link--no-underline shops__link">
-                        <img src="/images/myfonts.svg" alt="MyFonts" class="img--responsive" data-pin-nopin="true" />
-                    </a>
-                </li>
-                <li class="shops__item">
-                    <a href="http://www.fonts.com/font/lauren-ashpole" class="link--no-underline shops__link">
-                        <img src="/images/fontscom-logo.svg" alt="Fonts.com" class="img--responsive" data-pin-nopin="true" />
-                    </a>
-                </li>
-                <li class="shops__item">
-                    <a href="https://www.etsy.com/shop/laurenashpole" class="link--no-underline shops__link">
-                        <img src="/images/etsy.png" alt="Etsy" class="img--responsive" data-pin-nopin="true" />
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </main> -->
 {% endblock %}
 
 {% block scripts %}
@@ -123,6 +25,7 @@
 
     {% if fonts %}
       window.APP.fonts = {{fonts|raw|json}};
+      window.APP.settings = {{settings|raw|json}};
     {% endif %}
   </script>
 
