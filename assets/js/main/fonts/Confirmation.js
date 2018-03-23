@@ -11,8 +11,8 @@ class Confirmation extends Component {
     this.state = {
       payment: null,
       font: this.props.fonts.find((font) => font.slug === this.props.match.params.slug),
-      errorHeading: '',
-      errorMessage: ''
+      errorHeading: 'Processing your order...',
+      errorMessage: 'One second.'
     };
   }
 

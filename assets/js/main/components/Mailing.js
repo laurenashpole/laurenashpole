@@ -28,6 +28,10 @@ class Mailing extends Component {
       return;
     }
 
+    this.setState({
+      buttonText: 'Processing'
+    });
+
     request('/mailing/signup', this.state, (response) => {
       if (response.success) {
         this.setState({
