@@ -7,7 +7,7 @@ let paymentHelper = require('../helpers/payments');
 
 exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
-    .then(function (data) {
+    .then((data) => {
       if (data.success) {
         let font = data.font;
 

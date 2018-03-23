@@ -1,6 +1,6 @@
 module.exports = function (app) {
   app.use(function (req, res, next) {
-    var err = new Error('Oops!');
+    let err = new Error('Oops!');
     err.status = 404;
     next(err);
   });
