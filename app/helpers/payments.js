@@ -10,7 +10,7 @@ exports.create = function (font) {
       success: false
     };
 
-    let payment = {
+    let paymentDetails = {
       intent: 'sale',
       payer: {
         payment_method: 'paypal'
@@ -30,7 +30,7 @@ exports.create = function (font) {
 
     paypal.configure(paypalConfig.api);
 
-    paypal.payment.create(payment, (err, payment) => {
+    paypal.payment.create(paymentDetails, (err, payment) => {
       if (err) reject(err);
 
       if (payment.payer.payment_method === 'paypal') {

@@ -84,6 +84,10 @@
 
 @media (min-width: 1000px) {
 
+  .font-grid {
+    padding-bottom: 3rem;
+  }
+
   .font-grid__item {
     width: calc(33.2% - (3rem * 0.666));
     margin-right: 3rem;
