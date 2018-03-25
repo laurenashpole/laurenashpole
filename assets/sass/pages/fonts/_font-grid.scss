@@ -1,156 +1,137 @@
 .font-grid {
-    @include flex();
-    @include flex-wrap(wrap);
-}
+  @include flex();
+  @include flex-wrap(wrap);
 
-.font-grid__filter {
-    background: $color-white;
-    width: 100%;
-    margin-bottom: 2rem;
-    padding-left: 2.5rem;
-    position: relative;
-}
-
-.font-grid__filter-input::-webkit-input-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input::-moz-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input:-ms-input-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-input:-moz-placeholder {
-    color: $color-black;
-}
-
-.font-grid__filter-reset {
-    background: $color-gray-medium;
-    width: 2rem;
-    line-height: 2rem;
-    border-radius: 50%;
-    position: absolute;
-    left: 0.5rem;
-    top: 50%;
-    color: $color-white;
-    text-align: center;
-    @include transform(translate3d(0, -50%, 0));
-}
-
-.font-grid__filter-reset.is-active {
-    background: $color-purple;
-    cursor: pointer;
+  h3 {
+    margin-bottom: 0;
+    transition: transform 0.3s;
+  }
 }
 
 .font-grid__item {
-    width: 100%;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-top: 8.5rem !important;
+  margin-bottom: 0.5rem;
+  padding: 1.5rem 0.5rem;
+  border: none;
+  position: relative;
+  color: $color-black;
+  text-align: center;
+}
+
+.font-grid__item:active,
+.font-grid__item:visited {
+  color: $color-black;
+}
+
+.font-grid__item:hover {
+  color: $color-black;
+
+  .font-grid__image {
+    transform: scale(1.05);
+  }
+}
+
+.font-grid__image {
+  position: relative;
+  margin-top: -6.5rem;
+  transition: transform 0.3s;
+
+  figure {
+    margin-right: 7.5%;
+    margin-left: 7.5%;
     position: relative;
-    margin-bottom: 2rem;
-    border: 2px solid $color-white;
-    padding: 0.5rem;
+    z-index: 1;
+  }
 }
 
 .font-grid__bg {
-    overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.font-grid__link {
-    padding: 30% 15%;
-    display: block;
-    position: relative;
+.font-grid__bg {
+  color: $bg-color-light-blue;
+  transition: color 0.2s linear;
 }
 
-.font-grid__link:before {
-    @include transform(rotate(0deg));
-    @include transition(transform 0.3s);
+.font-grid__bg:last-child {
+  color: $bg-color-light-green;
 }
 
-.no-touch .font-grid__link:hover:before {
-    @include transform(translate3d(0, -20%, 0) rotate(15deg));
+.font-grid__item:hover .font-grid__bg {
+  color: $color-yellow;
 }
 
-.font-grid__img {
-    opacity: 1;
-    @include transition(opacity 0.3s);
-}
-
-.no-touch .font-grid__link:hover .font-grid__img {
-    opacity: 0;
-}
-
-.font-grid__title {
-    padding: 1rem;
-    color: $color-white;
-    text-align: center;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transition(opacity 0.3s);
-    @include transform(translate3d(-50%, -50%, 0));
-}
-
-.no-touch .font-grid__link:hover .font-grid__title {
-    opacity: 1;
-}
-
-.font-grid__cta {
-    background: $color-red;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    color: $color-white;
-    opacity: 0;
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    @include transition(opacity 0.3s);
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
-}
-
-.no-touch .font-grid__link:hover .font-grid__cta {
-    opacity: 1;
+.font-grid__item:hover .font-grid__bg:last-child {
+  color: $color-pink;
 }
 
 @media (min-width: 500px) {
 
-    .font-grid__item {
-        width: calc(50% - (1rem * 0.5));
-        margin-right: 1rem;
-    }
+  .font-grid__item {
+    width: calc(50% - (2rem * 0.5));
+    margin-right: 2rem;
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
-    .font-grid__item.is-2n-2 {
-        margin-right: 0;
-        @include transform(translate3d(0, 2rem, 0));
-    }
+  .font-grid__item:nth-child(2n + 2) {
+    margin-right: 0;
+    @include transform(translate3d(0, 2rem, 0));
+  }
 }
 
 @media (min-width: 1000px) {
 
-    .font-grid__item {
-        width: calc(33.2% - (1.5rem * 0.666));
-        margin-right: 1.5rem;
-    }
+  .font-grid {
+    padding-bottom: 3rem;
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(2n + 2),
-    .font-grid__item.is-2n-2 {
-        margin-right: 1.5rem;
-        @include transform(translate3d(0, 0, 0));
-    }
+  .font-grid__item {
+    width: calc(33.2% - (3rem * 0.666));
+    margin-right: 3rem;
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 2),
-    .font-grid__item.is-3n-2 {
-        @include transform(translate3d(0, 3rem, 0));
-    }
+  .font-grid__item:nth-child(2n + 2) {
+    margin-right: 3rem;
+    @include transform(translate3d(0, 0, 0));
+  }
 
-    .font-grid.not-filtered .font-grid__item:nth-of-type(3n + 3),
-    .font-grid__item.is-3n-3 {
-        margin-right: 0;
-    }
+  .font-grid__item:nth-child(3n + 2) {
+    @include transform(translate3d(0, 3rem, 0));
+  }
+
+  .font-grid__item:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+}
+
+.font-grid__filter {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.font-grid__filter-input {
+  background: #fff;
+  padding-left: 3.15rem;
+}
+
+.font-grid__reset {
+  background: $color-gray-medium;
+  width: 2rem;
+  line-height: 2rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  color: $color-white;
+  text-align: center;
+  @include transform(translate3d(0, -50%, 0));
+}
+
+.font-grid__reset--active {
+  background: $color-purple;
+  cursor: pointer;
 }

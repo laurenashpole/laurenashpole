@@ -1,62 +1,44 @@
-.font-details__licensing {
-    margin: 0 0.5rem 2rem 0;
-    display: inline-block;
-}
-
-.font-details__licensing:last-child {
-    margin: 0 0 2rem 0.5rem;
-}
-
-.font-details__content {
-    border: 2px solid #fff;
-}
-
-.font-details__section {
-    border-bottom: 2px solid $color-white;
-    padding: 0.75rem;
-}
-
 .font-details__date {
-    line-height: 1.5rem;
+  font-size: 16px;
+  margin-bottom: 2rem;
 }
 
 .font-details__description {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.font-details__lists {
+  @include flex-direction(column);
+}
+
+.font-details__list {
+  font-size: 17px;
 }
 
 .font-details__list + .font-details__list {
-    border-top: 2px solid $color-white;
+  border-top: 2px solid $color-gray-light;
 }
 
-.font-details__list-item {
-    padding-bottom: 0;
-    border: none;
+.well__column + .font-details__list:before {
+  background: transparent;
 }
 
-.font-details__list-item:last-child {
-    padding-bottom: 0.75rem;
+.font-details__list-heading {
+  margin-bottom: 1rem;
+  letter-spacing: 0.075em;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
 
-    .font-details__lists {
-        border-right-width: 1px;
-        @include flex();
-    }
+  .font-details__lists {
+    @include flex-direction(row);
+  }
 
-    .font-details__list {
-        @include flex-child(1, 0, 50%);
-        @include flex();
-        @include flex-direction(column);
-    }
+  .font-details__list + .font-details__list {
+    border-top: none;
+  }
 
-    .font-details__list + .font-details__list {
-        border-top: none;
-        border-left: 2px solid $color-white;
-    }
-
-    .font-details__list-item:last-child {
-        @include flex-child(1);
-    }
+  .well__column + .font-details__list:before {
+    background: $color-gray-light;
+  }
 }

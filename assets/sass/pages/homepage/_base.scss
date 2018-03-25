@@ -1,73 +1,44 @@
 .homepage__container {
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
-    @include flex-wrap(wrap);
-    overflow: visible;
-}
-
-.homepage__column {
-    width: 100%;
-    position: relative;
-    z-index: 1;
+  text-align: center;
 }
 
 .homepage__well {
-    width: 100%;
-    border: 0.5rem solid $color-white;
-    outline: 3px solid $color-gray-light;
-    padding: 1.5rem;
+  font-size: 17px;
+  position: relative;
 }
 
-.homepage__well img {
-    padding: 0 1.5rem;
+.homepage__well-content {
+  position: relative;
+  z-index: 1;
+
+  img {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.homepage__bg {
+  width: 95%;
+  position: absolute;
+  bottom: -1rem;
+  left: 2.5%;
+  z-index: 0;
+  color: $color-blue-light;
+  @include transform(scaleX(-1));
 }
 
 .homepage__about {
-    padding-bottom: 1.5rem;
-}
-
-.homepage__bg-abstract {
-    @include transform(translateZ(10px));
-}
-
-.homepage__bg-dots {
-    width: 320px;
-    height: 400px;
-    position: absolute;
-    top: 5%;
-    left: 15%;
-    @include transform(translateZ(-10px));
-}
-
-.homepage__bg-dots:before {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    @include transform(rotate(30deg));
-}
-
-.is-homepage .footer {
-    margin-top: 0;
+  padding-top: 3rem;
 }
 
 @media (min-width: 768px) {
 
-    .homepage__well {
-        width: 33.333%;
-    }
+  .homepage__container {
+    @include flex();
+    @include flex-align(center);
+  }
 
-    .homepage__about {
-        width: 66.666%;
-        padding: 0 0 0 2.5rem;
-        @include flex-order(1);
-    }
-}
-
-@media (min-width: 1024px) {
-
-    .homepage__column {
-        width: 33.333%;
-    }
+  .homepage__about {
+    padding: 0 1.5rem 0 4.5rem;
+  }
 }

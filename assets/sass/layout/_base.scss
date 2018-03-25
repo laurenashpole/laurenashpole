@@ -1,0 +1,58 @@
+.root {
+  @include flex-child(2);
+  @include flex();
+  @include flex-direction(column);
+  overflow: hidden;
+}
+
+.main {
+  @include flex-child(2);
+  @include flex();
+  @include flex-direction(column);
+}
+
+.main--v-center {
+  @include flex-justify(center);
+}
+
+.header + .main {
+  margin-top: 63px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 0.65rem 3rem 0.65rem;
+}
+
+.container--narrow {
+  max-width: 540px;
+}
+
+.container--medium {
+  max-width: 860px;
+}
+
+.container--large {
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+
+  .header + .main {
+    margin-top: 0;
+  }
+
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .container {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}

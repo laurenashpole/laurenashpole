@@ -1,131 +1,102 @@
-var paypal = require('paypal-rest-sdk');
-var paypalConfig = require('../config/config')()['paypal'];
-var path = require('path');
-var fs = require('fs');
-var fontEmail = require('../helpers/emails')();
+let paypal = require('paypal-rest-sdk');
+let paypalConfig = require('../config/config')()['paypal'];
+let path = require('path');
+let fs = require('fs');
+let fontEmail = require('../helpers/emails')();
 
 exports.create = function (font) {
-    return new Promise (function (resolve, reject) {
-        var response = {
-            success: false
-        };
+  return new Promise ((resolve, reject) => {
+    let response = {
+      success: false
+    };
 
-        paypal.configure(paypalConfig.api);
+    let paymentDetails = {
+      intent: 'sale',
+      payer: {
+        payment_method: 'paypal'
+      },
+      redirect_urls: {
+        return_url: paypalConfig.redirect_base + '/fonts/' + font.slug + '/confirm',
+        cancel_url: paypalConfig.redirect_base + '/fonts/' + font.slug
+      },
+      transactions: [{
+        amount: {
+          total: font.price,
+          currency: 'USD'
+        },
+        description: 'Font: ' + font.name
+      }]
+    };
 
-        var payment = {
-            'intent': 'sale',
-            'payer': {
-                'payment_method': 'paypal'
-            },
-            'redirect_urls': {
-                'return_url': paypalConfig.redirect_base + '/fonts/' + font.slug + '/confirm',
-                'cancel_url': paypalConfig.redirect_base + '/fonts/' + font.slug
-            },
-            'transactions': [{
-                'amount': {
-                    'total': font.price,
-                    'currency': 'USD'
-                },
-                'description': 'Font: ' + font.name
-            }]
-        };
+    paypal.configure(paypalConfig.api);
 
-        paypal.payment.create(payment, function (err, payment) {
-            if (err) reject(err);
+    paypal.payment.create(paymentDetails, (err, payment) => {
+      if (err) reject(err);
 
-            if (payment.payer.payment_method === 'paypal') {
-                var redirectUrl;
+      if (payment.payer.payment_method === 'paypal') {
+        let redirectUrl;
 
-                for (var i = 0; i < payment.links.length; i++) {
-                    var link = payment.links[i];
+        for (let i = 0; i < payment.links.length; i++) {
+          let link = payment.links[i];
 
-                    if (link.method === 'REDIRECT') {
-                        redirectUrl = link.href;
-                    }
-                }
-
-                response.success = true;
-                response.redirectUrl = redirectUrl;
-
-                resolve(response);
-            }
-        });
-    });
-};
-
-exports.confirm = function (req, next, font) {
-    return new Promise (function (resolve, reject) {
-        var response = {
-            success: false
-        };
-
-        if (req.query['paymentId'] && req.query['PayerID'] && paypal.payment) {
-            var paymentId = req.query['paymentId'];
-            var payerId = req.query['PayerID'];
-            var details = {
-                'payer_id': payerId
-            };
-
-            paypal.payment.execute(paymentId, details, function (err, payment) {
-                if (err) {
-                    if (err.response && err.response.httpStatusCode) {
-                        err.status = err.response.httpStatusCode;
-                    }
-
-                    if (err.response && err.response.error_description) {
-                        err.message = err.response.error_description;
-                    }
-
-                    return next(err);
-                }
-
-                _emailFont(payment, font)
-                    .then (function (data) {
-                        if (data.success) {
-                            response.success = true;
-                            response.font = font;
-                            response.payment = payment;
-
-                            resolve(response);
-                        }
-                    })
-                    .catch(function (err) {
-                        reject(err);
-                    });
-            });
-
-        } else {
-            resolve(respnse);
+          if (link.method === 'REDIRECT') {
+            redirectUrl = link.href;
+          }
         }
+
+        response.success = true;
+        response.redirectUrl = redirectUrl;
+        resolve(response);
+      }
     });
+  });
 };
 
-var _emailFont = function (payment, font) {
-    return new Promise (function (resolve, reject) {
-        var response = {
-            success: false
-        };
+exports.confirm = function (data) {
+  return new Promise ((resolve, reject) => {
+    let response = {
+      success: false
+    };
 
-        var filePath = path.resolve('./public/downloads/fonts/', font.commercial_font_file);
+    paypal.payment.execute(data.paymentId, {
+      payer_id: data.payerId
+    }, (err, payment) => {
+      if (err) reject(err.response.error_description);
 
-        fs.readFile(filePath, function (err, data) {
-            if (err) reject(err);
-
-            fontEmail({
-                to: payment.payer.payer_info.email,
-                attachments: [{
-                    filename: font.commercial_font_file,
-                    content: data
-                }]
-            }, {
-                font_name: font.name
-            }, function (err, info) {
-                if (err) reject(err);
-
-                response.success = true;
-
-                resolve(response);
-            });
-        });
+      response.success = true;
+      response.font = data.font;
+      response.payment = payment;
+      resolve(response);
     });
-}
+  });
+};
+
+exports.fulfill = function (data) {
+  return new Promise ((resolve, reject) => {
+    let response = {
+      success: false
+    };
+
+    let filePath = path.resolve('./public/downloads/fonts/', data.font.commercial_font_file);
+
+    fs.readFile(filePath, (err, content) => {
+      if (err) reject(err);
+
+      fontEmail({
+        to: data.payment.payer.payer_info.email,
+        attachments: [{
+          filename: data.font.commercial_font_file,
+          content: content
+        }]
+      }, {
+        font_name: data.font.name
+      }, (err, info) => {
+        if (err) reject(err);
+
+        response = data;
+        response.success = true;
+        resolve(response);
+      });
+    });
+  });
+};

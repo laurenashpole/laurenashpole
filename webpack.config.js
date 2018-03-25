@@ -6,15 +6,16 @@ let CleanWebpackPlugin = require('clean-webpack-plugin');
 let ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
+  devtool: 'inline-source-map',
   target: 'web',
   entry: {
-    admin: [
-      './assets/js/admin/index.jsx',
-      './assets/sass/admin.scss'
-    ],
     main: [
-      './assets/js/index.js',
-      './assets/sass/style.scss'
+      './assets/js/main/index.js',
+      './assets/sass/main.scss'
+    ],
+    admin: [
+      './assets/js/admin/index.js',
+      './assets/sass/admin.scss'
     ],
     blog: [
       './assets/sass/blog.scss'
@@ -53,8 +54,5 @@ module.exports = {
       fileName: 'assets.json',
       publicPath: '/'
     })
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
+  ]
 };

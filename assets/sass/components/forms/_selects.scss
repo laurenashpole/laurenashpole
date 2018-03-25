@@ -1,39 +1,39 @@
 .select {
-    position: relative;
+  position: relative;
 }
 
 .select__input {
-    background: $form-color-primary;
-    padding: 0 0.5rem;
-    border-radius: 0;
-    line-height: 3rem;
+  background: $color-gray-light;
+  min-height: 3rem;
+  padding: 0 2.65rem 0 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  line-height: 2.3rem;
 }
 
 .select__caret {
-    height: 100%;
-    border-left: 2px solid $color-gray-light;
-    padding: 0.5rem 1rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 28px;
-    pointer-events: none;
-    @include flex();
-    @include flex-align(center);
-}
-
-.select--label-inset .select__input {
-    line-height: 2rem;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 28px;
+  pointer-events: none;
+  @include flex();
+  @include flex-align(center);
 }
 
 .select--label-inset select {
-    padding: 1rem 0.5rem 0 0.5rem;
+  padding: 1rem 0.5rem 0 0.5rem;
 }
 
 .select--label-inset + label {
-    font-size: 0.5rem;
-    line-height: 0.5rem;
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+  font-size: 0.5rem;
+  line-height: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  position: absolute;
+  top: 0.5rem;
+  left: calc(0.5rem + 2px);
 }

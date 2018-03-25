@@ -1,0 +1,27 @@
+.font-preview__select {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.font-preview__text {
+  line-height: 1.25;
+  word-break: break-word;
+  @include transition(opacity 0.15s ease-in-out);
+}
+
+.css-loading .font-preview__text {
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+
+  .font-preview__input {
+    width: 66.666%;
+  }
+
+  .font-preview__select {
+    width: 33.333%;
+    margin: 0;
+    padding-left: 0.5rem;
+  }
+}

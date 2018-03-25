@@ -1,12 +1,12 @@
 {% extends '../layout.html' %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
+  {% parent %}
   <link rel="stylesheet" href="{% asset 'admin.css' %}">
 {% endblock %}
 
 {% block body %}
-  <div id="admin" class="root bg--static"></div>
+  <div id="admin" class="root bg-dots bg-dots--fixed bg-abstract--fixed"></div>
 {% endblock %}
 
 {% block scripts %}

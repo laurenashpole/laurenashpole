@@ -1,26 +1,27 @@
-.shops {
-    @include flex();
-    @include flex-wrap(wrap);
+.dist {
+  @include flex();
+  @include flex-wrap(wrap);
 }
 
-.shops__item {
-    width: 50%;
-    padding: 15px 5%;
-    @include flex();
-    @include flex-align(center);
+.dist__item {
+  width: 50%;
+  padding: 1rem 5%;
+  @include flex();
+  @include flex-align(center);
 }
 
-.shops__link {
-    width: 100%;
-    max-width: 150px;
-    margin: 0 auto;
-    display: block;
+.dist__link {
+  width: 100%;
+  max-width: 150px;
+  border: none;
+  margin: 0 auto;
+  display: block;
 }
 
 @media (min-width: 768px) {
 
-    .shops__item {
-        width: 25%;
-        position: relative;
-    }
+  .dist__item {
+    width: 25%;
+    position: relative;
+  }
 }

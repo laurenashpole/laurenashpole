@@ -1,57 +1,92 @@
-html.modal-open {
-    overflow: hidden;
-}
-
 .modal {
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    visibility: hidden;
-    opacity: 0;
-    @include transition(opacity 0.2s);
-    @include flex();
-    @include flex-align(center);
-    @include flex-justify(center);
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(all 0.15s linear 0.15s);
+  @include flex();
+  @include flex-align(center);
+  @include flex-justify(center);
 }
 
-.modal.is-open {
-    opacity: 1;
-    visibility: visible;
+.modal--open {
+  opacity: 1;
+  visibility: visible;
+  @include transition(all 0.15s linear);
 }
 
-.modal__card {
-    background: $color-white;
-    width: 90%;
-    max-width: 500px;
-    padding: 0.5rem;
-    opacity: 0;
-    @include transition(opacity 0.2s linear 0.2s);
+.modal__well {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
 }
 
-.modal.is-open .modal__card {
-    opacity: 1;
+.modal__well:before,
+.modal__well:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  position: absolute;
+}
+
+.modal__well:before {
+  top: 0;
+  left: 0;
+}
+
+.modal__well:after {
+  bottom: 0;
+  right: 0;
+}
+
+.modal--open .modal__well:before,
+.modal--open .modal__well:after {
+  width: 100%;
+  height: 100%;
+  @include transition(width 0.15s ease-out 0.15s, height 0.15s ease-out 0.3s);
+}
+
+.modal--open .modal__well:before {
+  border-top-color: $color-white;
+  border-right-color: $color-white;
+}
+
+.modal--open .modal__well:after {
+  border-bottom-color: $color-white;
+  border-left-color: $color-white;
 }
 
 .modal__content {
-    border: 2px solid $color-gray-light;
-    padding: 1.5rem 1.5rem 1.75rem 1.5rem;
-    text-align: center;
+  background: $color-white;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  @include transition(opacity 0.15s linear);
+}
+
+.modal--open .modal__content {
+  opacity: 1;
+  @include transition(opacity 0.15s linear 0.45s);
 }
 
 .modal__form {
-    border: 2px solid $color-gray-light;
-    margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
-.modal__input {
-    border-bottom: 2px solid $color-gray-light;
-    padding: 0.5rem;
-}
+@media (min-width: 768px) {
 
-.modal__button {
-    padding: 0.5rem;
+  .modal__content {
+    padding: 2.5rem;
+  }
 }

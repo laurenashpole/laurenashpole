@@ -1,73 +1,78 @@
 .input {
-    background: $form-color-primary;
-    min-height: 2.5rem;
-    padding: 0.5rem;
-    line-height: 2rem;
-}
-
-.input::-webkit-input-placeholder {
-    color: $form-color-placeholder;
-}
-
-.input::-moz-placeholder {
-    color: $form-color-placeholder;
-}
-
-.input:-ms-input-placeholder {
-    color: $form-color-placeholder;
-}
-
-.input:-moz-placeholder {
-    color: $form-color-placeholder;
-}
-
-.input--gray {
-    background: $color-gray-light;
-    height: 2.5rem;
-}
-
-.input--gray::-webkit-input-placeholder {
-    color: $color-black;
-}
-
-.input--gray::-moz-placeholder {
-    color: $color-black;
-}
-
-.input--gray:-ms-input-placeholder {
-    color: $color-black;
-}
-
-.input--gray:-moz-placeholder {
-    color: $color-black;
+  background: $color-gray-light;
+  min-height: 3rem;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  line-height: normal;
 }
 
 .input--label-inset {
-    padding: 1rem 0.5rem 0 0.5rem;
+  padding: 1rem 0.5rem 0 0.5rem;
+  line-height: 2.3rem;
 }
 
 .input--label-inset + label {
-    font-size: 0.5rem;
-    line-height: 0.5rem;
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+  font-size: 0.5rem;
+  line-height: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  position: absolute;
+  top: 0.5rem;
+  left: calc(0.5rem + 2px);
+}
+
+.input--file {
+  padding-top: 37px;
+  padding-bottom: 12px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.input--small {
+  min-height: 2.5rem;
 }
 
 .textarea {
-    background: $form-color-primary;
-    padding: 0.5rem;
-    display: block;
-    resize: none;
+  background: $color-gray-light;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  display: block;
+  resize: none;
 }
 
 .label__required {
-    display: none;
+  display: none;
 }
 
-.input.is-required + label .label__required,
-.textarea.is-required + label .label__required {
-    color: $form-color-error;
-    font-weight: normal;
-    display: inline;
+.input::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input::-moz-placeholder,
+.textarea::-moz-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input:-moz-placeholder,
+.textarea:-moz-placeholder {
+  color: $form-color-placeholder;
+}
+
+.input.is-required,
+.textarea.is-required {
+  border-color: $form-color-error;
+}
+
+.input.is-required + label .label__required {
+  color: $form-color-error;
+  display: inline;
 }

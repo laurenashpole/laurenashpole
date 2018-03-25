@@ -1,5 +1,5 @@
 .u--hidden {
-    display: none;
+  display: none;
 }
 
 .u--center {
@@ -7,21 +7,20 @@
 }
 
 .u--center-mobile {
-    text-align: center;
+  text-align: center;
 }
 
 .u--no-margin {
-    margin: 0;
+  margin: 0;
 }
-
 
 @media (min-width: 768px) {
 
-    .u--mobile {
-        display: none;
-    }
+  .u--mobile {
+    display: none;
+  }
 
-    .u--center-mobile {
-        text-align: left;
-    }
+  .u--center-mobile {
+    text-align: left;
+  }
 }

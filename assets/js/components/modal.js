@@ -1,48 +1,52 @@
-import { Base } from './base';
-import { extend } from '../utilities/utilities';
+import React from 'react';
+import { createPortal } from 'react-dom';
 
-export const Modal = (function () {
-    var events = {
-        'click .js-open-modal': 'open',
-        'click .js-close-modal': 'close'
-    };
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.el = document.createElement('div');
+  }
 
-    function Modal (options) {
-        this.setup(options, events);
-        this.cacheSelectors();
+  componentDidMount() {
+    document.getElementById(this.props.rootId).appendChild(this.el);
+    document.addEventListener('keydown', this.handleKeydown, false);
+  }
+
+  componentWillUnmount() {
+    document.getElementById(this.props.rootId).removeChild(this.el);
+    document.removeEventListener('keydown', this.handleKeydown, false);
+  }
+
+  handleKeydown = (e) => {
+    if (e.keyCode === 27) {
+      e.preventDefault();
+
+      if (this.props.onCloseEvent) {
+        this.props.onCloseEvent();
+      }
     }
+  }
 
-    Modal.prototype = extend(Object.create(Base.prototype), {
-        cacheSelectors: function () {
-            this.$modal = this.$el.querySelector(this.options.modalClass);
-        },
+  handleBackgroundClick = (e) => {
+    if (e.target.classList.contains('modal')) {
+      if (this.props.onCloseEvent) {
+        this.props.onCloseEvent();
+      }
+    }
+  }
 
-        open: function (e) {
-            e.preventDefault();
+  render() {
+    return createPortal(
+      <div className={"modal" + (this.props.isVisible ? ' modal--open' : '')} onClick={this.handleBackgroundClick}>
+        <div className="modal__well">
+          <div className="modal__content">
+            {this.props.children}
+          </div>
+        </div>
+      </div>,
+      this.el,
+    );
+  }
+}
 
-            this.$modal.classList.add('is-open');
-            this.$el.classList.add('modal-open');
-
-            if (this.options.openCallback && this.options.openCallback instanceof Function) {
-                this.options.openCallback(e);
-            }
-        },
-
-        close: function (e) {
-            e.preventDefault();
-
-            if (e.target.classList.contains('js-close-modal')) {
-                var cancelCallback = e.target.getAttribute('data-cancel-callback');
-
-                this.$modal.classList.remove('is-open');
-                this.$el.classList.remove('modal-open');
-
-                if (!cancelCallback && this.options.closeCallback && this.options.closeCallback instanceof Function) {
-                    this.options.closeCallback(e);
-                }
-            }
-        }
-    });
-
-    return Modal;
-})();
+export default Modal;

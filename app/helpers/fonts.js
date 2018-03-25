@@ -75,7 +75,6 @@ exports.deleteFont = function (req, res, font) {
 
         response.success = true;
         response.font = font;
-
         resolve(response);
       });
     });
