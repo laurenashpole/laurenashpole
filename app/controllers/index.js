@@ -1,4 +1,4 @@
-var fontHelper = require('../helpers/fonts');
+let fontHelper = require('../helpers/fonts');
 
 exports.render = function (req, res) {
   let hideEmailModal = req.query['referrer'] === 'email';
