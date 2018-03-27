@@ -50,21 +50,19 @@ class Download extends Component {
   render () {
     return(
       <Fragment>
-        {this.props.font.personal_font_file &&
-          <a
-            href={`/downloads/fonts/${this.props.font.personal_font_file}`}
-            className="button button--outline text--medium"
-            onClick={this.handleOpenClick}
-            data-ga-category={`${this.props.font.name} Page`}
-            data-ga-action="click"
-            data-ga-label="Download"
-          >
-            <div className="button__text">
-              Download
-              <div className="text--extra-small">$0 Personal Use</div>
-            </div>
-          </a>
-        }
+        <a
+          href={`/downloads/fonts/${this.props.font.personal_font_file}`}
+          className="button button--outline text--medium"
+          onClick={this.handleOpenClick}
+          data-ga-category={`${this.props.font.name} Page`}
+          data-ga-action="click"
+          data-ga-label="Download"
+        >
+          <div className="button__text">
+            Download
+            <div className="text--extra-small">$0 Personal Use</div>
+          </div>
+        </a>
 
         <Modal rootId="downloadModalRoot" isVisible={this.state.showModal} onCloseEvent={this.handleClose}>
           <h3 className="text--uppercase">Want updates when new fonts are added?</h3>

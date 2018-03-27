@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { request } from '../../../utilities/request';
 import { sendEvent } from '../../../utilities/analytics';
 
@@ -28,24 +28,20 @@ class Purchase extends Component {
 
   render () {
     return(
-      <Fragment>
-        {this.props.font.commercial_font_file &&
-          <button
-            type="submit"
-            title="Buy Now"
-            className={"button button--cta-primary text--medium" + (this.state.isProcessing ? ' is-processing' : '')}
-            onClick={this.handleClick}
-            data-ga-category={`${this.props.font.name} Page`}
-            data-ga-action="click"
-            data-ga-label="Buy Now"
-          >
-            <div className="button__text">
-              Purchase
-              <div className="text--extra-small">${this.props.font.price} Commercial Use</div>
-            </div>
-          </button>
-        }
-      </Fragment>
+      <button
+        type="submit"
+        title="Buy Now"
+        className={"button button--cta-primary text--medium" + (this.state.isProcessing ? ' is-processing' : '')}
+        onClick={this.handleClick}
+        data-ga-category={`${this.props.font.name} Page`}
+        data-ga-action="click"
+        data-ga-label="Buy Now"
+      >
+        <div className="button__text">
+          Purchase
+          <div className="text--extra-small">${this.props.font.price} Commercial Use</div>
+        </div>
+      </button>
     );
   }
 }

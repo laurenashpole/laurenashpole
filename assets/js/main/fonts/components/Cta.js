@@ -11,8 +11,13 @@ const Cta = (props) => {
             {props.font.name}
           </h3>
 
-          <Purchase font={props.font} />
-          <Download font={props.font} />
+          {props.font.commercial_font_file &&
+            <Purchase font={props.font} />
+          }
+
+          {props.font.personal_font_file &&
+            <Download font={props.font} />
+          }
         </div>
       </div>
 
