@@ -82,7 +82,7 @@ let FontSchema = new Schema({
   commercial_font_file: String
 });
 
-FontSchema.pre('save', (next) => {
+FontSchema.pre('save', function (next) {
   this.slug = this.generateSlug(this.name);
   next();
 });
