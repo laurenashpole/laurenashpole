@@ -39,6 +39,7 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use('/js', express.static(path.join(__dirname, 'public/js'), { maxAge: '30d' }));
 app.use('/css', express.static(path.join(__dirname, 'public/css'), { maxAge: '30d' }));
+app.use('/images', express.static(path.join(__dirname, 'public/images'), { maxAge: '30d' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport

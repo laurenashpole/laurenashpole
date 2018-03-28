@@ -5,12 +5,7 @@
 <meta property="og:price:amount" content="{{font.price}}" />
 <meta property="og:price:currency" content="USD" />
 <meta property="og:availability" content="instock" />
-
-{% if font.image_collection %}
-  <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
-{% else %}
-  <meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_retina}}"/>
-{% endif %}
+<meta property="og:image" content="http://www.laurenashpole.com/images/fonts/{{font.image_collection[0]}}"/>
 
 {% if font.description %}
   <meta property="og:description" content="{{font.description|striptags|escape}}">
@@ -23,7 +18,7 @@
     "category": "font",
     "url": "{{host_url}}/fonts/{{font.slug}}",
     "name": "{{font.name}}",
-    "image": "{% if font.image_collection.length %}{{host_url}}/images/fonts/{{font.image_collection[0]}}{% else %}{{host_url}}/images/fonts/{{font.image_retina}}{% endif %}",
+    "image": "{{host_url}}/images/fonts/{{font.image_collection[0]}}",
     {% if font.description %}"description": "{{font.description|striptags|escape}}",{% endif %}
     "offers": {
       "@type": "Offer",
