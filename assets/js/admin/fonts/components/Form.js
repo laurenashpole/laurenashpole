@@ -79,16 +79,6 @@ class Form extends Component {
           </div>
 
           <div className="form__row">
-            <input type="file" id="image" name="image" className="input input--file input--label-inset" />
-            <label htmlFor="image">Image {this.props.font.image && <span>({this.props.font.image})</span>}</label>
-          </div>
-
-          <div className="form__row">
-            <input type="file" id="imageRetina" name="image_retina" className="input input--file input--label-inset" />
-            <label htmlFor="imageRetina">Image Retina {this.props.font.image_retina && <span>({this.props.font.image_retina})</span>}</label>
-          </div>
-
-          <div className="form__row">
             <input type="file" id="imageMain" name="image_main" className="input input--file input--label-inset" />
             <label htmlFor="imageMain">Image Main {this.props.font.image_main && <span>({this.props.font.image_main})</span>}</label>
           </div>
@@ -96,16 +86,6 @@ class Form extends Component {
           <div className="form__row">
             <input type="file" id="imageMainRetina" name="image_main_retina" className="input input--file input--label-inset" />
             <label htmlFor="imageMainRetina">Image Main Retina {this.props.font.image_main_retina && <span>({this.props.font.image_main_retina})</span>}</label>
-          </div>
-
-          <div className="form__row">
-            <input type="file" id="imageThumbnail" name="image_thumbnail" className="input input--file input--label-inset" />
-            <label htmlFor="imageThumbnail">Image Thumbnail {this.props.font.image_thumbnail && <span>({this.props.font.image_thumbnail})</span>}</label>
-          </div>
-
-          <div className="form__row">
-            <input type="file" id="imageThumbnailRetina" name="image_thumbnail_retina" className="input input--file input--label-inset" />
-            <label htmlFor="imageThumbnailRetina">Image Thumbnail Retina {this.props.font.image_thumbnail_retina && <span>({this.props.font.image_thumbnail_retina})</span>}</label>
           </div>
 
           <div className="form__row">

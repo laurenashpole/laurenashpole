@@ -50,12 +50,7 @@ class Font extends Component {
               <meta property="og:price:amount" content={this.state.font.price} />
               <meta property="og:price:currency" content="USD" />
               <meta property="og:availability" content="instock" />
-
-              {this.state.font.image_collection ? (
-                <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${this.state.font.image_collection[0]}`}/>
-              ) : (
-                <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${this.state.font.image_retina}`} />
-              )}
+              <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${this.state.font.image_collection[0]}`}/>
             </Helmet>
             <section className="font__section">
               <Hero
