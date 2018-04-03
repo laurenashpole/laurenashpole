@@ -1,7 +1,7 @@
 let fontHelper = require('../helpers/fonts');
 
 exports.render = function (req, res) {
-  let hideEmailModal = req.query['referrer'] === 'email';
+  let hideEmailModal = req.query['mc_cid'] ? true : false;
 
   fontHelper.findAll()
     .then ((data) => {
