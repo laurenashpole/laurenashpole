@@ -12,10 +12,9 @@
   @include flex-child(2);
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   .footer__content {
-    max-width: 1200px;
+    max-width: $break-desktop-wide;
     margin: 0 auto;
     padding: 0 0.5rem;
     @include flex();
@@ -30,8 +29,7 @@
   }
 }
 
-@media (min-width: 1024px) {
-
+@media (min-width: $break-desktop) {
   .footer {
     padding: 0 1rem;
   }
