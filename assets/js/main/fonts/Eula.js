@@ -9,7 +9,7 @@ class Eula extends Component {
 
   render () {
     return(
-      <main className="main main--v-center container container--medium bg-dot bg-dots--fixed bg-abstract--fixed">
+      <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
         <Helmet>
           <title>End-User Licensing Agreement - Fonts - Lauren Ashpole</title>
         </Helmet>
