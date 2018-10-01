@@ -130,11 +130,10 @@
   color: #fff;
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   .header {
     background: none;
-    max-width: 1200px;
+    max-width: $break-desktop-wide;
     margin: 0 auto;
     padding: 1rem 1rem 0 1rem;
     position: relative;
@@ -237,8 +236,7 @@
   }
 }
 
-@media (min-width: 1024px) {
-
+@media (min-width: $break-desktop) {
   .header {
     padding-right: 1.5rem;
     padding-left: 1.5rem;

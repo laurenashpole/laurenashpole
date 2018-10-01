@@ -2,6 +2,12 @@
 $font-family-default: 'museo-sans-rounded', sans-serif;
 $font-family-headings: 'museo-sans-rounded', sans-serif;
 
+/* Breakpoints */
+$break-tablet: 768px;
+$break-desktop: 1024px;
+$break-desktop-wide: 1400px;
+$break-height: 640px;
+
 /* Widths */
 $width-wide: 1200px;
 $width-medium: 960px;
