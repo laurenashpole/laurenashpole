@@ -31,7 +31,7 @@
 .font-grid__image {
   position: relative;
   margin-top: -6.5rem;
-  transition: transform 0.3s;
+  @include transition(transform 0.3s);
 
   figure {
     margin-right: 7.5%;
@@ -49,7 +49,7 @@
 
 .font-grid__bg {
   color: transparent;
-  transition: color 0.1s linear;
+  @include transition(color 0.1s linear);
 }
 
 .font-grid__item:hover .font-grid__bg {
