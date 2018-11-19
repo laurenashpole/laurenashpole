@@ -10,7 +10,7 @@ class Homepage extends Component {
     super(props);
 
     this.state = {
-      font: this.props.fonts.find((font) => font.slug === 'roundabout')
+      font: this.props.fonts.find((font) => font.slug === 'mistletoe')
     };
   }
 
