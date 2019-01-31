@@ -38,7 +38,7 @@ class Font extends Component {
     return(
       <Fragment>
         {this.state.font ? (
-          <main className="main css-loading" ref={(el) => { this.main = el; }}>
+          <main className="main main--bg-static css-loading" ref={(el) => { this.main = el; }}>
             <Helmet>
               <title>{`${this.state.font.name} - Fonts - Lauren Ashpole`}</title>
               <link rel="amphtml" href={`https://www.laurenashpole/amp/fonts/${this.state.font.slug}`} />
