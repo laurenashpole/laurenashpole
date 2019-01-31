@@ -12,7 +12,6 @@
 }
 
 .mailing--inline {
-
   .mailing__input-section {
     padding: 0.65rem;
   }
@@ -21,13 +20,13 @@
     border-top: 2px solid $color-gray-light;
     padding: 0.65rem;
   }
+}
 
-  @media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
+  .mailing--inline {
     .mailing__input-section {
       width: 66.666%;
-      border-right: 2px solid $color-gray-light;
-      padding: 0.5rem;
+      padding: 0.5rem 0 0.5rem 0.5rem;
 
       input {
         text-align: left;
@@ -38,6 +37,24 @@
       width: 33.333%;
       border: none;
       padding: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: $break-desktop) {
+  .mailing--inline {
+    @include flex-justify(flex-end);
+
+    .mailing__input-section {
+      width: 45%;
+
+      input {
+        padding-left: 1rem;
+      }
+    }
+
+    .mailing__button-section {
+      width: 25%;
     }
   }
 }

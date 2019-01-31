@@ -5,20 +5,6 @@
   overflow: hidden;
 }
 
-.main {
-  @include flex-child(2);
-  @include flex();
-  @include flex-direction(column);
-}
-
-.main--v-center {
-  @include flex-justify(center);
-}
-
-.header + .main {
-  margin-top: 63px;
-}
-
 .container {
   width: 100%;
   margin: 0 auto;
@@ -39,10 +25,6 @@
 }
 
 @media (min-width: $break-tablet) {
-  .header + .main {
-    margin-top: 0;
-  }
-
   .container {
     padding-right: 1rem;
     padding-left: 1rem;
