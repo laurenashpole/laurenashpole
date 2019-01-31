@@ -27,10 +27,10 @@
     .mailing__input-section {
       width: 66.666%;
       padding: 0.5rem 0 0.5rem 0.5rem;
+    }
 
-      input {
-        text-align: left;
-      }
+    input {
+      text-align: left;
     }
 
     .mailing__button-section {
@@ -43,18 +43,11 @@
 
 @media (min-width: $break-desktop) {
   .mailing--inline {
-    @include flex-justify(flex-end);
+    max-width: 600px;
+    margin-left: auto;
 
-    .mailing__input-section {
-      width: 45%;
-
-      input {
-        padding-left: 1rem;
-      }
-    }
-
-    .mailing__button-section {
-      width: 25%;
+    input {
+      padding-left: 1rem;
     }
   }
 }
