@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Hero from '../../components/Hero';
+import Hero from '../components/Hero';
 import Cta from './components/Cta';
 import Details from './components/Details';
 import Gallery from './components/Gallery';
@@ -38,7 +38,7 @@ class Font extends Component {
     return(
       <Fragment>
         {this.state.font ? (
-          <main className="main main--bg-static css-loading" ref={(el) => { this.main = el; }}>
+          <main className="main css-loading" ref={(el) => { this.main = el; }}>
             <Helmet>
               <title>{`${this.state.font.name} - Fonts - Lauren Ashpole`}</title>
               <link rel="amphtml" href={`https://www.laurenashpole/amp/fonts/${this.state.font.slug}`} />
