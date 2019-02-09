@@ -10,15 +10,24 @@
 /* Components */
 @import 'components/links';
 @import 'components/lists';
-@import 'components/backgrounds';
 @import 'components/socials';
 @import 'components/forms/base';
 @import 'components/forms/buttons';
 @import 'components/forms/inputs';
 @import 'components/images/base';
+@import 'components/mailing';
+@import 'components/wells';
 
 /* Layout */
-// @import 'layout/nav';
-// @import 'layout/containers';
-@import 'layout/columns';
+@import 'layout/base';
 @import 'layout/footer';
+@import 'layout/header';
+@import 'layout/main';
+
+/* Blog */
+@import 'blog/notes';
+@import 'blog/overrides';
+@import 'blog/pagination';
+@import 'blog/post';
+@import 'blog/related';
+@import 'blog/search';

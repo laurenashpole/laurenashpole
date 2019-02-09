@@ -1,0 +1,47 @@
+.notes__header {
+  padding: 0 1rem;
+  line-height: 60px;
+}
+
+.notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notes a {
+  border: none;
+}
+
+.notes .note {
+  border-top: 2px solid $color-gray-light;
+  padding: 18px 15px;
+  line-height: 24px;
+  @include flex;
+  @include flex-align(center);
+}
+
+.notes .note .avatar {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 2px solid $color-white;
+  vertical-align: -4px;
+}
+
+.notes .note blockquote {
+  border-color: $color-white;
+  padding: 4px 10px;
+  margin: 10px 0 0 25px;
+}
+
+@media (min-width: $break-tablet) {
+  .notes .note {
+    padding: 18px 1rem;
+  }
+}
+
+.disqus {
+  border-top: 2px solid $color-gray-light;
+  padding: 1rem;
+}
