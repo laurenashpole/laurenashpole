@@ -1,0 +1,10 @@
+.pagination {
+  @include flex;
+  @include flex-justify(space-between);
+}
+
+@media (min-width: $break-tablet) {
+  .pagination {
+    margin-left: 25%;
+  }
+}

@@ -38,7 +38,7 @@ class Fonts extends Component {
     return (
       <Fragment>
         <Header />
-        <main className="main container container--medium">
+        <main className="main main--bg-fixed container container--medium">
           <Switch>
             <Route exact path="/admin" render={(props) =>
               <List fonts={this.state.fonts} onDelete={this.handleDelete} {...props} />

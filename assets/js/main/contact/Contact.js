@@ -105,7 +105,7 @@ class Contact extends Component {
 
   render () {
     return(
-      <main className="main main--v-center container container--medium bg-dots bg-dots--fixed bg-abstract--fixed">
+      <main className="main main--bg-fixed container container--medium">
         <Helmet>
           <title>Contact - Lauren Ashpole</title>
         </Helmet>

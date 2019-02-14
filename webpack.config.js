@@ -18,6 +18,7 @@ module.exports = {
       './assets/sass/admin.scss'
     ],
     blog: [
+      './assets/js/blog/index.js',
       './assets/sass/blog.scss'
     ]
   },

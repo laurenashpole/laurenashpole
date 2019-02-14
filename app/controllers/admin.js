@@ -5,7 +5,7 @@ exports.all = function (req, res) {
 
   if (isAuthenticated) {
     fontHelper.findAll()
-      .then ((data) => {
+      .then((data) => {
         res.render('admin/index', {
           title: 'Admin',
           isAuthenticated: isAuthenticated,
