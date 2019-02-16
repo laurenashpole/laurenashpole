@@ -39,6 +39,11 @@
   & + .related__post {
     margin-top: 0;
   }
+
+  .post__photo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
 }
 
 .related__post:nth-child(-n+4) {
@@ -46,6 +51,7 @@
 }
 
 a.related__permalink {
+  background: $color-white;
   width: 100%;
   border-top: 2px solid $color-purple;
   padding: 0 1rem;

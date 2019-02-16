@@ -121,6 +121,12 @@ a.post__detail-link--type:hover {
   display: -ms-flexbox !important;
   display: flex !important;
   @include flex-align(center);
+
+
+  &:hover,
+  &:focus {
+    border-color: transparent;
+  }
 }
 
 .post__action--permalink {
@@ -224,5 +230,15 @@ a.post__action-link:focus {
   .post__photo + .post__caption,
   .post__video + .post__caption {
     padding-top: 40px;
+  }
+}
+
+@media (min-width: $break-desktop-wide) {
+  .post__content {
+    padding: 3rem;
+  }
+
+  a.post__action-link {
+    padding: 0 3rem;
   }
 }
