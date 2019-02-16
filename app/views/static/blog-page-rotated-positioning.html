@@ -1,56 +1,48 @@
 <!--
-    Including this file for version control only.
-    File is actually hosted by Tumblr.
+  Including this file for version control only.
+  File is actually hosted by Tumblr.
 -->
 <!doctype html>
 <html lang="en" class="is-not-touch">
 <head>
+  <script>
+    WebFontConfig = {
+      custom: {
+        families: ['FontAwesome'],
+        urls: ['//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css']
+      }
+    };
 
-    <!-- Web Font Loading -->
-    <script>
-        WebFontConfig = {
-            custom: {
-                families: ['FontAwesome'],
-                urls: ['//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css']
-            }
-        };
+    (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+    })(document);
+  </script>
 
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Lauren Ashpole",
+      "url": "https://www.laurenashpole.com"
+    }
+  </script>
 
-    <!-- Schema -->
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Lauren Ashpole",
-            "url": "https://www.laurenashpole.com"
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/Lo8ortbs4/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/RcCortbrz/favicon-16x16.png" sizes="16x16" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/Lo8ortbs4/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="http://static.tumblr.com/w45vvio/RcCortbrz/favicon-16x16.png" sizes="16x16" />
+  <title>Cheatsheet: Positioning Rotated Text - Blog - Lauren Ashpole</title>
+  <meta name="description" content="Custom, handcrafted fonts and dingbats available for personal and commercial projects." />
 
-    <!-- Blog Title -->
-    <title>Cheatsheet: Positioning Rotated Text - Blog - Lauren Ashpole</title>
+  <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
+  <link rel="stylesheet" href="//static.tumblr.com/w45vvio/VMJpmwf25/blog.471832c08e71aa242b33.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
 
-    <!-- Blog Description -->
-    <meta name="description" content="Custom, handcrafted fonts and dingbats available for personal and commercial projects." />
-
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="https://use.typekit.net/iaj4zaw.css">
-    <link rel="stylesheet" href="http://static.tumblr.com/w45vvio/m3Boxl3kq/blog.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
-
-    <!-- Google Analytics -->
-    <script>
+  <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -58,509 +50,432 @@
 
     ga('create', 'UA-12207477-1', 'auto');
     ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
+  </script>
 
-    <style>
-        .u--border {
-            background: #f6f5f4;
-            border: 2px solid #fff;
-            padding: 0.5rem;
-        }
+  <style>
+    a {
+      border: none;
+    }
 
-        /* Posts */
-        .blog__header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    .well {
+      margin-top: 1.5rem;
+      overflow: hidden;
+    }
 
-        .blog__header h2 {
-            margin-bottom: 2rem;
-        }
+    .sample {
+      background: #fff;
+      min-height: 500px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .post {
-            background: #fff;
-            height: 250px;
-            border-bottom: 2px solid #f6f5f4;
-            position: relative;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
+    .sample__radios {
+      padding: 20px 0 0 20px;
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-        .post:last-child {
-            border-bottom: none;
-        }
+    .sample__radio {
+      display: none;
+    }
 
-        @media (min-width: 768px) {
+    .sample__radio-label {
+      background: #dedbda;
+      width: 50px;
+      height: 50px;
+      margin: 0 4px 4px 0;
+      color: #726882;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
 
-            .post {
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-        }
+    .sample__radio-label:hover {
+      background: #726882;
+      color: #fff;
+      cursor: pointer;
+    }
 
-        .sample {
-            background: #fff;
-            min-height: 500px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .sample__radio:checked + .sample__radio-label {
+      background: #726882;
+      color: #fff;
+    }
 
-        .sample__radios {
-            padding: 20px 0 0 20px;
-            display: flex;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    .sample__sidebar {
+      background: #ccc;
+      background: #726882;
+      color: #fff;
+      width: 60px;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-family: 'Open Sans Condensed';
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
 
-        .sample__radio {
-            display: none;
-        }
+    .sample__code-block {
+      padding: 198px 80px 20px 20px;
+    }
 
-        .sample__radio-label {
-            background: #dedbda;
-            width: 50px;
-            height: 50px;
-            margin: 0 4px 4px 0;
-            color: #726882;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.2s, color 0.2s;
-        }
+    .sample__code {
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px 30px;
+      white-space: pre-line;
+      display: none;
+    }
 
-        .sample__radio-label:hover {
-            background: #726882;
-            color: #fff;
-            cursor: pointer;
-        }
+    .sample--top-up .sample__code--top-up {
+      display: block;
+    }
 
-        .sample__radio:checked + .sample__radio-label {
-            background: #726882;
-            color: #fff;
-        }
+    .sample--center-up .sample__code--center-up {
+      display: block;
+    }
 
-        .sample__sidebar {
-            background: #ccc;
-            background: #726882;
-            color: #fff;
-            width: 60px;
-            height: 100%;
-            position: absolute;
-            right: 0;
-            top: 0;
-            font-family: 'Open Sans Condensed';
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
+    .sample--bottom-up .sample__code--bottom-up {
+      display: block;
+    }
 
-        .sample__code-block {
-            padding: 198px 80px 20px 20px;
-        }
+    .sample--top-down .sample__code--top-down {
+      display: block;
+    }
 
-        .sample__code {
-            background: #f6f5f4;
-            margin: 0;
-            padding: 20px 30px;
-            white-space: pre-line;
-            display: none;
-        }
+    .sample--center-down .sample__code--center-down {
+      display: block;
+    }
 
-        .sample--top-up .sample__code--top-up {
-            display: block;
-        }
+    .sample--bottom-down .sample__code--bottom-down {
+      display: block;
+    }
 
-        .sample--center-up .sample__code--center-up {
-            display: block;
-        }
+    @media (min-width: 768px) {
+      .sample__radios {
+        padding: 10px 0 0 10px;
+      }
 
-        .sample--bottom-up .sample__code--bottom-up {
-            display: block;
-        }
+      .sample__code-block {
+        width: 65%;
+        padding: 30px 0;
+      }
+    }
 
-        .sample--top-down .sample__code--top-down {
-            display: block;
-        }
+    .rotated-text {
+      padding: 0 15px;
+      line-height: 60px;
+      white-space: nowrap;
+      position: absolute;
+    }
 
-        .sample--center-down .sample__code--center-down {
-            display: block;
-        }
+    .rotated-text--top-up {
+      -webkit-transform: translate3d(-100%, 0 , 0) rotate(-90deg);
+      transform: translate3d(-100%, 0 , 0) rotate(-90deg);
+      -webkit-transform-origin: top right;
+      transform-origin: top right;
+    }
 
-        .sample--bottom-down .sample__code--bottom-down {
-            display: block;
-        }
+    .rotated-text--center-up {
+      top: 50%;
+      -webkit-transform: translate3d(-50%, 0, 0) rotate(-90deg);
+      transform: translate3d(-50%, 0, 0) rotate(-90deg);
+      -webkit-transform-origin: top center;
+      transform-origin: top center;
+    }
 
-        @media (min-width: 768px) {
+    .rotated-text--bottom-up {
+      bottom: 0;
+      -webkit-transform: translate3d(0, 100% , 0) rotate(-90deg);
+      transform: translate3d(0, 100% , 0) rotate(-90deg);
+      -webkit-transform-origin: top left;
+      transform-origin: top left;
+    }
 
-            .sample__radios {
-                padding: 10px 0 0 10px;
-            }
+    .rotated-text--top-down {
+      -webkit-transform: translate3d(0, -100% , 0) rotate(90deg);
+      transform: translate3d(0, -100% , 0) rotate(90deg);
+      -webkit-transform-origin: bottom left;
+      transform-origin: bottom left;
+    }
 
-            .sample__code-block {
-                width: 65%;
-                padding: 30px 0;
-            }
-        }
+    .rotated-text--center-down {
+      top: 50%;
+      -webkit-transform: translate3d(-50%, -100%, 0) rotate(90deg);
+      transform: translate3d(-50%, -100%, 0) rotate(90deg);
+      -webkit-transform-origin: bottom center;
+      transform-origin: bottom center;
+    }
 
-        .rotated-text {
-            padding: 0 15px;
-            line-height: 60px;
-            white-space: nowrap;
-            position: absolute;
-        }
-
-        .rotated-text--top-up {
-            -webkit-transform: translate3d(-100%, 0 , 0) rotate(-90deg);
-            transform: translate3d(-100%, 0 , 0) rotate(-90deg);
-            -webkit-transform-origin: top right;
-            transform-origin: top right;
-        }
-
-        .rotated-text--center-up {
-            top: 50%;
-            -webkit-transform: translate3d(-50%, 0, 0) rotate(-90deg);
-            transform: translate3d(-50%, 0, 0) rotate(-90deg);
-            -webkit-transform-origin: top center;
-            transform-origin: top center;
-        }
-
-        .rotated-text--bottom-up {
-            bottom: 0;
-            -webkit-transform: translate3d(0, 100% , 0) rotate(-90deg);
-            transform: translate3d(0, 100% , 0) rotate(-90deg);
-            -webkit-transform-origin: top left;
-            transform-origin: top left;
-        }
-
-        .rotated-text--top-down {
-            -webkit-transform: translate3d(0, -100% , 0) rotate(90deg);
-            transform: translate3d(0, -100% , 0) rotate(90deg);
-            -webkit-transform-origin: bottom left;
-            transform-origin: bottom left;
-        }
-
-        .rotated-text--center-down {
-            top: 50%;
-            -webkit-transform: translate3d(-50%, -100%, 0) rotate(90deg);
-            transform: translate3d(-50%, -100%, 0) rotate(90deg);
-            -webkit-transform-origin: bottom center;
-            transform-origin: bottom center;
-        }
-
-        .rotated-text--bottom-down {
-            bottom: 0;
-            -webkit-transform: translate3d(-100%, 0 , 0) rotate(90deg);
-            transform: translate3d(-100%, 0 , 0) rotate(90deg);
-            -webkit-transform-origin: bottom right;
-            transform-origin: bottom right;
-        }
-
-    </style>
-
+    .rotated-text--bottom-down {
+      bottom: 0;
+      -webkit-transform: translate3d(-100%, 0 , 0) rotate(90deg);
+      transform: translate3d(-100%, 0 , 0) rotate(90deg);
+      -webkit-transform-origin: bottom right;
+      transform-origin: bottom right;
+    }
+  </style>
 </head>
 <body>
-    <header class="header container--sticky-mobile">
-        <nav class="nav">
-            <div class="nav__header">
-                <a href="https://www.laurenashpole.com" title="Lauren Ashpole" class="nav__logo link--no-underline">
-                    <svg class="nav__logo-svg" viewBox="0 0 106.000000 49.000000" preserveAspectRatio="xMinYMid">
-                        <g transform="translate(0.000000,49.000000) scale(0.050000,-0.050000)" fill="currentColor" stroke="none">
-                            <path d="M1127 950 c-34 -14 -92 -63 -128 -108 -83 -103 -180 -135 -316 -102 -212 52 -216 52 -180 -2 37 -57 136 -95 246 -97 l80 -1 -119 -120 -119 -120 -126 0 c-214 0 -445 -145 -445 -279 0 -159 194 -139 438 47 59 45 119 91 134 101 42 31 453 -98 572 -180 146 -100 354 -89 480 25 33 30 39 29 78 -6 65 -59 300 -55 362 7 60 60 24 104 -54 68 -126 -57 -290 -7 -290 88 0 77 -54 60 -157 -51 -117 -126 -188 -149 -301 -99 -108 49 -105 57 53 139 144 74 365 271 365 325 0 35 -83 101 -156 124 -104 32 -422 -189 -494 -344 -20 -41 -38 -78 -41 -82 -9 -10 -289 83 -289 96 0 14 247 258 395 392 142 127 149 237 12 179z m430 -336 c56 -68 -181 -278 -380 -335 -85 -24 -73 18 38 142 150 167 295 249 342 193z m-1078 -309 c0 -18 -141 -125 -244 -185 -125 -73 -130 2 -7 114 90 80 254 127 251 71z"/>
-                        </g>
-                    </svg>
-                </a>
-            </div>
+  <header class="header">
+    <a href="https://www.laurenashpole.com" class="header__logo js-ga-trigger" aria-label="Home" data-ga-category="Nav Links" data-ga-action="click" data-ga-label="Home">
+      <svg class="header__logo-svg" viewBox="0 0 106 49"><path d="M56.35 1.5c-1.7.7-4.6 3.15-6.4 5.4-4.15 5.15-9 6.75-15.8 5.1-10.6-2.6-10.8-2.6-9 .1 1.85 2.85 6.8 4.75 12.3 4.85l4 .05-5.95 6-5.95 6h-6.3C12.55 29 1 36.25 1 42.95c0 7.95 9.7 6.95 21.9-2.35 2.95-2.25 5.95-4.55 6.7-5.05 2.1-1.55 22.65 4.9 28.6 9 7.3 5 17.7 4.45 24-1.25 1.65-1.5 1.95-1.45 3.9.3 3.25 2.95 15 2.75 18.1-.35 3-3 1.2-5.2-2.7-3.4-6.3 2.85-14.5.35-14.5-4.4 0-3.85-2.7-3-7.85 2.55-5.85 6.3-9.4 7.45-15.05 4.95-5.4-2.45-5.25-2.85 2.65-6.95C73.95 32.3 85 22.45 85 19.75c0-1.75-4.15-5.05-7.8-6.2-5.2-1.6-21.1 9.45-24.7 17.2-1 2.05-1.9 3.9-2.05 4.1C50 35.35 36 30.7 36 30.05c0-.7 12.35-12.9 19.75-19.6 7.1-6.35 7.45-11.85.6-8.95zm21.5 16.8c2.8 3.4-9.05 13.9-19 16.75-4.25 1.2-3.65-.9 1.9-7.1 7.5-8.35 14.75-12.45 17.1-9.65zm-53.9 15.45c0 .9-7.05 6.25-12.2 9.25-6.25 3.65-6.5-.1-.35-5.7 4.5-4 12.7-6.35 12.55-3.55z" fill="currentColor"/></svg>
+    </a>
 
-            <input type="checkbox" id="navCheckbox" class="nav__checkbox u--hidden">
+    <nav class="header__nav">
+      <button class="header__icon u--mobile" id="jsHeaderButton" aria-expanded="false" aria-controls="nav" aria-label="Toggle Nav">
+        <span class="header__icon-line"></span>
+        <span class="header__icon-line"></span>
+        <span class="header__icon-line"></span>
+        <span class="header__icon-line"></span>
+      </button>
 
-            <label for="navCheckbox" class="nav__icon u--mobile" title="Nav">
-                <span class="nav__icon-line"></span>
-                <span class="nav__icon-line"></span>
-                <span class="nav__icon-line"></span>
-                <span class="nav__icon-line"></span>
-            </label>
+      <ul id="nav" class="header__links list--unstyled text--uppercase text--extra-bold">
+        <li class="header__link">
+          <a href="https://www.laurenashpole.com/fonts" title="Fonts" class="js-ga-trigger" data-ga-category="Nav Links" data-ga-action="click" data-ga-label="Fonts">
+            Fonts
+          </a>
+        </li>
+        <li class="header__link">
+          <a href="/" class="is-active js-ga-trigger" title="Blog" data-ga-category="Nav Links" data-ga-action="click" data-ga-label="Blog">
+            Blog
+          </a>
+        </li>
+        <li class="header__link">
+          <a href="https://www.laurenashpole.com/contact" title="Contact" class="js-ga-trigger" data-ga-category="Nav Links" data-ga-action="click" data-ga-label="Contact">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-            <ul class="nav__links list--unstyled text--heading text--uppercase">
-                <li>
-                    <a
-                        href="https://www.laurenashpole.com/fonts"
-                        title="Fonts"
-                        class="nav__link text--extra-bold link--hover-border js-ga-trigger"
-                        data-ga-category="Nav Links"
-                        data-ga-action="click"
-                        data-ga-label="Fonts"
-                    >
-                        Fonts
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="http://blog.laurenashpole.com"
-                        title="Blog"
-                        class="nav__link text--extra-bold link--hover-border js-ga-trigger"
-                        data-ga-category="Nav Links"
-                        data-ga-action="click"
-                        data-ga-label="Blog"
-                    >
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.laurenashpole.com/contact"
-                        title="Contact"
-                        class="nav__link text--extra-bold link--hover-border js-ga-trigger"
-                        data-ga-category="Nav Links"
-                        data-ga-action="click"
-                        data-ga-label="Contact"
-                    >
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
+  <main class="main main--bg-fixed container container--large">
+    <header class="u--center">
+      <h2>Cheatsheet: Positioning Rotated Text</h2>
+      <span>Go back to the <a class="link" href="http://blog.laurenashpole.com/post/159945255904/positioning-rotated-text">blog post</a>.</span>
     </header>
 
-    <main class="container container--full-height container--vertical-padding bg-dots bg-dots--hero bg-dots--static">
-
-        <svg class="bg-abstract--static" viewBox="0 0 552 419" preserveAspectRatio="xMinYMid">
-            <path fill="currentColor" stroke="none" d="M183.6,414.2c-32.8-5.4-20.7-42.9-36.6-62c-19.5-23.3-63.6-23.1-91.4-27.4c-54.9-8.4-80.7-22.7-20.2-47.8 c72-29.9,138.8-54.5,199.4-106.3c33.7-28.7,61.3-62.4,89.3-96.6c16.8-20.6,43-63.5,70.6-71c83.2-22.5,45.2,107.2,81.3,136 c17.5,14,51,2.1,67,18.9c18.3,19.3,3,61.1-5.3,83.3C487.5,375.9,316,435.9,183.6,414.2z"/>
-        </svg>
-
-        <svg class="bg-abstract--static-secondary" viewBox="0 0 542.8 403.5" preserveAspectRatio="xMinYMid">
-            <path fill="currentColor" stroke="none" d="M359.7,401.3c29.9-4.9,9.6-62.1,36.3-79.4c27.9-18.1,68.4-0.1,98.7-13.6c51.9-23.2,68.4-87.2,13.7-111 c-45.2-19.6-81.3-26.4-120.1-60.5c-23.4-20.5-43.4-57.9-69.1-73.3c-35.5-21.3-56,8.4-91.4,2.1c-34-6.1-47.1-49.6-80.8-60.4 c-87.3-28-30.3,78.8-69.7,100.7C55,118.2,27.8,78.1,7,101.3c-17.2,19.2,4,72.4,13.8,89.6c40.1,70.4,105.7,57.5,164.7,91.8 C251.7,321.1,263,417.1,359.7,401.3z"/>
-        </svg>
-
-        <div class="container__content">
-            <header class="blog__header">
-                <h2>Cheatsheet: Positioning Rotated Text</h2>
-                <span>Go back to the <a href="http://blog.laurenashpole.com/post/159945255904/positioning-rotated-text">blog post</a>.</span>
-            </header>
-
-            <div class="posts u--border">
-                <div class="sample sample--top-up js-sample">
-
-                    <div class="sample__radios">
-                        <div>
-                            <div>
-                                <input type="radio" id="topUp" value="--top-up" name="direction" class="sample__radio" checked />
-                                <label for="topUp" class="sample__radio-label">&#8593;</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="centerUp" value="--center-up" name="direction" class="sample__radio" />
-                                <label for="centerUp" class="sample__radio-label">&#8593;</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="bottomUp" value="--bottom-up" name="direction" class="sample__radio" />
-                                <label for="bottomUp" class="sample__radio-label">&#8593;</label>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <input type="radio" id="topDown" value="--top-down" name="direction" class="sample__radio" />
-                                <label for="topDown" class="sample__radio-label">&#8595;</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="centerDown" value="--center-down" name="direction" class="sample__radio" />
-                                <label for="centerDown" class="sample__radio-label">&#8595;</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="bottomDown" value="--bottom-down" name="direction" class="sample__radio" />
-                                <label for="bottomDown" class="sample__radio-label">&#8595;</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sample__code-block">
-                        <pre class="sample__code sample__code--top-up">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text--top-up {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-100%, 0 , 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-100%, 0 , 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top right;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top right;
-                                }
-                            </code>
-                        </pre>
-                        <pre class="sample__code sample__code--center-up">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text--center-up {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;top: 50%;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-50%, 0, 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-50%, 0, 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top center;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top center;
-                                }
-                            </code>
-                        </pre>
-                        <pre class="sample__code sample__code--bottom-up">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text--bottom-up {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;bottom: 0;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(0, 100% , 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(0, 100% , 0) rotate(-90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top left;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top left;
-                                }
-                            </code>
-                        </pre>
-                        <pre class="sample__code sample__code--top-down">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text--top-down {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(0, -100% , 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(0, -100% , 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom left;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom left;
-                                }
-                            </code>
-                        </pre>
-                        <pre class="sample__code sample__code--center-down">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text---center-down {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;top: 50%;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-50%, -100%, 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-50%, -100%, 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom center;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom center;
-                                }
-                            </code>
-                        </pre>
-                        <pre class="sample__code sample__code--bottom-down">
-                            <code>
-                                .rotated-text {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
-                                    &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
-                                }
-
-                                .rotated-text--bottom-down {
-                                    &nbsp;&nbsp;&nbsp;&nbsp;bottom: 0;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-100%, 0 , 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-100%, 0 , 0) rotate(90deg);
-                                    &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom right;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom right;
-                                }
-                            </code>
-                        </pre>
-                    </div>
-
-                    <sidebar class="sample__sidebar">
-                        <span class="rotated-text rotated-text--top-up js-rotated-text">ROTATED TEXT</span>
-                    </sidebar>
-
-                </div>
-
+    <div class="well well--no-padding">
+      <div class="sample sample--top-up js-sample">
+        <div class="sample__radios">
+          <div>
+            <div>
+              <input type="radio" id="topUp" value="--top-up" name="direction" class="sample__radio" checked />
+              <label for="topUp" class="sample__radio-label">&#8593;</label>
             </div>
-        </div>
-    </main>
-
-    <footer class="footer bg-solid--white u--no-margin">
-        <div class="container footer__content">
-            <ul class="list--unstyled footer__social">
-                <li class="social">
-                    <a href="https://twitter.com/laurenashpole" class="social__link link--no-underline">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="https://www.pinterest.com/laurenashpole/" class="social__link link--no-underline">
-                        <i class="fa fa-pinterest"></i>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="https://github.com/laurenashpole" class="social__link link--no-underline">
-                        <i class="fa fa-github"></i>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="http://codepen.io/laurenashpole/" class="social__link link--no-underline">
-                        <i class="fa fa-codepen"></i>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="footer__form-section">
-                <form action="/mailing/signup" method="post" class="form__row--inline js-mailing-form">
-                    <div class="footer__input-section">
-                        <input type="email" value="" name="email" class="input input--gray u--center-mobile" id="email" placeholder="Enter your email address">
-                    </div>
-
-                    <div class="form__hidden" aria-hidden="true"><input type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabindex="-1" value=""></div>
-
-                    <div class="footer__button-section">
-                        <button type="submit" name="subscribe" class="button button--small text--uppercase text--extra-bold js-mailing-signup">
-                            <span class="button__text">
-                                Get Updates!
-                            </span>
-                        </button>
-                    </div>
-                </form>
+            <div>
+              <input type="radio" id="centerUp" value="--center-up" name="direction" class="sample__radio" />
+              <label for="centerUp" class="sample__radio-label">&#8593;</label>
             </div>
+            <div>
+              <input type="radio" id="bottomUp" value="--bottom-up" name="direction" class="sample__radio" />
+              <label for="bottomUp" class="sample__radio-label">&#8593;</label>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <input type="radio" id="topDown" value="--top-down" name="direction" class="sample__radio" />
+              <label for="topDown" class="sample__radio-label">&#8595;</label>
+            </div>
+            <div>
+              <input type="radio" id="centerDown" value="--center-down" name="direction" class="sample__radio" />
+              <label for="centerDown" class="sample__radio-label">&#8595;</label>
+            </div>
+            <div>
+              <input type="radio" id="bottomDown" value="--bottom-down" name="direction" class="sample__radio" />
+              <label for="bottomDown" class="sample__radio-label">&#8595;</label>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="http://static.tumblr.com/w45vvio/E3Jorv1dn/javascript.min.js"></script>
+        <div class="sample__code-block">
+          <pre class="sample__code sample__code--top-up">
+            <code>
+              .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
 
-    <script>
-        var sample = document.querySelector('.js-sample');
-        var radios = document.querySelectorAll('input[name="direction"]');
-        var rotatedText = document.querySelector('.js-rotated-text');
-        var classSuffix = document.querySelector('input[name="direction"]:checked').value;
+              .rotated-text--top-up {
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-100%, 0 , 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-100%, 0 , 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top right;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top right;
+              }
+            </code>
+          </pre>
+          <pre class="sample__code sample__code--center-up">
+            <code>
+              .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
 
-        for (var i = 0; i < radios.length; i++) {
-            radios[i].addEventListener('change', function (e) {
-                sample.classList.remove('sample' + classSuffix);
-                rotatedText.classList.remove('rotated-text' + classSuffix);
+              .rotated-text--center-up {
+                &nbsp;&nbsp;&nbsp;&nbsp;top: 50%;
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-50%, 0, 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-50%, 0, 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top center;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top center;
+              }
+            </code>
+          </pre>
+          <pre class="sample__code sample__code--bottom-up">
+            <code>
+              .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
 
-                classSuffix = e.target.value;
+              .rotated-text--bottom-up {
+                &nbsp;&nbsp;&nbsp;&nbsp;bottom: 0;
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(0, 100% , 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(0, 100% , 0) rotate(-90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: top left;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: top left;
+              }
+            </code>
+          </pre>
+          <pre class="sample__code sample__code--top-down">
+            <code>
+              .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
 
-                sample.classList.add('sample' + classSuffix);
-                rotatedText.classList.add('rotated-text' + classSuffix);
-            });
-        }
-    </script>
+              .rotated-text--top-down {
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(0, -100% , 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(0, -100% , 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom left;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom left;
+              }
+            </code>
+          </pre>
+          <pre class="sample__code sample__code--center-down">
+            <code>
+              .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
+
+              .rotated-text---center-down {
+                &nbsp;&nbsp;&nbsp;&nbsp;top: 50%;
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-50%, -100%, 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-50%, -100%, 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom center;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom center;
+              }
+            </code>
+          </pre>
+          <pre class="sample__code sample__code--bottom-down">
+            <code>
+            .rotated-text {
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 0 15px;
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 60px; /* Match container width */
+                &nbsp;&nbsp;&nbsp;&nbsp;white-space: nowrap;
+                &nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+              }
+
+              .rotated-text--bottom-down {
+                &nbsp;&nbsp;&nbsp;&nbsp;bottom: 0;
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform: translate3d(-100%, 0 , 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;transform: translate3d(-100%, 0 , 0) rotate(90deg);
+                &nbsp;&nbsp;&nbsp;&nbsp;-webkit-transform-origin: bottom right;
+                &nbsp;&nbsp;&nbsp;&nbsp;transform-origin: bottom right;
+              }
+            </code>
+          </pre>
+        </div>
+
+        <sidebar class="sample__sidebar">
+          <span class="rotated-text rotated-text--top-up js-rotated-text">ROTATED TEXT</span>
+        </sidebar>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer bg-solid--white">
+    <div class="footer__content">
+      <ul class="list--unstyled footer__social">
+        <li class="social">
+          <a href="https://twitter.com/laurenashpole" class="social__link">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+
+        <li class="social">
+          <a href="https://www.pinterest.com/laurenashpole/" class="social__link">
+            <i class="fa fa-pinterest"></i>
+          </a>
+        </li>
+
+        <li class="social">
+          <a href="https://github.com/laurenashpole" class="social__link">
+            <i class="fa fa-github"></i>
+          </a>
+        </li>
+
+        <li class="social">
+          <a href="https://codepen.io/laurenashpole/" class="social__link">
+            <i class="fa fa-codepen"></i>
+          </a>
+        </li>
+      </ul>
+
+      <div class="footer__form-section">
+        <form action="https://www.laurenashpole.com/mailing/signup" class="form__row--inline mailing--inline" id="jsMailingForm">
+          <div class="mailing__input-section">
+            <input type="email" class="input input--small u--center-mobile" name="email" id="jsMailingEmail" placeholder="Enter your email address" value="">
+          </div>
+
+          <div class="form__hidden" aria-hidden="true">
+            <input id="jsMailingHidden" type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabindex="-1" value="">
+          </div>
+
+          <div class="mailing__button-section">
+            <button type="submit" name="subscribe" class="button button--small js-ga-trigger" id="jsMailingButton" data-ga-category="Footer" data-ga-action="click" data-ga-label="Get Updates!">Get Updates!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//static.tumblr.com/w45vvio/xXxpmn37h/blog.471832c08e71aa242b33.js"></script>
+
+  <script>
+    var sample = document.querySelector('.js-sample');
+    var radios = document.querySelectorAll('input[name="direction"]');
+    var rotatedText = document.querySelector('.js-rotated-text');
+    var classSuffix = document.querySelector('input[name="direction"]:checked').value;
+
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener('change', function (e) {
+        sample.classList.remove('sample' + classSuffix);
+        rotatedText.classList.remove('rotated-text' + classSuffix);
+
+        classSuffix = e.target.value;
+
+        sample.classList.add('sample' + classSuffix);
+        rotatedText.classList.add('rotated-text' + classSuffix);
+      });
+    }
+  </script>
 </body>
 </html>
