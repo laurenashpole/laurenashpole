@@ -32,6 +32,7 @@ exports.signup = function (req, res) {
   }
 
   if (/\/\/blog/.test(req.headers.origin)) {
+    res.setHeader('Content-type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
