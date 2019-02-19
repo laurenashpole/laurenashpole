@@ -31,6 +31,10 @@ exports.signup = function (req, res) {
     res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
   }
 
+  if (/\/\/blog/.test(req.path)) {
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  }
+
   request
     .post('https://laurenashpole.us4.list-manage.com/subscribe/post')
     .send('u=' + mailchimpConfig.userId)
