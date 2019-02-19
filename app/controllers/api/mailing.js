@@ -31,7 +31,7 @@ exports.signup = function (req, res) {
     res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
   }
 
-  if (/\/\/blog/.test(req.path)) {
+  if (/\/\/blog/.test(req.headers.origin)) {
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
   }
 
