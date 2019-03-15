@@ -10,7 +10,7 @@ class Homepage extends Component {
     super(props);
 
     this.state = {
-      font: this.props.fonts.find((font) => font.slug === 'mistletoe')
+      font: this.props.fonts.find((font) => font.slug === 'roundabout')
     };
   }
 
@@ -20,7 +20,7 @@ class Homepage extends Component {
 
   render () {
     return(
-      <main className="main">
+      <main className="main main--bg-repeat homepage">
         <section className="font__section">
           <Hero
             image_url={`/images/fonts/${this.state.font.image_main}`}

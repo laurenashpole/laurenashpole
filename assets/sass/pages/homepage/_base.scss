@@ -36,9 +36,16 @@
   .homepage__container {
     @include flex();
     @include flex-align(center);
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .homepage__about {
     padding: 0 1.5rem 0 4.5rem;
   }
+}
+
+.homepage .font__section + .font__section {
+  border: none;
+  padding: 0;
 }

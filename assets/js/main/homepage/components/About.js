@@ -8,7 +8,7 @@ class About extends Component {
 
   render () {
     return(
-      <div className="container container--large homepage__container">
+      <div className="container container--large homepage__container well">
         <div className="column--narrow">
           <div className="well homepage__well">
             <div className="homepage__well-content">
