@@ -1,5 +1,6 @@
 import { request } from '../utilities/request';
 import { sendEvent } from '../utilities/analytics';
+import '../../sass/blog.scss';
 
 let Blog = Blog || {};
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Site from './Site';
+import '../../sass/main.scss';
 
 render(
   <Site />,

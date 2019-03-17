@@ -9,18 +9,9 @@ module.exports = {
   devtool: 'inline-source-map',
   target: 'web',
   entry: {
-    main: [
-      './assets/js/main/index.js',
-      './assets/sass/main.scss'
-    ],
-    admin: [
-      './assets/js/admin/index.js',
-      './assets/sass/admin.scss'
-    ],
-    blog: [
-      './assets/js/blog/index.js',
-      './assets/sass/blog.scss'
-    ]
+    main: './source/js/main/index.js',
+    admin: './source/js/admin/index.js',
+    blog: './source/js/blog/index.js'
   },
   output: {
     filename: 'js/[name].js',
