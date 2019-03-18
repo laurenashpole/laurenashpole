@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { request } from '../../../utilities/request';
+import { request } from '../../utilities/request';
 
 class Logout extends Component {
-  handleClick = (e) => {
-    e.preventDefault();
-
+  componentDidMount () {
     request('/admin/logout', {}, function (response) {
       if (response.success) {
         location.reload();
@@ -14,9 +12,9 @@ class Logout extends Component {
 
   render () {
     return(
-      <a href="javascript:void(0);" onClick={this.handleClick} ref={this.props.inputRef}>
-        Logout
-      </a>
+      <div className="container container--narrow">
+        <div className="well">Logging out...</div>
+      </div>
     );
   }
 }

@@ -1,9 +1,11 @@
 import React, { Fragment, Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Header from './Header';
+import { NAV_LINKS } from './constants/navLinks';
+import Header from '../../components/Header';
 import List from './List';
 import Edit from './Edit';
 import Create from './Create';
+import Logout from '../users/Logout';
 
 class Fonts extends Component {
   constructor (props) {
@@ -37,7 +39,7 @@ class Fonts extends Component {
   render () {
     return (
       <Fragment>
-        <Header />
+        <Header navLinks={NAV_LINKS} />
         <main className="main main--bg-fixed container container--medium">
           <Switch>
             <Route exact path="/admin" render={(props) =>
@@ -48,6 +50,9 @@ class Fonts extends Component {
             }/>
             <Route path="/admin/fonts/:id" render={(props) =>
               <Edit fonts={this.state.fonts} onEdit={this.handleEdit} {...props} />
+            }/>
+            <Route path="/admin/logout" render={(props) =>
+              <Logout />
             }/>
             <Redirect to="/admin" />
           </Switch>
