@@ -93,7 +93,7 @@ class Header extends Component {
           <ul id="nav" className="header__links list--unstyled text--uppercase text--extra-bold">
             {this.props.navLinks.map((link, i) => {
               return (
-                <li key={i} className="header__link">
+                <li className="header__link" key={i}>
                   <NavLink
                     to={link.url}
                     exact={link.isExact}

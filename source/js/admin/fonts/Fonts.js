@@ -2,9 +2,9 @@ import React, { Fragment, Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { NAV_LINKS } from './constants/navLinks';
 import Header from '../../components/Header';
-import List from './List';
-import Edit from './Edit';
-import Create from './Create';
+import Index from './pages/Index';
+import Edit from './pages/Edit';
+import Create from './pages/Create';
 import Logout from '../users/Logout';
 
 class Fonts extends Component {
@@ -44,7 +44,7 @@ class Fonts extends Component {
         <main className="main main--bg-fixed container container--medium">
           <Switch>
             <Route exact path="/admin" component={(props) =>
-              <List fonts={this.state.fonts} onDelete={this.handleDelete} />
+              <Index fonts={this.state.fonts} onDelete={this.handleDelete} />
             }/>
             <Route path="/admin/fonts/create" component={(props) =>
               <Create onCreate={this.handleCreate} />

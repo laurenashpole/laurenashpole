@@ -21,7 +21,7 @@ class Form extends Component {
     request(this.props.action, formData, (response) => {
       if (response.success) {
         this.setState({fireRedirect: true});
-        this.props.listener(response.font);
+        this.props.onSuccess(response.font);
       } else {
         if (response.err) {
           this.handleError(response.err);

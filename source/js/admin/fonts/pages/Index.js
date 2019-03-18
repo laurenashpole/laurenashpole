@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Delete from './components/Delete';
+import Delete from '../components/Delete';
 
-const List = (props) => {
+const Index = (props) => {
   return(
     <Fragment>
       <h2 className="text--uppercase">Fonts</h2>
@@ -28,4 +28,4 @@ const List = (props) => {
   );
 };
 
-export default List;
+export default Index;
