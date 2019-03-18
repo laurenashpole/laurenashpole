@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { request } from '../../utilities/request';
+import { request } from '../../../utilities/request';
 
 class Logout extends Component {
   componentDidMount () {

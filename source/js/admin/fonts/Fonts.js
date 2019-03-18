@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Index from './pages/Index';
 import Edit from './pages/Edit';
 import Create from './pages/Create';
-import Logout from '../users/Logout';
+import Logout from '../users/pages/Logout';
 
 class Fonts extends Component {
   constructor (props) {
