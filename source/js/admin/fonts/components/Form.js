@@ -9,7 +9,7 @@ class Form extends Component {
 
     this.state = {
       error: '',
-      fireRedirect: ''
+      fireRedirect: false
     };
   }
 
@@ -20,8 +20,8 @@ class Form extends Component {
 
     request(this.props.action, formData, (response) => {
       if (response.success) {
-        this.props.listener(response.font);
         this.setState({fireRedirect: true});
+        this.props.listener(response.font);
       } else {
         if (response.err) {
           this.handleError(response.err);

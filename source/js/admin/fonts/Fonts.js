@@ -24,7 +24,7 @@ class Fonts extends Component {
 
   handleEdit = (activeFont) => {
     this.setState((prevState) => {
-      let index = prevState.fonts.findIndex((font) => font._id === activeFont._id);
+      const index = prevState.fonts.findIndex((font) => font._id === activeFont._id);
       prevState.fonts.splice(index, 1, activeFont);
       return { fonts: prevState.fonts };
     });
@@ -40,20 +40,19 @@ class Fonts extends Component {
     return (
       <Fragment>
         <Header navLinks={NAV_LINKS} />
+
         <main className="main main--bg-fixed container container--medium">
           <Switch>
-            <Route exact path="/admin" render={(props) =>
-              <List fonts={this.state.fonts} onDelete={this.handleDelete} {...props} />
+            <Route exact path="/admin" component={(props) =>
+              <List fonts={this.state.fonts} onDelete={this.handleDelete} />
             }/>
-            <Route path="/admin/fonts/create" render={(props) =>
-              <Create fonts={this.state.fonts} onCreate={this.handleCreate} {...props} />
+            <Route path="/admin/fonts/create" component={(props) =>
+              <Create onCreate={this.handleCreate} />
             }/>
-            <Route path="/admin/fonts/:id" render={(props) =>
-              <Edit fonts={this.state.fonts} onEdit={this.handleEdit} {...props} />
+            <Route path="/admin/fonts/:id" component={(props) =>
+              <Edit font={this.state.fonts.find((font) => font._id === props.match.params.id)} onEdit={this.handleEdit} />
             }/>
-            <Route path="/admin/logout" render={(props) =>
-              <Logout />
-            }/>
+            <Route path="/admin/logout" component={Logout}/>
             <Redirect to="/admin" />
           </Switch>
         </main>
