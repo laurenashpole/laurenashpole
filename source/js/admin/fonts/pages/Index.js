@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Delete from '../components/Delete';
 
 const Index = (props) => {
@@ -26,6 +27,11 @@ const Index = (props) => {
       </ul>
     </Fragment>
   );
+};
+
+Index.propTypes = {
+  fonts: PropTypes.array,
+  onDelete: PropTypes.func
 };
 
 export default Index;

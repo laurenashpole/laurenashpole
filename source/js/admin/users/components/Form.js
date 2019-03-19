@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Growl from '../../../components/Growl';
 import { request } from '../../../utilities/request';
 
@@ -63,5 +64,10 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  action: PropTypes.string,
+  buttonText: PropTypes.string
+};
 
 export default Form;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Growl from '../../../components/Growl';
 import { request } from '../../../utilities/request';
 
@@ -190,5 +191,12 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  action: PropTypes.string,
+  font: PropTypes.object,
+  buttonText: PropTypes.string,
+  onSuccess: PropTypes.func
+};
 
 export default Form;

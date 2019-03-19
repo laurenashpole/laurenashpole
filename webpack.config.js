@@ -30,6 +30,12 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'source/js/admin'),
+        loader: 'eslint-loader'
       }
     ]
   },

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Form from '../components/Form';
 
 const Create = (props) => {
@@ -8,6 +9,10 @@ const Create = (props) => {
       <Form action="/admin/fonts" buttonText="Create Font" onSuccess={props.onCreate} font={{}} />
     </Fragment>
   );
+};
+
+Create.propTypes = {
+  onCreate: PropTypes.func
 };
 
 export default Create;

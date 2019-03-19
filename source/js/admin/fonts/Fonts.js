@@ -43,10 +43,10 @@ class Fonts extends Component {
 
         <main className="main main--bg-fixed container container--medium">
           <Switch>
-            <Route exact path="/admin" component={(props) =>
+            <Route exact path="/admin" component={() =>
               <Index fonts={this.state.fonts} onDelete={this.handleDelete} />
             }/>
-            <Route path="/admin/fonts/create" component={(props) =>
+            <Route path="/admin/fonts/create" component={() =>
               <Create onCreate={this.handleCreate} />
             }/>
             <Route path="/admin/fonts/:id" component={(props) =>

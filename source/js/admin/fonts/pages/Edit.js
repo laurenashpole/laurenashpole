@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Form from '../components/Form';
 
 const Edit = (props) => {
@@ -18,6 +19,11 @@ const Edit = (props) => {
       )}
     </Fragment>
   );
+};
+
+Edit.propTypes = {
+  font: PropTypes.obect,
+  onEdit: PropTypes.func
 };
 
 export default Edit;

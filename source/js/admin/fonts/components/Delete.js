@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { request } from '../../../utilities/request';
 
 class Delete extends Component {
@@ -22,5 +23,10 @@ class Delete extends Component {
     );
   }
 }
+
+Delete.propTypes = {
+  action: PropTypes.string,
+  onDelete: PropTypes.func
+};
 
 export default Delete;
