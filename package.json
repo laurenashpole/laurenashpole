@@ -8,7 +8,7 @@
     "forever-stop": "NODE_ENV=production forever stop ./bin/www",
     "dev": "webpack",
     "watch": "webpack --watch",
-    "prod": "webpack --config webpack.config.prod.js -p",
+    "prod": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
     "deploy": "npm run prod && npm run forever-stop && npm run forever-start"
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.18",
