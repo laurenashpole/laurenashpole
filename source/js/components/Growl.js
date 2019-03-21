@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Growl = (props) => {
   return(
@@ -6,6 +7,10 @@ const Growl = (props) => {
       {props.message}
     </div>
   );
+};
+
+Growl.propTypes = {
+  message: PropTypes.string
 };
 
 export default Growl;

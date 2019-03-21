@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { NAV_LINKS } from './constants/navLinks';
 import ScrollToTop from '../components/ScrollToTop';
-import Header from './components/Header';
+import Header from '../components/Header';
 import Footer from './components/Footer';
 import Error from './components/Error';
 import Homepage from './homepage/Homepage';
@@ -31,7 +32,7 @@ class Site extends Component {
     return(
       <BrowserRouter>
         <ScrollToTop>
-          <Header />
+          <Header navLinks={NAV_LINKS} enableAnalytics={true} />
           <Switch>
             <Route exact path="/" render={(props) =>
               <Homepage fonts={this.state.fonts} {...props} />

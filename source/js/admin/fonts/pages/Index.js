@@ -19,7 +19,7 @@ const Index = (props) => {
               <h3>{font.name}</h3>
               <div className="buttons">
                 <Link className="button button--inline button--small" to={`/admin/fonts/${font._id}`}>Edit</Link>
-                <Delete action={`/admin/fonts/${font._id}?_method=DELETE`} onDelete={props.onDelete} />
+                <Delete endpoint={`/admin/fonts/${font._id}?_method=DELETE`} onDelete={props.onDelete} />
               </div>
             </li>
           );

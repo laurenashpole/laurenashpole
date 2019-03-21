@@ -1,18 +1,19 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.el = document.createElement('div');
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.getElementById(this.props.rootId).appendChild(this.el);
     document.addEventListener('keydown', this.handleKeydown, false);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.getElementById(this.props.rootId).removeChild(this.el);
     document.removeEventListener('keydown', this.handleKeydown, false);
   }
@@ -48,5 +49,12 @@ class Modal extends React.Component {
     );
   }
 }
+
+Modal.propTypes = {
+  rootId: PropTypes.string,
+  children: PropTypes.element,
+  isVisible: PropTypes.bool,
+  onCloseEvent: PropTypes.func
+};
 
 export default Modal;

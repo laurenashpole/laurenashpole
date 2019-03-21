@@ -34,7 +34,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        include: path.resolve(__dirname, 'source/js/admin'),
+        include: [
+          path.resolve(__dirname, 'source/js/admin'),
+          path.resolve(__dirname, 'source/js/components')
+        ],
         loader: 'eslint-loader'
       }
     ]

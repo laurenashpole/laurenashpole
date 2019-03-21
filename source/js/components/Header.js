@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { sendEvent } from '../utilities/analytics';
 
 class Header extends Component {
@@ -49,12 +50,12 @@ class Header extends Component {
     }
   }
 
-  handleEscapeKeydown = (e) => {
+  handleEscapeKeydown = () => {
     this.handleNavToggle();
   }
 
   handleLinkClick = (e) => {
-    if (this.props.sendEvents) {
+    if (this.props.enableAnalytics) {
       sendEvent(e);
     }
   }
@@ -94,26 +95,47 @@ class Header extends Component {
             {this.props.navLinks.map((link, i) => {
               return (
                 <li className="header__link" key={i}>
-                  <NavLink
-                    to={link.url}
-                    exact={link.isExact}
-                    title={link.label}
-                    activeClassName="is-active"
-                    innerRef={(el) => {
-                      if (i === this.props.navLinks.length - 1) {
-                        this.lastElement = el;
-                      }
-                    }}
-                    onClick={(e) => {
-                      this.handleNavToggle();
-                      this.handleLinkClick(e);
-                    }}
-                    data-ga-category="Nav Links"
-                    data-ga-action="click"
-                    data-ga-label={link.label}
-                  >
-                    {link.label}
-                  </NavLink>
+                  {link.isExternal ? (
+                    <a
+                      href={link.url}
+                      title={link.label}
+                      innerRef={(el) => {
+                        if (i === this.props.navLinks.length - 1) {
+                          this.lastElement = el;
+                        }
+                      }}
+                      onClick={(e) => {
+                        this.handleNavToggle();
+                        this.handleLinkClick(e);
+                      }}
+                      data-ga-category="Nav Links"
+                      data-ga-action="click"
+                      data-ga-label={link.label}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <NavLink
+                      to={link.url}
+                      exact={link.isExact}
+                      title={link.label}
+                      activeClassName="is-active"
+                      innerRef={(el) => {
+                        if (i === this.props.navLinks.length - 1) {
+                          this.lastElement = el;
+                        }
+                      }}
+                      onClick={(e) => {
+                        this.handleNavToggle();
+                        this.handleLinkClick(e);
+                      }}
+                      data-ga-category="Nav Links"
+                      data-ga-action="click"
+                      data-ga-label={link.label}
+                    >
+                      {link.label}
+                    </NavLink>
+                  )}
                 </li>
               );
             })}
@@ -123,5 +145,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  navLinks: PropTypes.array,
+  enableAnalytics: PropTypes.bool
+};
 
 export default Header;

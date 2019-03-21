@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { request } from '../../../utilities/request';
+import 'whatwg-fetch';
 
 class Delete extends Component {
   handleClick = (e) => {
     e.preventDefault();
 
     if (confirm('Are you sure you want to delete this font?')) {
-      request(this.props.action, {}, (response) => {
-        if (response.success) {
-          this.props.onDelete(response.font);
-        }
-      });
+      this.handleDelete();
     }
+  }
+
+  handleDelete = () => {
+    window.fetch(this.props.endpoint, {
+      credentials: 'include',
+      method: 'POST'
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+
+      this.handleError(response.status);
+    }).then((response) => {
+      if (response.success) {
+        this.props.onDelete(response.font);
+      }
+    });
   }
 
   render () {
@@ -25,7 +38,7 @@ class Delete extends Component {
 }
 
 Delete.propTypes = {
-  action: PropTypes.string,
+  endpoint: PropTypes.string,
   onDelete: PropTypes.func
 };
 
