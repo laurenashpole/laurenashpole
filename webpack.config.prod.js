@@ -8,18 +8,8 @@ let ManifestPlugin = require('webpack-manifest-plugin');
 module.exports = {
   target: 'web',
   entry: {
-    main: [
-      './assets/js/main/index.js',
-      './assets/sass/main.scss'
-    ],
-    admin: [
-      './assets/js/admin/index.js',
-      './assets/sass/admin.scss'
-    ],
-    blog: [
-      './assets/js/blog/index.js',
-      './assets/sass/blog.scss'
-    ]
+    main: './source/js/main/index.js',
+    admin: './source/js/admin/index.js'
   },
   output: {
     filename: 'js/[name].[chunkhash].js',
