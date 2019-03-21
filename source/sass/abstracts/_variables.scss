@@ -1,0 +1,45 @@
+/* Fonts */
+$font-family-default: 'museo-sans-rounded', sans-serif;
+$font-family-headings: 'museo-sans-rounded', sans-serif;
+
+/* Breakpoints */
+$break-tablet: 768px;
+$break-desktop: 1024px;
+$break-desktop-wide: 1400px;
+$break-height: 640px;
+
+/* Widths */
+$width-wide: 1200px;
+$width-medium: 960px;
+$width-narrow: 700px;
+
+/* General Colors */
+$color-white: #fff;
+$color-black: #202020;
+
+$color-gray-dark: #a7a7a7;
+$color-gray-medium: #dadada;
+$color-gray-light: #f4f4f4;
+
+$color-red: #da3725;
+$color-red-hover: #ca3321;
+
+$color-green-light: #d5e7db;
+$color-pink: #fae3e1;
+$color-blue-light: #d6ecf0;
+$color-purple: #726882;
+$color-purple-hover: #675e75;
+
+/* Component Colors */
+$bg-color-pink: $color-pink;
+$bg-color-light-blue: $color-blue-light;
+$bg-color-light-green: $color-green-light;
+
+$button-color: $color-purple;
+$button-color-hover: #675e75;
+$button-color-cta-primary: $color-red;
+
+$form-color-background: $color-gray-light;
+$form-color-primary: $color-white;
+$form-color-placeholder: $color-gray-dark;
+$form-color-error: $color-red;
