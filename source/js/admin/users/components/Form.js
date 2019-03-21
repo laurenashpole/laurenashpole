@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import 'whatwg-fetch';
 import Growl from '../../../components/Growl';
-import { request } from '../../../utilities/request';
 
 class Form extends Component {
   constructor (props) {
@@ -23,7 +23,20 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    request(this.props.action, this.state, (response) => {
+    window.fetch(this.props.endpoint, {
+      credentials: 'include',
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify(this.state)
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+
+      this.handleError(response.status);
+    }).then((response) => {
       if (response.success) {
         location.reload();
       } else {
@@ -35,12 +48,14 @@ class Form extends Component {
   }
 
   handleError = (error) => {
-    this.setState({error})
+    this.setState({
+      error: error
+    })
   }
 
   render () {
     return(
-      <form method="post" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         {this.state.error && <Growl message={this.state.error}/>}
 
         <div className="well">
@@ -66,7 +81,7 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  action: PropTypes.string,
+  endpoint: PropTypes.string,
   buttonText: PropTypes.string
 };
 

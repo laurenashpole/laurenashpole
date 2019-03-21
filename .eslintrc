@@ -5,6 +5,9 @@
       "jsx": true
     }
   },
+  "rules": {
+    "no-console": "off"
+  },
   "env": {
     "browser": true,
     "es6": true

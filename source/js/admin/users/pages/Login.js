@@ -7,7 +7,7 @@ const Login = () => {
     <Fragment>
       <h2 className="text--uppercase u--center">Login</h2>
 
-      <Form buttonText="Login" action="/admin/login" />
+      <Form endpoint="/admin/login" buttonText="Login" />
 
       <div className="login-link text--uppercase text--extra-bold u--center">
         <Link className="link--secondary" to='/admin/signup'>Signup</Link>
