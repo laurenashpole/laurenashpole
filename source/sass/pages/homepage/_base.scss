@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.homepage__hero {
+  min-height: 70vh;
+}
+
 .homepage__well {
   font-size: 17px;
   position: relative;
@@ -32,6 +36,10 @@
 }
 
 @media (min-width: 768px) {
+  .homepage__hero-img {
+    width: 66.666%;
+    padding: 0 3rem 3rem 3rem;
+  }
 
   .homepage__container {
     @include flex();

@@ -35,7 +35,7 @@ class Site extends Component {
           <Header navLinks={NAV_LINKS} enableAnalytics={true} />
           <Switch>
             <Route exact path="/" render={(props) =>
-              <Homepage fonts={this.state.fonts} {...props} />
+              <Homepage font={props.fonts.find((font) => font.slug === 'roundabout')} />
             }/>
             <Route exact path="/fonts" render={(props) =>
               <Fonts fonts={this.state.fonts} {...props} />

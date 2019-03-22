@@ -6,36 +6,23 @@ import Distributors from './components/Distributors';
 import { sendPageview } from '../../utilities/analytics';
 
 class Homepage extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      font: this.props.fonts.find((font) => font.slug === 'roundabout')
-    };
-  }
-
   componentDidMount () {
-    sendPageview();
+    // sendPageview();
   }
 
   render () {
     return(
       <main className="main main--bg-repeat homepage">
-        <section className="font__section">
-          <Hero
-            image_url={`/images/fonts/${this.state.font.image_main}`}
-            image_url_retina={`/images/fonts/${this.state.font.image_main_retina}`}
-            cta={<Cta font={this.state.font} />}
-          />
-        </section>
+        <div className="container container--large homepage__hero">
+          <div className="homepage__hero-img">
+            <img src={`/images/fonts/${this.props.font.image_main_retina}`} />
+          </div>
 
-        <section className="font__section">
-          <About />
-        </section>
+          <Cta font={this.props.font} />
+        </div>
 
-        <section className="font__section">
-          <Distributors />
-        </section>
+        <About />
+        <Distributors />
       </main>
     );
   }
