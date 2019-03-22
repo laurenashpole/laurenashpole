@@ -99,7 +99,7 @@ class Header extends Component {
                     <a
                       href={link.url}
                       title={link.label}
-                      innerRef={(el) => {
+                      ref={(el) => {
                         if (i === this.props.navLinks.length - 1) {
                           this.lastElement = el;
                         }
