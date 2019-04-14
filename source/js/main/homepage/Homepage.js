@@ -3,29 +3,28 @@ import Hero from '../components/Hero';
 import Cta from './components/Cta';
 import About from './components/About';
 import Distributors from './components/Distributors';
-import { sendPageview } from '../../utilities/analytics';
 
-class Homepage extends Component {
-  componentDidMount () {
-    // sendPageview();
-  }
-
-  render () {
-    return(
-      <main className="main main--bg-repeat homepage">
-        <div className="container container--large homepage__hero">
-          <div className="homepage__hero-img">
-            <img src={`/images/fonts/${this.props.font.image_main_retina}`} />
+const Homepage = (props) => {
+  return(
+    <main className="main">
+      <section className="hero--bg-repeat">
+        <div className="container container--large hero__container">
+          <div className="hero__img">
+            <img src={`/images/fonts/${props.font.image_main_retina}`} />
           </div>
 
-          <Cta font={this.props.font} />
+          <Cta font={props.font} />
         </div>
+      </section>
 
-        <About />
-        <Distributors />
-      </main>
-    );
-  }
-}
+      <About />
+      <Distributors />
+    </main>
+  );
+};
+
+Homepage.defaultProps = {
+  font: {}
+};
 
 export default Homepage;
