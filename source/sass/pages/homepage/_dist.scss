@@ -1,4 +1,9 @@
 .dist {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.dist__list {
   @include flex();
   @include flex-wrap(wrap);
 }
@@ -18,8 +23,7 @@
   display: block;
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   .dist__item {
     width: 25%;
     position: relative;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Distributors = (props) => {
+const Distributors = () => {
   return(
-    <section className="container container--large">
+    <section className="container container--large dist">
       <h3 className="text--uppercase u--center">Fonts also available at</h3>
 
-      <ul className="list--unstyled dist">
+      <ul className="list--unstyled dist__list">
         <li className="dist__item">
           <a href="http://creativemarket.com/laurenashpole?u=laurenashpole" className="link--no-underline dist__link">
             <img src="/images/creativemarket.png" alt="Creative Market" className="img--responsive" data-pin-nopin="true" />

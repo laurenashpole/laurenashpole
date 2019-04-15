@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Hero from '../components/Hero';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Cta from './components/Cta';
 import About from './components/About';
 import Distributors from './components/Distributors';
@@ -21,6 +21,10 @@ const Homepage = (props) => {
       <Distributors />
     </main>
   );
+};
+
+Homepage.propTypes = {
+  font: PropTypes.object
 };
 
 Homepage.defaultProps = {
