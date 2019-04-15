@@ -22,7 +22,7 @@ const Edit = (props) => {
 };
 
 Edit.propTypes = {
-  font: PropTypes.obect,
+  font: PropTypes.object,
   onEdit: PropTypes.func
 };
 

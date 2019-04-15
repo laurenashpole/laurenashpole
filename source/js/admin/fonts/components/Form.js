@@ -55,6 +55,7 @@ class Form extends Component {
       date_created,
       date_modified,
       price,
+      image,
       image_collection,
       image_main,
       image_main_retina,
@@ -107,6 +108,11 @@ class Form extends Component {
                 <img key={image} src={`/images/fonts/${image}`} width="150" height="auto" />
               )
             })}
+          </div>
+
+          <div className="form__row">
+            <input type="file" id="image" name="image" className="input input--file input--label-inset" />
+            <label htmlFor="image">Image {image && <span>({image})</span>}</label>
           </div>
 
           <div className="form__row">

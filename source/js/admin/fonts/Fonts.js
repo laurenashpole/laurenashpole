@@ -45,13 +45,13 @@ class Fonts extends Component {
           <Switch>
             <Route exact path="/admin" component={() =>
               <Index fonts={this.state.fonts} onDelete={this.handleDelete} />
-            }/>
+            } />
             <Route path="/admin/fonts/create" component={() =>
               <Create onCreate={this.handleCreate} />
-            }/>
+            } />
             <Route path="/admin/fonts/:id" component={(props) =>
               <Edit font={this.state.fonts.find((font) => font._id === props.match.params.id)} onEdit={this.handleEdit} />
-            }/>
+            } />
             <Route path="/admin/logout" component={Logout}/>
             <Redirect to="/admin" />
           </Switch>
