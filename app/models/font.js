@@ -1,7 +1,7 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-let FontSchema = new Schema({
+const FontSchema = new Schema({
   name: String,
   slug: String,
   description: String,
@@ -10,6 +10,7 @@ let FontSchema = new Schema({
   price: Number,
   image_main: String,
   image_main_retina: String,
+  image: String,
   image_collection: [],
   image_collection_thumbnails: [],
   css_file: String,

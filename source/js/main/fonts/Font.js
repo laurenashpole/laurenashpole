@@ -54,6 +54,7 @@ class Font extends Component {
             </Helmet>
             <section className="font__section">
               <Hero
+                image={this.state.font.image ? `/images/fonts/${this.state.font.image}` : null}
                 image_url={`/images/fonts/${this.state.font.image_main}`}
                 image_url_retina={`/images/fonts/${this.state.font.image_main_retina}`}
                 cta={<Cta font={this.state.font} />}
