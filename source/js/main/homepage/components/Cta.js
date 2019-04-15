@@ -5,7 +5,7 @@ import { sendEvent } from '../../../utilities/analytics';
 
 const Cta = (props) => {
   return(
-    <section className="well column--fixed column--absolute u--center">
+    <section className="well u--center hero__cta">
       <h3 className="text--uppercase">
         New font!<br/>
         {props.font.name}
