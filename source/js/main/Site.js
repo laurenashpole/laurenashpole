@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { NAV_LINKS } from './constants/navLinks';
+import { sendPageview } from '../utilities/analytics';
 import ScrollToTop from '../components/ScrollToTop';
 import Header from '../components/Header';
 import Footer from './components/Footer';
@@ -23,6 +24,8 @@ class Site extends Component {
   }
 
   componentDidMount () {
+    sendPageview();
+
     if (window.APP.settings.hideEmailModal) {
       window.localStorage.setItem('hideEmailModal', true);
     }

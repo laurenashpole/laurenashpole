@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
-import { sendPageview, sendEvent } from '../../utilities/analytics';
+import { sendEvent } from '../../utilities/analytics';
 
 class Contact extends Component {
   constructor (props) {
@@ -22,10 +22,6 @@ class Contact extends Component {
       isProcessing: false,
       isComplete: false
     };
-  }
-
-  componentDidMount () {
-    sendPageview();
   }
 
   handleChange = (e) => {

@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { sendPageview } from '../../utilities/analytics';
 
 class Licensing extends Component {
-  componentDidMount () {
-    sendPageview();
-  }
-
   render () {
     return(
       <main className="main main--bg-fixed container container--medium">

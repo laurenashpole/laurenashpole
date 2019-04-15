@@ -7,7 +7,6 @@ import Details from './components/Details';
 import Gallery from './components/Gallery';
 import Preview from './components/Preview';
 import Glyphs from './components/Glyphs';
-import { sendPageview } from '../../utilities/analytics';
 
 class Font extends Component {
   constructor (props) {
@@ -20,7 +19,6 @@ class Font extends Component {
 
   componentDidMount () {
     this.injectStylesheet();
-    sendPageview();
   }
 
   injectStylesheet = () => {
