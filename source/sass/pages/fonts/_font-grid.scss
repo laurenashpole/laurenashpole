@@ -28,6 +28,12 @@
   color: $color-black;
 }
 
+.font-grid__image--vector {
+  margin: 0 7.5% 15% 7.5%;
+  position: relative;
+  z-index: 1;
+}
+
 .font-grid__image {
   position: relative;
   margin-top: -6.5rem;
