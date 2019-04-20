@@ -126,7 +126,7 @@ class Form extends Component {
           </div>
 
           <div className="form__row">
-            <div className="input input--label-inset">
+            <div className="input input--label-inset input--checkbox">
               <label className="input__checkbox-label">
                 <input type="checkbox" name="personal_file[ttf][is_included]" className="input__checkbox" value="true" defaultChecked={personal_file ? personal_file.ttf.is_included : false} />
                 TrueType Font
@@ -141,7 +141,7 @@ class Form extends Component {
           </div>
 
           <div className="form__row">
-            <div className="input input--label-inset">
+            <div className="input input--label-inset input--checkbox">
               <label className="input__checkbox-label">
                 <input type="checkbox" name="commercial_file[ttf][is_included]" className="input__checkbox" value="true" defaultChecked={commercial_file ? commercial_file.ttf.is_included : false} />
                 TrueType Font

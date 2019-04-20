@@ -50,7 +50,7 @@ class Fonts extends Component {
               <Create onCreate={this.handleCreate} />
             } />
             <Route path="/admin/fonts/:id" component={(props) =>
-              <Edit font={this.state.fonts.find((font) => font._id === props.match.params.id)} onEdit={this.handleEdit} />
+              <Edit font={this.state.fonts.filter((font) => font._id === props.match.params.id)[0]} onEdit={this.handleEdit} />
             } />
             <Route path="/admin/logout" component={Logout}/>
             <Redirect to="/admin" />

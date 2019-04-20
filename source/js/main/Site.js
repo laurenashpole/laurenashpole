@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { NAV_LINKS } from './constants/navLinks';
+import { sendPageview } from '../utilities/analytics';
 import ScrollToTop from '../components/ScrollToTop';
 import Header from '../components/Header';
 import Footer from './components/Footer';
@@ -23,6 +24,8 @@ class Site extends Component {
   }
 
   componentDidMount () {
+    sendPageview();
+
     if (window.APP.settings.hideEmailModal) {
       window.localStorage.setItem('hideEmailModal', true);
     }
@@ -35,7 +38,7 @@ class Site extends Component {
           <Header navLinks={NAV_LINKS} enableAnalytics={true} />
           <Switch>
             <Route exact path="/" render={(props) =>
-              <Homepage fonts={this.state.fonts} {...props} />
+              <Homepage font={this.state.fonts.filter((font) => font.slug === 'mistletoe')[0]} />
             }/>
             <Route exact path="/fonts" render={(props) =>
               <Fonts fonts={this.state.fonts} {...props} />

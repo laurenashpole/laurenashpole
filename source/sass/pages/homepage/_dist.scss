@@ -1,11 +1,16 @@
 .dist {
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+}
+
+.dist__list {
   @include flex();
   @include flex-wrap(wrap);
 }
 
 .dist__item {
   width: 50%;
-  padding: 1rem 5%;
+  padding: 2.5rem 1.5rem;
   @include flex();
   @include flex-align(center);
 }
@@ -18,7 +23,11 @@
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $break-tablet) {
+  .dist {
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
+  }
 
   .dist__item {
     width: 25%;

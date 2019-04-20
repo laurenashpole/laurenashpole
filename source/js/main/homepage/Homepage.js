@@ -1,44 +1,25 @@
-import React, { Component } from 'react';
-import Hero from '../components/Hero';
-import Cta from './components/Cta';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Hero from './components/Hero';
 import About from './components/About';
 import Distributors from './components/Distributors';
-import { sendPageview } from '../../utilities/analytics';
 
-class Homepage extends Component {
-  constructor (props) {
-    super(props);
+const Homepage = (props) => {
+  return(
+    <main className="main">
+      <Hero font={props.font} />
+      <About />
+      <Distributors />
+    </main>
+  );
+};
 
-    this.state = {
-      font: this.props.fonts.find((font) => font.slug === 'mistletoe')
-    };
-  }
+Homepage.propTypes = {
+  font: PropTypes.object
+};
 
-  componentDidMount () {
-    sendPageview();
-  }
-
-  render () {
-    return(
-      <main className="main">
-        <section className="font__section">
-          <Hero
-            image_url={`/images/fonts/${this.state.font.image_main}`}
-            image_url_retina={`/images/fonts/${this.state.font.image_main_retina}`}
-            cta={<Cta font={this.state.font} />}
-          />
-        </section>
-
-        <section className="font__section">
-          <About />
-        </section>
-
-        <section className="font__section">
-          <Distributors />
-        </section>
-      </main>
-    );
-  }
-}
+Homepage.defaultProps = {
+  font: {}
+};
 
 export default Homepage;

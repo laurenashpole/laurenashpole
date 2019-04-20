@@ -6,7 +6,7 @@ h5,
 h6 {
   width: 100%;
   margin: 0 0 1.5rem 0;
-  line-height: 1.5rem;
+  line-height: 1.5em;
   font-family: $font-family-headings;
   font-weight: 900;
   letter-spacing: 0.03em;
@@ -42,12 +42,12 @@ h6 {
 
 p {
   margin: 0 0 1.5rem 0;
-  line-height: 1.5rem;
+  line-height: 1.5em;
 }
 
 blockquote {
   margin: 1.5rem 0;
-  line-height: 1.5rem;
+  line-height: 1.5em;
 }
 
 code {
@@ -79,8 +79,7 @@ h3.text--uppercase {
   font-size: 0.6rem;
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   h1 {
     margin-bottom: 3rem;
   }
