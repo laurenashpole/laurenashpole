@@ -28,24 +28,18 @@
   color: $color-black;
 }
 
-.font-grid__image--vector {
-  width: 85%;
-  margin: 0 7.5% 15% 7.5%;
-  position: relative;
-  z-index: 1;
-}
-
 .font-grid__image {
   position: relative;
   margin-top: -6.5rem;
   @include transition(transform 0.3s);
+}
 
-  figure {
-    margin-right: 7.5%;
-    margin-left: 7.5%;
-    position: relative;
-    z-index: 1;
-  }
+
+.font-grid__img {
+  width: 85%;
+  margin: 0 7.5% 15% 7.5%;
+  position: relative;
+  z-index: 1;
 }
 
 .font-grid__bg {

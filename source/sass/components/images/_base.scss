@@ -21,14 +21,9 @@ img {
 }
 
 .img--hero {
+  width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.img--hero-vector {
-  width: 100%;
   padding: 0 0.75rem 1.5rem 0.75rem;
   position: relative;
   z-index: 1;
@@ -43,7 +38,7 @@ img {
 }
 
 @media (min-width: $break-desktop) {
-  .img--hero-vector {
+  .img--hero {
     padding: 0;
   }
 }

@@ -8,8 +8,6 @@ const FontSchema = new Schema({
   date_created: String,
   date_modified: String,
   price: Number,
-  image_main: String,
-  image_main_retina: String,
   image: String,
   image_collection: [],
   image_collection_thumbnails: [],

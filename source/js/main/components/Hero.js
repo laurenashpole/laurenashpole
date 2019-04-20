@@ -9,18 +9,7 @@ const Hero = (props) => {
           <path fill="currentColor" stroke="none" d="M183.6,414.2c-32.8-5.4-20.7-42.9-36.6-62c-19.5-23.3-63.6-23.1-91.4-27.4c-54.9-8.4-80.7-22.7-20.2-47.8 c72-29.9,138.8-54.5,199.4-106.3c33.7-28.7,61.3-62.4,89.3-96.6c16.8-20.6,43-63.5,70.6-71c83.2-22.5,45.2,107.2,81.3,136 c17.5,14,51,2.1,67,18.9c18.3,19.3,3,61.1-5.3,83.3C487.5,375.9,316,435.9,183.6,414.2z"/>
         </svg>
 
-        {props.image ? (
-          <img className="img--hero img--hero-vector" src={`${props.image}`} />
-        ) : (
-          <Fragment>
-            <span className="img--hero img--default">
-              <figure className="img--bg" style={{backgroundImage: `url(${props.image_url})`}}></figure>
-            </span>
-            <span className="img--hero img--retina">
-              <figure className="img--bg" style={{backgroundImage: `url(${props.image_url_retina})`}}></figure>
-            </span>
-          </Fragment>
-        )}
+        <img className="img--hero" src={`${props.image}`} alt={`${props.name} Sample Characters`} />
       </div>
 
       {props.cta}
