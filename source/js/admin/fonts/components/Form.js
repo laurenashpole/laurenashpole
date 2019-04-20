@@ -57,8 +57,6 @@ class Form extends Component {
       price,
       image,
       image_collection,
-      image_main,
-      image_main_retina,
       personal_file,
       commercial_file,
       css_file,
@@ -102,27 +100,17 @@ class Form extends Component {
             <label htmlFor="imageCollection">Image Collection</label>
           </div>
 
-          <div className="form__row">
-            {image_collection && image_collection.map((image) => {
-              return (
-                <img key={image} src={`/images/fonts/${image}`} width="150" height="auto" />
-              )
-            })}
-          </div>
+          {image_collection && image_collection.length > 0 &&
+            <div className="form__row form__images">
+              {image_collection.map((image) => {
+                return <img key={image} src={`/images/fonts/${image}`} />;
+              })}
+            </div>
+          }
 
           <div className="form__row">
             <input type="file" id="image" name="image" className="input input--file input--label-inset" />
             <label htmlFor="image">Image {image && <span>({image})</span>}</label>
-          </div>
-
-          <div className="form__row">
-            <input type="file" id="imageMain" name="image_main" className="input input--file input--label-inset" />
-            <label htmlFor="imageMain">Image Main {image_main && <span>({image_main})</span>}</label>
-          </div>
-
-          <div className="form__row">
-            <input type="file" id="imageMainRetina" name="image_main_retina" className="input input--file input--label-inset" />
-            <label htmlFor="imageMainRetina">Image Main Retina {image_main_retina && <span>({image_main_retina})</span>}</label>
           </div>
 
           <div className="form__row">

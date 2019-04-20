@@ -17,3 +17,17 @@
 .buttons {
   display: flex;
 }
+
+.form__images {
+  white-space: nowrap;
+  overflow-y: auto;
+
+  img {
+    width: 150px;
+    height: auto;
+
+    & + img {
+      margin-left: 10px;
+    }
+  }
+}

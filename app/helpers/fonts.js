@@ -219,11 +219,9 @@ let _deleteFile = function (res, file, directory) {
 let _deleteFiles = function (res, font, finalCallback) {
   let files = {
     images: [
-      font.image_collection,
-      font.image_collection_thumbnails,
       font.image,
-      font.image_main,
-      font.image_main_retina
+      font.image_collection,
+      font.image_collection_thumbnails
     ],
     css: [
       font.css_file
