@@ -25,6 +25,6 @@ const Eula = () => {
       </div>
     </main>
   );
-}
+};
 
 export default Eula;
