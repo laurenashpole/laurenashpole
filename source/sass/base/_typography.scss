@@ -14,18 +14,18 @@ h6 {
 
 h1 {
   font-size: 2.828rem;
-  line-height: 3em;
+  line-height: 3rem;
 }
 
 h2 {
   margin-bottom: 2rem;
   font-size: 2.167rem;
-  line-height: 3em;
+  line-height: 3rem;
 }
 
 h3 {
   font-size: 1.414rem;
-  line-height: 2em;
+  line-height: 2rem;
 }
 
 h4 {
@@ -79,8 +79,7 @@ h3.text--uppercase {
   font-size: 0.6rem;
 }
 
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   h1 {
     margin-bottom: 3rem;
   }
