@@ -3,9 +3,30 @@ const amp = require('../controllers/amp');
 const mailing = require('../controllers/api/mailing');
 const contacts = require('../controllers/api/contact');
 const payments = require('../controllers/api/payments');
+const mcache = require('memory-cache');
 
 module.exports = function (app, multer) {
   const multipart = multer();
+
+  const cache = function (key, duration) {
+    return (req, res, next) => {
+      const cachedBody = mcache.get(key);
+
+      if (cachedBody) {
+        res.send(cachedBody);
+        return;
+      } else {
+        res.sendResponse = res.send;
+
+        res.send = (body) => {
+          mcache.put(key, body, duration * 1000);
+          res.sendResponse(body)
+        }
+
+        return next();
+      }
+    }
+  }
 
   // Contact
   app.post('/contact/send', contacts.send);
@@ -81,5 +102,5 @@ module.exports = function (app, multer) {
   });
 
   // Home
-  app.get('*', index.render);
+  app.get('*', cache('main', 604800), index.render);
 };

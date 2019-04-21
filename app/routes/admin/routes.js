@@ -16,7 +16,7 @@ module.exports = function (app, passport, multer) {
   };
 
   const authenticate = function (req, res, next, strategy) {
-    passport.authenticate(strategy, function (err, user, info) {
+    passport.authenticate(strategy, (err, user, info) => {
       if (err) {
         return next(err);
       }
@@ -26,7 +26,7 @@ module.exports = function (app, passport, multer) {
         return next();
       }
 
-      req.logIn(user, function (err) {
+      req.logIn(user, (err) => {
         if (err) {
           return next(err);
         }
