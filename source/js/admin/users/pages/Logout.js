@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import { request } from '../../../utilities/request';
+import 'whatwg-fetch';
 
 class Logout extends Component {
   componentDidMount () {
-    request('/admin/logout', {}, function (response) {
+    window.fetch('/admin/logout', {
+      credentials: 'include',
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    }).then((response) => {
       if (response.success) {
         location.reload();
       }

@@ -93,45 +93,34 @@ class Header extends Component {
 
           <ul id="nav" className="header__links list--unstyled text--uppercase text--extra-bold">
             {this.props.navLinks.map((link, i) => {
+              const baseAttributes = {
+                title: link.label,
+                ref: (el) => {
+                  if (i === this.props.navLinks.length - 1) {
+                    this.lastElement = el;
+                  }
+                },
+                onClick: (e) => {
+                  this.handleNavToggle();
+                  this.handleLinkClick(e);
+                },
+                'data-ga-category': 'Nav Links',
+                'data-ga-action': 'click',
+                'data-ga-label': link.label
+              };
+
               return (
                 <li className="header__link" key={i}>
                   {link.isExternal ? (
-                    <a
-                      href={link.url}
-                      title={link.label}
-                      ref={(el) => {
-                        if (i === this.props.navLinks.length - 1) {
-                          this.lastElement = el;
-                        }
-                      }}
-                      onClick={(e) => {
-                        this.handleNavToggle();
-                        this.handleLinkClick(e);
-                      }}
-                      data-ga-category="Nav Links"
-                      data-ga-action="click"
-                      data-ga-label={link.label}
-                    >
+                    <a href={link.url} {...baseAttributes} >
                       {link.label}
                     </a>
                   ) : (
                     <NavLink
                       to={link.url}
                       exact={link.isExact}
-                      title={link.label}
                       activeClassName="is-active"
-                      innerRef={(el) => {
-                        if (i === this.props.navLinks.length - 1) {
-                          this.lastElement = el;
-                        }
-                      }}
-                      onClick={(e) => {
-                        this.handleNavToggle();
-                        this.handleLinkClick(e);
-                      }}
-                      data-ga-category="Nav Links"
-                      data-ga-action="click"
-                      data-ga-label={link.label}
+                      {...baseAttributes}
                     >
                       {link.label}
                     </NavLink>
