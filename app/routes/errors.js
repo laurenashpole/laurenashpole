@@ -1,5 +1,5 @@
 module.exports = function (app) {
-  app.use(function (req, res, next) {
+  app.use((req, res, next) => {
     let err = new Error('Oops!');
     err.status = 404;
     next(err);
@@ -7,7 +7,7 @@ module.exports = function (app) {
 
   // Development
   if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
+    app.use((err, req, res, next) => {
       res.status(err.status || 500);
       res.render('error', {
         message: err.message,
@@ -17,7 +17,7 @@ module.exports = function (app) {
   }
 
   // Production
-  app.use(function (err, req, res, next) {
+  app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

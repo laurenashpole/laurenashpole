@@ -1,11 +1,11 @@
-let index = require('../controllers/index');
-let amp = require('../controllers/amp');
-let mailing = require('../controllers/api/mailing');
-let contacts = require('../controllers/api/contact');
-let payments = require('../controllers/api/payments');
+const index = require('../controllers/index');
+const amp = require('../controllers/amp');
+const mailing = require('../controllers/api/mailing');
+const contacts = require('../controllers/api/contact');
+const payments = require('../controllers/api/payments');
 
 module.exports = function (app, multer) {
-  let multipart = multer();
+  const multipart = multer();
 
   // Contact
   app.post('/contact/send', contacts.send);
@@ -24,59 +24,59 @@ module.exports = function (app, multer) {
   app.post('/amp/mailing/signup', multipart.fields([]), amp.mailing);
 
   // Legacy Redirects
-  app.get('/downloads', function (req, res) {
+  app.get('/downloads', (req, res) => {
     res.redirect('/fonts');
   });
 
-  app.get('/fonts.html', function (req, res) {
+  app.get('/fonts.html', (req, res) => {
     res.redirect('/fonts');
   });
 
-  app.get('/font39smooth.html', function (req, res) {
+  app.get('/font39smooth.html', (req, res) => {
     res.redirect('/fonts/39-smooth');
   });
 
-  app.get('/fontbikes.html', function (req, res) {
+  app.get('/fontbikes.html', (req, res) => {
     res.redirect('/fonts/bikes');
   });
 
-  app.get('/fontcandy.html', function (req, res) {
+  app.get('/fontcandy.html', (req, res) => {
     res.redirect('/fonts/candy-randy');
   });
 
-  app.get('/fonthecubus.html', function (req, res) {
+  app.get('/fonthecubus.html', (req, res) => {
     res.redirect('/fonts/hecubus');
   });
 
-  app.get('/fontsewing.html', function (req, res) {
+  app.get('/fontsewing.html', (req, res) => {
     res.redirect('/fonts/sewing-patterns');
   });
 
-  app.get('/fontsewing2.html', function (req, res) {
+  app.get('/fontsewing2.html', (req, res) => {
     res.redirect('/fonts/sewing-patterns-2');
   });
 
-  app.get('/downloads/thirty-nine-smooth', function (req, res) {
+  app.get('/downloads/thirty-nine-smooth', (req, res) => {
     res.redirect('/fonts/39-smooth');
   });
 
-  app.get('/downloads/sewing-patterns-two', function (req, res) {
+  app.get('/downloads/sewing-patterns-two', (req, res) => {
     res.redirect('/fonts/sewing-patterns-2');
   });
 
-  app.get('/downloads/:font_slug', function (req, res) {
+  app.get('/downloads/:font_slug', (req, res) => {
     res.redirect('/fonts/' + req.params.font_slug);
   });
 
-  app.get('/licensing', function (req, res) {
+  app.get('/licensing', (req, res) => {
     res.redirect('/fonts/licensing');
   });
 
-  app.get('/licensing.html', function (req, res) {
+  app.get('/licensing.html', (req, res) => {
     res.redirect('/fonts/licensing');
   });
 
-  app.get('/eula', function (req, res) {
+  app.get('/eula', (req, res) => {
     res.redirect('/fonts/eula');
   });
 
