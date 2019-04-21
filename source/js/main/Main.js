@@ -15,7 +15,7 @@ import Eula from './fonts/Eula';
 import Confirmation from './fonts/Confirmation';
 import '../../sass/main.scss';
 
-const Site = (props) => {
+const Main = (props) => {
   const {
     fonts
   } = props;
@@ -49,8 +49,8 @@ const Site = (props) => {
   );
 };
 
-Site.propTypes = {
+Main.propTypes = {
   fonts: PropTypes.array
 };
 
-export default Site;
+export default Main;
