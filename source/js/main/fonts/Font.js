@@ -13,7 +13,7 @@ class Font extends Component {
     super(props);
 
     this.state = {
-      font: this.props.fonts.find((font) => font.slug === this.props.match.params.slug)
+      font: this.props.fonts.filter((font) => font.slug === this.props.match.params.slug)[0]
     };
   }
 
