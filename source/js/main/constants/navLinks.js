@@ -10,7 +10,6 @@ export const NAV_LINKS = [
   },
   {
     url: '/contact',
-    label: 'Contact',
-    isExact: true
+    label: 'Contact'
   }
 ];

@@ -1,5 +1,5 @@
-let fontHelper = require('../../helpers/fonts');
-var paymentHelper = require('../../helpers/payments');
+const fontHelper = require('../../helpers/fonts');
+const paymentHelper = require('../../helpers/payments');
 
 exports.create = function (req, res) {
   paymentHelper.create(req.body)
@@ -8,7 +8,7 @@ exports.create = function (req, res) {
 };
 
 exports.confirm = function (req, res) {
-  let data = {
+  const data = {
     font: req.body || {},
     paymentId: req.query['paymentId'] || '',
     payerId: req.query['PayerID'] || ''

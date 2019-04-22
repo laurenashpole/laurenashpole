@@ -1,5 +1,5 @@
-let request = require('superagent');
-let mailchimpConfig = require('../../config/config')()['mailchimp'];
+const request = require('superagent');
+const mailchimpConfig = require('../../config/config')()['mailchimp'];
 
 exports.signup = function (req, res) {
   let response = {
@@ -21,14 +21,6 @@ exports.signup = function (req, res) {
     response.err = 'Valid email required!';
     res.statusCode = 403;
     res.json(response);
-  }
-
-  if (/\/amp\//.test(req.path)) {
-    res.setHeader('Content-type', 'application/json');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
-    res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
   }
 
   if (/\/\/blog/.test(req.headers.origin)) {

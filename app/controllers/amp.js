@@ -1,9 +1,9 @@
-let path = require('path');
-let fs = require('fs');
-let request = require('superagent');
-let mailchimpConfig = require('../config/config')()['mailchimp'];
-let fontHelper = require('../helpers/fonts');
-let paymentHelper = require('../helpers/payments');
+const path = require('path');
+const fs = require('fs');
+const request = require('superagent');
+const mailchimpConfig = require('../config/config')()['mailchimp'];
+const fontHelper = require('../helpers/fonts');
+const paymentHelper = require('../helpers/payments');
 
 exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
@@ -16,8 +16,8 @@ exports.render = function (req, res, next) {
         }
 
         if (font.css_file) {
-          let filePath = path.resolve('./public/css/fonts/', font.css_file);
-          let cssString = fs.readFileSync(filePath);
+          const filePath = path.resolve('./public/css/fonts/', font.css_file);
+          const cssString = fs.readFileSync(filePath);
 
           if (cssString) {
             font.css_string = cssString.toString();
@@ -39,7 +39,7 @@ exports.render = function (req, res, next) {
 };
 
 exports.update = function (req, res) {
-  let response = {
+  const response = {
     example: req.body.example ? req.body.example : '',
     size: req.body.size ? req.body.size : '60'
   };

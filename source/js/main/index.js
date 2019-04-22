@@ -1,9 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Site from './Site';
-import '../../sass/main.scss';
+import { sendPageview } from '../utilities/analytics';
+import { getUrlParameter } from '../utilities/getUrlParameter';
+import Main from './Main';
+
+const fromMailChimp = getUrlParameter('mc_cid');
+const fonts = window.APP.fonts || {};
+
+sendPageview();
+
+if (fromMailChimp) {
+  window.localStorage.setItem('hideEmailModal', true);
+}
 
 render(
-  <Site />,
+  <Main fonts={fonts} />,
   document.getElementById('root')
 );

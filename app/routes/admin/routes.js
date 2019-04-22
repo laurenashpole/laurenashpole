@@ -1,13 +1,13 @@
-let admin = require('../../controllers/admin');
-let users = require('../../controllers/api/users');
-let fonts = require('../../controllers/api/fonts');
+const admin = require('../../controllers/admin');
+const users = require('../../controllers/api/users');
+const fonts = require('../../controllers/api/fonts');
 
 module.exports = function (app, passport, multer) {
-  let upload = multer({
+  const upload = multer({
     dest: './temp/'
   });
 
-  let isAuthenticated = function (req, res, next) {
+  const isAuthenticated = function (req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
@@ -15,8 +15,8 @@ module.exports = function (app, passport, multer) {
     res.redirect('/admin');
   };
 
-  let authenticate = function (req, res, next, strategy) {
-    passport.authenticate(strategy, function (err, user, info) {
+  const authenticate = function (req, res, next, strategy) {
+    passport.authenticate(strategy, (err, user, info) => {
       if (err) {
         return next(err);
       }
@@ -26,7 +26,7 @@ module.exports = function (app, passport, multer) {
         return next();
       }
 
-      req.logIn(user, function (err) {
+      req.logIn(user, (err) => {
         if (err) {
           return next(err);
         }

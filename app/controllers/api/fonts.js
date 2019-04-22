@@ -1,5 +1,5 @@
-let Font = require('../../models/font');
-let fontHelper = require('../../helpers/fonts');
+const Font = require('../../models/font');
+const fontHelper = require('../../helpers/fonts');
 
 exports.find = function (req, res) {
   fontHelper.findAll()
@@ -11,7 +11,7 @@ exports.find = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  let font = new Font(req.body);
+  const font = new Font(req.body);
 
   fontHelper.updateFont(req, res, font, true)
     .then((data) => res.json(data))
