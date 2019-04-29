@@ -15,7 +15,7 @@ class Contact extends Component {
       message: '',
       error: '',
       inputErrors: {
-        senderEemail: false,
+        senderEmail: false,
         senderName: false,
         message: false
       },

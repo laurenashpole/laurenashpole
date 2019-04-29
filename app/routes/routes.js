@@ -12,7 +12,7 @@ module.exports = function (app, multer) {
     return (req, res, next) => {
       const cachedBody = mcache.get(key);
 
-      if (cachedBody) {
+      if (!req.query.preview && cachedBody) {
         res.send(cachedBody);
         return;
       } else {

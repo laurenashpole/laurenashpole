@@ -36,7 +36,8 @@ module.exports = {
         exclude: /node_modules/,
         include: [
           path.resolve(__dirname, 'source/js/admin'),
-          path.resolve(__dirname, 'source/js/components')
+          path.resolve(__dirname, 'source/js/components'),
+          path.resolve(__dirname, 'source/js/homepage')
         ],
         loader: 'eslint-loader'
       }
