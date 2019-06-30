@@ -50,7 +50,7 @@
   margin: 8px;
   display: block;
   position: relative;
-  transform: rotate(45deg);
+  @include transform(rotate(45deg));
 
   &:before,
   &:after {
@@ -66,7 +66,7 @@
   }
 
   &:after {
-    transform: rotate(90deg);
+    @include transform(rotate(90deg));
   }
 }
 
@@ -101,12 +101,12 @@
 .fonts__grid-img {
   width: 95%;
   margin: -6.5rem auto 1.5rem auto;
-  transform: scale(0.95);
+  @include transform(scale(0.95));
   @include transition(transform 0.3s);
 }
 
 .fonts__grid-link:hover .fonts__grid-img {
-  transform: scale(1);
+  @include transform(scale(1));
 }
 
 .fonts__grid-empty {

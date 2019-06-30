@@ -91,7 +91,6 @@ class Fonts extends Component {
               <p>So be sure to check back periodically or sign up for my mailing list.</p>
             </div>
 
-
             <div className="fonts__next-img">
               <img className="img--responsive" src="/images/next-font.png" alt="A preview of my next font!" />
             </div>

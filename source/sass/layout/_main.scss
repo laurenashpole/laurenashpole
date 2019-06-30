@@ -54,7 +54,7 @@
     top: 0;
     left: 0;
     z-index: -2;
-    transform: scaleX(-1);
+    @include transform(scaleX(-1));
   }
 }
 
