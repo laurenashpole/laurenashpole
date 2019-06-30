@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Error from './components/Error';
 import Homepage from './homepage/Homepage';
 import Contact from './contact/Contact';
-import Fonts from './fonts/Fonts';
+import Fonts from './fonts/pages/Fonts';
 import Font from './fonts/Font';
 import Licensing from './fonts/Licensing';
 import Eula from './fonts/Eula';
