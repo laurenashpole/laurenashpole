@@ -39,7 +39,7 @@ class Font extends Component {
           <main className="main css-loading" ref={(el) => { this.main = el; }}>
             <Helmet>
               <title>{`${this.state.font.name} - Fonts - Lauren Ashpole`}</title>
-              <link rel="amphtml" href={`https://www.laurenashpole/amp/fonts/${this.state.font.slug}`} />
+              <link rel="amphtml" href={`https://www.laurenashpole.com/amp/fonts/${this.state.font.slug}`} />
               <meta name="description" content={`Download the ${this.state.font.name} font free for personal use or buy a license for all your commercial use needs`} />
               <meta property="og:type" content="product" />
               <meta property="og:title" content={this.state.font.name} />

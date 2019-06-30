@@ -24,6 +24,10 @@
   max-width: 1200px;
 }
 
+.container--x-large {
+  max-width: $break-desktop-wide;
+}
+
 @media (min-width: $break-tablet) {
   .container {
     padding-right: 1rem;
