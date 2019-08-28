@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 class Preview extends Component {
   constructor (props) {
@@ -71,5 +72,9 @@ class Preview extends Component {
     );
   }
 }
+
+Preview.propTypes = {
+  font: PropTypes.object
+};
 
 export default Preview;

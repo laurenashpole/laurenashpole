@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Purchase from './Purchase';
 import Download from './Download';
 
@@ -36,6 +37,10 @@ const Cta = (props) => {
       </ul>
     </section>
   );
+};
+
+Cta.propTypes = {
+  font: PropTypes.object
 };
 
 export default Cta;

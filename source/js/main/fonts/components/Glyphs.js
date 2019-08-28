@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Glyphs extends Component {
   constructor (props) {
@@ -38,7 +39,7 @@ class Glyphs extends Component {
                   <span className="font-glyphs__key">!</span>!
                 </div>
                 <div className="font-glyphs__char is-symbol">
-                  <span className="font-glyphs__key">"</span>"
+                  <span className="font-glyphs__key">&quot;</span>&quot;
                 </div>
                 <div className="font-glyphs__char is-symbol">
                   <span className="font-glyphs__key">#</span>#
@@ -53,7 +54,7 @@ class Glyphs extends Component {
                   <span className="font-glyphs__key">&amp;</span>&amp;
                 </div>
                 <div className="font-glyphs__char is-symbol">
-                  <span className="font-glyphs__key">'</span>'
+                  <span className="font-glyphs__key">&apos;</span>&apos;
                 </div>
                 <div className="font-glyphs__char is-symbol">
                   <span className="font-glyphs__key">(</span>(
@@ -657,5 +658,9 @@ class Glyphs extends Component {
     );
   }
 }
+
+Glyphs.propTypes = {
+  font: PropTypes.object
+};
 
 export default Glyphs;

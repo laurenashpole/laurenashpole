@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+
 import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { request } from '../../../utilities/request';
 
@@ -70,5 +72,11 @@ class Confirmation extends Component {
     );
   }
 }
+
+Confirmation.propTypes = {
+  fonts: PropTypes.array,
+  match: PropTypes.object,
+  location: PropTypes.object
+};
 
 export default Confirmation;

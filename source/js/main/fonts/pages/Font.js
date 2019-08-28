@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Hero from '../components/Hero';
@@ -66,7 +67,7 @@ class Font extends Component {
           <main className="main main--bg-fixed container container--medium">
             <div className="well well--extra-padding">
               <h2>Font not found.</h2>
-              <p>Sorry, there's no font called {this.props.match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>
+              <p>Sorry, there&apos;s no font called {this.props.match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>
             </div>
           </main>
         )}
@@ -74,5 +75,10 @@ class Font extends Component {
     );
   }
 }
+
+Font.propTypes = {
+  fonts: PropTypes.array,
+  match: PropTypes.object
+};
 
 export default Font;

@@ -30,7 +30,7 @@ class Contact extends Component {
     });
   }
 
-  handleFocus = (e) => {
+  handleFocus = () => {
     this.setState({
       inputErrors: {
         senderEmail: false,
@@ -115,7 +115,7 @@ class Contact extends Component {
             {this.state.isComplete ? (
               <Fragment>
                 <h3>Thanks for your message!</h3>
-                <div>I'll get back to you shortly.</div>
+                <div>I&apos;ll get back to you shortly.</div>
               </Fragment>
             ) : (
               <Fragment>

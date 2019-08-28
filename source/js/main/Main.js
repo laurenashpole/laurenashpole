@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { NAV_LINKS } from './constants/navLinks';
 import ScrollToTop from '../components/ScrollToTop';
@@ -26,7 +26,7 @@ const Main = (props) => {
         <Header navLinks={NAV_LINKS} enableAnalytics={true} />
 
         <Switch>
-          <Route exact path="/" render={(props) =>
+          <Route exact path="/" render={() =>
             <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
           }/>
           <Route exact path="/fonts" render={(props) =>
