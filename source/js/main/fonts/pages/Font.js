@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Hero from '../components/Hero';
-import Cta from './components/Cta';
-import Details from './components/Details';
-import Gallery from './components/Gallery';
-import Preview from './components/Preview';
-import Glyphs from './components/Glyphs';
+import Cta from '../components/Cta';
+import Details from '../components/Details';
+import Gallery from '../components/Gallery';
+import Preview from '../components/Preview';
+import Glyphs from '../components/Glyphs';
 
 class Font extends Component {
   constructor (props) {

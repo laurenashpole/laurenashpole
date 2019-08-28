@@ -7,7 +7,10 @@ class ScrollToTop extends Component {
   componentDidUpdate (prevProps) {
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
-      sendPageview();
+
+      if (this.props.enableAnalytics) {
+        sendPageview();
+      }
     }
   }
 
@@ -18,7 +21,8 @@ class ScrollToTop extends Component {
 
 ScrollToTop.propTypes = {
   location: PropTypes.object,
-  children: PropTypes.node
+  children: PropTypes.any,
+  enableAnalytics: PropTypes.bool
 };
 
 export default withRouter(ScrollToTop)

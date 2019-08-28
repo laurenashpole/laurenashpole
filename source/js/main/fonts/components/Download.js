@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import Modal from '../../../components/Modal';
 import Mailing from '../../components/Mailing';
+import Modal from './Modal';
 import { sendEvent } from '../../../utilities/analytics';
 
 class Download extends Component {
