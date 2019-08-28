@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Hero = (props) => {
   return(
@@ -15,6 +16,12 @@ const Hero = (props) => {
       {props.cta}
     </div>
   );
+};
+
+Hero.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  cta: PropTypes.element
 };
 
 export default Hero;

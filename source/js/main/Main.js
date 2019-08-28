@@ -1,18 +1,18 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { NAV_LINKS } from './constants/navLinks';
 import ScrollToTop from '../components/ScrollToTop';
 import Header from '../components/Header';
 import Footer from './components/Footer';
-import Error from './components/Error';
+import Error from './error/Error';
 import Homepage from './homepage/Homepage';
 import Contact from './contact/Contact';
 import Fonts from './fonts/pages/Fonts';
-import Font from './fonts/Font';
-import Licensing from './fonts/Licensing';
-import Eula from './fonts/Eula';
-import Confirmation from './fonts/Confirmation';
+import Font from './fonts/pages/Font';
+import Licensing from './fonts/pages/Licensing';
+import Eula from './fonts/pages/Eula';
+import Confirmation from './fonts/pages/Confirmation';
 import '../../sass/main.scss';
 
 const Main = (props) => {
@@ -22,11 +22,11 @@ const Main = (props) => {
 
   return(
     <BrowserRouter>
-      <ScrollToTop>
+      <ScrollToTop enableAnalytics={true}>
         <Header navLinks={NAV_LINKS} enableAnalytics={true} />
 
         <Switch>
-          <Route exact path="/" render={(props) =>
+          <Route exact path="/" render={() =>
             <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
           }/>
           <Route exact path="/fonts" render={(props) =>

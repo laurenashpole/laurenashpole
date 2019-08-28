@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Gallery extends Component {
   constructor (props) {
@@ -49,5 +50,9 @@ class Gallery extends Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  font: PropTypes.object
+};
 
 export default Gallery;

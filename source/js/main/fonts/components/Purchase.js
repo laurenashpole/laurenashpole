@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { request } from '../../../utilities/request';
 import { sendEvent } from '../../../utilities/analytics';
 
@@ -45,5 +46,9 @@ class Purchase extends Component {
     );
   }
 }
+
+Purchase.propTypes = {
+  font: PropTypes.object
+};
 
 export default Purchase;

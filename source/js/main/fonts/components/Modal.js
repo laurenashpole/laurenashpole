@@ -52,7 +52,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   rootId: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.any,
   isVisible: PropTypes.bool,
   onCloseEvent: PropTypes.func
 };

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import Modal from '../../../components/Modal';
+import PropTypes from 'prop-types';
 import Mailing from '../../components/Mailing';
+import Modal from './Modal';
 import { sendEvent } from '../../../utilities/analytics';
 
 class Download extends Component {
@@ -66,7 +67,7 @@ class Download extends Component {
 
         <Modal rootId="downloadModalRoot" isVisible={this.state.showModal} onCloseEvent={this.handleClose}>
           <h3 className="text--uppercase">Want updates when new fonts are added?</h3>
-          <p className="text--medium">I promise you'll only hear from me when I have something you can try.</p>
+          <p className="text--medium">I promise you&apos;ll only hear from me when I have something you can try.</p>
 
           <div className="modal__form">
             <Mailing onSignup={this.handleCloseClick} />
@@ -87,5 +88,9 @@ class Download extends Component {
     );
   }
 }
+
+Download.propTypes = {
+  font: PropTypes.object
+};
 
 export default Download;

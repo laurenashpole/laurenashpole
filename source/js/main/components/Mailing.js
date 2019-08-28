@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
@@ -83,5 +84,10 @@ class Mailing extends Component {
     );
   }
 }
+
+Mailing.propTypes = {
+  customClasses: PropTypes.string,
+  onSignup: PropTypes.func
+};
 
 export default Mailing;

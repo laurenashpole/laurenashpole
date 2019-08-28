@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Details = (props) => {
@@ -72,6 +73,10 @@ const Details = (props) => {
       </div>
     </section>
   );
+};
+
+Details.propTypes = {
+  font: PropTypes.object
 };
 
 export default Details;

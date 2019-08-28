@@ -1,6 +1,7 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { NAV_LINKS } from './constants/navLinks';
+import ScrollToTop from '../../components/ScrollToTop';
 import Header from '../../components/Header';
 import Index from './pages/Index';
 import Edit from './pages/Edit';
@@ -38,7 +39,7 @@ class Fonts extends Component {
 
   render () {
     return (
-      <Fragment>
+      <ScrollToTop>
         <Header navLinks={NAV_LINKS} />
 
         <main className="main main--bg-fixed container container--medium">
@@ -56,7 +57,7 @@ class Fonts extends Component {
             <Redirect to="/admin" />
           </Switch>
         </main>
-      </Fragment>
+      </ScrollToTop>
     );
   }
 }

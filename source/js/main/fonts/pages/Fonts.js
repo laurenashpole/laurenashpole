@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { sendEvent } from '../../../utilities/analytics';
@@ -77,7 +78,7 @@ class Fonts extends Component {
                 </Fragment>
               ) : (
                 <h2 className="fonts__grid-empty">
-                  Sorry, there are no fonts with the name "{this.state.filter}".
+                  Sorry, there are no fonts with the name &quot;{this.state.filter}&quot;.
                 </h2>
               )}
             </div>
@@ -87,7 +88,7 @@ class Fonts extends Component {
         <section className="container container--medium">
           <div className="fonts__next">
             <div>
-              <h3 className="text--uppercase">Here's what's coming up</h3>
+              <h3 className="text--uppercase">Here&apos;s what&apos;s coming up</h3>
               <p>So be sure to check back periodically or sign up for my mailing list.</p>
             </div>
 
@@ -100,5 +101,9 @@ class Fonts extends Component {
     );
   }
 }
+
+Fonts.propTypes = {
+  fonts: PropTypes.array
+};
 
 export default Fonts;
