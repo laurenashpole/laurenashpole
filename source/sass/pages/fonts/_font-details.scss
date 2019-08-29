@@ -1,26 +1,13 @@
 .font-details__date {
-  font-size: 16px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .font-details__description {
-  padding-bottom: 1rem;
-}
-
-.font-details__lists {
-  @include flex-direction(column);
-}
-
-.font-details__list {
-  font-size: 17px;
+  margin-bottom: 2.5rem;
 }
 
 .font-details__list + .font-details__list {
-  border-top: 2px solid $color-gray-light;
-}
-
-.well__column + .font-details__list:before {
-  background: transparent;
+  margin-top: 1.5rem;
 }
 
 .font-details__list-heading {
@@ -28,17 +15,26 @@
   letter-spacing: 0.075em;
 }
 
-@media (min-width: 500px) {
+@media (min-width: $break-tablet) {
+  .font-details__date {
+    margin-bottom: 2rem;
+  }
+
+  .font-details__description {
+    margin-bottom: 3.5rem;
+  }
 
   .font-details__lists {
-    @include flex-direction(row);
+    @include flex();
   }
 
-  .font-details__list + .font-details__list {
-    border-top: none;
-  }
+  .font-details__list {
+    width: 50%;
+    padding: 0 0.5rem 0 0;
 
-  .well__column + .font-details__list:before {
-    background: $color-gray-light;
+    & + .font-details__list {
+      margin: 0;
+      padding: 0 0 0 0.5rem;
+    }
   }
 }

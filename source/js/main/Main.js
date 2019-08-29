@@ -29,8 +29,8 @@ const Main = (props) => {
           <Route exact path="/" render={() =>
             <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
           }/>
-          <Route exact path="/fonts" render={(props) =>
-            <Fonts fonts={fonts} {...props} />
+          <Route exact path="/fonts" render={() =>
+            <Fonts fonts={fonts} />
           }/>
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />

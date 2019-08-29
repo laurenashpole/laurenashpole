@@ -61,7 +61,7 @@ class Download extends Component {
         >
           <div className="button__text">
             Download
-            <div className="text--extra-small">$0 Personal Use</div>
+            <div className="text--extra-small">Free Personal Use</div>
           </div>
         </a>
 

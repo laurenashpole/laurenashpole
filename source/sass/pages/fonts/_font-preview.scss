@@ -4,17 +4,20 @@
 }
 
 .font-preview__text {
+  padding: 1.25rem 0;
   line-height: 1.25;
   word-break: break-word;
-  @include transition(opacity 0.15s ease-in-out);
-}
 
-.css-loading .font-preview__text {
-  color: transparent;
+  .css-loading & {
+    color: transparent;
+  }
+
+  & + .font-preview__text {
+    border-top: 1px dashed $color-gray-medium;
+  }
 }
 
 @media (min-width: 768px) {
-
   .font-preview__input {
     width: 66.666%;
   }

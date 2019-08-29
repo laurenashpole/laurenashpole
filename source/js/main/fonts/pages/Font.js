@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Hero from '../components/Hero';
-import Cta from '../components/Cta';
+import Purchase from '../components/Purchase';
+import Download from '../components/Download';
 import Details from '../components/Details';
 import Gallery from '../components/Gallery';
 import Preview from '../components/Preview';
@@ -37,7 +37,7 @@ class Font extends Component {
     return(
       <Fragment>
         {this.state.font ? (
-          <main className="main css-loading" ref={(el) => { this.main = el; }}>
+          <main className="main main--bg-offset css-loading" ref={(el) => { this.main = el; }}>
             <Helmet>
               <title>{`${this.state.font.name} - Fonts - Lauren Ashpole`}</title>
               <link rel="amphtml" href={`https://www.laurenashpole.com/amp/fonts/${this.state.font.slug}`} />
@@ -49,19 +49,33 @@ class Font extends Component {
               <meta property="og:price:amount" content={this.state.font.price} />
               <meta property="og:price:currency" content="USD" />
               <meta property="og:availability" content="instock" />
-              <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${this.state.font.image_collection[0]}`}/>
+              <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${this.state.font.image_collection[0]}`} />
             </Helmet>
-            <section className="font__section">
-              <Hero
-                image={`/images/fonts/${this.state.font.image}`}
-                name={this.state.font.name}
-                cta={<Cta font={this.state.font} />}
-              />
-            </section>
-            <Gallery font={this.state.font} />
-            <Details font={this.state.font} />
-            <Preview font={this.state.font} />
-            <Glyphs font={this.state.font} />
+
+            <div className="container container--large font">
+              <div className="font__img">
+                <img src={`/images/fonts/${this.state.font.image}`} alt={`${this.state.font.name} Sample`} />
+              </div>
+
+              <div className="font__ctas">
+                {this.state.font.commercial_font_file &&
+                  <Purchase font={this.state.font} />
+                }
+
+                {this.state.font.personal_font_file &&
+                  <Download font={this.state.font} />
+                }
+              </div>
+
+              <div className="column">
+                <div className="well font__well">
+                  <Details font={this.state.font} />
+                  <Gallery font={this.state.font} />
+                  <Preview font={this.state.font} />
+                  <Glyphs font={this.state.font} />
+                </div>
+              </div>
+            </div>
           </main>
         ) : (
           <main className="main main--bg-fixed container container--medium">

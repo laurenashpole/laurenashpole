@@ -2,7 +2,7 @@
   @include flex-child(2);
   @include flex();
   @include flex-direction(column);
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .container {
