@@ -34,11 +34,11 @@ const Main = (props) => {
           }/>
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />
-          <Route exact path="/fonts/:slug" render={(props) =>
-            <Font fonts={fonts} {...props} />
+          <Route exact path="/fonts/:slug" render={(routeProps) =>
+            <Font font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} {...routeProps} />
           }/>
-          <Route path="/fonts/:slug/confirm" render={(props) =>
-            <Confirmation fonts={fonts} {...props} />
+          <Route path="/fonts/:slug/confirm" render={(routeProps) =>
+            <Confirmation font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} {...routeProps} />
           }/>
           <Route path="/contact" component={Contact} />
           <Route component={Error} />
