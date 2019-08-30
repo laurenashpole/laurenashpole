@@ -31,12 +31,12 @@ class Gallery extends Component {
 
         {image_collection_thumbnails.length > 1 &&
           <div className="font__gallery-thumbnails">
-              {image_collection_thumbnails.map((image, i) => {
-                return(
-                  <div className="font__gallery-thumbnail" key={image}>
-                    <img src={`/images/fonts/${image}`} alt={`${name} Thumbnail`} onClick={this.handleClick.bind(this, i)} />
-                  </div>
-                );
+            {image_collection_thumbnails.map((image, i) => {
+              return(
+                <div className="font__gallery-thumbnail" key={image}>
+                  <img src={`/images/fonts/${image}`} alt={`${name} Thumbnail`} onClick={this.handleClick.bind(this, i)} />
+                </div>
+              );
             })}
           </div>
         }

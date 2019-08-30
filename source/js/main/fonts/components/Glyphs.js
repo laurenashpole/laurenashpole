@@ -10,9 +10,10 @@ class Glyphs extends Component {
     };
   }
 
-  handleClick = (e) => {
-    let activeGlyphs = e.target.getAttribute('data-glyphs');
-    this.setState({ activeGlyphs });
+  handleClick = (name) => {
+    this.setState({
+      activeGlyphs: name
+    });
   }
 
   render () {
@@ -23,10 +24,10 @@ class Glyphs extends Component {
         {this.props.font.commercial_file.additional_chars.is_included &&
           <ul className="text--uppercase text--medium text--extra-bold list--unstyled u--center-mobile">
             <li className="font__heading-link">
-              <a href="javascript:void(0);" onClick={this.handleClick} data-glyphs="basic">Basic Characters</a>
+              <a href="javascript:void(0);" onClick={this.handleClick.bind(this, 'basic')}>Basic Characters</a>
             </li>
             <li className="font__heading-link">
-              <a href="javascript:void(0);" onClick={this.handleClick} data-glyphs="additional">Additional Characters</a>
+              <a href="javascript:void(0);" onClick={this.handleClick.bind(this, 'additional')}>Additional Characters</a>
             </li>
           </ul>
         }

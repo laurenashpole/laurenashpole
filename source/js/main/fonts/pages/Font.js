@@ -67,7 +67,7 @@ class Font extends Component {
                 }
               </div>
 
-              <div className="column">
+              <div className="font__content">
                 <div className="well font__well">
                   <Details font={this.state.font} />
                   <Gallery font={this.state.font} />
