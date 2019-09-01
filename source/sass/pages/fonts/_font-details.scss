@@ -1,38 +1,38 @@
-.font-details__date {
+.font__details-date {
   margin-bottom: 1.5rem;
 }
 
-.font-details__description {
+.font__details-description {
   margin-bottom: 2.5rem;
 }
 
-.font-details__list + .font-details__list {
+.font__details-list + .font__details-list {
   margin-top: 1.5rem;
 }
 
-.font-details__list-heading {
+.font__details-list-heading {
   margin-bottom: 1rem;
   letter-spacing: 0.075em;
 }
 
 @media (min-width: $break-tablet) {
-  .font-details__date {
+  .font__details-date {
     margin-bottom: 2rem;
   }
 
-  .font-details__description {
+  .font__details-description {
     margin-bottom: 3.5rem;
   }
 
-  .font-details__lists {
+  .font__details-lists {
     @include flex();
   }
 
-  .font-details__list {
+  .font__details-list {
     width: 50%;
     padding: 0 0.5rem 0 0;
 
-    & + .font-details__list {
+    & + .font__details-list {
       margin: 0;
       padding: 0 0 0 0.5rem;
     }

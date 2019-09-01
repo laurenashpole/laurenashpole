@@ -15,7 +15,7 @@ const Details = (props) => {
   } = props.font;
 
   return(
-    <section>
+    <section className="font__details">
       <h2 className="font__heading text--uppercase u--center-mobile">{name} Font</h2>
 
       <ul className="text--uppercase text--medium text--extra-bold list--unstyled u--center-mobile">
@@ -27,20 +27,20 @@ const Details = (props) => {
         </li>
       </ul>
 
-      <div className="font-details__date text--medium">
+      <div className="font__details-date text--medium">
         Created: {date_created}
         {date_modified && <span> / Modified: {date_modified}</span>}
       </div>
 
       {description &&
-        <div className="font-details__description" dangerouslySetInnerHTML={{__html: description}}>
+        <div className="font__details-description" dangerouslySetInnerHTML={{__html: description}}>
         </div>
       }
 
-      <div className="font-details__lists text--medium">
+      <div className="font__details-lists text--medium">
         {commercial_font_file &&
-          <ul className="list--unstyled font-details__list">
-            <li className="font-details__list-heading text--uppercase text--extra-bold">Commercial Use Details</li>
+          <ul className="list--unstyled font__details-list">
+            <li className="font__details-list-heading text--uppercase text--extra-bold">Commercial Use Details</li>
 
             {Object.keys(commercial_file).map((detail) => {
               return (
@@ -55,8 +55,8 @@ const Details = (props) => {
         }
 
         {personal_font_file &&
-          <ul className="list--unstyled font-details__list">
-            <li className="font-details__list-heading text--uppercase text--extra-bold">Personal Use Details</li>
+          <ul className="list--unstyled font__details-list">
+            <li className="font__details-list-heading text--uppercase text--extra-bold">Personal Use Details</li>
 
             {Object.keys(personal_file).map((detail) => {
               return (

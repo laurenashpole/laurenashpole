@@ -1,9 +1,9 @@
-.font-preview__select {
+.font__preview-select {
   width: 100%;
   margin-top: 0.5rem;
 }
 
-.font-preview__text {
+.font__preview-text {
   padding: 1.25rem 0;
   line-height: 1.25;
   word-break: break-word;
@@ -12,17 +12,17 @@
     color: transparent;
   }
 
-  & + .font-preview__text {
+  & + .font__preview-text {
     border-top: 1px dashed $color-gray-medium;
   }
 }
 
-@media (min-width: 768px) {
-  .font-preview__input {
+@media (min-width: $break-tablet) {
+  .font__preview-input {
     width: 66.666%;
   }
 
-  .font-preview__select {
+  .font__preview-select {
     width: 33.333%;
     margin: 0;
     padding-left: 0.5rem;

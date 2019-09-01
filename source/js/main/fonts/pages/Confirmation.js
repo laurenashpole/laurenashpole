@@ -20,7 +20,7 @@ class Confirmation extends Component {
   }
 
   setFont = () => {
-    let endpoint = this.props.location.pathname + this.props.location.search;
+    const endpoint = this.props.location.pathname + this.props.location.search;
 
     if (!this.props.font) {
       this.setState({
