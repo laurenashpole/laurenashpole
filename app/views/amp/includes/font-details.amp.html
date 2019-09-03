@@ -1,57 +1,49 @@
-<section class="font__section">
-  <div class="container container--medium">
-    <h2 class="font__heading text--uppercase u--center-mobile">About {{font.name}}</h2>
+<section class="font__details">
+  <h2 class="font__heading text--uppercase u--center">{{font.name}} Font</h2>
 
-    <ul class="text--uppercase text--medium list--unstyled u--center-mobile">
-      <li class="font__heading-link">
-        <a class="text--extra-bold" href="{{host_url}}/fonts/licensing" title="Licensing">Licensing Info</a>
-      </li>
-      <li class="font__heading-link">
-        <a class="text--extra-bold" href="{{host_url}}/fonts/eula" title="EULA">View EULA</a>
-      </li>
-    </ul>
+  <ul class="text--uppercase text--medium list--unstyled u--center">
+    <li class="font__heading-link">
+      <a class="text--extra-bold" href="{{host_url}}/fonts/licensing" title="Licensing">Licensing Info</a>
+    </li>
+    <li class="font__heading-link">
+      <a class="text--extra-bold" href="{{host_url}}/fonts/eula" title="EULA">View EULA</a>
+    </li>
+  </ul>
 
-    <div class="well well--no-padding">
-      <div class="well__row">
-        <div class="well__column">
-          <div class="font-details__date">
-            Created: {{font.date_created}}
-            {% if font.date_modified %} / Modified: {{font.date_modified}}{% endif %}
-          </div>
+  <div class="font__details-date text--medium">
+    Created: {{font.date_created}}
+    {% if font.date_modified %} / Modified: {{font.date_modified}}{% endif %}
+  </div>
 
-          {% if font.description %}
-            <div class="font-details__description">
-              {% autoescape false %}{{font.description}}{% endautoescape %}
-            </div>
-          {% endif %}
-        </div>
-      </div>
-
-      <div class=" well__row font-details__lists">
-        {% if font.commercial_font_file %}
-          <ul class="list--unstyled well__column font-details__list">
-            <li class="font-details__list-heading text--uppercase text--extra-bold">Commercial Use Details</li>
-
-            {% for detail in font.commercial_file %}
-              {% if detail.is_included %}
-                <li>{{detail.name}}</li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-        {% if font.personal_font_file %}
-          <ul class="list--unstyled well__column font-details__list">
-            <li class="font-details__list-heading text--uppercase text--extra-bold">Personal Use Details</li>
-
-            {% for detail in font.personal_file %}
-              {% if detail.is_included %}
-                <li>{{detail.name}}</li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
+  {% if font.description %}
+    <div class="font__details-description">
+      {% autoescape false %}{{font.description}}{% endautoescape %}
     </div>
+  {% endif %}
+
+  <div class="font__details-lists text--medium">
+    {% if font.commercial_font_file %}
+      <ul class="list--unstyled font__details-list">
+        <li class="font__details-list-heading text--uppercase text--extra-bold">Commercial Use Details</li>
+
+        {% for detail in font.commercial_file %}
+          {% if detail.is_included %}
+            <li>{{detail.name}}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if font.personal_font_file %}
+      <ul class="list--unstyled font__details-list">
+        <li class="font__details-list-heading text--uppercase text--extra-bold">Personal Use Details</li>
+
+        {% for detail in font.personal_file %}
+          {% if detail.is_included %}
+            <li>{{detail.name}}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 </section>

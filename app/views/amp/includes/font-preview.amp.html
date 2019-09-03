@@ -1,68 +1,56 @@
-<section class="font__section">
-  <div class="container container--medium">
-    <h2 class="font__heading text--uppercase u--center-mobile">Preview</h2>
+<section class="font__preview">
+  <h2 class="font__heading text--uppercase u--center">Preview</h2>
 
-    <form class="well well--no-padding" method="post" action-xhr="{{host_url}}/amp/fonts/update" target="_top">
-      <div class="well__row">
-        <div class="well__column form__row--inline font-preview__inputs">
-          <input type="text" name="example" id="example" class="input font-preview__input" value="Enter your preview text"/>
+  <form method="post" action-xhr="{{host_url}}/amp/fonts/update" target="_top">
+    <div>
+      <input type="text" name="example" id="example" class="input font__preview-input" value="Enter your preview text" />
 
-          <div class="select font-preview__select">
-            <select class="select__input" name="size" id="size">
-              <option value="16">16px</option>
-              <option value="24">24px</option>
-              <option value="36">36px</option>
-              <option value="48">48px</option>
-              <option value="60" selected>60px</option>
-              <option value="72">72px</option>
-              <option value="144">144px</option>
-            </select>
-            <span class="select__caret">
-                <i class="fa fa-angle-down"></i>
-            </span>
-          </div>
-
-          <button type="submit" title="Try It" class="button font-preview__select">
-            Try It
-          </button>
-        </div>
+      <div class="select font__preview-select">
+        <select class="select__input" name="size" id="size">
+          <option value="16">16px</option>
+          <option value="24">24px</option>
+          <option value="36">36px</option>
+          <option value="48">48px</option>
+          <option value="60" selected>60px</option>
+          <option value="72">72px</option>
+          <option value="144">144px</option>
+        </select>
+        <span class="select__caret">
+            <i class="fa fa-angle-down"></i>
+        </span>
       </div>
 
-      <div class="well__row font-preview__text font-preview__initial font-{{font.slug}} font-60">
-        <div class="well__column">
+      <button type="submit" title="Try It" class="button text--medium font__preview-select">
+        Try It
+      </button>
+    </div>
+
+    <div class="font__preview-text font__preview-text--initial font__preview-text--60 font-{{font.slug}}">
+      Enter your preview text
+    </div>
+
+    {% if font.alternate_styles %}
+      {% for className in font.alternate_styles %}
+        <div class="font__preview-text font__preview-text--initial font__preview-text--60 {{className}}">
           Enter your preview text
         </div>
-      </div>
+      {% endfor %}
+    {% endif %}
 
-      {% if font.alternate_styles %}
-        {% for className in font.alternate_styles %}
-          <div class="well__row font-preview__text font-preview__initial {{className}} font-60">
-            <div class="well__column">
-              Enter your preview text
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+    <div submit-success>
+      <template type="amp-mustache">
+        <div class="font__preview-text font__preview-text--{% raw %}{{size}}{% endraw %} font-{{font.slug}}">
+          {% raw %}{{example}}{% endraw %}
+        </div>
 
-      <div submit-success>
-        <template type="amp-mustache">
-          <div class="well__row font-preview__text font-{{font.slug}} font-{% raw %}{{size}}{% endraw %}">
-            <div class="well__column">
+        {% if font.alternate_styles %}
+          {% for className in font.alternate_styles %}
+            <div class="font__preview-text font__preview-text--{% raw %}{{size}}{% endraw %} {{className}}">
               {% raw %}{{example}}{% endraw %}
             </div>
-          </div>
-
-          {% if font.alternate_styles %}
-            {% for className in font.alternate_styles %}
-              <div class="well__row font-preview__text {{className}} font-{% raw %}{{size}}{% endraw %}">
-                <div class="well__column">
-                  {% raw %}{{example}}{% endraw %}
-                </div>
-              </div>
-            {% endfor %}
-          {% endif %}
-        </template>
-      </div>
-    </form>
-  </div>
+          {% endfor %}
+        {% endif %}
+      </template>
+    </div>
+  </form>
 </section>

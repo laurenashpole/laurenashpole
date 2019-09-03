@@ -22,9 +22,7 @@
     flex-direction: column;
   }
 
-  h1,
-  h2,
-  h3 {
+  h2 {
     width: 100%;
     margin: 0 0 1.5rem 0;
     line-height: 1.5rem;
@@ -33,20 +31,10 @@
     letter-spacing: 0.03em;
   }
 
-  h1 {
-    font-size: 2.828rem;
-    line-height: 3rem;
-  }
-
   h2 {
     margin-bottom: 2rem;
     font-size: 2.167rem;
     line-height: 3rem;
-  }
-
-  h3 {
-    font-size: 1.414rem;
-    line-height: 2rem;
   }
 
   p {
@@ -59,20 +47,12 @@
     letter-spacing: 0.125em;
   }
 
-  h3.text--uppercase {
-    letter-spacing: 0.075em;
-  }
-
   .text--extra-bold {
     font-weight: 700;
   }
 
   .text--medium {
     font-size: 0.9rem;
-  }
-
-  .text--small {
-    font-size: 0.75rem;
   }
 
   .text--extra-small {
@@ -85,14 +65,6 @@
 
   .u--center {
     text-align: center;
-  }
-
-  .u--center-mobile {
-    text-align: center;
-  }
-
-  .u--no-margin {
-    margin: 0;
   }
 
   ul,
@@ -390,30 +362,48 @@
     flex-direction: column;
   }
 
+  .main--bg-offset:before {
+    content: " ";
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 150'%3E%3Cpath fill='#ffffff' d='M6 3.8c-6.3 1.7-7.9 8.9-3.5 13.9 1.7 1.9 3.8 3.4 6.1 4.4 6.9 3.1 14 3.6 21.3 2.2 4.5-.8 8.2-3.1 11.5-6.1 2-1.9 3.5-4.2 3.5-7.1C45.1 6 40 0 34.9 0 20.5 0 13.5 1.8 6 3.8zM86 78.8c-6.3 1.7-7.9 8.9-3.5 13.9 1.7 1.9 3.8 3.4 6.1 4.4 6.9 3.1 14 3.6 21.3 2.2 4.5-.8 8.2-3.1 11.5-6.1 2-1.9 3.5-4.2 3.5-7.1.1-5-5-11.1-10.1-11.1-14.3 0-21.3 1.8-28.8 3.8z'/%3E%3C/svg%3E");
+    background-size: 55px;
+    width: 550px;
+    height: 320px;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    z-index: -2;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+
+  .main--bg-offset:after {
+    content: " ";
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 552 419'%3E%3Cpath fill='#fae3e1' d='M183.6 414.2c-32.8-5.4-20.7-42.9-36.6-62-19.5-23.3-63.6-23.1-91.4-27.4-54.9-8.4-80.7-22.7-20.2-47.8 72-29.9 138.8-54.5 199.4-106.3 33.7-28.7 61.3-62.4 89.3-96.6 16.8-20.6 43-63.5 70.6-71 83.2-22.5 45.2 107.2 81.3 136 17.5 14 51 2.1 67 18.9 18.3 19.3 3 61.1-5.3 83.3C487.5 375.9 316 435.9 183.6 414.2z'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 469.8 381.5'%3E%3Cpath fill='#d5e7db' d='M452.9 294.8c-26 17.8-62.1-2.7-86.6 10.7-27.9 15.2-23.3 76-39.3 76-80.8 0-75.1-77.1-141.3-115.5-59-34.3-102.8-39-131.7-57.9-25.4-16.6-51.8-33.3-54-82.2-.6-12.3 7.7-31.1 26.1-31.1 17.8 0 36.7 11 52.3 11 10 0 13.3-7.1 12.2-21-1.2-15-16.8-42.2-17.9-60C71.7 8.3 85-4.5 123.3 1.5c38.5 6 87.2 54.5 115.1 53.3 27.7-1.1 12.2-37.8 43.3-37.8 32.2 0 127 103.4 168.9 190 19.4 40 30 68.9 2.3 87.8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 125% auto;
+    background-position: 50% 4rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
   .header + .main {
-  margin-top: 63px;
-}
+    margin-top: 63px;
+  }
 
   .container {
     width: 100%;
+    max-width: 768px;
     margin: 0 auto;
     padding: 2.5rem 0.65rem 3rem 0.65rem;
   }
 
-  .container--medium {
-    max-width: 860px;
-  }
-
-  .column--static {
-    width: 100%;
-    position: relative;
-  }
-
   /* Images */
-  figure {
-    margin: 0;
-  }
-
   a img {
     border: none;
   }
@@ -424,59 +414,8 @@
     display: block;
   }
 
-  .img--bg {
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-bottom: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .img--hero {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  /* Backgrounds */
-  .bg-dots:before {
-    content: " ";
-    background-image: -webkit-radial-gradient(#fff 20%, transparent 20%);
-    background-image: radial-gradient(#fff 20%, transparent 20%);
-    background-size: 40px 40px;
-    width: 320px;
-    height: 400px;
-    position: absolute;
-    top: -10%;
-    left: 25%;
-    z-index: -1;
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);
-  }
-
-  .bg-abstract--img {
-    width: 120%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fae3e1;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  .bg-abstract--img:first-child {
-    color: #d5e7db;
-  }
-
-  @media (min-width: 768px) {
-    .bg-abstract--img {
-      width: 100%;
-    }
-  }
-
   /* Forms Base */
   input,
-  textarea,
   button,
   select {
     width: 100%;
@@ -496,14 +435,12 @@
   }
 
   .input:focus,
-  .textarea:focus,
   .select__input:focus,
   .button:focus {
     outline: none;
   }
 
   .input:focus,
-  .textarea:focus,
   .select__input:focus {
     border-color: #dadada;
   }
@@ -587,16 +524,6 @@
     background: transparent;
     border-color: #c63d2d;
     color: #c63d2d;
-  }
-
-  .button--cta-primary.is-processing {
-    font-size: 0;
-  }
-
-  .button--cta-primary.is-processing:before {
-    content: "Processing";
-    font-size: 1rem;
-    letter-spacing: 0.125em;
   }
 
   .button--outline {
@@ -712,51 +639,17 @@
     border-radius: 6px;
   }
 
-  .well + .well {
-    margin-top: 1.5rem;
-  }
-
-  .well--no-padding {
-    padding: 0;
-  }
-
-  .well__row {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    position: relative;
-  }
-
-  .well__row + .well__row {
-    border-top: 2px solid #f4f4f4;
-  }
-
-  .well__column {
-    -ms-flex: 1 1 100%;
-    -webkit-flex: 1 1 100%;
-    flex: 1 1 100%;
-    padding: 1.25rem;
-  }
-
-  .well__column + .well__column:before {
-    content: " ";
-    background: #f4f4f4;
-    height: 100%;
-    width: 2px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }
-
   /* Font Base */
-  .font__section + .font__section {
-    border-top: 2px solid #fff;
+  @media (min-width: 768px) {
+    .font__content .well {
+      padding: 3rem;
+    }
   }
 
-  .font__section:first-child .container {
-    padding-top: 0.75rem;
+  .font__content section + section {
+    margin-top: 2rem;
+    border-top: 1px solid #dadada;
+    padding-top: 2rem;
   }
 
   .font__heading {
@@ -764,99 +657,123 @@
     line-height: 2rem;
   }
 
+  .font__heading-link {
+    color: #dd4433;
+    cursor: pointer;
+  }
+
+  .font__heading-link a:hover,
+  .font__heading-link a:focus {
+    border: none;
+  }
+
   .font__heading-link:last-child {
     margin-bottom: 2rem;
   }
 
+  .font__img {
+    width: 85%;
+    margin: 0 auto 2.5rem auto;
+  }
+
+  .font__ctas {
+    padding: 0 1.25rem 2.5rem 1.25rem;
+  }
+
   /* Font Details */
-  .font-details__date {
-    font-size: 16px;
-    margin-bottom: 2rem;
+  .font__details-date {
+    margin-bottom: 1.5rem;
   }
 
-  .font-details__description {
-    padding-bottom: 1rem;
+  .font__details-description {
+    margin-bottom: 2.5rem;
   }
 
-  .font-details__lists {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
+  .font__details-list + .font__details-list {
+    margin-top: 1.5rem;
   }
 
-  .font-details__list {
-    font-size: 17px;
-  }
-
-  .font-details__list + .font-details__list {
-    border-top: 2px solid #f4f4f4;
-  }
-
-  .well__column + .font-details__list:before {
-    background: transparent;
-  }
-
-  .font-details__list-heading {
+  .font__details-list-heading {
     margin-bottom: 1rem;
     letter-spacing: 0.075em;
   }
 
-  /* Font Hero */
-  .font-hero__well {
-    text-align: center;
-  }
-
-  .font-hero__files {
-    padding: 1rem;
-    font-size: 17px;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-
-  .font-hero__files-icon {
-    margin: 2px 0.75rem 0 0;
-  }
-
-  .font-hero__files-icon.fa-desktop {
-    margin-top: 4px;
-    font-size: 0.95em;
-  }
-
   /* Font Gallery */
-  .gallery__thumbnails {
+  .font__gallery-thumbnails {
     padding-top: 0.5rem;
-  }
-
-  .gallery__thumbnails-inner {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
   }
 
-  .gallery__thumbnail {
-    margin: 0 1px 0 0;
+  .font__gallery-thumbnail {
+    margin: 0 0.5rem 0 0;
     cursor: pointer;
     -ms-flex: 0 1 100px;
     -webkit-flex: 0 1 100px;
     flex: 0 1 100px;
   }
 
-  .gallery__thumbnail:last-child {
+  .font__gallery-thumbnail:last-child {
     margin-right: 0;
   }
 
+  /* Font Preview */
+  .font__preview-select {
+    width: 100%;
+    height: 3rem;
+    margin-top: 0.5rem;
+  }
+
+  .font__preview-text {
+    padding: 1.25rem 0;
+    line-height: 1.25;
+  }
+
+  .font__preview-text + .font__preview-text {
+    border-top: 1px dashed #dadada;
+  }
+
+  .amp-form-submit-success .font__preview-text--initial {
+    display: none;
+  }
+
+  .font__preview-text--16 {
+    font-size: 16px;
+  }
+
+  .font__preview-text--24 {
+    font-size: 24px;
+  }
+
+  .font__preview-text--36 {
+    font-size: 36px;
+  }
+
+  .font__preview-text--48 {
+    font-size: 48px;
+  }
+
+  .font__preview-text--60 {
+    font-size: 60px;
+  }
+
+  .font__preview-text--72 {
+    font-size: 72px;
+  }
+
+  .font__preview-text--144 {
+    font-size: 144px;
+  }
+
   /* Font Glyphs */
-  .font-glyphs__char {
+  .font__glyphs-char {
     width: 20%;
     padding-top: 20px;
     border: 1px solid #fff;
@@ -865,11 +782,9 @@
     text-align: center;
     overflow: hidden;
     position: relative;
-    -webkit-transition: opacity 0.15s ease-in-out;
-    transition: opacity 0.15s ease-in-out;
   }
 
-  .font-glyphs__key {
+  .font__glyphs-key {
     background: #f4f4f4;
     position: absolute;
     top: 0;
@@ -881,95 +796,27 @@
     line-height: 20px;
   }
 
-.font-hero__well {
-  text-align: center; }
-
-  /* Font Preview */
-  .font-preview__select {
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  .font-preview__text {
-    line-height: 1.25;
-    word-break: break-word;
-    -webkit-transition: opacity 0.15s ease-in-out;
-    transition: opacity 0.15s ease-in-out;
-  }
-
-  /* AMP only */
-  .font-hero__well {
-    max-width: 500px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .font-preview__select {
-    height: 3rem;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .amp-form-submit-success .font-preview__initial {
-    display: none;
-  }
-
-  .font-16 {
-    font-size: 16px;
-  }
-
-  .font-24 {
-    font-size: 24px;
-  }
-
-  .font-36 {
-    font-size: 36px;
-  }
-
-  .font-48 {
-    font-size: 48px;
-  }
-
-  .font-60 {
-    font-size: 60px;
-  }
-
-  .font-72 {
-    font-size: 72px;
-  }
-
-  .font-144 {
-    font-size: 144px;
-  }
-
-  .font__heading-link {
-    line-height: 1.5rem;
-    color: #dd4433;
-    cursor: pointer;
-  }
-
-  .font-glyphs__radio--additional {
+  .font__glyphs-radio--additional {
     display: block;
   }
 
-  .font-glyphs__radio--basic:checked ~ .font-glyphs--basic {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-
-  .font-glyphs__radio--additional:checked ~ .font-glyphs--additional {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-
-  .font-glyphs {
+  .font__glyphs-grid {
     margin-top: 2rem;
     display: none;
+  }
+
+  .font__glyphs-radio--basic:checked ~ .font__glyphs-grid--basic {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .font__glyphs-radio--additional:checked ~ .font__glyphs-grid--additional {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   {% autoescape false %}{{font.css_string}}{% endautoescape %}

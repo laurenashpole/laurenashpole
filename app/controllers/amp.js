@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const request = require('superagent');
 const mailchimpConfig = require('../config/config')()['mailchimp'];
+const constantsHelper = require('../helpers/constants')();
 const fontHelper = require('../helpers/fonts');
 const paymentHelper = require('../helpers/payments');
 
@@ -27,7 +28,11 @@ exports.render = function (req, res, next) {
         res.render('amp/font.amp.html', {
           title: font.name + ' - Fonts',
           description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
-          font: font
+          font: font,
+          glyphs: {
+            basic: constantsHelper.basicGlyphs,
+            additional: constantsHelper.additionalGlyphs
+          }
         });
       } else {
         let notFound = new Error('Oops!');

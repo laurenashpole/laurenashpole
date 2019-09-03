@@ -7,7 +7,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
     <title>{{title}} - {{site_name}}</title>
@@ -22,12 +22,17 @@
   <body>
     {% include './includes/header.amp.html' %}
 
-    <main class="main">
-      {% include './includes/font-hero.amp.html' %}
-      {% include './includes/font-gallery.amp.html' %}
-      {% include './includes/font-details.amp.html' %}
-      {% include './includes/font-preview.amp.html' %}
-      {% include './includes/font-glyphs.amp.html' %}
+    <main class="main main--bg-offset">
+      <div class="container font">
+        {% include './includes/font-hero.amp.html' %}
+
+        <div class="font__content well">
+          {% include './includes/font-details.amp.html' %}
+          {% include './includes/font-gallery.amp.html' %}
+          {% include './includes/font-preview.amp.html' %}
+          {% include './includes/font-glyphs.amp.html' %}
+        </div>
+      </div>
     </main>
 
     {% include './includes/footer.amp.html' %}
