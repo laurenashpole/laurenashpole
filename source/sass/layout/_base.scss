@@ -2,7 +2,7 @@
   @include flex-child(2);
   @include flex();
   @include flex-direction(column);
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .container {
@@ -17,11 +17,11 @@
 }
 
 .container--medium {
-  max-width: 860px;
+  max-width: $width-medium;
 }
 
 .container--large {
-  max-width: 1200px;
+  max-width: $width-wide;
 }
 
 .container--x-large {
@@ -29,6 +29,10 @@
 }
 
 @media (min-width: $break-tablet) {
+  .root {
+    overflow: initial;
+  }
+
   .container {
     padding-right: 1rem;
     padding-left: 1rem;

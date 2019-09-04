@@ -34,7 +34,7 @@ class Glyphs extends Component {
         }
 
         {this.state.activeGlyphs === 'basic' ? (
-          <div className={`font__glyphs-grid font-${this.props.font.slug}`}>
+          <div className={`font__glyphs-grid u--center font-${this.props.font.slug}`}>
             {BASIC.map((char, i) => {
               return(
                 <div key={i} className={`font__glyphs-char is-${char.type}`}>
@@ -44,7 +44,7 @@ class Glyphs extends Component {
             })}
           </div>
         ) : (
-          <div className={`font__glyphs-grid font-${this.props.font.slug}`}>
+          <div className={`font__glyphs-grid u--center font-${this.props.font.slug}`}>
             {ADDITIONAL.map((glyph, i) => {
               return(
                 <div key={i} className="font__glyphs-char is-additional">

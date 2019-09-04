@@ -392,6 +392,19 @@
     z-index: -1;
   }
 
+  @media (min-width: 768px) {
+    .main--bg-offset:before {
+      top: 5rem;
+      left: 30%;
+    }
+
+    .main--bg-offset:after {
+      background-size: 100%;
+      max-width: calc(768px - 1rem);
+      margin-left: calc((100% - (768px - 1rem)) / 2);
+    }
+  }
+
   .header + .main {
     margin-top: 63px;
   }
@@ -641,8 +654,8 @@
 
   /* Font Base */
   @media (min-width: 768px) {
-    .font__content .well {
-      padding: 3rem;
+    .font__content.well {
+      padding: 1.5rem;
     }
   }
 

@@ -14,14 +14,18 @@ body {
   background-color: $color-gray-light;
   min-height: 100%;
   margin: 0;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   color: $color-black;
   @include flex();
   @include flex-direction(column);
 }
 
-@media (min-width: 768px) {
+@media (min-width: $break-tablet) {
   html {
     font-size: 125%;
+  }
+
+  body {
+    overflow-x: initial;
   }
 }

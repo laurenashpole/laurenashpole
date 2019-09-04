@@ -1,5 +1,5 @@
 .well {
-  background: #fff;
+  background: $color-white;
   padding: 0.975rem;
   border-radius: 6px;
 }
@@ -21,24 +21,7 @@
   border-top: 2px solid $color-gray-light;
 }
 
-.well__column {
-  @include flex-child(1, 1, 100%);
-  padding: 1.25rem;
-}
-
-.well__column + .well__column:before {
-  content: " ";
-  background: $color-gray-light;
-  height: 100%;
-  width: 2px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  @include transform(translateX(-50%));
-}
-
-@media (min-width: 768px) {
-
+@media (min-width: $break-tablet) {
   .well {
     padding: 1.5rem;
   }
@@ -49,9 +32,5 @@
 
   .well--extra-padding {
     padding: 3rem;
-  }
-
-  .well__column {
-    padding: 1.5rem;
   }
 }
