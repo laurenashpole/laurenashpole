@@ -99,7 +99,7 @@
   }
 
   .main--bg-fixed:after {
-    background-position-y: 50%;
+    background-position-y: 45%;
   }
 }
 
@@ -162,12 +162,18 @@
   }
 
   .main--bg-offset:after {
-    background-position: right 4rem;
+    background-position: right 1.5rem;
     margin-left: calc((100% - (#{$break-desktop-wide} - 6rem)) / 2);
   }
 
   .main--bg-header:after {
     background-position: 45% 0, 75% 0;
     top: -4rem;
+  }
+}
+
+@media (min-width: $break-desktop) and (min-height: $break-height) {
+  .main--bg-offset:after {
+    background-position-y: 4rem;
   }
 }

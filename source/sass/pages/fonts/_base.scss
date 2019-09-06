@@ -56,17 +56,18 @@
 
 @media (min-width: $break-desktop) {
   .font {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    @include flex();
+    @include flex-align(flex-start);
+    @include flex-wrap(wrap);
   }
 
   .font__img {
     width: 100%;
-
-    img {
-      margin: 2rem auto calc(95px + 3rem) auto;
-    }
+    min-height: 560px;
+    height: 60vh;
+    max-height: $break-height;
+    @include flex();
+    @include flex-align(center);
   }
 
   .font__ctas {
@@ -74,7 +75,7 @@
     padding: 0;
     position: sticky;
     position: -webkit-sticky;
-    top: 3rem;
+    top: 1.5rem;
   }
 
   .font__content {
@@ -84,13 +85,12 @@
 }
 
 @media (min-width: $break-desktop-wide) {
-  .font__img {
-    img {
-      margin: 3rem auto calc(95px + 4rem) auto;
-    }
+  .font__content .well {
+    padding: 3rem;
   }
 
   .font__ctas {
     padding-right: 1.5rem;
+    top: 3rem;
   }
 }

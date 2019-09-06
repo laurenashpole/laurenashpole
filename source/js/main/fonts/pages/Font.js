@@ -63,7 +63,7 @@ class Font extends Component {
           <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${image_collection[0]}`} />
         </Helmet>
 
-        <div className="container container--large font">
+        <div className="container container--x-large font">
           <div className="font__img">
             <img src={`/images/fonts/${image}`} alt={`${name} Sample`} />
           </div>

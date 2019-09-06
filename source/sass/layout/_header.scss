@@ -242,3 +242,10 @@
     padding-left: 1.5rem;
   }
 }
+
+@media (min-width: $break-desktop-wide) {
+  .header {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
