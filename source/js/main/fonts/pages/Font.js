@@ -83,7 +83,7 @@ class Font extends Component {
               <Details font={this.props.font} />
               <Gallery font={this.props.font} />
               <Preview font={this.props.font} />
-              <Glyphs font={this.props.font} />
+              <Glyphs font={this.props.font} glyphs={this.props.glyphs} />
             </div>
           </div>
         </div>
@@ -94,7 +94,8 @@ class Font extends Component {
 
 Font.propTypes = {
   match: PropTypes.object,
-  font: PropTypes.object
+  font: PropTypes.object,
+  glyphs: PropTypes.object
 };
 
 export default Font;

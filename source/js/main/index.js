@@ -5,15 +5,14 @@ import { getUrlParameter } from '../utilities/getUrlParameter';
 import Main from './Main';
 
 const fromMailChimp = getUrlParameter('mc_cid');
-const fonts = window.APP.fonts || {};
-
-sendPageview();
 
 if (fromMailChimp) {
   window.localStorage.setItem('hideEmailModal', true);
 }
 
+sendPageview();
+
 render(
-  <Main fonts={fonts} />,
+  <Main fonts={window.APP.fonts || []} glyphs={window.APP.glyphs || {}} />,
   document.getElementById('root')
 );

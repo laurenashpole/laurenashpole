@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BASIC, ADDITIONAL } from '../constants/glyphs';
 
 class Glyphs extends Component {
   constructor (props) {
@@ -35,7 +34,7 @@ class Glyphs extends Component {
 
         {this.state.activeGlyphs === 'basic' ? (
           <div className={`font__glyphs-grid u--center font-${this.props.font.slug}`}>
-            {BASIC.map((char, i) => {
+            {this.props.glyphs.basic.map((char, i) => {
               return(
                 <div key={i} className={`font__glyphs-char is-${char.type}`}>
                   <span className="font__glyphs-key">{char.glyph}</span>{char.glyph}
@@ -45,7 +44,7 @@ class Glyphs extends Component {
           </div>
         ) : (
           <div className={`font__glyphs-grid u--center font-${this.props.font.slug}`}>
-            {ADDITIONAL.map((glyph, i) => {
+            {this.props.glyphs.additional.map((glyph, i) => {
               return(
                 <div key={i} className="font__glyphs-char is-additional">
                   <span className="font__glyphs-key">{glyph}</span>{glyph}
@@ -60,7 +59,8 @@ class Glyphs extends Component {
 }
 
 Glyphs.propTypes = {
-  font: PropTypes.object
+  font: PropTypes.object,
+  glyphs: PropTypes.object
 };
 
 export default Glyphs;

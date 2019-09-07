@@ -143,8 +143,9 @@
 
   .main--bg-offset {
     &:after {
-      background-size: 90% auto;
-      max-width: calc(#{$break-desktop-wide} - 6rem);
+      background-size: 92.5% auto;
+      background-position: right 1.5rem;
+      max-width: calc(#{$break-desktop-wide} - 7rem);
     }
   }
 
@@ -162,7 +163,6 @@
   }
 
   .main--bg-offset:after {
-    background-position: right 1.5rem;
     margin-left: calc((100% - (#{$break-desktop-wide} - 6rem)) / 2);
   }
 

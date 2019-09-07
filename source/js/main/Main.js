@@ -17,7 +17,8 @@ import '../../sass/main.scss';
 
 const Main = (props) => {
   const {
-    fonts
+    fonts,
+    glyphs
   } = props;
 
   return(
@@ -35,7 +36,7 @@ const Main = (props) => {
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />
           <Route exact path="/fonts/:slug" render={(routeProps) =>
-            <Font font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} {...routeProps} />
+            <Font font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} glyphs={glyphs} {...routeProps} />
           }/>
           <Route path="/fonts/:slug/confirm" render={(routeProps) =>
             <Confirmation font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} {...routeProps} />
@@ -50,7 +51,8 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  fonts: PropTypes.array
+  fonts: PropTypes.array,
+  glyphs: PropTypes.object
 };
 
 export default Main;
