@@ -29,15 +29,7 @@ class Purchase extends Component {
 
   render () {
     return(
-      <button
-        type="submit"
-        title="Buy Now"
-        className={"button button--cta-primary text--medium" + (this.state.isProcessing ? ' is-processing' : '')}
-        onClick={this.handleClick}
-        data-ga-category={`${this.props.font.name} Page`}
-        data-ga-action="click"
-        data-ga-label="Buy Now"
-      >
+      <button className={`button button--cta-primary text--medium ${this.state.isProcessing ? ' is-processing' : ''}`} type="submit" onClick={this.handleClick} data-ga-category={`${this.props.font.name} Page`} data-ga-action="click" data-ga-label="Buy Now">
         <div className="button__text">
           Purchase
           <div className="text--extra-small">${this.props.font.price} Commercial Use</div>

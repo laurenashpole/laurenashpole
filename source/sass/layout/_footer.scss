@@ -34,3 +34,9 @@
     padding: 0 1rem;
   }
 }
+
+@media (min-width: $break-desktop-wide) {
+  .footer__content {
+    padding: 0 2.5rem;
+  }
+}

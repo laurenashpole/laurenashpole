@@ -1,5 +1,5 @@
 import React from 'react';
-import { DIST_LINKS } from '../../constants/distLinks';
+import { DIST_LINKS } from '../constants/distLinks';
 
 const Distributors = () => {
   return(

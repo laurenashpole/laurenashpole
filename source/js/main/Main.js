@@ -17,7 +17,8 @@ import '../../sass/main.scss';
 
 const Main = (props) => {
   const {
-    fonts
+    fonts,
+    glyphs
   } = props;
 
   return(
@@ -29,16 +30,16 @@ const Main = (props) => {
           <Route exact path="/" render={() =>
             <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
           }/>
-          <Route exact path="/fonts" render={(props) =>
-            <Fonts fonts={fonts} {...props} />
+          <Route exact path="/fonts" render={() =>
+            <Fonts fonts={fonts} />
           }/>
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />
-          <Route exact path="/fonts/:slug" render={(props) =>
-            <Font fonts={fonts} {...props} />
+          <Route exact path="/fonts/:slug" render={(routeProps) =>
+            <Font font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} glyphs={glyphs} {...routeProps} />
           }/>
-          <Route path="/fonts/:slug/confirm" render={(props) =>
-            <Confirmation fonts={fonts} {...props} />
+          <Route path="/fonts/:slug/confirm" render={(routeProps) =>
+            <Confirmation font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} {...routeProps} />
           }/>
           <Route path="/contact" component={Contact} />
           <Route component={Error} />
@@ -50,7 +51,8 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  fonts: PropTypes.array
+  fonts: PropTypes.array,
+  glyphs: PropTypes.object
 };
 
 export default Main;

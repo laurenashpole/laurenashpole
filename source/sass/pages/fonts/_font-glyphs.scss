@@ -1,25 +1,23 @@
-.font-glyphs {
-  display: flex;
+.font__glyphs-grid {
+  @include flex();
   @include flex-wrap(wrap);
 }
 
-.font-glyphs__char {
+.font__glyphs-char {
   width: 20%;
   padding-top: 20px;
   border: 1px solid $color-white;
   font-size: 24px;
   line-height: 60px;
-  text-align: center;
   overflow: hidden;
   position: relative;
-  @include transition(opacity 0.15s ease-in-out);
 }
 
-.css-loading .font-glyphs__char {
+.css-loading .font__glyphs-char {
   color: transparent;
 }
 
-.font-glyphs__key {
+.font__glyphs-key {
   background: $color-gray-light;
   position: absolute;
   top: 0;
@@ -31,9 +29,8 @@
   line-height: 20px;
 }
 
-@media (min-width: 768px) {
-
-  .font-glyphs__char {
+@media (min-width: $break-tablet) {
+  .font__glyphs-char {
     width: 12.5%;
   }
 }

@@ -1,9 +1,7 @@
-.font__section + .font__section {
-  border-top: 2px solid $color-white;
-}
-
-.font__section:first-child .container {
-  padding-top: 0.75rem;
+.font__content section + section {
+  margin-top: 2rem;
+  border-top: 1px solid $color-gray-medium;
+  padding-top: 2rem;
 }
 
 .font__heading {
@@ -16,15 +14,20 @@
   margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
+.font__img img {
+  width: 85%;
+  max-width: 550px;
+  margin: 0 auto 2.5rem auto;
+}
 
-  .font__section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
+.font__ctas {
+  padding: 0 0.975rem 2.5rem 0.975rem;
+}
 
-  .font__section:first-child {
-    padding-top: 0;
+@media (min-width: $break-tablet) {
+  .font__content section + section {
+    margin-top: 3rem;
+    padding-top: 3rem;
   }
 
   .font__heading {
@@ -40,12 +43,54 @@
   .font__heading-link + .font__heading-link {
     margin: 0 0 2rem 0.75rem;
   }
+
+  .font__img img {
+    margin: 0.5rem auto 4.5rem auto;
+  }
+
+  .font__ctas {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $break-desktop) {
+  .font {
+    @include flex();
+    @include flex-align(flex-start);
+    @include flex-wrap(wrap);
+  }
 
-  .font__section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .font__img {
+    width: 100%;
+    min-height: 560px;
+    height: 60vh;
+    max-height: $break-height;
+    @include flex();
+    @include flex-align(center);
+  }
+
+  .font__ctas {
+    width: 30%;
+    padding: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 1.5rem;
+  }
+
+  .font__content {
+    width: 70%;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: $break-desktop-wide) {
+  .font__content .well {
+    padding: 3rem;
+  }
+
+  .font__ctas {
+    padding-right: 1.5rem;
+    top: 3rem;
   }
 }

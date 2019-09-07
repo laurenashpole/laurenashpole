@@ -1,44 +1,40 @@
-.font-details__date {
-  font-size: 16px;
-  margin-bottom: 2rem;
+.font__details-date {
+  margin-bottom: 1.5rem;
 }
 
-.font-details__description {
-  padding-bottom: 1rem;
+.font__details-description {
+  margin-bottom: 2.5rem;
 }
 
-.font-details__lists {
-  @include flex-direction(column);
+.font__details-list + .font__details-list {
+  margin-top: 1.5rem;
 }
 
-.font-details__list {
-  font-size: 17px;
-}
-
-.font-details__list + .font-details__list {
-  border-top: 2px solid $color-gray-light;
-}
-
-.well__column + .font-details__list:before {
-  background: transparent;
-}
-
-.font-details__list-heading {
+.font__details-list-heading {
   margin-bottom: 1rem;
   letter-spacing: 0.075em;
 }
 
-@media (min-width: 500px) {
-
-  .font-details__lists {
-    @include flex-direction(row);
+@media (min-width: $break-tablet) {
+  .font__details-date {
+    margin-bottom: 2rem;
   }
 
-  .font-details__list + .font-details__list {
-    border-top: none;
+  .font__details-description {
+    margin-bottom: 3.5rem;
   }
 
-  .well__column + .font-details__list:before {
-    background: $color-gray-light;
+  .font__details-lists {
+    @include flex();
+  }
+
+  .font__details-list {
+    width: 50%;
+    padding: 0 0.5rem 0 0;
+
+    & + .font__details-list {
+      margin: 0;
+      padding: 0 0 0 0.5rem;
+    }
   }
 }

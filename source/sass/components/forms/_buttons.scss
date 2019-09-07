@@ -93,3 +93,9 @@
     margin-top: 4px;
   }
 }
+
+@media (min-width: $break-desktop-wide) {
+  .button + .button {
+    margin-top: 0.75rem;
+  }
+}

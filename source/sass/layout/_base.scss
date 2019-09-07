@@ -17,18 +17,14 @@
 }
 
 .container--medium {
-  max-width: 860px;
-}
-
-.container--large {
-  max-width: 1200px;
-}
-
-.container--x-large {
-  max-width: $break-desktop-wide;
+  max-width: $width-medium;
 }
 
 @media (min-width: $break-tablet) {
+  .root {
+    overflow: initial;
+  }
+
   .container {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -38,6 +34,14 @@
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }
+
+  .container--large {
+    max-width: $width-wide;
+  }
+
+  .container--x-large {
+    max-width: $break-desktop-wide;
+  }
 }
 
 @media (min-width: $break-desktop) {
@@ -45,5 +49,12 @@
   .container--medium {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: $break-desktop-wide) {
+  .container--x-large {
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
 }

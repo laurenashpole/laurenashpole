@@ -6,46 +6,40 @@ class Gallery extends Component {
     super(props);
 
     this.state = {
-      activeImage: props.font.image_collection[0]
+      activeIndex: 0
     };
   }
 
-  handleClick = (e) => {
-    let index = e.target.getAttribute('data-index');
-
+  handleClick = (i) => {
     this.setState({
-      activeImage: this.props.font.image_collection[index]
+      activeIndex: i
     });
   }
 
   render () {
+    const {
+      name,
+      image_collection,
+      image_collection_thumbnails
+    } = this.props.font;
+
     return(
-      <section className="font__section">
-        <div className="container container--large">
-          <div className="column--static">
-            <h2 className="font__heading text--uppercase u--center-mobile">Additional Images</h2>
+      <section className="font__gallery">
+        <h2 className="font__heading text--uppercase u--center-mobile">Additional Images</h2>
 
-            <div className="well gallery">
-              <div className="gallery__main">
-                <img src={`/images/fonts/${this.state.activeImage}`} alt={this.props.font.name} />
-              </div>
+        <img src={`/images/fonts/${image_collection[this.state.activeIndex]}`} alt={name} />
 
-              {this.props.font.image_collection_thumbnails.length > 1 &&
-                <div className="gallery__thumbnails">
-                  <div className="gallery__thumbnails-inner">
-                    {this.props.font.image_collection_thumbnails.map((image, i) => {
-                      return(
-                        <div className="gallery__thumbnail" key={image}>
-                          <img src={`/images/fonts/${image}`} alt={`${this.props.font.name} Thumbnail`} data-index={i} onClick={this.handleClick} />
-                        </div>
-                      );
-                    })}
-                  </div>
+        {image_collection_thumbnails.length > 1 &&
+          <div className="font__gallery-thumbnails">
+            {image_collection_thumbnails.map((image, i) => {
+              return(
+                <div className="font__gallery-thumbnail" key={image}>
+                  <img src={`/images/fonts/${image}`} alt={`${name} Thumbnail`} onClick={this.handleClick.bind(this, i)} />
                 </div>
-              }
-            </div>
+              );
+            })}
           </div>
-        </div>
+        }
       </section>
     );
   }
