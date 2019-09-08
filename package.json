@@ -6,9 +6,8 @@
     "start": "node ./bin/www",
     "forever-start": "NODE_ENV=production forever start ./bin/www",
     "forever-stop": "NODE_ENV=production forever stop ./bin/www",
-    "dev": "webpack",
-    "watch": "webpack --watch",
-    "prod": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
+    "dev": "webpack --watch",
+    "prod": "webpack --config webpack.config.prod.js -p",
     "deploy": "npm run prod && npm run forever-stop && npm run forever-start"
   },
   "dependencies": {
@@ -52,17 +51,16 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.18",
-    "css-loader": "^0.28.9",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
     "eslint": "^5.15.3",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-react": "^7.12.4",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.20.1",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^3.10.0",
-    "webpack-manifest-plugin": "^1.3.2"
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-manifest-plugin": "^2.0.4"
   }
 }

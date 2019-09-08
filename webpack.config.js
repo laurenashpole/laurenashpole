@@ -1,11 +1,10 @@
-let webpack = require('webpack');
-let path = require('path');
-let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-let CleanWebpackPlugin = require('clean-webpack-plugin');
-let ManifestPlugin = require('webpack-manifest-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   target: 'web',
   entry: {
@@ -21,10 +20,7 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
-          fallback: 'style-loader'
-        })
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.(js|jsx)$/,
@@ -39,13 +35,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].css'),
-    new CleanWebpackPlugin(['css', 'js'], {
-      root: path.resolve(__dirname, 'public'),
-      exclude: ['fonts']
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
     }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: false
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['css/*', 'js/*', '!css/fonts*']
     }),
     new ManifestPlugin({
       fileName: 'assets.json',
