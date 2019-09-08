@@ -13,14 +13,32 @@
 
 .select__caret {
   height: 100%;
-  padding: 0.5rem 1rem;
+  width: 2.65rem;
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 28px;
   pointer-events: none;
   @include flex();
   @include flex-align(center);
+  @include flex-justify(center);
+}
+
+.select__caret:before,
+.select__caret:after {
+  content: " ";
+  background: $color-black;
+  width: 12px;
+  height: 2px;
+  margin-right: -2.5px;
+  border-radius: 1px;
+  transform: rotate(45deg);
+  top: 50%;
+  left: 50%;
+}
+
+.select__caret:after {
+  transform: scaleY(-1) rotate(45deg);
+  margin-left: -2.5px;
 }
 
 .select--label-inset select {

@@ -7,20 +7,17 @@ exports.signup = function (req, res) {
   };
 
   if (!req.body) {
-    res.statusCode = 403;
-    res.json(response);
+    return res.json(response);
   }
 
   if (req.body.b_5e9c643a20b49926773037101_a878f779fc) {
     response.err = 'Are you a robot?';
-    res.statusCode = 403;
-    res.json(response);
+    return res.json(response);
   }
 
   if (!req.body.email || !(/\S+@\S+\.\S+/.test(req.body.email))) {
     response.err = 'Valid email required!';
-    res.statusCode = 403;
-    res.json(response);
+    return res.json(response);
   }
 
   if (/\/\/blog/.test(req.headers.origin)) {

@@ -7,22 +7,22 @@ const Footer = () => (
       <ul className="list--unstyled footer__social">
         <li className="social">
           <a href="https://twitter.com/laurenashpole" className="social__link">
-            <i className="fa fa-twitter"></i>
+            <span className="social__icon social__icon--twitter" aria-label="Twitter"></span>
           </a>
         </li>
         <li className="social">
           <a href="https://www.pinterest.com/laurenashpole/" className="social__link">
-            <i className="fa fa-pinterest"></i>
+            <span className="social__icon social__icon--pinterest" aria-label="Pinterest"></span>
           </a>
         </li>
         <li className="social">
           <a href="https://github.com/laurenashpole" className="social__link">
-            <i className="fa fa-github"></i>
+            <span className="social__icon social__icon--github" aria-label="Github"></span>
           </a>
         </li>
         <li className="social">
           <a href="http://codepen.io/laurenashpole/" className="social__link">
-            <i className="fa fa-codepen"></i>
+            <span className="social__icon social__icon--codepen" aria-label="CodePen"></span>
           </a>
         </li>
       </ul>

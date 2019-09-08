@@ -1,89 +1,59 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
-class Mailing extends Component {
-  constructor (props) {
-    super(props);
+const Mailing = ({ customClasses, onSignup }) => {
+  const [email, setEmail] = useState('');
+  const [hidden, setHidden] = useState('');
+  const [buttonText, setButtonText] = useState('Sign me up!');
 
-    this.state = {
-      email: '',
-      hidden: '',
-      buttonText: 'Get Updates!',
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    sendEvent(e);
 
-    if (this.state.email.length === 0 || !(/\S+@\S+\.\S+/.test(this.state.email))) {
-      this.handleError('Invalid email');
-      return;
+    if (!email || !(/\S+@\S+\.\S+/.test(email))) {
+      return setButtonText('Invalid email');
     }
 
-    this.setState({
-      buttonText: 'Processing'
-    });
+    sendEvent(e);
+    setButtonText('Sending');
 
-    request('/mailing/signup', this.state, (response) => {
+    request('/mailing/signup', {
+      email: email,
+      b_5e9c643a20b49926773037101_a878f779fc: hidden
+    }, (response) => {
       if (response.success) {
-        this.setState({
-          buttonText: 'Success!'
-        });
+        setButtonText('Success!');
 
-        if (this.props.onSignup) {
-          this.props.onSignup(e);
+        if (onSignup && onSignup instanceof Function) {
+          onSignup(e);
         }
       } else {
         if (response.err) {
-          this.handleError(response.err);
+          setButtonText(response.err);
         }
       }
     });
-  }
+  };
 
-  handleError = (error) => {
-    this.setState({
-      buttonText: error
-    });
-  }
+  return (
+    <form className={`form__row--inline ${customClasses ? customClasses : ''}`}>
+      <div className="mailing__input">
+        <input className="input input--small" type="email" placeholder="Want updates by email?" onChange={(e) => { setEmail(e.target.value); setButtonText('Sign me up!'); }} value={email} />
+      </div>
 
-  render () {
-    return (
-      <form className={"form__row--inline " + (this.props.customClasses ? this.props.customClasses : '')}>
-        <div className="mailing__input-section">
-          <input className="input input--small u--center-mobile" type="email" name="email"  id="email" placeholder="Enter your email address" onChange={this.handleChange} value={this.state.email} />
-        </div>
+      <div className="form__hidden" aria-hidden="true">
+        <input type="text" tabIndex="-1" onChange={(e) => setHidden(e.target.value)} value={hidden} />
+      </div>
 
-        <div className="form__hidden" aria-hidden="true">
-          <input type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabIndex="-1" onChange={this.handleChange} value={this.state.hidden} />
-        </div>
-
-        <div className="mailing__button-section">
-          <button
-            type="submit"
-            name="subscribe"
-            className="button button--small"
-            onClick={this.handleSubmit}
-            data-ga-category="Footer"
-            data-ga-action="click"
-            data-ga-label="Get Updates!"
-          >
-            {this.state.buttonText}
-          </button>
-        </div>
-      </form>
-    );
-  }
-}
+      <div className="mailing__button">
+        <button className="button button--small" onClick={handleSubmit} data-ga-category="Footer" data-ga-action="click" data-ga-label="Sign me up!">
+          {buttonText}
+        </button>
+      </div>
+    </form>
+  );
+};
 
 Mailing.propTypes = {
   customClasses: PropTypes.string,
