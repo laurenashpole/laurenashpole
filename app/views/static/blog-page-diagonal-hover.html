@@ -5,22 +5,6 @@
 <!doctype html>
 <html lang="en" class="is-not-touch">
 <head>
-  <script>
-    WebFontConfig = {
-      custom: {
-        families: ['FontAwesome'],
-        urls: ['//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css']
-      }
-    };
-
-    (function(d) {
-      var wf = d.createElement('script'), s = d.scripts[0];
-      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-      wf.async = true;
-      s.parentNode.insertBefore(wf, s);
-    })(document);
-  </script>
-
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -349,41 +333,41 @@
       <ul class="list--unstyled footer__social">
         <li class="social">
           <a href="https://twitter.com/laurenashpole" class="social__link">
-            <i class="fa fa-twitter"></i>
+            <span className="social__icon social__icon--twitter" aria-label="Twitter"></span>
           </a>
         </li>
 
         <li class="social">
           <a href="https://www.pinterest.com/laurenashpole/" class="social__link">
-            <i class="fa fa-pinterest"></i>
+            <span className="social__icon social__icon--pinterest" aria-label="Pinterest"></span>
           </a>
         </li>
 
         <li class="social">
           <a href="https://github.com/laurenashpole" class="social__link">
-            <i class="fa fa-github"></i>
+            <span className="social__icon social__icon--github" aria-label="Github"></span>
           </a>
         </li>
 
         <li class="social">
           <a href="https://codepen.io/laurenashpole/" class="social__link">
-            <i class="fa fa-codepen"></i>
+            <span className="social__icon social__icon--codepen" aria-label="CodePen"></span>
           </a>
         </li>
       </ul>
 
       <div class="footer__form-section">
         <form action="https://www.laurenashpole.com/mailing/signup" class="form__row--inline mailing--inline" id="jsMailingForm">
-          <div class="mailing__input-section">
-            <input type="email" class="input input--small u--center-mobile" name="email" id="jsMailingEmail" placeholder="Enter your email address" value="">
+          <div class="mailing__input">
+            <input type="email" class="input input--small" name="email" id="jsMailingEmail" placeholder="Want updates by email?" value="">
           </div>
 
           <div class="form__hidden" aria-hidden="true">
             <input id="jsMailingHidden" type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabindex="-1" value="">
           </div>
 
-          <div class="mailing__button-section">
-            <button type="submit" name="subscribe" class="button button--small js-ga-trigger" id="jsMailingButton" data-ga-category="Footer" data-ga-action="click" data-ga-label="Get Updates!">Get Updates!</button>
+          <div class="mailing__button">
+            <button type="submit" name="subscribe" class="button button--small js-ga-trigger" id="jsMailingButton" data-ga-category="Footer" data-ga-action="click" data-ga-label="Get Updates!">Sign Me Up!</button>
           </div>
         </form>
       </div>
