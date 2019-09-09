@@ -17,8 +17,12 @@ exports.render = function (req, res, next) {
         }
 
         if (font.css_file) {
+          let cssString;
           const filePath = path.resolve('./public/css/fonts/', font.css_file);
-          const cssString = fs.readFileSync(filePath);
+
+          if (fs.existsSync(filePath)) {
+            cssString = fs.readFileSync(filePath);
+          }
 
           if (cssString) {
             font.css_string = cssString.toString();
@@ -84,16 +88,19 @@ exports.mailing = function (req, res) {
   };
 
   if (!req.body) {
+    res.statusCode = 403;
     return res.json(response);
   }
 
   if (req.body.b_5e9c643a20b49926773037101_a878f779fc) {
     response.err = 'Are you a robot?';
+    res.statusCode = 403;
     return res.json(response);
   }
 
   if (!req.body.email || !(/\S+@\S+\.\S+/.test(req.body.email))) {
     response.err = 'Valid email required!';
+    res.statusCode = 403;
     return res.json(response);
   }
 
