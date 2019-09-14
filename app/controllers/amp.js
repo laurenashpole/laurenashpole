@@ -6,6 +6,14 @@ const constantsHelper = require('../helpers/constants')();
 const fontHelper = require('../helpers/fonts');
 const paymentHelper = require('../helpers/payments');
 
+function setHeaders (req, res) {
+  res.setHeader('Content-type', 'application/json');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
+  res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
+}
+
 exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
@@ -53,11 +61,7 @@ exports.update = function (req, res) {
     size: req.body.size ? req.body.size : '60'
   };
 
-  res.setHeader('Content-type', 'application/json');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
-  res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
+  setHeaders(req, res);
   res.json(response);
 };
 
@@ -70,12 +74,8 @@ exports.payment = function (req, res) {
     })
     .then((data) => {
       if (data.success) {
-        res.setHeader('Content-type', 'application/json');
-        res.setHeader('Access-Control-Allow-Credentials', true);
-        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-        res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
+        setHeaders(req, res);
         res.setHeader('AMP-Redirect-To', data.redirectUrl);
-        res.setHeader('Access-Control-Expose-Headers', 'AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin');
         res.json(data);
       }
     })
@@ -104,11 +104,7 @@ exports.mailing = function (req, res) {
     return res.json(response);
   }
 
-  res.setHeader('Content-type', 'application/json');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
-  res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
+  setHeaders(req, res);
 
   request
     .post('https://laurenashpole.us4.list-manage.com/subscribe/post')
