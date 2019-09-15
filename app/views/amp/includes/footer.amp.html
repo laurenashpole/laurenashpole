@@ -3,38 +3,38 @@
     <ul class="list--unstyled footer__social container container--medium">
       <li class="social">
         <a href="https://twitter.com/laurenashpole" class="social__link">
-          <i class="fa fa-twitter"></i>
+          <span className="social__icon social__icon--twitter" aria-label="Twitter"></span>
         </a>
       </li>
       <li class="social">
         <a href="https://www.pinterest.com/laurenashpole/" class="social__link">
-          <i class="fa fa-pinterest"></i>
+          <span className="social__icon social__icon--pinterest" aria-label="Pinterest"></span>
         </a>
       </li>
       <li class="social">
         <a href="https://github.com/laurenashpole" class="social__link">
-          <i class="fa fa-github"></i>
+          <span className="social__icon social__icon--github" aria-label="Github"></span>
         </a>
       </li>
       <li class="social">
         <a href="http://codepen.io/laurenashpole/" class="social__link">
-          <i class="fa fa-codepen"></i>
+          <span className="social__icon social__icon--codepen" aria-label="CodePen"></span>
         </a>
       </li>
     </ul>
 
     <div class="footer__form-section">
-      <form action-xhr="{{host_url}}/amp/mailing/signup" method="post" class="footer__form form__row--inline container container--medium" target="_top">
-        <div class="mailing__input-section">
-          <input type="email" value="" name="email" class="input input--small u--center" id="email" placeholder="Enter your email address">
+      <form action-xhr="{{host_url}}/amp/mailing/signup" method="post" class="footer__form form__row--inline container container--medium mailing--inline" target="_top">
+        <div class="mailing__input">
+          <input type="email" value="" name="email" class="input input--small u--center" id="email" placeholder="Want updates by email?">
         </div>
 
         <div class="form__hidden" aria-hidden="true"><input type="text" name="b_5e9c643a20b49926773037101_a878f779fc" tabindex="-1" value=""></div>
 
-        <div class="mailing__button-section">
+        <div class="mailing__button">
           <button type="submit" name="subscribe" class="button button--small text--uppercase text--extra-bold">
             <span class="button__text is-default">
-              Get Updates!
+              Sign Me Up!
             </span>
             <span class="button__text is-message"></span>
           </button>

@@ -40,9 +40,7 @@ class Preview extends Component {
               <option value="72">72px</option>
               <option value="144">144px</option>
             </select>
-            <span className="select__caret">
-              <i className="fa fa-angle-down"></i>
-            </span>
+            <span className="select__caret"></span>
           </div>
         </form>
 

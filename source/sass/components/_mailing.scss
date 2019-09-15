@@ -1,43 +1,29 @@
-.mailing__input-section {
+.mailing__input {
   width: 100%;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
 
   input {
     text-align: center;
   }
 }
 
-.mailing__button-section {
+.mailing__button {
   width: 100%;
 }
 
 .mailing--inline {
-  .mailing__input-section {
-    padding: 0.65rem;
-  }
-
-  .mailing__button-section {
-    border-top: 2px solid $color-gray-light;
-    padding: 0.65rem;
-  }
-}
-
-@media (min-width: $break-tablet) {
-  .mailing--inline {
-    .mailing__input-section {
-      width: 66.666%;
-      padding: 0.5rem 0 0.5rem 0.5rem;
-    }
+  .mailing__input {
+    width: 66.666%;
+    padding: 0.5rem 0 0.5rem 0.5rem;
 
     input {
       text-align: left;
     }
+  }
 
-    .mailing__button-section {
-      width: 33.333%;
-      border: none;
-      padding: 0.5rem;
-    }
+  .mailing__button {
+    width: 33.333%;
+    padding: 0.5rem;
   }
 }
 
@@ -45,9 +31,11 @@
   .mailing--inline {
     max-width: 600px;
     margin-left: auto;
+  }
+}
 
-    input {
-      padding-left: 1rem;
-    }
+@media (min-width: $break-desktop-wide) {
+  .mailing__input {
+    padding-bottom: 0.75rem;
   }
 }

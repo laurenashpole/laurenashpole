@@ -139,9 +139,7 @@ class Contact extends Component {
                       <option value="Themes">Themes</option>
                       <option value="Other">Other</option>
                     </select>
-                    <span className="select__caret">
-                      <i className="fa fa-angle-down"></i>
-                    </span>
+                    <span className="select__caret"></span>
                   </div>
                   <label htmlFor="subject">Subject</label>
                 </div>
