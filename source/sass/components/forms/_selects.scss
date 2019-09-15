@@ -31,13 +31,13 @@
   height: 2px;
   margin-right: -2.5px;
   border-radius: 1px;
-  transform: rotate(45deg);
+  @include transform(rotate(45deg));
   top: 50%;
   left: 50%;
 }
 
 .select__caret:after {
-  transform: scaleY(-1) rotate(45deg);
+  @include transform(scaleY(-1) rotate(45deg));
   margin-left: -2.5px;
 }
 
