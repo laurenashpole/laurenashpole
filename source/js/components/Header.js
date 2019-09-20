@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { getActiveLink } from '../utilities/getActiveLink';
 import { sendEvent } from '../utilities/analytics';
 
 const Header = ({ navLinks, enableAnalytics }) => {
   const [showNav, setShowNav] = useState(false);
+  const [activeLink, setActiveLink] = useState(getActiveLink(navLinks, window.location.pathname));
   const firstEl = useRef(null);
   const lastEl = useRef(null);
 
@@ -17,14 +19,6 @@ const Header = ({ navLinks, enableAnalytics }) => {
 
     return () => window.removeEventListener('keydown', handleKeydown);
   }, [showNav]);
-
-  const activeLink = navLinks.filter((navLink) => {
-    if (navLink.isExact) {
-      return navLink.url === window.location.pathname;
-    }
-
-    return window.location.pathname.indexOf(navLink.url) !== -1;
-  });
 
   const handleNavToggle = () => {
     setShowNav(!showNav);
@@ -54,7 +48,9 @@ const Header = ({ navLinks, enableAnalytics }) => {
     }
   };
 
-  const handleLinkClick = (e) => {
+  const handleLinkClick = (e, link) => {
+    setActiveLink(link);
+
     if (enableAnalytics) {
       sendEvent(e);
     }
@@ -65,7 +61,7 @@ const Header = ({ navLinks, enableAnalytics }) => {
       <Link
         to="/"
         className="header__logo"
-        onClick={handleLinkClick}
+        onClick={(e) => handleLinkClick(e, '')}
         aria-label="Home"
         data-ga-category="Nav Links"
         data-ga-action="click"
@@ -92,10 +88,10 @@ const Header = ({ navLinks, enableAnalytics }) => {
         <ul id="nav" className="header__list list--unstyled text--uppercase text--extra-bold">
           {navLinks.map((link, i) => {
             const baseAttributes = {
-              className: `header__link ${activeLink.length && activeLink[0].url === link.url ? 'header__link--active' : ''}`,
+              className: `header__link ${activeLink === link.url ? 'header__link--active' : ''}`,
               onClick: (e) => {
                 handleNavToggle();
-                handleLinkClick(e);
+                handleLinkClick(e, link.url);
               },
               'data-ga-category': 'Nav Links',
               'data-ga-action': 'click',
