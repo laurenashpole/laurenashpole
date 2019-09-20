@@ -42,11 +42,8 @@
   &:hover,
   &:focus {
     background: $color-red-hover;
+    outline: none;
   }
-}
-
-.header__icon:focus {
-  outline: none;
 }
 
 .header__icon-line {
