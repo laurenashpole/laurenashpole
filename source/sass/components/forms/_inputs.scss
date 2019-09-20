@@ -2,14 +2,14 @@
   background: $color-gray-light;
   min-height: 3rem;
   padding: 0.5rem;
-  border: 2px solid transparent;
+  border: 1px solid $color-gray-med-light;
   border-radius: 3px;
   line-height: normal;
 }
 
 .input--label-inset {
   height: calc(3.3rem + 4px);
-  padding: 1rem 0.5rem 0 0.5rem;
+  padding: 1.1rem 0.5rem 0 0.5rem;
 }
 
 .input--label-inset + label {
@@ -19,7 +19,7 @@
   letter-spacing: 0.25em;
   font-weight: 700;
   position: absolute;
-  top: 0.5rem;
+  top: 0.6rem;
   left: calc(0.5rem + 2px);
 }
 
@@ -37,7 +37,7 @@
 .textarea {
   background: $color-gray-light;
   padding: 0.5rem;
-  border: 2px solid transparent;
+  border: 1px solid $color-gray-med-light;
   border-radius: 3px;
   display: block;
   resize: none;
@@ -49,30 +49,30 @@
 
 .input::-webkit-input-placeholder,
 .textarea::-webkit-input-placeholder {
-  color: $form-color-placeholder;
+  color: $color-gray-dark;
 }
 
 .input::-moz-placeholder,
 .textarea::-moz-placeholder {
-  color: $form-color-placeholder;
+  color: $color-gray-dark;
 }
 
 .input:-ms-input-placeholder,
 .textarea:-ms-input-placeholder {
-  color: $form-color-placeholder;
+  color: $color-gray-dark;
 }
 
 .input:-moz-placeholder,
 .textarea:-moz-placeholder {
-  color: $form-color-placeholder;
+  color: $color-gray-dark;
 }
 
 .input.is-required,
 .textarea.is-required {
-  border-color: $form-color-error;
+  border-color: $color-red;
 }
 
 .input.is-required + label .label__required {
-  color: $form-color-error;
+  color: $color-red;
   display: inline;
 }

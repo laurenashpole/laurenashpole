@@ -3,13 +3,13 @@
   margin-top: 1rem;
 }
 
-.footer__social {
-  @include flex();
+.footer__content {
+  padding: 0.65rem 0.15rem 0.15rem 0.15rem;
 }
 
-.footer__form-section {
-  border-top: 2px solid $color-gray-light;
-  @include flex-child(2);
+ul.footer__social {
+  padding-bottom: 0.15rem;
+  @include flex();
 }
 
 @media (min-width: $break-tablet) {
@@ -20,12 +20,13 @@
     @include flex();
   }
 
-  .footer__social {
-    border-right: 2px solid $color-gray-light;
+  ul.footer__social {
+    border-right: 1px solid $color-gray-med-light;
+    padding: 0;
   }
 
   .footer__form-section {
-    border-top: none;
+    @include flex-child(2);
   }
 }
 

@@ -1,7 +1,7 @@
 .header {
   background: $color-white;
   width: 100%;
-  border-bottom: 1px solid $color-gray-medium;
+  border-bottom: 1px solid $color-gray-med-light;
   padding: 0.5rem 0.65rem;
   position: fixed;
   top: 0;
@@ -181,12 +181,9 @@
     background: none;
     font-size: 0.75rem;
     letter-spacing: 0.15rem;
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
+    position: static;
     overflow: visible;
+    @include flex-direction(row);
     @include transition(none);
   }
 
