@@ -14,10 +14,12 @@ $width-wide: 1200px;
 
 /* General Colors */
 $color-white: #fff;
+$color-white-encoded: '%23ffffff';
 $color-black: #202020;
 
 $color-gray-dark: #a7a7a7;
-$color-gray-medium: #dadada;
+$color-gray-med-dark: #cdcdcd;
+$color-gray-med-light: #eaeaea;
 $color-gray-light: #f4f4f4;
 
 $color-red: #da3725;
@@ -32,13 +34,3 @@ $color-pink: #fae3e1;
 $color-pink-encoded: '%23fae3e1';
 $color-blue: #d6ecf0;
 $color-blue-encoded: '%23d6ecf0';
-
-/* Component Colors */
-$button-color: $color-purple;
-$button-color-hover: #675e75;
-$button-color-cta-primary: $color-red;
-
-$form-color-background: $color-gray-light;
-$form-color-primary: $color-white;
-$form-color-placeholder: $color-gray-dark;
-$form-color-error: $color-red;

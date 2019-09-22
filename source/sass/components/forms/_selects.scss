@@ -6,7 +6,7 @@
   background: $color-gray-light;
   min-height: 3rem;
   padding: 0 2.65rem 0 0.5rem;
-  border: 2px solid transparent;
+  border: 1px solid $color-gray-med-light;
   border-radius: 3px;
   line-height: 2.3rem;
 }
@@ -42,7 +42,7 @@
 }
 
 .select--label-inset select {
-  padding: 1rem 0.5rem 0 0.5rem;
+  padding: 1.1rem 0.5rem 0 0.5rem;
 }
 
 .select--label-inset + label {
@@ -52,6 +52,6 @@
   letter-spacing: 0.25em;
   font-weight: 700;
   position: absolute;
-  top: 0.5rem;
+  top: 0.65rem;
   left: calc(0.5rem + 2px);
 }
