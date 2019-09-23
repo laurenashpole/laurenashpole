@@ -15,7 +15,7 @@ const Mailing = ({ customClasses, onSignup }) => {
       return setButtonText('Invalid email');
     }
 
-    sendEvent(e);
+    sendEvent('Footer', 'click', 'Sign me up!');
     setButtonText('Sending');
 
     request('/mailing/signup', {
@@ -47,7 +47,7 @@ const Mailing = ({ customClasses, onSignup }) => {
       </div>
 
       <div className="mailing__button">
-        <button className="button button--small" onClick={handleSubmit} data-ga-category="Footer" data-ga-action="click" data-ga-label="Sign me up!">
+        <button className="button button--small" onClick={handleSubmit}>
           {buttonText}
         </button>
       </div>

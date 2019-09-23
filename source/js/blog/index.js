@@ -118,7 +118,10 @@ Blog.Analytics = (function () {
 
     initListeners: function () {
       for (let i; i < this.$trackingEls.length; i++) {
-        this.$trackingEls[i].addEventListener('click', sendEvent, false);
+        this.$trackingEls[i].addEventListener('click', (e) => {
+          const dataset = e.target.dataset;
+          sendEvent(dataset.gaCategory, dataset.gaAction, dataset.gaLabel);
+        }, false);
       }
     }
   }

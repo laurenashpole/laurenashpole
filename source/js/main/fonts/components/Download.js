@@ -17,7 +17,7 @@ class Download extends Component {
   handleOpenClick = (e) => {
     if (!this.state.disableModal) {
       e.preventDefault();
-      sendEvent(e);
+      sendEvent(`${this.props.font.name} Page`, 'click', 'Download');
 
       document.documentElement.style.overflow = 'hidden';
 
@@ -29,7 +29,7 @@ class Download extends Component {
 
   handleCloseClick = (e) => {
     e.preventDefault();
-    sendEvent(e);
+    sendEvent(`${this.props.font.name} Page`, 'click', 'Finish Download');
 
     this.handleClose();
     window.localStorage.setItem('hideEmailModal', true);
@@ -51,14 +51,7 @@ class Download extends Component {
   render () {
     return(
       <Fragment>
-        <a
-          href={`/downloads/fonts/${this.props.font.personal_font_file}`}
-          className="button button--outline text--medium"
-          onClick={this.handleOpenClick}
-          data-ga-category={`${this.props.font.name} Page`}
-          data-ga-action="click"
-          data-ga-label="Download"
-        >
+        <a href={`/downloads/fonts/${this.props.font.personal_font_file}`} className="button button--outline text--medium" onClick={this.handleOpenClick}>
           <div className="button__text">
             Download
             <div className="text--extra-small">Free Personal Use</div>
@@ -73,15 +66,8 @@ class Download extends Component {
             <Mailing onSignup={this.handleCloseClick} />
           </div>
 
-          <a
-              href="javascript:void(0);"
-              className="text--medium"
-              onClick={this.handleCloseClick}
-              data-ga-category="{{font.name}} Page"
-              data-ga-action="click"
-              data-ga-label="Finish Download"
-          >
-              Nope, just download the font.
+          <a href="javascript:void(0);" className="text--medium" onClick={this.handleCloseClick}>
+            Nope, just download the font.
           </a>
         </Modal>
       </Fragment>
