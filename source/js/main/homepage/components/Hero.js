@@ -23,7 +23,7 @@ const Hero = (props) => {
             {name}
           </h3>
 
-          <Link className="button button--cta-primary" to={`/fonts/${slug}`} title={name} onClick={sendEvent} data-ga-category="Homepage Hero" data-ga-action="click" data-ga-label="Cta">
+          <Link className="button button--cta-primary" to={`/fonts/${slug}`} title={name} onClick={() => sendEvent('Homepage Hero', 'click', 'Cta')}>
             Check it out
           </Link>
         </div>

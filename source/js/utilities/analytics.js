@@ -5,11 +5,7 @@ export function sendPageview () {
   }
 }
 
-export function sendEvent (e) {
-  const category = e.target.dataset.gaCategory;
-  const action = e.target.dataset.gaAction;
-  const label = e.target.dataset.gaLabel;
-
+export function sendEvent (category, action, label) {
   if (window.ga) {
     window.ga('send', 'event', category, action, label);
   }

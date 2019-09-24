@@ -42,7 +42,7 @@ class Contact extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    sendEvent(e);
+    sendEvent('Contact Page', 'click', 'Send');
 
     let isValid = this.validate();
 
@@ -149,14 +149,7 @@ class Contact extends Component {
                 </div>
 
                 <div className="form__row">
-                  <button
-                    type="submit"
-                    className={"button button--cta-primary" + (this.state.isProcessing ? ' is-processing' : '')}
-                    onClick={this.handleSubmit}
-                    data-ga-category="Contact Page"
-                    data-ga-action="click"
-                    data-ga-label="Send"
-                  >
+                  <button type="submit" className={"button button--cta-primary" + (this.state.isProcessing ? ' is-processing' : '')} onClick={this.handleSubmit}>
                     Send Message
                   </button>
                 </div>

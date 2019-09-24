@@ -13,7 +13,7 @@ const About = () => {
         <div className="about__description">
           <h3 className="text--uppercase u--center">About me</h3>
 
-          <p>I&apos;ve been designing fonts and dingbats in my spare time for years and you can find them all here. When I&apos;m not working on my side projects, I&apos;m a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank" rel="noopener noreferrer">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" onClick={sendEvent} data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" onClick={sendEvent} data-ga-category="Homepage About" data-ga-action="click" data-ga-label="Code Snippets">code snippets</a> on my blog.</p>
+          <p>I&apos;ve been designing fonts and dingbats in my spare time for years and you can find them all here. When I&apos;m not working on my side projects, I&apos;m a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank" rel="noopener noreferrer">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" onClick={() => sendEvent('Homepage About', 'click', 'Themes')}>themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" onClick={() => sendEvent('Homepage About', 'click', 'Code Snippets')}>code snippets</a> on my blog.</p>
         </div>
       </div>
     </section>
