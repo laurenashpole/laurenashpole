@@ -33,7 +33,7 @@ class Download extends Component {
 
     this.handleClose();
     window.localStorage.setItem('hideEmailModal', true);
-    window.location = `/downloads/fonts/${this.props.font.personal_font_file}`;
+    window.location = `/uploads/fonts/${this.props.font.personal_font_file}`;
 
     this.setState({
       disableModal: true
@@ -51,7 +51,7 @@ class Download extends Component {
   render () {
     return(
       <Fragment>
-        <a href={`/downloads/fonts/${this.props.font.personal_font_file}`} className="button button--outline text--medium" onClick={this.handleOpenClick}>
+        <a href={`/uploads/fonts/${this.props.font.personal_font_file}`} className="button button--outline text--medium" onClick={this.handleOpenClick}>
           <div className="button__text">
             Download
             <div className="text--extra-small">Free Personal Use</div>

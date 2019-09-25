@@ -62,7 +62,7 @@ class Fonts extends Component {
                     return (
                       <div className="fonts__grid-item" key={font._id}>
                         <Link className="well fonts__grid-link" to={`/fonts/${font.slug}`} onClick={() => sendEvent('Fonts', 'click', font.name)}>
-                          <img className="fonts__grid-img" src={`/images/fonts/${font.image}`} alt={`${font.name} Sample Characters`} />
+                          <img className="fonts__grid-img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} />
                           <h3>{font.name}</h3>
                         </Link>
                       </div>

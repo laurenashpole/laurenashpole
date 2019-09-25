@@ -56,7 +56,7 @@ class Confirmation extends Component {
           <div className="well well--extra-padding">
             <h2>Thank you for purchasing {this.props.font.name}!</h2>
 
-            <p>Download the commercial version of your font <a href={`/downloads/fonts/${this.props.font.commercial_font_file}`}>here</a>. A copy will also be emailed to {this.state.payment.payer.payer_info.email}.</p>
+            <p>Download the commercial version of your font <a href={`/uploads/fonts/${this.props.font.commercial_font_file}`}>here</a>. A copy will also be emailed to {this.state.payment.payer.payer_info.email}.</p>
 
             <p>If you have any questions about your purchase, view the <Link to="/fonts/licensing" title="Licensing">licensing details</Link> or the <Link to="/fonts/eula" title="EULA">EULA</Link> or email me at <a href="mailto:lauren@laurenashpole.com" title="lauren@laurenashpole.com">lauren@laurenashpole.com</a>.</p>
           </div>

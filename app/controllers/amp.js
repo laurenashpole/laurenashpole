@@ -26,7 +26,7 @@ exports.render = function (req, res, next) {
 
         if (font.css_file) {
           let cssString;
-          const filePath = path.resolve('./public/css/fonts/', font.css_file);
+          const filePath = path.resolve('./uploads/css/', font.css_file);
 
           if (fs.existsSync(filePath)) {
             cssString = fs.readFileSync(filePath);
