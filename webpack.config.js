@@ -39,7 +39,7 @@ module.exports = {
       filename: 'css/[name].css'
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['css/*', 'js/*', '!css/fonts*']
+      cleanOnceBeforeBuildPatterns: ['css/*', 'js/*']
     }),
     new ManifestPlugin({
       fileName: 'assets.json',
