@@ -22,7 +22,7 @@ class Delete extends Component {
 
       this.handleError(response.status);
     }).then((response) => {
-      if (response.success) {
+      if (response.font) {
         this.props.onDelete(response.font);
       }
     });

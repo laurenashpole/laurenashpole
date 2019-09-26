@@ -28,7 +28,7 @@ class Form extends Component {
 
       this.handleError(response.status);
     }).then((response) => {
-      if (response.success) {
+      if (response.font) {
         this.setState({
           fireRedirect: true
         });
@@ -103,7 +103,7 @@ class Form extends Component {
           {image_collection && image_collection.length > 0 &&
             <div className="form__row form__images">
               {image_collection.map((image) => {
-                return <img key={image} src={`/images/fonts/${image}`} />;
+                return <img key={image} src={`/uploads/images/${image}`} />;
               })}
             </div>
           }
