@@ -1,7 +1,7 @@
 node_modules/
 app/config/config.js
 app/config/ssl
-public/uploads
+# public/uploads
 public/css
 public/js
 public/assets.json
