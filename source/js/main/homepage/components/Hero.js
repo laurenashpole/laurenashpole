@@ -14,7 +14,7 @@ const Hero = (props) => {
     <section className="hero hero--bg-repeat">
       <div className="container container--large hero__container">
         <div className="hero__img">
-          <img src={`/images/fonts/${image}`} alt={`A sample of my newest font ${name}!`} />
+          <img src={`/uploads/images/${image}`} alt={`A sample of my newest font ${name}!`} />
         </div>
 
         <div className="well u--center hero__cta">

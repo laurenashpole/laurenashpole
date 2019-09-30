@@ -19,7 +19,7 @@ class Fonts extends Component {
 
   handleCreate = (activeFont) => {
     this.setState((prevState) => ({
-      fonts: [...prevState.fonts, activeFont]
+      fonts: [activeFont, ...prevState.fonts]
     }));
   }
 

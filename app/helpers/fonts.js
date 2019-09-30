@@ -1,23 +1,15 @@
-let Font = require('../models/font');
-let fs = require('fs');
-let path = require('path');
-let async = require('async');
-let thumbnail = require('node-thumbnail').thumb;
+const Font = require('../models/font');
+const fs = require('fs');
+const path = require('path');
+const async = require('async');
+const thumbnail = require('node-thumbnail').thumb;
 
 exports.findAll = function () {
   return new Promise ((resolve, reject) => {
-    let response = {
-      success: false
-    };
-
     Font.find().sort({ name: 'asc' }).exec((err, fonts) => {
       if (err) reject(err);
 
-      if (fonts) {
-        response.success = true;
-        response.fonts = fonts;
-      }
-
+      const response = fonts.length ? { fonts: fonts } : {};
       resolve(response);
     });
   });
@@ -25,18 +17,10 @@ exports.findAll = function () {
 
 exports.findById = function (id) {
   return new Promise ((resolve, reject) => {
-    let response = {
-      success: false
-    };
-
     Font.findById(id, (err, font) => {
       if (err) reject(err);
 
-      if (font) {
-        response.success = true;
-        response.font = font;
-      }
-
+      const response = font ? { font: font } : {};
       resolve(response);
     });
   });
@@ -44,18 +28,10 @@ exports.findById = function (id) {
 
 exports.findBySlug = function (slug) {
   return new Promise ((resolve, reject) => {
-    let response = {
-      success: false
-    };
-
     Font.findOne({slug: slug}, (err, font) => {
       if (err) reject(err);
 
-      if (font) {
-        response.success = true;
-        response.font = font;
-      }
-
+      const response = font ? { font: font } : {};
       resolve(response);
     });
   });
@@ -63,19 +39,13 @@ exports.findBySlug = function (slug) {
 
 exports.deleteFont = function (req, res, font) {
   return new Promise ((resolve, reject) => {
-    let response = {
-      success: false
-    };
-
-    _deleteFiles(res, font, (err) => {
+    deleteFiles(res, font, (err) => {
       if (err) reject(err);
 
       font.remove((err) => {
         if (err) reject(err);
 
-        response.success = true;
-        response.font = font;
-        resolve(response);
+        resolve({ font: font });
       });
     });
   });
@@ -83,73 +53,85 @@ exports.deleteFont = function (req, res, font) {
 
 exports.updateFont = function (req, res, font, isNew) {
   return new Promise ((resolve, reject) => {
-    let response = {
-      success: false
-    };
-
     if (!isNew) {
-      _setFontProperties(req, font);
+      setFontProperties(req, font);
     }
 
-    _uploadFiles(req, res, font, isNew, (err) => {
+    uploadFiles(req, res, font, isNew, (err) => {
       if (err) reject(err);
 
       font.save((err) => {
         if (err) reject(err);
 
-        response.success = true;
-        response.font = font;
-        resolve(response);
+        resolve({ font: font });
       });
     });
   });
 };
 
-let _getDirectoryByMimetype = function (mimetype) {
-  let directory;
+const deleteFiles = function (res, font, finalCallback) {
+  const files = {
+    images: [
+      font.image,
+      font.image_collection,
+      font.image_collection_thumbnails
+    ],
+    css: [
+      font.css_file
+    ],
+    fonts:[
+      font.personal_font_file,
+      font.commercial_font_file
+    ]
+  };
 
-  if (mimetype.indexOf('image') !== -1) {
-    directory = './public/images/fonts/';
-  } else if (mimetype.indexOf('css') !== -1) {
-    directory = './public/css/fonts/';
-  }  else if (mimetype.indexOf('zip') !== -1) {
-    directory = './public/downloads/fonts/';
-  }
+  async.forEachOf(files, (fileGroup, fileType, callback) => {
+    const directory = `./public/uploads/${fileType}/`;
 
-  return directory;
+    fileGroup.forEach((file) => {
+      if (Array.isArray(file)) {
+        file.forEach((subfile) => {
+          if (subfile) {
+            deleteFile(res, subfile, directory);
+          }
+        });
+      } else {
+        if (file) {
+          deleteFile(res, file, directory);
+        }
+      }
+    });
+
+    callback();
+  }, finalCallback);
 };
 
-let _getDirectoryByFile = function (file) {
-  let directory;
+const uploadFiles = function (req, res, font, isNew, finalCallback) {
+  let imageCollectionCleared = false;
 
-  if (file === 'images') {
-    directory = './public/images/fonts/';
-  } else if (file === 'css') {
-    directory = './public/css/fonts/';
-  } else if (file === 'fonts') {
-    directory = './public/downloads/fonts/';
-  }
+  async.each(req.files, (file, callback) => {
+    const directory = getDirectoryByMimetype(file.mimetype);
+    file.originalname = getHashedName(file.originalname);
 
-  return directory;
+    if (!isNew) {
+      if (font[file.fieldname]) {
+        if (file.fieldname === 'image_collection') {
+          if (!imageCollectionCleared) {
+            resetImageCollections(res, font, directory, file.fieldname);
+            imageCollectionCleared = true;
+          }
+        } else {
+          deleteFile(res, font[file.fieldname], directory);
+        }
+      }
+    }
+
+    setFileValues(font, file);
+    uploadFile(res, font, file, directory, callback);
+  }, finalCallback);
 };
 
-let _getHashedName = function (originalName) {
-  let timestamp = Math.floor(Date.now() / 10000000);
-  let nameArray = originalName.split('.');
-  let hashedName = nameArray[0] + timestamp + '.' + nameArray[1];
-
-  return hashedName;
-};
-
-let _setFileValues = function (font, file) {
-  if (file.fieldname === 'image_collection') {
-    font[file.fieldname].push(file.originalname);
-  } else {
-    font[file.fieldname] = file.originalname;
-  }
-};
-
-let _setFontProperties = function (req, font) {
+const setFontProperties = function (req, font) {
   for (let prop in font) {
     if (prop === 'commercial_file' || prop === 'personal_file') {
       for (let fontFile in font[prop]) {
@@ -167,46 +149,7 @@ let _setFontProperties = function (req, font) {
   }
 };
 
-let _uploadFile = function (res, font, file, directory, callback) {
-  fs.rename(file.path, path.resolve(directory, file.originalname), (err) => {
-    if (err) res.send(err);
-
-    if (file.fieldname === 'image_collection') {
-      _createThumbnails(font, file, directory);
-    }
-
-    callback();
-  });
-};
-
-let _uploadFiles = function (req, res, font, isNew, finalCallback) {
-  let imageCollectionCleared = false;
-
-  async.each(req.files, (file, callback) => {
-    let mimetype = file.mimetype;
-    let directory = _getDirectoryByMimetype(mimetype);
-
-    file.originalname = _getHashedName(file.originalname);
-
-    if (!isNew) {
-      if (font[file.fieldname]) {
-        if (file.fieldname === 'image_collection') {
-          if (!imageCollectionCleared) {
-            _resetImageCollections(res, font, directory, file.fieldname);
-            imageCollectionCleared = true;
-          }
-        } else {
-          _deleteFile(res, font[file.fieldname], directory);
-        }
-      }
-    }
-
-    _setFileValues(font, file);
-    _uploadFile(res, font, file, directory, callback);
-  }, finalCallback);
-};
-
-let _deleteFile = function (res, file, directory) {
+const deleteFile = function (res, file, directory) {
   fs.exists(path.resolve(directory, file), (exists) => {
     if (exists) {
       fs.unlink(path.resolve(directory, file), (err) => {
@@ -216,47 +159,67 @@ let _deleteFile = function (res, file, directory) {
   });
 };
 
-let _deleteFiles = function (res, font, finalCallback) {
-  let files = {
-    images: [
-      font.image,
-      font.image_collection,
-      font.image_collection_thumbnails
-    ],
-    css: [
-      font.css_file
-    ],
-    fonts:[
-      font.personal_font_file,
-      font.commercial_font_file
-    ]
-  };
+const uploadFile = function (res, font, file, directory, callback) {
+  fs.rename(file.path, path.resolve(directory, file.originalname), (err) => {
+    if (err) res.send(err);
 
-  async.forEachOf(files, (fileGroup, fileType, callback) => {
-    let directory = _getDirectoryByFile(fileType);
-
-    fileGroup.forEach((file) => {
-      if (Array.isArray(file)) {
-        file.forEach((subfile) => {
-          if (subfile) {
-            _deleteFile(res, subfile, directory);
-          }
-        });
-      } else {
-        if (file) {
-          _deleteFile(res, file, directory);
-        }
-      }
-    });
+    if (file.fieldname === 'image_collection') {
+      createThumbnails(font, file, directory);
+    }
 
     callback();
-  }, finalCallback);
+  });
 };
 
-let _createThumbnails = function (font, file, directory) {
-  let suffix = '-thumb';
-  let nameArray = file.originalname.split('.');
-  let thumbName = nameArray[0] + suffix + '.' + nameArray[1];
+const getDirectoryByMimetype = function (mimetype) {
+  let directory;
+
+  if (mimetype.indexOf('image') !== -1) {
+    directory = './public/uploads/images/';
+  } else if (mimetype.indexOf('css') !== -1) {
+    directory = './public/uploads/css/';
+  }  else if (mimetype.indexOf('zip') !== -1) {
+    directory = './public/uploads/fonts/';
+  }
+
+  return directory;
+};
+
+const getHashedName = function (originalName) {
+  const timestamp = Math.floor(Date.now() / 10000000);
+  const nameArray = originalName.split('.');
+  const hashedName = nameArray[0] + timestamp + '.' + nameArray[1];
+
+  return hashedName;
+};
+
+const resetImageCollections = function (res, font, directory, fieldName) {
+  font['image_collection'].forEach((imageFile) => {
+    deleteFile(res, imageFile, directory);
+  });
+
+  if (font['image_collection_thumbnails'].length) {
+    font['image_collection_thumbnails'].forEach((imageFile) => {
+      deleteFile(res, imageFile, directory);
+    });
+  }
+
+  font['image_collection'] = [];
+  font['image_collection_thumbnails'] = [];
+};
+
+const setFileValues = function (font, file) {
+  if (file.fieldname === 'image_collection') {
+    font[file.fieldname].push(file.originalname);
+  } else {
+    font[file.fieldname] = file.originalname;
+  }
+};
+
+const createThumbnails = function (font, file, directory) {
+  const suffix = '-thumb';
+  const nameArray = file.originalname.split('.');
+  const thumbName = nameArray[0] + suffix + '.' + nameArray[1];
 
   thumbnail({
     source: directory + file.originalname,
@@ -266,19 +229,4 @@ let _createThumbnails = function (font, file, directory) {
   });
 
   font['image_collection_thumbnails'].push(thumbName);
-};
-
-let _resetImageCollections = function (res, font, directory, fieldName) {
-  font['image_collection'].forEach((imageFile) => {
-    _deleteFile(res, imageFile, directory);
-  });
-
-  if (font['image_collection_thumbnails']) {
-    font['image_collection_thumbnails'].forEach((imageFile) => {
-      _deleteFile(res, imageFile, directory);
-    });
-  }
-
-  font['image_collection'] = [];
-  font['image_collection_thumbnails'] = [];
 };

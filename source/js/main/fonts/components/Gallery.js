@@ -27,14 +27,14 @@ class Gallery extends Component {
       <section className="font__gallery">
         <h2 className="font__heading text--uppercase u--center-mobile">Additional Images</h2>
 
-        <img src={`/images/fonts/${image_collection[this.state.activeIndex]}`} alt={name} />
+        <img src={`/uploads/images/${image_collection[this.state.activeIndex]}`} alt={name} />
 
         {image_collection_thumbnails.length > 1 &&
           <div className="font__gallery-thumbnails">
             {image_collection_thumbnails.map((image, i) => {
               return(
                 <div className="font__gallery-thumbnail" key={image}>
-                  <img src={`/images/fonts/${image}`} alt={`${name} Thumbnail`} onClick={this.handleClick.bind(this, i)} />
+                  <img src={`/uploads/images/${image}`} alt={`${name} Thumbnail`} onClick={this.handleClick.bind(this, i)} />
                 </div>
               );
             })}

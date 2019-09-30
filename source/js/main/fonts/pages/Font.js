@@ -19,7 +19,7 @@ class Font extends Component {
       let element = document.createElement('link');
 
       element.setAttribute('rel', 'stylesheet');
-      element.setAttribute('href', `/css/fonts/${this.props.font.css_file}`);
+      element.setAttribute('href', `/uploads/css/${this.props.font.css_file}`);
       document.getElementsByTagName('head')[0].appendChild(element);
       this.main.classList.remove('css-loading');
     }
@@ -60,12 +60,12 @@ class Font extends Component {
           <meta property="og:price:amount" content={price} />
           <meta property="og:price:currency" content="USD" />
           <meta property="og:availability" content="instock" />
-          <meta property="og:image" content={`https://www.laurenashpole.com/images/fonts/${image_collection[0]}`} />
+          <meta property="og:image" content={`https://www.laurenashpole.com/uploads/images/${image_collection[0]}`} />
         </Helmet>
 
         <div className="container container--x-large font">
           <div className="font__img">
-            <img src={`/images/fonts/${image}`} alt={`${name} Sample`} />
+            <img src={`/uploads/images/${image}`} alt={`${name} Sample`} />
           </div>
 
           <div className="font__ctas">
