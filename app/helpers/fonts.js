@@ -86,7 +86,7 @@ const deleteFiles = function (res, font, finalCallback) {
   };
 
   async.forEachOf(files, (fileGroup, fileType, callback) => {
-    const directory = `./public/uploads/${fileType}`;
+    const directory = `./public/uploads/${fileType}/`;
 
     fileGroup.forEach((file) => {
       if (Array.isArray(file)) {

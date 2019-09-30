@@ -1,22 +1,23 @@
-let express = require('express');
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
-let methodOverride = require('method-override');
-let swig = require('swig');
-let mongoose = require('mongoose');
-let passport = require('passport');
-let session = require('express-session');
-let flash = require('express-flash');
-let multer = require('multer');
-let compression = require('compression');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const swig = require('swig');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const flash = require('express-flash');
+const multer = require('multer');
+const compression = require('compression');
 
 // App
-let app = express();
-let config = require('./app/config/config')();
-let locals = require('./app/config/locals')(app, config);
+const app = express();
+const config = require('./app/config/config')();
+const locals = require('./app/config/locals')(app, config);
+const assetPaths = ['/js', '/css', '/uploads/css', '/images', '/uploads/images'];
 
 // View Engine
 app.use(compression());
@@ -37,9 +38,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
-app.use('/js', express.static(path.join(__dirname, 'public/js'), { maxAge: '30d' }));
-app.use('/css', express.static(path.join(__dirname, 'public/css'), { maxAge: '30d' }));
-app.use('/images', express.static(path.join(__dirname, 'public/images'), { maxAge: '30d' }));
+assetPaths.forEach((assetPath) => {
+  app.use(assetPath, express.static(path.join(__dirname, `public${assetPath}`), { maxAge: '30d' }));
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport
