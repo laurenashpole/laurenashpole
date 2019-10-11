@@ -17,8 +17,5 @@ exports.confirm = function (req, res) {
   paymentHelper.confirm(data)
     .then((data) => paymentHelper.fulfill(data))
     .then((data) => res.json(data))
-    .catch((err) => res.json({
-      sucess: false,
-      error: err
-    }));
+    .catch((err) => res.json(err));
 };

@@ -98,4 +98,8 @@
   .button + .button {
     margin-top: 0.75rem;
   }
+
+  .button--inline + .button--inline {
+    margin-top: 0;
+  }
 }

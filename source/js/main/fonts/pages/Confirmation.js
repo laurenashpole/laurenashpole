@@ -32,7 +32,7 @@ class Confirmation extends Component {
     }
 
     request(endpoint, this.props.font, (response) => {
-      if (response.success) {
+      if (response.payment) {
         this.setState({
           payment: response.payment
         });
