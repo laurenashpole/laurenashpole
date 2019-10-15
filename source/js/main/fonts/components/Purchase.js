@@ -21,7 +21,7 @@ class Purchase extends Component {
     });
 
     request(`/fonts/${this.props.font.slug}/payment`, this.props.font, (response) => {
-      if (response.success) {
+      if (response.redirectUrl) {
         document.location = response.redirectUrl;
       }
     });
