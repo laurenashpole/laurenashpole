@@ -1,3 +1,17 @@
+.font__gallery-main {
+  position: relative;
+}
+
+.font__gallery-pin {
+  position: absolute;
+  bottom: 2px;
+  left: 10px;
+
+  a {
+    border: none;
+  }
+}
+
 .font__gallery-thumbnails {
   padding-top: 0.5rem;
   overflow-x: auto;
