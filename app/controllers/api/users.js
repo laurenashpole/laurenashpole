@@ -1,11 +1,8 @@
 exports.authenticate = function (req, res) {
-  let response = {
-    success: false
-  };
+  let response = {};
 
   if (req.user) {
-    response.success = true;
-    response.data = req.user;
+    response.user = req.user;
   } else if (req.info) {
     response.err = req.info.message || 'Authentication failed.';
   }
@@ -15,5 +12,5 @@ exports.authenticate = function (req, res) {
 
 exports.logout = function (req, res) {
   req.logout();
-  res.json({ success: true });
+  res.json({});
 };

@@ -9,5 +9,5 @@ render(
   <BrowserRouter>
     <Admin isAuthenticated={isAuthenticated} />
   </BrowserRouter>,
-  document.getElementById('admin')
+  document.getElementById('adminRoot')
 );

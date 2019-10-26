@@ -12,15 +12,3 @@ a:focus,
   color: $color-red;
   border-bottom-color: $color-red;
 }
-
-.link--secondary {
-  border-bottom: 2px solid transparent;
-  text-decoration: none;
-  color: $color-purple;
-}
-
-.link--secondary:hover,
-.link--secondary:focus {
-  color: $color-purple;
-  border-bottom-color: $color-purple;
-}
