@@ -1,13 +1,13 @@
 import 'whatwg-fetch';
 
-export function fetchRequest (method, body, endpoint, callback, omitHeaders = false) {
+export function fetchRequest (method, body, endpoint, callback) {
   let options = {
     credentials: 'include',
     method: method,
     body: body
   };
 
-  if (!omitHeaders) {
+  if (!(body instanceof FormData)) {
     options = {...options, headers: new Headers({
       'Content-Type': 'application/json'
     })};

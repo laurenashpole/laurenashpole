@@ -4,7 +4,6 @@ import { fetchRequest } from '../../../utilities/fetchRequest';
 const Logout = () => {
   useEffect(() => {
     fetchRequest('post', null, '/admin/logout', () => {
-      console.log('do i happen');
       location.reload();
     });
   }, []);
