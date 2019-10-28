@@ -5,7 +5,7 @@ import Signup from './pages/Signup';
 
 const Users = () => {
   return(
-    <main className="main main--bg-fixed container container--narrow">
+    <main className="auth main main--bg-fixed container container--narrow u--center">
       <Switch>
         <Route exact path="/admin" component={Login} />
         <Route path="/admin/signup" component={Signup} />

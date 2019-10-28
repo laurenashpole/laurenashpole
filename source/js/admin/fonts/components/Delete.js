@@ -1,41 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import 'whatwg-fetch';
+import { fetchRequest } from '../../../utilities/fetchRequest';
 
-class Delete extends Component {
-  handleClick = (e) => {
-    e.preventDefault();
-
+const Delete = ({ endpoint, onDelete }) => {
+  const handleClick = () => {
     if (confirm('Are you sure you want to delete this font?')) {
-      this.handleDelete();
+      handleDelete();
     }
-  }
+  };
 
-  handleDelete = () => {
-    window.fetch(this.props.endpoint, {
-      credentials: 'include',
-      method: 'POST'
-    }).then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-
-      this.handleError(response.status);
-    }).then((response) => {
+  const handleDelete = () => {
+    fetchRequest('post', null, endpoint, (response) => {
       if (response.font) {
-        this.props.onDelete(response.font);
+        onDelete(response.font);
       }
     });
-  }
+  };
 
-  render () {
-    return(
-      <button className="button button--inline button--small" onClick={this.handleClick}>
-        Delete
-      </button>
-    );
-  }
-}
+  return(
+    <button className="button button--inline button--small" onClick={handleClick}>
+      Delete
+    </button>
+  );
+};
 
 Delete.propTypes = {
   endpoint: PropTypes.string,
