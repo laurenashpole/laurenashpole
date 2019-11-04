@@ -25,6 +25,7 @@
 
     {% if fonts %}
       window.APP.fonts = {{fonts|raw|json}};
+      window.APP.tags = {{tags|raw|json}};
       window.APP.glyphs = {{glyphs|raw|json}};
     {% endif %}
   </script>

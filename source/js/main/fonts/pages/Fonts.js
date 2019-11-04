@@ -46,8 +46,8 @@ class Fonts extends Component {
           <h2 className="text--uppercase">Fonts</h2>
         </section>
 
-        <section className="fonts__content">
-          <div className="container container--x-large">
+        <section className="container">
+          <div className="well">
             <form className="fonts__filter">
               <input className="input fonts__filter-input" type="text" id="filter" name="filter" placeholder="Search fonts" value={this.state.filter} onChange={this.handleChange} />
               <button className="fonts__filter-reset" disabled={!this.state.filter} onClick={this.handleReset}>
