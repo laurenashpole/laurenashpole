@@ -17,7 +17,7 @@ function setHeaders (req, res) {
 exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
-      if (data.success) {
+      if (data.font) {
         let font = data.font;
 
         if (font.alternate_style) {
@@ -68,12 +68,12 @@ exports.update = function (req, res) {
 exports.payment = function (req, res) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
-      if (data.success) {
+      if (data.font) {
         return paymentHelper.create(data.font)
       }
     })
     .then((data) => {
-      if (data.success) {
+      if (data.redirectUrl) {
         setHeaders(req, res);
         res.setHeader('AMP-Redirect-To', data.redirectUrl);
         res.json(data);
