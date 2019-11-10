@@ -1,6 +1,6 @@
 let nodemailer = require('nodemailer');
 let xoauth2 = require('xoauth2');
-let smtpConfig = require('../config/config')()['mail'];
+let smtpConfig = require('../../config/config')()['mail'];
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',

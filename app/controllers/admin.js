@@ -1,4 +1,4 @@
-const fontHelper = require('../helpers/fonts');
+const fontHelper = require('./helpers/fonts');
 
 exports.all = function (req, res) {
   const isAuthenticated = req.isAuthenticated();

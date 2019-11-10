@@ -2,9 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const request = require('superagent');
 const mailchimpConfig = require('../config/config')()['mailchimp'];
-const constantsHelper = require('../helpers/constants')();
-const fontHelper = require('../helpers/fonts');
-const paymentHelper = require('../helpers/payments');
+const constantsHelper = require('./helpers/constants')();
+const fontHelper = require('./helpers/fonts');
+const paymentHelper = require('./helpers/payments');
 
 function setHeaders (req, res) {
   res.setHeader('Content-type', 'application/json');

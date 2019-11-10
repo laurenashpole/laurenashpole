@@ -1,8 +1,8 @@
 const paypal = require('paypal-rest-sdk');
-const paypalConfig = require('../config/config')()['paypal'];
+const paypalConfig = require('../../config/config')()['paypal'];
 const path = require('path');
 const fs = require('fs');
-const fulfillmentEmail = require('../helpers/emails')();
+const fulfillmentEmail = require('./emails')();
 
 exports.create = function (font) {
   return new Promise ((resolve, reject) => {

@@ -1,4 +1,4 @@
-const contactHelper = require('../../helpers/contact');
+const contactHelper = require('../helpers/contact');
 
 exports.send = function (req, res) {
   contactHelper.send(req)

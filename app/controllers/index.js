@@ -1,5 +1,5 @@
-const fontHelper = require('../helpers/fonts');
-const constantsHelper = require('../helpers/constants')();
+const fontHelper = require('./helpers/fonts');
+const constantsHelper = require('./helpers/constants')();
 
 exports.render = function (req, res) {
   fontHelper.findAll()
