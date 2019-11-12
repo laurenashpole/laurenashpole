@@ -37,10 +37,14 @@ exports.index = function (data, path) {
           break;
         }
       }
+
+      return templates.base('Page Not Found');
     }
 
     return templates.base('Fonts');
   }
+
+  return templates.base('Page Not Found');
 };
 
 exports.amp = function (product) {
