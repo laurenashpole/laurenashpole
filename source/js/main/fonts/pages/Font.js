@@ -51,16 +51,6 @@ class Font extends Component {
       <main className="main main--bg-offset css-loading" ref={(el) => { this.main = el; }}>
         <Helmet>
           <title>{`${name} - Fonts - Lauren Ashpole`}</title>
-          <link rel="amphtml" href={`https://www.laurenashpole.com/amp/fonts/${slug}`} />
-          <meta name="description" content={`Download the ${name} font free for personal use or buy a license for all your commercial use needs`} />
-          <meta property="og:type" content="product" />
-          <meta property="og:title" content={name} />
-          <meta property="og:url" content={`https://www.laurenashpole.com/fonts/${slug}`} />
-          <meta property="og:site_name" content="Lauren Ashpole" />
-          <meta property="og:price:amount" content={price} />
-          <meta property="og:price:currency" content="USD" />
-          <meta property="og:availability" content="instock" />
-          <meta property="og:image" content={`https://www.laurenashpole.com/uploads/images/${image_collection[0]}`} />
         </Helmet>
 
         <div className="container container--x-large font">

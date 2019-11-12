@@ -8,8 +8,9 @@ const mcache = require('memory-cache');
 module.exports = function (app, multer) {
   const multipart = multer();
 
-  const cache = function (key, duration) {
+  const cache = function (duration) {
     return (req, res, next) => {
+      const key = req.path;
       const cachedBody = mcache.get(key);
 
       if (!req.query.preview && cachedBody) {
@@ -102,5 +103,5 @@ module.exports = function (app, multer) {
   });
 
   // Home
-  app.get('*', cache('main', 604800), index.render);
+  app.get('*', cache(604800), index.render);
 };

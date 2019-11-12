@@ -1,5 +1,5 @@
-const fontHelper = require('../../helpers/fonts');
-const paymentHelper = require('../../helpers/payments');
+const fontHelper = require('../helpers/fonts');
+const paymentHelper = require('../helpers/payments');
 
 exports.create = function (req, res) {
   paymentHelper.create(req.body)

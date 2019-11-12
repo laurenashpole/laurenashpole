@@ -1,5 +1,5 @@
 const Font = require('../../models/font');
-const fontHelper = require('../../helpers/fonts');
+const fontHelper = require('../helpers/fonts');
 
 exports.find = function (req, res) {
   fontHelper.findAll()

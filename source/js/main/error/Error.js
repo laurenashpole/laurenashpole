@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Error = () => {
   return(
     <main className="main main--bg-fixed container container--medium">
+      <Helmet>
+        <title>Page Not Found - Lauren Ashpole</title>
+      </Helmet>
+
       <div className="well well--extra-padding">
         <h2>Page not found.</h2>
 
