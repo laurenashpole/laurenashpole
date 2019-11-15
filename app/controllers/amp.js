@@ -83,28 +83,22 @@ exports.payment = function (req, res) {
 };
 
 exports.mailing = function (req, res) {
-  let response = {
-    success: false
-  };
+  setHeaders(req, res);
 
   if (!req.body) {
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
 
   if (req.body.b_5e9c643a20b49926773037101_a878f779fc) {
-    response.err = 'Are you a robot?';
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
 
   if (!req.body.email || !(/\S+@\S+\.\S+/.test(req.body.email))) {
-    response.err = 'Valid email required!';
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
-
-  setHeaders(req, res);
 
   request
     .post('https://laurenashpole.us4.list-manage.com/subscribe/post')
@@ -114,9 +108,8 @@ exports.mailing = function (req, res) {
     .end((err, postResponse) => {
       if (postResponse.status < 300 || (postResponse.status === 400 && postResponse.body.title === 'Member Exists')) {
         res.statusCode = postResponse.status;
-        response.success = true;
       }
 
-      res.json(response);
+      res.json();
     });
 };

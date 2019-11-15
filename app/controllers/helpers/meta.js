@@ -62,7 +62,7 @@ const templates = {
     `;
   },
   amp_url: (slug) => {
-    return `<link rel="amphtml" href="https://www.laurenashpole.com/amp/${slug}" />`;
+    return `<link rel="amphtml" href="https://www.laurenashpole.com/amp/fonts/${slug}" />`;
   },
   product_og: (product) => {
     return `
