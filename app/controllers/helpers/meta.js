@@ -38,13 +38,13 @@ exports.index = function (data, path) {
         }
       }
 
-      return templates.base('Page Not Found');
+      return templates.base('Page Not Found') + templates.noindex();
     }
 
     return templates.base('Fonts');
   }
 
-  return templates.base('Page Not Found');
+  return templates.base('Page Not Found') + templates.noindex();
 };
 
 exports.amp = function (product) {
@@ -60,6 +60,9 @@ const templates = {
       <title>${title ? title + ' - ' : ''}Lauren Ashpole</title>
       <meta name="description" content="${desc ? desc : 'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.'}" />
     `;
+  },
+  noindex: () => {
+    return '<meta name="robots" content="noindex">';
   },
   amp_url: (slug) => {
     return `<link rel="amphtml" href="https://www.laurenashpole.com/amp/fonts/${slug}" />`;
