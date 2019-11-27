@@ -37,8 +37,6 @@ exports.send = function (req, res) {
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) reject(err);
 
-    res.json({
-      message: req.body
-    });
+    res.json({});
   });
 };

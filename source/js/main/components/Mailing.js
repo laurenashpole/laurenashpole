@@ -22,16 +22,14 @@ const Mailing = ({ customClasses, onSignup }) => {
       email: email,
       b_5e9c643a20b49926773037101_a878f779fc: hidden
     }, (response) => {
-      if (response.success) {
-        setButtonText('Success!');
+      if (response.err) {
+        return setButtonText(response.err);
+      }
 
-        if (onSignup && onSignup instanceof Function) {
-          onSignup(e);
-        }
-      } else {
-        if (response.err) {
-          setButtonText(response.err);
-        }
+      setButtonText('Success!');
+
+      if (onSignup && onSignup instanceof Function) {
+        onSignup(e);
       }
     });
   };
