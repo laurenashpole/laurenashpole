@@ -78,7 +78,8 @@ const FontSchema = new Schema({
     }
   },
   personal_font_file: String,
-  commercial_font_file: String
+  commercial_font_file: String,
+  tags: []
 });
 
 FontSchema.pre('save', function (next) {

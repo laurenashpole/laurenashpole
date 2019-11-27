@@ -2,9 +2,10 @@ const path = require('path');
 const fs = require('fs');
 const request = require('superagent');
 const mailchimpConfig = require('../config/config')()['mailchimp'];
-const constantsHelper = require('../helpers/constants')();
-const fontHelper = require('../helpers/fonts');
-const paymentHelper = require('../helpers/payments');
+const constantsHelper = require('./helpers/constants')();
+const fontHelper = require('./helpers/fonts');
+const paymentHelper = require('./helpers/payments');
+const metaHelper = require('./helpers/meta');
 
 function setHeaders (req, res) {
   res.setHeader('Content-type', 'application/json');
@@ -17,7 +18,7 @@ function setHeaders (req, res) {
 exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
-      if (data.success) {
+      if (data.font) {
         let font = data.font;
 
         if (font.alternate_style) {
@@ -26,7 +27,7 @@ exports.render = function (req, res, next) {
 
         if (font.css_file) {
           let cssString;
-          const filePath = path.resolve('./uploads/css/', font.css_file);
+          const filePath = path.resolve('./public/uploads/css/', font.css_file);
 
           if (fs.existsSync(filePath)) {
             cssString = fs.readFileSync(filePath);
@@ -38,8 +39,7 @@ exports.render = function (req, res, next) {
         }
 
         res.render('amp/font.amp.html', {
-          title: font.name + ' - Fonts',
-          description: 'Download the ' + font.name + ' font free for personal use or buy a license for all your commercial use needs.',
+          meta: metaHelper.amp(font),
           font: font,
           glyphs: {
             basic: constantsHelper.basicGlyphs,
@@ -68,12 +68,12 @@ exports.update = function (req, res) {
 exports.payment = function (req, res) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
-      if (data.success) {
+      if (data.font) {
         return paymentHelper.create(data.font)
       }
     })
     .then((data) => {
-      if (data.success) {
+      if (data.redirectUrl) {
         setHeaders(req, res);
         res.setHeader('AMP-Redirect-To', data.redirectUrl);
         res.json(data);
@@ -83,28 +83,22 @@ exports.payment = function (req, res) {
 };
 
 exports.mailing = function (req, res) {
-  let response = {
-    success: false
-  };
+  setHeaders(req, res);
 
   if (!req.body) {
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
 
   if (req.body.b_5e9c643a20b49926773037101_a878f779fc) {
-    response.err = 'Are you a robot?';
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
 
   if (!req.body.email || !(/\S+@\S+\.\S+/.test(req.body.email))) {
-    response.err = 'Valid email required!';
     res.statusCode = 403;
-    res.json(response);
+    res.json();
   }
-
-  setHeaders(req, res);
 
   request
     .post('https://laurenashpole.us4.list-manage.com/subscribe/post')
@@ -114,9 +108,8 @@ exports.mailing = function (req, res) {
     .end((err, postResponse) => {
       if (postResponse.status < 300 || (postResponse.status === 400 && postResponse.body.title === 'Member Exists')) {
         res.statusCode = postResponse.status;
-        response.success = true;
       }
 
-      res.json(response);
+      res.json();
     });
 };

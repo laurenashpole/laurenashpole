@@ -1,84 +1,56 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import 'whatwg-fetch';
 import Growl from '../../../components/Growl';
+import { fetchRequest } from '../../../utilities/fetchRequest';
 
-class Form extends Component {
-  constructor (props) {
-    super(props);
+const Form = ({ endpoint, buttonText }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    this.state = {
-      username: '',
-      password: '',
-      error: ''
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    window.fetch(this.props.endpoint, {
-      credentials: 'include',
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify(this.state)
-    }).then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
+    const body = JSON.stringify({
+      username: username,
+      password: password
+    });
 
-      this.handleError(response.status);
-    }).then((response) => {
-      if (response.success) {
+    fetchRequest('post', body, endpoint, (response) => {
+      if (response.user) {
         location.reload();
       } else {
         if (response.err) {
-          this.handleError(response.err);
+          setError(response.err);
         }
       }
     });
-  }
+  };
 
-  handleError = (error) => {
-    this.setState({
-      error: error
-    })
-  }
+  return(
+    <form>
+      {error && <Growl message={error} />}
 
-  render () {
-    return(
-      <form onSubmit={this.handleSubmit}>
-        {this.state.error && <Growl message={this.state.error}/>}
-
-        <div className="well">
-          <div className="form__row">
-            <input type="text" id="username" name="username" onChange={this.handleChange} value={this.state.username} className="input input--label-inset" />
-            <label htmlFor="name">Username</label>
-          </div>
-
-          <div className="form__row">
-            <input type="password" id="password" name="password" onChange={this.handleChange} value={this.state.password} className="input input--label-inset" />
-            <label htmlFor="password">Password</label>
-          </div>
-
-          <div className="form__row">
-            <button type="submit" className="button button--cta-primary">
-              {this.props.buttonText}
-            </button>
-          </div>
+      <div className="well">
+        <div className="form__row">
+          <input className="input input--label-inset" type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} />
+          <label htmlFor="username">Username</label>
         </div>
-      </form>
-    );
-  }
-}
+
+        <div className="form__row">
+          <input className="input input--label-inset" type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+          <label htmlFor="password">Password</label>
+        </div>
+
+        <div className="form__row">
+          <button className="button button--cta-primary" onClick={handleSubmit}>
+            {buttonText}
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+};
 
 Form.propTypes = {
   endpoint: PropTypes.string,

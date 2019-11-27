@@ -10,10 +10,9 @@
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
-    <title>{{title}} - {{site_name}}</title>
     <link rel="canonical" href="{{host_url}}/fonts/{{font.slug}}" />
 
-    {% include './includes/meta.amp.html' %}
+    {% autoescape false %}{{meta}}{% endautoescape %}
     {% include './includes/styles.amp.html' %}
 
     <link rel="stylesheet" href="https://use.typekit.net/iuh6zxb.css">

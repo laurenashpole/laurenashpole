@@ -1,4 +1,4 @@
-const Font = require('../models/font');
+const Font = require('../../models/font');
 const fs = require('fs');
 const path = require('path');
 const async = require('async');

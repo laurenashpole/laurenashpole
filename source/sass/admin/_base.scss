@@ -1,4 +1,20 @@
-.login-link {
+.container--narrow {
+  max-width: 540px;
+}
+
+.link--secondary {
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  color: $color-purple;
+}
+
+.link--secondary:hover,
+.link--secondary:focus {
+  color: $color-purple;
+  border-bottom-color: $color-purple;
+}
+
+.auth__link {
   margin-top: 1.5rem;
 }
 

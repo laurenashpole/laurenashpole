@@ -11,19 +11,19 @@ const transporter = nodemailer.createTransport({
 
 exports.send = function (req, res) {
   if (!req.body) {
-    return res.json({ err: 'Error sending message. Please try again.' });
+    res.json({ err: 'Error sending message. Please try again.' });
   }
 
   if (!req.body.senderEmail) {
-    return res.json({ err: 'Sender email required!' });
+    res.json({ err: 'Sender email required!' });
   }
 
   if (!req.body.senderName) {
-    return res.json({ err: 'Sender name required!' });
+    res.json({ err: 'Sender name required!' });
   }
 
   if (!req.body.message) {
-    return res.json({ err: 'Message required!' });
+    res.json({ err: 'Message required!' });
   }
 
   const mailOptions = {
@@ -37,6 +37,8 @@ exports.send = function (req, res) {
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) reject(err);
 
-    res.json({ success: true });
+    res.json({
+      message: req.body
+    });
   });
 };
