@@ -1,139 +1,106 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
-class Contact extends Component {
-  constructor (props) {
-    super(props);
+const Contact = () => {
+  const [senderEmail, setSenderEmail] = useState('');
+  const [senderName, setSenderName] = useState('');
+  const [subject, setSubject] = useState('Font Licensing');
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState({});
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
 
-    this.state = {
-      senderEmail: '',
-      senderName: '',
-      subject: '',
-      message: '',
-      error: '',
-      inputErrors: {
-        senderEmail: false,
-        senderName: false,
-        message: false
-      },
-      isProcessing: false,
-      isComplete: false
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  handleFocus = () => {
-    this.setState({
-      inputErrors: {
-        senderEmail: false,
-        senderName: false,
-        message: false
-      }
-    });
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    sendEvent('Contact Page', 'click', 'Send');
 
-    let isValid = this.validate();
+    const isValid = validate();
 
     if (isValid) {
-      this.setState({
-        isProcessing: true
-      });
+      sendEvent('Contact Page', 'click', 'Send');
+      setIsProcessing(true);
 
-      request('/contact/send', this.state, (response) => {
-        if (response.success) {
-          this.setState({
-            isComplete: true
-          });
+      request('/contact/send', {
+        senderEmail: senderEmail,
+        senderName: senderName,
+        subject: subject,
+        message: message
+      }, (response) => {
+        if (response.err) {
+          const activeErrors = {
+            general: response.err
+          };
+
+          setErrors(activeErrors);
         } else {
-          if (response.err) {
-            this.handleError(response.err);
-          }
+          setIsComplete(true);
         }
 
-        this.setState({
-          isProcessing: false
-        });
+        setIsProcessing(false);
       });
     }
-  }
+  };
 
-  handleError = (error) => {
-    this.setState({error})
-  }
-
-  validate = () => {
+  const validate = () => {
     let isValid = true;
-    let activeErrors = {...this.state.inputErrors};
+    let activeErrors = {};
 
-    if (this.state.senderEmail.length === 0 || !(/\S+@\S+\.\S+/.test(this.state.senderEmail))) {
+    if (senderEmail.length === 0 || !(/\S+@\S+\.\S+/.test(senderEmail))) {
       isValid = false;
       activeErrors.senderEmail = true;
     }
 
-    if (this.state.senderName.length === 0) {
+    if (senderName.length === 0) {
       isValid = false;
       activeErrors.senderName = true;
     }
 
-    if (this.state.message.length === 0) {
+    if (message.length === 0) {
       isValid = false;
       activeErrors.message = true;
     }
 
-    this.setState({
-      inputErrors: activeErrors
-    });
-
+    setErrors(activeErrors);
     return isValid;
   }
 
-  render () {
-    return(
-      <main className="main main--bg-fixed container container--medium">
-        <Helmet>
-          <title>Contact - Lauren Ashpole</title>
-        </Helmet>
+  return(
+    <main className="main main--bg-fixed container container--medium">
+      <Helmet>
+        <title>Contact - Lauren Ashpole</title>
+      </Helmet>
 
-        <h2 className="text--uppercase">Contact</h2>
+      <h2 className="text--uppercase">Contact</h2>
 
-        <form>
-          {this.state.error && <Growl message={this.state.error}/>}
+      <Fragment>
+        {errors.general && <Growl message={errors.general} />}
 
-          <div className="well">
-            {this.state.isComplete ? (
-              <Fragment>
-                <h3>Thanks for your message!</h3>
-                <div>I&apos;ll get back to you shortly.</div>
-              </Fragment>
-            ) : (
-              <Fragment>
-                <p>Email me at <a href="mailto:lauren@laurenashpole.com" title="mailto:lauren@laurenashpole.com">lauren@laurenashpole.com</a> or use the form below.</p>
+        <div className="well">
+          {isComplete ? (
+            <Fragment>
+              <h3>Thanks for your message!</h3>
+              <div>I&apos;ll get back to you shortly.</div>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <p>Email me at <a href="mailto:lauren@laurenashpole.com" title="mailto:lauren@laurenashpole.com">lauren@laurenashpole.com</a> or use the form below.</p>
 
+              <form>
                 <div className="form__row">
-                  <input type="email" id="senderEmail" name="senderEmail" placeholder="Your Email" onChange={this.handleChange} onFocus={this.handleFocus} value={this.state.senderEmail} className={"input input--label-inset" + (this.state.inputErrors.senderEmail ? ' is-required' : '')} />
+                  <input type="email" id="senderEmail" name="senderEmail" placeholder="Your Email" onChange={(e) => setSenderEmail(e.target.value)} onFocus={() => setErrors({})} value={senderEmail} className={`input input--label-inset ${errors.senderEmail ? 'input--required' : ''}`} />
                   <label htmlFor="senderEmail">Email <span className="label__required">(valid email required)</span></label>
                 </div>
 
                 <div className="form__row">
-                  <input type="text" id="senderName" name="senderName" placeholder="Your Name" onChange={this.handleChange} onFocus={this.handleFocus} value={this.state.senderName} className={"input input--label-inset" + (this.state.inputErrors.senderName ? ' is-required' : '')} />
+                  <input type="text" id="senderName" name="senderName" placeholder="Your Name" onChange={(e) => setSenderName(e.target.value)} onFocus={() => setErrors({})} value={senderName} className={`input input--label-inset ${errors.senderName ? 'input--required' : ''}`} />
                   <label htmlFor="senderName">Name <span className="label__required">(name required)</span></label>
                 </div>
 
                 <div className="form__row">
                   <div className="select select--label-inset">
-                    <select className="select__input" id="subject" name="subject" onChange={this.handleChange} value={this.state.subject}>
+                    <select className="select__input" id="subject" name="subject" onChange={(e) => setSubject(e.target.value)} value={subject}>
                       <option value="Font Licensing">Font Licensing</option>
                       <option value="Technical Issues">Technical Issues</option>
                       <option value="Themes">Themes</option>
@@ -145,21 +112,21 @@ class Contact extends Component {
                 </div>
 
                 <div className="form__row">
-                  <textarea id="message" name="message" rows="5" placeholder="Message" onChange={this.handleChange} onFocus={this.handleFocus} value={this.state.message} className={"textarea" + (this.state.inputErrors.message ? ' is-required' : '')}></textarea>
+                  <textarea id="message" name="message" rows="5" placeholder="Message" onChange={(e) => setMessage(e.target.value)} onFocus={() => setErrors({})} value={message} className={`textarea ${errors.message ? 'textarea--required' : ''}`}></textarea>
                 </div>
 
                 <div className="form__row">
-                  <button type="submit" className={"button button--cta-primary" + (this.state.isProcessing ? ' is-processing' : '')} onClick={this.handleSubmit}>
+                  <button type="submit" className={`button button--cta-primary ${isProcessing ? ' is-processing' : ''}`} onClick={handleSubmit} disabled={isProcessing}>
                     Send Message
                   </button>
                 </div>
-              </Fragment>
-            )}
-          </div>
-        </form>
-      </main>
-    );
-  }
-}
+              </form>
+            </Fragment>
+          )}
+        </div>
+      </Fragment>
+    </main>
+  );
+};
 
 export default Contact;

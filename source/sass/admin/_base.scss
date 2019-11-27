@@ -18,6 +18,13 @@
   margin-top: 1.5rem;
 }
 
+.input--file {
+  padding-top: 37px;
+  padding-bottom: 12px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
 .button--add {
   margin-bottom: 1.5rem;
   @include flex-child-align(flex-end);

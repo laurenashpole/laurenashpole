@@ -23,13 +23,6 @@
   left: calc(0.5rem + 2px);
 }
 
-.input--file {
-  padding-top: 37px;
-  padding-bottom: 12px;
-  line-height: 16px;
-  font-size: 16px;
-}
-
 .input--small {
   min-height: 2.5rem;
 }
@@ -41,10 +34,6 @@
   border-radius: 3px;
   display: block;
   resize: none;
-}
-
-.label__required {
-  display: none;
 }
 
 .input::-webkit-input-placeholder,
@@ -67,12 +56,16 @@
   color: $color-gray-dark;
 }
 
-.input.is-required,
-.textarea.is-required {
+.input--required,
+.textarea--required {
   border-color: $color-red;
 }
 
-.input.is-required + label .label__required {
+.input--required + label .label__required {
   color: $color-red;
   display: inline;
+}
+
+.label__required {
+  display: none;
 }
