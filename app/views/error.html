@@ -8,9 +8,9 @@
 {% block body %}
   <main class="main main--bg-fixed container container--medium">
     <div class="well well--extra-padding">
-      {% if error.status || error.stack %}
-        <h2>{{error.status}} Error</h2>
-        <code>{{error.stack}}</code>
+      {% if err.status || err.stack %}
+        <h2>{{err.status}} Error</h2>
+        <code>{{err.stack}}</code>
       {% else %}
         <h2 class="text--uppercase">{{message}}</h2>
         <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
