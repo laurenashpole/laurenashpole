@@ -1,15 +1,12 @@
 .well {
   background: $color-white;
-  padding: 0.975rem;
+  // padding: 0.975rem;
+  padding: 1rem;
   border-radius: 6px;
 }
 
 .well + .well {
   margin-top: 1.5rem;
-}
-
-.well--no-padding {
-  padding: 0;
 }
 
 .well__row {
@@ -18,7 +15,7 @@
 }
 
 .well__row + .well__row {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-light;
 }
 
 @media (min-width: $break-tablet) {

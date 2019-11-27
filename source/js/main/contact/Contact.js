@@ -106,12 +106,12 @@ class Contact extends Component {
           <title>Contact - Lauren Ashpole</title>
         </Helmet>
 
-        <h2 className="text--uppercase">Contact</h2>
-
         <form>
           {this.state.error && <Growl message={this.state.error}/>}
 
           <div className="well">
+            <h2 className="text--uppercase">Contact</h2>
+
             {this.state.isComplete ? (
               <Fragment>
                 <h3>Thanks for your message!</h3>
