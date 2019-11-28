@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import Growl from '../../../components/Growl';
 import { fetchRequest } from '../../../utilities/fetchRequest';
 
 const Form = ({ endpoint, buttonText }) => {
@@ -28,10 +27,14 @@ const Form = ({ endpoint, buttonText }) => {
   };
 
   return(
-    <form>
-      {error && <Growl message={error} />}
+    <Fragment>
+      {error &&
+        <div className="well__row auth__row">
+          {error}
+        </div>
+      }
 
-      <div className="well">
+      <form className="well__row">
         <div className="form__row">
           <input className="input input--label-inset" type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} />
           <label htmlFor="username">Username</label>
@@ -47,8 +50,8 @@ const Form = ({ endpoint, buttonText }) => {
             {buttonText}
           </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </Fragment>
   );
 };
 
