@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Growl from '../../../components/Growl';
 import { fetchRequest } from '../../../utilities/fetchRequest';
 
 const Form = ({ font, endpoint, buttonText, onSuccess }) => {
@@ -56,11 +55,18 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
   } = font;
 
   return(
-    <form onSubmit={handleSubmit} encType="multipart/form-data">
-      {error && <Growl message={error} />}
-      {fireRedirect && <Redirect to="/admin" />}
+    <Fragment>
+      {fireRedirect &&
+        <Redirect to="/admin" />
+      }
 
-      <div className="well">
+      {error &&
+        <div className="well__row">
+          {error}
+        </div>
+      }
+
+      <form className="well__row" onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="form__row">
           <input type="text" id="name" name="name" className="input input--label-inset" defaultValue={name} />
           <label htmlFor="name">Name</label>
@@ -173,8 +179,8 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
             {buttonText}
           </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </Fragment>
   );
 };
 

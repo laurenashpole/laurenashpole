@@ -5,19 +5,22 @@ import Form from '../components/Form';
 
 const Edit = (props) => {
   return(
-    <Fragment>
+    <div className="well">
       {props.font ? (
         <Fragment>
-          <h2 className="text--uppercase">Edit {props.font.name}</h2>
+          <div className="well__row">
+            <h2 className="well__heading text--uppercase">Edit {props.font.name}</h2>
+          </div>
+
           <Form endpoint={`/admin/fonts/${props.font._id}?_method=PUT`} buttonText="Edit Font" onSuccess={props.onEdit} font={props.font} />
         </Fragment>
       ) : (
-        <Fragment>
-          <h2 className="text--uppercase">No font found.</h2>
-          <p>Want to <Link to="/admin/fonts/create">create it</Link>?</p>
-        </Fragment>
+        <div className="well__row well__row--x-padding well__row--y-padding">
+          <h2>No font found.</h2>
+          <div>Want to <Link to="/admin/fonts/create">create it</Link>?</div>
+        </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 

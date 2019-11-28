@@ -14,6 +14,14 @@
   border-bottom-color: $color-purple;
 }
 
+.auth__row {
+  padding: 1rem;
+}
+
+.auth__row + .auth__row {
+  padding: 1rem;
+}
+
 .auth__link {
   margin-top: 1.5rem;
 }

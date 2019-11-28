@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
@@ -72,12 +71,18 @@ const Contact = () => {
         <title>Contact - Lauren Ashpole</title>
       </Helmet>
 
-      <h2 className="text--uppercase">Contact</h2>
+      <div className="well">
+        <div className="well__row">
+          <h2 className="well__heading text--uppercase">Contact</h2>
+        </div>
 
-      <Fragment>
-        {errors.general && <Growl message={errors.general} />}
+        {errors.general &&
+          <div className="well__row">
+            {errors.general}
+          </div>
+        }
 
-        <div className="well">
+        <div className="well__row">
           {isComplete ? (
             <Fragment>
               <h3>Thanks for your message!</h3>
@@ -112,7 +117,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form__row">
-                  <textarea id="message" name="message" rows="5" placeholder="Message" onChange={(e) => setMessage(e.target.value)} onFocus={() => setErrors({})} value={message} className={`textarea ${errors.message ? 'textarea--required' : ''}`}></textarea>
+                  <textarea id="message" name="message" rows="5" placeholder="What can I help you with?" onChange={(e) => setMessage(e.target.value)} onFocus={() => setErrors({})} value={message} className={`textarea ${errors.message ? 'textarea--required' : ''}`}></textarea>
                 </div>
 
                 <div className="form__row">
@@ -124,7 +129,7 @@ const Contact = () => {
             </Fragment>
           )}
         </div>
-      </Fragment>
+      </div>
     </main>
   );
 };

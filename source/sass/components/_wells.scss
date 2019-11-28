@@ -1,6 +1,5 @@
 .well {
   background: $color-white;
-  padding: 0.975rem;
   border-radius: 6px;
 }
 
@@ -8,29 +7,31 @@
   margin-top: 1.5rem;
 }
 
-.well--no-padding {
-  padding: 0;
+.well__heading {
+  margin: 0;
 }
 
 .well__row {
-  @include flex();
-  position: relative;
+  padding: 1.15rem 1rem 1rem 1rem;
 }
 
 .well__row + .well__row {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-med-light;
+  padding-top: 1.5rem;
 }
 
 @media (min-width: $break-tablet) {
-  .well {
+  .well__row {
     padding: 1.5rem;
   }
 
-  .well--no-padding {
-    padding: 0;
+  .well__row--x-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
-  .well--extra-padding {
-    padding: 3rem;
+  .well__row--y-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
