@@ -28,7 +28,7 @@ const Footer = () => (
       </ul>
 
       <div className="footer__form-section">
-        <Mailing customClasses="mailing--inline" />
+        <Mailing customClasses="mailing--inline" location="Footer" />
       </div>
     </div>
   </footer>

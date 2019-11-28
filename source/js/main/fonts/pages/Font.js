@@ -39,9 +39,6 @@ class Font extends Component {
 
     const {
       name,
-      slug,
-      price,
-      image_collection,
       image,
       commercial_font_file,
       personal_font_file

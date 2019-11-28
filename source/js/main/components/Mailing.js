@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
-const Mailing = ({ customClasses, onSignup }) => {
+const Mailing = ({ customClasses, location, onSignup }) => {
   const [email, setEmail] = useState('');
   const [hidden, setHidden] = useState('');
   const [buttonText, setButtonText] = useState('Sign me up!');
@@ -15,23 +15,21 @@ const Mailing = ({ customClasses, onSignup }) => {
       return setButtonText('Invalid email');
     }
 
-    sendEvent('Footer', 'click', 'Sign me up!');
+    sendEvent(location, 'click', 'Sign me up!');
     setButtonText('Sending');
 
     request('/mailing/signup', {
       email: email,
       b_5e9c643a20b49926773037101_a878f779fc: hidden
     }, (response) => {
-      if (response.success) {
-        setButtonText('Success!');
+      if (response.err) {
+        return setButtonText(response.err);
+      }
 
-        if (onSignup && onSignup instanceof Function) {
-          onSignup(e);
-        }
-      } else {
-        if (response.err) {
-          setButtonText(response.err);
-        }
+      setButtonText('Success!');
+
+      if (onSignup && onSignup instanceof Function) {
+        onSignup(e);
       }
     });
   };
@@ -47,7 +45,7 @@ const Mailing = ({ customClasses, onSignup }) => {
       </div>
 
       <div className="mailing__button">
-        <button className="button button--small" onClick={handleSubmit}>
+        <button className="button button--small" onClick={handleSubmit} disabled={buttonText === 'Success!'}>
           {buttonText}
         </button>
       </div>
@@ -57,6 +55,7 @@ const Mailing = ({ customClasses, onSignup }) => {
 
 Mailing.propTypes = {
   customClasses: PropTypes.string,
+  location: PropTypes.string,
   onSignup: PropTypes.func
 };
 
