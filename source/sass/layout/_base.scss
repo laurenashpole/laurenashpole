@@ -8,12 +8,8 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 2.5rem 0.65rem 3rem 0.65rem;
+  padding: 3rem 0.8rem 3rem 0.8rem;
   position: relative;
-}
-
-.container--medium {
-  max-width: $width-medium;
 }
 
 @media (min-width: $break-tablet) {
@@ -22,13 +18,11 @@
   }
 
   .container {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding: 4rem 1.5rem 4rem 1.5rem;
   }
 
   .container--medium {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    max-width: $width-medium;
   }
 
   .container--large {
@@ -37,14 +31,6 @@
 
   .container--x-large {
     max-width: $break-desktop-wide;
-  }
-}
-
-@media (min-width: $break-desktop) {
-  .container,
-  .container--medium {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
   }
 }
 

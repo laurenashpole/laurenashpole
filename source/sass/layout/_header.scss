@@ -2,7 +2,7 @@
   background: $color-white;
   width: 100%;
   border-bottom: 1px solid $color-gray-med-light;
-  padding: 0.5rem 0.65rem;
+  padding: 0.65rem 0.8rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,8 +17,8 @@
 }
 
 .header__logo-svg {
-  width: 65px;
-  height: 30px;
+  width: 72px;
+  height: 33px;
   display: block;
   color: $color-red;
 
@@ -92,10 +92,10 @@
   background: $color-red;
   border-radius: 3px;
   position: fixed;
-  top: 0.5rem;
-  right: 0.65rem;
-  bottom: calc(100% - 0.5rem - 45px);
-  left: calc(100% - 0.65rem - 45px);
+  top: 0.65rem;
+  right: 0.8rem;
+  bottom: calc(100% - 0.65rem - 45px);
+  left: calc(100% - 0.8rem - 45px);
   overflow: hidden;
   @include flex();
   @include flex-direction(column);
@@ -145,7 +145,7 @@
     max-width: $break-desktop-wide;
     margin: 0 auto;
     border: none;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     position: relative;
   }
 
@@ -243,13 +243,6 @@
   .header__link:hover:after {
     border-bottom-color: $color-white;
     border-left-color: $color-white;
-  }
-}
-
-@media (min-width: $break-desktop) {
-  .header {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
   }
 }
 

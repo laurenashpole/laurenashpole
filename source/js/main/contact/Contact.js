@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Growl from '../../components/Growl';
 import { request } from '../../utilities/request';
 import { sendEvent } from '../../utilities/analytics';
 
@@ -77,6 +76,12 @@ const Contact = () => {
           <h2 className="text--uppercase">Contact</h2>
         </div>
 
+        {errors.general &&
+          <div className="well__row">
+            {errors.general}
+          </div>
+        }
+
         <div className="well__row">
           {isComplete ? (
             <Fragment>
@@ -88,8 +93,6 @@ const Contact = () => {
               <p>Email me at <a href="mailto:lauren@laurenashpole.com" title="mailto:lauren@laurenashpole.com">lauren@laurenashpole.com</a> or use the form below.</p>
 
               <form>
-                {errors.general && <Growl message={errors.general} />}
-
                 <div className="form__row">
                   <input type="email" id="senderEmail" name="senderEmail" placeholder="Your Email" onChange={(e) => setSenderEmail(e.target.value)} onFocus={() => setErrors({})} value={senderEmail} className={`input input--label-inset ${errors.senderEmail ? 'input--required' : ''}`} />
                   <label htmlFor="senderEmail">Email <span className="label__required">(valid email required)</span></label>
@@ -114,7 +117,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form__row">
-                  <textarea id="message" name="message" rows="5" placeholder="Message" onChange={(e) => setMessage(e.target.value)} onFocus={() => setErrors({})} value={message} className={`textarea ${errors.message ? 'textarea--required' : ''}`}></textarea>
+                  <textarea id="message" name="message" rows="5" placeholder="What can I help you with?" onChange={(e) => setMessage(e.target.value)} onFocus={() => setErrors({})} value={message} className={`textarea ${errors.message ? 'textarea--required' : ''}`}></textarea>
                 </div>
 
                 <div className="form__row">
