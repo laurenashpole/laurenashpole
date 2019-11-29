@@ -1,3 +1,7 @@
+.fonts__header {
+  padding-bottom: 1rem;
+}
+
 .fonts__filter {
   border-bottom: 1px solid $color-gray-med-light;
   padding: 0.65rem;
@@ -118,6 +122,10 @@
 }
 
 @media (min-width: $break-tablet) {
+  .fonts__header {
+    padding-bottom: 3rem;
+  }
+
   .fonts__filter {
     background: $color-white;
     border-radius: 6px 6px 0 0;
@@ -129,7 +137,7 @@
 
 @media (min-width: $break-desktop) {
   .fonts__header {
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   }
 
   .fonts__filter-form {
