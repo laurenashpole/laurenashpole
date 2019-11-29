@@ -4,17 +4,17 @@ import { Helmet } from 'react-helmet';
 
 const Licensing = () => {
   return(
-    <main className="main main--bg-fixed container container--medium">
+    <main className="main main--bg-fixed container">
       <Helmet>
         <title>Licensing - Fonts - Lauren Ashpole</title>
       </Helmet>
 
       <div className="well">
-        <div className="well__row well__row--x-padding">
+        <div className="well__row well__row--px-lg">
           <h2 className="well__heading text--uppercase">Licensing</h2>
         </div>
 
-        <div className="well__row well__row--x-padding well__row--y-padding">
+        <div className="well__row well__row--px-lg well__row--py-lg">
           <p>Licensing fees provide the time, software, caffeine, and other necessities that go into creating new fonts and improving old ones. At the same time, I love the free font archives and downloading sprees and trying out fonts I might eventually find a use for so I don’t want to discourage any of that. In an attempt to strike a balance, different options are available depending on the type of use:</p>
 
           <p><span className="text--extra-bold">1) Personal Use.</span> It is definitely not my intention to keep you from sprucing up your scrapbooks, party invitations, Harry Potter fan sites, etc. Therefore, all fonts are free for personal use. But if you decide to sell those things you’ll need a . . .</p>

@@ -15,7 +15,7 @@ const Edit = (props) => {
           <Form endpoint={`/admin/fonts/${props.font._id}?_method=PUT`} buttonText="Edit Font" onSuccess={props.onEdit} font={props.font} />
         </Fragment>
       ) : (
-        <div className="well__row well__row--x-padding well__row--y-padding">
+        <div className="well__row well__row--px-lg well__row--py-lg">
           <h2>No font found.</h2>
           <div>Want to <Link to="/admin/fonts/create">create it</Link>?</div>
         </div>

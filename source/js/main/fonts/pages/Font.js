@@ -28,7 +28,7 @@ class Font extends Component {
   render () {
     if (!this.props.font) {
       return(
-        <main className="main main--bg-fixed container container--medium">
+        <main className="main main--bg-fixed container">
           <div className="well well--extra-padding">
             <h2>Font not found.</h2>
             <p>Sorry, there&apos;s no font called {this.props.match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>

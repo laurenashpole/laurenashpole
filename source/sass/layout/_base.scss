@@ -18,24 +18,18 @@
   }
 
   .container {
-    padding: 4rem 1.5rem 4rem 1.5rem;
-  }
-
-  .container--medium {
     max-width: $width-medium;
+    padding: 4rem 1.5rem 4rem 1.5rem;
   }
 
   .container--large {
     max-width: $width-wide;
   }
-
-  .container--x-large {
-    max-width: $break-desktop-wide;
-  }
 }
 
 @media (min-width: $break-desktop-wide) {
   .container--x-large {
+    max-width: $break-desktop-wide;
     padding-right: 3rem;
     padding-left: 3rem;
   }

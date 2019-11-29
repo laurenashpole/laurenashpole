@@ -6,7 +6,7 @@ const Signup = () => {
   return(
     <Fragment>
       <div className="well">
-        <div className="well__row auth__row">
+        <div className="well__row well__row--py-sm">
           <h3 className="well__heading text--uppercase">Signup</h3>
         </div>
 
