@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 const Licensing = () => {
   return(
-    <main className="main main--bg-fixed container">
+    <main className="main container">
       <Helmet>
         <title>Licensing - Fonts - Lauren Ashpole</title>
       </Helmet>

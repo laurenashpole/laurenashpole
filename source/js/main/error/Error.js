@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 const Error = () => {
   return(
-    <main className="main main--bg-fixed container">
+    <main className="main container">
       <Helmet>
         <title>Page Not Found - Lauren Ashpole</title>
       </Helmet>

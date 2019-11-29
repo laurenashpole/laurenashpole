@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const Eula = () => {
   return(
-    <main className="main main--bg-fixed container">
+    <main className="main container">
       <Helmet>
         <title>End-User Licensing Agreement - Fonts - Lauren Ashpole</title>
       </Helmet>
