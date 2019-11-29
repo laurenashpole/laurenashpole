@@ -6,14 +6,18 @@
 {% endblock %}
 
 {% block body %}
-  <main class="main main--bg-fixed container container--medium">
-    <div class="well well--extra-padding">
+  <main class="main container">
+    <div class="well">
       {% if err.status || err.stack %}
-        <h2>{{err.status}} Error</h2>
-        <code>{{err.stack}}</code>
+        <div className="well__row well__row--px-lg well__row--py-lg">
+          <h2>{{err.status}} Error</h2>
+          <code>{{err.stack}}</code>
+        </div>
       {% else %}
-        <h2 class="text--uppercase">{{message}}</h2>
-        <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
+        <div className="well__row well__row--px-lg well__row--py-lg">
+          <h2>{{message}}</h2>
+          <p>It looks like this page doesn't exist anymore. If you're looking for fonts, try clicking <a href="/fonts" title="Fonts">here</a> instead. If you need anything else, don't hesitate to <a href="mailto:{{email_address}}" title="{{email_address}}">contact me</a>.</p>
+        </div>
       {% endif %}
     </div>
   </main>

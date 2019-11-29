@@ -47,7 +47,7 @@ class Confirmation extends Component {
 
   render () {
     return(
-      <main className="main main--bg-fixed container container--medium">
+      <main className="main container">
         <Helmet>
           <title>Thanks for your purchase! - Fonts - Lauren Ashpole</title>
         </Helmet>

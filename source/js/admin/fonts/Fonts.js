@@ -36,7 +36,7 @@ const Fonts = () => {
     <ScrollToTop>
       <Header navLinks={NAV_LINKS} />
 
-      <main className="main main--bg-fixed container container--medium">
+      <main className="main container">
         <Switch>
           <Route exact path="/admin" component={() =>
             <Index fonts={fonts} onDelete={handleDelete} />

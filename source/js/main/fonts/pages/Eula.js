@@ -3,17 +3,17 @@ import { Helmet } from 'react-helmet';
 
 const Eula = () => {
   return(
-    <main className="main main--bg-fixed container container--medium">
+    <main className="main container">
       <Helmet>
         <title>End-User Licensing Agreement - Fonts - Lauren Ashpole</title>
       </Helmet>
 
       <div className="well">
-        <div className="well__row well__row--x-padding">
+        <div className="well__row well__row--px-lg">
           <h2 className="well__heading text--uppercase">End-User Licensing Agreement</h2>
         </div>
 
-        <div className="well__row well__row--x-padding well__row--y-padding">
+        <div className="well__row well__row--px-lg well__row--py-lg">
           <p><em>Last Updated: December 4, 2010</em></p>
 
           <p>This is an agreement between you, the purchaser, and Lauren Ashpole, the font creator. In accepting the terms of this agreement, you acknowledge understanding and promise to comply with its terms. If you do not accept the terms please do not complete the purchase transaction.</p>

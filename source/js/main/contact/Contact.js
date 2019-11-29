@@ -66,7 +66,7 @@ const Contact = () => {
   }
 
   return(
-    <main className="main main--bg-fixed container container--medium">
+    <main className="main container">
       <Helmet>
         <title>Contact - Lauren Ashpole</title>
       </Helmet>
