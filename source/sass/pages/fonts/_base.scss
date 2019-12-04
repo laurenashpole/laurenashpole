@@ -1,40 +1,40 @@
-.font__content section + section {
-  margin-top: 2rem;
-  border-top: 1px solid $color-gray-med-light;
-  padding-top: 2rem;
+.font {
+  padding-top: 2.5rem;
 }
 
-.font__heading {
-  font-size: 1.414rem;
-  line-height: 2rem;
-  letter-spacing: 0.1em;
+.font__name {
+  border-bottom: 1px solid $color-gray-med-light;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .font__heading-link:last-child {
   margin-bottom: 2rem;
 }
 
-.font__img img {
-  width: 85%;
-  max-width: 550px;
-  margin: 0 auto 2.5rem auto;
+.font__img {
+  padding: 0 1rem;
+
+  img {
+    max-width: 310px;
+    margin: 0 auto 2.5rem auto;
+  }
 }
 
 .font__ctas {
-  padding: 0 0.975rem 2.5rem 0.975rem;
+  border-bottom: 1px solid $color-gray-med-light;
+  padding: 0.75rem;
+}
+
+@media (min-width: $break-mobile) {
+  .font__img {
+    img {
+      max-width: 425px;
+    }
+  }
 }
 
 @media (min-width: $break-tablet) {
-  .font__content section + section {
-    margin-top: 3rem;
-    padding-top: 3rem;
-  }
-
-  .font__heading {
-    font-size: 2.167rem;
-    line-height: 3rem;
-  }
-
   .font__heading-link {
     margin: 0 0.75rem 2rem 0;
     display: inline-block;
@@ -45,52 +45,32 @@
   }
 
   .font__img img {
-    margin: 0.5rem auto 4.5rem auto;
+    margin-bottom: 3.5rem;
   }
 
   .font__ctas {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    background: $color-white;
+    padding: 0.75rem 1.125rem;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    .button {
+      width: calc(50% - 0.75rem);
+      margin: auto;
+    }
   }
 }
 
 @media (min-width: $break-desktop) {
-  .font {
-    @include flex();
-    @include flex-align(flex-start);
-    @include flex-wrap(wrap);
-  }
-
-  .font__img {
-    width: 100%;
-    min-height: 560px;
-    height: 60vh;
-    max-height: $break-height;
-    @include flex();
-    @include flex-align(center);
+  .font__img img {
+    max-width: 500px;
+    margin: 0.5rem auto 5rem auto;
   }
 
   .font__ctas {
-    width: 30%;
-    padding: 0;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 1.5rem;
-  }
-
-  .font__content {
-    width: 70%;
-    padding-left: 1.5rem;
-  }
-}
-
-@media (min-width: $break-desktop-wide) {
-  .font__content .well {
-    padding: 3rem;
-  }
-
-  .font__ctas {
-    padding-right: 1.5rem;
-    top: 3rem;
+    padding: 0.75rem 2.625rem;
   }
 }

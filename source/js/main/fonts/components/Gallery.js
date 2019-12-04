@@ -11,8 +11,8 @@ const Gallery = ({ font }) => {
   }, []);
 
   return(
-    <section className="font__gallery">
-      <h2 className="font__heading text--uppercase u--center-mobile">Additional Images</h2>
+    <section className="well__row well__row--px-lg well__row--py-lg font__gallery">
+      <h3 className="text--uppercase u--center-mobile">Additional Images</h3>
 
       <div className="font__gallery-main">
         <span className="font__gallery-pin"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-media={`/uploads/images/${font.image_collection[activeIndex]}`}></a></span>

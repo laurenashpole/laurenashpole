@@ -3,7 +3,7 @@ import { DIST_LINKS } from '../constants/distLinks';
 
 const Distributors = () => {
   return(
-    <section className="container container--large dist">
+    <section className="dist">
       <h3 className="text--uppercase u--center">Fonts also available at</h3>
 
       <ul className="list--unstyled dist__list">

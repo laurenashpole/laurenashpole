@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Details = (props) => {
   const {
-    name,
     date_created,
     date_modified,
     description,
@@ -15,8 +14,8 @@ const Details = (props) => {
   } = props.font;
 
   return(
-    <section className="font__details">
-      <h2 className="font__heading text--uppercase u--center-mobile">{name} Font</h2>
+    <section className="well__row well__row--px-lg well__row--py-lg font__details">
+      <h3 className="text--uppercase u--center-mobile">Details</h3>
 
       <ul className="text--uppercase text--medium text--extra-bold list--unstyled u--center-mobile">
         <li className="font__heading-link">

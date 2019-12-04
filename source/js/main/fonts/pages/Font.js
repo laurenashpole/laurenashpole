@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -9,75 +9,75 @@ import Gallery from '../components/Gallery';
 import Preview from '../components/Preview';
 import Glyphs from '../components/Glyphs';
 
-class Font extends Component {
-  componentDidMount () {
-    this.injectStylesheet();
-  }
+const Font = ({ match, font, glyphs }) => {
+  const [stylesLoaded, setStylesLoaded] = useState(false);
 
-  injectStylesheet = () => {
-    if (this.props.font) {
+  useEffect(() => {
+    injectStylesheet();
+  }, []);
+
+  const injectStylesheet = () => {
+    if (font) {
       let element = document.createElement('link');
-
       element.setAttribute('rel', 'stylesheet');
-      element.setAttribute('href', `/uploads/css/${this.props.font.css_file}`);
+      element.setAttribute('href', `/uploads/css/${font.css_file}`);
       document.getElementsByTagName('head')[0].appendChild(element);
-      this.main.classList.remove('css-loading');
+      setStylesLoaded(true);
     }
-  }
+  };
 
-  render () {
-    if (!this.props.font) {
-      return(
-        <main className="main container">
-          <div className="well well--extra-padding">
-            <h2>Font not found.</h2>
-            <p>Sorry, there&apos;s no font called {this.props.match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>
-          </div>
-        </main>
-      );
-    }
-
-    const {
-      name,
-      image,
-      commercial_font_file,
-      personal_font_file
-    } = this.props.font;
-
+  if (!font) {
     return(
-      <main className="main main--bg-offset css-loading" ref={(el) => { this.main = el; }}>
+      <main className="main container">
         <Helmet>
-          <title>{`${name} - Fonts - Lauren Ashpole`}</title>
+          <title>Font Not Found - Fonts - Lauren Ashpole</title>
         </Helmet>
 
-        <div className="container container--x-large font">
-          <div className="font__img">
-            <img src={`/uploads/images/${image}`} alt={`${name} Sample`} />
-          </div>
-
-          <div className="font__ctas">
-            {commercial_font_file &&
-              <Purchase font={this.props.font} />
-            }
-
-            {personal_font_file &&
-              <Download font={this.props.font} />
-            }
-          </div>
-
-          <div className="font__content">
-            <div className="well font__well">
-              <Details font={this.props.font} />
-              <Gallery font={this.props.font} />
-              <Preview font={this.props.font} />
-              <Glyphs font={this.props.font} glyphs={this.props.glyphs} />
-            </div>
+        <div className="well">
+          <div className="well__row well__row--px-lg well__row--py-lg">
+            <h2>Font not found.</h2>
+            <p>Sorry, there&apos;s no font called {match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>
           </div>
         </div>
       </main>
     );
   }
-}
+
+  return(
+    <main className={`main main--bg-header ${stylesLoaded ? '' : 'css-loading'}`}>
+      <Helmet>
+        <title>{`${font.name} - Fonts - Lauren Ashpole`}</title>
+      </Helmet>
+
+      <div className="container container--large font">
+        <div className="font__img">
+          <img src={`/uploads/images/${font.image}`} alt={`${font.name} Sample`} />
+        </div>
+
+        <div className="well font__well">
+          <div className="well__row well__row--px-lg font__name">
+            <h2 className="well__heading text--uppercase u--center-mobile">{font.name}</h2>
+          </div>
+
+          <div className="font__ctas">
+            {font.personal_font_file &&
+              <Download font={font} />
+            }
+
+            {font.commercial_font_file &&
+              <Purchase font={font} />
+            }
+          </div>
+
+          <Details font={font} />
+          <Gallery font={font} />
+          <Preview font={font} />
+          <Glyphs font={font} glyphs={glyphs} />
+        </div>
+      </div>
+    </main>
+  );
+};
 
 Font.propTypes = {
   match: PropTypes.object,
