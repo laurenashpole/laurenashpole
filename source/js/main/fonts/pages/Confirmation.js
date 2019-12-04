@@ -53,17 +53,21 @@ class Confirmation extends Component {
         </Helmet>
 
         {this.state.payment ? (
-          <div className="well well--extra-padding">
-            <h2>Thank you for purchasing {this.props.font.name}!</h2>
+          <div className="well">
+            <div className="well__row well__row--px-lg well__row--py-lg">
+              <h2>Thank you for purchasing {this.props.font.name}!</h2>
 
-            <p>Download the commercial version of your font <a href={`/uploads/fonts/${this.props.font.commercial_font_file}`}>here</a>. A copy will also be emailed to {this.state.payment.payer.payer_info.email}.</p>
+              <p>Download the commercial version of your font <a href={`/uploads/fonts/${this.props.font.commercial_font_file}`}>here</a>. A copy will also be emailed to {this.state.payment.payer.payer_info.email}.</p>
 
-            <p>If you have any questions about your purchase, view the <Link to="/fonts/licensing" title="Licensing">licensing details</Link> or the <Link to="/fonts/eula" title="EULA">EULA</Link> or email me at <a href="mailto:lauren@laurenashpole.com" title="lauren@laurenashpole.com">lauren@laurenashpole.com</a>.</p>
+              <p>If you have any questions about your purchase, view the <Link to="/fonts/licensing" title="Licensing">licensing details</Link> or the <Link to="/fonts/eula" title="EULA">EULA</Link> or email me at <a href="mailto:lauren@laurenashpole.com" title="lauren@laurenashpole.com">lauren@laurenashpole.com</a>.</p>
+            </div>
           </div>
         ) : (
-          <div className="well well--extra-padding">
-            <h2>{this.state.errorHeading}</h2>
-            <p dangerouslySetInnerHTML={{__html: this.state.errorMessage}}></p>
+          <div className="well">
+            <div className="well__row well__row--px-lg well__row--py-lg">
+              <h2>{this.state.errorHeading}</h2>
+              <p dangerouslySetInnerHTML={{__html: this.state.errorMessage}}></p>
+            </div>
           </div>
         )}
       </main>
