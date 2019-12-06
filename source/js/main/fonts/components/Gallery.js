@@ -13,7 +13,7 @@ const Gallery = ({ font }) => {
   return(
     <section className="font__section font__gallery">
       <div className="font__section-scroll" id="gallery"></div>
-      <h3 className="text--uppercase u--center-mobile">Additional Images</h3>
+      <h3 className="text--uppercase u--center-mobile">Gallery</h3>
 
       <div className="font__gallery-main">
         <span className="font__gallery-pin"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-media={`/uploads/images/${font.image_collection[activeIndex]}`}></a></span>

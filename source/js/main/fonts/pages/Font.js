@@ -68,19 +68,19 @@ const Font = ({ match, font, glyphs }) => {
             </ul>
 
             <div className="font__sections">
-              <InView onInView={() => setVisibleSection('details')} intoViewMargin="-50%"repeatOnInView={true}>
+              <InView onInView={() => setVisibleSection('details')} intoViewMargin="-50%" repeatOnInView={true}>
                 <Details font={font} />
               </InView>
 
-              <InView onInView={() => setVisibleSection('gallery')} intoViewMargin="-50%"repeatOnInView={true}>
+              <InView onInView={() => setVisibleSection('gallery')} intoViewMargin="-50%" repeatOnInView={true}>
                 <Gallery font={font} />
               </InView>
 
-              <InView onInView={() => setVisibleSection('preview')} intoViewMargin="-50%"repeatOnInView={true}>
+              <InView onInView={() => setVisibleSection('preview')} intoViewMargin="-50%" repeatOnInView={true}>
                 <Preview font={font} />
               </InView>
 
-              <InView onInView={() => setVisibleSection('glyphs')} intoViewMargin="-50%"repeatOnInView={true}>
+              <InView onInView={() => setVisibleSection('glyphs')} intoViewMargin="-50%" repeatOnInView={true}>
                 <Glyphs font={font} glyphs={glyphs} />
               </InView>
             </div>
