@@ -21,10 +21,6 @@
     max-width: $width-medium;
     padding: 4rem 1.5rem 4rem 1.5rem;
   }
-
-  .container--large {
-    max-width: $width-wide;
-  }
 }
 
 @media (min-width: $break-desktop-wide) {

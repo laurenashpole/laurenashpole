@@ -12,7 +12,7 @@ const Homepage = (props) => {
         <title>Lauren Ashpole</title>
       </Helmet>
 
-      <div className="container container--large homepage">
+      <div className="container container--x-large homepage">
         <Hero font={props.font} />
         <About />
         <Distributors />
