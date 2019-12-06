@@ -18,7 +18,8 @@ class Glyphs extends Component {
 
   render () {
     return(
-      <section className="well__row well__row--px-lg well__row--py-lg font__glyphs">
+      <section className="font__section font__glyphs">
+        <div className="font__section-scroll" id="glyphs"></div>
         <h3 className="text--uppercase u--center-mobile">Glyphs</h3>
 
         {this.props.font.commercial_file.additional_chars.is_included &&

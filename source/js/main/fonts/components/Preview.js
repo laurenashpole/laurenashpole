@@ -24,7 +24,8 @@ class Preview extends Component {
     } = this.props.font;
 
     return(
-      <section className="well__row well__row--px-lg well__row--py-lg font__preview">
+      <section className="font__section font__preview">
+        <div className="font__section-scroll" id="preview"></div>
         <h3 className="text--uppercase u--center-mobile">Preview</h3>
 
         <form className="form__row--inline">

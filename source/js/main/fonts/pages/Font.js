@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import InView from 'react-inview-monitor';
+import NotFound from '../components/NotFound';
 import Purchase from '../components/Purchase';
 import Download from '../components/Download';
 import Details from '../components/Details';
@@ -11,6 +12,7 @@ import Glyphs from '../components/Glyphs';
 
 const Font = ({ match, font, glyphs }) => {
   const [stylesLoaded, setStylesLoaded] = useState(false);
+  const [visibleSection, setVisibleSection] = useState('');
 
   useEffect(() => {
     injectStylesheet();
@@ -27,20 +29,7 @@ const Font = ({ match, font, glyphs }) => {
   };
 
   if (!font) {
-    return(
-      <main className="main container">
-        <Helmet>
-          <title>Font Not Found - Fonts - Lauren Ashpole</title>
-        </Helmet>
-
-        <div className="well">
-          <div className="well__row well__row--px-lg well__row--py-lg">
-            <h2>Font not found.</h2>
-            <p>Sorry, there&apos;s no font called {match.params.slug}. It might be a mistake so try checking in the full list of fonts <Link to="/fonts" title="Fonts">here</Link>.</p>
-          </div>
-        </div>
-      </main>
-    );
+    return <NotFound slug={match.params.slug} />;
   }
 
   return(
@@ -49,12 +38,12 @@ const Font = ({ match, font, glyphs }) => {
         <title>{`${font.name} - Fonts - Lauren Ashpole`}</title>
       </Helmet>
 
-      <div className="container container--large font">
+      <div className="container container--x-large font">
         <div className="font__img">
           <img src={`/uploads/images/${font.image}`} alt={`${font.name} Sample`} />
         </div>
 
-        <div className="well font__well">
+        <div className="well">
           <div className="well__row well__row--px-lg font__name">
             <h2 className="well__heading text--uppercase u--center-mobile">{font.name}</h2>
           </div>
@@ -69,10 +58,33 @@ const Font = ({ match, font, glyphs }) => {
             }
           </div>
 
-          <Details font={font} />
-          <Gallery font={font} />
-          <Preview font={font} />
-          <Glyphs font={font} glyphs={glyphs} />
+          <div className="well__row font__content">
+            <ul className="font__sections-list list--unstyled text--medium text--uppercase text--extra-bold">
+              {['details', 'gallery', 'preview', 'glyphs'].map((link) => {
+                return(
+                  <li key={link}><a className={`font__sections-link ${visibleSection === link ? 'font__sections-link--active' : ''}`} href={`#${link}`}>{link}</a></li>
+                );
+              })}
+            </ul>
+
+            <div className="font__sections">
+              <InView onInView={() => setVisibleSection('details')} intoViewMargin="-50%"repeatOnInView={true}>
+                <Details font={font} />
+              </InView>
+
+              <InView onInView={() => setVisibleSection('gallery')} intoViewMargin="-50%"repeatOnInView={true}>
+                <Gallery font={font} />
+              </InView>
+
+              <InView onInView={() => setVisibleSection('preview')} intoViewMargin="-50%"repeatOnInView={true}>
+                <Preview font={font} />
+              </InView>
+
+              <InView onInView={() => setVisibleSection('glyphs')} intoViewMargin="-50%"repeatOnInView={true}>
+                <Glyphs font={font} glyphs={glyphs} />
+              </InView>
+            </div>
+          </div>
         </div>
       </div>
     </main>

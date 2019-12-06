@@ -11,7 +11,8 @@ const Gallery = ({ font }) => {
   }, []);
 
   return(
-    <section className="well__row well__row--px-lg well__row--py-lg font__gallery">
+    <section className="font__section font__gallery">
+      <div className="font__section-scroll" id="gallery"></div>
       <h3 className="text--uppercase u--center-mobile">Additional Images</h3>
 
       <div className="font__gallery-main">

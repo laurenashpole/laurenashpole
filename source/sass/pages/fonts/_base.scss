@@ -23,7 +23,23 @@
 
 .font__ctas {
   border-bottom: 1px solid $color-gray-med-light;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.font__content {
+  padding: 0;
+}
+
+.font__sections-list {
+  display: none;
+}
+
+.font__sections > div + div {
+  border-top: 1px solid $color-gray-med-light;
+}
+
+.font__section {
+  padding: 1.5rem 1rem;
 }
 
 @media (min-width: $break-mobile) {
@@ -62,6 +78,10 @@
       margin: auto;
     }
   }
+
+  .font__section {
+    padding: 2rem 1.5rem;
+  }
 }
 
 @media (min-width: $break-desktop) {
@@ -72,5 +92,62 @@
 
   .font__ctas {
     padding: 0.75rem 2.625rem;
+  }
+
+  .font__section {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: $break-desktop-wide) {
+  .font__content {
+    padding: 3rem;
+    @include flex();
+    @include flex-align(flex-start);
+  }
+
+  .font__sections-list {
+    width: 25%;
+    display: block;
+  }
+
+  .font__sections-link {
+    margin: 0.225rem 0;
+    border: none;
+    color: $color-gray-dark;
+
+    &:hover,
+    &:focus {
+      color: $color-red;
+    }
+  }
+
+  .font__sections-link--active {
+    color: $color-red;
+
+    &:after {
+      content: "\00a0\2014";
+    }
+  }
+
+  .font__sections {
+    width: 75%;
+    border-left: 1px solid $color-gray-med-light;
+    padding-left: 3rem;
+  }
+
+  .font__section-scroll {
+    @include transform(translateY(calc((100px + 3rem) * -1)));
+  }
+
+  .font__section {
+    padding: 3rem 0;
+  }
+}
+
+@media (min-height: $break-mobile) {
+  .font__sections-list {
+    position: sticky;
+    top: calc(100px + 3rem);
   }
 }
