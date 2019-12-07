@@ -7,14 +7,16 @@ import Distributors from './components/Distributors';
 
 const Homepage = (props) => {
   return(
-    <main className="main">
+    <main className="main main--bg-header">
       <Helmet>
         <title>Lauren Ashpole</title>
       </Helmet>
 
-      <Hero font={props.font} />
-      <About />
-      <Distributors />
+      <div className="container container--x-large homepage">
+        <Hero font={props.font} />
+        <About />
+        <Distributors />
+      </div>
     </main>
   );
 };

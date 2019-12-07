@@ -11,13 +11,13 @@ const Hero = (props) => {
   } = props.font;
 
   return(
-    <section className="hero hero--bg-repeat">
-      <div className="container container--large hero__container">
-        <div className="hero__img">
-          <img src={`/uploads/images/${image}`} alt={`A sample of my newest font ${name}!`} />
-        </div>
+    <section className="hero">
+      <div className="hero__img">
+        <img src={`/uploads/images/${image}`} alt={`A sample of my newest font ${name}!`} />
+      </div>
 
-        <div className="well u--center hero__cta">
+      <div className="well u--center hero__cta">
+        <div className="well__row">
           <h3 className="text--uppercase">
             New font!<br/>
             {name}

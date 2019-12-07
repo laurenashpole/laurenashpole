@@ -34,7 +34,9 @@
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
+}
 
+@media (min-width: $break-desktop) {
   .well__row--px-lg {
     padding-left: 3rem;
     padding-right: 3rem;
