@@ -1,23 +1,3 @@
 <div class="font__img">
   <amp-img src="{{host_url}}/uploads/images/{{font.image}}" alt="{{font.name}} Sample" height="425" width="500" layout="responsive"></amp-img>
 </div>
-
-<form class="font__ctas" method="post" action-xhr="{{host_url}}/amp/fonts/{{font.slug}}/payment" target="_top">
-  {% if font.commercial_font_file %}
-    <button type="submit" class="button button--cta-primary text--medium js-ga-buy">
-      <div class="button__text">
-        Purchase
-        <div class="text--extra-small">${{font.price}} Commercial Use</div>
-      </div>
-    </button>
-  {% endif %}
-
-  {% if font.personal_font_file %}
-    <a href="{{host_url}}/uploads/fonts/{{font.personal_font_file}}" class="button button--outline text--medium js-ga-download">
-      <div class="button__text">
-        Download
-        <div class="text--extra-small">Free Personal Use</div>
-      </div>
-    </a>
-  {% endif %}
-</form>

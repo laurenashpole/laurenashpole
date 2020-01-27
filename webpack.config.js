@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const PostcssAmplifyWebpackPlugin = require('postcss-amplify-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
@@ -40,6 +41,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['css/*', 'js/*']
+    }),
+    new PostcssAmplifyWebpackPlugin({
+      outputPath: path.resolve(__dirname, 'app/views/amp/includes'),
+      excludedFiles: [/admin.*\.css/, /blog.*\.css/],
+      excludedBlocks: 'fonts__'
     }),
     new ManifestPlugin({
       fileName: 'assets.json',

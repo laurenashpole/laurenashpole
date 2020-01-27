@@ -17,7 +17,9 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
     <style amp-custom>
-      {% include './includes/styles.amp.css' %}
+      {% include './includes/main.amp.css' %}
+      {% include './includes/overrides.amp.css' %}
+      {% autoescape false %}{{font.css_string}}{% endautoescape %}
     </style>
 
     <link rel="stylesheet" href="https://use.typekit.net/iuh6zxb.css">
@@ -26,15 +28,43 @@
   <body>
     {% include './includes/header.amp.html' %}
 
-    <main class="main main--bg-offset">
+    <main class="main main--bg-header">
       <div class="container font">
         {% include './includes/font-hero.amp.html' %}
 
-        <div class="font__content well">
-          {% include './includes/font-details.amp.html' %}
-          {% include './includes/font-gallery.amp.html' %}
-          {% include './includes/font-preview.amp.html' %}
-          {% include './includes/font-glyphs.amp.html' %}
+        <div class="well">
+          <div class="well__row well__row--px-lg font__name">
+            <h2 class="well__heading text--uppercase u--center-mobile">39 Smooth</h2>
+          </div>
+
+          <form class="font__ctas" method="post" action-xhr="{{host_url}}/amp/fonts/{{font.slug}}/payment" target="_top">
+            {% if font.commercial_font_file %}
+              <button type="submit" class="button button--cta-primary text--medium js-ga-buy">
+                <div class="button__text">
+                  Purchase
+                  <div class="text--extra-small">${{font.price}} Commercial Use</div>
+                </div>
+              </button>
+            {% endif %}
+
+            {% if font.personal_font_file %}
+              <a href="{{host_url}}/uploads/fonts/{{font.personal_font_file}}" class="button button--outline text--medium js-ga-download">
+                <div class="button__text">
+                  Download
+                  <div class="text--extra-small">Free Personal Use</div>
+                </div>
+              </a>
+            {% endif %}
+          </form>
+
+          <div class="well__row font__content">
+            <div class="font__sections">
+              <div>{% include './includes/font-details.amp.html' %}</div>
+              <div>{% include './includes/font-gallery.amp.html' %}</div>
+              <div>{% include './includes/font-preview.amp.html' %}</div>
+              <div>{% include './includes/font-glyphs.amp.html' %}</div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -1,12 +1,12 @@
-<section class="font__glyphs u--center">
-  <h2 class="font__heading text--uppercase">Glyphs</h2>
+<section class="font__section font__glyphs u--center">
+  <h3 class="text--uppercase u--center-mobile">Glyphs</h3>
 
   {% if font.commercial_file.additional_chars.is_included %}
-    <input type="radio" name="font-glyph" id="fontGlyphBasic" class="u--hidden font__glyphs-radio--basic" checked />
+    <input type="radio" name="font-glyph" id="fontGlyphBasic" class="u--hidden font__glyphs-radio font__glyphs-radio--basic" checked />
     <label for="fontGlyphBasic" class="text--uppercase text--medium text--extra-bold font__heading-link">Basic Characters</label>
 
-    <input type="radio" name="font-glyph" id="fontGlyphAdditional" class="u--hidden font__glyphs-radio--additional" />
-    <label for="fontGlyphAdditional" class="text--uppercase text--medium text--extra-bold font__heading-link">Additional Characters</label>
+    <input type="radio" name="font-glyph" id="fontGlyphAdditional" class="u--hidden font__glyphs-radio font__glyphs-radio--additional" />
+    <label for="fontGlyphAdditional" class="text--uppercase text--medium text--extra-bold">Additional Characters</label>
   {% endif %}
 
   <div class="font__glyphs-grid font__glyphs-grid--basic font-{{font.slug}}">
