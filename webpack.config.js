@@ -43,7 +43,7 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ['css/*', 'js/*']
     }),
     new PostcssAmplifyWebpackPlugin({
-      outputPath: path.resolve(__dirname, 'app/views/amp/includes'),
+      outputPath: path.resolve(__dirname, '../app/views/amp/includes'),
       excludedFiles: [/admin.*\.css/, /blog.*\.css/],
       excludedBlocks: 'fonts__'
     }),
