@@ -56,6 +56,7 @@ app.use(flash());
 // Routes
 require('./app/routes/helpers/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
+require('./app/routes/notfound')(app);
 require('./app/routes/routes')(app, multer);
 require('./app/routes/errors')(app);
 
