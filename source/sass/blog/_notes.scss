@@ -14,7 +14,7 @@
 }
 
 .notes .note {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-med-light;
   padding: 18px 15px;
   line-height: 24px;
   @include flex;
@@ -42,6 +42,6 @@
 }
 
 .disqus {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-med-light;
   padding: 1rem;
 }
