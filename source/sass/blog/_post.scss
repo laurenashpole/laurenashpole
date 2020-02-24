@@ -18,7 +18,7 @@
 }
 
 .post__details {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-med-light;
   padding: 1rem;
   position: relative;
   z-index: 1;
@@ -91,15 +91,20 @@ a.post__detail-link--type:hover {
 }
 
 .post__actions {
-  border-top: 2px solid $color-gray-light;
+  border-top: 1px solid $color-gray-med-light;
+  padding: 0;
   @include flex;
   @include flex-justify(flex-end);
+}
+
+.well__row + .post__actions {
+  padding: 0;
 }
 
 .post__action {
   width: 60px;
   height: 60px;
-  border-left: 2px solid $color-gray-light;
+  border-left: 1px solid $color-gray-med-light;
   box-shadow: 0 0 0 0.5rem $color-white inset;
   text-align: center;
   cursor: pointer;
