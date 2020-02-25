@@ -10,7 +10,11 @@ const Logout = () => {
 
   return(
     <div className="container container--narrow">
-      <div className="well">Logging out...</div>
+      <div className="well">
+        <div className="well__row well__row--px-lg well__row--py-lg">
+          Logging out...
+        </div>
+      </div>
     </div>
   );
 };

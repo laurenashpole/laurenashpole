@@ -38,3 +38,9 @@
     }
   }
 }
+
+@media (min-width: $break-desktop-wide) {
+  .font__details {
+    padding-top: 0;
+  }
+}

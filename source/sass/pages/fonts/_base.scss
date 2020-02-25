@@ -1,40 +1,56 @@
-.font__content section + section {
-  margin-top: 2rem;
-  border-top: 1px solid $color-gray-med-light;
-  padding-top: 2rem;
+.font {
+  padding-top: 2.5rem;
 }
 
-.font__heading {
-  font-size: 1.414rem;
-  line-height: 2rem;
-  letter-spacing: 0.1em;
+.font__name {
+  border-bottom: 1px solid $color-gray-med-light;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .font__heading-link:last-child {
   margin-bottom: 2rem;
 }
 
-.font__img img {
-  width: 85%;
-  max-width: 550px;
-  margin: 0 auto 2.5rem auto;
+.font__img {
+  padding: 0 1rem;
+
+  img {
+    max-width: 310px;
+    margin: 0 auto 2.5rem auto;
+  }
 }
 
 .font__ctas {
-  padding: 0 0.975rem 2.5rem 0.975rem;
+  border-bottom: 1px solid $color-gray-med-light;
+  padding: 0.75rem 1rem;
+}
+
+.font__content {
+  padding: 0;
+}
+
+.font__sections-list {
+  display: none;
+}
+
+.font__sections > div + div {
+  border-top: 1px solid $color-gray-med-light;
+}
+
+.font__section {
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: $break-mobile) {
+  .font__img {
+    img {
+      max-width: 425px;
+    }
+  }
 }
 
 @media (min-width: $break-tablet) {
-  .font__content section + section {
-    margin-top: 3rem;
-    padding-top: 3rem;
-  }
-
-  .font__heading {
-    font-size: 2.167rem;
-    line-height: 3rem;
-  }
-
   .font__heading-link {
     margin: 0 0.75rem 2rem 0;
     display: inline-block;
@@ -45,52 +61,93 @@
   }
 
   .font__img img {
-    margin: 0.5rem auto 4.5rem auto;
+    margin-bottom: 3.5rem;
   }
 
   .font__ctas {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    background: $color-white;
+    padding: 0.75rem 1.125rem;
+    @include flex();
+    @include flex-justify(center);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    .button {
+      width: calc(50% - 0.75rem);
+      margin: auto;
+    }
+  }
+
+  .font__section {
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (min-width: $break-desktop) {
-  .font {
-    @include flex();
-    @include flex-align(flex-start);
-    @include flex-wrap(wrap);
-  }
-
-  .font__img {
-    width: 100%;
-    min-height: 560px;
-    height: 60vh;
-    max-height: $break-height;
-    @include flex();
-    @include flex-align(center);
+  .font__img img {
+    max-width: 500px;
+    margin: 0.5rem auto 5rem auto;
   }
 
   .font__ctas {
-    width: 30%;
-    padding: 0;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 1.5rem;
+    padding: 0.75rem 2.625rem;
   }
 
-  .font__content {
-    width: 70%;
-    padding-left: 1.5rem;
+  .font__section {
+    padding: 3rem;
   }
 }
 
 @media (min-width: $break-desktop-wide) {
-  .font__content .well {
+  .font__content {
     padding: 3rem;
+    @include flex();
+    @include flex-align(flex-start);
   }
 
-  .font__ctas {
-    padding-right: 1.5rem;
-    top: 3rem;
+  .font__sections-list {
+    width: 25%;
+    display: block;
+  }
+
+  .font__sections-link {
+    margin: 0.225rem 0;
+    border: none;
+    color: $color-gray-dark;
+
+    &:hover,
+    &:focus {
+      color: $color-red;
+    }
+  }
+
+  .font__sections-link--active {
+    color: $color-red;
+
+    &:after {
+      content: "\00a0\2014";
+    }
+  }
+
+  .font__sections {
+    width: 75%;
+    border-left: 1px solid $color-gray-med-light;
+    padding-left: 3rem;
+  }
+
+  .font__section-scroll {
+    @include transform(translateY(calc((100px + 3rem) * -1)));
+  }
+
+  .font__section {
+    padding: 3rem 0;
+  }
+}
+
+@media (min-height: $break-mobile) {
+  .font__sections-list {
+    position: sticky;
+    top: calc(100px + 3rem);
   }
 }

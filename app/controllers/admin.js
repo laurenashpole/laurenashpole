@@ -1,4 +1,4 @@
-const fontHelper = require('../helpers/fonts');
+const fontHelper = require('./helpers/fonts');
 
 exports.all = function (req, res) {
   const isAuthenticated = req.isAuthenticated();
@@ -7,7 +7,7 @@ exports.all = function (req, res) {
     fontHelper.findAll()
       .then((data) => {
         res.render('admin/index', {
-          title: 'Admin',
+          meta: `<title>Admin - Lauren Ashpole</title>`,
           isAuthenticated: isAuthenticated,
           fonts: data.fonts
         });

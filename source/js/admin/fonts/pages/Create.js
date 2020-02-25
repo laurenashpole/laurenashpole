@@ -1,13 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Form from '../components/Form';
 
 const Create = (props) => {
   return(
-    <Fragment>
-      <h2 className="text--uppercase">Create New Font</h2>
+    <div className="well">
+      <div className="well__row">
+        <h2 className="well__heading text--uppercase">Create New Font</h2>
+      </div>
+
       <Form endpoint="/admin/fonts" buttonText="Create Font" onSuccess={props.onCreate} font={{}} />
-    </Fragment>
+    </div>
   );
 };
 

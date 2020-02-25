@@ -24,8 +24,9 @@ class Preview extends Component {
     } = this.props.font;
 
     return(
-      <section className="font__preview">
-        <h2 className="font__heading text--uppercase u--center-mobile">Preview</h2>
+      <section className="font__section font__preview">
+        <div className="font__section-scroll" id="preview"></div>
+        <h3 className="text--uppercase u--center-mobile">Preview</h3>
 
         <form className="form__row--inline">
           <input className="input font__preview-input" type="text" name="previewText" id="previewText" defaultValue={this.state.previewText} onChange={this.handleChange} />

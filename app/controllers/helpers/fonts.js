@@ -1,4 +1,4 @@
-const Font = require('../models/font');
+const Font = require('../../models/font');
 const fs = require('fs');
 const path = require('path');
 const async = require('async');
@@ -67,27 +67,6 @@ exports.updateFont = function (req, res, font, isNew) {
       });
     });
   });
-};
-
-exports.getTags = function (fonts) {
-  return fonts.reduce((acc, cur) => {
-    if (cur.tags.length) {
-      cur.tags.forEach((tag) => {
-        const slug = tag.replace(/\s+/g, '-').toLowerCase();
-
-        if (acc[slug] && acc[slug].fonts) {
-          acc[slug].fonts.push(cur._id);
-        } else {
-          acc[slug] = {
-            name: tag,
-            fonts: [cur._id]
-          };
-        }
-      });
-    }
-
-    return acc;
-  }, {});
 };
 
 const deleteFiles = function (res, font, finalCallback) {

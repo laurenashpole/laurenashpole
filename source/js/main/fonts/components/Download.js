@@ -63,7 +63,7 @@ class Download extends Component {
           <p className="text--medium">I promise you&apos;ll only hear from me when I have something you can try.</p>
 
           <div className="modal__form">
-            <Mailing onSignup={this.handleCloseClick} />
+            <Mailing onSignup={this.handleCloseClick} location="Modal" />
           </div>
 
           <a href="javascript:void(0);" className="text--medium" onClick={this.handleCloseClick}>

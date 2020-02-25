@@ -4,7 +4,7 @@
 }
 
 .footer__content {
-  padding: 0.65rem 0.15rem 0.15rem 0.15rem;
+  padding: 0.65rem 0.3rem 0.15rem 0.3rem;
 }
 
 ul.footer__social {
@@ -16,7 +16,7 @@ ul.footer__social {
   .footer__content {
     max-width: $break-desktop-wide;
     margin: 0 auto;
-    padding: 0 0.5rem;
+    padding: 0 1rem 0 1.5rem;
     @include flex();
   }
 
@@ -30,14 +30,8 @@ ul.footer__social {
   }
 }
 
-@media (min-width: $break-desktop) {
-  .footer__content {
-    padding: 0 1rem;
-  }
-}
-
 @media (min-width: $break-desktop-wide) {
   .footer__content {
-    padding: 0 2.5rem;
+    padding: 0 2.5rem 0 3rem;
   }
 }

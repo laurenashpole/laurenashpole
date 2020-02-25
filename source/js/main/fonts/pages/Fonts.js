@@ -1,99 +1,69 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { sendEvent } from '../../../utilities/analytics';
 
-class Fonts extends Component {
-  constructor (props) {
-    super(props);
+const Fonts = ({ fonts }) => {
+  const [filteredFonts, setFilteredFonts] = useState(fonts || []);
+  const [filter, setFilter] = useState('');
+  console.log(fonts);
 
-    this.state = {
-      filteredFonts: props.fonts || [],
-      filter: ''
-    };
-  }
+  const handleChange = (e) => {
+    const updatedFilter = e.target.value;
+    const updatedFonts = updatedFilter ? fonts.filter((font) => font.name.toUpperCase().indexOf(updatedFilter.toUpperCase()) > -1) : fonts;
 
-  handleChange = (e) => {
-    const filter = e ? e.target.value : '';
+    setFilter(updatedFilter);
+    setFilteredFonts(updatedFonts);
+  };
 
-    this.setState({
-      filter: filter
-    }, () => {
-      this.handleFilter()
-    });
-  }
+  const handleReset = () => {
+    setFilter('');
+    setFilteredFonts(fonts || []);
+  };
 
-  handleReset = (e) => {
-    e.preventDefault();
-    this.handleChange();
-  }
+  return(
+    <main className="container container--x-large main main--bg-top">
+      <Helmet>
+        <title>Fonts - Lauren Ashpole</title>
+      </Helmet>
 
-  handleFilter = () => {
-    this.setState({
-      filteredFonts: this.props.fonts.filter((font) => font.name.toUpperCase().indexOf(this.state.filter.toUpperCase()) > -1)
-    });
-  }
+      <section className="fonts__header">
+        <h2 className="text--uppercase u--center">Fonts</h2>
+      </section>
 
-  render () {
-    return(
-      <main className="main main--bg-header">
-        <Helmet>
-          <title>Fonts - Lauren Ashpole</title>
-        </Helmet>
+      <section className="well">
+        <div className="fonts__filter">
+          <form className="fonts__filter-form">
+            <input className="input fonts__filter-input" type="text" id="filter" name="filter" placeholder="Search fonts" value={filter} onChange={handleChange} />
+            <button className="fonts__filter-reset" disabled={!filter} onClick={handleReset}>
+              <span className="fonts__filter-x" aria-label="Reset search"></span>
+            </button>
+          </form>
+        </div>
 
-        <section className="fonts__header container container--large">
-          <h2 className="text--uppercase">Fonts</h2>
-        </section>
-
-        <section className="container">
-          <div className="well">
-            <form className="fonts__filter">
-              <input className="input fonts__filter-input" type="text" id="filter" name="filter" placeholder="Search fonts" value={this.state.filter} onChange={this.handleChange} />
-              <button className="fonts__filter-reset" disabled={!this.state.filter} onClick={this.handleReset}>
-                <span className="fonts__filter-x" aria-label="Reset search"></span>
-              </button>
-            </form>
-
-            <div className="fonts__grid">
-              {this.state.filteredFonts.length > 0 ? (
-                <Fragment>
-                  {this.state.filteredFonts.map((font) => {
-                    return (
-                      <div className="fonts__grid-item" key={font._id}>
-                        <Link className="well fonts__grid-link" to={`/fonts/${font.slug}`} onClick={() => sendEvent('Fonts', 'click', font.name)}>
-                          <img className="fonts__grid-img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} />
-                          <h3>{font.name}</h3>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Fragment>
-              ) : (
-                <h2 className="fonts__grid-empty">
-                  Sorry, there are no fonts with the name &quot;{this.state.filter}&quot;.
-                </h2>
-              )}
-            </div>
+        {filteredFonts.length > 0 ? (
+          <ul className="well__row list--unstyled u--center fonts__grid">
+            {filteredFonts.map((font) => {
+              return (
+                <li key={font._id} className="fonts__grid-item">
+                  <Link className="fonts__grid-link" to={`/fonts/${font.slug}`} onClick={() => sendEvent('Fonts', 'click', font.name)}>
+                    <img className="fonts__grid-img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} />
+                    <h3>{font.name}</h3>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <div className="fonts__grid-empty well__row u--center">
+            <h2>Sorry, there are no fonts with the name &quot;{filter}&quot;.</h2>
           </div>
-        </section>
-
-        <section className="container container--medium">
-          <div className="fonts__next">
-            <div>
-              <h3 className="text--uppercase">Here&apos;s what&apos;s coming up</h3>
-              <p>So be sure to check back periodically or sign up for my mailing list.</p>
-            </div>
-
-            <div className="fonts__next-img">
-              <img className="img--responsive" src="/images/next-font.png" alt="A preview of my next font!" />
-            </div>
-          </div>
-        </section>
-      </main>
-    );
-  }
-}
+        )}
+      </section>
+    </main>
+  );
+};
 
 Fonts.propTypes = {
   fonts: PropTypes.array

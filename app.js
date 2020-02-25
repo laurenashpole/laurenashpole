@@ -21,7 +21,7 @@ const assetPaths = ['/js', '/css', '/uploads/css', '/images', '/uploads/images']
 
 // View Engine
 app.use(compression());
-require('./app/helpers/assets')(swig);
+require('./app/views/helpers/assets')(swig);
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'app/views'));
@@ -54,8 +54,9 @@ app.use(passport.session());
 app.use(flash());
 
 // Routes
-require('./app/helpers/passport')(passport);
+require('./app/routes/helpers/passport')(passport);
 require('./app/routes/admin/routes')(app, passport, multer);
+require('./app/routes/notfound')(app);
 require('./app/routes/routes')(app, multer);
 require('./app/routes/errors')(app);
 

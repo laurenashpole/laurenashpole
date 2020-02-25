@@ -1,36 +1,35 @@
-let LocalStrategy = require('passport-local').Strategy;
-let User = require('../models/admin/user');
-let allowedEmail = require('../config/config')()['allowedEmail'];
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('../../models/admin/user');
+const allowedEmail = require('../../config/config')()['allowedEmail'];
 
 module.exports = function (passport) {
-  passport.serializeUser(function (user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
+  passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
       done(err, user);
     });
   });
 
-  passport.use('local-signup', new LocalStrategy(function (username, password, done) {
-    process.nextTick(function () {
+  passport.use('local-signup', new LocalStrategy((username, password, done) => {
+    process.nextTick(() => {
       if (username !== allowedEmail) {
         return done(null, false, { message: 'You are not authorized to create an account' });
       }
 
-      User.findOne({ 'local.username': username }, function (err, user) {
+      User.findOne({ 'local.username': username }, (err, user) => {
         if (err) return done(err);
 
         if (user) {
           return done(null, false, { message : 'That email is already taken.' });
         } else {
-          var user = new User();
-
+          let user = new User();
           user.local.username = username;
           user.local.password = user.generateHash(password);
 
-          user.save(function (err) {
+          user.save((err) => {
             if (err) throw err;
             return done(null, user);
           });
@@ -39,8 +38,8 @@ module.exports = function (passport) {
     });
   }));
 
-  passport.use('local-login', new LocalStrategy(function (username, password, done) {
-    User.findOne({ 'local.username': username }, function (err, user) {
+  passport.use('local-login', new LocalStrategy((username, password, done) => {
+    User.findOne({ 'local.username': username }, (err, user) => {
       if (err) return done(err);
 
       if (!user) {

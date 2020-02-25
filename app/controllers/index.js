@@ -1,13 +1,15 @@
-const fontHelper = require('../helpers/fonts');
-const constantsHelper = require('../helpers/constants')();
+const fontHelper = require('./helpers/fonts');
+const tagHelper = require('./helpers/tags');
+const constantsHelper = require('./helpers/constants')();
+const metaHelper = require('./helpers/meta');
 
 exports.render = function (req, res) {
   fontHelper.findAll()
     .then((data) => {
-      const tags = fontHelper.getTags(data.fonts);
+      const tags = tagHelper.getTags(data.fonts);
 
       res.render('index', {
-        description: 'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.',
+        meta: metaHelper.index(data, req.path),
         fonts: data.fonts,
         tags: tags,
         glyphs: {
