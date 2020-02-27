@@ -32,12 +32,12 @@ const Main = (props) => {
             <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
           }/>
           <Route exact path="/fonts" render={() =>
-            <Fonts fonts={fonts} />
+            <Fonts fonts={fonts} tags={tags} />
           }/>
           <Route path="/fonts/licensing" component={Licensing} />
           <Route path="/fonts/eula" component={Eula} />
           <Route exact path="/fonts/tagged/:tag" render={(routeProps) =>
-            <Fonts fonts={tags[routeProps.match.params.tag].fonts} {...routeProps} />
+            <Fonts fonts={tags[routeProps.match.params.tag] ? tags[routeProps.match.params.tag].fonts : []} tagName={tags[routeProps.match.params.tag] ? tags[routeProps.match.params.tag].name : routeProps.match.params.tag} {...routeProps} />
           }/>
           <Route exact path="/fonts/:slug" render={(routeProps) =>
             <Font font={fonts.filter((font) => font.slug === routeProps.match.params.slug)[0]} glyphs={glyphs} {...routeProps} />

@@ -3,6 +3,7 @@ exports.getTags = function (fonts) {
     if (cur.tags.length) {
       cur.tags.forEach((tag) => {
         const slug = tag.replace(/\s+/g, '-').toLowerCase();
+        const name = tag[0].toUpperCase() + tag.substring(1);
 
         if (acc[slug] && acc[slug].fonts) {
           acc[slug].fonts.push({
@@ -13,7 +14,7 @@ exports.getTags = function (fonts) {
           });
         } else {
           acc[slug] = {
-            name: tag,
+            name: name,
             fonts: [{
               _id: cur._id,
               name: cur.name,

@@ -9,7 +9,7 @@ exports.render = function (req, res) {
       const tags = tagHelper.getTags(data.fonts);
 
       res.render('index', {
-        meta: metaHelper.index(data, req.path),
+        meta: metaHelper.index(data, tags, req.path),
         fonts: data.fonts,
         tags: tags,
         glyphs: {
