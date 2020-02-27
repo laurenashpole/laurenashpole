@@ -5,6 +5,7 @@ public/uploads
 public/css
 public/js
 public/assets.json
+public/sitemap.xml
 temp
 npm-debug.log
 .sass-cache
