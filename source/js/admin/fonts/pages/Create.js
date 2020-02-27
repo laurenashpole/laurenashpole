@@ -6,7 +6,7 @@ const Create = (props) => {
   return(
     <div className="well">
       <div className="well__row">
-        <h2 className="well__heading text--uppercase">Create New Font</h2>
+        <h2 className="well__heading">Create New Font</h2>
       </div>
 
       <Form endpoint="/admin/fonts" buttonText="Create Font" onSuccess={props.onCreate} font={{}} />
