@@ -56,7 +56,7 @@ const Fonts = ({ fonts, tagName, tags }) => {
             {Object.keys(tags).map((tag) => {
               return(
                 <li key={tag}>
-                  <Link to={`/fonts/tagged/${tag}`}>{tags[tag].name}</Link>
+                  <Link className="tag" to={`/fonts/tagged/${tag}`}>{tags[tag].name}</Link>
                 </li>
               );
             })}

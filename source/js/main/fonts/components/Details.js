@@ -10,7 +10,8 @@ const Details = (props) => {
     commercial_font_file,
     commercial_file,
     personal_font_file,
-    personal_file
+    personal_file,
+    tags
   } = props.font;
 
   return(
@@ -70,6 +71,22 @@ const Details = (props) => {
           </ul>
         }
       </div>
+
+      {tags.length > 0 &&
+        <div className="font__details-tags text--medium">
+          <span>Tagged:</span>
+
+          <ul className="list--unstyled">
+            {tags.map((tag) => {
+              return(
+                <li key={tag}>
+                  <Link className="tag text--extra-small text--extra-bold text--uppercase" to={`/fonts/tagged/${tag.replace(/\s+/g, '-').toLowerCase()}`}>{tag}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      }
     </section>
   );
 };

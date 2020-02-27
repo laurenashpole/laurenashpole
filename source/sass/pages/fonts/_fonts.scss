@@ -9,21 +9,6 @@
   @include flex-wrap(wrap);
 }
 
-.fonts__tags a {
-  background: $color-purple;
-  border: none;
-  border-radius: 3px;
-  margin: 0 0.5rem 1rem 0.5rem;
-  padding: 0.25rem 0.75rem;
-  color: $color-white;
-  display: block;
-
-  &:hover,
-  &:focus {
-    background: $color-purple-hover;
-  }
-}
-
 .fonts__filter {
   border-bottom: 1px solid $color-gray-med-light;
   padding: 0.65rem;
