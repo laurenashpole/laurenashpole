@@ -11,7 +11,7 @@ const Licensing = () => {
 
       <div className="well">
         <div className="well__row well__row--px-lg">
-          <h2 className="well__heading text--uppercase">Licensing</h2>
+          <h2 className="well__heading">Licensing</h2>
         </div>
 
         <div className="well__row well__row--px-lg well__row--py-lg">

@@ -45,7 +45,8 @@ h1 {
 h2 {
   margin-bottom: 2rem;
   font-size: 2.167rem;
-  line-height: 3rem; }
+  line-height: 3rem;
+  letter-spacing: 0.035em; }
 
 h3 {
   font-size: 1.414rem;
@@ -751,6 +752,18 @@ li {
   width: 26px;
   height: 26px; }
 
+.tag {
+  background: #685f77;
+  border: none;
+  border-radius: 3px;
+  margin: 0 0.666em 1.333em 0.666em;
+  padding: 0.3333em 1em;
+  color: #fff;
+  display: block; }
+  .tag:hover, .tag:focus {
+    background: #5e566b;
+    color: #fff; }
+
 .well {
   background: #fff;
   border-radius: 6px; }
@@ -895,6 +908,21 @@ li {
 .font__details-list-heading {
   margin-bottom: 1rem;
   letter-spacing: 0.075em; }
+
+.font__details-tags {
+  margin-top: 2.5rem;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+  .font__details-tags span {
+    margin-right: 0.25rem;
+    line-height: 1.75rem; }
+  .font__details-tags ul {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
 
 .font__gallery-main {
   position: relative; }

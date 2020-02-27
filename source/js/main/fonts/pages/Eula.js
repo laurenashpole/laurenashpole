@@ -10,7 +10,7 @@ const Eula = () => {
 
       <div className="well">
         <div className="well__row well__row--px-lg">
-          <h2 className="well__heading text--uppercase">End-User Licensing Agreement</h2>
+          <h2 className="well__heading">End-User Licensing Agreement</h2>
         </div>
 
         <div className="well__row well__row--px-lg well__row--py-lg">

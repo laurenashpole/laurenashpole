@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { sendEvent } from '../../../utilities/analytics';
 
-const Fonts = ({ fonts }) => {
+const Fonts = ({ fonts, tagName, tags }) => {
   const [filteredFonts, setFilteredFonts] = useState(fonts || []);
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    setFilteredFonts(fonts);
+  }, [fonts]);
 
   const handleChange = (e) => {
     const updatedFilter = e.target.value;
@@ -21,14 +25,43 @@ const Fonts = ({ fonts }) => {
     setFilteredFonts(fonts || []);
   };
 
+  if (tagName && !fonts.length) {
+    return(
+      <main className="container main">
+        <Helmet>
+          <title>{`${tagName} Fonts - Lauren Ashpole`}</title>
+        </Helmet>
+
+        <div className="well">
+          <div className="well__row well__row--px-lg well__row--py-lg">
+            <h2>Oh no! There&apos;s nothing here.</h2>
+            <p>Sorry, there are no fonts tagged &quot;{tagName}&quot;.</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   return(
-    <main className="container container--x-large main main--bg-top">
+    <main className="container container--x-large main main--bg-top fonts">
       <Helmet>
-        <title>Fonts - Lauren Ashpole</title>
+        <title>{`${tagName ? tagName + ' ' : ''}Fonts - Lauren Ashpole`}</title>
       </Helmet>
 
       <section className="fonts__header">
-        <h2 className="text--uppercase u--center">Fonts</h2>
+        <h2 className="u--center fonts__heading">{`${tagName ? tagName + ' ' : ''}Fonts`}</h2>
+
+        {!tagName &&
+          <ul className="list--unstyled text--uppercase text--small text--extra-bold fonts__tags">
+            {Object.keys(tags).map((tag) => {
+              return(
+                <li key={tag}>
+                  <Link className="tag" to={`/fonts/tagged/${tag}`}>{tags[tag].name}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        }
       </section>
 
       <section className="well">
@@ -65,7 +98,9 @@ const Fonts = ({ fonts }) => {
 };
 
 Fonts.propTypes = {
-  fonts: PropTypes.array
+  fonts: PropTypes.array,
+  tagName: PropTypes.string,
+  tags: PropTypes.object
 };
 
 export default Fonts;

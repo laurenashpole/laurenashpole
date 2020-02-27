@@ -1,4 +1,4 @@
-exports.index = function (data, path) {
+exports.index = function (data, tags, path) {
   path = path.toLowerCase().replace(/^\/|\/$/g, '');
 
   if (!path) {
@@ -25,6 +25,12 @@ exports.index = function (data, path) {
 
       if (pathArray[1] === 'licensing') {
         return templates.base('Licensing - Fonts');
+      }
+
+      if (pathArray[1] === 'tagged') {
+        if (pathArray[2] && tags[pathArray[2]]) {
+          return templates.base(`${tags[pathArray[2]].name} Fonts`, `Browse my collection of original ${tags[pathArray[2]].name} fonts.`);
+        }
       }
 
       for (let i = 0; i < data.fonts.length; i++) {

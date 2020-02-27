@@ -45,5 +45,19 @@
         {% endfor %}
       </ul>
     {% endif %}
+
+    {% if font.tags.length %}
+      <div class="font__details-tags text--medium">
+        <span>Tagged:</span>
+
+        <ul class="list--unstyled">
+          {% for tag in font.tags %}
+            <li>
+              <a href="/fonts/tagged/{{tag|replace('\s+', '-', 'g'|lower)}}" class="tag text--extra-small text--extra-bold text--uppercase">{{tag}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
 </section>

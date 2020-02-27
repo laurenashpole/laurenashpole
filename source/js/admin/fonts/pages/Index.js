@@ -6,7 +6,7 @@ import Delete from '../components/Delete';
 const Index = (props) => {
   return(
     <Fragment>
-      <h2 className="text--uppercase u--center">Fonts</h2>
+      <h2 className="u--center">Fonts</h2>
 
       <Link className="button button--cta-primary button--inline button--small button--add" to="/admin/fonts/create">
         Create new font

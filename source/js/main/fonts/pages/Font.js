@@ -45,7 +45,7 @@ const Font = ({ match, font, glyphs }) => {
 
         <div className="well">
           <div className="well__row well__row--px-lg font__name">
-            <h2 className="well__heading text--uppercase u--center-mobile">{font.name}</h2>
+            <h2 className="well__heading u--center-mobile">{font.name}</h2>
           </div>
 
           <div className="font__ctas">

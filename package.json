@@ -8,7 +8,8 @@
     "forever-stop": "NODE_ENV=production forever stop ./bin/www",
     "dev": "webpack --watch",
     "prod": "webpack --config webpack.config.prod.js -p",
-    "deploy": "npm run prod && npm run forever-stop && npm run forever-start"
+    "deploy": "npm run prod && npm run forever-stop && npm run forever-start",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "async": "^2.6.3",

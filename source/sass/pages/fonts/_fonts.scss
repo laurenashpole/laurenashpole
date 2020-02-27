@@ -1,5 +1,12 @@
 .fonts__header {
   padding-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.fonts__tags {
+  @include flex();
+  @include flex-justify(center);
+  @include flex-wrap(wrap);
 }
 
 .fonts__filter {
@@ -122,6 +129,10 @@
 }
 
 @media (min-width: $break-tablet) {
+  .fonts {
+    padding-top: 3rem;
+  }
+
   .fonts__header {
     padding-bottom: 3rem;
   }
@@ -137,7 +148,7 @@
 
 @media (min-width: $break-desktop) {
   .fonts__header {
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   }
 
   .fonts__filter-form {

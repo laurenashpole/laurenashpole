@@ -73,7 +73,7 @@ const Contact = () => {
 
       <div className="well">
         <div className="well__row">
-          <h2 className="well__heading text--uppercase">Contact</h2>
+          <h2 className="well__heading">Contact</h2>
         </div>
 
         {errors.general &&

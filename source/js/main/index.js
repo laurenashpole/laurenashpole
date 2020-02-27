@@ -13,6 +13,6 @@ if (fromMailChimp) {
 sendPageview();
 
 render(
-  <Main fonts={window.APP.fonts || []} glyphs={window.APP.glyphs || {}} />,
+  <Main fonts={window.APP.fonts || []} glyphs={window.APP.glyphs || {}} tags={window.APP.tags} />,
   document.getElementById('root')
 );

@@ -9,7 +9,7 @@ const Edit = (props) => {
       {props.font ? (
         <Fragment>
           <div className="well__row">
-            <h2 className="well__heading text--uppercase">Edit {props.font.name}</h2>
+            <h2 className="well__heading">Edit {props.font.name}</h2>
           </div>
 
           <Form endpoint={`/admin/fonts/${props.font._id}?_method=PUT`} buttonText="Edit Font" onSuccess={props.onEdit} font={props.font} />
