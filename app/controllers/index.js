@@ -3,7 +3,7 @@ const tagHelper = require('./helpers/tags');
 const constantsHelper = require('./helpers/constants')();
 const metaHelper = require('./helpers/meta');
 
-exports.render = function (req, res) {
+module.exports.render = function (req, res) {
   fontHelper.findAll()
     .then((data) => {
       const tags = tagHelper.getTags(data.fonts);

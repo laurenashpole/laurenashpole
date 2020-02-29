@@ -15,7 +15,7 @@ function setHeaders (req, res) {
   res.setHeader('Access-Control-Expose-Headers', 'AMP-Access-Control-Allow-Source-Origin');
 }
 
-exports.render = function (req, res, next) {
+module.exports.render = function (req, res, next) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
       if (data.font) {
@@ -55,7 +55,7 @@ exports.render = function (req, res, next) {
     .catch((err) => res.send(err));
 };
 
-exports.update = function (req, res) {
+module.exports.update = function (req, res) {
   const response = {
     example: req.body.example ? req.body.example : '',
     size: req.body.size ? req.body.size : '60'
@@ -65,7 +65,7 @@ exports.update = function (req, res) {
   res.json(response);
 };
 
-exports.payment = function (req, res) {
+module.exports.payment = function (req, res) {
   fontHelper.findBySlug(req.params.font_slug)
     .then((data) => {
       if (data.font) {
@@ -82,7 +82,7 @@ exports.payment = function (req, res) {
     .catch((err) => res.send(err));
 };
 
-exports.mailing = function (req, res) {
+module.exports.mailing = function (req, res) {
   setHeaders(req, res);
 
   if (!req.body) {

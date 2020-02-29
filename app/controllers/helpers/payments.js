@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const fulfillmentEmail = require('./emails')();
 
-exports.create = function (font) {
+module.exports.create = function (font) {
   return new Promise ((resolve, reject) => {
     const paymentDetails = {
       intent: 'sale',
@@ -46,7 +46,7 @@ exports.create = function (font) {
   });
 };
 
-exports.confirm = function (data) {
+module.exports.confirm = function (data) {
   return new Promise ((resolve, reject) => {
     paypal.payment.execute(data.paymentId, {
       payer_id: data.payerId
@@ -61,7 +61,7 @@ exports.confirm = function (data) {
   });
 };
 
-exports.fulfill = function (data) {
+module.exports.fulfill = function (data) {
   return new Promise ((resolve, reject) => {
     const filePath = path.resolve('./public/uploads/fonts/', data.font.commercial_font_file);
 
@@ -76,7 +76,7 @@ exports.fulfill = function (data) {
         }]
       }, {
         font_name: data.font.name
-      }, (err, info) => {
+      }, (err) => {
         if (err) reject(err);
 
         resolve(data);

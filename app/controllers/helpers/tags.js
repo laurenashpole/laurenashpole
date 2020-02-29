@@ -1,4 +1,4 @@
-exports.getTags = function (fonts) {
+module.exports.getTags = function (fonts) {
   return fonts.reduce((acc, cur) => {
     if (cur.tags.length) {
       cur.tags.forEach((tag) => {

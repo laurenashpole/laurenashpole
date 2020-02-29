@@ -3,12 +3,12 @@
 /**
  * Module dependencies.
  */
-var http = require('http');
-var https = require('https');
-var app = require('../app');
-var debug = require('debug')('laurenashpole:server');
-var ssl = require('../app/config/config')()['ssl'];
-var credentials = setCredentials(ssl);
+const http = require('http');
+const https = require('https');
+const app = require('../app');
+const debug = require('debug')('laurenashpole:server');
+const ssl = require('../app/config/config')()['ssl'];
+const credentials = setCredentials(ssl);
 
 /**
  * Initialize servers.
@@ -20,111 +20,108 @@ createHttpsServer(app, credentials);
  * Create HTTP server.
  */
 function createHttpServer (app) {
-    var port = normalizePort('8080');
+  const port = normalizePort('8080');
 
-    var server = http.createServer(function (req, res) {
-        res.writeHead(301, { 'Location': 'https://' + req.headers.host + req.url });
-        res.end();
-    });
+  const server = http.createServer(function (req, res) {
+    res.writeHead(301, { 'Location': 'https://' + req.headers.host + req.url });
+    res.end();
+  });
 
-    server.listen(port);
-    server.on('error', onError.bind(null, port));
-    server.on('listening', onListening.bind(null, server));
+  server.listen(port);
+  server.on('error', onError.bind(null, port));
+  server.on('listening', onListening.bind(null, server));
 }
 
 /**
  * Create HTTPS server.
  */
 function createHttpsServer (app, credentials) {
-    var port = normalizePort(process.env.PORT || '8443');
-    app.set('port', port);
+  const port = normalizePort(process.env.PORT || '8443');
+  app.set('port', port);
 
-    var server = https.createServer(credentials, app);
+  const server = https.createServer(credentials, app);
 
-    server.listen(port);
-    server.on('error', onError.bind(null, port));
-    server.on('listening', onListening.bind(null, server));
+  server.listen(port);
+  server.on('error', onError.bind(null, port));
+  server.on('listening', onListening.bind(null, server));
 }
 
 /**
  * Set SSL credentials.
  */
 function setCredentials (ssl) {
-    var ca = [];
-    var cert = [];
-    var chain = ssl.ca.split('\n');
+  let cert = [];
+  const ca = [];
+  const chain = ssl.ca.split('\n');
 
-    for (var i = 0; i < chain.length; i++) {
-        if (chain[i].length !== 0) {
-            cert.push(chain[i]);
+  for (let i = 0; i < chain.length; i++) {
+    if (chain[i].length !== 0) {
+      cert.push(chain[i]);
 
-            if (chain[i].match(/-END CERTIFICATE-/)) {
-                ca.push(cert.join('\n'));
-                cert = [];
-            }
-        }
+      if (chain[i].match(/-END CERTIFICATE-/)) {
+        ca.push(cert.join('\n'));
+        cert = [];
+      }
     }
+  }
 
-    return {
-        ca: ca,
-        key: ssl.key,
-        cert: ssl.cert
-    };
+  return {
+    ca: ca,
+    key: ssl.key,
+    cert: ssl.cert
+  };
 }
 
 /**
  * Normalize a port into a number, string, or false.
  */
 function normalizePort (val) {
-    var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
+  if (isNaN(port)) {
+    return val;
+  }
 
-    if (port >= 0) {
-        // port number
-        return port;
-    }
+  if (port >= 0) {
+    return port;
+  }
 
-    return false;
+  return false;
 }
 
 /**
  * Event listener for HTTP server "error" event.
  */
 function onError (port, error) {
-    if (error.syscall !== 'listen') {
-        throw error;
-    }
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
-    var bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+  const bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
 }
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 function onListening (server) {
-    var addr = server.address();
-    var bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
-    debug('Listening on ' + bind);
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
 }

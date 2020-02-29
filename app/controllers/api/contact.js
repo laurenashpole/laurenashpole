@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-exports.send = function (req, res) {
+module.exports.send = function (req, res) {
   if (!req.body) {
     return res.json({ err: 'Error sending message. Please try again.' });
   }
@@ -34,9 +34,8 @@ exports.send = function (req, res) {
     html: `<p>Message from: ${req.body.senderEmail} (${req.body.senderName})</p><p>${req.body.message}</p>`
   };
 
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) reject(err);
-
+  transporter.sendMail(mailOptions, (err) => {
+    if (err) return res.json(err);
     res.json({});
   });
 };

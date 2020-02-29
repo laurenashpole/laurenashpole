@@ -1,4 +1,4 @@
-exports.authenticate = function (req, res) {
+module.exports.authenticate = function (req, res) {
   let response = {};
 
   if (req.user) {
@@ -10,7 +10,7 @@ exports.authenticate = function (req, res) {
   res.json(response);
 };
 
-exports.logout = function (req, res) {
+module.exports.logout = function (req, res) {
   req.logout();
   res.json({});
 };
