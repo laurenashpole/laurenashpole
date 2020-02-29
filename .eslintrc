@@ -1,24 +1,13 @@
 {
-  parser: "babel-eslint",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "rules": {
-    "no-console": "off"
+    "ecmaVersion": 2020
   },
   "env": {
-    "browser": true,
-    "es6": true
+    "node": true
   },
-  "plugins": [
-    "react"
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "ignorePatterns": ["node_modules/", "source/", "public/"]
 }
