@@ -7,7 +7,7 @@ module.exports = function (app) {
 
   // Development
   if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => {
+    app.use((err, req, res) => {
       res.status(err.status || 500);
       res.render('error', {
         message: err.message,
@@ -17,7 +17,7 @@ module.exports = function (app) {
   }
 
   // Production
-  app.use((err, req, res, next) => {
+  app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

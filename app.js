@@ -16,7 +16,6 @@ const compression = require('compression');
 // App
 const app = express();
 const config = require('./app/config/config')();
-const locals = require('./app/config/locals')(app, config);
 const assetPaths = ['/js', '/css', '/uploads/css', '/images', '/uploads/images'];
 
 // View Engine

@@ -4,7 +4,7 @@ const path = require('path');
 const async = require('async');
 const thumbnail = require('node-thumbnail').thumb;
 
-exports.findAll = function () {
+module.exports.findAll = function () {
   return new Promise ((resolve, reject) => {
     Font.find().sort({ name: 'asc' }).exec((err, fonts) => {
       if (err) reject(err);
@@ -15,7 +15,7 @@ exports.findAll = function () {
   });
 };
 
-exports.findById = function (id) {
+module.exports.findById = function (id) {
   return new Promise ((resolve, reject) => {
     Font.findById(id, (err, font) => {
       if (err) reject(err);
@@ -26,7 +26,7 @@ exports.findById = function (id) {
   });
 };
 
-exports.findBySlug = function (slug) {
+module.exports.findBySlug = function (slug) {
   return new Promise ((resolve, reject) => {
     Font.findOne({slug: slug}, (err, font) => {
       if (err) reject(err);
@@ -37,7 +37,7 @@ exports.findBySlug = function (slug) {
   });
 };
 
-exports.deleteFont = function (req, res, font) {
+module.exports.deleteFont = function (req, res, font) {
   return new Promise ((resolve, reject) => {
     deleteFiles(res, font, (err) => {
       if (err) reject(err);
@@ -51,7 +51,7 @@ exports.deleteFont = function (req, res, font) {
   });
 };
 
-exports.updateFont = function (req, res, font, isNew) {
+module.exports.updateFont = function (req, res, font, isNew) {
   return new Promise ((resolve, reject) => {
     if (!isNew) {
       setFontProperties(req, font);
@@ -150,13 +150,13 @@ const setFontProperties = function (req, font) {
 };
 
 const deleteFile = function (res, file, directory) {
-  fs.exists(path.resolve(directory, file), (exists) => {
-    if (exists) {
-      fs.unlink(path.resolve(directory, file), (err) => {
-        if (err) res.send(err);
-      });
-    }
-  });
+  const exists = fs.existsSync(path.resolve(directory, file));
+
+  if (exists) {
+    fs.unlink(path.resolve(directory, file), (err) => {
+      if (err) res.send(err);
+    });
+  }
 };
 
 const uploadFile = function (res, font, file, directory, callback) {
@@ -193,7 +193,7 @@ const getHashedName = function (originalName) {
   return hashedName;
 };
 
-const resetImageCollections = function (res, font, directory, fieldName) {
+const resetImageCollections = function (res, font, directory) {
   font['image_collection'].forEach((imageFile) => {
     deleteFile(res, imageFile, directory);
   });

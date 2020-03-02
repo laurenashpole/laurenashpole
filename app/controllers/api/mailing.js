@@ -1,7 +1,7 @@
 const request = require('superagent');
 const mailchimpConfig = require('../../config/config')()['mailchimp'];
 
-exports.signup = function (req, res) {
+module.exports.signup = function (req, res) {
   if (/\/\/blog/.test(req.headers.origin)) {
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');

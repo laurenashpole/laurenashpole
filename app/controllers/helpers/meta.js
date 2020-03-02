@@ -1,4 +1,4 @@
-exports.index = function (data, tags, path) {
+module.exports.index = function (data, tags, path) {
   path = path.toLowerCase().replace(/^\/|\/$/g, '');
 
   if (!path) {
@@ -40,7 +40,6 @@ exports.index = function (data, tags, path) {
           meta += templates.product_og(data.fonts[i]);
           meta += templates.product_schema(data.fonts[i]);
           return meta;
-          break;
         }
       }
 
@@ -53,7 +52,7 @@ exports.index = function (data, tags, path) {
   return templates.base('Page Not Found') + templates.noindex();
 };
 
-exports.amp = function (product) {
+module.exports.amp = function (product) {
   let meta = templates.base(`${product.name} - Fonts`, `Download the ${product.name} font free for personal use or buy a license for all your commercial use needs`);
   meta += templates.product_og(product);
   meta += templates.product_schema(product);
