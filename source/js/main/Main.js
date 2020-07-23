@@ -29,7 +29,7 @@ const Main = (props) => {
 
         <Switch>
           <Route exact path="/" render={() =>
-            <Homepage font={fonts.filter((font) => font.slug === 'thornback')[0]} />
+            <Homepage font={fonts.filter((font) => font.slug === 'sacremende')[0]} />
           }/>
           <Route exact path="/fonts" render={() =>
             <Fonts fonts={fonts} tags={tags} />

@@ -7,7 +7,7 @@ const About = () => {
       <div className="well__row well__row--px-lg well__row--py-lg">
         <div className="about__upcoming">
           <p className="text--medium">Here&apos;s a sneak peek of my next font. Sign up at the bottom of the page to find out when it&apos;s done.</p>
-          <img className="img--responsive" src="/images/next-font.png" alt="A preview of my next font!" />
+          <img className="img--responsive" src="/images/next-font-stars.png" alt="A preview of my next font!" />
         </div>
 
         <div className="about__description">
