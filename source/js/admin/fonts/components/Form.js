@@ -12,6 +12,7 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
 
     let body = new FormData(e.target);
     body = parseTags(body);
+    body = parsePreviewFiles(body);
 
     fetchRequest('post', body, endpoint, (response) => {
       if (response.font) {
@@ -37,6 +38,18 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
     return formData;
   };
 
+  const parsePreviewFiles = (formData) => {
+    const previewFilesString = formData.get('previewFilesString');
+
+    if (previewFilesString) {
+      previewFilesString.split(',').forEach((file) => {
+        formData.append('preview_files', file.trim());
+      });
+    }
+
+    return formData;
+  };
+
   const {
     name,
     description,
@@ -48,6 +61,8 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
     personal_file,
     commercial_file,
     css_file,
+    preview_css,
+    preview_files,
     alternate_style,
     personal_font_file,
     commercial_font_file,
@@ -157,6 +172,16 @@ const Form = ({ font, endpoint, buttonText, onSuccess }) => {
         <div className="form__row">
           <input type="file" id="cssFile" name="css_file" className="input input--file input--label-inset" />
           <label htmlFor="cssFile">CSS File {css_file && <span>({css_file})</span>}</label>
+        </div>
+
+        <div className="form__row">
+          <textarea id="previewCss" name="preview_css" className="input input--file input--label-inset" defaultValue={preview_css} />
+          <label htmlFor="previewCss">Preview CSS</label>
+        </div>
+
+        <div className="form__row">
+          <input type="text" id="previewFilesString" name="previewFilesString" className="input input--label-inset" defaultValue={preview_files ? preview_files.join(', ') : ''} />
+          <label htmlFor="previewFilesString">Preview Files</label>
         </div>
 
         <div className="form__row">

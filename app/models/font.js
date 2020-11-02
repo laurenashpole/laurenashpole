@@ -12,6 +12,8 @@ const FontSchema = new Schema({
   image_collection: [],
   image_collection_thumbnails: [],
   css_file: String,
+  preview_css: String,
+  preview_files: [],
   alternate_style: String,
   commercial_file: {
     ttf: {
