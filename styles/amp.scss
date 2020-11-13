@@ -1,0 +1,68 @@
+@import './variables.scss';
+
+.preview__preview--16 {
+  font-size: 16px;
+}
+
+.preview__preview--24 {
+  font-size: 24px;
+}
+
+.preview__preview--36 {
+  font-size: 36px;
+}
+
+.preview__preview--48 {
+  font-size: 48px;
+}
+
+.preview__preview--60 {
+  font-size: 60px;
+}
+
+.preview__preview--72 {
+  font-size: 72px;
+}
+
+.preview__preview--144 {
+  font-size: 144px;
+}
+
+amp-selector[role=tablist].tabs-with-selector [role=tab][selected] {
+  outline: none;
+}
+
+amp-selector.tabpanels [role=tabpanel] {
+  display: none;
+}
+
+amp-selector.tabpanels [role=tabpanel][selected] {
+  outline: none;
+  display: block;
+}
+
+.amp-form-submit-success .mailing__text--default,
+.amp-form-submit-error .mailing__text--default {
+  display: none;
+}
+
+.amp-form-submit-success .mailing__text--response:before {
+  content: "Success!";
+}
+
+.amp-form-submit-error .mailing__text--response:before {
+  content: "Error! Try again.";
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: $break-desktop) {
+  .content__main {
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+  }
+}
