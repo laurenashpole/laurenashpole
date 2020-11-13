@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { findAll } from '../../utils/fonts';
 import { getTags } from '../../utils/tags';
 import Layout from '../../components/layout/Layout';
-import List from '../../components/fonts/list';
+import List from '../../components/fonts/List';
 
 const Fonts = ({ fonts, tags }) => {
   return (
