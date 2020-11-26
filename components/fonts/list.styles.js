@@ -22,18 +22,54 @@ export default css.global`
     margin-top: 3rem;
   }
 
-  .list__filter {
-    max-width: 90rem;
-    margin: 0 auto;
-    position: relative;
+  .list__settings {
+    display: flex;
+  }
+
+  .list__view {
+    margin-left: 1rem;
+    border-left: 1px solid $color-gray-light;
+    padding: 1rem 0 0 1rem;
 
     button {
-      width: 4.5rem;
-      height: 4.5rem;
+      background-image:
+        linear-gradient($color-white 25%, transparent 25%, transparent 75%, $color-white 75%),
+        linear-gradient(90deg, $color-white 25%, transparent 25%, transparent 75%, $color-white 75%);
+      background-color: $color-gray-dark;
+      background-size: 33.333% 33.333%;
+      width: 4rem;
+      height: 4rem;
+      display: block;
+
+      &:hover,
+      &:focus,
+      &:disabled {
+        background-color: $color-purple;
+      }
+    }
+  }
+
+  .list__view--grid {
+    border-left: none;
+  }
+
+  .list__view--list {
+    button {
+      background-repeat: repeat repeat, no-repeat repeat;
+    }
+  }
+
+  .list__filter {
+    position: relative;
+    flex-grow: 1;
+
+    button {
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       padding: 0;
       position: absolute;
-      left: calc(1rem + 1px);
+      left: calc(0.75rem + 1px);
       top: 50%;
       z-index: 1;
       transform: translate3d(0, -50%, 0);
@@ -48,8 +84,8 @@ export default css.global`
     }
 
     span {
-      width: 2.75rem;
-      height: 2.75rem;
+      width: 2.5rem;
+      height: 2.5rem;
       position: relative;
       transform: rotate(45deg);
 
@@ -57,10 +93,10 @@ export default css.global`
       &:after {
         content: " ";
         background: $color-white;
-        width: 2.75rem;
+        width: 2.5rem;
         height: 0.4rem;
         border-radius: 1px;
-        margin: 1.155rem 0;
+        margin: 1rem 0;
         position: absolute;
         top: 0;
         left: 0;
@@ -73,17 +109,27 @@ export default css.global`
 
     input[type="text"] {
       height: 6rem;
-      padding-left: 6.5rem;
+      padding-left: 6rem;
     }
   }
 
   .list__item {
-    padding: 3rem;
+    padding: 3rem 0;
     border-bottom: 1px solid $color-gray-light;
+  }
+
+  .list__item.hide {
+    display: none;
   }
 
   .list__item:last-child {
     border-bottom: none;
+  }
+
+  .list__grid {
+    .list__item {
+      padding: 3rem;
+    }
   }
 
   .list__link {
@@ -124,19 +170,21 @@ export default css.global`
       flex-wrap: wrap;
     }
 
-    .list__item {
-      width: 50%;
-      border-right: 1px solid $color-gray-light;
-      padding: 4rem 5rem;
-    }
+    .list__grid {
+      .list__item {
+        width: 50%;
+        border-right: 1px solid $color-gray-light;
+        padding: 4rem 5rem;
+      }
 
-    .list__item:nth-child(2n + 2) {
-      border-right: none;
-    }
+      .list__item:nth-child(2n + 2) {
+        border-right: none;
+      }
 
-    .list__item:nth-last-child(-n + 2):nth-child(2n + 1),
-    .list__item:nth-last-child(-n + 2):nth-child(2n + 1) ~ .list__item {
-      border-bottom: none;
+      .list__item:nth-last-child(-n + 2):nth-child(2n + 1),
+      .list__item:nth-last-child(-n + 2):nth-child(2n + 1) ~ .list__item {
+        border-bottom: none;
+      }
     }
   }
 
@@ -151,9 +199,40 @@ export default css.global`
       margin-top: 4rem;
     }
 
+    .list__view {
+      padding-top: 0.75rem;
+
+      button {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    .list__view--grid {
+      margin-left: 2rem;
+    }
+
     .list__filter {
+      button {
+        width: 4.5rem;
+        height: 4.5rem;
+        left: calc(1rem + 1px);
+      }
+
+      span {
+        width: 2.75rem;
+        height: 2.75rem;
+
+        &:before,
+        &:after {
+          width: 2.75rem;
+          margin: 1.155rem 0;
+        }
+      }
+
       input[type="text"] {
         height: 6.5rem;
+        padding-left: 7.5rem;
       }
     }
 
@@ -172,27 +251,34 @@ export default css.global`
       margin-top: 4.5rem;
     }
 
+    .list__view {
+      margin-left: 2rem;
+      padding: 1rem 0 0 2rem;
+    }
+
     .list__filter {
       input[type="text"] {
         height: 7rem;
       }
     }
 
-    .list__item {
-      width: 33.333%;
-    }
+    .list__grid {
+      .list__item {
+        width: 33.333%;
+      }
 
-    .list__item:nth-child(2n + 2) {
-      border-right: 1px solid $color-gray-light;
-    }
+      .list__item:nth-child(2n + 2) {
+        border-right: 1px solid $color-gray-light;
+      }
 
-    .list__item:nth-child(3n + 3) {
-      border-right: none;
-    }
+      .list__item:nth-child(3n + 3) {
+        border-right: none;
+      }
 
-    .list__item:nth-last-child(-n + 3):nth-child(3n + 1),
-    .list__item:nth-last-child(-n + 3):nth-child(3n + 1) ~ .list__item {
-      border-bottom: none;
+      .list__item:nth-last-child(-n + 3):nth-child(3n + 1),
+      .list__item:nth-last-child(-n + 3):nth-child(3n + 1) ~ .list__item {
+        border-bottom: none;
+      }
     }
 
     .list__empty {

@@ -12,6 +12,7 @@ import styles from './list.styles.js';
 const List = ({ heading, fonts, tags }) => {
   const [filter, setFilter] = useState('');
   const [filteredFonts, setFilteredFonts] = useState(fonts || []);
+  const [view, setView] = useState('grid');
 
   useEffect(() => {
     eeImpressions(fonts);
@@ -39,23 +40,43 @@ const List = ({ heading, fonts, tags }) => {
           }
         </>
 
-        <form className="list__filter">
-          <Button type="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': 'Reset search term' }}>
-            <span aria-label="Reset search term" />
-          </Button>
+        <div className="list__settings">
+          <form className="list__filter">
+            <Button type="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': 'Reset search term' }}>
+              <span aria-label="Reset search term" />
+            </Button>
 
-          <Input label="Search by font name" hideLabel={true} inputProps={{ type: 'text', value: filter, placeholder: 'Search by font name', onChange: (e) => setFilter(e.target.value) }} />
-        </form>
+            <Input label="Search by name" hideLabel={true} inputProps={{ type: 'text', value: filter, placeholder: 'Search by name', onChange: (e) => setFilter(e.target.value) }} />
+          </form>
+
+          {['grid', 'list'].map((option) => {
+            return (
+              <div key={option} className={`list__view list__view--${option}`}>
+                <Button type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }} aria-label={`Switch to ${option} view`} />
+              </div>
+            );
+          })}
+        </div>
 
         {filteredFonts.length > 0 ? (
-          <ul className="list__grid">
+          <ul className={view === 'grid' ? 'list__grid' : ''}>
             {filteredFonts.map((font, i) => {
               return (
-                <li key={font._id} className="list__item">
+                <li key={font._id} className={`list__item ${view === 'list' && !font.image_horizontal ? 'hide' : ''}`}>
                   <Link href={`/fonts/${font.slug}`}>
                     <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={font.name} onClick={() => handleClick(font, i)}>
-                      <Image className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
-                      <div className="list__name">{font.name}</div>
+                      {view === 'grid' ? (
+                        <>
+                          <Image className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                          <div className="list__name">{font.name}</div>
+                        </>
+                      ) : (
+                        <>
+                          {font.image_horizontal &&
+                            <img className="list__img" src={`/uploads/images/${font.image_horizontal}`} alt={`${font.name} Sample Characters`} width={1070} height={100} />
+                          }
+                        </>
+                      )}
                     </a>
                   </Link>
                 </li>
