@@ -3,6 +3,10 @@ import css from 'styled-jsx/css';
 export default css.global`
   @import 'variables.scss';
 
+  .dist h3 {
+    margin: 1rem 0 2rem 0;
+  }
+
   .dist__list {
     display: flex;
     flex-wrap: wrap;
@@ -34,6 +38,10 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
+    .dist h3 {
+      margin: 0 0 3rem 0;
+    }
+
     .dist__heading br {
       display: none;
     }

@@ -75,7 +75,7 @@ export default css.global`
 
   @media (min-width: $break-desktop) {
     .well + .well {
-      margin-top: 8rem;
+      margin-top: 10rem;
     }
   }
 `;
