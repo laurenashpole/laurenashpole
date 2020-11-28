@@ -49,7 +49,7 @@ export default css.global`
     .dist__item {
       width: 25%;
       border-left: 1px solid $color-gray-light;
-      padding: 2.5rem;
+      padding: 2.625rem 2.5rem;
       position: relative;
 
       &:nth-child(4n+1) {
