@@ -1,67 +1,137 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
+  @import 'keyframes.scss';
   @import 'variables.scss';
 
-  .hero__font {
-    max-width: 62rem;
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .hero__link {
+    max-width: 72rem;
     margin: 0 auto;
-    padding-top: 6rem;
+    font-weight: inherit;
+    text-decoration: none;
+    display: block;
+
+    &:hover,
+    &focus {
+      text-decoration: none;
+    }
+  }
+
+  .hero__img--top {
+    padding: 0 2rem;
+  }
+
+  .hero__img + .hero__img {
+    margin-top: 4rem;
+  }
+
+  .hero__pointer {
+    background: $color-red;
+    width: 60%;
+    margin: 5rem auto 0 auto;
+    border-radius: 4px 4px 0 0;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    color: $color-white;
+    display: block;
     position: relative;
-  }
-
-  .hero__new {
-    width: 9.5rem;
-    height: 9.5rem;
-    border: 2px dotted $color-red;
-    border-radius: 50%;
-    color: $color-red;
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.4;
-    letter-spacing: 0.025em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -2rem;
-    left: 0.5rem;
-    z-index: 1;
-    transform: rotate(-15deg);
-  }
-
-  .hero__cta {
-    padding: 0 4rem 4rem 4rem;
     text-align: center;
 
-    button {
-      width: auto;
-      margin: 0 auto;
-      padding: 0 4rem;
+    &:after {
+      content: " ";
+      background: $color-red;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 4px 0;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0) rotate(45deg);
+    }
+  }
+
+  .hero__pointer + .hero__pointer {
+    border-radius: 0 0 4px 4px;
+    margin: 0 auto 7rem auto;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+
+    &:after {
+      content: none;
     }
   }
 
   @media (min-width: $break-tablet) {
     .hero {
-      display: flex;
-      align-items: center;
+      padding: 3rem 0 13rem 0;
+    }
+
+    .hero__link {
+      max-width: calc(100% - 28rem);
+      margin: 0;
       position: relative;
     }
 
-    .hero__font {
-      padding-top: 0;
-      position: static;
+    .hero__img--top {
+      max-width: calc(100% - 8rem);
+      padding: 0;
     }
 
-    .hero__new {
-      width: 12.5rem;
-      height: 12.5rem;
+    .hero__img + .hero__img {
+      margin-top: 6rem;
+    }
+
+    .hero__pointer {
+      width: auto;
+      margin: 0;
+      border-radius: 4px;
+      padding: 2rem 2rem 2rem 2.5rem;
+      display: inline-block;
       font-size: 2rem;
-      top: calc(50% - 22rem);
-      left: calc(100% - 24rem);
-      transform: rotate(15deg);
+      text-align: left;
+      white-space: nowrap;
+      position: absolute;
+      top: calc(50% - 11.5rem);
+      left: calc(100% - 2rem);
+      opacity: 0;
+      animation: slideIn 1s 1s forwards;
+
+      &:after {
+        border-radius: 0 4px;
+        top: 50%;
+        left: 0;
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+      }
+    }
+
+    .hero__pointer + .hero__pointer {
+      min-width: 22rem;
+      border-radius: 4px;
+      padding: 2rem 2rem 2rem 2.5rem;
+      top: calc(50% + 3.5rem);
+      left: calc(100% + 6rem);
+      animation-delay: 1.5s;
+
+      &:after {
+        content: " ";
+      }
+    }
+  }
+
+  @media (min-width: $break-desktop) {
+    .hero {
+      padding: 2rem 0 15rem 0;
+    }
+
+    .hero__pointer {
+      top: calc(50% - 12rem);
+      left: calc(100% - 6rem);
+    }
+
+    .hero__pointer + .hero__pointer {
+      top: calc(50% + 4rem);
     }
   }
 `;

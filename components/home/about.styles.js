@@ -55,6 +55,7 @@ export default css.global`
 
       p {
         margin-bottom: 1.5rem;
+        font-size: 2rem;
       }
 
       &:before {

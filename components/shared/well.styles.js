@@ -20,7 +20,7 @@ export default css.global`
   }
 
   .well + .well {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 
   .well__section {
@@ -62,7 +62,7 @@ export default css.global`
     }
 
     .well + .well {
-      margin-top: 6rem;
+      margin-top: 7.5rem;
     }
 
     .well__section {

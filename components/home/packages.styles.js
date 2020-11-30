@@ -11,7 +11,7 @@ export default css.global`
     }
 
     p {
-      margin: 2rem 0;
+      margin: 2.5rem 0;
       font-size: 2rem;
     }
   }
@@ -35,7 +35,7 @@ export default css.global`
     }
 
     a {
-      padding: 0 0.5rem 0.5rem 0.5rem;
+      padding: 0 0.75rem 0.5rem 0.75rem;
       color: $color-gray-darkest;
       display: block;
       transition: color 0.25s linear;

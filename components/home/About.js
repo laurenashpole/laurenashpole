@@ -14,7 +14,7 @@ const About = () => {
           </div>
 
           <div className="about__upcoming">
-            <p>Here&apos;s a sneak peek of my next font. Sign up at the bottom of the page to find out when it&apos;s done.</p>
+            <p>Here&apos;s a sneak peek of my next font. Sign up for updates in the footer and I&apos;ll let you know when it&apos;s done.</p>
             <div className="about__img">
               <Image src="/images/next-font-stars.png" alt="A preview of my next font!" width={400} height={210} />
             </div>

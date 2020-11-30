@@ -13,7 +13,7 @@ const Packages = () => {
           <ul className="packages__list">
             {PACKAGES.map((link, i) => {
               return (
-                <li className="packages__item">
+                <li key={i} className="packages__item">
                   <a href={link.urls.demo} data-ga-click={true} data-ga-category="home" data-ga-action={link.name.toLowerCase()}>
                     <Image src={link.imgSrc} alt={link.name} width={600} height={305} data-pin-nopin="true" />
                   </a>

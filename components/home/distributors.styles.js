@@ -31,7 +31,7 @@ export default css.global`
   .dist__link {
     width: 100%;
     max-width: 18.75rem;
-    min-height: 10.625rem;
+    min-height: 11.4rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ export default css.global`
     .dist__item {
       width: 25%;
       border-left: 1px solid $color-gray-light;
-      padding: 2.625rem 2.5rem;
+      padding: 2.5rem;
       position: relative;
 
       &:nth-child(4n+1) {
