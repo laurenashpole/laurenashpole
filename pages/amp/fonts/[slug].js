@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { findAll, findBySlug } from '../../../utils/fonts';
 import Layout from '../../../components/layout/Layout';
-import HeroImage from '../../../components/shared/HeroImage';
+import HeroImage from '../../../components/fonts/HeroImage';
 import Meta from '../../../components/fonts/Meta';
 import Content from '../../../components/amp/fonts/Content';
 

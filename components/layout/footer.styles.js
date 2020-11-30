@@ -57,7 +57,7 @@ export default css.global`
     .footer__content {
       max-width: $width-desktop;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 3rem;
       display: flex;
     }
 
