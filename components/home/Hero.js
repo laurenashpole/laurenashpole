@@ -8,7 +8,7 @@ const Hero = ({ font }) => {
   return(
     <div className="hero">
       <Link href="/fonts/sacremende">
-        <a className="hero__link">
+        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-action="sacremende hero">
           <div className="hero__img hero__img--top">
             <Image src="/images/hero-sacremende-1.svg" alt="Hello" width={640} height={184} />
           </div>

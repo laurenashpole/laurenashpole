@@ -19,7 +19,7 @@ const Packages = () => {
                   </a>
 
                   <p>
-                     <a href={link.urls.demo} data-ga-click={true} data-ga-category="home" data-ga-action={link.name.toLowerCase()}>{link.name}.</a> <span dangerouslySetInnerHTML={{ __html: link.desc }} />
+                    <a href={link.urls.demo} data-ga-click={true} data-ga-category="home">{link.name}.</a> <span dangerouslySetInnerHTML={{ __html: link.desc }} />
                   </p>
 
                   <ul className="packages__icons">
