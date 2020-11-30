@@ -1,34 +1,18 @@
-import PropTypes from 'prop-types';
-import { findBySlug } from '../utils/fonts';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/home/Hero';
 import About from '../components/home/About';
 import Distributors from '../components/home/Distributors';
 import Packages from '../components/home/Packages';
 
-const Home = ({ font }) => {
+const Home = () => {
   return (
     <Layout>
-      <Hero font={font} />
+      <Hero />
       <About />
       <Distributors />
       <Packages />
     </Layout>
   );
-};
-
-export async function getStaticProps () {
-  const font = await findBySlug('sacremende');
-
-  return {
-    props: {
-      font: JSON.parse(JSON.stringify(font))
-    }
-  };
-}
-
-Home.propTypes = {
-  font: PropTypes.object
 };
 
 export default Home;

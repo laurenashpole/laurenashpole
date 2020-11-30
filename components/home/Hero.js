@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
-import Button from '../shared/Button';
 import styles from './hero.styles.js';
 
-const Hero = ({ font }) => {
+const Hero = () => {
   return(
     <div className="hero">
       <Link href="/fonts/sacremende">
@@ -17,8 +15,8 @@ const Hero = ({ font }) => {
             <Image className="hero__img" src="/images/hero-sacremende-2.svg" alt="Have a font" width={750} height={110} />
           </div>
 
-          <span className="hero__pointer">This one for example.<br />It's called Sacremende.</span>
-          <span className="hero__pointer">And it's brand new!</span>
+          <span className="hero__pointer">This one for example.<br />It&apos;s called Sacremende.</span>
+          <span className="hero__pointer">And it&apos;s brand new!</span>
         </a>
       </Link>
 
@@ -27,11 +25,6 @@ const Hero = ({ font }) => {
       </style>
     </div>
   );
-};
-
-
-Hero.propTypes = {
-  font: PropTypes.object
 };
 
 export default Hero;
