@@ -91,7 +91,7 @@ export default css.global`
       background: none;
       max-width: $width-desktop;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 2rem 3rem 2rem 1.5rem;
     }
 
     .header__logo {

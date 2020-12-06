@@ -5,6 +5,7 @@ export default css.global`
 
   .well {
     width: 100%;
+    max-width: 72rem;
     margin: 0 auto;
     background: $color-white;
     border-radius: 6px;
@@ -19,7 +20,7 @@ export default css.global`
   }
 
   .well + .well {
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 
   .well__section {
@@ -40,6 +41,10 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
+    .well {
+      max-width: none;
+    }
+
     .well--small {
       .well__section {
         padding: 3rem;
@@ -57,7 +62,7 @@ export default css.global`
     }
 
     .well + .well {
-      margin-top: 6rem;
+      margin-top: 7.5rem;
     }
 
     .well__section {
@@ -75,7 +80,7 @@ export default css.global`
 
   @media (min-width: $break-desktop) {
     .well + .well {
-      margin-top: 8rem;
+      margin-top: 10rem;
     }
   }
 `;

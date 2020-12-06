@@ -7,7 +7,7 @@ const Distributors = () => {
   return(
     <>
       <Well size="large">
-        <div>
+        <div className="dist">
           <h3 className="dist__heading">Fonts also<br /> available at</h3>
 
           <ul className="dist__list">
