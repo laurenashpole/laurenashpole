@@ -29,7 +29,7 @@ export default css.global`
   .list__view {
     margin-left: 1rem;
     border-left: 1px solid $color-gray-light;
-    padding: 1rem 0 0 1rem;
+    padding: 1.25rem 0 0 1rem;
 
     button {
       background-image:
@@ -37,8 +37,8 @@ export default css.global`
         linear-gradient(90deg, $color-white 25%, transparent 25%, transparent 75%, $color-white 75%);
       background-color: $color-gray-dark;
       background-size: 33.333% 33.333%;
-      width: 4rem;
-      height: 4rem;
+      width: 3.5rem;
+      height: 3.5rem;
       display: block;
 
       &:hover,
@@ -50,6 +50,7 @@ export default css.global`
   }
 
   .list__view--grid {
+    margin-left: 0.5rem;
     border-left: none;
   }
 
@@ -130,6 +131,18 @@ export default css.global`
     .list__item {
       padding: 3rem;
     }
+
+    .list__img {
+      transform: scale(0.95);
+      transition: transform 0.3s;
+    }
+
+    .list__link:hover,
+    .list__link:focus {
+      .list__img {
+        transform: scale(1);
+      }
+    }
   }
 
   .list__link {
@@ -144,15 +157,6 @@ export default css.global`
   .list__link:focus {
     color: $color-black;
     text-decoration: none;
-
-    .list__img {
-      transform: scale(1);
-    }
-  }
-
-  .list__img {
-    transform: scale(0.95);
-    transition: transform 0.3s;
   }
 
   .list__name {

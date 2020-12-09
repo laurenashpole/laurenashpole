@@ -44,6 +44,7 @@ const Form = ({ font, endpoint }) => {
       <Input label="Price" inputProps={{ type: 'text', name: 'price', defaultValue: font.price || '' }} />
       <Input label={`Image ${font.image ? '<span>(' + font.image + ')</span>' : ''}`} inputProps={{ type: 'file', name: 'image' }} />
       <Input label={`Horizontal Image ${font.image_horizontal ? '<span>(' + font.image_horizontal + ')</span>' : ''}`} inputProps={{ type: 'file', name: 'image_horizontal' }} />
+      <Input label={`Mobile Horizontal Image ${font.image_horizontal_mobile ? '<span>(' + font.image_horizontal + ')</span>' : ''}`} inputProps={{ type: 'file', name: 'image_horizontal_mobile' }} />
       <Input label="Image Collection" inputProps={{ type: 'file', name: 'image_collection', multiple: true }} />
 
       {font.image_collection && font.image_collection.length > 0 &&

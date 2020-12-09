@@ -52,7 +52,7 @@ const List = ({ heading, fonts, tags }) => {
           {['grid', 'list'].map((option) => {
             return (
               <div key={option} className={`list__view list__view--${option}`}>
-                <Button type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }} aria-label={`Switch to ${option} view`} />
+                <Button type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'aria-label': `Switch to ${option} view`, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }} />
               </div>
             );
           })}
