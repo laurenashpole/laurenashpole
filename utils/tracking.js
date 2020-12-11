@@ -1,6 +1,7 @@
 export function eeImpressions (fonts) {
   if (window.dataLayer) {
     window.dataLayer.push({
+      event: 'ee.impressions',
       ecommerce: {
         impressions: fonts.map((font, i) => parseFont(font, i + 1))
       }
@@ -14,6 +15,7 @@ export function eeEvent (font, position, eventName, eventKey, actionField) {
   }
 
   const dataLayer = {
+    event: `ee.${eventKey}`,
     ecommerce: {
       [eventKey]: {
         products: [parseFont(font, position)]
