@@ -46,7 +46,7 @@ const List = ({ heading, fonts, tags }) => {
               <span aria-label="Reset search term" />
             </Button>
 
-            <Input label="Search by name" hideLabel={true} inputProps={{ type: 'text', value: filter, placeholder: 'Search by name', onChange: (e) => setFilter(e.target.value) }} />
+            <Input label="Find by name" hideLabel={true} inputProps={{ type: 'text', value: filter, placeholder: 'Find by name', onChange: (e) => setFilter(e.target.value) }} />
           </form>
 
           {['grid', 'list'].map((option) => {
@@ -73,7 +73,10 @@ const List = ({ heading, fonts, tags }) => {
                       ) : (
                         <>
                           {font.image_horizontal &&
-                            <img className="list__img" src={`/uploads/images/${font.image_horizontal}`} alt={`${font.name} Sample Characters`} width={1070} height={100} />
+                            <>
+                              <div className="list__name">{font.name}</div>
+                              <img className="list__img" src={`/uploads/images/${font.image_horizontal}`} alt={`${font.name} Sample Characters`} width={1070} height={100} />
+                            </>
                           }
                         </>
                       )}

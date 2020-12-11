@@ -4,18 +4,18 @@ export default css.global`
   @import 'svgs.scss';
   @import 'variables.scss';
 
-  .list {
+  .list__heading {
     text-align: center;
-  }
 
-  .list__heading:after {
-    content: "";
-    background: url(abstract-dots-hr($color-pink-encoded, $color-orange-encoded));
-    background-repeat: no-repeat;
-    width: 7rem;
-    height: 3.5rem;
-    margin: 1rem auto;
-    display: block;
+    &:after {
+      content: "";
+      background: url(abstract-dots-hr($color-pink-encoded, $color-orange-encoded));
+      background-repeat: no-repeat;
+      width: 7rem;
+      height: 3.5rem;
+      margin: 1rem auto;
+      display: block;
+    }
   }
 
   .list__heading + .list__tags {
@@ -29,34 +29,40 @@ export default css.global`
   .list__view {
     margin-left: 1rem;
     border-left: 1px solid $color-gray-light;
-    padding: 1.25rem 0 0 1rem;
 
     button {
-      background-image:
+      padding: 1.35rem 0 1.35rem 1rem;
+
+      &:before {
+        content: ' ';
+        background-image:
         linear-gradient($color-white 25%, transparent 25%, transparent 75%, $color-white 75%),
         linear-gradient(90deg, $color-white 25%, transparent 25%, transparent 75%, $color-white 75%);
-      background-color: $color-gray-dark;
-      background-size: 33.333% 33.333%;
-      width: 3.5rem;
-      height: 3.5rem;
-      display: block;
+        background-color: $color-gray-dark;
+        background-size: 33.333% 33.333%;
+        width: 3.25rem;
+        height: 3.25rem;
+        display: block;
+      }
 
-      &:hover,
-      &:focus,
-      &:disabled {
+      &:hover:before,
+      &:focus:before,
+      &:disabled:before {
         background-color: $color-purple;
       }
     }
   }
 
   .list__view--grid {
-    margin-left: 0.5rem;
+    margin-left: 0.75rem;
     border-left: none;
   }
 
   .list__view--list {
     button {
-      background-repeat: repeat repeat, no-repeat repeat;
+      &:before {
+        background-repeat: repeat repeat, no-repeat repeat;
+      }
     }
   }
 
@@ -112,6 +118,10 @@ export default css.global`
       height: 6rem;
       padding-left: 6rem;
     }
+  }
+
+  .list__grid {
+    text-align: center;
   }
 
   .list__item {
