@@ -19,7 +19,7 @@ const Gallery = ({ font }) => {
 
       <div className="gallery__main">
         <span className="gallery__pin"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-media={`${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[activeIndex]}`}></a></span>
-        <img src={`/uploads/images/${font.image_collection[activeIndex]}`} alt={`${font.name} Poster Image`} />
+        <Image key={`image${activeIndex}`} src={`/uploads/images/${font.image_collection[activeIndex]}`} alt={`${font.name} Poster Image`} width={1500} height={1000} />
       </div>
 
       {font.image_collection_thumbnails.length > 1 &&

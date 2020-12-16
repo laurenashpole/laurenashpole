@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 import { eeImpressions, eeEvent } from '../../utils/tracking';
 import Well from '../../components/shared/Well';
 import Tags from '../../components/shared/Tags';
@@ -10,6 +11,7 @@ import Button from '../../components/shared/Button';
 import styles from './list.styles.js';
 
 const List = ({ heading, fonts, tags }) => {
+  const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const [filter, setFilter] = useState('');
   const [filteredFonts, setFilteredFonts] = useState(fonts || []);
   const [view, setView] = useState('grid');
@@ -51,15 +53,15 @@ const List = ({ heading, fonts, tags }) => {
 
           {['grid', 'list'].map((option) => {
             return (
-              <div key={option} className={`list__view list__view--${option}`}>
-                <Button type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'aria-label': `Switch to ${option} view`, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }} />
-              </div>
+              <Button  key={option} type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
+                <span className={`list__view list__view--${option}`} aria-label={`Switch to ${option} view`} />
+              </Button>
             );
           })}
         </div>
 
         {filteredFonts.length > 0 ? (
-          <ul className={view === 'grid' ? 'list__grid' : ''}>
+          <ul className={view === 'grid' ? 'list__list--grid' : ''}>
             {filteredFonts.map((font, i) => {
               return (
                 <li key={font._id} className={`list__item ${view === 'list' && !font.image_horizontal ? 'hide' : ''}`}>
@@ -67,7 +69,7 @@ const List = ({ heading, fonts, tags }) => {
                     <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={font.name} onClick={() => handleClick(font, i)}>
                       {view === 'grid' ? (
                         <>
-                          <Image className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                          <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
                           <div className="list__name">{font.name}</div>
                         </>
                       ) : (
@@ -75,7 +77,7 @@ const List = ({ heading, fonts, tags }) => {
                           {font.image_horizontal &&
                             <>
                               <div className="list__name">{font.name}</div>
-                              <img className="list__img" src={`/uploads/images/${font.image_horizontal}`} alt={`${font.name} Sample Characters`} width={1070} height={100} />
+                              <Image key={`${font.name}List${isTablet ? '' : 'Mobile'}`} className="list__img" src={`/uploads/images/${isTablet ? font.image_horizontal : font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} width={isTablet ? 970 : 544 } height={isTablet ? 68 : 60} />
                             </>
                           }
                         </>

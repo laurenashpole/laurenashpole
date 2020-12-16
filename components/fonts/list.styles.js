@@ -24,46 +24,47 @@ export default css.global`
 
   .list__settings {
     display: flex;
+
+    form ~ button {
+      width: auto;
+    }
   }
 
   .list__view {
+    padding: 1.35rem 0 1.35rem 1rem;
+    display: block;
+
+    &:before {
+      content: ' ';
+      background-image:
+      linear-gradient($color-white 25%, transparent 25%, transparent 75%, $color-white 75%),
+      linear-gradient(90deg, $color-white 25%, transparent 25%, transparent 75%, $color-white 75%);
+      background-color: $color-gray-dark;
+      background-size: 33.333% 33.333%;
+      width: 3.25rem;
+      height: 3.25rem;
+      display: block;
+    }
+
+    button:hover &:before,
+    button:focus &:before,
+    button:disabled &:before {
+      background-color: $color-purple;
+    }
+  }
+
+  .list__view--list {
     margin-left: 1rem;
     border-left: 1px solid $color-gray-light;
 
-    button {
-      padding: 1.35rem 0 1.35rem 1rem;
-
-      &:before {
-        content: ' ';
-        background-image:
-        linear-gradient($color-white 25%, transparent 25%, transparent 75%, $color-white 75%),
-        linear-gradient(90deg, $color-white 25%, transparent 25%, transparent 75%, $color-white 75%);
-        background-color: $color-gray-dark;
-        background-size: 33.333% 33.333%;
-        width: 3.25rem;
-        height: 3.25rem;
-        display: block;
-      }
-
-      &:hover:before,
-      &:focus:before,
-      &:disabled:before {
-        background-color: $color-purple;
-      }
+    &:before {
+      background-repeat: repeat repeat, no-repeat repeat;
     }
   }
 
   .list__view--grid {
     margin-left: 0.75rem;
     border-left: none;
-  }
-
-  .list__view--list {
-    button {
-      &:before {
-        background-repeat: repeat repeat, no-repeat repeat;
-      }
-    }
   }
 
   .list__filter {
@@ -120,24 +121,9 @@ export default css.global`
     }
   }
 
-  .list__grid {
+  .list__list--grid {
     text-align: center;
-  }
 
-  .list__item {
-    padding: 3rem 0;
-    border-bottom: 1px solid $color-gray-light;
-  }
-
-  .list__item.hide {
-    display: none;
-  }
-
-  .list__item:last-child {
-    border-bottom: none;
-  }
-
-  .list__grid {
     .list__item {
       padding: 3rem;
     }
@@ -153,13 +139,32 @@ export default css.global`
         transform: scale(1);
       }
     }
+
+    .list__name {
+      margin: 1rem 0 0 0;
+      font-size: 3rem;
+      font-weight: 900;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+  }
+
+  .list__item {
+    padding: 2.5rem 0 3rem 0;
+    border-bottom: 1px solid $color-gray-light;
+  }
+
+  .list__item.hide {
+    display: none;
+  }
+
+  .list__item:last-child {
+    border-bottom: none;
   }
 
   .list__link {
     border: none;
     color: $color-black;
-    font-size: 3rem;
-    font-weight: 900;
     display: block;
   }
 
@@ -170,7 +175,11 @@ export default css.global`
   }
 
   .list__name {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
   }
 
   .list__empty {
@@ -179,12 +188,12 @@ export default css.global`
   }
 
   @media (min-width: $break-mobile) {
-    .list__grid {
+    .list__list--grid {
       display: flex;
       flex-wrap: wrap;
     }
 
-    .list__grid {
+    .list__list--grid {
       .list__item {
         width: 50%;
         border-right: 1px solid $color-gray-light;
@@ -214,16 +223,20 @@ export default css.global`
     }
 
     .list__view {
-      padding-top: 0.75rem;
+      padding: 1rem 0 1rem 1.5rem;
 
-      button {
-        width: 5rem;
-        height: 5rem;
+      &:before {
+        width: 4.5rem;
+        height: 4.5rem;
       }
     }
 
     .list__view--grid {
       margin-left: 2rem;
+    }
+
+    .list__view--list {
+      margin-left: 1.5rem;
     }
 
     .list__filter {
@@ -250,8 +263,19 @@ export default css.global`
       }
     }
 
+    .list__item {
+      padding: 3.25rem 4rem 4rem 4rem;
+    }
+
     .list__name {
-      margin-top: 2rem;
+      font-size: 1.75rem;
+    }
+
+    .list__list--grid {
+      .list__name {
+        margin-top: 2rem;
+        font-size: 3rem;
+      }
     }
   }
 
@@ -267,7 +291,7 @@ export default css.global`
 
     .list__view {
       margin-left: 2rem;
-      padding: 1rem 0 0 2rem;
+      padding: 1.25rem 0 1.25rem 2rem;
     }
 
     .list__filter {
@@ -276,7 +300,7 @@ export default css.global`
       }
     }
 
-    .list__grid {
+    .list__list--grid {
       .list__item {
         width: 33.333%;
       }
