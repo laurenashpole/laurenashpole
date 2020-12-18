@@ -70,11 +70,12 @@ async function getFiles (files, font) {
     }
 
     const directory = getDirectory(file.mimetype);
-    const uploadedFile = await uploadFile(file, directory);
 
     if (font && font[file.fieldname]) {
       await deleteFile(font[file.fieldname], directory);
     }
+
+    const uploadedFile = await uploadFile(file, directory);
 
     (await obj)[file.fieldname] = uploadedFile;
     return obj;
