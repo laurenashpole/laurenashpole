@@ -11,14 +11,6 @@ export default css.global`
     border-radius: 6px;
   }
 
-  .well--medium {
-    max-width: 110rem;
-  }
-
-  .well--small {
-    max-width: 60rem;
-  }
-
   .well + .well {
     margin-top: 5rem;
   }
@@ -43,6 +35,14 @@ export default css.global`
   @media (min-width: $break-tablet) {
     .well {
       max-width: none;
+    }
+
+    .well--medium {
+      max-width: 110rem;
+    }
+
+    .well--small {
+      max-width: 60rem;
     }
 
     .well--small {

@@ -16,6 +16,8 @@ export default async () => {
     date_modified: String,
     price: Number,
     image: String,
+    image_horizontal: String,
+    image_horizontal_mobile: String,
     image_collection: [],
     image_collection_thumbnails: [],
     css_file: String,
