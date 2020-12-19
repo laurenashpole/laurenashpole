@@ -5,9 +5,9 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {!this.props.inAmpMode &&
+          {!this.props.inAmpMode && process.env.OPTIMIZE_ENABLED &&
             <>
-              <style dangerouslySetInnerHTML={{ __html: '.async-hide { opacity: 0 !important}' }} />
+              <style dangerouslySetInnerHTML={{ __html: '.async-hide { opacity: 0 !important }' }} />
 
               <script dangerouslySetInnerHTML={{ __html: `
                 (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
@@ -16,15 +16,17 @@ class MyDocument extends Document {
                 })(window,document.documentElement,'async-hide','dataLayer',4000,
                 {'${process.env.GTM_CONTAINER_ID}':true});
               `}} />
-
-              <script dangerouslySetInnerHTML={{ __html: `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${process.env.GTM_CONTAINER_ID}');
-              `}} />
             </>
+          }
+
+          {!this.props.inAmpMode &&
+            <script dangerouslySetInnerHTML={{ __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${process.env.GTM_CONTAINER_ID}');
+            `}} />
           }
 
           <meta name="google-site-verification" content="j7rp4JhwKeTvhJYae4BTu4jPAP6ZBahys3beaQ5lGA8" />
