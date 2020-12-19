@@ -128,6 +128,10 @@ export default css.global`
       padding: 3rem;
     }
 
+    .list__item:first-child {
+      padding-top: 1rem;
+    }
+
     .list__img {
       transform: scale(0.95);
       transition: transform 0.3s;
@@ -152,14 +156,14 @@ export default css.global`
   .list__item {
     padding: 2.5rem 0 3rem 0;
     border-bottom: 1px solid $color-gray-light;
-  }
 
-  .list__item.hide {
-    display: none;
-  }
+    &:first-child {
+      padding-top: 0.5rem;
+    }
 
-  .list__item:last-child {
-    border-bottom: none;
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   .list__link {

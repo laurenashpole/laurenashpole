@@ -27,7 +27,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-inview-monitor": "^2.3.0",
-    "react-responsive": "^8.2.0",
     "styled-jsx-plugin-sass": "^1.0.0",
     "superagent": "^6.1.0",
     "whatwg-fetch": "^3.4.1",

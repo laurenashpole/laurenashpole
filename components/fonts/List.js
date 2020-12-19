@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useMediaQuery } from 'react-responsive';
 import { eeImpressions, eeEvent } from '../../utils/tracking';
 import Well from '../../components/shared/Well';
 import Tags from '../../components/shared/Tags';
@@ -11,13 +10,19 @@ import Button from '../../components/shared/Button';
 import styles from './list.styles.js';
 
 const List = ({ heading, fonts, tags }) => {
-  const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
   const [filter, setFilter] = useState('');
   const [filteredFonts, setFilteredFonts] = useState(fonts || []);
   const [view, setView] = useState('grid');
 
   useEffect(() => {
+    const defaultView = window.sessionStorage.getItem('fontListView');
+
+    if (defaultView) {
+      setView(defaultView);
+    }
+
     eeImpressions(fonts);
+    initOptimize();
   }, []);
 
   useEffect(() => {
@@ -27,6 +32,28 @@ const List = ({ heading, fonts, tags }) => {
 
   const handleClick = (font, idx) => {
     eeEvent(font, idx + 1, 'productClick', 'click');
+  };
+
+  const handleView = (option) => {
+    window.sessionStorage.setItem('fontListView', option);
+    setView(option);
+  };
+
+  const initOptimize = () => {
+    function gtag () {
+      window.dataLayer.push(arguments)
+    }
+
+    gtag('event', 'optimize.callback', {
+      name: 't0n42pzjSWGwyImExc-qgA',
+      callback: (value) => {
+        if (window.sessionStorage.getItem('fontListView')) {
+          return;
+        }
+
+        handleView(value === '0' ? 'grid' : 'list');
+      }
+   });
   };
 
   return (
@@ -53,7 +80,7 @@ const List = ({ heading, fonts, tags }) => {
 
           {['grid', 'list'].map((option) => {
             return (
-              <Button  key={option} type="link" onClick={() => setView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
+              <Button key={option} type="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
                 <span className={`list__view list__view--${option}`} aria-label={`Switch to ${option} view`} />
               </Button>
             );
@@ -64,9 +91,9 @@ const List = ({ heading, fonts, tags }) => {
           <ul className={view === 'grid' ? 'list__list--grid' : ''}>
             {filteredFonts.map((font, i) => {
               return (
-                <li key={font._id} className={`list__item ${view === 'list' && !font.image_horizontal ? 'hide' : ''}`}>
+                <li key={font._id} className="list__item">
                   <Link href={`/fonts/${font.slug}`}>
-                    <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={font.name} onClick={() => handleClick(font, i)}>
+                    <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={`${font.name} details`} onClick={() => handleClick(font, i)}>
                       {view === 'grid' ? (
                         <>
                           <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
@@ -74,12 +101,11 @@ const List = ({ heading, fonts, tags }) => {
                         </>
                       ) : (
                         <>
-                          {font.image_horizontal &&
-                            <>
-                              <div className="list__name">{font.name}</div>
-                              <Image key={`${font.name}List${isTablet ? '' : 'Mobile'}`} className="list__img" src={`/uploads/images/${isTablet ? font.image_horizontal : font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} width={isTablet ? 970 : 544 } height={isTablet ? 68 : 60} />
-                            </>
-                          }
+                          <div className="list__name">{font.name}</div>
+                          <picture>
+                            <source media="(min-width: 768px)" srcSet={`/uploads/images/${font.image_horizontal}`} />
+                            <img src={`/uploads/images/${font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} />
+                          </picture>
                         </>
                       )}
                     </a>
