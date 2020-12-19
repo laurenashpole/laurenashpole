@@ -74,7 +74,7 @@ export default css.global`
       padding: 2rem 4rem;
       position: sticky;
       top: 0;
-      z-index: 1;
+      z-index: 2;
     }
   }
 
