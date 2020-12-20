@@ -116,6 +116,10 @@ export default css.global`
     }
   }
 
+  .btn--link[disabled] {
+    pointer-events: none;
+  }
+
   @media (min-width: $break-tablet) {
     .btn--primary {
       height: 8rem;
