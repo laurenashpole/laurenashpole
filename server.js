@@ -25,7 +25,7 @@ function createHttpServer () {
   http.createServer((req, res) => {
     res.writeHead(301, { 'Location': `https://${req.headers.host}${req.url}` });
     res.end();
-  }).listen(8080, err => {
+  }).listen((8080), err => {
     if (err) throw err;
     console.log('> Ready on http://localhost:8080');
   });
@@ -34,8 +34,13 @@ function createHttpServer () {
 function createHttpsServer () {
   https.createServer(httpsOptions, (req, res) => {
     const parsedUrl = parse(req.url, true);
+
+    if (req.url.match('.gif|.jpg|.png|.svg|.ttf|.woff|.woff2')) {
+      res.setHeader('Cache-Control', 'public,max-age=31536000');
+    }
+
     handle(req, res, parsedUrl);
-  }).listen(8443, err => {
+  }).listen((8443), err => {
     if (err) throw err;
     console.log('> Ready on https://localhost:8443');
   });

@@ -41,7 +41,7 @@ const List = ({ heading, fonts, tags }) => {
 
   const initOptimize = () => {
     function gtag () {
-      window.dataLayer.push(arguments)
+      window.dataLayer.push(arguments);
     }
 
     gtag('event', 'optimize.callback', {
@@ -53,7 +53,7 @@ const List = ({ heading, fonts, tags }) => {
 
         handleView(value === '0' ? 'grid' : 'list');
       }
-   });
+    });
   };
 
   return (
