@@ -121,15 +121,24 @@ export default css.global`
     }
   }
 
+  .list__list-container {
+    overflow: hidden;
+  }
+
   .list__list--grid {
+    width: calc(100% + 3rem);
+    margin: -1.5rem;
     text-align: center;
 
     .list__item {
-      padding: 3rem;
+      background: linear-gradient(rgba($color-gray-lightest, 0.5), rgba($color-gray-lightest, 0.5)) no-repeat;
+      background-position: 1.5rem 1.5rem;
+      background-size: calc(100% - 3rem) calc(100% - 3rem);
+      padding: 4rem;
     }
 
     .list__item:first-child {
-      padding-top: 1rem;
+      padding-top: 4rem;
     }
 
     .list__img {
@@ -170,6 +179,10 @@ export default css.global`
     border: none;
     color: $color-black;
     display: block;
+
+    > div {
+      margin: 0 auto;
+    }
   }
 
   .list__link:hover,
@@ -201,7 +214,11 @@ export default css.global`
       .list__item {
         width: 50%;
         border-right: 1px solid $color-gray-light;
-        padding: 4rem 5rem;
+        padding: 5rem;
+      }
+
+      .list__item:first-child {
+        padding-top: 5rem;
       }
 
       .list__item:nth-child(2n + 2) {

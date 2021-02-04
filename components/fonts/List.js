@@ -88,32 +88,34 @@ const List = ({ heading, fonts, tags }) => {
         </div>
 
         {filteredFonts.length > 0 ? (
-          <ul className={view === 'grid' ? 'list__list--grid' : ''}>
-            {filteredFonts.map((font, i) => {
-              return (
-                <li key={font._id} className="list__item">
-                  <Link href={`/fonts/${font.slug}`}>
-                    <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={`${font.name} details`} onClick={() => handleClick(font, i)}>
-                      {view === 'grid' ? (
-                        <>
-                          <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
-                          <div className="list__name">{font.name}</div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="list__name">{font.name}</div>
-                          <picture>
-                            <source media="(min-width: 768px)" srcSet={`/uploads/images/${font.image_horizontal}`} />
-                            <img src={`/uploads/images/${font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} />
-                          </picture>
-                        </>
-                      )}
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="list__list-container">
+            <ul className={view === 'grid' ? 'list__list--grid' : ''}>
+              {filteredFonts.map((font, i) => {
+                return (
+                  <li key={font._id} className="list__item">
+                    <Link href={`/fonts/${font.slug}`}>
+                      <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={`${font.name} details`} onClick={() => handleClick(font, i)}>
+                        {view === 'grid' ? (
+                          <>
+                            <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                            <div className="list__name">{font.name}</div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="list__name">{font.name}</div>
+                            <picture>
+                              <source media="(min-width: 768px)" srcSet={`/uploads/images/${font.image_horizontal}`} />
+                              <img src={`/uploads/images/${font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} />
+                            </picture>
+                          </>
+                        )}
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         ) : (
           <div className="list__empty">
             No results for &quot;{filter}&quot;.
