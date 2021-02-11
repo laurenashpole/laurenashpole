@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import withPassport from '../../middleware/passport';
 import Well from '../../components/shared/Well';
 import Admin from '../../components/admin/layout/Admin';
 import List from '../../components/admin/home/List';
-
 
 const Home = ({ isAuthenticated }) => {
   return (

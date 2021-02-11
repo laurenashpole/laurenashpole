@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { request } from '../../../utils/request';
 import Button from '../../../components/shared/Button';
 
-const Delete = ({ id }) => {
+const Delete = ({ id, name }) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleClick = () => {
-    if (confirm('Are you sure you want to delete this font?')) {
+    if (confirm(`Are you sure you want to delete this ${name}?`)) {
       handleSubmit();
     }
   };
@@ -17,7 +17,7 @@ const Delete = ({ id }) => {
 
     try {
       await request({
-        endpoint: '/api/admin/fonts/remove',
+        endpoint: `/api/admin/${name}s/remove`,
         body: JSON.stringify({ id })
       });
 
@@ -35,7 +35,8 @@ const Delete = ({ id }) => {
 };
 
 Delete.propTypes = {
-  id: PropTypes.string
+  id: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default Delete;

@@ -22,7 +22,7 @@ const Form = ({ tag, endpoint }) => {
       const response = await request({
         endpoint: endpoint,
         body: JSON.stringify({
-          _id: tag._id || '',
+          ...(tag._id && { id: tag._id }),
           name,
           description
         })
