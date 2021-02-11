@@ -1,6 +1,5 @@
-import withMulter from '../../../../middleware/multer';
 import withPassport from '../../../../middleware/passport';
-import { update } from '../../../../utils/fonts';
+import { update } from '../../../../utils/tags';
 
 const handler = async (req, res) => {
   if (!req.isAuthenticated()) {
@@ -9,20 +8,12 @@ const handler = async (req, res) => {
 
   try {
     await update(req);
-    res.json({ redirect: '/admin/fonts' });
+    res.json({ redirect: '/admin/tags' });
   } catch (err) {
     res.status(500).json({ err: err.message });
   }
 };
 
-export const config = {
-  api: {
-    bodyParser: false
-  }
-};
-
 export default (req, res) => {
-  withPassport(req, res, (req, res) => {
-    withMulter(req, res, true, handler);
-  });
+  withPassport(req, res, handler);
 };

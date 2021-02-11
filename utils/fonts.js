@@ -34,7 +34,7 @@ export async function update (req) {
   const fontJSON = JSON.parse(JSON.stringify(font));
   const params = getParams(req.body, fontJSON);
   const files = await getFiles(req.files, fontJSON);
-  return await font.updateOne({...params, ...files });
+  return await font.updateOne({ ...params, ...files });
 }
 
 export async function remove (req) {

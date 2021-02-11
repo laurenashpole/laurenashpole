@@ -3,8 +3,13 @@ import css from 'styled-jsx/css';
 export default css.global`
   @import 'variables.scss';
 
+  .list__title {
+    text-transform: uppercase;
+  }
+
   .list__create {
     padding-bottom: 3rem;
+    text-transform: uppercase;
   }
 
   .list__item {

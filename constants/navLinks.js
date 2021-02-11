@@ -17,12 +17,8 @@ export const NAV_LINKS = {
   admin: [
     {
       url: '/admin',
-      label: 'Fonts',
+      label: 'Home',
       isExact: true
-    },
-    {
-      url: '/admin/fonts/create',
-      label: 'Add Font'
     },
     {
       url: '/api/admin/logout',

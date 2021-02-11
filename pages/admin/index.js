@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import withPassport from '../../middleware/passport';
-import { findAll } from '../../utils/fonts';
+import Well from '../../components/shared/Well';
 import Admin from '../../components/admin/layout/Admin';
-import List from '../../components/admin/fonts/List';
+import List from '../../components/admin/home/List';
 
-const Fonts = ({ isAuthenticated, fonts }) => {
+
+const Home = ({ isAuthenticated }) => {
   return (
-    <Admin isAuthenticated={isAuthenticated} title="Fonts">
-      <List fonts={fonts} />
+    <Admin isAuthenticated={isAuthenticated}>
+      <Well>
+        <h1>Admin</h1>
+        <List items={['font', 'tag']} />
+      </Well>
     </Admin>
   );
 };
@@ -17,19 +22,15 @@ export async function getServerSideProps (context) {
     return req.isAuthenticated();
   });
 
-  const fonts = await (isAuthenticated ? findAll() : Promise.resolve([]));
-
   return {
     props: {
-      isAuthenticated,
-      fonts: JSON.parse(JSON.stringify(fonts))
+      isAuthenticated
     }
   };
 }
 
-Fonts.propTypes = {
-  isAuthenticated: PropTypes.bool,
-  fonts: PropTypes.array
+Home.propTypes = {
+  isAuthenticated: PropTypes.bool
 };
 
-export default Fonts;
+export default Home;
