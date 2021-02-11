@@ -5,12 +5,13 @@ import { FONT_OPTIONS } from '../../../constants/fontOptions';
 import { request } from '../../../utils/request';
 import Input from '../../../components/shared/Input';
 import Textarea from '../../../components/shared/Textarea';
+import Select from '../../../components/shared/Select';
 import Checkbox from '../../../components/shared/Checkbox';
 import Button from '../../../components/shared/Button';
 import Errors from '../../../components/shared/Errors';
 import styles from './form.styles.js';
 
-const Form = ({ font, endpoint }) => {
+const Form = ({ font, tags, endpoint }) => {
   const router = useRouter();
   const [error, setError] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -38,7 +39,13 @@ const Form = ({ font, endpoint }) => {
       {font._id && <input type="hidden" name="_id" value={font._id} />}
       <Input label="Name" inputProps={{ type: 'text', name: 'name', defaultValue: font.name }} />
       <Textarea label="Description" textareaProps={{ rows: '5', name: 'description', placeholder: 'Description', defaultValue: font.description }} />
-      <Input label="Tags" inputProps={{ type: 'text', name: 'tags', defaultValue: font.tags ? font.tags.join(', ') : '' }} />
+      <div className="form__multi-select">
+        <Select label="Tags" hideLabel={true} selectProps={{ multiple: true, name: 'tags', defaultValue: font.tags }}>
+          {tags.map((tag) => {
+            return <option key={tag._id} value={tag._id}>{tag.name}</option>;
+          })}
+        </Select>
+      </div>
       <Input label="Date Created" inputProps={{ type: 'text', name: 'date_created', defaultValue: font.date_created }} />
       <Input label="Date Modified" inputProps={{ type: 'text', name: 'date_modified', defaultValue: font.date_modified }} />
       <Input label="Price" inputProps={{ type: 'text', name: 'price', defaultValue: font.price || '' }} />
@@ -85,6 +92,7 @@ const Form = ({ font, endpoint }) => {
 
 Form.propTypes = {
   font: PropTypes.object,
+  tags: PropTypes.array,
   endpoint: PropTypes.string
 };
 

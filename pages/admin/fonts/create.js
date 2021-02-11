@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
+import { findAll } from '../../../utils/tags';
 import withPassport from '../../../middleware/passport';
 import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/fonts/Form';
 import Well from '../../../components/shared/Well';
 
-const Create = ({ isAuthenticated }) => {
+const Create = ({ isAuthenticated, tags }) => {
   return (
     <Admin isAuthenticated={isAuthenticated} title="Create New Font">
       <Well>
         <h1>Create New Font</h1>
-        <Form font={{}} endpoint="/api/admin/fonts/create" />
+        <Form font={{}} tags={tags} endpoint="/api/admin/fonts/create" />
       </Well>
     </Admin>
   );
@@ -20,13 +21,19 @@ export async function getServerSideProps (context) {
     return req.isAuthenticated();
   });
 
+  const tags = await (isAuthenticated ? findAll() : Promise.resolve([]));
+
   return {
-    props: { isAuthenticated }
+    props: {
+      isAuthenticated,
+      tags: JSON.parse(JSON.stringify(tags))
+    }
   };
 }
 
 Create.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  tags: PropTypes.array
 };
 
 export default Create;
