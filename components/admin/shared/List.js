@@ -5,34 +5,34 @@ import Well from '../../../components/shared/Well';
 import Button from '../../../components/shared/Button';
 import styles from './list.styles.js';
 
-const List = ({ fonts }) => {
+const List = ({ name, items }) => {
   return (
     <>
       <div className="list__create">
-        <Link href="/admin/fonts/create">
-          <Button type="primary" attributes={{ type: 'button' }}>+ Create a New Font</Button>
+        <Link href={`/admin/${name}s/create`}>
+          <Button type="primary" attributes={{ type: 'button' }}>+ Create a New {name}</Button>
         </Link>
       </div>
 
       <Well>
-        <h1>All Fonts</h1>
+        <h1 className="list__title">All {name}s</h1>
 
         <ul>
-          {fonts.map((font) => {
+          {items.map((item) => {
             return (
-              <li key={font._id} className="list__item">
-                {font.name}
+              <li key={item._id} className="list__item">
+                {item.name}
 
                 <div className="list__btns">
-                  <Link href={`/fonts/${font.slug}`}>
+                  <Link href={`/${name}s/${item.slug}`}>
                     <Button type="secondary" attributes={{ type: 'button' }}>Preview</Button>
                   </Link>
 
-                  <Link href={`/admin/fonts/${font.slug}`}>
+                  <Link href={`/admin/${name}s/${item.slug}`}>
                     <Button type="secondary" attributes={{ type: 'button' }}>Edit</Button>
                   </Link>
 
-                  <Delete id={font._id} />
+                  <Delete id={item._id} name={name} />
                 </div>
               </li>
             );
@@ -48,7 +48,8 @@ const List = ({ fonts }) => {
 };
 
 List.propTypes = {
-  fonts: PropTypes.array
+  name: PropTypes.string,
+  items: PropTypes.array
 };
 
 export default List;
