@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Delete from '../fonts/Delete';
+import Delete from './Delete';
 import Well from '../../../components/shared/Well';
 import Button from '../../../components/shared/Button';
 import styles from './list.styles.js';
@@ -32,7 +32,7 @@ const List = ({ name, items }) => {
                     <Button type="secondary" attributes={{ type: 'button' }}>Edit</Button>
                   </Link>
 
-                  <Delete id={item._id} />
+                  <Delete id={item._id} name={name} />
                 </div>
               </li>
             );

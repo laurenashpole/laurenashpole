@@ -15,9 +15,14 @@ export async function create (req) {
 }
 
 export async function update (req) {
-  const tag = await (await Tag()).findById(req.body._id);
+  const tag = await (await Tag()).findById(req.body.id);
   const slug = req.body.name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
   return await tag.updateOne({ ...req.body, slug });
+}
+
+export async function remove (req) {
+  const tag = await (await Tag()).findById(req.body.id);
+  return await tag.remove();
 }
 
 export function getTags (fonts) {
