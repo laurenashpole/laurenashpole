@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import thumbnail from 'node-thumbnail';
 import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
+import { addTaggedFont, removeTaggedFont } from './tags';
 import Font from '../models/font';
 
 const UPLOADS_DIRECTORY = './public/uploads/';
@@ -18,14 +19,15 @@ export async function findById (id) {
   return await (await Font()).findOne({ _id: id });
 }
 
-export async function findByTag (tag) {
-  return await (await Font()).find({ tags: tag }).sort({ name: 'asc' }).exec();
+export async function findByIds (ids) {
+  return await (await Font()).find({ _id: { $in: ids }});
 }
 
 export async function create (req) {
-  const parsedParams = getParsedParams(req.body);
+  const slug = getSlug(req.body);
   const files = await getFiles(req.files);
-  const font = await new (await Font())({ ...req.body, ...parsedParams, ...files });
+  const font = await new (await Font())({ ...req.body, ...files, slug });
+  const tags = await getUpdateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
   return await font.save();
 }
 
@@ -34,7 +36,8 @@ export async function update (req) {
   const fontJSON = JSON.parse(JSON.stringify(font));
   const params = getParams(req.body, fontJSON);
   const files = await getFiles(req.files, fontJSON);
-  return await font.updateOne({ ...params, ...files });
+  const tags = await getUpdateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
+  return await font.updateOne({ ...params, ...files, tags });
 }
 
 export async function remove (req) {
@@ -44,16 +47,14 @@ export async function remove (req) {
 }
 
 function getParams (params, font) {
-  const parsedParams = getParsedParams(params);
+  const slug = getSlug(params);
   const commercial_file = getFileOptions(params, font, 'commercial_file');
   const personal_file = getFileOptions(params, font, 'personal_file');
-  return { ...params, ...parsedParams, commercial_file, personal_file };
+  return { ...params, slug, commercial_file, personal_file };
 }
 
-function getParsedParams (params) {
-  const tags = params.tags.length ? params.tags.split(',').map((tag) => tag.trim()) : [];
-  const slug = params.name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
-  return { tags, slug };
+function getSlug (params) {
+  return params.name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
 }
 
 function getFileOptions (params, font, type) {
@@ -198,4 +199,13 @@ function getHashedName (name) {
   const timestamp = Math.floor(Date.now() / 10000000);
   const nameArray = name.split('.');
   return `${nameArray[0]}${timestamp}.${nameArray[1]}`;
+}
+
+async function getUpdateTags (tags, font) {
+  const addedTags = tags.filter((id) => font.tags.indexOf(id) === -1);
+  const removedTags = font.tags.filter((id) => tags.indexOf(id) !== -1);
+
+  addedTags.forEach(async (id) => await addTaggedFont(id, font._id));
+  removedTags.forEach(async (id) => await removeTaggedFont(id, font._id));
+  return tags;
 }

@@ -11,7 +11,7 @@ import Preview from './Preview';
 import Glyphs from './Glyphs';
 import styles from './content.styles.js';
 
-const Content = ({ font }) => {
+const Content = ({ font, tags }) => {
   const sectionRefs = useRef({});
   const [inViewSection, setInViewSection] = useState('');
 
@@ -47,7 +47,7 @@ const Content = ({ font }) => {
           <div className="content__main">
             <InView onInView={() => setInViewSection('details')} intoViewMargin="-50%" repeatOnInView={true}>
               <div className={styles.scrollAnchor} id="details" ref={(el) => sectionRefs.current.details = el}  />
-              <Details font={font} />
+              <Details font={font} tags={tags} />
             </InView>
 
             <InView onInView={() => setInViewSection('gallery')} intoViewMargin="-50%" repeatOnInView={true}>
@@ -76,7 +76,8 @@ const Content = ({ font }) => {
 };
 
 Content.propTypes = {
-  font: PropTypes.object
+  font: PropTypes.object,
+  tags: PropTypes.array
 };
 
 export default Content;

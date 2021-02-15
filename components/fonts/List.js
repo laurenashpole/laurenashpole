@@ -62,7 +62,7 @@ const List = ({ heading, fonts, tags }) => {
         <>
           <h1 className="list__heading">{heading}</h1>
 
-          {Object.keys(tags).length > 0 &&
+          {tags.length > 0 &&
             <div className="list__tags">
               <Tags tags={tags} source="font list" />
             </div>
@@ -133,7 +133,7 @@ const List = ({ heading, fonts, tags }) => {
 List.propTypes = {
   heading: PropTypes.string,
   fonts: PropTypes.array,
-  tags: PropTypes.object
+  tags: PropTypes.array
 };
 
 export default List;
