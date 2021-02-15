@@ -20,14 +20,14 @@ export async function findById (id) {
 }
 
 export async function findByIds (ids) {
-  return await (await Font()).find({ _id: { $in: ids }});
+  return await (await Font()).find({ _id: { $in: ids }}).sort({ name: 'asc' });
 }
 
 export async function create (req) {
   const slug = getSlug(req.body);
   const files = await getFiles(req.files);
   const font = await new (await Font())({ ...req.body, ...files, slug });
-  const tags = await getUpdateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
+  await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
   return await font.save();
 }
 
@@ -36,8 +36,8 @@ export async function update (req) {
   const fontJSON = JSON.parse(JSON.stringify(font));
   const params = getParams(req.body, fontJSON);
   const files = await getFiles(req.files, fontJSON);
-  const tags = await getUpdateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
-  return await font.updateOne({ ...params, ...files, tags });
+  await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
+  return await font.updateOne({ ...params, ...files });
 }
 
 export async function remove (req) {
@@ -201,11 +201,10 @@ function getHashedName (name) {
   return `${nameArray[0]}${timestamp}.${nameArray[1]}`;
 }
 
-async function getUpdateTags (tags, font) {
+async function updateTags (tags, font) {
   const addedTags = tags.filter((id) => font.tags.indexOf(id) === -1);
   const removedTags = font.tags.filter((id) => tags.indexOf(id) !== -1);
 
   addedTags.forEach(async (id) => await addTaggedFont(id, font._id));
   removedTags.forEach(async (id) => await removeTaggedFont(id, font._id));
-  return tags;
 }
