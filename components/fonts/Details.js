@@ -65,7 +65,7 @@ const Details = ({ font, tags }) => {
         }
       </div>
 
-      {tags.length > 0 &&
+      {tags && tags.length > 0 &&
         <div className="details__inline">
           <span className="details__tag-heading">Tagged:</span>
           <Tags tags={tags} />
