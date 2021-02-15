@@ -9,7 +9,7 @@ export async function findBySlug (slug) {
 }
 
 export async function findByIds (ids) {
-  return await (await Tag()).find({ _id: { $in: ids }});
+  return await (await Tag()).find({ _id: { $in: ids }}).sort({ name: 'asc' });
 }
 
 export async function create (req) {
