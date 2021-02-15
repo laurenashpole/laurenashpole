@@ -9,7 +9,7 @@ import Input from '../../components/shared/Input';
 import Button from '../../components/shared/Button';
 import styles from './list.styles.js';
 
-const List = ({ heading, fonts, tags }) => {
+const List = ({ heading, fonts, tags, description }) => {
   const [filter, setFilter] = useState('');
   const [filteredFonts, setFilteredFonts] = useState(fonts || []);
   const [view, setView] = useState('grid');
@@ -62,11 +62,13 @@ const List = ({ heading, fonts, tags }) => {
         <>
           <h1 className="list__heading">{heading}</h1>
 
-          {Object.keys(tags).length > 0 &&
+          {tags.length > 0 &&
             <div className="list__tags">
               <Tags tags={tags} source="font list" />
             </div>
           }
+
+          {description && <p className="list__desc">{description}</p>}
         </>
 
         <div className="list__settings">
@@ -133,7 +135,8 @@ const List = ({ heading, fonts, tags }) => {
 List.propTypes = {
   heading: PropTypes.string,
   fonts: PropTypes.array,
-  tags: PropTypes.object
+  tags: PropTypes.array,
+  description: PropTypes.string
 };
 
 export default List;

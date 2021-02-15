@@ -5,11 +5,11 @@ import styles from './tags.styles.js';
 const Tags = ({ tags, source }) => {
   return (
     <ul className="tags">
-      {Object.keys(tags).map((tag) => {
+      {tags.map((tag) => {
         return (
-          <li key={tag}>
-            <Link href={`/fonts/tagged/${tag}`}>
-              <a className="tags__tag" data-ga-click={!!source} data-ga-category={source}>{tags[tag]}</a>
+          <li key={tag._id}>
+            <Link href={`/fonts/tagged/${tag.slug}`}>
+              <a className="tags__tag" data-ga-click={!!source} data-ga-category={source}>{tag.name}</a>
             </Link>
           </li>
         );
@@ -23,7 +23,7 @@ const Tags = ({ tags, source }) => {
 };
 
 Tags.propTypes = {
-  tags: PropTypes.object,
+  tags: PropTypes.array,
   source: PropTypes.string
 };
 

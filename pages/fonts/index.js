@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { findAll } from '../../utils/fonts';
-import { getTags } from '../../utils/tags';
+import { findAll as findAllTags } from '../../utils/tags';
 import Layout from '../../components/layout/Layout';
 import List from '../../components/fonts/List';
 
@@ -14,19 +14,19 @@ const Fonts = ({ fonts, tags }) => {
 
 export async function getStaticProps () {
   const fonts = await findAll();
-  const fontsJSON = JSON.parse(JSON.stringify(fonts));
+  const tags = await findAllTags();
 
   return {
     props: {
-      fonts: fontsJSON,
-      tags: getTags(fontsJSON)
+      fonts: JSON.parse(JSON.stringify(fonts)),
+      tags: JSON.parse(JSON.stringify(tags))
     }
   };
 }
 
 Fonts.propTypes = {
   fonts: PropTypes.array,
-  tags: PropTypes.object
+  tags: PropTypes.array
 };
 
 export default Fonts;

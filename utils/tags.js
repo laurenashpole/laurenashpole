@@ -8,6 +8,10 @@ export async function findBySlug (slug) {
   return await (await Tag()).findOne({ slug });
 }
 
+export async function findByIds (ids) {
+  return await (await Tag()).find({ _id: { $in: ids }}).sort({ name: 'asc' });
+}
+
 export async function create (req) {
   const slug = req.body.name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
   const tag = await new (await Tag())({ ...req.body, slug });
@@ -25,13 +29,16 @@ export async function remove (req) {
   return await tag.remove();
 }
 
-export function getTags (fonts) {
-  return fonts.reduce((obj, font) => {
-    font.tags.forEach((tag) => {
-      const name = (tag[0].toUpperCase() + tag.substring(1)).replace('-', ' ');
-      obj[tag] = name;
-    });
+export async function addTaggedFont (id, fontId) {
+  const tag = await (await Tag()).findById(id);
+  const tagJSON = JSON.parse(JSON.stringify(tag));
+  const fonts = [...tagJSON.fonts, fontId];
+  return await tag.updateOne({ ...tagJSON, fonts });
+}
 
-    return obj;
-  }, {});
+export async function removeTaggedFont (id, fontId) {
+  const tag = await (await Tag()).findById(id);
+  const tagJSON = JSON.parse(JSON.stringify(tag));
+  const fonts = tagJSON.fonts.filter((id) => id !== fontId);
+  return await tag.updateOne({ ...tagJSON, fonts });
 }

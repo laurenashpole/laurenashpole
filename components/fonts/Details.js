@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { getTags } from '../../utils/tags';
 import Tags from '../../components/shared/Tags';
 import styles from './details.styles.js';
 
-const Details = ({ font }) => {
+const Details = ({ font, tags }) => {
   const {
     date_created,
     date_modified,
@@ -12,8 +11,7 @@ const Details = ({ font }) => {
     commercial_font_file,
     commercial_file,
     personal_font_file,
-    personal_file,
-    tags
+    personal_file
   } = font;
 
   return(
@@ -70,7 +68,7 @@ const Details = ({ font }) => {
       {tags.length > 0 &&
         <div className="details__inline">
           <span className="details__tag-heading">Tagged:</span>
-          <Tags tags={getTags([font])} />
+          <Tags tags={tags} />
         </div>
       }
 
@@ -82,7 +80,8 @@ const Details = ({ font }) => {
 };
 
 Details.propTypes = {
-  font: PropTypes.object
+  font: PropTypes.object,
+  tags: PropTypes.array
 };
 
 export default Details;
