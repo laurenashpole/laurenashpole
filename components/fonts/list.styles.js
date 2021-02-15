@@ -22,6 +22,13 @@ export default css.global`
     margin-top: 3rem;
   }
 
+  .list__desc {
+    max-width: 72rem;
+    margin: 3rem auto 1.75rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
   .list__settings {
     display: flex;
 
