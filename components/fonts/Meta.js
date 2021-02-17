@@ -36,13 +36,11 @@ const Meta = ({ font, isAmp }) => {
       <meta property="og:price:currency" content="USD" />
       <meta property="og:availability" content="instock" />
       <meta property="og:image" content={`${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[0]}`} />
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getStructuredData(font) }} />
 
-      {isAmp ? (
-        <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}fonts/${font.slug}`} />
-      ) : (
-        <link rel="amphtml" href={`${process.env.NEXT_PUBLIC_BASE_URL}amp/fonts/${font.slug}`} />
-      )}
+      <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}fonts/${font.slug}`} />
+      {!isAmp & <link rel="amphtml" href={`${process.env.NEXT_PUBLIC_BASE_URL}amp/fonts/${font.slug}`} />}
 
       {!isAmp && <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />}
     </Head>

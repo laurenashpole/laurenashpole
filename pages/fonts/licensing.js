@@ -4,7 +4,7 @@ import Well from '../../components/shared/Well';
 
 const Licensing = () => {
   return(
-    <Layout title="Licensing - Fonts">
+    <Layout title="Licensing - Fonts" canonicalPathname="fonts/licensing">
       <Well>
         <h1>Licensing</h1>
 

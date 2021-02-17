@@ -3,7 +3,7 @@ import Well from '../../components/shared/Well';
 
 const EULA = () => {
   return(
-    <Layout title="End-User Licensing Agreement - Fonts">
+    <Layout title="End-User Licensing Agreement - Fonts" canonicalPathname="fonts/eula">
       <Well>
         <h1>End-User Licensing Agreement</h1>
 

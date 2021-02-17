@@ -13,7 +13,6 @@ const Font = ({ font, tags }) => {
       <HeroImage src={`/uploads/images/${font.image}`} alt={`${font.name} Sample`} />
       <Content font={font} tags={tags} />
       <div id="modalRoot" />
-      <script src="//assets.pinterest.com/js/pinit.js" async defer data-pin-build="pinterestBuild" data-pin-round="true" data-pin-tall="true" />
     </Layout>
   );
 };

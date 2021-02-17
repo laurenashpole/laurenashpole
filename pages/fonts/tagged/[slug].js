@@ -6,7 +6,7 @@ import List from '../../../components/fonts/List';
 
 const Tag = ({ tag, fonts }) => {
   return (
-    <Layout title={`${tag.name} Fonts - Fonts`} description={tag.description || `Browse my collection of original ${tag.name} fonts.`}>
+    <Layout title={`${tag.name} Fonts - Fonts`} description={tag.description || `Browse my collection of original ${tag.name} fonts.`} canonicalPathname={`fonts/tagged/${tag.slug}`}>
       <List heading={`${tag.name} Fonts`} fonts={fonts} tags={[]} description={tag.description} />
     </Layout>
   );

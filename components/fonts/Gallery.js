@@ -7,18 +7,12 @@ import styles from './gallery.styles.js';
 const Gallery = ({ font }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    if (window.pinterestBuild) {
-      window.pinterestBuild();
-    }
-  }, []);
-
   return(
     <section className="gallery">
       <h3>Gallery</h3>
 
       <div className="gallery__main">
-        <span className="gallery__pin"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-media={`${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[activeIndex]}`}></a></span>
+        <span className="gallery__pin"><a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/" /></span>
         <Image key={`image${activeIndex}`} src={`/uploads/images/${font.image_collection[activeIndex]}`} alt={`${font.name} Poster Image`} width={1500} height={1000} />
       </div>
 
