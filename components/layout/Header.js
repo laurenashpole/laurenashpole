@@ -6,7 +6,7 @@ const Header = ({ navLinks, enableAnalytics }) => {
   return (
     <header className="header">
       <div className="header__content">
-        <HeaderLink href="/" isExact={true}>
+        <HeaderLink href="/" isExact={true} activeClassName="">
           <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
             <span>Fonts by Lauren Ashpole</span>
           </a>
