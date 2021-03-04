@@ -20,6 +20,16 @@ h3 {
   letter-spacing: 0.035em;
 }
 
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  overflow: hidden !important;
+}
+
 .well {
   max-width: none;
 
@@ -516,7 +526,7 @@ a.post__detail-link--type {
   width: 100%;
   height: 42.5rem;
   margin-bottom: 3rem;
-  padding: 1.5rem;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
   word-wrap: break-word;
@@ -528,6 +538,10 @@ a.post__detail-link--type {
   h5 {
     margin: 0 0 2.25rem 0;
     font-size: 2rem;
+  }
+
+  blockquote {
+    padding: 1.5rem;
   }
 
   .post__caption {
@@ -566,7 +580,7 @@ a.related__permalink {
 }
 
 @media (min-width: $break-tablet) {
-  .related
+  .related {
     h4 {
       margin: 0 0 3rem 0;
       font-size: 3rem;

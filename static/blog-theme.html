@@ -82,6 +82,16 @@
       letter-spacing: 0.035em;
     }
 
+    .sr-only {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+      -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+      overflow: hidden !important;
+    }
+
     .well + .well {
       margin-top: 0;
     }
@@ -102,9 +112,17 @@
       letter-spacing: 0.075em;
     }
 
+    .related__post {
+      padding: 2rem;
+    }
+
     .related__post h2 {
       margin: 0 0 2.25rem 0;
       font-size: 2rem;
+    }
+
+    .related__post blockquote {
+      padding: 1.5rem;
     }
 
     .feedback__heading {
@@ -151,7 +169,7 @@
   <div class="layout">
     <header class="header">
       <div class="header__content">
-        <a class="header__logo" data-ga-category="nav" data-ga-click="true" href="/"><span>Fonts by Lauren Ashpole</span></a>
+        <a class="header__logo" data-ga-category="nav" data-ga-click="true" href="https://www.laurenashpole.com"><span>Fonts by Lauren Ashpole</span></a>
 
         <nav>
           <ul class="header__list">
@@ -422,7 +440,7 @@
 
               {block:IfDisqusShortname}
                 <li class="post__detail post__detail--count">
-                  <a class="dsq-comment-count disqus-comment-count" data-disqus-url="{Permalink}" href="{Permalink}#disqus_thread" data-ga-category="blog details" data-ga-click="true">Comments</a>
+                  <a class="dsq-comment-count disqus-comment-count" data-disqus-url="{Permalink}" href="{Permalink}#disqus_thread" data-ga-category="blog details" data-ga-click="true">Comments<span class="sr-only"> For{PostSummary}</span></a>
                 </li>
               {block:IfDisqusShortname}
             </ul>
@@ -430,7 +448,7 @@
             <ul class="well__section post__actions">
               {block:IndexPage}
                 <li class="post__action post__action--permalink">
-                  <a class="post__action-link" href="{Permalink}" data-ga-category="blog" data-ga-click="true">Permalink</a>
+                  <a class="post__action-link" href="{Permalink}" data-ga-category="blog" data-ga-click="true">{block:PostSummary}<span class="sr-only">{PostSummary} </span>{/block:PostSummary}Permalink</a>
                 </li>
               {/block:IndexPage}
 
@@ -528,8 +546,10 @@
                 {block:Posts}
                   <div class="related__post well">
                     {block:Text}
-                      {block:Title}<h5>{Title}</h5>{/block:Title}
-                      {Body}
+                      <div class="post__text">
+                        {block:Title}<h5>{Title}</h5>{/block:Title}
+                        {Body}
+                      </div>
                     {/block:Text}
 
                     {block:Photo}
@@ -565,7 +585,7 @@
                     {/block:Photoset}
 
                     {block:Quote}
-                      <h4>“{Quote}”</h4>
+                      <h5>“{Quote}”</h5>
 
                       {block:Source}
                         <div class="post__caption">{Source}</div>
@@ -573,7 +593,7 @@
                     {/block:Quote}
 
                     {block:Link}
-                      <h4>{Name}</h4>
+                      <h5>{Name}</h5>
 
                       {block:Excerpt}
                         <blockquote>{Excerpt}</blockquote>
@@ -585,9 +605,9 @@
                     {/block:Link}
 
                     {block:Chat}
-                      {block:Title}<h4>{Title}</h4>{/block:Title}
+                      {block:Title}<h5>{Title}</h5>{/block:Title}
 
-                      <ul class="list--unstyled">
+                      <ul>
                         {block:Lines}
                           <li>
                             {block:Label}
@@ -622,17 +642,17 @@
                     {/block:Audio}
 
                     {block:Answer}
-                      <h4>{Question}</h4>
+                      <h5>{Question}</h5>
                       <div class="post-answer">{Answer}</div>
                     {/block:Answer}
 
-                    <a href="{Permalink}" class="related__permalink post__action-link text--uppercase">
-                      Read More
+                    <a href="{Permalink}" class="related__permalink post__action-link" data-ga-category="blog recirc" data-ga-click="true">
+                      Read More{block:PostSummary}<span class="sr-only"> About {PostSummary}</span>{/block:PostSummary}
                     </a>
                   </div>
                 {/block:Posts}
               </div>
-            <!-- </section> -->
+            </section>
           {/block:RelatedPosts}
         </div>
       </section>
@@ -712,5 +732,6 @@
   {/block:IfDisqusShortname}
 
   <script src="https://static.tumblr.com/w45vvio/uwyqpa4l7/blog.js"></script>
+  <script async defer data-pin-hover="true" data-pin-tall="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
