@@ -75,82 +75,39 @@
 
   <link rel="stylesheet" href="//use.typekit.net/iaj4zaw.css" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://static.tumblr.com/w45vvio/Rfjqpa5c1/blog.css" />
+  <link rel="stylesheet" href="https://static.tumblr.com/w45vvio/Wx9qpouuq/blog.css" />
 
   <style>
-    h3 {
-      letter-spacing: 0.035em;
-    }
-
-    .sr-only {
-      position: absolute;
-      height: 1px;
-      width: 1px;
-      clip: rect(1px, 1px, 1px, 1px);
-      clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
-      overflow: hidden !important;
-    }
-
-    .well + .well {
-      margin-top: 0;
-    }
-
-    .post__text img {
-      margin-bottom: 2.5rem;
-    }
-
-    .disqus {
-      border-top: 0;
-      padding: 3rem 0;
-    }
-
-    .related h4 {
-      margin: 0 0 2.5rem 0;
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.075em;
-    }
-
-    .related__post {
-      padding: 2rem;
-    }
-
-    .related__post h2 {
-      margin: 0 0 2.25rem 0;
-      font-size: 2rem;
-    }
-
-    .related__post blockquote {
-      padding: 1.5rem;
-    }
-
-    .feedback__heading {
-      letter-spacing: 0.075em;
-    }
-
     @media (min-width: 768px) {
-      .post__text img {
-        margin-bottom: 3rem;
+      .search__input input.input__input {
+        height: 6.5rem;
       }
 
-      .related h4 {
-        margin: 0 0 3rem 0;
-        font-size: 3rem;
+      .search__button {
+        height: 6.5rem;
       }
 
-      .related__post {
-        margin: 0 0 3rem 0;
+      .well__section.post__content {
+        padding-bottom: 6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      .notes .note {
-        padding: 2.25rem 0;
+      .post__photo {
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        text-align: center;
       }
     }
 
     @media (min-width: 1024px) {
-      .post__text img {
-        margin-bottom: 4rem;
+      .search__input input.input__input {
+        height: 7rem;
+      }
+
+      .search__button {
+        height: 7rem;
       }
     }
   </style>
@@ -262,7 +219,7 @@
             {/block:IfDisqusShortname}
           </ul>
 
-          <div class="well content post__well">
+          <div class="well well--medium content post__well">
             <div class="well__section post__content">
               {block:Date}
                 <div class="post__detail post__detail--date-mobile">

@@ -106,6 +106,7 @@ h3 {
 
 .search__input input {
   background: #fff;
+  height: 6rem;
   border-radius: 3px 0 0 3px;
 }
 
@@ -115,6 +116,7 @@ h3 {
 
 .search__button {
   width: 33.333%;
+  height: 6rem;
   border-radius: 0 3px 3px 0;
   font-size: 1.75rem;
 }
@@ -122,6 +124,24 @@ h3 {
 @media (min-width: $break-tablet) {
   .search {
     margin-top: 1.5rem;
+  }
+
+  .search__input input.input__input {
+    height: 6.5rem;
+  }
+
+  .search__button {
+    height: 6.5rem;
+  }
+}
+
+@media (min-width: $break-desktop) {
+  .search__input input.input__input {
+    height: 7rem;
+  }
+
+  .search__button {
+    height: 7rem;
   }
 }
 
@@ -207,7 +227,7 @@ a.post__detail-link--type {
   color: $color-purple;
 }
 
-.post__content {
+.well__section.post__content {
   padding-bottom: 3rem;
   display: block;
   overflow: hidden;
@@ -218,7 +238,7 @@ a.post__detail-link--type {
   }
 }
 
-.post__actions {
+.well .post__actions:last-child {
   padding: 0;
   display: flex;
   justify-content: flex-end;
@@ -382,8 +402,8 @@ a.post__detail-link--type {
     width: 75%;
   }
 
-  .post__content {
-    padding-bottom: 5rem;
+  .well__section.post__content {
+    padding-bottom: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -402,6 +422,12 @@ a.post__detail-link--type {
       margin-bottom: 3rem;
     }
   }
+
+  .post__photo {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    text-align: center;
+  }
 }
 
 @media (min-width: $break-desktop) {
@@ -417,10 +443,6 @@ a.post__detail-link--type {
 }
 
 @media (min-width: $break-desktop-large) {
-  .post__content {
-    padding-bottom: 7rem;
-  }
-
   a.post__action-link {
     padding: 0 6rem;
   }
