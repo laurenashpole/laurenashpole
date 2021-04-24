@@ -16,6 +16,10 @@ figure {
   margin-right: 0;
 }
 
+img {
+  margin: 0 auto;
+}
+
 h3 {
   letter-spacing: 0.035em;
 }
@@ -132,16 +136,6 @@ h3 {
 
   .search__button {
     height: 6.5rem;
-  }
-}
-
-@media (min-width: $break-desktop) {
-  .search__input input.input__input {
-    height: 7rem;
-  }
-
-  .search__button {
-    height: 7rem;
   }
 }
 
