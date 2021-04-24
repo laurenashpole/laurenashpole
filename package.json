@@ -9,7 +9,8 @@
     "forever-stop": "NODE_ENV=production forever stopall",
     "deploy": "yarn build && yarn forever-stop && yarn forever-start",
     "lint": "eslint .",
-    "sitemap": "node tasks/sitemap.js"
+    "sitemap": "node tasks/sitemap.js",
+    "blogCss": "node tasks/blogCss.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",

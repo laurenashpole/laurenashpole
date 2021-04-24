@@ -57,6 +57,10 @@ ol {
   list-style: none;
 }
 
+p {
+  margin: 0;
+}
+
 p:not(:last-child) {
   margin: 0 0 2.5rem 0;
 }

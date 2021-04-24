@@ -19,6 +19,7 @@
 .DS_Store
 /certs
 /public/uploads
+/static/blog.css
 
 # debug
 npm-debug.log*
