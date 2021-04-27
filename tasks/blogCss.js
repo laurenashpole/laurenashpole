@@ -39,6 +39,6 @@ const generateCss = () => {
   });
 
   fs.writeFileSync(path.join(__dirname, '../static/blog.css'), result.css);
-}
+};
 
 generateCss();

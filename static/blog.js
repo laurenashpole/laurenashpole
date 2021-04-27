@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var submit = function submit (e) {
   var email = document.getElementById('jsMailingEmail').value;
@@ -18,14 +18,14 @@ var submit = function submit (e) {
     })
   }, function (response) {
     if (response.ok) {
-      return responseJSON;
+      return response.json();
     }
 
     throw new Error(response.statusText);
   }).then(function () {
     e.target.innerHTML = 'Success!';
   }).catch(function (err) {
-    e.target.innerHTML = response.err;
+    e.target.innerHTML = err;
   });
 };
 
