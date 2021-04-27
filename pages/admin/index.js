@@ -9,7 +9,7 @@ const Home = ({ isAuthenticated }) => {
     <Admin isAuthenticated={isAuthenticated}>
       <Well>
         <h1>Admin</h1>
-        <List items={['font', 'tag']} />
+        <List items={['font', 'tag', 'upload']} />
       </Well>
     </Admin>
   );

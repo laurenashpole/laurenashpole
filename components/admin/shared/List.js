@@ -21,16 +21,24 @@ const List = ({ name, items }) => {
           {items.map((item) => {
             return (
               <li key={item._id} className="list__item">
-                {item.name}
+                {item.url ? (
+                  <Link href={item.url}>
+                    {item.name}
+                  </Link>
+                ) : item.name}
 
                 <div className="list__btns">
-                  <Link href={`/${name}s/${item.slug}`}>
-                    <Button type="secondary" attributes={{ type: 'button' }}>Preview</Button>
-                  </Link>
+                  {item.slug &&
+                    <Link href={`/${name}s/${item.slug}`}>
+                      <Button type="secondary" attributes={{ type: 'button' }}>Preview</Button>
+                    </Link>
+                  }
 
-                  <Link href={`/admin/${name}s/${item.slug}`}>
-                    <Button type="secondary" attributes={{ type: 'button' }}>Edit</Button>
-                  </Link>
+                  {item.slug &&
+                    <Link href={`/admin/${name}s/${item.slug}`}>
+                      <Button type="secondary" attributes={{ type: 'button' }}>Edit</Button>
+                    </Link>
+                  }
 
                   <Delete id={item._id} name={name} />
                 </div>

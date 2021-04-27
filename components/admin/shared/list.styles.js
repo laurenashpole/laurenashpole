@@ -32,6 +32,7 @@ export default css.global`
 
     button {
       height: 5rem;
+      flex-basis: calc(33.333% - 0.5rem);
     }
 
     * + * {
