@@ -11,7 +11,7 @@ export default async () => {
     },
     slug: String,
     description: String,
-    tags: [],
+    tags: [String],
     date_created: String,
     date_modified: String,
     price: Number,

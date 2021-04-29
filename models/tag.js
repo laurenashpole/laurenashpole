@@ -10,7 +10,7 @@ export default async () => {
     },
     slug: String,
     description: String,
-    fonts: []
+    fonts: [String]
   });
 
   try {

@@ -22,7 +22,6 @@ const List = ({ heading, fonts, tags, description }) => {
     }
 
     eeImpressions(fonts);
-    initOptimize();
   }, []);
 
   useEffect(() => {
@@ -37,23 +36,6 @@ const List = ({ heading, fonts, tags, description }) => {
   const handleView = (option) => {
     window.sessionStorage.setItem('fontListView', option);
     setView(option);
-  };
-
-  const initOptimize = () => {
-    function gtag () {
-      window.dataLayer.push(arguments);
-    }
-
-    gtag('event', 'optimize.callback', {
-      name: 't0n42pzjSWGwyImExc-qgA',
-      callback: (value) => {
-        if (window.sessionStorage.getItem('fontListView')) {
-          return;
-        }
-
-        handleView(value === '0' ? 'grid' : 'list');
-      }
-    });
   };
 
   return (
