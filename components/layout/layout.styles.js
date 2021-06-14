@@ -22,12 +22,12 @@ export default css.global`
 
     &:after {
       content: " ";
-      background-image: url(abstract-bg($color-green-encoded, $color-blue-encoded, $color-orange-encoded, $color-pink-encoded));
+      background-image: url(abstract-bg($color-blue-encoded, $color-pink-encoded, $color-green-encoded, $color-orange-encoded));
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100% auto;
       background-position: center 7.5rem;
-      width: 150%;
+      width: 175%;
       max-width: 80rem;
       height: 100%;
       position: fixed;
@@ -55,6 +55,7 @@ export default css.global`
       overflow: unset;
 
       &:after {
+        background-position: center 6rem;
         width: calc(100% - 2rem);
         max-width: none;
       }
