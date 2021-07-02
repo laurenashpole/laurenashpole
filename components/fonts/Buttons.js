@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { request } from '../../utils/request';
 import { eeEvent } from '../../utils/tracking';
 import Button from '../shared/Button';
+import Loader from '../shared/Loader';
 import Modal from '../shared/Modal';
 import Mailing from '../shared/Mailing';
 import styles from './buttons.styles.js';
@@ -56,7 +57,9 @@ const Buttons = ({ font }) => {
       </Button>
 
       <Button type="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
-        Purchase <span>${font.price} Commercial Use</span>
+        {isProcessing ? <Loader /> : (
+          <>Purchase <span>${font.price} Commercial Use</span></>
+        )}
       </Button>
 
       <Modal name="mailingList" isActive={showModal} onClose={handleModalClose}>

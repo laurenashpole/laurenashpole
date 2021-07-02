@@ -3,6 +3,7 @@ import { request } from '../../../utils/request';
 import Well from '../../../components/shared/Well';
 import Input from '../../../components/shared/Input';
 import Button from '../../../components/shared/Button';
+import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 
 const Login = () => {
@@ -61,7 +62,7 @@ const Login = () => {
           {errors.general && <Errors errors={[errors.general]} />}
           <Input label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`} hasError={!!errors.username} inputProps={{ type: 'email', value: username, onChange: (e) => handleChange(e.target.value, setUsername) }} />
           <Input label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`}  hasError={!!errors.password} inputProps={{ type: 'password', value: password, onChange: (e) => handleChange(e.target.value, setPassword) }} />
-          <Button type="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+          <Button type="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
         </form>
       </Well>
     </div>

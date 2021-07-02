@@ -2,7 +2,6 @@ import css from 'styled-jsx/css';
 
 export default css.global`
   @import 'keyframes.scss';
-  @import 'svgs.scss';
   @import 'variables.scss';
 
   .btn {
@@ -31,6 +30,10 @@ export default css.global`
       animation: scale 0.2s;
     }
 
+    &[disabled] {
+      pointer-events: none;
+    }
+
     * {
       pointer-events: none;
     }
@@ -44,25 +47,6 @@ export default css.global`
   .btn--primary:hover,
   .btn--primary:focus {
     background: $color-red-hover;
-  }
-
-  .btn--primary[disabled] {
-    font-size: 0;
-
-    &:before {
-      content: " ";
-      background-image:
-        url(abstract-dot($color-orange-encoded)),
-        url(abstract-dot($color-orange-encoded)),
-        url(abstract-dot($color-orange-encoded));
-      background-size: 2rem auto;
-      background-repeat: no-repeat;
-      background-position: left center, 50% 50%, right center;
-      width: 10rem;
-      height: 2rem;
-      animation: bgScale 1.5s infinite;
-      pointer-events: none;
-    }
   }
 
   .btn--outline {
@@ -88,16 +72,8 @@ export default css.global`
     background: $color-purple-hover;
   }
 
-  .btn--secondary[disabled] {
-    pointer-events: none;
-  }
-
   .btn--warning {
     background: $color-gray-darkest;
-  }
-
-  .btn--warning[disabled] {
-    pointer-events: none;
   }
 
   .btn--link {
@@ -114,10 +90,6 @@ export default css.global`
       text-decoration: underline;
       animation: none;
     }
-  }
-
-  .btn--link[disabled] {
-    pointer-events: none;
   }
 
   @media (min-width: $break-tablet) {

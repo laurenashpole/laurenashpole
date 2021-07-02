@@ -5,6 +5,7 @@ import { request } from '../../../utils/request';
 import Input from '../../../components/shared/Input';
 import Textarea from '../../../components/shared/Textarea';
 import Button from '../../../components/shared/Button';
+import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 
 const Form = ({ tag, endpoint }) => {
@@ -41,7 +42,7 @@ const Form = ({ tag, endpoint }) => {
       {tag._id && <input type="hidden" name="_id" value={tag._id} />}
       <Input label="Name" inputProps={{ type: 'text', value: name, onChange: (e) => setName(e.target.value) }} />
       <Textarea label="Description" textareaProps={{ rows: '5', placeholder: 'Description', value: description, onChange: (e) => setDescription(e.target.value) }} />
-      <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+      <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
     </form>
   );
 };

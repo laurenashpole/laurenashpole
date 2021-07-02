@@ -8,6 +8,7 @@ import Textarea from '../../../components/shared/Textarea';
 import Select from '../../../components/shared/Select';
 import Checkbox from '../../../components/shared/Checkbox';
 import Button from '../../../components/shared/Button';
+import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 import styles from './form.styles.js';
 
@@ -81,7 +82,9 @@ const Form = ({ font, tags, endpoint }) => {
         })}
       </div>
 
-      <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+      <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>
+        {isProcessing ? <Loader /> : 'Submit'}
+      </Button>
 
       <style jsx global>
         {styles}
