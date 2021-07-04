@@ -1,18 +1,22 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/Button.module.js';
+import styles from '../styles/Button.styles.js';
 
-const Button = forwardRef(({ children, type, attributes }, ref) => {
+const Button = forwardRef(({ children, style, attributes }, ref) => {
   return (
-    <button className={[styles.btn, styles[type]]} ref={ref} {...attributes}>
+    <button className={`btn btn--${style}`} ref={ref} {...attributes}>
       {children}
+
+      <style jsx global>
+        {styles}
+      </style>
     </button>
   );
 });
 
 Button.propTypes = {
   children: PropTypes.any,
-  type: PropTypes.string,
+  style: PropTypes.string,
   attributes: PropTypes.object
 };
 
