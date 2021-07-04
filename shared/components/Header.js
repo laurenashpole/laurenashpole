@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
 import ActiveLink from './Activelink';
-import styles from '../styles/Header.module.scss';
+import styles from '../styles/Header.styles.js';
 
 const Header = ({ links, enableAnalytics }) => {
  const { ref, inView } = useInView();
@@ -9,21 +9,21 @@ const Header = ({ links, enableAnalytics }) => {
   return (
     <>
       <span ref={ref} />
-      <header className={styles.container}>
-        <div className={`${styles.content} ${inView ? '' : styles.contentBg}`}>
+      <header className="header">
+        <div className={`header__content ${inView ? '' : 'header__content--bg'}`}>
           <ActiveLink href="/" isExact={true}>
-            <a className={styles.logo} data-ga-click={enableAnalytics} data-ga-category="nav">
+            <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
               <span>Fonts by Lauren Ashpole</span>
             </a>
           </ActiveLink>
 
           <nav>
-            <ul className={styles.list}>
+            <ul className="header__list">
               {links.map((link, i) => {
-                const anchor = <a href={link.url} className={styles.link} data-ga-click={enableAnalytics} data-ga-category="nav">{link.label}</a>;
+                const anchor = <a href={link.url} className="header__link" data-ga-click={enableAnalytics} data-ga-category="nav">{link.label}</a>;
 
                 return (
-                  <li key={i} className={styles.item}>
+                  <li key={i} className="header__item">
                     {link.isExternal ? anchor : (
                       <ActiveLink href={link.url} isExact={link.isExact}>
                         {anchor}
@@ -36,6 +36,10 @@ const Header = ({ links, enableAnalytics }) => {
           </nav>
         </div>
       </header>
+
+      <style jsx global>
+        {styles}
+      </style>
     </>
   );
 };
