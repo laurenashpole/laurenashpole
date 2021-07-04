@@ -1,0 +1,38 @@
+/* Fonts */
+$font-family-default: 'museo-sans-rounded', sans-serif;
+$font-family-headings: 'museo-sans-rounded', sans-serif;
+$font-size-root: 8;
+
+/* Breakpoints */
+$break-mobile: 540px;
+$break-tablet: 768px;
+$break-desktop: 1024px;
+$break-desktop-large: 1400px;
+$break-desktop-x-large: 1600px;
+
+/* Widths */
+$width-desktop: 128rem;
+$width-desktop-wide: 142rem;
+
+/* Colors */
+$color-black: #363636;
+$color-white: #fff;
+$color-white-encoded: '%23ffffff';
+
+$color-gray-darkest: #a7a7a7;
+$color-gray-dark: #cdcdcd;
+$color-gray-light: #e7e7e7;
+$color-gray-lightest: #f4f4f4;
+
+$color-red: #d63037;
+$color-red-hover: #c02b31;
+$color-red-encoded: '%23d63037';
+
+$color-purple: #685f77;
+$color-purple-hover: #4a4355;
+$color-purple-encoded: '%23685f77';
+
+$color-green-encoded: '%23d8e8dd';
+$color-pink-encoded: '%23fbecec';
+$color-blue-encoded: '%23d8ecee';
+$color-orange-encoded: '%23efa48e';
