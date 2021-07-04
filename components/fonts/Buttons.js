@@ -2,10 +2,10 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { request } from '../../utils/request';
 import { eeEvent } from '../../utils/tracking';
+import Mailing from '../../shared/components/Mailing';
 import Button from '../shared/Button';
 import Loader from '../shared/Loader';
 import Modal from '../shared/Modal';
-import Mailing from '../shared/Mailing';
 import styles from './buttons.styles.js';
 
 const Buttons = ({ font }) => {

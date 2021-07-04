@@ -4,11 +4,13 @@ export default css.global`
   @import 'variables.scss';
 
   .buttons {
-    .btn {
+    a,
+    button {
       flex-direction: column;
     }
 
-    .btn span {
+    a span,
+    button span {
       margin-top: 0.25rem;
       font-size: 1.35rem;
       line-height: normal;
@@ -18,7 +20,7 @@ export default css.global`
       font-size: 0;
     }
 
-    .btn + .btn {
+    a + button {
       margin-top: 1rem;
     }
   }
@@ -28,15 +30,17 @@ export default css.global`
       display: flex;
       justify-content: center;
 
-      .btn {
+      a,
+      button {
         max-width: 50%;
       }
 
-      .btn span {
+      a span,
+      button span {
         margin-top: 0.5rem;
       }
 
-      .btn + .btn {
+      a + button {
         margin: 0 0 0 1.5rem;
       }
     }
