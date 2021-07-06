@@ -17,7 +17,7 @@ export default css.global`
       }
     }
 
-    .button {
+    .mailing__btn {
       width: 33.333%;
       padding: 0 0 0 1rem;
       font-size: 1.5rem;
