@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { request } from '../../utils/request';
+import { request } from '../utils/request';
 import Input from './Input';
 import Button from './Button';
 import styles from '../styles/Mailing.styles.js';

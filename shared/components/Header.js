@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import ActiveLink from './Activelink';
 import styles from '../styles/Header.styles.js';
 
-const Header = ({ links, enableAnalytics }) => {
+const Header = ({ home, links, enableAnalytics }) => {
  const { ref, inView } = useInView();
 
   return (
@@ -11,22 +11,28 @@ const Header = ({ links, enableAnalytics }) => {
       <span ref={ref} />
       <header className="header">
         <div className={`header__content ${inView ? '' : 'header__content--bg'}`}>
-          <ActiveLink href="/" isExact={true}>
-            <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
-              <span>Fonts by Lauren Ashpole</span>
+          {home.external ? (
+            <a className="header__logo" href={`https://${home.external.host}${home.path}`} data-ga-click={enableAnalytics} data-ga-category="nav">
+              <span>{home.label}</span>
             </a>
-          </ActiveLink>
+          ) : (
+            <ActiveLink href={home.path} isExact={true}>
+              <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
+                <span>{home.label}</span>
+              </a>
+            </ActiveLink>
+          )}
 
           <nav>
             <ul className="header__list">
               {links.map((link, i) => {
-                const anchor = <a href={link.url} className="header__link" data-ga-click={enableAnalytics} data-ga-category="nav">{link.label}</a>;
-
                 return (
                   <li key={i} className="header__item">
-                    {link.isExternal ? anchor : (
-                      <ActiveLink href={link.url} isExact={link.isExact}>
-                        {anchor}
+                    {link.external ? (
+                      <a className="header__link" href={`https://${link.external.host}${link.path}`} data-ga-click={enableAnalytics} data-ga-category="nav" aria-current={link.external.isActive ? 'page' : null}>{link.label}</a>
+                    ) : (
+                      <ActiveLink href={link.path} isExact={link.isExact}>
+                        <a className="header__link" data-ga-click={enableAnalytics} data-ga-category="nav">{link.label}</a>
                       </ActiveLink>
                     )}
                   </li>
@@ -45,6 +51,7 @@ const Header = ({ links, enableAnalytics }) => {
 };
 
 Header.propTypes = {
+  home: PropTypes.object,
   links: PropTypes.array,
   enableAnalytics: PropTypes.bool
 };

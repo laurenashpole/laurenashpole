@@ -59,7 +59,7 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
-    .footer {
+    .footer__content {
       max-width: $width-desktop;
       margin: 0 auto;
       padding: 0 3rem;
