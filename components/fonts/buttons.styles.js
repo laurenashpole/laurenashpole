@@ -20,7 +20,8 @@ export default css.global`
       font-size: 0;
     }
 
-    a + button {
+    a + button,
+    button + button {
       margin-top: 1rem;
     }
   }
@@ -40,7 +41,8 @@ export default css.global`
         margin-top: 0.5rem;
       }
 
-      a + button {
+      a + button,
+      button + button {
         margin: 0 0 0 1.5rem;
       }
     }

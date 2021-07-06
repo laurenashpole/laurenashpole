@@ -22,8 +22,8 @@ export default css.global`
 
   .loader:before,
   .loader:after {
-      content: '';
-      position: absolute;
+    content: '';
+    position: absolute;
   }
 
   .loader:before {
