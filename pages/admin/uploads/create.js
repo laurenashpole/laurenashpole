@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import withPassport from '../../../middleware/passport';
-import { request } from '../../../utils/request';
+import { request } from '../../../shared/utils/request';
 import Admin from '../../../components/admin/layout/Admin';
 import Well from '../../../components/shared/Well';
 import Input from '../../../components/shared/Input';

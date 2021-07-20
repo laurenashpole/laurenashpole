@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { request } from '../utils/request';
+import { request } from '../shared/utils/request';
 import Layout from '../components/layout/Layout';
 import Well from '../components/shared/Well';
 import Input from '../components/shared/Input';

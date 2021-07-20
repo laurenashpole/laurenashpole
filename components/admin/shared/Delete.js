@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { request } from '../../../utils/request';
+import { request } from '../../../shared/utils/request';
 import Button from '../../../components/shared/Button';
 
 const Delete = ({ id, name }) => {

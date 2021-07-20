@@ -1,8 +1,4 @@
-@keyframes scale {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.975); }
-  100% { transform: scale(1); }
-}
+@import '../shared/styles/keyframes.scss';
 
 @keyframes wave {
   0%,

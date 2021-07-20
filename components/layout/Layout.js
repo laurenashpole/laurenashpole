@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useAmp } from 'next/amp';
 import { HEADER } from '../../constants/header';
 import Header from '../../shared/components/Header';
-import Meta from './Meta';
+import Meta from '../../shared/components/Meta';
 import Footer from '../../shared/components/Footer';
 import Mailing from '../../shared/components/Mailing';
 import AmpMailing from '../amp/Mailing';

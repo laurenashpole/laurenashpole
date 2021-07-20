@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { request } from '../../utils/request';
+import { request } from '../../shared/utils/request';
 import { eeEvent } from '../../utils/tracking';
 import Mailing from '../../shared/components/Mailing';
 import Button from '../shared/Button';

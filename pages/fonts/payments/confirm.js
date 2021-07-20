@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { request } from '../../../utils/request';
+import { request } from '../../../shared/utils/request';
 import { eeEvent } from '../../../utils/tracking';
 import Layout from '../../../components/layout/Layout';
 import Well from '../../../components/shared/Well';

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { FONT_OPTIONS } from '../../../constants/fontOptions';
-import { request } from '../../../utils/request';
+import { request } from '../../../shared/utils/request';
 import Input from '../../../components/shared/Input';
 import Textarea from '../../../components/shared/Textarea';
 import Select from '../../../components/shared/Select';
