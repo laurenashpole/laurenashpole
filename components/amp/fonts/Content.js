@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Well from '../../shared/Well';
+import Well from '../../../shared/components/Well';
 import Buttons from './Buttons';
 import Details from '../../fonts/Details';
 import Gallery from './Gallery';

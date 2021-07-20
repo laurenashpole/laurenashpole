@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Well from '../../components/shared/Well';
+import Well from '../../shared/components/Well';
 import styles from './about.styles.js';
 
 const About = () => {

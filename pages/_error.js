@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import Well from '../shared/components/Well';
 import Layout from '../components/layout/Layout';
-import Well from '../components/shared/Well';
 
 const Error = ({ statusCode }) => {
   return (

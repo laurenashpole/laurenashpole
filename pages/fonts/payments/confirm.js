@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { request } from '../../../shared/utils/request';
 import { eeEvent } from '../../../utils/tracking';
+import Well from '../../../shared/components/Well';
 import Layout from '../../../components/layout/Layout';
-import Well from '../../../components/shared/Well';
 
 const Confirm = () => {
   const router = useRouter();
