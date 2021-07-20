@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { InView } from 'react-intersection-observer';
 import { eeEvent } from '../../utils/tracking';
-import Well from '../shared/Well';
-import Button from '../shared/Button';
+import Well from '../../shared/components/Well';
+import Button from '../../shared/components/Button';
 import Buttons from './Buttons';
 import Details from './Details';
 import Gallery from './Gallery';
@@ -41,7 +41,7 @@ const Content = ({ font, tags }) => {
               {['details', 'gallery', 'preview', 'glyphs'].map((link) => {
                 return(
                   <li key={link} className={`content__item ${inViewSection === link ? 'content__item--active' : ''}`}>
-                    <Button type="link" onClick={() => handleClick(link)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page' }}>{link}</Button>
+                    <Button style="link" onClick={() => handleClick(link)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page' }}>{link}</Button>
                   </li>
                 );
               })}

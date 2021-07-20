@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import Input from '../../shared/Input';
+import Button from '../../../shared/components/Button';
+import Input from '../../../shared/components/Input';
 import Select from '../../shared/Select';
-import Button from '../../shared/Button';
 import styles from '../../fonts/preview.styles.js';
 
 const Preview = ({ font }) => {
@@ -11,7 +11,7 @@ const Preview = ({ font }) => {
 
       <form className="preview__form" method="post" action-xhr="/api/amp/fonts/preview" target="_top" on={`submit-success: AMP.setState({ text: event.response.text, classNames: 'preview__preview preview__preview--' + event.response.size + ' font-${font.slug}'})`}>
         <div className="preview__input">
-          <Input label="Preview text" hideLabel={true} inputProps={{ type: 'text', name: 'text', defaultValue: 'Enter your preview text', placeholder: 'Enter your preview' }} />
+          <Input label="Preview text" hideLabel={true} attributes={{ type: 'text', name: 'text', defaultValue: 'Enter your preview text', placeholder: 'Enter your preview' }} />
         </div>
 
         <div className="preview__select">
@@ -27,7 +27,7 @@ const Preview = ({ font }) => {
         </div>
 
         <div className="preview__btn">
-          <Button type="secondary" attributes={{ type: 'submit' }}>
+          <Button style="secondary" attributes={{ type: 'submit' }}>
             Try It!
           </Button>
         </div>

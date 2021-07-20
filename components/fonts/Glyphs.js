@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FONT_GLYPHS } from '../../constants/fontGlyphs';
-import Button from '../../components/shared/Button';
+import Button from '../../shared/components/Button';
 import styles from './glyphs.styles.js';
 
 const TABS = ['Basic', 'Additional'];
@@ -38,7 +38,7 @@ const Glyphs = ({ font }) => {
           {TABS.map((tab) => {
             return(
               <li key={`${tab}Tab`} className="glyphs__link">
-                <Button type="link" onClick={() => setActiveGlyphs(tab)} ref={tab === 'Basic' ? basicRef : additionalRef} attributes={{ type: 'button', role: 'tab', id: `${tab}Tab`, tabIndex: activeGlyphs === tab ? 0 : -1, 'aria-selected': activeGlyphs === tab, 'aria-controls': `${tab}Panel`, 'data-ga-click': true, 'data-ga-category': 'font page' }}>{tab} Characters</Button>
+                <Button style="link" onClick={() => setActiveGlyphs(tab)} ref={tab === 'Basic' ? basicRef : additionalRef} attributes={{ type: 'button', role: 'tab', id: `${tab}Tab`, tabIndex: activeGlyphs === tab ? 0 : -1, 'aria-selected': activeGlyphs === tab, 'aria-controls': `${tab}Panel`, 'data-ga-click': true, 'data-ga-category': 'font page' }}>{tab} Characters</Button>
               </li>
             );
           })}

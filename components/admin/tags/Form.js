@@ -2,9 +2,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { request } from '../../../shared/utils/request';
-import Input from '../../../components/shared/Input';
+import Input from '../../../shared/components/Input';
+import Button from '../../../shared/components/Button';
 import Textarea from '../../../components/shared/Textarea';
-import Button from '../../../components/shared/Button';
 import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 
@@ -40,9 +40,9 @@ const Form = ({ tag, endpoint }) => {
     <form onSubmit={handleSubmit}>
       {error && <Errors errors={[error]} />}
       {tag._id && <input type="hidden" name="_id" value={tag._id} />}
-      <Input label="Name" inputProps={{ type: 'text', value: name, onChange: (e) => setName(e.target.value) }} />
+      <Input label="Name" attributes={{ type: 'text', value: name, onChange: (e) => setName(e.target.value) }} />
       <Textarea label="Description" textareaProps={{ rows: '5', placeholder: 'Description', value: description, onChange: (e) => setDescription(e.target.value) }} />
-      <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
+      <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
     </form>
   );
 };

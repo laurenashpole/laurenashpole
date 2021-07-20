@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { FONT_GLYPHS } from '../../../constants/fontGlyphs';
-import Button from '../../shared/Button';
+import Button from '../../../shared/components/Button';
 import styles from '../../fonts/glyphs.styles.js';
 
 const TABS = ['Basic', 'Additional'];
@@ -15,7 +15,7 @@ const Glyphs = ({ font }) => {
           {TABS.map((tab, i) => {
             return(
               <div key={`${tab}Tab`} className="glyphs__link">
-                <Button type="link" attributes={{ type: 'button', role: 'tab', id: `${tab}Tab`, 'aria-controls': `${tab}Panel`, option: i, selected: tab === 'Basic' }}>{tab} Characters</Button>
+                <Button style="link" attributes={{ type: 'button', role: 'tab', id: `${tab}Tab`, 'aria-controls': `${tab}Panel`, option: i, selected: tab === 'Basic' }}>{tab} Characters</Button>
               </div>
             );
           })}

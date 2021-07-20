@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../components/shared/Input';
+import Input from '../../shared/components/Input';
 import Select from '../../components/shared/Select';
 import styles from './preview.styles.js';
 
@@ -14,7 +14,7 @@ const Preview = ({ font }) => {
 
       <form className="preview__form">
         <div className="preview__input">
-          <Input label="Preview text" hideLabel={true} inputProps={{ type: 'text', placeholder: 'Enter your preview', value: text, onChange: (e) => setText(e.target.value) }} />
+          <Input label="Preview text" hideLabel={true} attributes={{ type: 'text', placeholder: 'Enter your preview', value: text, onChange: (e) => setText(e.target.value) }} />
         </div>
 
         <div className="preview__select">

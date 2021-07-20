@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { request } from '../shared/utils/request';
+import Well from '../shared/components/Well';
+import Input from '../shared/components/Input';
+import Button from '../shared/components/Button';
 import Layout from '../components/layout/Layout';
-import Well from '../components/shared/Well';
-import Input from '../components/shared/Input';
 import Select from '../components/shared/Select';
 import Textarea from '../components/shared/Textarea';
-import Button from '../components/shared/Button';
 import Errors from '../components/shared/Errors';
 
 const Contact = () => {
@@ -76,8 +76,8 @@ const Contact = () => {
           <form>
             {errors.general && <Errors errors={[errors.general]} />}
             <p>Email me at <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} title={process.env.NEXT_PUBLIC_EMAIL}>{process.env.NEXT_PUBLIC_EMAIL}</a> or use the form below.</p>
-            <Input label={`Email ${errors.email ? '<span>(valid email required)</span>' : ''}`} hasError={!!errors.email} inputProps={{ type: 'email', placeholder: 'Your Email', value: email, onChange: (e) => handleChange(e.target.value, setEmail) }} />
-            <Input label={`Name ${errors.name ? '<span>(name required)</span>' : ''}`} hasError={!!errors.name} inputProps={{ type: 'text', placeholder: 'Your Name', value: name, onChange: (e) => handleChange(e.target.value, setName) }} />
+            <Input label={`Email ${errors.email ? '<span>(valid email required)</span>' : ''}`} hasError={!!errors.email} attributes={{ type: 'email', placeholder: 'Your Email', value: email, onChange: (e) => handleChange(e.target.value, setEmail) }} />
+            <Input label={`Name ${errors.name ? '<span>(name required)</span>' : ''}`} hasError={!!errors.name} attributes={{ type: 'text', placeholder: 'Your Name', value: name, onChange: (e) => handleChange(e.target.value, setName) }} />
 
             <Select label="Subject" selectProps={{ value: subject, onChange: (e) => handleChange(e.target.value, setSubject) }}>
               <option value="Font Licensing">Font Licensing</option>
@@ -87,7 +87,7 @@ const Contact = () => {
             </Select>
 
             <Textarea label="Message" hasError={!!errors.message} textareaProps={{ rows: 6, placeholder: 'What can I help you with?', value: message, onChange: (e) => handleChange(e.target.value, setMessage) }} />
-            <Button type="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'contact' }}>Send Message</Button>
+            <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'contact' }}>Send Message</Button>
           </form>
         </Well>
       )}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { request } from '../../shared/utils/request';
 import { eeEvent } from '../../utils/tracking';
 import Mailing from '../../shared/components/Mailing';
-import Button from '../shared/Button';
+import Button from '../../shared/components/Button';
 import Loader from '../shared/Loader';
 import Modal from '../shared/Modal';
 import styles from './buttons.styles.js';
@@ -52,11 +52,11 @@ const Buttons = ({ font }) => {
 
   return(
     <div className="buttons">
-      <Button type="outline" onClick={handleModalOpen} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'mailingListModal', 'data-ga-click': true, 'data-ga-category': 'font page' }} ref={downloadRef}>
+      <Button style="outline" onClick={handleModalOpen} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'mailingListModal', 'data-ga-click': true, 'data-ga-category': 'font page' }} ref={downloadRef}>
         Download <span>Free Personal Use</span>
       </Button>
 
-      <Button type="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
+      <Button style="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
         {isProcessing ? <Loader /> : (
           <>Purchase <span>${font.price} Commercial Use</span></>
         )}
