@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import ActiveLink from './Activelink';
+import ActiveLink from './ActiveLink';
 import styles from '../styles/Header.styles.js';
 
 const Header = ({ home, links, enableAnalytics }) => {
