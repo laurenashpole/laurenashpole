@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/Button.styles.js';
 
-const Button = forwardRef(({ children, style, onClick attributes }, ref) => {
+const Button = forwardRef(({ children, style, onClick, attributes }, ref) => {
   return (
     <button className={`btn btn--${style}`} onClick={onClick} {...attributes} ref={ref}>
       {children}

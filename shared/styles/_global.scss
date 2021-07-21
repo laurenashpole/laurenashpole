@@ -34,10 +34,6 @@ h4 {
   letter-spacing: 0.035em;
 }
 
-h1 {
-  font-size: 3.75rem;
-}
-
 h4 {
   margin: 2rem 0 1rem 0;
   font-size: inherit;
@@ -85,20 +81,12 @@ img {
     font-size: 2.25rem;
   }
 
-  h1 {
-    font-size: 4.5rem;
-  }
-
   p:not(:last-child) {
     margin-bottom: 3rem;
   }
 }
 
 @media (min-width: $break-desktop) {
-  h1 {
-    font-size: 5.25rem;
-  }
-
   p:not(:last-child) {
     margin-bottom: 4rem;
   }
