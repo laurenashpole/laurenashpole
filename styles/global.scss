@@ -1,13 +1,27 @@
 @import '../shared/styles/global.scss';
 
+h1 {
+  font-size: 3.25rem;
+}
+
 h3 {
-  font-size: 2.75rem;
+  font-size: 2.35rem;
   text-transform: uppercase;
   letter-spacing: 0.065em;
 }
 
 @media (min-width: $break-tablet) {
+  h1 {
+    font-size: 3.75rem;
+  }
+
   h3 {
-    font-size: 3.25rem;
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: $break-desktop) {
+  h1 {
+    font-size: 4.25rem;
   }
 }

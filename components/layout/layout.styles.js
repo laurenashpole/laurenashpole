@@ -21,29 +21,35 @@ export default css.global`
     overflow: hidden;
 
     &:after {
-      content: " ";
-      background-image: url(abstract-bg($color-blue-encoded, $color-pink-encoded, $color-green-encoded, $color-orange-encoded));
+      content: '';
+      background-image:
+        url(abstract-squiggle-thin($color-pink-encoded)),
+        url(abstract-lines($color-green-encoded)),
+        url(abstract-dots($color-orange-encoded)),
+        url(abstract-squiggle($color-blue-encoded)),
+        url(node-circle()),
+        url(node-square());
+      background-position:
+        -5rem 12.5rem,
+        -5rem 5rem,
+        calc(100% - 3rem) calc(100% - 30rem),
+        calc(100% + 3rem) calc(100% - 10rem);
+      background-size: 25rem, 40rem, 12.5rem, 45rem, 0, 0;
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100% auto;
-      background-position: center 7.5rem;
-      width: 175%;
-      max-width: 80rem;
+      width: 100%;
       height: 100%;
+      min-height: $break-tablet;
       position: fixed;
       top: 0;
       left: 50%;
       z-index: -2;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scaleX(-1);
     }
   }
 
-  @media (min-width: $break-mobile) {
-    .layout__main {
-      &:after {
-        width: 125%;
-        max-width: 90rem;
-      }
+  @media (min-width: 640px) {
+    .layout__main:after {
+      background-size: 32.5rem, 50rem, 15rem, 55rem, 0, 0;
     }
   }
 
@@ -55,9 +61,14 @@ export default css.global`
       overflow: unset;
 
       &:after {
-        background-position: center 6rem;
-        width: calc(100% - 2rem);
-        max-width: none;
+        background-size: 32.5rem, 50rem, 15rem, 55rem, 0, 12.5rem;
+        background-position:
+          1.5rem 50%,
+          5rem 7.5rem,
+          calc(100% - 7.5rem) calc(100% - 20rem),
+          calc(100% + 3rem) calc(100% - 3rem),
+          0,
+          calc(100% - 5rem) calc(100% - 40rem);
       }
     }
   }
@@ -68,7 +79,28 @@ export default css.global`
 
       &:after {
         max-width: $width-desktop-wide;
+        background-size: 32.5rem, 50rem, 15rem, 55rem, 25rem, 12.5rem;
+        background-position:
+          10rem 50%,
+          4.5rem 7.5rem,
+          70% calc(100% - 12.5rem),
+          calc(100% - 5rem) calc(100% - 3rem),
+          calc(100% - 4rem) calc(100% - 32rem),
+          calc(100% - 11rem) calc(100% - 42rem);
       }
+    }
+  }
+
+  @media (min-width: $break-desktop-large) {
+    .layout__main:after {
+      background-size: 37.5rem, 55rem, 20rem, 62.5rem, 25rem, 12.5rem;
+      background-position:
+        7.5rem 50%,
+        2.5rem 7.5rem,
+        70% calc(100% - 7.5rem),
+        right calc(100% - 3rem),
+        calc(100% - 3rem) calc(100% - 28rem),
+        calc(100% - 10rem) calc(100% - 38rem);
     }
   }
 `;
