@@ -2,9 +2,9 @@ import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/Button.styles.js';
 
-const Button = forwardRef(({ children, style, attributes }, ref) => {
+const Button = forwardRef(({ children, style, onClick attributes }, ref) => {
   return (
-    <button className={`btn btn--${style}`} ref={ref} {...attributes}>
+    <button className={`btn btn--${style}`} onClick={onClick} {...attributes} ref={ref}>
       {children}
 
       <style jsx global>
@@ -17,6 +17,7 @@ const Button = forwardRef(({ children, style, attributes }, ref) => {
 Button.propTypes = {
   children: PropTypes.any,
   style: PropTypes.string,
+  onClick: PropTypes.func,
   attributes: PropTypes.object
 };
 
