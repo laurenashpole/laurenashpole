@@ -47,7 +47,7 @@ const Mailing = ({ location, isInline, onSignup }) => {
       <input className="mailing__hidden" type="text" tabIndex="-1" onChange={(e) => setHidden(e.target.value)} value={hidden} aria-hidden="true" />
 
       <div className="mailing__btn">
-        <Button style="secondary" attributes={{ type: 'button', onClick: handleSubmit, disabled: buttonText === 'Sending' || buttonText === 'Success!', 'data-ga-click': true, 'data-ga-category': location }}>
+        <Button style="secondary" onClick={handleSubmit} attributes={{ type: 'button', disabled: buttonText === 'Sending' || buttonText === 'Success!', 'data-ga-click': true, 'data-ga-category': location }}>
           <span dangerouslySetInnerHTML={{ __html: buttonText }} />
         </Button>
       </div>
