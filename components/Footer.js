@@ -1,5 +1,5 @@
-import styles from '../styles/Footer.styles.js';
 import PropTypes from 'prop-types';
+import styles from '../styles/Footer.styles.js';
 
 const Footer = ({ children }) => {
   return (
