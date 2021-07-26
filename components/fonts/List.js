@@ -6,7 +6,7 @@ import { eeImpressions, eeEvent } from '../../utils/tracking';
 import Well from '../../shared/components/Well';
 import Input from '../../shared/components/Input';
 import Button from '../../shared/components/Button';
-import Tags from '../../components/shared/Tags';
+import Tags from '../../shared/components/Tags';
 import styles from './list.styles.js';
 
 const List = ({ heading, fonts, tags, description }) => {
@@ -46,7 +46,7 @@ const List = ({ heading, fonts, tags, description }) => {
 
           {tags.length > 0 &&
             <div className="list__tags">
-              <Tags tags={tags} source="font list" />
+              <Tags tags={tags} path="/fonts/tagged" source="font list" />
             </div>
           }
 
