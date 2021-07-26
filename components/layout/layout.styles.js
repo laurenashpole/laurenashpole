@@ -28,17 +28,18 @@ export default css.global`
         url(abstract-dots($color-orange-encoded)),
         url(abstract-squiggle($color-blue-encoded)),
         url(node-circle()),
-        url(node-square());
+        url(node-square()),
+        url(nodes());
       background-position:
         -5rem 12.5rem,
         -5rem 5rem,
-        calc(100% - 3rem) calc(100% - 30rem),
-        calc(100% + 3rem) calc(100% - 10rem);
-      background-size: 25rem, 40rem, 12.5rem, 45rem, 0, 0;
+        calc(100% - 3rem) calc(100% - 15.5rem),
+        calc(100% + 3rem) calc(100% - 5rem);
+      background-size: 25rem, 40rem, 12.5rem, 45rem, 0, 0, 0;
       background-repeat: no-repeat;
       width: 100%;
       height: 100%;
-      min-height: $break-tablet;
+      min-height: 640px;
       position: fixed;
       top: 0;
       left: 50%;
@@ -49,7 +50,7 @@ export default css.global`
 
   @media (min-width: 640px) {
     .layout__main:after {
-      background-size: 32.5rem, 50rem, 15rem, 55rem, 0, 0;
+      background-size: 32.5rem, 50rem, 15.5rem, 56rem, 0, 0, 0;
     }
   }
 
@@ -61,14 +62,16 @@ export default css.global`
       overflow: unset;
 
       &:after {
-        background-size: 32.5rem, 50rem, 15rem, 55rem, 0, 12.5rem;
+        min-height: $break-tablet;
+        background-size: 32.5rem, 50rem, 15.5rem, 56rem, 0, 12.5rem, 12.5rem;
         background-position:
-          1.5rem 50%,
+          1rem 25rem,
           5rem 7.5rem,
-          calc(100% - 7.5rem) calc(100% - 20rem),
-          calc(100% + 3rem) calc(100% - 3rem),
+          calc(100% - 7.5rem) calc(100% - 25rem),
+          calc(100% + 3rem) calc(100% - 12.5rem),
           0,
-          calc(100% - 5rem) calc(100% - 40rem);
+          calc(100% - 5rem) calc(100% - 40rem),
+          62.5rem 12.5rem;
       }
     }
   }
@@ -79,28 +82,16 @@ export default css.global`
 
       &:after {
         max-width: $width-desktop-wide;
-        background-size: 32.5rem, 50rem, 15rem, 55rem, 25rem, 12.5rem;
+        background-size: 34.5rem, 55rem, 17rem, 62rem, 25rem, 12.5rem, 12.5rem;
         background-position:
-          10rem 50%,
-          4.5rem 7.5rem,
-          70% calc(100% - 12.5rem),
-          calc(100% - 5rem) calc(100% - 3rem),
+          5rem 25rem,
+          4rem 7.5rem,
+          70% calc(100% - 25rem),
+          calc(100% - 5rem) calc(100% - 12.5rem),
           calc(100% - 4rem) calc(100% - 32rem),
-          calc(100% - 11rem) calc(100% - 42rem);
+          calc(100% - 11rem) calc(100% - 40rem),
+          67.5rem 12.5rem;
       }
-    }
-  }
-
-  @media (min-width: $break-desktop-large) {
-    .layout__main:after {
-      background-size: 37.5rem, 55rem, 20rem, 62.5rem, 25rem, 12.5rem;
-      background-position:
-        7.5rem 50%,
-        2.5rem 7.5rem,
-        70% calc(100% - 7.5rem),
-        right calc(100% - 3rem),
-        calc(100% - 3rem) calc(100% - 28rem),
-        calc(100% - 10rem) calc(100% - 38rem);
     }
   }
 `;
