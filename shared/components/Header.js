@@ -4,7 +4,7 @@ import ActiveLink from './ActiveLink';
 import styles from '../styles/Header.styles.js';
 
 const Header = ({ home, links, enableAnalytics }) => {
- const { ref, inView } = useInView();
+  const { ref, inView } = useInView();
 
   return (
     <>
