@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Well from '../../../shared/components/Well';
+import Button from '../../../shared/components/Button';
 import Delete from './Delete';
-import Well from '../../../components/shared/Well';
-import Button from '../../../components/shared/Button';
 import styles from './list.styles.js';
 
 const List = ({ name, items }) => {
@@ -10,7 +10,7 @@ const List = ({ name, items }) => {
     <>
       <div className="list__create">
         <Link href={`/admin/${name}s/create`}>
-          <Button type="primary" attributes={{ type: 'button' }}>+ Create a New {name}</Button>
+          <Button style="primary" attributes={{ type: 'button' }}>+ Create a New {name}</Button>
         </Link>
       </div>
 
@@ -30,13 +30,13 @@ const List = ({ name, items }) => {
                 <div className="list__btns">
                   {item.slug &&
                     <Link href={`/${name}s/${item.slug}`}>
-                      <Button type="secondary" attributes={{ type: 'button' }}>Preview</Button>
+                      <Button style="secondary" attributes={{ type: 'button' }}>Preview</Button>
                     </Link>
                   }
 
                   {item.slug &&
                     <Link href={`/admin/${name}s/${item.slug}`}>
-                      <Button type="secondary" attributes={{ type: 'button' }}>Edit</Button>
+                      <Button style="secondary" attributes={{ type: 'button' }}>Edit</Button>
                     </Link>
                   }
 

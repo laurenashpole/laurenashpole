@@ -31,6 +31,11 @@ export default css.global`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:focus,
+    &:hover {
+      color: $color-purple-hover;
+    }
   }
 
   .footer__social-twitter {
@@ -94,6 +99,11 @@ export default css.global`
     .footer__social-link {
       color: $color-white;
       z-index: 1;
+
+      &:focus,
+      &:hover {
+        color: $color-white;
+      }
     }
   }
 `;

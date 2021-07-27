@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import InView from 'react-inview-monitor';
+import { InView } from 'react-intersection-observer';
 import { eeEvent } from '../../utils/tracking';
-import Well from '../shared/Well';
-import Button from '../shared/Button';
+import Well from '../../shared/components/Well';
+import Button from '../../shared/components/Button';
 import Buttons from './Buttons';
 import Details from './Details';
 import Gallery from './Gallery';
@@ -25,6 +25,10 @@ const Content = ({ font, tags }) => {
     window.scrollTo({ top: top, left: 0, behavior: 'smooth' });
   };
 
+  const handleInView = (inView, section) => {
+    inView && setInViewSection(section);
+  };
+
   return (
     <>
       <Well size="large" stickyChild={1}>
@@ -37,7 +41,7 @@ const Content = ({ font, tags }) => {
               {['details', 'gallery', 'preview', 'glyphs'].map((link) => {
                 return(
                   <li key={link} className={`content__item ${inViewSection === link ? 'content__item--active' : ''}`}>
-                    <Button type="link" onClick={() => handleClick(link)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page' }}>{link}</Button>
+                    <Button style="link" onClick={() => handleClick(link)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page' }}>{link}</Button>
                   </li>
                 );
               })}
@@ -45,22 +49,22 @@ const Content = ({ font, tags }) => {
           </aside>
 
           <div className="content__main">
-            <InView onInView={() => setInViewSection('details')} intoViewMargin="-50%" repeatOnInView={true}>
+            <InView onChange={(inView) => handleInView(inView, 'details')} threshold={0.5}>
               <div className={styles.scrollAnchor} id="details" ref={(el) => sectionRefs.current.details = el}  />
               <Details font={font} tags={tags} />
             </InView>
 
-            <InView onInView={() => setInViewSection('gallery')} intoViewMargin="-50%" repeatOnInView={true}>
+            <InView onChange={(inView) => handleInView(inView, 'gallery')} threshold={0.5}>
               <div className={styles.scrollAnchor} id="gallery" ref={(el) => sectionRefs.current.gallery = el} />
               <Gallery font={font} />
             </InView>
 
-            <InView onInView={() => setInViewSection('preview')} intoViewMargin="-50%" repeatOnInView={true}>
+            <InView onChange={(inView) => handleInView(inView, 'preview')} threshold={0.5}>
               <div className={styles.scrollAnchor} id="preview" ref={(el) => sectionRefs.current.preview = el} />
               <Preview font={font} />
             </InView>
 
-            <InView onInView={() => setInViewSection('glyphs')} intoViewMargin="-50%" repeatOnInView={true}>
+            <InView onChange={(inView) => handleInView(inView, 'glyphs')} threshold={0.5}>
               <div className={styles.scrollAnchor} id="glyphs" ref={(el) => sectionRefs.current.glyphs = el} />
               <Glyphs font={font} />
             </InView>

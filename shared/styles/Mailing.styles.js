@@ -17,7 +17,7 @@ export default css.global`
       }
     }
 
-    .mailing__button {
+    .mailing__btn {
       width: 33.333%;
       padding: 0 0 0 1rem;
       font-size: 1.5rem;
@@ -36,7 +36,7 @@ export default css.global`
     }
   }
 
-  .mailing__button {
+  .mailing__btn {
     padding-bottom: 2rem;
 
     br {
@@ -52,7 +52,7 @@ export default css.global`
     .mailing--inline {
       padding: 1.25rem 0 0 1.25rem;
 
-      .mailing__button {
+      .mailing__btn {
         padding: 0 0 0 1.25rem;
         font-size: 1.75rem;
 
@@ -66,7 +66,7 @@ export default css.global`
       padding-bottom: 1.5rem;
     }
 
-    .mailing__button {
+    .mailing__btn {
       padding-bottom: 2.5rem;
     }
   }

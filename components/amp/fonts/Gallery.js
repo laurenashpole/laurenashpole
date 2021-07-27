@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Button from '../../shared/Button';
+import Button from '../../../shared/components/Button';
 import styles from '../../fonts/gallery.styles.js';
 
 const Gallery = ({ font }) => {
@@ -27,7 +27,7 @@ const Gallery = ({ font }) => {
           {font.image_collection_thumbnails.map((image, i) => {
             return (
               <li key={i} className="gallery__thumb">
-                <Button type="link" attributes={{ type: 'button', on: `tap:carousel-with-preview.goToSlide(index=${i})` }}>
+                <Button style="link" attributes={{ type: 'button', on: `tap:carousel-with-preview.goToSlide(index=${i})` }}>
                   <amp-img src={`${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${image}`} width="200" height="133" layout="responsive" alt={`View poster image ${i + 1}`} />
                 </Button>
               </li>

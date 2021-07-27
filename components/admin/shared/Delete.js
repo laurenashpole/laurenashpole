@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { request } from '../../../utils/request';
-import Button from '../../../components/shared/Button';
+import { request } from '../../../shared/utils/request';
+import Button from '../../../shared/components/Button';
 
 const Delete = ({ id, name }) => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -28,7 +28,7 @@ const Delete = ({ id, name }) => {
   };
 
   return (
-    <Button type="warning" onClick={handleClick} attributes={{ type: 'button', disabled: isProcessing }}>
+    <Button style="warning" onClick={handleClick} attributes={{ type: 'button', disabled: isProcessing }}>
       {isProcessing ? 'Deleting...' : 'Delete'}
     </Button>
   );

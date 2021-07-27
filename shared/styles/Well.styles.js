@@ -9,6 +9,8 @@ export default css.global`
     margin: 0 auto;
     background: $color-white;
     border-radius: 6px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .well + .well {

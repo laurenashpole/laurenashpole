@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { request } from '../../../utils/request';
-import Well from '../../../components/shared/Well';
-import Input from '../../../components/shared/Input';
-import Button from '../../../components/shared/Button';
+import { request } from '../../../shared/utils/request';
+import Well from '../../../shared/components//Well';
+import Input from '../../../shared/components/Input';
+import Button from '../../../shared/components/Button';
+import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 
 const Login = () => {
@@ -59,9 +60,12 @@ const Login = () => {
 
         <form>
           {errors.general && <Errors errors={[errors.general]} />}
-          <Input label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`} hasError={!!errors.username} inputProps={{ type: 'email', value: username, onChange: (e) => handleChange(e.target.value, setUsername) }} />
-          <Input label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`}  hasError={!!errors.password} inputProps={{ type: 'password', value: password, onChange: (e) => handleChange(e.target.value, setPassword) }} />
-          <Button type="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+          <Input label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`} hasError={!!errors.username} attributes={{ type: 'email', value: username, onChange: (e) => handleChange(e.target.value, setUsername) }} />
+          <Input label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`} hasError={!!errors.password} attributes={{ type: 'password', value: password, onChange: (e) => handleChange(e.target.value, setPassword) }} />
+
+          <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>
+            {isProcessing ? <Loader /> : 'Submit'}
+          </Button>
         </form>
       </Well>
     </div>

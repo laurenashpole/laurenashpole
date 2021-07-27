@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { DIST_LINKS } from '../../constants/distLinks';
-import Well from '../../components/shared/Well';
+import Well from '../../shared/components/Well';
 import styles from './distributors.styles.js';
 
 const Distributors = () => {

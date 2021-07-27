@@ -15,6 +15,10 @@ export default css.global`
     span {
       color: $color-red;
     }
+
+    .input__input {
+      border-color: $color-red;
+    }
   }
 
   .input__label {
@@ -56,10 +60,6 @@ export default css.global`
 
     &:focus {
       border-color: $color-gray-dark;
-    }
-
-    .input--error & {
-      border-color: $color-red;
     }
 
     .input__label--hidden + & {

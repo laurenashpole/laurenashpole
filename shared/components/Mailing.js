@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { request } from '../../utils/request';
+import { request } from '../utils/request';
 import Input from './Input';
 import Button from './Button';
-import styles from './mailing.styles.js';
+import styles from '../styles/Mailing.styles.js';
 
 const Mailing = ({ location, isInline, onSignup }) => {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ const Mailing = ({ location, isInline, onSignup }) => {
 
     try {
       await request({
-        endpoint: '/api/mailing',
+        endpoint: 'https://laurenashpole.com/api/mailing',
         body: JSON.stringify({
           email,
           b_5e9c643a20b49926773037101_a878f779fc: hidden
@@ -41,13 +41,13 @@ const Mailing = ({ location, isInline, onSignup }) => {
   return (
     <form className={`mailing ${isInline ? 'mailing--inline' : ''}`}>
       <div className="mailing__input">
-        <Input label="Mailing List Email" hideLabel={true} inputProps={{ type: 'email', placeholder: isInline ? 'Want email updates?' : 'yes@please.com', value: email, onChange: handleChange }} />
+        <Input label="Mailing List Email" hideLabel={true} attributes={{ type: 'email', placeholder: isInline ? 'Want email updates?' : 'yes@please.com', value: email, onChange: handleChange }} />
       </div>
 
       <input className="mailing__hidden" type="text" tabIndex="-1" onChange={(e) => setHidden(e.target.value)} value={hidden} aria-hidden="true" />
 
-      <div className="mailing__button">
-        <Button type="secondary" onClick={handleSubmit} attributes={{ type: 'button', disabled: buttonText === 'Sending' || buttonText === 'Success!', 'data-ga-click': true, 'data-ga-category': location }}>
+      <div className="mailing__btn">
+        <Button style="secondary" onClick={handleSubmit} attributes={{ type: 'button', disabled: buttonText === 'Sending' || buttonText === 'Success!', 'data-ga-click': true, 'data-ga-category': location }}>
           <span dangerouslySetInnerHTML={{ __html: buttonText }} />
         </Button>
       </div>

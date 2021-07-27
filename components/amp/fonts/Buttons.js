@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Button from '../../shared/Button';
+import Button from '../../../shared/components/Button';
 import styles from '../../fonts/buttons.styles.js';
 
 const Buttons = ({ font }) => {
@@ -13,7 +13,7 @@ const Buttons = ({ font }) => {
           </a>
         </Link>
 
-        <Button type="primary" attributes={{ type: 'submit', 'data-ga-action': 'purchase' }}>
+        <Button style="primary" attributes={{ type: 'submit', 'data-ga-action': 'purchase' }}>
           Purchase <span>${font.price} Commercial Use</span>
         </Button>
 

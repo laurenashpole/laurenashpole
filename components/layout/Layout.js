@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { NAV_LINKS } from '../../constants/navLinks';
-import Meta from './Meta';
-import Header from './Header';
-import Footer from './Footer';
+import { useAmp } from 'next/amp';
+import { HEADER } from '../../constants/header';
+import Header from '../../shared/components/Header';
+import Meta from '../../shared/components/Meta';
+import Footer from '../../shared/components/Footer';
+import Mailing from '../../shared/components/Mailing';
+import AmpMailing from '../amp/Mailing';
 import styles from './layout.styles.js';
 
 const Layout = ({ children, isAdmin, title, description, canonicalPathname, hideHeader }) => {
+  const isAmp = useAmp();
+
   return (
     <div className="layout">
       <Head>
@@ -14,9 +19,18 @@ const Layout = ({ children, isAdmin, title, description, canonicalPathname, hide
       </Head>
 
       {!isAdmin && <Meta title={title} description={description} canonicalPathname={canonicalPathname} />}
-      {!hideHeader && <Header navLinks={NAV_LINKS[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} />}
+      {!hideHeader && <Header home={HEADER.home} links={HEADER[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} />}
       <main className="layout__main">{children}</main>
-      {!isAdmin && <Footer />}
+
+      {!isAdmin &&
+        <Footer>
+          {isAmp ? (
+            <AmpMailing />
+          ) : (
+            <Mailing location="footer" isInline={true} />
+          )}
+        </Footer>
+      }
 
       <style jsx global>
         {styles}

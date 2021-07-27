@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { eeImpressions, eeEvent } from '../../utils/tracking';
-import Well from '../../components/shared/Well';
-import Tags from '../../components/shared/Tags';
-import Input from '../../components/shared/Input';
-import Button from '../../components/shared/Button';
+import Well from '../../shared/components/Well';
+import Input from '../../shared/components/Input';
+import Button from '../../shared/components/Button';
+import Tags from '../../shared/components/Tags';
 import styles from './list.styles.js';
 
 const List = ({ heading, fonts, tags, description }) => {
@@ -46,7 +46,7 @@ const List = ({ heading, fonts, tags, description }) => {
 
           {tags.length > 0 &&
             <div className="list__tags">
-              <Tags tags={tags} source="font list" />
+              <Tags tags={tags} path="/fonts/tagged" source="font list" />
             </div>
           }
 
@@ -55,16 +55,16 @@ const List = ({ heading, fonts, tags, description }) => {
 
         <div className="list__settings">
           <form className="list__filter">
-            <Button type="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': 'Reset search term' }}>
+            <Button style="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': 'Reset search term' }}>
               <span aria-label="Reset search term" />
             </Button>
 
-            <Input label="Find by name" hideLabel={true} inputProps={{ type: 'text', value: filter, placeholder: 'Find by name', onChange: (e) => setFilter(e.target.value) }} />
+            <Input label="Find by name" hideLabel={true} attributes={{ type: 'text', value: filter, placeholder: 'Find by name', onChange: (e) => setFilter(e.target.value) }} />
           </form>
 
           {['grid', 'list'].map((option) => {
             return (
-              <Button key={option} type="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
+              <Button key={option} style="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
                 <span className={`list__view list__view--${option}`} aria-label={`Switch to ${option} view`} />
               </Button>
             );

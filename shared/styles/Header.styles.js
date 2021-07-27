@@ -15,12 +15,17 @@ export default css.global`
   }
 
   .header__content {
-    background: $color-white;
+    background: transparent;
     width: 100%;
     padding: 1.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.25s;
+  }
+
+  .header__content--bg {
+    background: $color-gray-lightest;
   }
 
   .header__logo {
@@ -65,8 +70,12 @@ export default css.global`
     display: flex;
   }
 
-  .header__item + .header__item {
-    border-left: 1px solid $color-gray-light;
+  .header__item {
+    position: relative;
+
+    & + .header__item {
+      border-left: 1px solid $color-gray-light;
+    }
   }
 
   .header__link {
@@ -80,6 +89,23 @@ export default css.global`
       color: $color-black;
       text-decoration: none;
     }
+  }
+
+  .header__link:before {
+    content: none;
+    border-top: 3px solid $color-purple;
+    border-radius: 0 0 1px 1px;
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    top: calc(-1.5rem - 1.5px);
+    display: block;
+  }
+
+  .header__link:hover:before,
+  .header__link:focus:before,
+  .header__link[aria-current]:before {
+    content: " ";
   }
 
   @media (min-width: $break-tablet) {
@@ -114,12 +140,16 @@ export default css.global`
       transition: background 0.15s linear 0.1s;
     }
 
-    .header__link--active {
+    .header__link[aria-current] {
       background: $color-white;
     }
 
-    .header__link:not(.header__link--active):hover,
-    .header__link:not(.header__link--active):focus {
+    .header__link[aria-current]:before {
+      content: none;
+    }
+
+    .header__link:not([aria-current]):hover,
+    .header__link:not([aria-current]):focus {
       background: $color-purple;
       transition: background 0.15s linear 0.3s, color 0.15s linear 0.3s;
       color: #fff;
@@ -138,6 +168,7 @@ export default css.global`
     .header__link:before {
       top: 0;
       left: 0;
+      right: auto;
     }
 
     .header__link:after {
@@ -145,19 +176,19 @@ export default css.global`
       right: 0;
     }
 
-    .header__link:not(.header__link--active):hover:before,:not(.header__link--active)
-    .header__link:not(.header__link--active):hover:after {
+    .header__link:not([aria-current]):hover:before,
+    .header__link:not([aria-current]):hover:after {
       width: 100%;
       height: 100%;
       transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
     }
 
-    .header__link:not(.header__link--active):hover:before {
+    .header__link:not([aria-current]):hover:before {
       border-top-color: $color-purple;
       border-right-color: $color-purple;
     }
 
-    .header__link:not(.header__link--active):hover:after {
+    .header__link:not([aria-current]):hover:after {
       border-bottom-color: $color-purple;
       border-left-color: $color-purple;
     }

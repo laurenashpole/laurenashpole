@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { findAll } from '../../../utils/tags';
 import withPassport from '../../../middleware/passport';
+import Well from '../../../shared/components/Well';
 import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/fonts/Form';
-import Well from '../../../components/shared/Well';
 
 const Create = ({ isAuthenticated, tags }) => {
   return (

@@ -7,7 +7,7 @@ export default css.global`
     width: 100%;
     max-width: 62rem;
     margin: 0 auto 4rem auto;
-    padding: 0 2rem;
+    padding: 0 4rem;
   }
 
   @media (min-width: $break-tablet) {

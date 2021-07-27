@@ -2,11 +2,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import withPassport from '../../../middleware/passport';
-import { request } from '../../../utils/request';
+import { request } from '../../../shared/utils/request';
+import Well from '../../../shared/components/Well';
+import Input from '../../../shared/components/Input';
+import Button from '../../../shared/components/Button';
 import Admin from '../../../components/admin/layout/Admin';
-import Well from '../../../components/shared/Well';
-import Input from '../../../components/shared/Input';
-import Button from '../../../components/shared/Button';
 import Errors from '../../../components/shared/Errors';
 
 const Uploads = ({ isAuthenticated }) => {
@@ -38,8 +38,8 @@ const Uploads = ({ isAuthenticated }) => {
         
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           {error && <Errors errors={[error]} />}
-          <Input label="Upload" inputProps={{ type: 'file', name: 'upload', multiple: true }} />
-          <Button type="primary" attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+          <Input label="Upload" attributes={{ type: 'file', name: 'upload', multiple: true }} />
+          <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
         </form>
       </Well>
     </Admin>

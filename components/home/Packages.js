@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PACKAGES } from '../../constants/packages';
-import Well from '../../components/shared/Well';
+import Well from '../../shared/components/Well';
 import styles from './packages.styles.js';
 
 const Packages = () => {

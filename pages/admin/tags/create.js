@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import withPassport from '../../../middleware/passport';
+import Well from '../../../shared/components/Well';
 import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/tags/Form';
-import Well from '../../../components/shared/Well';
 
 const Tags = ({ isAuthenticated }) => {
   return (

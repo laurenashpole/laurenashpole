@@ -1,24 +1,13 @@
-@keyframes scale {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.975); }
-  100% { transform: scale(1); }
-}
+@import '../shared/styles/keyframes.scss';
 
-@keyframes bgScale {
-  0% {
-    background-size: 2rem auto, 2rem auto, 2rem auto;
-  }
-  25% {
-    background-size: 0 auto, 2rem auto, 2rem auto;
-  }
-  50% {
-    background-size: 2rem auto, 0 auto, 2rem auto;
-  }
-  75% {
-    background-size: 2rem auto, 2rem auto, 0 auto;
-  }
+@keyframes wave {
+  0%,
+  80%,
   100% {
-    background-size: 2rem auto, 2rem auto, 2rem auto;
+    height: 1.75rem;
+  }
+  40% {
+    height: 3.25rem;
   }
 }
 

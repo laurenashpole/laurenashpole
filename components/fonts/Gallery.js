@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import Button from '../shared/Button';
+import Button from '../../shared/components/Button';
 import styles from './gallery.styles.js';
 
 const Gallery = ({ font }) => {
@@ -21,7 +21,7 @@ const Gallery = ({ font }) => {
           {font.image_collection_thumbnails.map((image, i) => {
             return(
               <li key={i} className="gallery__thumb">
-                <Button type="link" onClick={() => setActiveIndex(i)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page', 'data-ga-action': `View poster image ${i + 1}` }}>
+                <Button style="link" onClick={() => setActiveIndex(i)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page', 'data-ga-action': `View poster image ${i + 1}` }}>
                   <Image src={`/uploads/images/${image}`} alt={`View poster image ${i + 1}`} width={360} height={240} />
                 </Button>
               </li>

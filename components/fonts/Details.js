@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Tags from '../../components/shared/Tags';
+import Tags from '../../shared/components/Tags';
 import styles from './details.styles.js';
 
 const Details = ({ font, tags }) => {
@@ -68,7 +68,7 @@ const Details = ({ font, tags }) => {
       {tags && tags.length > 0 &&
         <div className="details__inline">
           <span className="details__tag-heading">Tagged:</span>
-          <Tags tags={tags} />
+          <Tags tags={tags} path="/fonts/tagged" source="font page" />
         </div>
       }
 
