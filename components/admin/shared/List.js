@@ -9,7 +9,7 @@ const List = ({ name, items }) => {
   return (
     <>
       <div className="list__create">
-        <Link href={`/admin/${name}s/create`}>
+        <Link href={`/admin/${name}s/create`} passHref>
           <Button style="primary" attributes={{ type: 'button' }}>+ Create a New {name}</Button>
         </Link>
       </div>
@@ -29,13 +29,13 @@ const List = ({ name, items }) => {
 
                 <div className="list__btns">
                   {item.slug &&
-                    <Link href={`/${name}s/${item.slug}`}>
+                    <Link href={`/${name}s/${item.slug}`} passHref>
                       <Button style="secondary" attributes={{ type: 'button' }}>Preview</Button>
                     </Link>
                   }
 
                   {item.slug &&
-                    <Link href={`/admin/${name}s/${item.slug}`}>
+                    <Link href={`/admin/${name}s/${item.slug}`} passHref>
                       <Button style="secondary" attributes={{ type: 'button' }}>Edit</Button>
                     </Link>
                   }

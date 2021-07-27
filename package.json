@@ -8,7 +8,7 @@
     "forever-start": "NODE_ENV=production forever start server.js",
     "forever-stop": "NODE_ENV=production forever stopall",
     "deploy": "yarn build && yarn forever-stop && yarn forever-start",
-    "lint": "eslint ."
+    "lint": "next lint"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
@@ -33,7 +33,8 @@
   },
   "devDependencies": {
     "eslint": "^7.11.0",
-    "eslint-plugin-react": "^7.21.4"
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-react": "^7.24.0"
   },
   "license": "MIT"
 }

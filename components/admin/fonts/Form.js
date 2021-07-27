@@ -55,7 +55,7 @@ const Form = ({ font, tags, endpoint }) => {
 
       {(font.image_collection || []).length > 0 &&
         <div className="form__images">
-          {font.image_collection.map((image) => <img key={image} className="form__image" src={`/uploads/images/${image}`} />)}
+          {font.image_collection.map((image) => <img key={image} alt="" className="form__image" src={`/uploads/images/${image}`} />)}
         </div>
       }
 

@@ -17,7 +17,7 @@ const Content = ({ font, tags }) => {
 
   useEffect(() => {
     eeEvent(font, null, null, 'detail');
-  }, []);
+  }, [font]);
 
   const handleClick = (section) => {
     let top = sectionRefs.current[section].offsetTop;

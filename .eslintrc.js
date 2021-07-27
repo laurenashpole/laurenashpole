@@ -6,7 +6,9 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'next',
+    'next/core-web-vitals'
   ],
   'parserOptions': {
     'ecmaFeatures': {
@@ -35,7 +37,12 @@ module.exports = {
       'error',
       'always'
     ],
-    'react/react-in-jsx-scope': 'off'
+    'import/no-anonymous-default-export': [
+      'error',
+      { 'allowArrowFunction': true }
+    ],
+    'react/react-in-jsx-scope': 'off',
+    '@next/next/no-img-element': 'off'
   },
   globals: {
     'React': 'writable'

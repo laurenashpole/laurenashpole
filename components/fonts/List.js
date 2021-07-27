@@ -22,12 +22,12 @@ const List = ({ heading, fonts, tags, description }) => {
     }
 
     eeImpressions(fonts);
-  }, []);
+  }, [fonts]);
 
   useEffect(() => {
     const filteredFonts = filter ? fonts.filter((font) => font.name.toUpperCase().indexOf(filter.toUpperCase()) > -1) : fonts;
     setFilteredFonts(filteredFonts);
-  }, [filter]);
+  }, [filter, fonts]);
 
   const handleClick = (font, idx) => {
     eeEvent(font, idx + 1, 'productClick', 'click');
