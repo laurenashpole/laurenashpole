@@ -42,31 +42,27 @@ const Form = ({ font, tags, endpoint }) => {
       <Textarea label="Description" textareaProps={{ rows: '5', name: 'description', placeholder: 'Description', defaultValue: font.description }} />
       <div className="form__multi-select">
         <Select label="Tags" hideLabel={true} selectProps={{ multiple: true, name: 'tags', defaultValue: font.tags }}>
-          {tags.map((tag) => {
-            return <option key={tag._id} value={tag._id}>{tag.name}</option>;
-          })}
+          {tags.map((tag) => <option key={tag._id} value={tag._id}>{tag.name}</option>)}
         </Select>
       </div>
       <Input label="Date Created" attributes={{ type: 'text', name: 'date_created', defaultValue: font.date_created }} />
       <Input label="Date Modified" attributes={{ type: 'text', name: 'date_modified', defaultValue: font.date_modified }} />
       <Input label="Price" attributes={{ type: 'text', name: 'price', defaultValue: font.price || '' }} />
-      <Input label={`Image ${font.image ? '<span>(' + font.image + ')</span>' : ''}`} attributes={{ type: 'file', name: 'image' }} />
-      <Input label={`Horizontal Image ${font.image_horizontal ? '<span>(' + font.image_horizontal + ')</span>' : ''}`} attributes={{ type: 'file', name: 'image_horizontal' }} />
-      <Input label={`Mobile Horizontal Image ${font.image_horizontal_mobile ? '<span>(' + font.image_horizontal_mobile + ')</span>' : ''}`} attributes={{ type: 'file', name: 'image_horizontal_mobile' }} />
+      <Input label={`Image ${font.image ? `<span>(${font.image})</span>` : ''}`} attributes={{ type: 'file', name: 'image' }} />
+      <Input label={`Horizontal Image ${font.image_horizontal ? `<span>(${ font.image_horizontal})</span>` : ''}`} attributes={{ type: 'file', name: 'image_horizontal' }} />
+      <Input label={`Mobile Horizontal Image ${font.image_horizontal_mobile ? `<span>(${font.image_horizontal_mobile})</span>` : ''}`} attributes={{ type: 'file', name: 'image_horizontal_mobile' }} />
       <Input label="Image Collection" attributes={{ type: 'file', name: 'image_collection', multiple: true }} />
 
-      {font.image_collection && font.image_collection.length > 0 &&
+      {(font.image_collection || []).length > 0 &&
         <div className="form__images">
-          {font.image_collection.map((image) => {
-            return <img key={image} className="form__image" src={`/uploads/images/${image}`} />;
-          })}
+          {font.image_collection.map((image) => <img key={image} className="form__image" src={`/uploads/images/${image}`} />)}
         </div>
       }
 
       <Textarea label="Preview CSS" textareaProps={{ rows: '5', name: 'preview_css', placeholder: 'Preview CSS', defaultValue: font.preview_css }} />
-      <Input label={`Preview Files ${font.preview_files ? '<span>(' + font.preview_files.join(', ') + ')</span>' : ''}`}  attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
+      <Input label={`Preview Files ${font.preview_files ? `<span>(${font.preview_files.join(', ')})</span>` : ''}`}  attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
       <Input label="Alternate Style Classes" attributes={{ type: 'text', name: 'alternate_style', defaultValue: font.alternate_style }} />
-      <Input label={`Personal Font File ${font.personal_font_file ? '<span>(' + font.personal_font_file + ')</span>' : ''}`} attributes={{ type: 'file', name: 'personal_font_file' }} />
+      <Input label={`Personal Font File ${font.personal_font_file ? `<span>(${ font.personal_font_file})</span>` : ''}`} attributes={{ type: 'file', name: 'personal_font_file' }} />
 
       <div className="form__options">
         {FONT_OPTIONS.personal_file.map((option) => {
@@ -77,9 +73,7 @@ const Form = ({ font, tags, endpoint }) => {
       <Input label={`Commercial Font File ${font.commercial_font_file ? '<span>(' + font.commercial_font_file + ')</span>' : ''}`} attributes={{ type: 'file', name: 'commercial_font_file' }} />
 
       <div className="form__options">
-        {FONT_OPTIONS.commercial_file.map((option) => {
-          return <Checkbox key={`commercial${option.key}`} label={option.label} attributes={{ name: `commercial_file[${option.key}][is_included]`, defaultChecked: font.commercial_file ? font.commercial_file[option.key].is_included : false, value: true }} />;
-        })}
+        {FONT_OPTIONS.commercial_file.map((option) => <Checkbox key={`commercial${option.key}`} label={option.label} attributes={{ name: `commercial_file[${option.key}][is_included]`, defaultChecked: font.commercial_file ? font.commercial_file[option.key].is_included : false, value: true }} />)}
       </div>
 
       <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>

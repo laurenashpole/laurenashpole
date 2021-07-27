@@ -52,25 +52,31 @@ const Buttons = ({ font }) => {
 
   return(
     <div className="buttons">
-      <Button style="outline" onClick={handleModalOpen} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'mailingListModal', 'data-ga-click': true, 'data-ga-category': 'font page' }} ref={downloadRef}>
-        Download <span>Free Personal Use</span>
-      </Button>
-
-      <Button style="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
-        {isProcessing ? <Loader /> : (
-          <>Purchase <span>${font.price} Commercial Use</span></>
-        )}
-      </Button>
-
-      <Modal name="mailingList" isActive={showModal} onClose={handleModalClose}>
-        <h3 id="mailingListModalHeading">Can I email you about new fonts?</h3>
-
+      {font.personal_font_file &&
         <>
-          <p>I promise you&apos;ll only hear from me when I have something you can try.</p>
-          <Mailing location="modal" onSignup={() => handleModalClose(true)} />
-          <Button type="link" onClick={() => handleModalClose(true)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'modal' }}>Nope, just download the font.</Button>
+          <Button style="outline" onClick={handleModalOpen} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'mailingListModal', 'data-ga-click': true, 'data-ga-category': 'font page' }} ref={downloadRef}>
+            Download <span>Free Personal Use</span>
+          </Button>
+
+          <Modal name="mailingList" isActive={showModal} onClose={handleModalClose}>
+            <h3 id="mailingListModalHeading">Can I email you about new fonts?</h3>
+
+            <>
+              <p>I promise you&apos;ll only hear from me when I have something you can try.</p>
+              <Mailing location="modal" onSignup={() => handleModalClose(true)} />
+              <Button style="link" onClick={() => handleModalClose(true)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'modal' }}>Nope, just download the font.</Button>
+            </>
+          </Modal>
         </>
-      </Modal>
+      }
+
+      {font.commercial_font_file &&
+        <Button style="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
+          {isProcessing ? <Loader /> : (
+            <>Purchase <span>${font.price} Commercial Use</span></>
+          )}
+        </Button>
+      }
 
       <style jsx global>
         {styles}

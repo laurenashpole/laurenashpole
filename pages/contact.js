@@ -88,6 +88,7 @@ const Contact = () => {
             </Select>
 
             <Textarea label="Message" hasError={!!errors.message} textareaProps={{ rows: 6, placeholder: 'What can I help you with? *', value: message, onChange: (e) => handleChange(e.target.value, setMessage) }} />
+
             <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'contact' }}>
               {isProcessing ? <Loader /> : 'Send Message'}
             </Button>

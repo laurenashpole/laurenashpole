@@ -87,9 +87,9 @@ export default css.global`
           5rem 25rem,
           4rem 7.5rem,
           70% calc(100% - 25rem),
-          calc(100% - 5rem) calc(100% - 12.5rem),
-          calc(100% - 4rem) calc(100% - 32rem),
-          calc(100% - 11rem) calc(100% - 40rem),
+          calc(100% - 5rem) calc(100% - 11.5rem),
+          calc(100% - 4rem) calc(100% - 26rem),
+          calc(100% - 11rem) calc(100% - 36rem),
           67.5rem 12.5rem;
       }
     }

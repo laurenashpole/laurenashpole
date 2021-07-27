@@ -62,7 +62,10 @@ const Login = () => {
           {errors.general && <Errors errors={[errors.general]} />}
           <Input label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`} hasError={!!errors.username} attributes={{ type: 'email', value: username, onChange: (e) => handleChange(e.target.value, setUsername) }} />
           <Input label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`} hasError={!!errors.password} attributes={{ type: 'password', value: password, onChange: (e) => handleChange(e.target.value, setPassword) }} />
-          <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
+
+          <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>
+            {isProcessing ? <Loader /> : 'Submit'}
+          </Button>
         </form>
       </Well>
     </div>
