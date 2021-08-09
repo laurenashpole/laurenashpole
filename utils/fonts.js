@@ -77,7 +77,6 @@ async function getFiles (files, font) {
     }
 
     const uploadedFile = await uploadFile(file, directory);
-
     (await obj)[file.fieldname] = uploadedFile;
     return obj;
   }, {});
@@ -129,7 +128,7 @@ async function getPreviewFiles (files, font) {
   return await previewFiles.reduce(async (obj, file) => {
     const uploadedFile = await uploadFile(file, `${UPLOADS_DIRECTORY}previews/`, true);
     obj.preview_files = obj.preview_files || [];
-    (await obj).image_collection.push(uploadedFile);
+    (await obj).preview_files.push(uploadedFile);
     return obj;
   }, {});
 }

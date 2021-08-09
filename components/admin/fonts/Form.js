@@ -60,7 +60,7 @@ const Form = ({ font, tags, endpoint }) => {
       }
 
       <Textarea label="Preview CSS" textareaProps={{ rows: '5', name: 'preview_css', placeholder: 'Preview CSS', defaultValue: font.preview_css }} />
-      <Input label={`Preview Files ${font.preview_files ? `<span>(${font.preview_files.join(', ')})</span>` : ''}`}  attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
+      <Input label={`Preview Files ${(font.preview_files || []).length ? `<span>(${font.preview_files.join(', ')})</span>` : ''}`}  attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
       <Input label="Alternate Style Classes" attributes={{ type: 'text', name: 'alternate_style', defaultValue: font.alternate_style }} />
       <Input label={`Personal Font File ${font.personal_font_file ? `<span>(${ font.personal_font_file})</span>` : ''}`} attributes={{ type: 'file', name: 'personal_font_file' }} />
 

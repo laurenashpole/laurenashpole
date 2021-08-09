@@ -5,18 +5,18 @@ import styles from './hero.styles.js';
 const Hero = () => {
   return(
     <div className="hero">
-      <Link href="/fonts/sacremende">
-        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-action="sacremende hero">
+      <Link href="/fonts/space-time">
+        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-action="Space Time hero">
           <div className="hero__img hero__img--top">
-            <Image src="/images/hero-sacremende-1.svg" alt="Hello" width={640} height={184} />
+            <Image src="/uploads/misc/hero-spacetime-1.svg" alt="Hello" width={640} height={163} />
           </div>
 
           <div className="hero__img">
-            <Image className="hero__img" src="/images/hero-sacremende-2.svg" alt="Have a font" width={750} height={110} />
+            <Image className="hero__img" src="/uploads/misc/hero-spacetime-2.svg" alt="Have a font" width={760} height={100} />
           </div>
 
-          <span className="hero__pointer">This one for example.<br />It&apos;s called Sacremende.</span>
-          <span className="hero__pointer">And it&apos;s brand new!</span>
+          <span className="hero__pointer">Like my newest starry <br />release Space Time.</span>
+          <span className="hero__pointer">Give it a try for free!</span>
         </a>
       </Link>
 

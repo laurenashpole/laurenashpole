@@ -14,6 +14,7 @@ export default css.global`
       margin-top: 0.25rem;
       font-size: 1.35rem;
       line-height: normal;
+      width: 100%;
     }
 
     button[disabled] span {
