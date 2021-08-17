@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './select.styles.js';
+import styles from './Select.styles.js';
 
 const Select = ({ children, label, hideLabel, selectProps }) => {
   return (

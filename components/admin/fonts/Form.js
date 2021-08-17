@@ -10,7 +10,7 @@ import Select from '../../../components/shared/Select';
 import Checkbox from '../../../components/shared/Checkbox';
 import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
-import styles from './form.styles.js';
+import styles from './Form.styles.js';
 
 const Form = ({ font, tags, endpoint }) => {
   const router = useRouter();

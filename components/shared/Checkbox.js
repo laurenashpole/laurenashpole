@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './checkbox.styles.js';
+import styles from './Checkbox.styles.js';
 
 const Checkbox = ({ label, attributes }) => {
   return (

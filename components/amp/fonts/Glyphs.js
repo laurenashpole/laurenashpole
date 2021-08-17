@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FONT_GLYPHS } from '../../../constants/fontGlyphs';
 import Button from '../../../shared/components/Button';
-import styles from '../../fonts/glyphs.styles.js';
+import styles from '../../fonts/Glyphs.styles.js';
 
 const TABS = ['Basic', 'Additional'];
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import styles from './list.styles.js';
+import styles from './List.styles.js';
 
 const List = ({ items }) => {
   return (

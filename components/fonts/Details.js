@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Tags from '../../shared/components/Tags';
-import styles from './details.styles.js';
+import styles from './Details.styles.js';
 
 const Details = ({ font, tags }) => {
   const {

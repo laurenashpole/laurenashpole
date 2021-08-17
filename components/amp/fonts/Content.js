@@ -5,7 +5,7 @@ import Details from '../../fonts/Details';
 import Gallery from './Gallery';
 import Preview from './Preview';
 import Glyphs from './Glyphs';
-import styles from '../../fonts/content.styles.js';
+import styles from '../../fonts/Content.styles.js';
 
 const Content = ({ font }) => {
   return (

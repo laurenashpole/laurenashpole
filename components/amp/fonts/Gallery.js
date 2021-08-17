@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Button from '../../../shared/components/Button';
-import styles from '../../fonts/gallery.styles.js';
+import styles from '../../fonts/Gallery.styles.js';
 
 const Gallery = ({ font }) => {
   return (

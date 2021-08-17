@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../shared/components/Button';
 import Input from '../../../shared/components/Input';
 import Select from '../../shared/Select';
-import styles from '../../fonts/preview.styles.js';
+import styles from '../../fonts/Preview.styles.js';
 
 const Preview = ({ font }) => {
   return (

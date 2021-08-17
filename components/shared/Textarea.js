@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './textarea.styles.js';
+import styles from './Textarea.styles.js';
 
 const Textarea = ({ label, hasError, textareaProps }) => {
   return (

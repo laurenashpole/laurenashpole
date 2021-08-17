@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Well from '../../../shared/components/Well';
 import Button from '../../../shared/components/Button';
 import Delete from './Delete';
-import styles from './list.styles.js';
+import styles from './List.styles.js';
 
 const List = ({ name, items }) => {
   return (

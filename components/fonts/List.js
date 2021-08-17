@@ -7,7 +7,7 @@ import Well from '../../shared/components/Well';
 import Input from '../../shared/components/Input';
 import Button from '../../shared/components/Button';
 import Tags from '../../shared/components/Tags';
-import styles from './list.styles.js';
+import styles from './List.styles.js';
 
 const List = ({ heading, fonts, tags, description }) => {
   const [filter, setFilter] = useState('');

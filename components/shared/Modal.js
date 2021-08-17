@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import Well from '../../shared/components/Well';
-import styles from './modal.styles.js';
+import styles from './Modal.styles.js';
 
 const Modal = ({ children, name, isActive, onClose }) => {
   const modalRef = useRef(null);

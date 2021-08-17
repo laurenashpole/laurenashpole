@@ -7,7 +7,7 @@ import Meta from '../../shared/components/Meta';
 import Footer from '../../shared/components/Footer';
 import Mailing from '../../shared/components/Mailing';
 import AmpMailing from '../amp/Mailing';
-import styles from './layout.styles.js';
+import styles from './Layout.styles.js';
 
 const Layout = ({ children, isAdmin, title, description, canonicalPathname, hideHeader }) => {
   const isAmp = useAmp();

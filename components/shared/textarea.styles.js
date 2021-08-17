@@ -33,6 +33,8 @@ export default css.global`
     line-height: normal;
     display: block;
     resize: none;
+    -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       border-color: $color-gray-dark;

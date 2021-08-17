@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { PACKAGES } from '../../constants/packages';
 import Well from '../../shared/components/Well';
-import styles from './packages.styles.js';
+import styles from './Packages.styles.js';
 
 const Packages = () => {
   return(

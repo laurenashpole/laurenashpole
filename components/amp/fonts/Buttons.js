@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Button from '../../../shared/components/Button';
-import styles from '../../fonts/buttons.styles.js';
+import styles from '../../fonts/Buttons.styles.js';
 
 const Buttons = ({ font }) => {
   return(

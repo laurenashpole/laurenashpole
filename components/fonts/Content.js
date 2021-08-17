@@ -9,7 +9,7 @@ import Details from './Details';
 import Gallery from './Gallery';
 import Preview from './Preview';
 import Glyphs from './Glyphs';
-import styles from './content.styles.js';
+import styles from './Content.styles.js';
 
 const Content = ({ font, tags }) => {
   const sectionRefs = useRef({});

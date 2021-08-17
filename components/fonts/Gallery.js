@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Button from '../../shared/components/Button';
-import styles from './gallery.styles.js';
+import styles from './Gallery.styles.js';
 
 const Gallery = ({ font }) => {
   const [activeIndex, setActiveIndex] = useState(0);

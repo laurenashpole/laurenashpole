@@ -6,7 +6,7 @@ import Mailing from '../../shared/components/Mailing';
 import Button from '../../shared/components/Button';
 import Loader from '../shared/Loader';
 import Modal from '../shared/Modal';
-import styles from './buttons.styles.js';
+import styles from './Buttons.styles.js';
 
 const Buttons = ({ font }) => {
   const downloadRef = useRef(null);
