@@ -57,6 +57,8 @@ export default css.global`
     font-family: inherit;
     font-size: inherit;
     line-height: normal;
+    -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       border-color: $color-gray-dark;
