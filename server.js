@@ -25,7 +25,7 @@ function createHttpServer () {
   http.createServer((req, res) => {
     res.writeHead(301, { 'Location': `https://${req.headers.host}${req.url}` });
     res.end();
-  }).listen((8080), err => {
+  }).listen((dev ? 8080 : 80), err => {
     if (err) throw err;
     console.log('> Ready on http://localhost:8080');
   });
@@ -40,7 +40,7 @@ function createHttpsServer () {
     }
 
     handle(req, res, parsedUrl);
-  }).listen((8443), err => {
+  }).listen((dev ? 8443 : 443), err => {
     if (err) throw err;
     console.log('> Ready on https://localhost:8443');
   });
