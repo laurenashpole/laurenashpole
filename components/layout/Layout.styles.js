@@ -13,6 +13,7 @@ export default css.global`
   .layout__main {
     width: 100%;
     padding: 4rem 1.5rem 6rem 1.5rem;
+    padding-bottom: 0;
     position: relative;
     flex-grow: 1.5;
     display: flex;
@@ -58,7 +59,7 @@ export default css.global`
     .layout__main {
       max-width: $width-desktop;
       margin: 0 auto;
-      padding: 8rem 3rem 10rem 3rem;
+      padding: 8rem 3rem 3rem 3rem;
       overflow: unset;
 
       &:after {
@@ -78,7 +79,7 @@ export default css.global`
 
   @media (min-width: $break-desktop) {
     .layout__main {
-      padding: 12rem 3rem 14rem 3rem;
+      padding: 12rem 3rem 7rem 3rem;
 
       &:after {
         max-width: $width-desktop-wide;

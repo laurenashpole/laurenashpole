@@ -1,17 +1,15 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { request } from '../../shared/utils/request';
 import { eeEvent } from '../../utils/tracking';
+import { addItem } from '../../utils/cart';
 import Mailing from '../../shared/components/Mailing';
 import Button from '../../shared/components/Button';
-import Loader from '../shared/Loader';
 import Modal from '../shared/Modal';
 import styles from './Buttons.styles.js';
 
 const Buttons = ({ font }) => {
   const downloadRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleModalOpen = () => {
     if (!window.localStorage.getItem('hasReferrer')) {
@@ -31,23 +29,9 @@ const Buttons = ({ font }) => {
     setShowModal(false);
   };
 
-  const handlePurchase = async (e) => {
-    e.preventDefault();
-    setIsProcessing(true);
-
-    try {
-      const response = await request({
-        endpoint: '/api/payments/create',
-        body: JSON.stringify({ font })
-      });
-
-      if (response.redirect) {
-        eeEvent(font, 0, 'checkout', 'checkout', { step: 1 });
-        window.location = response.redirect;
-      }
-    } catch (err) {
-      setIsProcessing(false);
-    }
+  const handleAdd = () => {
+    addItem(font);
+    eeEvent(font, 0, 'addToCart', 'add');
   };
 
   return(
@@ -71,10 +55,8 @@ const Buttons = ({ font }) => {
       }
 
       {font.commercial_font_file &&
-        <Button style="primary" onClick={handlePurchase} attributes={{ type: 'submit', disabled: isProcessing, 'data-ga-click': true, 'data-ga-category': 'font page' }}>
-          {isProcessing ? <Loader /> : (
-            <>Purchase <span>${font.price} Commercial Use</span></>
-          )}
+        <Button style="primary" onClick={handleAdd} attributes={{ type: 'submit', 'data-ga-click': true, 'data-ga-category': 'font page' }}>
+          Add To Cart <span>${font.price} Commercial Use</span>
         </Button>
       }
 

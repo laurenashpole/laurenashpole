@@ -58,6 +58,8 @@ export default css.global`
   }
 
   .modal__content {
+    width: 100%;
+    max-width: 72rem;
     position: relative;
     text-align: center;
 
@@ -87,5 +89,11 @@ export default css.global`
   .modal__content:after {
     bottom: 0;
     right: 0;
+  }
+
+  @media (min-width: $break-tablet) {
+    .modal__content {
+      max-width: 60rem;
+    }
   }
 `;
