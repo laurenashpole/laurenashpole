@@ -3,6 +3,7 @@ import { addItem, getCart, removeItem } from '../../utils/cart';
 import { eeEvent } from '../../utils/tracking';
 import Button from '../../shared/components/Button';
 import Modal from '../shared/Modal';
+import Checkout from './Checkout';
 import styles from './Cart.styles.js';
 
 const Cart = () => {
@@ -76,7 +77,10 @@ const Cart = () => {
           </li>
         </ul>
 
-        <Button style="secondary" onClick={() => setShowModal(false)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart' }}>Keep browsing</Button>
+        <div>
+          {cart.total && <Checkout cart={cart} />}
+          <Button style="secondary" onClick={() => setShowModal(false)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart' }}>Keep browsing</Button>
+        </div>
       </Modal>
 
       <style jsx global>

@@ -50,15 +50,17 @@ export default css.global`
     z-index: 1;
   }
 
-  .cart__item--total {
-    padding-top: 2rem;
-    font-weight: 600;
+  .cart__item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-gray-light;
   }
 
-  .cart__item + .cart__item {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid $color-gray-light;
+  .cart__item--total {
+    margin: 0;
+    border: none;
+    padding: 1rem 0 0 0;
+    font-weight: 600;
   }
 
   .cart__item-row {

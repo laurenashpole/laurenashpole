@@ -59,8 +59,10 @@ export default css.global`
 
   .modal__content {
     width: 100%;
-    max-width: 72rem;
+    max-width: 56rem;
+    border-radius: 6px;
     position: relative;
+    overflow: hidden;
     text-align: center;
 
     & > * {
@@ -91,9 +93,9 @@ export default css.global`
     right: 0;
   }
 
-  @media (min-width: $break-tablet) {
-    .modal__content {
-      max-width: 60rem;
-    }
+  .modal__well {
+    background: #fff;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 `;
