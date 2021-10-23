@@ -3,54 +3,6 @@ import path from 'path';
 import fs from 'fs';
 import { getTransporter, getFulfillmentTemplate } from './mailers';
 
-export function create (font) {
-  return new Promise ((resolve, reject) => {
-    paypal.configure({
-      mode: process.env.NODE_ENV === 'production' ? 'live' : 'sandbox',
-      client_id: process.env.PAYPAL_CLIENT_ID,
-      client_secret: process.env.PAYPAL_CLIENT_SECRET
-    });
-
-    paypal.payment.create({
-      intent: 'sale',
-      payer: {
-        payment_method: 'paypal'
-      },
-      redirect_urls: {
-        return_url: `${process.env.BASE_URL}fonts/payments/confirm/`,
-        cancel_url: `${process.env.BASE_URL}fonts/${font.slug}`
-      },
-      transactions: [{
-        amount: {
-          total: font.price,
-          currency: 'USD'
-        },
-        description: `Font: ${font.name} Commercial License`,
-        item_list: {
-          items: [
-            {
-              name: `${font.name}`,
-              quantity: '1',
-              price: font.price,
-              sku: font._id,
-              currency: 'USD'
-            }
-          ]
-        }
-      }]
-    }, (err, payment) => {
-      if (err) {
-        return reject(err.response);
-      }
-
-      if (payment.payer.payment_method === 'paypal') {
-        const redirects = payment.links.filter((link) => link.method === 'REDIRECT');
-        resolve({ redirect: redirects[0].href });
-      }
-    });
-  });
-}
-
 export function confirm (paymentId, payerId) {
   return new Promise ((resolve, reject) => {
     paypal.payment.execute(paymentId, {

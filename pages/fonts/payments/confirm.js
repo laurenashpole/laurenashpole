@@ -37,7 +37,7 @@ const Confirm = () => {
       setPayment(response.payment);
       setFont(response.font);
       setIsProcessing(false);
-      eeEvent(response.font, null, null, 'purchase', { id: paymentId, revenue: response.font.price.toString() });
+      eeEvent([response.font], null, null, 'purchase', { id: paymentId, revenue: response.font.price.toString() });
     } catch (err) {
       setError(err.message);
       setIsProcessing(false);

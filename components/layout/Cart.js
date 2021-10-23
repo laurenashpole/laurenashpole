@@ -34,17 +34,17 @@ const Cart = () => {
 
   const handleAdd = (item) => {
     addItem(item);
-    eeEvent({ ...item, quantity: 1 }, 0, 'addToCart', 'add');
+    eeEvent([{ ...item, quantity: 1 }], 0, 'addToCart', 'add');
   };
 
   const handleRemove = (item, qty) => {
     removeItem(item, qty);
-    eeEvent({ ...item, quantity: qty }, 0, 'removeFromCart', 'remove');
+    eeEvent([{ ...item, quantity: qty }], 0, 'removeFromCart', 'remove');
   };
 
   return(
     <div className="cart">
-      <Button style="secondary" onClick={() => setShowModal(true)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart', 'aria-expanded': showModal, 'aria-controls': 'cartModal' }}><span className="cart__count" aria-label={`View ${cart.count} items in cart`}>{cart.count}</span></Button>
+      <Button style="secondary" onClick={() => setShowModal(true)} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'cartModal', 'data-ga-click': true, 'data-ga-category': 'cart' }}><span className="cart__count" aria-label={`View ${cart.count} items in cart`}>{cart.count}</span></Button>
 
       <Modal name="cart" isActive={showModal} onClose={() => setShowModal(false)}>
         <h3 id="cartModalHeading">Cart</h3>

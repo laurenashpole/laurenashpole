@@ -9,7 +9,7 @@ export function eeImpressions (fonts) {
   }
 }
 
-export function eeEvent (font, position, eventName, eventKey, actionField) {
+export function eeEvent (fonts, position, eventName, eventKey, actionField) {
   if (!window.dataLayer) {
     return;
   }
@@ -18,7 +18,7 @@ export function eeEvent (font, position, eventName, eventKey, actionField) {
     event: `ee.${eventKey}`,
     ecommerce: {
       [eventKey]: {
-        products: [parseFont(font, position)]
+        products: fonts.map((font, i) => parseFont(font, position || i))
       }
     }
   };

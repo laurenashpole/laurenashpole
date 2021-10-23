@@ -1,4 +1,4 @@
-export function createOrder (data, actions, cart) {
+export function createOrder (actions, cart) {
   return actions.order.create({
     purchase_units: [{
       amount: {

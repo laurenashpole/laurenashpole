@@ -30,7 +30,7 @@ const List = ({ heading, fonts, tags, description }) => {
   }, [filter, fonts]);
 
   const handleClick = (font, idx) => {
-    eeEvent(font, idx + 1, 'productClick', 'click');
+    eeEvent([font], idx + 1, 'productClick', 'click');
   };
 
   const handleView = (option) => {
