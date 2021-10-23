@@ -39,7 +39,6 @@ export async function getServerSideProps ({ res }) {
       </url>
 
       ${getUrls(fonts, 'fonts')}
-      ${getUrls(fonts, 'amp/fonts')}
       ${getUrls(tags, 'fonts/tagged')}
     </urlset>
   `;
