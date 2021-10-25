@@ -1,3 +1,5 @@
+import { clearCart } from './cart';
+
 export function createOrder (actions, cart) {
   return actions.order.create({
     purchase_units: [{
@@ -30,6 +32,7 @@ export function createOrder (actions, cart) {
 
 export function approveOrder (data, actions) {
   return actions.order.capture().then((orderData) => {
+    clearCart();
     window.location = `/fonts/payments/confirm?orderId=${orderData.id}&sendFiles=true`;
   });
 }

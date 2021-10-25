@@ -12,7 +12,6 @@ import Summary from '../../../components/shared/Summary';
 const Confirm = ({ order }) => {
   const router = useRouter();
 
-
   useEffect(() => {
     if (router.query.sendFiles && !order.error) {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);

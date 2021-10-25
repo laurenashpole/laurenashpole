@@ -24,6 +24,11 @@ export function getCart () {
   return JSON.parse(window.localStorage.getItem('cart') || '{}');
 }
 
+export function clearCart () {
+  window.localStorage.removeItem('cart');
+  dispatchEvent();
+}
+
 function getDetails (items) {
   return items.reduce((obj, item) => {
     obj.count = obj.count + item.qty;
