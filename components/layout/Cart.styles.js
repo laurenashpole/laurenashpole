@@ -50,49 +50,6 @@ export default css.global`
     z-index: 1;
   }
 
-  .cart__item {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid $color-gray-light;
-  }
-
-  .cart__item--total {
-    margin: 0;
-    border: none;
-    padding: 1rem 0 0 0;
-    font-weight: 600;
-  }
-
-  .cart__item-row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .cart__item-row--btns {
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 2.25rem;
-    letter-spacing: 0.075em;
-
-    button {
-      width: auto;
-      line-height: 2.25rem;
-      letter-spacing: 0.075em;
-      display: block;
-    }
-  }
-
-  .cart__qty {
-    margin-right: -1rem;
-    display: flex;
-
-    button {
-      padding: 0 1rem 0.25rem 1rem;
-      font-size: 1.65rem;
-      line-height: 2rem;
-    }
-  }
-
   @media (min-width: $break-tablet) {
     .cart {
       margin: -4rem 1.5rem 4rem 1.5rem;

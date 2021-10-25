@@ -3,6 +3,7 @@ import { addItem, getCart, removeItem } from '../../utils/cart';
 import { eeEvent } from '../../utils/tracking';
 import Button from '../../shared/components/Button';
 import Modal from '../shared/Modal';
+import Summary from '../shared/Summary';
 import Checkout from './Checkout';
 import styles from './Cart.styles.js';
 
@@ -44,38 +45,12 @@ const Cart = () => {
 
   return(
     <div className="cart">
-      <Button style="secondary" onClick={() => setShowModal(true)} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'cartModal', 'data-ga-click': true, 'data-ga-category': 'cart' }}><span className="cart__count" aria-label={`View ${cart.count} items in cart`}>{cart.count}</span></Button>
+      <Button style="secondary" onClick={() => setShowModal(true)} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'cartModal', 'data-ga-click': true, 'data-ga-category': 'cart' }}><span className="cart__count" aria-hidden="true">{cart.count}</span><span className="sr-only">View {cart.count} items in cart</span></Button>
 
       <Modal name="cart" isActive={showModal} onClose={() => setShowModal(false)}>
         <h3 id="cartModalHeading">Cart</h3>
 
-        <ul>
-          {(cart.items || []).map((item, i) => {
-            return (
-              <li key={i} className="cart__item">
-                <div className="cart__item-row">
-                  <span>{item.name}</span>
-                  <span>${item.price * item.qty}</span>
-                </div>
-
-                <div className="cart__item-row cart__item-row--btns">
-                  <Button style="link" onClick={() => handleRemove(item, item.qty)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart' }}>REMOVE</Button>
-
-                  <div className="cart__qty">
-                    <Button style="link" onClick={() => handleRemove(item, 1)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart' }}>–</Button>
-                    {item.qty} LICENSE{item.qty !== 1 && 'S'}
-                    <Button style="link" onClick={() => handleAdd(item)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'cart' }}>+</Button>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-
-          <li className="cart__item cart__item--total cart__item-row">
-            <span>Total</span>
-            <span>${cart.total}</span>
-          </li>
-        </ul>
+        {cart.total ? <Summary items={cart.items} name="cart" onAdd={handleAdd} onRemove={handleRemove} total={cart.total} /> : (<p>Your cart is empty.</p>)}
 
         <div>
           {cart.total && <Checkout cart={cart} />}

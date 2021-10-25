@@ -11,7 +11,7 @@ export function createOrder (actions, cart) {
           }
         }
       },
-      description: '',
+      description: 'Font licensing',
       items: cart.items.map((item) => {
         return {
           name: item.name,
@@ -26,10 +26,10 @@ export function createOrder (actions, cart) {
       })
     }]
   });
-};
+}
 
 export function approveOrder (data, actions) {
   return actions.order.capture().then((orderData) => {
-    console.log(orderData);
+    window.location = `/fonts/payments/confirm?orderId=${orderData.id}&sendFiles=true`;
   });
 }

@@ -1,54 +1,60 @@
-import paypal from 'paypal-rest-sdk';
+import paypal from '@paypal/checkout-server-sdk';
 import path from 'path';
 import fs from 'fs';
-import { getTransporter, getFulfillmentTemplate } from './mailers';
+import { findByIds } from './fonts';
+import { getTransporter, getOrderTemplate } from './mailers';
 
-export function confirm (paymentId, payerId) {
-  return new Promise ((resolve, reject) => {
-    paypal.payment.execute(paymentId, {
-      payer_id: payerId
-    }, (err, payment) => {
-      if (err) {
-        return reject(err);
-      }
+export async function getOrder (orderId, sendFiles) {
+  try {
+    const clientId = process.env.PAYPAL_CLIENT_ID;
+    const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
+    const env = new paypal.core[process.env.NODE_ENV === 'production' ? 'LiveEnvironment' : 'SandboxEnvironment'](clientId, clientSecret);
+    const client = new paypal.core.PayPalHttpClient(env);
+    const request = new paypal.orders.OrdersGetRequest(orderId);
+    const response = (await client.execute(request)).result.purchase_units[0];
+    const fonts = await ((response.items || []).length ? findByIds(response.items.map((item) => item.sku)) : Promise.resolve());
+    const order = { ...response, orderId: orderId, fonts: fonts };
 
-      resolve(payment);
-    });
-  });
+    if (sendFiles && fonts.length) {
+      await fulfillOrder(order);
+    }
+
+    return order;
+  } catch (err) {
+    return { error: err };
+  }
 }
 
-export function fulfill (payment, font) {
-  const filePath = path.resolve('./public/uploads/fonts/', font.commercial_font_file);
+async function fulfillOrder (order) {
   const transporter = getTransporter();
+  const attachments = await Promise.all(getAttachments(order.fonts));
 
-  return new Promise ((resolve, reject) => {
-    fs.readFile(filePath, (err, content) => {
-      if (err) {
-        return reject(err);
-      }
+  const template = transporter.templateSender({
+    subject: 'Thank you for your order!',
+    html: getOrderTemplate(order)
+  }, {
+    from: `"Lauren Ashpole" <${process.env.EMAIL}>`
+  });
 
-      const template = transporter.templateSender({
-        subject: 'Thank you for your purchase!',
-        html: getFulfillmentTemplate(font)
-      }, {
-        from: `"Lauren Ashpole" <${process.env.EMAIL}>`
-      });
+  try {
+    await template({
+      // to: order.payee.email_address,
+      to: 'lauren@laurenashpole.com',
+      attachments: attachments
+    }, { order });
+  } catch (err) {
+    throw new Error(err);
+  }
+}
 
-      template({
-        to: payment.payer.payer_info.email,
-        attachments: [{
-          filename: font.commercial_font_file,
-          content: content
-        }]
-      }, {
-        font: font
-      }, (err) => {
-        if (err) {
-          return reject(err);
-        }
+function getAttachments (fonts) {
+  return fonts.map((font) => {
+    const filePath = path.resolve('./public/uploads/fonts/', font.commercial_font_file);
+    const content = fs.readFileSync(filePath);
 
-        resolve();
-      });
-    });
+    return {
+      filename: font.commercial_font_file,
+      content: content
+    };
   });
 }
