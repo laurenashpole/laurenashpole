@@ -16,7 +16,7 @@ const Content = ({ font, tags }) => {
   const [inViewSection, setInViewSection] = useState('');
 
   useEffect(() => {
-    eeEvent([font], null, null, 'detail');
+    eeEvent([font], null, 'detail');
   }, [font]);
 
   const handleClick = (section) => {

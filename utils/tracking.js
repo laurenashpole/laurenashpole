@@ -9,7 +9,7 @@ export function eeImpressions (fonts) {
   }
 }
 
-export function eeEvent (fonts, position, eventName, eventKey, actionField) {
+export function eeEvent (fonts, position, eventKey, actionField) {
   if (!window.dataLayer) {
     return;
   }
@@ -23,10 +23,6 @@ export function eeEvent (fonts, position, eventName, eventKey, actionField) {
     }
   };
 
-  if (eventName) {
-    dataLayer.event = eventName;
-  }
-
   if (actionField) {
     dataLayer.ecommerce[eventKey].actionField = actionField;
   }
@@ -35,15 +31,11 @@ export function eeEvent (fonts, position, eventName, eventKey, actionField) {
 }
 
 function parseFont (font, position) {
-  const parsedFont = {
+  return {
     name: font.name,
     id: font._id,
-    price: font.price ? font.price.toString() : '0'
+    price: font.price ? font.price.toString() : '0',
+    ...(position && { position }),
+    ...(font.quantity && { quantity: font.quantity })
   };
-
-  if (position) {
-    parsedFont.position = position;
-  }
-
-  return parsedFont;
 }

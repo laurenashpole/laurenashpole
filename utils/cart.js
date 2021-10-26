@@ -1,3 +1,7 @@
+export function getCart () {
+  return JSON.parse(window.localStorage.getItem('cart') || '{}');
+}
+
 export function addItem (item) {
   const items = getCart().items || [];
   const itemIdx = items.map((i) => i._id).indexOf(item._id);
@@ -20,13 +24,41 @@ export function removeItem (item, qty) {
   dispatchEvent();
 }
 
-export function getCart () {
-  return JSON.parse(window.localStorage.getItem('cart') || '{}');
+export function createOrder (actions, cart) {
+  return actions.order.create({
+    purchase_units: [{
+      amount: {
+        currency_code: 'USD',
+        value: cart.total,
+        breakdown: {
+          item_total: {
+            currency_code: 'USD',
+            value: cart.total
+          }
+        }
+      },
+      description: 'Font licensing',
+      items: cart.items.map((item) => {
+        return {
+          name: item.name,
+          description: `Commercial licensing for ${item.name} font.`,
+          unit_amount: {
+            currency_code: 'USD',
+            value: item.price
+          },
+          quantity: item.qty,
+          sku: item._id
+        };
+      })
+    }]
+  });
 }
 
-export function clearCart () {
-  window.localStorage.removeItem('cart');
-  dispatchEvent();
+export function approveOrder (data, actions) {
+  return actions.order.capture().then((orderData) => {
+    clearCart();
+    window.location = `/fonts/payments/confirm?orderId=${orderData.id}&sendFiles=true`;
+  });
 }
 
 function getDetails (items) {
@@ -40,4 +72,9 @@ function getDetails (items) {
 function dispatchEvent () {
   const event = new Event('updateCart');
   document.dispatchEvent(event);
+}
+
+function clearCart () {
+  window.localStorage.removeItem('cart');
+  dispatchEvent();
 }

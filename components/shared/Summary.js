@@ -4,7 +4,7 @@ import styles from './Summary.styles.js';
 
 const Summary = ({ items, name, onAdd, onRemove, total }) => {
   return(
-    <ul>
+    <ul className={total ? '' : 'summary__list--border'}>
       {(items || []).map((item, i) => {
         return (
           <li key={i} className="summary__item">

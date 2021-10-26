@@ -15,7 +15,7 @@ const Confirm = ({ order }) => {
   useEffect(() => {
     if (router.query.sendFiles && !order.error) {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);
-      eeEvent([order.fonts], null, null, 'purchase', { id: order.orderId, revenue: order.amount.value });
+      eeEvent([order.fonts], null, 'purchase', { id: order.orderId, revenue: order.amount.value });
     }
   }, [router.query]);
 

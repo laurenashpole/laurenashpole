@@ -3,6 +3,12 @@ import css from 'styled-jsx/css';
 export default css.global`
   @import 'variables.scss';
 
+  .summary__list--border {
+    border-top: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-light;
+    padding: 1rem 0;
+  }
+
   .summary__item {
     margin-bottom: 1rem;
     padding-bottom: 1rem;

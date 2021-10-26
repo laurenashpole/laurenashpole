@@ -31,7 +31,7 @@ const Buttons = ({ font }) => {
 
   const handleAdd = () => {
     addItem(font);
-    eeEvent([font], 0, 'addToCart', 'add');
+    eeEvent([{...font, quantity: 1}], null, 'add');
   };
 
   return(
