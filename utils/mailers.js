@@ -240,7 +240,7 @@ export function getOrderTemplate (order) {
                         </tr>
                         <tr>
                           <td valign="top" style="padding-top: 18px;padding-right: 36px;padding-bottom: 9px;padding-left: 36px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #ffffff;font-family: Helvetica;font-size: 12px;line-height: 150%;text-align: center;">
-                            <span style="font-family:helvetica neue,helvetica,arial,verdana,sans-serif">If it's not too presumptuous, I've added you to my mailing list. I only send messages when I have new fonts to download, but <a href="https://laurenashpole.us4.list-manage.com/unsubscribe?u=5e9c643a20b49926773037101&id=a878f779fc" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">click here to unsubscribe</a> if you'd prefer not to receive them.</span>
+                            <span style="font-family:helvetica neue,helvetica,arial,verdana,sans-serif">If it's not too presumptuous, I've added you to my mailing list. I only send emails when I have something new to download, but <a href="https://laurenashpole.us4.list-manage.com/unsubscribe?u=5e9c643a20b49926773037101&id=a878f779fc" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #ffffff;font-weight: normal;text-decoration: underline;">click here to unsubscribe</a> if you'd prefer not to receive them.</span>
                           </td>
                         </tr>
                       </table>

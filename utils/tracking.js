@@ -31,10 +31,12 @@ export function eeEvent (fonts, position, eventKey, actionField) {
 }
 
 function parseFont (font, position) {
+  const price = font.unit_amount ? font.unit_amount.value || 0 : font.price || 0;
+
   return {
     name: font.name,
-    id: font._id,
-    price: font.price ? font.price.toString() : '0',
+    id: font._id || font.sku,
+    price: price.toString(),
     ...(position && { position }),
     ...(font.quantity && { quantity: font.quantity })
   };

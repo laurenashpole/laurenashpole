@@ -3,10 +3,9 @@ import css from 'styled-jsx/css';
 export default css.global`
   @import 'variables.scss';
 
-  .summary__list--border {
-    border-top: 1px solid $color-gray-light;
-    border-bottom: 1px solid $color-gray-light;
-    padding: 1rem 0;
+  .summary--card {
+    border: 1px solid $color-gray-light;
+    border-radius: 6px;
   }
 
   .summary__item {
@@ -19,6 +18,17 @@ export default css.global`
       border: none;
       padding: 0;
     }
+
+    .summary--card & {
+      margin: 0;
+      padding: 1rem;
+    }
+  }
+
+  .summary__item--header {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
   }
 
   .summary__item.summary__item--total {
@@ -42,6 +52,19 @@ export default css.global`
       line-height: 2.25rem;
       letter-spacing: 0.075em;
       display: block;
+    }
+  }
+
+  .summary__download {
+    height: 22px;
+    width: auto;
+    margin-left: 2rem;
+    color: $color-purple;
+    display: block;
+
+    a:hover &,
+    a:focus & {
+      color: $color-purple-hover;
     }
   }
 

@@ -12,8 +12,7 @@ export default css.global`
 
   .layout__main {
     width: 100%;
-    padding: 4rem 1.5rem 6rem 1.5rem;
-    padding-bottom: 0;
+    padding: 4rem 1.5rem 0 1.5rem;
     position: relative;
     flex-grow: 1.5;
     display: flex;

@@ -56,7 +56,8 @@ export function createOrder (actions, cart) {
 
 export function approveOrder (data, actions) {
   return actions.order.capture().then((orderData) => {
-    clearCart();
+    window.localStorage.removeItem('cart');
+    dispatchEvent();
     window.location = `/fonts/payments/confirm?orderId=${orderData.id}&sendFiles=true`;
   });
 }
@@ -72,9 +73,4 @@ function getDetails (items) {
 function dispatchEvent () {
   const event = new Event('updateCart');
   document.dispatchEvent(event);
-}
-
-function clearCart () {
-  window.localStorage.removeItem('cart');
-  dispatchEvent();
 }

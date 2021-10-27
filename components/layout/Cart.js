@@ -31,12 +31,12 @@ const Cart = () => {
 
   const handleAdd = (item) => {
     addItem(item);
-    eeEvent([{ ...item, quantity: 1 }], 0, 'add');
+    eeEvent([{ ...item, quantity: 1 }], null, 'add');
   };
 
   const handleRemove = (item, qty) => {
     removeItem(item, qty);
-    eeEvent([{ ...item, quantity: qty }], 0, 'remove');
+    eeEvent([{ ...item, quantity: qty }], null, 'remove');
   };
 
   return(

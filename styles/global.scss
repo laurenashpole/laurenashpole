@@ -10,10 +10,6 @@ h3 {
   letter-spacing: 0.065em;
 }
 
-ul + p {
-  margin-top: 2.5rem ;
-}
-
 @media (min-width: $break-tablet) {
   h1 {
     font-size: 3.75rem;
@@ -22,18 +18,10 @@ ul + p {
   h3 {
     font-size: 3rem;
   }
-
-  ul + p {
-    margin-top: 3rem ;
-  }
 }
 
 @media (min-width: $break-desktop) {
   h1 {
     font-size: 4.25rem;
-  }
-
-  ul + p {
-    margin-top: 4rem ;
   }
 }
