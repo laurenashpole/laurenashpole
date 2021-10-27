@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { getOrder } from '../../../utils/payments';
-import { eeEvent } from '../../../utils/tracking';
-import Well from '../../../shared/components/Well';
-import Layout from '../../../components/layout/Layout';
-import Order from '../../../components/checkout/Order';
+import { getOrder } from '../../utils/checkout';
+import { eeEvent } from '../../utils/tracking';
+import Well from '../../shared/components/Well';
+import Layout from '../../components/layout/Layout';
+import Order from '../../components/checkout/Order';
 
 const Confirm = ({ order }) => {
   const router = useRouter();

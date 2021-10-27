@@ -58,7 +58,7 @@ export function approveOrder (data, actions) {
   return actions.order.capture().then((orderData) => {
     window.localStorage.removeItem('cart');
     dispatchEvent();
-    window.location = `/fonts/payments/confirm?orderId=${orderData.id}&sendFiles=true`;
+    window.location = `/checkout/confirm?orderId=${orderData.id}&sendFiles=true`;
   });
 }
 
