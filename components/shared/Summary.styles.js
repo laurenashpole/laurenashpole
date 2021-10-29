@@ -21,14 +21,16 @@ export default css.global`
 
     .summary--card & {
       margin: 0;
-      padding: 1rem;
+      padding: 1rem 1.25rem;
     }
   }
 
   .summary__item--header {
+    font-size: 2.15rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.025em;
+    line-height: 1.6;
+    letter-spacing: 0.035em;
   }
 
   .summary__item.summary__item--total {

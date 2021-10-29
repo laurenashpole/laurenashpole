@@ -14,7 +14,7 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
               <span>{item.name}</span>
 
               {item.downloadPath ? (
-                <a href={item.downloadPath} aria-label={`Download ${item.name}`}>
+                <a href={item.downloadPath} aria-label={`Download ${item.name}`} data-ga-click="true" data-ga-category={name}>
                   <svg className="summary__download" aria-hidden="true" viewBox="0 0 34 25.2"><path fill="currentColor" d="M16.1 19.5c.5.5 1.4.5 1.9 0l6.3-5.2c.5-.5.5-1.4 0-1.9s-1.4-.5-1.9 0l-4 3v-14C18.3.6 17.7 0 17 0s-1.3.6-1.3 1.3v14l-4-3c-.5-.5-1.4-.5-1.9 0s-.5 1.4 0 1.9l6.3 5.3z"/><path fill="currentColor" d="M32.7 11.9c-.7 0-1.3.6-1.3 1.3v9.3H2.7v-9.3c0-.7-.6-1.3-1.3-1.3S0 12.5 0 13.3v10.6c0 .7.6 1.3 1.3 1.3h31.3c.7 0 1.3-.6 1.3-1.3V13.3c.1-.8-.5-1.4-1.2-1.4z"/></svg>
                 </a>
               ) : <span>${item.price * item.qty}</span>}

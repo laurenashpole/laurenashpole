@@ -38,6 +38,6 @@ function parseFont (font, position) {
     id: font._id || font.sku,
     price: price.toString(),
     ...(position && { position }),
-    ...(font.quantity && { quantity: font.quantity })
+    ...(font.qty && { quantity: font.qty })
   };
 }

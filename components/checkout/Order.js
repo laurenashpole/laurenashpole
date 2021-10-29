@@ -8,11 +8,11 @@ const Order = ({ order }) => {
     <div className="order">
       <div>
         <p>Your purchase was processed via PayPal with the order number {order.orderId}.</p>
-        <p>If you want web fonts and additional characters (where applicable), don't leave this page without downloading the commercial files. Those will also be emailed as attachments to {order.payee.email_address}. If you have any questions about your purchase, visit the <Link href="/fonts/licensing"><a>licensing details</a></Link> or the <Link href="/fonts/eula"><a>EULA</a></Link> or email me at <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} title={process.env.NEXT_PUBLIC_EMAIL}>{process.env.NEXT_PUBLIC_EMAIL}</a></p>
+        <p>If you want web fonts and additional characters (where applicable), don't forget to download the commercial files before leaving this page. They will also be emailed as attachments to {order.payee.email_address}. If you have any questions about your purchase, visit the <Link href="/fonts/licensing"><a data-ga-click="true" data-ga-category="confirm">licensing details</a></Link> or the <Link href="/fonts/eula"><a data-ga-click="true" data-ga-category="confirm">EULA</a></Link> or email me at <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} title={process.env.NEXT_PUBLIC_EMAIL}>{process.env.NEXT_PUBLIC_EMAIL}</a></p>
       </div>
 
       <div className="order__summary">
-        <Summary header="Downloads" items={order.fonts.map((font) => { return { ...font, downloadPath: `/uploads/fonts/${font.commercial_font_file}` }; })} />
+        <Summary header="Downloads" items={order.fonts.map((font) => { return { ...font, downloadPath: `/uploads/fonts/${font.commercial_font_file}` }; })} name="confirm" />
       </div>
 
       <style jsx global>

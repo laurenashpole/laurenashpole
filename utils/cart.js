@@ -54,11 +54,11 @@ export function createOrder (actions, cart) {
   });
 }
 
-export function approveOrder (data, actions) {
+export function approveOrder (data, actions, callback) {
   return actions.order.capture().then((orderData) => {
     window.localStorage.removeItem('cart');
     dispatchEvent();
-    window.location = `/checkout/confirm?orderId=${orderData.id}&sendFiles=true`;
+    callback(orderData);
   });
 }
 
