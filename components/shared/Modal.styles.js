@@ -94,7 +94,7 @@ export default css.global`
   }
 
   .modal__well {
-    background: #fff;
+    background: $color-white;
     max-height: 90vh;
     overflow-y: auto;
   }

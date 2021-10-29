@@ -72,7 +72,6 @@ const Cart = () => {
 
       <Modal name="cart" isActive={showModal} onClose={() => setShowModal(false)}>
         <h3 id="cartModalHeading">Cart</h3>
-
         {cart.total > 0 ? <Summary items={cart.items} name="cart" onAdd={handleAdd} onRemove={handleRemove} total={cart.total} /> : (<p>{checkoutState === 'complete' ? 'Order complete! Redirecting to your confirmation page...' : 'Your cart is empty.'}</p>)}
 
         {checkoutState !== 'complete' &&

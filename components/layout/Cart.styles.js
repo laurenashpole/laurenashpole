@@ -36,7 +36,7 @@ export default css.global`
         content: '';
         width: 1.5rem;
         height: 1.5rem;
-        border: 2px solid #fff;
+        border: 2px solid $color-white;
         border-radius: 50%;
         position: absolute;
         top: calc(50% - 2rem);

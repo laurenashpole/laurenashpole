@@ -19,7 +19,7 @@ const Confirm = ({ order }) => {
   }, [router.query, order]);
 
   return (
-    <Layout title="Thank you for your purchase! - Fonts">
+    <Layout title="Thank you for ordering! - Fonts">
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>

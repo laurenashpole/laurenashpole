@@ -38,8 +38,7 @@ async function fulfillOrder (order) {
 
   try {
     await template({
-      // to: order.payee.email_address,
-      to: 'lauren@laurenashpole.com',
+      to: order.payee.email_address,
       attachments: attachments
     }, { order });
   } catch (err) {
