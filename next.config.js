@@ -13,6 +13,11 @@ module.exports = {
         permanent: true
       },
       {
+        source: '/amp/fonts/:slug',
+        destination: '/fonts/:slug',
+        permanent: true
+      },
+      {
         source: '/fonts.html',
         destination: '/fonts',
         permanent: true

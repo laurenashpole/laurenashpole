@@ -52,7 +52,7 @@ p {
 }
 
 p:not(:last-child) {
-  margin: 0 0 2.5rem 0;
+  margin-bottom: 2.5rem;
 }
 
 a {
@@ -74,6 +74,19 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0,0,0,0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  position: absolute;
 }
 
 @media (min-width: $break-tablet) {

@@ -58,7 +58,11 @@ export default css.global`
   }
 
   .modal__content {
+    width: 100%;
+    max-width: 56rem;
+    border-radius: 6px;
     position: relative;
+    overflow: hidden;
     text-align: center;
 
     & > * {
@@ -87,5 +91,11 @@ export default css.global`
   .modal__content:after {
     bottom: 0;
     right: 0;
+  }
+
+  .modal__well {
+    background: $color-white;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 `;

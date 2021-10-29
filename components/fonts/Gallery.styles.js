@@ -11,6 +11,7 @@ export default css.global`
 
   .gallery__main {
     position: relative;
+    display: flex;
   }
 
   .gallery__pin {

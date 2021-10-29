@@ -8,7 +8,7 @@ const Errors = ({ errors }) => {
 
   return (
     <ul className="errors">
-      {errors.map((error, i) => <li key={i}>{error}</li>)}
+      {errors.map((error, i) => <li key={i} dangerouslySetInnerHTML={{ __html: error }} />)}
 
       <style jsx global>
         {styles}

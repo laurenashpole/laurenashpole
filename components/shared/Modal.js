@@ -86,9 +86,11 @@ const Modal = ({ children, name, isActive, onClose }) => {
   return createPortal(
     <div className={`modal ${isVisible ? 'modal--visible' : ''}`} onClick={handleClick}>
       <div className="modal__content" id={name ? `${name}Modal` : null} ref={modalRef} aria-hidden={!isVisible} aria-labelledby={name ? `${name}ModalHeading` : null} role="dialog">
-        <Well size="small">
-          {children}
-        </Well>
+        <div className="modal__well">
+          <Well size="small">
+            {children}
+          </Well>
+        </div>
       </div>
 
       <style jsx global>

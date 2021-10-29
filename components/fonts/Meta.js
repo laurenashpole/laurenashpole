@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-const Meta = ({ font, isAmp }) => {
+const Meta = ({ font }) => {
   const getStructuredData = (font) => {
     return `
       {
@@ -40,16 +40,13 @@ const Meta = ({ font, isAmp }) => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getStructuredData(font) }} />
 
       <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}fonts/${font.slug}`} />
-      {!isAmp & <link rel="amphtml" href={`${process.env.NEXT_PUBLIC_BASE_URL}amp/fonts/${font.slug}`} />}
-
-      {!isAmp && <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />}
+      <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />
     </Head>
   );
 };
 
 Meta.propTypes = {
-  font: PropTypes.object,
-  isAmp: PropTypes.bool
+  font: PropTypes.object
 };
 
 export default Meta;

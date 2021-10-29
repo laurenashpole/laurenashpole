@@ -44,7 +44,7 @@ export default css.global`
     }
 
     .well--small {
-      max-width: 60rem;
+      max-width: 56rem;
     }
 
     .well--small {
