@@ -11,9 +11,10 @@ export async function getOrder (orderId, sendFiles) {
     const env = new paypal.core[process.env.NODE_ENV === 'production' ? 'LiveEnvironment' : 'SandboxEnvironment'](clientId, clientSecret);
     const client = new paypal.core.PayPalHttpClient(env);
     const request = new paypal.orders.OrdersGetRequest(orderId);
-    const response = (await client.execute(request)).result.purchase_units[0];
-    const fonts = await ((response.items || []).length ? findByIds(response.items.map((item) => item.sku)) : Promise.resolve());
-    const order = { ...response, orderId: orderId, fonts: fonts };
+    const response = (await client.execute(request)).result;
+    const purchase = response.purchase_units[0] || {};
+    const fonts = await ((purchase.items || []).length ? findByIds(purchase.items.map((item) => item.sku)) : Promise.resolve());
+    const order = { ...purchase, orderId: orderId, fonts: fonts, payer: response.payer };
 
     if (sendFiles && fonts.length) {
       await fulfillOrder(order);
@@ -38,7 +39,7 @@ async function fulfillOrder (order) {
 
   try {
     await template({
-      to: order.payee.email_address,
+      to: order.payer.email_address,
       attachments: attachments
     }, { order });
   } catch (err) {
