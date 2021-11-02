@@ -3,6 +3,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { getOrder } from '../../utils/checkout';
+import { request } from '../../shared/utils/request';
 import { eeEvent } from '../../utils/tracking';
 import Well from '../../shared/components/Well';
 import Layout from '../../components/layout/Layout';
@@ -14,9 +15,19 @@ const Confirm = ({ order }) => {
   useEffect(() => {
     if (router.query.sendFiles && !order.error) {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);
+      handleMailing(order.payer.email_address);
       eeEvent(order.items, null, 'purchase', { id: order.orderId, revenue: order.amount.value });
     }
   }, [router.query, order]);
+
+  const handleMailing = async (email) => {
+    try {
+      await request({
+        endpoint: '/api/mailing',
+        body: JSON.stringify({ email })
+      });
+    } catch {}
+  };
 
   return (
     <Layout title="Thank you for ordering! - Fonts">
