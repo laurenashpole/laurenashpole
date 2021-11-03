@@ -1,16 +1,16 @@
 import nodemailer from 'nodemailer';
-import xoauth2 from 'xoauth2';
 
 export function getTransporter () {
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
-      xoauth2: xoauth2.createXOAuth2Generator({
-        user: process.env.MAILER_USER,
-        clientId: process.env.MAILER_ID,
-        clientSecret: process.env.MAILER_SECRET,
-        refreshToken: process.env.MAILER_REFRESH
-      })
+      type: 'OAuth2',
+      user: process.env.MAILER_USER,
+      clientId: process.env.MAILER_ID,
+      clientSecret: process.env.MAILER_SECRET,
+      refreshToken: process.env.MAILER_REFRESH
     }
   });
 }
