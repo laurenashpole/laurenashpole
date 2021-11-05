@@ -30,18 +30,15 @@ async function fulfillOrder (order) {
   const transporter = getTransporter();
   const attachments = await Promise.all(getAttachments(order.fonts));
 
-  const template = transporter.templateSender({
-    subject: 'Thank you for your order!',
-    html: getOrderTemplate(order)
-  }, {
-    from: `"Lauren Ashpole" <${process.env.EMAIL}>`
-  });
-
   try {
-    await template({
+    await transporter.sendMail({
+      subject: 'Thank you for your order!',
+      html: getOrderTemplate(order),
       to: order.payer.email_address,
       attachments: attachments
-    }, { order });
+    });
+
+    transporter.close();
   } catch (err) {
     throw new Error(err);
   }

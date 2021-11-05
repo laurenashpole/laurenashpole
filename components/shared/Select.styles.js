@@ -40,6 +40,7 @@ export default css.global`
     border-radius: 3px;
     padding: 2.75rem 4rem 0.5rem 1.25rem;
     outline: none;
+    color: $color-black;
     font-family: inherit;
     font-size: inherit;
     line-height: normal;
