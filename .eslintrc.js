@@ -23,7 +23,10 @@ module.exports = {
   'rules': {
     'indent': [
       'error',
-      2
+      2,
+      {
+        'ignoredNodes': ['TemplateLiteral']
+      }
     ],
     'linebreak-style': [
       'error',

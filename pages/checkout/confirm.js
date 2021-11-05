@@ -26,7 +26,9 @@ const Confirm = ({ order }) => {
         endpoint: '/api/mailing',
         body: JSON.stringify({ email })
       });
-    } catch {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
