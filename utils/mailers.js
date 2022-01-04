@@ -1,12 +1,35 @@
 import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
+const OAuth2 = google.auth.OAuth2;
 
-export function getTransporter () {
+export async function getTransporter () {
+  const oauth2Client = new OAuth2(
+    process.env.MAILER_ID,
+    process.env.MAILER_SECRET,
+    'https://developers.google.com/oauthplayground'
+  );
+
+  oauth2Client.setCredentials({
+    refresh_token: process.env.MAILER_REFRESH
+  });
+
+  const accessToken = await new Promise((resolve, reject) => {
+    oauth2Client.getAccessToken((err, token) => {
+      if (err) {
+        reject('Failed to create Gmail access token :(');
+      }
+
+      resolve(token);
+    });
+  });
+
   return nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
       type: 'OAuth2',
+      accessToken,
       user: process.env.MAILER_USER,
       clientId: process.env.MAILER_ID,
       clientSecret: process.env.MAILER_SECRET,

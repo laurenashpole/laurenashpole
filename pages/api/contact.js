@@ -1,11 +1,11 @@
 import { getTransporter } from '../../utils/mailers';
 
-export default (req, res) => {
+export default async (req, res) => {
   if (!req.body || !req.body.email || !req.body.name || !req.body.message) {
     return res.status(422).json({});
   }
 
-  const transporter = getTransporter();
+  const transporter = await getTransporter();
 
   transporter.sendMail({
     from: `"CONTACT FORM" <${process.env.EMAIL}>`,

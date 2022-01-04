@@ -27,7 +27,7 @@ export async function getOrder (orderId, sendFiles) {
 }
 
 async function fulfillOrder (order) {
-  const transporter = getTransporter();
+  const transporter = await getTransporter();
   const attachments = await Promise.all(getAttachments(order.fonts));
 
   try {
