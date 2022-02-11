@@ -11,6 +11,7 @@ export default css.global`
   .hero__link {
     max-width: 72rem;
     margin: 0 auto;
+    padding: 0 2.5rem;
     font-weight: inherit;
     text-decoration: none;
     display: block;

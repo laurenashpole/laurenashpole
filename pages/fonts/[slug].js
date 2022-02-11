@@ -18,13 +18,13 @@ const Font = ({ font, tags }) => {
 };
 
 export async function getStaticPaths () {
-  const fonts = await findAll();
+  const fonts = await findAll(3, { $natural: -1 });
 
   return {
     paths: fonts.map((font) => {
       return { params: { slug: font.slug }};
     }),
-    fallback: false
+    fallback: 'blocking'
   };
 }
 
@@ -36,7 +36,8 @@ export async function getStaticProps ({ params }) {
     props: {
       font: JSON.parse(JSON.stringify(font)),
       tags: JSON.parse(JSON.stringify(tags))
-    }
+    },
+    revalidate: 604800
   };
 }
 

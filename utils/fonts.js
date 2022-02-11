@@ -7,8 +7,8 @@ import Font from '../models/font';
 
 const UPLOADS_DIRECTORY = './public/uploads/';
 
-export async function findAll () {
-  return await (await Font()).find().sort({ name: 'asc' }).exec();
+export async function findAll (limit, customSort) {
+  return await (await Font()).find().limit(limit || 100).sort(customSort || { name: 'asc' }).exec();
 }
 
 export async function findBySlug (slug) {
