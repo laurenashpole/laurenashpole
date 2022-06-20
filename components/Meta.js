@@ -1,45 +1,61 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-const Meta = ({ description, title, canonicalPathname }) => {
-  const getStructuredData = () => {
-    return `
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Lauren Ashpole",
-        "url": "https://laurenashpole.com"
-      }
-    `;
+const Meta = ({ description, og, pathname, structuredData, title, twitter }) => {
+  og = {
+    type: 'website',
+    site_name: 'Lauren Ashpole',
+    title: title,
+    description: description,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`,
+    ...(og || {})
   };
+
+  twitter = {
+    card: 'summary',
+    site: '@laurenashpole',
+    creator: '@laurenashpole',
+    title: title,
+    description: description,
+    ...(twitter || {})
+  };
+
+  structuredData = [
+    `{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Lauren Ashpole",
+      "url": "https://laurenashpole.com"
+    }`,
+    ...([structuredData] || [])
+  ].join(',');
 
   return (
     <Head>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: getStructuredData() }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
 
       <meta name="description" content={description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.'} />
 
-      <meta property="og:type" content="website" />
-      <meta name="og:title" property="og:title" content={title} />
-      <meta name="og:description" property="og:description" content={description} />
-      <meta property="og:site_name" content="Lauren Ashpole" />
-      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}${canonicalPathname}`} />
+      {Object.keys(og).map((prop) => (
+        <meta key={`og${prop}`} property={`og:${prop}`} content={og[prop]} />
+      ))}
 
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:site" content="@laurenashpole" />
-      <meta name="twitter:creator" content="@laurenashpole" />
+      {Object.keys(twitter).map((prop) => (
+        <meta key={`twitter${prop}`} name={`twitter:${prop}`} content={twitter[prop]} />
+      ))}
 
-      {canonicalPathname && <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${canonicalPathname}`} />}
+      <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`} />
     </Head>
   );
 };
 
 Meta.propTypes = {
   description: PropTypes.string,
+  og: PropTypes.object,
+  pathname: PropTypes.string,
+  structuredData: PropTypes.string,
   title: PropTypes.string,
-  canonicalPathname: PropTypes.string
+  twitter: PropTypes.object
 };
 
 export default Meta;
