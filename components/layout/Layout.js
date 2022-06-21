@@ -8,14 +8,14 @@ import Mailing from '../../shared/components/Mailing';
 import Cart from './Cart';
 import styles from './Layout.styles.js';
 
-const Layout = ({ children, isAdmin, title, description, canonicalPathname, hideHeader }) => {
+const Layout = ({ children, hideHeader, isAdmin, meta }) => {
   return (
     <div className="layout">
       <Head>
-        <title>{title ? title + ' - ' : ''}Lauren Ashpole</title>
+        <title>{(meta || {}).title ? meta.title + ' - ' : ''}Lauren Ashpole</title>
       </Head>
 
-      {!isAdmin && <Meta title={title} description={description} canonicalPathname={canonicalPathname} />}
+      {!isAdmin && <Meta {...(meta || {})} description={(meta || {}).description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'} />}
       {!hideHeader && <Header home={HEADER.home} links={HEADER[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} />}
       <main className="layout__main">{children}</main>
       <Cart />
@@ -35,11 +35,9 @@ const Layout = ({ children, isAdmin, title, description, canonicalPathname, hide
 
 Layout.propTypes = {
   children: PropTypes.any,
+  hideHeader: PropTypes.bool,
   isAdmin: PropTypes.bool,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  canonicalPathname: PropTypes.string,
-  hideHeader: PropTypes.bool
+  meta: PropTypes.object
 };
 
 export default Layout;

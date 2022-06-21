@@ -3,7 +3,7 @@ import Layout from '../../components/layout/Layout';
 
 const EULA = () => {
   return(
-    <Layout title="End-User Licensing Agreement - Fonts" canonicalPathname="fonts/eula">
+    <Layout meta={{ title: 'End-User Licensing Agreement - Fonts', pathname: 'fonts/eula' }}>
       <Well>
         <h1>End-User Licensing Agreement</h1>
 

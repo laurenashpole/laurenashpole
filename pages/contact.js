@@ -64,7 +64,7 @@ const Contact = () => {
   };
 
   return(
-    <Layout title="Contact">
+    <Layout meta={{ title: 'Contact', pathname: 'contact' }}>
       {isComplete ? (
         <Well size="medium">
           <h1>Thanks for your message!</h1>

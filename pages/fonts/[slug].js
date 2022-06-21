@@ -1,15 +1,49 @@
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { findAll, findBySlug } from '../../utils/fonts';
 import { findByIds as findTagsByIds } from '../../utils/tags';
 import Layout from '../../components/layout/Layout';
 import HeroImage from '../../components/fonts/HeroImage';
-import Meta from '../../components/fonts/Meta';
 import Content from '../../components/fonts/Content';
 
 const Font = ({ font, tags }) => {
+  const og = {
+    type: 'product',
+    title: font.name,
+    price: `$${font.price}`,
+    'price:currency': 'USD',
+    availability: 'instock',
+    image: `${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[0]}`
+  };
+
+  const structuredData = `
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": "${font.name}",
+      "sku": "${font._id}",
+      "image": "${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[0]}",
+      ${font.description ? '"description": "' + font.description.replace(/<br\/>/g, '').replace(/\s+/g, ' ') + '",' : ''}
+      "offers": {
+        "@type": "Offer",
+        "availability": "http://schema.org/InStock",
+        "price": "${font.price}",
+        "priceCurrency": "USD",
+        "url": "${process.env.NEXT_PUBLIC_BASE_URL}fonts/${font.slug}"
+      },
+      "brand": {
+        "@type": "Thing",
+        "name": "Lauren Ashpole"
+      }
+    }
+  `;
+
   return (
-    <Layout title={`${font.name} - Fonts`} description={`Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`}>
-      <Meta font={font} />
+    <Layout meta={{ title: `${font.name} - Fonts`, description: `Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`, pathname: `fonts/${font.slug}`, og, structuredData }}>
+      <Head>
+        <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />
+      </Head>
+
       <HeroImage src={`/uploads/images/${font.image}`} alt={`${font.name} Sample`} />
       <Content font={font} tags={tags} />
       <div id="modalRoot" />

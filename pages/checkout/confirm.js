@@ -32,7 +32,7 @@ const Confirm = ({ order }) => {
   };
 
   return (
-    <Layout title="Thank you for ordering! - Fonts">
+    <Layout meta={{ title: 'Thank you for ordering! - Fonts' }}>
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
