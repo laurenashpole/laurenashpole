@@ -27,7 +27,7 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
       "name": "Lauren Ashpole",
       "url": "https://laurenashpole.com"
     }`,
-    ...([structuredData] || [])
+    ...(structuredData ? [structuredData] : [])
   ];
 
   return (
