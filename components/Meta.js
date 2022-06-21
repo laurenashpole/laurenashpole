@@ -28,12 +28,10 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
       "url": "https://laurenashpole.com"
     }`,
     ...([structuredData] || [])
-  ].join(',');
+  ];
 
   return (
     <Head>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-
       <meta name="description" content={description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.'} />
 
       {Object.keys(og).map((prop) => (
@@ -42,6 +40,10 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
 
       {Object.keys(twitter).map((prop) => (
         <meta key={`twitter${prop}`} name={`twitter:${prop}`} content={twitter[prop]} />
+      ))}
+
+      {structuredData.map((data) => (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: data }} />
       ))}
 
       <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`} />
