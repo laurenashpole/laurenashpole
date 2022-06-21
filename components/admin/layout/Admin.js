@@ -10,7 +10,7 @@ const Admin = ({ children, isAuthenticated, title }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <Layout isAdmin={true} title={`${title ? title + ' - ' : ''}Admin`} hideHeader={!isAuthenticated}>
+      <Layout isAdmin={true} hideHeader={!isAuthenticated} meta={{ title: `${title ? title + ' - ' : ''}Admin` }}>
         {isAuthenticated ? children : <Login />}
       </Layout>
     </>

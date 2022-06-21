@@ -6,7 +6,7 @@ import List from '../../components/fonts/List';
 
 const Fonts = ({ fonts, tags }) => {
   return (
-    <Layout title="Fonts" description="Custom, handcrafted fonts and dingbats for your personal and commercial projects." canonicalPathname="fonts">
+    <Layout meta={{ title: 'Fonts', description: 'Custom, handcrafted fonts and dingbats for your personal and commercial projects.', pathname: 'fonts' }}>
       <List heading="Fonts" fonts={fonts} tags={tags} />
     </Layout>
   );

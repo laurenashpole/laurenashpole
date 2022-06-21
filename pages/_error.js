@@ -4,7 +4,7 @@ import Layout from '../components/layout/Layout';
 
 const Error = ({ statusCode }) => {
   return (
-    <Layout>
+    <Layout meta={{ title: 'Something went wrong!' }}>
       <Well size="medium">
         <h1>{statusCode && `${statusCode} - `}Something went wrong!</h1>
 

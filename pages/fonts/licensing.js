@@ -4,7 +4,7 @@ import Layout from '../../components/layout/Layout';
 
 const Licensing = () => {
   return(
-    <Layout title="Licensing - Fonts" canonicalPathname="fonts/licensing">
+    <Layout meta={{ title: 'Licensing - Fonts', pathname: 'fonts/licensing' }}>
       <Well>
         <h1>Licensing</h1>
 
