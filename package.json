@@ -18,7 +18,7 @@
     "next": "11.0.1",
     "node-sass": "4.14.1",
     "node-thumbnail": "^0.15.0",
-    "nodemailer": "^6.4.16",
+    "nodemailer": "^6.6.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react": "^17.0.2",
