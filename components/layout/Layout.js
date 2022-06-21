@@ -15,7 +15,7 @@ const Layout = ({ children, hideHeader, isAdmin, meta }) => {
         <title>{(meta || {}).title ? meta.title + ' - ' : ''}Lauren Ashpole</title>
       </Head>
 
-      {!isAdmin && <Meta {...(meta || {})} description={(meta || {}).description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'} />}
+      {!isAdmin && <Meta {...(meta || {})} title={(meta || {}).title || 'Lauren Ashpole'} description={(meta || {}).description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'} />}
       {!hideHeader && <Header home={HEADER.home} links={HEADER[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} />}
       <main className="layout__main">{children}</main>
       <Cart />
