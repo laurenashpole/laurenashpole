@@ -40,6 +40,7 @@ const Font = ({ font, tags }) => {
 
   return (
     <Layout meta={{ title: `${font.name} - Fonts`, description: `Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`, pathname: `fonts/${font.slug}`, og, structuredData }}>
+      <Head>
         <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />
       </Head>
 

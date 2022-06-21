@@ -42,8 +42,8 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
         <meta key={`twitter${prop}`} name={`twitter:${prop}`} content={twitter[prop]} />
       ))}
 
-      {structuredData.map((data) => (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: data }} />
+      {structuredData.map((data, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: data }} />
       ))}
 
       <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`} />
