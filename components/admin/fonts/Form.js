@@ -39,7 +39,7 @@ const Form = ({ font, tags, endpoint }) => {
       {error && <Errors errors={[error]} />}
       {font._id && <input type="hidden" name="_id" value={font._id} />}
       <div className="form__options">
-        <Checkbox label="For sale" attributes={{ name: "active", defaultChecked: font.active ? font.active : false, value: true }} />
+        <Checkbox label="For sale" attributes={{ name: 'active', defaultChecked: font.active ? font.active : false, value: true }} />
       </div>
       <Input label="Name" attributes={{ type: 'text', name: 'name', defaultValue: font.name }} />
       <Textarea label="Description" textareaProps={{ rows: '5', name: 'description', placeholder: 'Description', defaultValue: font.description }} />
