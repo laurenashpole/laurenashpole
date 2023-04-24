@@ -5,6 +5,7 @@ export default async () => {
   const client = await connectToDatabase();
 
   const FontSchema = new client.Schema({
+    active: Boolean,
     name: {
       type: String,
       required: true
