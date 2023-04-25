@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { findAll } from '../../utils/fonts';
+import { findActive } from '../../utils/fonts';
 import { findAll as findAllTags } from '../../utils/tags';
 import Layout from '../../components/layout/Layout';
 import List from '../../components/fonts/List';
@@ -13,7 +13,7 @@ const Fonts = ({ fonts, tags }) => {
 };
 
 export async function getStaticProps () {
-  const fonts = await findAll();
+  const fonts = await findActive();
   const tags = await findAllTags();
 
   return {

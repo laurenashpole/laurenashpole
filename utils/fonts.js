@@ -7,8 +7,12 @@ import Font from '../models/font';
 
 const UPLOADS_DIRECTORY = './public/uploads/';
 
-export async function findAll (limit, customSort) {
-  return await (await Font()).find().limit(limit || 100).sort(customSort || { name: 'asc' }).exec();
+export async function findAll () {
+  return await (await Font()).find().limit(100).sort({ name: 'asc' }).exec();
+}
+
+export async function findActive (limit, customSort) {
+  return await (await Font()).find({ active: true }).limit(limit || 100).sort(customSort || { name: 'asc' }).exec();
 }
 
 export async function findBySlug (slug) {
@@ -20,7 +24,7 @@ export async function findById (id) {
 }
 
 export async function findByIds (ids) {
-  return await (await Font()).find({ _id: { $in: ids }}).sort({ name: 'asc' });
+  return await (await Font()).find({ active: true, _id: { $in: ids }}).sort({ name: 'asc' });
 }
 
 export async function create (req) {
