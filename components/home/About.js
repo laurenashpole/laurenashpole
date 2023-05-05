@@ -16,7 +16,7 @@ const About = () => {
           <div className="about__upcoming">
             <p>Here&apos;s a sneak peek of my next font. Sign up for updates in the footer and I&apos;ll let you know when it&apos;s done.</p>
             <div className="about__img">
-              <Image src="/uploads/misc/next-font-scribble.png" alt="A preview of my next font!" width={400} height={210} />
+              <Image src="/uploads/misc/next-font-shapes.png" alt="A preview of my next font!" width={400} height={210} />
             </div>
           </div>
         </div>
