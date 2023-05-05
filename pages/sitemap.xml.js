@@ -1,4 +1,4 @@
-import { findAll as findAllFonts } from '../utils/fonts';
+import { findActive as findAllFonts } from '../utils/fonts';
 import { findAll as findAllTags }  from '../utils/tags';
 
 const Sitemap = () => {};

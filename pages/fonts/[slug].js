@@ -1,12 +1,20 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { findAll, findBySlug } from '../../utils/fonts';
+import { findActive, findBySlug } from '../../utils/fonts';
 import { findByIds as findTagsByIds } from '../../utils/tags';
+import Custom404 from '../404';
 import Layout from '../../components/layout/Layout';
 import HeroImage from '../../components/fonts/HeroImage';
 import Content from '../../components/fonts/Content';
 
 const Font = ({ font, tags }) => {
+  const { query } = useRouter();
+
+  if (!font.active && !query.preview) {
+    return <Custom404 />;
+  }
+
   const og = {
     type: 'product',
     title: font.name,
@@ -52,7 +60,7 @@ const Font = ({ font, tags }) => {
 };
 
 export async function getStaticPaths () {
-  const fonts = await findAll(3, { $natural: -1 });
+  const fonts = await findActive(3, { $natural: -1 });
 
   return {
     paths: fonts.map((font) => {
