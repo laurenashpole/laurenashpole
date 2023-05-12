@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Script from 'next/script';
 import { useRouter } from 'next/router';
 import '../styles/global.scss';
 
@@ -12,7 +13,12 @@ const App = ({ Component, pageProps }) => {
     }
   }, [router.query]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+      <Script src="//assets.pinterest.com/js/pinit.js" />
+    </>
+  );
 };
 
 App.propTypes = {

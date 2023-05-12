@@ -21,6 +21,7 @@ export default async () => {
     image_horizontal_mobile: String,
     image_collection: [],
     image_collection_thumbnails: [],
+    image_pinterest: String,
     css_file: String,
     preview_css: String,
     preview_files: [],

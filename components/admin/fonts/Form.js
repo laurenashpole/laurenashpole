@@ -62,6 +62,7 @@ const Form = ({ font, tags, endpoint }) => {
         </div>
       }
 
+      <Input label={`Pinterest Image ${font.image_pinterest ? `<span>(${font.image_pinterest})</span>` : ''}`} attributes={{ type: 'file', name: 'image_pinterest' }} />
       <Textarea label="Preview CSS" textareaProps={{ rows: '5', name: 'preview_css', placeholder: 'Preview CSS', defaultValue: font.preview_css }} />
       <Input label={`Preview Files ${(font.preview_files || []).length ? `<span>(${font.preview_files.join(', ')})</span>` : ''}`}  attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
       <Input label="Alternate Style Classes" attributes={{ type: 'text', name: 'alternate_style', defaultValue: font.alternate_style }} />
