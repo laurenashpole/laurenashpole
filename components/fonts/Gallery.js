@@ -12,7 +12,15 @@ const Gallery = ({ font }) => {
       <h3>Gallery</h3>
 
       <div className="gallery__main">
-        <span className="gallery__pin"><a data-pin-do="buttonBookmark" data-pin-tall="true" data-pin-round="true" href="https://www.pinterest.com/pin/create/button/" /></span>
+        <span className="gallery__pin">
+          <a data-pin-do="buttonPin" data-pin-tall="true" data-pin-round="true" href={`https://www.pinterest.com/pin/create/button/?url=https://laurenashpole.com/fonts/${font.slug}&media=https://laurenashpole.com/uploads/images/${font.image_collection[activeIndex]}}&description=Next%20stop%3A%20Pinterest`}>
+            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" alt="Pin it" />
+          </a>
+
+          {/*<a data-pin-do="buttonPin" data-pin-tall="true" data-pin-round="true" href={`https://www.pinterest.com/pin/create/button/?url=https://laurenashpole.com/fonts/${font.slug}&media=https://laurenashpole.com${activeIndex === 0 && font.image_pinterest ? `/uploads/images/${font.image_pinterest}` : `/uploads/images/${font.image_collection[activeIndex]}`}&description=Next%20stop%3A%20Pinterest`}>
+            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" />
+          </a>*/}
+        </span>
         <Image key={`image${activeIndex}`} src={`/uploads/images/${font.image_collection[activeIndex]}`} alt={`${font.name} Poster Image`} width={1500} height={1000} />
       </div>
 
