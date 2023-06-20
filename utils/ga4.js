@@ -14,16 +14,6 @@ export function ga4Event (event, items, listName, customFields = {}) {
         ...customFields
       }
     });
-
-    console.log({
-      event: event,
-      ecommerce: {
-        ...list,
-        items: items.map((item) => parseItem(item, list)),
-        ...(customFields.value && { currency: 'USD' }),
-        ...customFields
-      }
-    });
   }
 }
 

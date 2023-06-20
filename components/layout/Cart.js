@@ -27,7 +27,7 @@ const Cart = () => {
       setShowModal(true);
       ga4Event('view_cart', cart.items, null, { value: cart.total });
     }
-  }, [cart.count]);
+  }, [cart]);
 
   const handleShow = () => {
     setError('');

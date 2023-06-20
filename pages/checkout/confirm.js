@@ -18,7 +18,7 @@ const Confirm = ({ order }) => {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);
       handleMailing(order.payer.email_address);
       eeEvent(order.items, null, 'purchase', { id: order.orderId, revenue: order.amount.value });
-      ga4Event('purchase', order.items, null, { transaction_id: order.orderId, value: order.amount.value })
+      ga4Event('purchase', order.items, null, { transaction_id: order.orderId, value: order.amount.value });
     }
   }, [router.query, order]);
 

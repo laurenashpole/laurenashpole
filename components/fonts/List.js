@@ -26,7 +26,7 @@ const List = ({ heading, fonts, tags, description }) => {
   useEffect(() => {
     eeImpressions(fonts);
     ga4Event('view_item_list', fonts, `${heading} List`);
-  }, [fonts]);
+  }, [fonts, heading]);
 
   useEffect(() => {
     const filteredFonts = filter ? fonts.filter((font) => font.name.toUpperCase().indexOf(filter.toUpperCase()) > -1) : fonts;
