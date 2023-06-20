@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { eeImpressions, eeEvent } from '../../utils/tracking';
+import { ga4Event } from '../../utils/ga4';
 import Well from '../../shared/components/Well';
 import Input from '../../shared/components/Input';
 import Button from '../../shared/components/Button';
@@ -20,9 +21,12 @@ const List = ({ heading, fonts, tags, description }) => {
     if (defaultView) {
       setView(defaultView);
     }
+  }, []);
 
+  useEffect(() => {
     eeImpressions(fonts);
-  }, [fonts]);
+    ga4Event('view_item_list', fonts, `${heading} List`);
+  }, [fonts, heading]);
 
   useEffect(() => {
     const filteredFonts = filter ? fonts.filter((font) => font.name.toUpperCase().indexOf(filter.toUpperCase()) > -1) : fonts;
@@ -31,6 +35,7 @@ const List = ({ heading, fonts, tags, description }) => {
 
   const handleClick = (font, idx) => {
     eeEvent([font], idx + 1, 'click');
+    ga4Event('select_item', [font], `${heading} List`);
   };
 
   const handleView = (option) => {
