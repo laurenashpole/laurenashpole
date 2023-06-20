@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { getOrder } from '../../utils/checkout';
 import { request } from '../../shared/utils/request';
 import { eeEvent } from '../../utils/tracking';
+import { ga4Event } from '../../utils/ga4';
 import Well from '../../shared/components/Well';
 import Layout from '../../components/layout/Layout';
 import Order from '../../components/checkout/Order';
@@ -17,6 +18,7 @@ const Confirm = ({ order }) => {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);
       handleMailing(order.payer.email_address);
       eeEvent(order.items, null, 'purchase', { id: order.orderId, revenue: order.amount.value });
+      ga4Event('purchase', order.items, null, { transaction_id: order.orderId, value: order.amount.value })
     }
   }, [router.query, order]);
 
