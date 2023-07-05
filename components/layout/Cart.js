@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { addItem, getCart, removeItem, createOrder, approveOrder } from '../../utils/cart';
-import { eeEvent } from '../../utils/tracking';
 import { ga4Event } from '../../utils/ga4';
 import Button from '../../shared/components/Button';
 import Modal from '../shared/Modal';
@@ -43,13 +42,11 @@ const Cart = () => {
 
   const handleAdd = (item) => {
     addItem(item);
-    eeEvent([{ ...item, quantity: 1 }], null, 'add');
     ga4Event('add_to_cart', [{ ...item, qty: 1 }], null, { value: cart.total + item.price });
   };
 
   const handleRemove = (item, qty) => {
     removeItem(item, qty);
-    eeEvent([{ ...item, quantity: qty }], null, 'remove');
     ga4Event('remove_from_cart', [{ ...item, qty: qty }], null, { value: cart.total - item.price });
   };
 
@@ -59,7 +56,6 @@ const Cart = () => {
   };
 
   const handleClick = () => {
-    eeEvent(cart.items, 0, 'checkout', { step: 1 });
     ga4Event('begin_checkout', cart.items, null, { value: cart.total });
   };
 

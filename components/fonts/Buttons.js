@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { eeEvent } from '../../utils/tracking';
 import { ga4Event } from '../../utils/ga4';
 import { addItem } from '../../utils/cart';
 import Mailing from '../../shared/components/Mailing';
@@ -32,7 +31,6 @@ const Buttons = ({ font }) => {
 
   const handleAdd = () => {
     addItem(font);
-    eeEvent([{...font, quantity: 1}], null, 'add');
     ga4Event('add_to_cart', [{ ...font, qty: 1 }], null, { value: font.price });
   };
 
