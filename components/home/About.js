@@ -10,7 +10,7 @@ const About = () => {
           <div className="about__desc">
             <h3>About me</h3>
 
-            <p>I&apos;ve been designing fonts and dingbats in my spare time for years and you can find them all here. When I&apos;m not working on my side projects, I&apos;m a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank" rel="noopener noreferrer">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" data-ga-click={true} data-ga-category="home" data-ga-action="themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" data-ga-click={true} data-ga-category="home" data-ga-action="code snippets">code snippets</a> on my blog.</p>
+            <p>I&apos;ve been designing fonts and dingbats in my spare time for years and you can find them all here. When I&apos;m not working on my side projects, I&apos;m a web developer (check out my <a href="https://www.linkedin.com/in/laurenashpole/" target="_blank" rel="noopener noreferrer">LinkedIn</a> if you really want to know more about that) and occasionally post <a href="http://blog.laurenashpole.com/tagged/themes" data-ga-click={true} data-ga-category="home" data-ga-text="themes">themes</a> and <a href="http://blog.laurenashpole.com/tagged/code" data-ga-click={true} data-ga-category="home" data-ga-text="code snippets">code snippets</a> on my blog.</p>
           </div>
 
           <div className="about__upcoming">

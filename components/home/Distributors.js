@@ -14,7 +14,7 @@ const Distributors = () => {
             {DIST_LINKS.map((link, i) => {
               return (
                 <li className="dist__item" key={i}>
-                  <a className="dist__link" href={link.url} data-ga-click={true} data-ga-category="home" data-ga-action={link.alt.toLowerCase()}>
+                  <a className="dist__link" href={link.url} data-ga-click={true} data-ga-category="home" data-ga-text={link.alt.toLowerCase()}>
                     <Image src={link.imgSrc} alt={link.alt} width={link.imgWidth} height={link.imgHeight} data-pin-nopin="true" />
                   </a>
                 </li>

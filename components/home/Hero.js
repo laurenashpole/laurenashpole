@@ -6,7 +6,7 @@ const Hero = () => {
   return(
     <div className="hero">
       <Link href="/fonts/la-jefa">
-        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-action="La Jefa hero">
+        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text="La Jefa hero">
           <div className="hero__img hero__img--top">
             <Image src="/uploads/misc/hero-lajefa.svg" alt="Hello!" width={494} height={128} priority={true} />
           </div>

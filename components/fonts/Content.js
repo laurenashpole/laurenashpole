@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { InView } from 'react-intersection-observer';
-import { eeEvent } from '../../utils/tracking';
 import { ga4Event } from '../../utils/ga4';
 import Well from '../../shared/components/Well';
 import Button from '../../shared/components/Button';
@@ -17,7 +16,6 @@ const Content = ({ font, tags }) => {
   const [inViewSection, setInViewSection] = useState('');
 
   useEffect(() => {
-    eeEvent([font], null, 'detail');
     ga4Event('view_item', [font]);
   }, [font]);
 
