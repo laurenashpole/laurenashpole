@@ -60,7 +60,7 @@ const List = ({ heading, fonts, tags, description }) => {
 
         <div className="list__settings">
           <form className="list__filter">
-            <Button style="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': 'Reset search term' }}>
+            <Button style="secondary" onClick={() => setFilter('')} attributes={{ type: 'button', disabled: !filter, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-text': 'Reset search term' }}>
               <span aria-label="Reset search term" />
             </Button>
 
@@ -69,7 +69,7 @@ const List = ({ heading, fonts, tags, description }) => {
 
           {['grid', 'list'].map((option) => {
             return (
-              <Button key={option} style="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-action': `${option} view` }}>
+              <Button key={option} style="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-text': `${option} view` }}>
                 <span className={`list__view list__view--${option}`} aria-label={`Switch to ${option} view`} />
               </Button>
             );
@@ -83,7 +83,7 @@ const List = ({ heading, fonts, tags, description }) => {
                 return (
                   <li key={font._id} className="list__item">
                     <Link href={`/fonts/${font.slug}`}>
-                      <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-action={`${font.name} details`} onClick={() => handleClick(font, i)}>
+                      <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-text={`${font.name} details`} onClick={() => handleClick(font, i)}>
                         {view === 'grid' ? (
                           <>
                             <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />

@@ -25,7 +25,7 @@ const Gallery = ({ font }) => {
           {font.image_collection_thumbnails.map((image, i) => {
             return(
               <li key={i} className="gallery__thumb">
-                <Button style="link" onClick={() => setActiveIndex(i)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page', 'data-ga-action': `View poster image ${i + 1}` }}>
+                <Button style="link" onClick={() => setActiveIndex(i)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page', 'data-ga-text': `View poster image ${i + 1}` }}>
                   <Image src={`/uploads/images/${image}`} alt={`View poster image ${i + 1}`} width={360} height={240} />
                 </Button>
               </li>
