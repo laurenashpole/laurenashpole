@@ -31,7 +31,7 @@ const List = ({ heading, fonts, tags, description }) => {
     setFilteredFonts(filteredFonts);
   }, [filter, fonts]);
 
-  const handleClick = (font, idx) => {
+  const handleClick = (font) => {
     ga4Event('select_item', [font], `${heading} List`);
   };
 
