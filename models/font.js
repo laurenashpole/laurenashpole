@@ -16,6 +16,7 @@ export default async () => {
     date_created: String,
     date_modified: String,
     price: Number,
+    distributors: getDistributorsSchema(FONT_OPTIONS.distributors),
     image: String,
     image_horizontal: String,
     image_horizontal_mobile: String,
@@ -46,6 +47,20 @@ function getOptionsSchema (options) {
         type: Boolean,
         default: false
       },
+      name: {
+        type: String,
+        default: option.label
+      }
+    };
+
+    return obj;
+  }, {});
+}
+
+function getDistributorsSchema (options) {
+  return options.reduce((obj, option) => {
+    obj[option.key] = {
+      url: String,
       name: {
         type: String,
         default: option.label

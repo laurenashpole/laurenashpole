@@ -26,5 +26,39 @@ export const FONT_OPTIONS = {
       key: 'additional_chars',
       label: 'Additional Characters'
     }
+  ],
+  distributors: [
+    {
+      key: 'creative_market',
+      label: 'Creative Market'
+    },
+    {
+      key: 'myfonts',
+      label: 'MyFonts'
+    },
+    {
+      key: 'creative_fabrica',
+      label: 'Creative Fabrica'
+    },
+    {
+      key: 'fontspring',
+      label: 'Fontspring'
+    },
+    {
+      key: 'etsy',
+      label: 'Etsy'
+    },
+    {
+      key: 'font_bundles',
+      label: 'Font Bundles'
+    },
+    {
+      key: 'thehungryjpeg',
+      label: 'TheHungryJPEG'
+    },
+    {
+      key: 'fontscom',
+      label: 'Fonts.com'
+    },
   ]
 };

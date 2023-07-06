@@ -46,7 +46,7 @@ export const DIST_LINKS = [
     imgSrc: '/images/dist/hungry-jpeg-logo.png',
     imgWidth: '300',
     imgHeight: '88',
-    alt: 'TheHungryJPEG.com'
+    alt: 'TheHungryJPEG'
   },
   {
     url: 'http://www.fonts.com/font/lauren-ashpole',
