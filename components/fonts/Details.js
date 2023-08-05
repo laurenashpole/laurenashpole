@@ -14,7 +14,13 @@ const Details = ({ font, tags }) => {
     personal_file
   } = font;
 
+
   const distributors = Object.values(font.distributors).filter((dist) => dist.url);
+
+  const distributorsLinks = [
+    ...(distributors.slice(0, -1).length ? [distributors.slice(0, -1).map((dist) => `<a href=${dist.url} target="_blank" rel="noopener noreferrer">${dist.name}</a>`).join(', ')] : []),
+    ...distributors.slice(-1).map((dist) => `<a href=${dist.url} target="_blank" rel="noopener noreferrer">${dist.name}</a>`)
+  ].join(' and ');
 
   return(
     <section className="details">
@@ -43,10 +49,7 @@ const Details = ({ font, tags }) => {
 
       {distributors && distributors.length > 0 &&
         <div className="details__desc">
-          Have another marketplace you prefer to get your licensing from? This font is also available at
-          {distributors.map((dist, i) => (
-            <>{i === 0 ? ' ' : ', '}{i === distributors.length - 1 && 'and '}<a key={dist.url} href={dist.url}>{dist.name}</a></>
-          ))}.
+          Have another marketplace you prefer to get your licensing from? This font is also available at <span dangerouslySetInnerHTML={{__html: distributorsLinks}} />.
         </div>
       }
 
