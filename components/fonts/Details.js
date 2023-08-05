@@ -14,6 +14,8 @@ const Details = ({ font, tags }) => {
     personal_file
   } = font;
 
+  const distributors = Object.values(font.distributors).filter((dist) => dist.url);
+
   return(
     <section className="details">
       <h3>Details</h3>
@@ -38,6 +40,15 @@ const Details = ({ font, tags }) => {
       </div>
 
       {description && <div className="details__desc" dangerouslySetInnerHTML={{__html: description}} />}
+
+      {distributors && distributors.length > 0 &&
+        <div className="details__desc">
+          Have another marketplace you prefer to get your licensing from? This font is also available at
+          {distributors.map((dist, i) => (
+            <>{i === 0 ? ' ' : ', '}{i === distributors.length - 1 && 'and '}<a key={dist.url} href={dist.url}>{dist.name}</a></>
+          ))}.
+        </div>
+      }
 
       <div className="details__inline">
         {personal_font_file &&
