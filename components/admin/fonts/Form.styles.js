@@ -1,6 +1,20 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
+  @import 'variables.scss';
+
+  .form__section + .form__section {
+    margin-top: 3rem;
+    border-top: 1px solid $color-gray-light;
+    padding-top: 3rem;
+  }
+
+  .form__subheading {
+    margin: 0 0 2.5rem 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   .form__multi-select select.select__select {
     height: 18rem;
     margin-bottom: 2rem;
