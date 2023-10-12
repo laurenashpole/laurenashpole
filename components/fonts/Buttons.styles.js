@@ -27,6 +27,11 @@ export default css.global`
     }
   }
 
+  .buttons__price + .buttons__price {
+    margin-left: 4px;
+    text-decoration: line-through;
+  }
+
   @media (min-width: $break-tablet) {
     .buttons {
       display: flex;

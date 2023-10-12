@@ -18,6 +18,14 @@ export default css.global`
     }
   }
 
+  .content__heading-sale {
+    color: $color-red;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: normal;
+  }
+
   .content__aside {
     display: none;
   }

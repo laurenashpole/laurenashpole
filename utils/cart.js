@@ -44,7 +44,7 @@ export function createOrder (actions, cart) {
           description: `Commercial licensing for ${item.name} font.`,
           unit_amount: {
             currency_code: 'USD',
-            value: item.price
+            value: item.sale_price || item.price
           },
           quantity: item.qty,
           sku: item._id
@@ -65,7 +65,7 @@ export function approveOrder (data, actions, callback) {
 function getDetails (items) {
   return items.reduce((obj, item) => {
     obj.count = obj.count + item.qty;
-    obj.total = obj.total + item.price * item.qty;
+    obj.total = obj.total + (item.sale_price || item.price) * item.qty;
     return obj;
   }, { count: 0, total: 0 });
 }
