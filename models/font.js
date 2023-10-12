@@ -16,6 +16,7 @@ export default async () => {
     date_created: String,
     date_modified: String,
     price: Number,
+    sale_price: Number,
     distributors: getDistributorsSchema(FONT_OPTIONS.distributors),
     image: String,
     image_horizontal: String,

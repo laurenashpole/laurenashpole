@@ -2,7 +2,7 @@
   "presets": [
     ["next/babel", {
       "styled-jsx": {
-        "plugins": [["styled-jsx-plugin-sass", {
+        "plugins": [["@styled-jsx/plugin-sass", {
           "sassOptions": {
             "includePaths": ["./styles"]
           }

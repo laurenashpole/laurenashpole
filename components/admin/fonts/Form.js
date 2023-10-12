@@ -53,6 +53,7 @@ const Form = ({ font, tags, endpoint }) => {
         <Input label="Date Created" attributes={{ type: 'text', name: 'date_created', defaultValue: font.date_created }} />
         <Input label="Date Modified" attributes={{ type: 'text', name: 'date_modified', defaultValue: font.date_modified }} />
         <Input label="Price" attributes={{ type: 'text', name: 'price', defaultValue: font.price || '' }} />
+        <Input label="Sale Price" attributes={{ type: 'text', name: 'sale_price', defaultValue: font.sale_price || '' }} />
       </section>
 
       <section className="form__section">

@@ -32,7 +32,13 @@ const Content = ({ font, tags }) => {
   return (
     <>
       <Well size="large" stickyChild={1}>
-        <h1 className="content__heading">{font.name}</h1>
+        <h1 className="content__heading">
+          {font.name}
+          {font.sale_price && <div className="content__heading-sale">
+            On Sale!
+          </div>}
+        </h1>
+
         <Buttons font={font} />
 
         <div className="content__container">

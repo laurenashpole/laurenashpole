@@ -14,7 +14,6 @@ const Details = ({ font, tags }) => {
     personal_file
   } = font;
 
-
   const distributors = Object.values(font.distributors).filter((dist) => dist.url);
 
   const distributorsLinks = [

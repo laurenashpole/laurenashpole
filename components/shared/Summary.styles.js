@@ -25,6 +25,11 @@ export default css.global`
     }
   }
 
+  .summary__item-price + .summary__item-price {
+    margin-left: 4px;
+    text-decoration: line-through;
+  }
+
   .summary__item--header {
     font-size: 2.15rem;
     font-weight: 600;

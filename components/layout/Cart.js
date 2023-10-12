@@ -42,12 +42,12 @@ const Cart = () => {
 
   const handleAdd = (item) => {
     addItem(item);
-    ga4Event('add_to_cart', [{ ...item, qty: 1 }], null, { value: cart.total + item.price });
+    ga4Event('add_to_cart', [{ ...item, qty: 1 }], null, { value: cart.total + (item.sale_price || item.price) });
   };
 
   const handleRemove = (item, qty) => {
     removeItem(item, qty);
-    ga4Event('remove_from_cart', [{ ...item, qty: qty }], null, { value: cart.total - item.price });
+    ga4Event('remove_from_cart', [{ ...item, qty: qty }], null, { value: cart.total - (item.sale_price || item.price) });
   };
 
   const handleError = () => {
