@@ -7,7 +7,7 @@ export const DIST_LINKS = [
     alt: 'Creative Market',
   },
   {
-    url: 'https://www.myfonts.com/foundry/Lauren_Ashpole/',
+    url: 'https://www.kqzyfj.com/click-100899770-15506071?url=https://www.myfonts.com/foundry/Lauren_Ashpole/',
     imgSrc: '/images/dist/myfonts.svg',
     imgWidth: '471',
     imgHeight: '234',

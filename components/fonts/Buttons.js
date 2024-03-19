@@ -56,7 +56,7 @@ const Buttons = ({ font }) => {
 
       {font.commercial_font_file &&
         <Button style="primary" onClick={handleAdd} attributes={{ type: 'submit', 'data-ga-click': true, 'data-ga-category': 'font page' }}>
-          Add To Cart <span><span className="buttons__price">${font.sale_price}</span><span className="buttons__price">${font.price}</span> Commercial Use</span>
+          Add To Cart <span>{font.sale_price && <span className="buttons__price">${font.sale_price}</span>}<span className="buttons__price">${font.price}</span> Commercial Use</span>
         </Button>
       }
 
