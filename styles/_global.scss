@@ -31,7 +31,12 @@ h4 {
   margin: 0 0 3rem 0;
   font-family: $font-family-headings;
   font-weight: 900;
-  letter-spacing: 0.035em;
+}
+
+h1 a,
+h3 a,
+h4 a {
+  font-weight: inherit;
 }
 
 h4 {
