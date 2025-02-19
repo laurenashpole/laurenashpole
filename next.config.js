@@ -1,6 +1,9 @@
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['bgljydntkoculytr.public.blob.vercel-storage.com'],
+  },
   async redirects () {
     return [
       {
