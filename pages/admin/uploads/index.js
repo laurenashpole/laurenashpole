@@ -1,5 +1,5 @@
-import * as fs from 'fs';
 import PropTypes from 'prop-types';
+import { list } from '@vercel/blob';
 import withPassport from '../../../middleware/passport';
 import Admin from '../../../components/admin/layout/Admin';
 import List from '../../../components/admin/shared/List';
@@ -17,13 +17,15 @@ export async function getServerSideProps (context) {
     return req.isAuthenticated();
   });
 
-  const uploads = fs.readdirSync('./public/uploads/misc').map((file) => {
-    return {
-      name: file,
-      url: `/uploads/misc/${file}`,
-      _id: file
-    };
+  const { blobs } = await list({
+    prefix: 'misc'
   });
+
+  const uploads = blobs.map((blob) => ({
+    name: blob.pathname,
+    url: blob.url,
+    _id:  blob.pathname
+  }));
 
   return {
     props: {

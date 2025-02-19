@@ -11,6 +11,7 @@
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@paypal/react-paypal-js": "^7.4.2",
     "@styled-jsx/plugin-sass": "^4.1.0",
+    "@vercel/blob": "^0.26.0",
     "bcrypt-nodejs": "^0.0.3",
     "cookie-session": "^1.4.0",
     "googleapis": "^92.0.0",
@@ -29,7 +30,7 @@
     "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
+    "eslint": "^7.24.0",
     "eslint-config-next": "12",
     "eslint-plugin-react": "^7.24.0"
   },

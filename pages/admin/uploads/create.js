@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import { upload } from '@vercel/blob/client';
 import withPassport from '../../../middleware/passport';
-import { request } from '../../../shared/utils/request';
 import Well from '../../../shared/components/Well';
 import Input from '../../../shared/components/Input';
 import Button from '../../../shared/components/Button';
@@ -10,21 +10,33 @@ import Admin from '../../../components/admin/layout/Admin';
 import Errors from '../../../components/shared/Errors';
 
 const Uploads = ({ isAuthenticated }) => {
+  const fileRef = useRef(null);
   const router = useRouter();
   const [error, setError] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleChange = () => {
+    setIsProcessing(false);
+    setError(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsProcessing(true);
 
     try {
-      const response = await request({
-        endpoint: '/api/admin/uploads/create',
-        body: new FormData(e.target)
+      const file = fileRef.current ? fileRef.current.files[0] : null;
+
+      if (!file) {
+        return setError('Please select a file');
+      }
+
+      await upload(`misc/${file.name}`, file, {
+        access: 'public',
+        handleUploadUrl: '/api/admin/uploads/create',
       });
 
-      router.push(response.redirect);
+      router.push('/admin/uploads');
     } catch (err) {
       setIsProcessing(false);
       setError(err.message);
@@ -35,11 +47,14 @@ const Uploads = ({ isAuthenticated }) => {
     <Admin isAuthenticated={isAuthenticated} title="Uploads">
       <Well>
         <h1>Create New Upload</h1>
-        
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+
+        <form onSubmit={handleSubmit}>
           {error && <Errors errors={[error]} />}
-          <Input label="Upload" attributes={{ type: 'file', name: 'upload', multiple: true }} />
-          <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>Submit</Button>
+          <Input label="Upload" ref={fileRef} attributes={{ type: 'file', onChange: handleChange }} />
+
+          <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>
+            Submit
+          </Button>
         </form>
       </Well>
     </Admin>
