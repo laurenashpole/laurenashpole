@@ -21,7 +21,7 @@ const Font = ({ font, tags }) => {
     price: `$${font.price}`,
     'price:currency': 'USD',
     availability: 'instock',
-    image: `${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[0]}`
+    image: `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`
   };
 
   const structuredData = `
@@ -30,7 +30,7 @@ const Font = ({ font, tags }) => {
       "@type": "Product",
       "name": "${font.name}",
       "sku": "${font._id}",
-      "image": "${process.env.NEXT_PUBLIC_BASE_URL}uploads/images/${font.image_collection[0]}",
+      "image": "${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}",
       ${font.description ? '"description": "' + font.description.replace(/<br\/>/g, '').replace(/\s+/g, ' ') + '",' : ''}
       "offers": {
         "@type": "Offer",
@@ -49,10 +49,10 @@ const Font = ({ font, tags }) => {
   return (
     <Layout meta={{ title: `${font.name} - Fonts`, description: `Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`, pathname: `fonts/${font.slug}`, og, structuredData }}>
       <Head>
-        <style dangerouslySetInnerHTML={{ __html: font.preview_css }} />
+        <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
       </Head>
 
-      <HeroImage src={`/uploads/images/${font.image}`} alt={`${font.name} Sample`} />
+      <HeroImage src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample`} />
       <Content font={font} tags={tags} />
       <div id="modalRoot" />
     </Layout>

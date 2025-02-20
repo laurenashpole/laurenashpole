@@ -74,7 +74,7 @@ function getFontFileOptions (params, font, type) {
 
 async function getFiles (files, font) {
   const legacyFiles = files.filter((file) => (
-    !['main', 'grid', 'grid_mobile', 'gallery', 'pinterest', 'gallery', 'personal', 'commercial', 'font_files'].includes(file.fieldname)
+    !['main', 'list', 'list_mobile', 'gallery', 'pinterest', 'gallery', 'personal', 'commercial', 'font_files'].includes(file.fieldname)
   ));
 
   const fileParams = await legacyFiles.reduce(async (obj, file) => {
@@ -100,7 +100,7 @@ async function getFiles (files, font) {
 
 async function getFileParams (files, font) {
   const imageFiles = files.filter((file) => (
-    ['main', 'grid', 'grid_mobile', 'pinterest'].includes(file.fieldname)
+    ['main', 'list', 'list_mobile', 'pinterest'].includes(file.fieldname)
   ));
 
   const galleryFiles = files.filter((file) => (

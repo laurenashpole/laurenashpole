@@ -33,8 +33,8 @@ export default async () => {
     personal_file: getOptionsSchema(FONT_OPTIONS.personal_file),
     images: {
       main: String,
-      grid: String,
-      grid_mobile: String,
+      list: String,
+      list_mobile: String,
       gallery: [],
       pinterest: String
     },
@@ -44,7 +44,8 @@ export default async () => {
     },
     previews: {
       font_files: []
-    }
+    },
+    previews_css: String
   });
 
   try {

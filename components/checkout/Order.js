@@ -12,7 +12,7 @@ const Order = ({ order }) => {
       </div>
 
       <div className="order__summary">
-        <Summary header="Downloads" items={order.fonts.map((font) => { return { ...font, downloadPath: `/uploads/fonts/${font.commercial_font_file}` }; })} name="confirm" />
+        <Summary header="Downloads" items={order.fonts.map((font) => { return { ...font, downloadPath: `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.font_files.commercial}` }; })} name="confirm" />
       </div>
 
       <style jsx global>

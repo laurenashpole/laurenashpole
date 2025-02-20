@@ -8,10 +8,9 @@ const Details = ({ font, tags }) => {
     date_created,
     date_modified,
     description,
-    commercial_font_file,
     commercial_file,
-    personal_font_file,
-    personal_file
+    personal_file,
+    font_files
   } = font;
 
   const distributors = Object.values(font.distributors).filter((dist) => dist.url);
@@ -53,7 +52,7 @@ const Details = ({ font, tags }) => {
       }
 
       <div className="details__inline">
-        {personal_font_file &&
+        {(font_files || {}).personal &&
           <ul className="details__list">
             <li>
               <h4>Personal Use Details</h4>
@@ -65,7 +64,7 @@ const Details = ({ font, tags }) => {
           </ul>
         }
 
-        {commercial_font_file &&
+        {(font_files || {}).commercial &&
           <ul className="details__list">
             <li>
               <h4>Commercial Use Details</h4>

@@ -8,10 +8,11 @@ const FormPreviews = ({ font }) => {
     <>
       <section className="form__section">
         <h5 className="form__subheading">Previews</h5>
-        <Input label={`Legacy Preview Files ${(font['preview_files'] || []).length ? `<span>(${font['preview_files'].join(', ')})</span>` : ''}`} attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
         <Input label={`Preview Files ${((font.previews || {}).font_files || []).length ? `<span>(${font.previews.font_files.join(', ')})</span>` : ''}`} attributes={{ type: 'file', name: 'font_files', multiple: true }} />
+        <Input label={`Legacy Preview Files ${(font['preview_files'] || []).length ? `<span>(${font['preview_files'].join(', ')})</span>` : ''}`} attributes={{ type: 'file', name: 'preview_files', multiple: true }} />
+        <Textarea label="Preview CSS" textareaProps={{ rows: '5', name: 'previews_css', placeholder: 'Preview CSS', defaultValue: font.previews_css }} />
+        <Textarea label="Legacy Preview CSS" textareaProps={{ rows: '5', name: 'preview_css', placeholder: 'Preview CSS', defaultValue: font.preview_css }} />
         <Input label="Alternate Style Classes" attributes={{ type: 'text', name: 'alternate_style', defaultValue: font.alternate_style }} />
-        <Textarea label="Preview CSS" textareaProps={{ rows: '5', name: 'preview_css', placeholder: 'Preview CSS', defaultValue: font.preview_css }} />
       </section>
 
       <style jsx global>
