@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import thumbnail from 'node-thumbnail';
 import { del, put } from '@vercel/blob';
-import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
+import { FONT_FILE_FIELDS, FONT_FILE_FIELDS_LEGACY } from '../constants/fontFileFields';
 import { addTaggedFont, removeTaggedFont } from './tags';
 import Font from '../models/font';
 
@@ -31,7 +31,8 @@ export async function findByIds (ids) {
 export async function create (req) {
   const slug = getSlug(req.body);
   const files = await getFiles(req.files);
-  const font = await new (await Font())({ ...req.body, ...files, slug });
+  const fileParams = await getFileParams(req.files);
+  const font = await new (await Font())({ ...req.body, ...files, ...fileParams, slug });
   await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
   return await font.save();
 }
@@ -41,8 +42,9 @@ export async function update (req) {
   const fontJSON = JSON.parse(JSON.stringify(font));
   const params = getParams(req.body, fontJSON);
   const files = await getFiles(req.files, fontJSON);
+  const fileParams = await getFileParams(req.files, fontJSON);
   await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
-  return await font.updateOne({ ...params, ...files });
+  return await font.updateOne({ ...params, ...files,...fileParams });
 }
 
 export async function remove (req) {
@@ -71,7 +73,11 @@ function getFontFileOptions (params, font, type) {
 }
 
 async function getFiles (files, font) {
-  const fileParams = await files.reduce(async (obj, file) => {
+  const legacyFiles = files.filter((file) => (
+    !['main', 'grid', 'grid_mobile', 'gallery', 'pinterest', 'gallery', 'personal', 'commercial', 'font_files'].includes(file.fieldname)
+  ));
+
+  const fileParams = await legacyFiles.reduce(async (obj, file) => {
     if (file.fieldname === 'image_collection' || file.fieldname === 'preview_files') {
       return obj;
     }
@@ -87,17 +93,17 @@ async function getFiles (files, font) {
     return obj;
   }, {});
 
-  const imageCollectionFiles = await getImageCollectionFiles(files, font);
-  const previewFiles = await getPreviewFiles(files, font);
+  const imageCollectionFiles = await getImageCollectionFiles(legacyFiles, font);
+  const previewFiles = await getPreviewFiles(legacyFiles, font);
   return { ...fileParams, ...imageCollectionFiles, ...previewFiles };
 }
 
 async function getFileParams (files, font) {
   const imageFiles = files.filter((file) => (
-    ['main', 'grid', 'grid_mobile', 'gallery', 'pinterest'].includes(file.fieldname)
+    ['main', 'grid', 'grid_mobile', 'pinterest'].includes(file.fieldname)
   ));
 
-  const imageGalleryFiles = files.filter((file) => (
+  const galleryFiles = files.filter((file) => (
     file.fieldname === 'gallery'
   ));
 
@@ -109,8 +115,25 @@ async function getFileParams (files, font) {
     file.fieldname === 'font_files'
   ));
 
-  return {
+  const imageFileParams = await getSingleFileParams(imageFiles, font, 'images/', 'images');
+  const galleryFileParams = await getMultipleFileParams(galleryFiles, font, 'images/', 'images', 'gallery');
+  const fontFileParams = await getSingleFileParams(fontFiles, font, 'fonts/', 'font_files');
+  const previewFileParams = await getMultipleFileParams(previewFiles, font, 'previews/', 'previews', 'font_files');
 
+  return {
+    images: {
+      ...font.images,
+      ...imageFileParams,
+      ...galleryFileParams
+    },
+    font_files: {
+      ...font.font_files,
+      ...fontFileParams
+    },
+    previews: {
+      ...font.previews,
+      ...previewFileParams
+    }
   };
 }
 
@@ -120,14 +143,13 @@ async function getSingleFileParams (files, font, directory, key) {
       await del(font[key][file.fieldname]);
     }
 
-
-    const uploadedFile = await uploadFileVercel(file, directory, true);
+    const uploadedFile = await uploadFileVercel(file, directory, false);
     (await obj)[file.fieldname] = uploadedFile;
     return obj;
-  });
+  }, {});
 }
 
-async function getMultipleFileParams (files, font, fieldname, key, directory) {
+async function getMultipleFileParams (files, font, directory, key, fieldname) {
   if (!files.length) {
     return {
       [fieldname]: (((font || {})[key] || {})[fieldname] || [])
@@ -141,7 +163,7 @@ async function getMultipleFileParams (files, font, fieldname, key, directory) {
   }
 
   return await files.reduce(async (obj, file) => {
-    const uploadedFile = await uploadFileVercel(file, directory, true);
+    const uploadedFile = await uploadFileVercel(file, directory, false);
     obj[fieldname] = obj[fieldname] || [];
     (await obj)[fieldname].push(uploadedFile);
     return obj;
@@ -222,22 +244,24 @@ async function deleteFile (file, directory) {
 }
 
 async function deleteFiles (font) {
-  ['image_vercel', 'image_horizontal_vercel', 'image_horizontal_mobile_vercel', 'image_collection_vercel', 'image_collection_thumbnails_vercel', 'image_pinterest_vercel', 'personal_font_file_vercel', 'commercial_font_file_vercel', 'preview_files_vercel'].forEach(async (field) => {
-      if (Array.isArray(font[field])) {
-        font[field].forEach(async (file) => {
+  Object.keys(FONT_FILE_FIELDS).forEach((key) => {
+    FONT_FILE_FIELDS[key].map(async (field) => {
+      if (font[key] && Array.isArray(font[key][field])) {
+        font[key][field].forEach(async (file) => {
           await del(file);
         });
       } else {
-        if (font[field]) {
-          await del(font[field]);
+        if (font[key] && font[key][field]) {
+          await del(font[key][field]);
         }
       }
+    });
   });
 }
 
 async function clearFiles (font) {
-  Object.keys(FONT_FILE_FIELDS).forEach((key) => {
-    FONT_FILE_FIELDS[key].map(async (field) => {
+  Object.keys(FONT_FILE_FIELDS_LEGACY).forEach((key) => {
+    FONT_FILE_FIELDS_LEGACY[key].map(async (field) => {
       if (Array.isArray(font[field])) {
         font[field].forEach(async (file) => {
           await deleteFile(file, `${UPLOADS_DIRECTORY}${key}/`);
