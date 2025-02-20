@@ -36,8 +36,7 @@ const FormDownloads = ({ font }) => {
 };
 
 FormDownloads.propTypes = {
-  font: PropTypes.object,
-  suffix: PropTypes.string
+  font: PropTypes.object
 };
 
 export default FormDownloads;

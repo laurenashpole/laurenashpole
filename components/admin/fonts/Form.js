@@ -17,7 +17,7 @@ const Form = ({ font, tags, endpoint }) => {
   const router = useRouter();
   const [error, setError] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  console.log("font",font);
+  console.log('font',font);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsProcessing(true);

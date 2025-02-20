@@ -72,29 +72,6 @@ function getFontFileOptions (params, font, type) {
 
 async function getFiles (files, font) {
   const fileParams = await files.reduce(async (obj, file) => {
-    if (['main', 'grid', 'grid_mobile', 'gallery', 'pinterest', 'personal', 'commercial', 'font_files'].includes(file.fieldname)) {
-      if (file.fieldname === 'gallery' || file.fieldname === 'font_files') {
-        return obj;
-      }
-
-      const directory = getDirectory(file.mimetype, '');
-      const key = directory === 'fonts/' ? 'font_files' : directory.replace('/', '');
-
-      if (font && font[file.fieldname]) {
-        await del(font[file.fieldname]);
-      }
-
-      const uploadedFile = await uploadFileVercel(file, directory, true);
-
-      (await obj)[key] = {
-        ...font[key],
-        ...((await obj)[key] || {}),
-        [file.fieldname]: uploadedFile
-      };
-
-      return obj;
-    }
-
     if (file.fieldname === 'image_collection' || file.fieldname === 'preview_files') {
       return obj;
     }
@@ -112,21 +89,7 @@ async function getFiles (files, font) {
 
   const imageCollectionFiles = await getImageCollectionFiles(files, font);
   const previewFiles = await getPreviewFiles(files, font);
-
-  return {
-    ...fileParams,
-    ...imageCollectionFiles,
-    ...previewFiles,
-    previews: {
-      ...font.previews,
-      ...previewFontFiles
-    },
-    images: {
-      ...font.images,
-      ...fileParams.images,
-      ...imageGalleryFiles
-    }
-  };
+  return { ...fileParams, ...imageCollectionFiles, ...previewFiles };
 }
 
 async function getFileParams (files, font) {

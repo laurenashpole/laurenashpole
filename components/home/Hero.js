@@ -8,11 +8,11 @@ const Hero = () => {
       <Link href="/fonts/la-jefa">
         <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text="La Jefa hero">
           <div className="hero__img hero__img--top">
-            <Image src="https://bgljydntkoculytr.public.blob.vercel-storage.com/misc/hero-lajefa.svg" alt="Hello!" width={494} height={128} priority={true} />
+            <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-lajefa.svg`} alt="Hello!" width={494} height={128} priority={true} />
           </div>
 
           <div className="hero__img">
-            <Image className="hero__img" src="https://bgljydntkoculytr.public.blob.vercel-storage.com/misc/hero-lajefa-2.svg" alt="Have a font" width={630} height={57} priority={true} />
+            <Image className="hero__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-lajefa-2.svg`} alt="Have a font" width={630} height={57} priority={true} />
           </div>
 
           <span className="hero__pointer">Like my newest <br />release La Jefa.</span>

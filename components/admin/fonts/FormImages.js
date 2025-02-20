@@ -7,7 +7,6 @@ const FormImages = ({ font }) => {
     <>
       <section className="form__section">
         <h5 className="form__subheading">Images</h5>
-
         <Input label={`Main ${(font.images || {}).main ? `<span>(${font.images.main})</span>` : ''}`} attributes={{ type: 'file', name: 'main' }} />
         <Input label={`Grid ${(font.images || {}).grid ? `<span>(${font.images.grid})</span>` : ''}`} attributes={{ type: 'file', name: 'grid' }} />
         <Input label={`Mobile Grid ${(font.images || {}).grid_mobile ? `<span>(${font.images.grid_mobile})</span>` : ''}`} attributes={{ type: 'file', name: 'grid_mobile' }} />
@@ -16,7 +15,7 @@ const FormImages = ({ font }) => {
         {((font.images || {}).gallery || []).length > 0 &&
           <div className="form__images">
             {font.images.gallery.map((image) => (
-              <img key={image} alt="" className="form__image" src={`https://bgljydntkoculytr.public.blob.vercel-storage.com/${image}`} />
+              <img key={image} alt="" className="form__image" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${image}`} />
             ))}
           </div>
         }
