@@ -8,9 +8,9 @@ const handler = async (req, res) => {
 
   try {
     await del(req.body.id);
-    return res.json({});
+    res.json({});
   } catch (err) {
-    return res.status(500).json({ err: err.message });
+    res.status(500).json({ err: err.message });
   }
 };
 

@@ -8,6 +8,7 @@ import Errors from '../../../components/shared/Errors';
 import FormBasics from './FormBasics';
 import FormDistributors from './FormDistributors';
 import FormImages from './FormImages';
+import FormImagesLegacy from './FormImagesLegacy';
 import FormPreviews from './FormPreviews';
 import FormDownloads from './FormDownloads';
 import styles from './Form.styles.js';
@@ -16,7 +17,7 @@ const Form = ({ font, tags, endpoint }) => {
   const router = useRouter();
   const [error, setError] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-
+  console.log("font",font);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsProcessing(true);
@@ -41,11 +42,9 @@ const Form = ({ font, tags, endpoint }) => {
       <FormBasics font={font} tags={tags} />
       <FormDistributors font={font} />
       <FormImages font={font} />
-      <FormImages font={font} suffix="_vercel" />
+      <FormImagesLegacy font={font} />
       <FormPreviews font={font} />
-      <FormPreviews font={font} suffix="_vercel" />
       <FormDownloads font={font} />
-      <FormDownloads font={font} suffix="_vercel" />
 
       <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>
         {isProcessing ? <Loader /> : 'Submit'}

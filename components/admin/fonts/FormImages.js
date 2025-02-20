@@ -2,26 +2,26 @@ import PropTypes from 'prop-types';
 import Input from '../../../shared/components/Input';
 import styles from './Form.styles.js';
 
-const FormImages = ({ font, suffix = '' }) => {
+const FormImages = ({ font }) => {
   return (
     <>
       <section className="form__section">
-        <h5 className="form__subheading">{suffix === '_vercel' ? 'Vercel ' : ''}Images</h5>
+        <h5 className="form__subheading">Images</h5>
 
-        <Input label={`Image ${font[`image${suffix}`] ? `<span>(${font[`image${suffix}`]})</span>` : ''}`} attributes={{ type: 'file', name: `image${suffix}` }} />
-        <Input label={`Horizontal Image ${font[`image_horizontal${suffix}`] ? `<span>(${font[`image_horizontal${suffix}`]})</span>` : ''}`} attributes={{ type: 'file', name: `image_horizontal${suffix}` }} />
-        <Input label={`Mobile Horizontal Image ${font[`image_horizontal_mobile${suffix}`] ? `<span>(${font[`image_horizontal_mobile${suffix}`]})</span>` : ''}`} attributes={{ type: 'file', name: `image_horizontal_mobile${suffix}` }} />
-        <Input label="Image Collection" attributes={{ type: 'file', name: `image_collection${suffix}`, multiple: true }} />
+        <Input label={`Main ${(font.images || {}).main ? `<span>(${font.images.main})</span>` : ''}`} attributes={{ type: 'file', name: 'main' }} />
+        <Input label={`Grid ${(font.images || {}).grid ? `<span>(${font.images.grid})</span>` : ''}`} attributes={{ type: 'file', name: 'grid' }} />
+        <Input label={`Mobile Grid ${(font.images || {}).grid_mobile ? `<span>(${font.images.grid_mobile})</span>` : ''}`} attributes={{ type: 'file', name: 'grid_mobile' }} />
+        <Input label="Gallery" attributes={{ type: 'file', name: 'gallery', multiple: true }} />
 
-        {(font[`image_collection${suffix}`] || []).length > 0 &&
+        {((font.images || {}).gallery || []).length > 0 &&
           <div className="form__images">
-            {font[`image_collection${suffix}`].map((image) => (
-              <img key={image} alt="" className="form__image" src={suffix === '_vercel' ? image : `/uploads/images/${image}`} />
+            {font.images.gallery.map((image) => (
+              <img key={image} alt="" className="form__image" src={`https://bgljydntkoculytr.public.blob.vercel-storage.com/${image}`} />
             ))}
           </div>
         }
 
-        <Input label={`Pinterest Image ${font[`image_pinterest${suffix}`] ? `<span>(${font[`image_pinterest${suffix}`]})</span>` : ''}`} attributes={{ type: 'file', name: `image_pinterest${suffix}` }} />
+        <Input label={`Pinterest Image ${(font.images || {}).pinterest ? `<span>(${font.images.pinterest})</span>` : ''}`} attributes={{ type: 'file', name: 'pinterest' }} />
       </section>
 
       <style jsx global>
@@ -32,8 +32,7 @@ const FormImages = ({ font, suffix = '' }) => {
 };
 
 FormImages.propTypes = {
-  font: PropTypes.object,
-  suffix: PropTypes.string
+  font: PropTypes.object
 };
 
 export default FormImages;

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import thumbnail from 'node-thumbnail';
+import { del, put } from '@vercel/blob';
 import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
 import { addTaggedFont, removeTaggedFont } from './tags';
 import Font from '../models/font';
@@ -47,13 +48,14 @@ export async function update (req) {
 export async function remove (req) {
   const font = await (await Font()).findById(req.body.id);
   await clearFiles(font);
+  await deleteFiles(font);
   return await font.remove();
 }
 
 function getParams (params, font) {
   const slug = getSlug(params);
-  const commercial_file = getFileOptions(params, font, 'commercial_file');
-  const personal_file = getFileOptions(params, font, 'personal_file');
+  const commercial_file = getFontFileOptions(params, font, 'commercial_file');
+  const personal_file = getFontFileOptions(params, font, 'personal_file');
   return { ...params, slug, commercial_file, personal_file };
 }
 
@@ -61,7 +63,7 @@ function getSlug (params) {
   return params.name.replace(/&|'/g, '').replace(/\s+/g, '-').toLowerCase();
 }
 
-function getFileOptions (params, font, type) {
+function getFontFileOptions (params, font, type) {
   return Object.keys(font[type]).reduce((obj, option) => {
     obj[option] = {...font[type][option], is_included: params[type] ? !!params[type][option] : false };
     return obj;
@@ -70,11 +72,34 @@ function getFileOptions (params, font, type) {
 
 async function getFiles (files, font) {
   const fileParams = await files.reduce(async (obj, file) => {
+    if (['main', 'grid', 'grid_mobile', 'gallery', 'pinterest', 'personal', 'commercial', 'font_files'].includes(file.fieldname)) {
+      if (file.fieldname === 'gallery' || file.fieldname === 'font_files') {
+        return obj;
+      }
+
+      const directory = getDirectory(file.mimetype, '');
+      const key = directory === 'fonts/' ? 'font_files' : directory.replace('/', '');
+
+      if (font && font[file.fieldname]) {
+        await del(font[file.fieldname]);
+      }
+
+      const uploadedFile = await uploadFileVercel(file, directory, true);
+
+      (await obj)[key] = {
+        ...font[key],
+        ...((await obj)[key] || {}),
+        [file.fieldname]: uploadedFile
+      };
+
+      return obj;
+    }
+
     if (file.fieldname === 'image_collection' || file.fieldname === 'preview_files') {
       return obj;
     }
 
-    const directory = getDirectory(file.mimetype);
+    const directory = getDirectory(file.mimetype, UPLOADS_DIRECTORY);
 
     if (font && font[file.fieldname]) {
       await deleteFile(font[file.fieldname], directory);
@@ -87,7 +112,77 @@ async function getFiles (files, font) {
 
   const imageCollectionFiles = await getImageCollectionFiles(files, font);
   const previewFiles = await getPreviewFiles(files, font);
-  return { ...fileParams, ...imageCollectionFiles, ...previewFiles };
+
+  return {
+    ...fileParams,
+    ...imageCollectionFiles,
+    ...previewFiles,
+    previews: {
+      ...font.previews,
+      ...previewFontFiles
+    },
+    images: {
+      ...font.images,
+      ...fileParams.images,
+      ...imageGalleryFiles
+    }
+  };
+}
+
+async function getFileParams (files, font) {
+  const imageFiles = files.filter((file) => (
+    ['main', 'grid', 'grid_mobile', 'gallery', 'pinterest'].includes(file.fieldname)
+  ));
+
+  const imageGalleryFiles = files.filter((file) => (
+    file.fieldname === 'gallery'
+  ));
+
+  const fontFiles = files.filter((file) => (
+    ['personal', 'commercial'].includes(file.fieldname)
+  ));
+
+  const previewFiles = files.filter((file) => (
+    file.fieldname === 'font_files'
+  ));
+
+  return {
+
+  };
+}
+
+async function getSingleFileParams (files, font, directory, key) {
+  return await files.reduce(async (obj, file) => {
+    if (font && font[key] && font[key][file.fieldname]) {
+      await del(font[key][file.fieldname]);
+    }
+
+
+    const uploadedFile = await uploadFileVercel(file, directory, true);
+    (await obj)[file.fieldname] = uploadedFile;
+    return obj;
+  });
+}
+
+async function getMultipleFileParams (files, font, fieldname, key, directory) {
+  if (!files.length) {
+    return {
+      [fieldname]: (((font || {})[key] || {})[fieldname] || [])
+    };
+  }
+
+  if (font && font[key] && font[key][fieldname]) {
+    font[key][fieldname].forEach(async (file) => {
+      await del(file);
+    });
+  }
+
+  return await files.reduce(async (obj, file) => {
+    const uploadedFile = await uploadFileVercel(file, directory, true);
+    obj[fieldname] = obj[fieldname] || [];
+    (await obj)[fieldname].push(uploadedFile);
+    return obj;
+  }, {});
 }
 
 async function getImageCollectionFiles (files, font) {
@@ -143,12 +238,38 @@ async function uploadFile (file, directory, useOriginalName) {
   return name;
 }
 
+async function uploadFileVercel (file, directory, hashName) {
+  const name = hashName ? getHashedName(file.originalname) : file.originalname;
+
+  const response = await put(`${directory}${name}`, file.buffer, {
+    access: 'public',
+    multipart: true,
+    addRandomSuffix: false
+  });
+
+  return response.pathname;
+}
+
 async function deleteFile (file, directory) {
   const exists = await fs.existsSync(path.resolve(directory, file));
 
   if (exists) {
     await fs.unlinkSync(path.resolve(directory, file));
   }
+}
+
+async function deleteFiles (font) {
+  ['image_vercel', 'image_horizontal_vercel', 'image_horizontal_mobile_vercel', 'image_collection_vercel', 'image_collection_thumbnails_vercel', 'image_pinterest_vercel', 'personal_font_file_vercel', 'commercial_font_file_vercel', 'preview_files_vercel'].forEach(async (field) => {
+      if (Array.isArray(font[field])) {
+        font[field].forEach(async (file) => {
+          await del(file);
+        });
+      } else {
+        if (font[field]) {
+          await del(font[field]);
+        }
+      }
+  });
 }
 
 async function clearFiles (font) {
@@ -182,20 +303,18 @@ async function createThumbnail (originalname, directory) {
   return name;
 }
 
-function getDirectory (mimetype) {
+function getDirectory (mimetype, baseDir) {
   let directory;
 
   if (mimetype.indexOf('image') !== -1) {
     directory = 'images';
-  } else if (mimetype.indexOf('css') !== -1) {
-    directory = 'css';
   }  else if (mimetype.indexOf('zip') !== -1) {
     directory = 'fonts';
   } else if (mimetype.indexOf('ttf') !== -1 || mimetype.indexOf('woff') !== -1) {
     directory = 'previews';
   }
 
-  return `${UPLOADS_DIRECTORY}${directory}/`;
+  return `${baseDir}${directory}/`;
 }
 
 function getHashedName (name) {
