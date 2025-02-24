@@ -46,12 +46,19 @@ async function fulfillOrder (order) {
 
 function getAttachments (fonts) {
   return fonts.map((font) => {
-    const filePath = path.resolve('./public/uploads/fonts/', font.commercial_font_file);
-    const content = fs.readFileSync(filePath);
+    // const filePath = path.resolve('./public/uploads/fonts/', font.commercial_font_file);
+    // const content = fs.readFileSync(filePath);
+    const filename = font.font_files.commercial.replace('fonts/');
+    const path = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).commercial}`;
 
     return {
-      filename: font.commercial_font_file,
-      content: content
+      filename,
+      path
     };
+
+    // return {
+    //   filename: font.commercial_font_file,
+    //   content: content
+    // };
   });
 }
