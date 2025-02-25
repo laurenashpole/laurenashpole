@@ -35,8 +35,6 @@ const Form = ({ font, tags, endpoint }) => {
     }
   };
 
-  console.log("test");
-
   return (
     <form onSubmit={handleSubmit} encType="multipart/form-data">
       {error && <Errors errors={[error]} />}
