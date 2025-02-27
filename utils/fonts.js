@@ -112,7 +112,7 @@ async function getSingleFileParams (files, font, directory, key) {
       await del(font[key][file.fieldname]);
     }
 
-    const uploadedFile = await uploadFileVercel(file, directory, false);
+    const uploadedFile = await uploadFile(file, directory);
     (await obj)[file.fieldname] = uploadedFile;
     return obj;
   }, {});
@@ -132,15 +132,15 @@ async function getMultipleFileParams (files, font, directory, key, fieldname) {
   }
 
   return await files.reduce(async (obj, file) => {
-    const uploadedFile = await uploadFileVercel(file, directory, false);
+    const uploadedFile = await uploadFile(file, directory);
     obj[fieldname] = obj[fieldname] || [];
     (await obj)[fieldname].push(uploadedFile);
     return obj;
   }, {});
 }
 
-async function uploadFileVercel (file, directory, hashName) {
-  const name = hashName ? getHashedName(file.originalname) : file.originalname;
+async function uploadFile (file, directory) {
+  const name = getHashedName(file.originalname);
 
   const response = await put(`${directory}${name}`, file.buffer, {
     access: 'public',
