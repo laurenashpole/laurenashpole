@@ -5,17 +5,17 @@ import styles from './Hero.styles.js';
 const Hero = () => {
   return(
     <div className="hero">
-      <Link href="/fonts/la-jefa">
-        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text="La Jefa hero">
+      <Link href="/fonts/tuper-super">
+        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text="Tuper Super hero">
           <div className="hero__img hero__img--top">
-            <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-lajefa.svg`} alt="Hello!" width={494} height={128} priority={true} />
+            <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-tupersuper.svg`} alt="Hello!" width={484} height={155} priority={true} />
           </div>
 
           <div className="hero__img">
-            <Image className="hero__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-lajefa-2.svg`} alt="Have a font" width={630} height={57} priority={true} />
+            <Image className="hero__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-tupersuper-2.svg`} alt="Have a font" width={622} height={99} priority={true} />
           </div>
 
-          <span className="hero__pointer">Like my newest <br />release La Jefa.</span>
+          <span className="hero__pointer">Like my newest <br />release Tuper Super.</span>
           <span className="hero__pointer">Give it a try for free!</span>
         </a>
       </Link>
