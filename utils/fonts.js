@@ -2,11 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import thumbnail from 'node-thumbnail';
 import { del, put } from '@vercel/blob';
-import { FONT_FILE_FIELDS, FONT_FILE_FIELDS_LEGACY } from '../constants/fontFileFields';
+import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
 import { addTaggedFont, removeTaggedFont } from './tags';
 import Font from '../models/font';
-
-const UPLOADS_DIRECTORY = './public/uploads/';
 
 export async function findAll () {
   return await (await Font()).find().limit(100).sort({ name: 'asc' }).exec();
@@ -30,9 +28,8 @@ export async function findByIds (ids) {
 
 export async function create (req) {
   const slug = getSlug(req.body);
-  const files = await getFiles(req.files);
   const fileParams = await getFileParams(req.files);
-  const font = await new (await Font())({ ...req.body, ...files, ...fileParams, slug });
+  const font = await new (await Font())({ ...req.body, ...fileParams, slug });
   await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
   return await font.save();
 }
@@ -41,15 +38,13 @@ export async function update (req) {
   const font = await (await Font()).findById(req.body._id);
   const fontJSON = JSON.parse(JSON.stringify(font));
   const params = getParams(req.body, fontJSON);
-  const files = await getFiles(req.files, fontJSON);
   const fileParams = await getFileParams(req.files, fontJSON);
   await updateTags(Array.isArray(req.body.tags) ? req.body.tags : [req.body.tags], font);
-  return await font.updateOne({ ...params, ...files,...fileParams });
+  return await font.updateOne({ ...params, ...fileParams });
 }
 
 export async function remove (req) {
   const font = await (await Font()).findById(req.body.id);
-  await clearFiles(font);
   await deleteFiles(font);
   return await font.remove();
 }
@@ -70,32 +65,6 @@ function getFontFileOptions (params, font, type) {
     obj[option] = {...font[type][option], is_included: params[type] ? !!params[type][option] : false };
     return obj;
   }, {});
-}
-
-async function getFiles (files, font) {
-  const legacyFiles = files.filter((file) => (
-    !['main', 'list', 'list_mobile', 'gallery', 'pinterest', 'gallery', 'personal', 'commercial', 'font_files'].includes(file.fieldname)
-  ));
-
-  const fileParams = await legacyFiles.reduce(async (obj, file) => {
-    if (file.fieldname === 'image_collection' || file.fieldname === 'preview_files') {
-      return obj;
-    }
-
-    const directory = getDirectory(file.mimetype, UPLOADS_DIRECTORY);
-
-    if (font && font[file.fieldname]) {
-      await deleteFile(font[file.fieldname], directory);
-    }
-
-    const uploadedFile = await uploadFile(file, directory);
-    (await obj)[file.fieldname] = uploadedFile;
-    return obj;
-  }, {});
-
-  const imageCollectionFiles = await getImageCollectionFiles(legacyFiles, font);
-  const previewFiles = await getPreviewFiles(legacyFiles, font);
-  return { ...fileParams, ...imageCollectionFiles, ...previewFiles };
 }
 
 async function getFileParams (files, font) {
@@ -122,16 +91,16 @@ async function getFileParams (files, font) {
 
   return {
     images: {
-      ...font.images,
+      ...((font || {}).images || {}),
       ...imageFileParams,
       ...galleryFileParams
     },
     font_files: {
-      ...font.font_files,
+      ...((font || {}).font_files || {}),
       ...fontFileParams
     },
     previews: {
-      ...font.previews,
+      ...((font || {}).previews || {}),
       ...previewFileParams
     }
   };
@@ -170,59 +139,6 @@ async function getMultipleFileParams (files, font, directory, key, fieldname) {
   }, {});
 }
 
-async function getImageCollectionFiles (files, font) {
-  const imageCollectionFiles = files.filter((file) => file.fieldname === 'image_collection');
-
-  if (!imageCollectionFiles.length) {
-    return font && font.image_collection ? font.image_collection : [];
-  }
-
-  if (font) {
-    font.image_collection.concat(font.image_collection_thumbnails).forEach(async (file) => {
-      await deleteFile(file, `${UPLOADS_DIRECTORY}images/`);
-    });
-  }
-
-  return await imageCollectionFiles.reduce(async (obj, file) => {
-    const uploadedFile = await uploadFile(file, `${UPLOADS_DIRECTORY}images/`);
-    const thumbnail = await createThumbnail(uploadedFile, `${UPLOADS_DIRECTORY}images/`);
-
-    obj.image_collection = obj.image_collection || [];
-    obj.image_collection_thumbnails = obj.image_collection_thumbnails || [];
-    (await obj).image_collection.push(uploadedFile);
-    (await obj).image_collection_thumbnails.push(thumbnail);
-
-    return obj;
-  }, {});
-}
-
-async function getPreviewFiles (files, font) {
-  const previewFiles = files.filter((file) => file.fieldname === 'preview_files');
-
-  if (!previewFiles.length) {
-    return font && font.preview_files ? font.preview_files : [];
-  }
-
-  if (font) {
-    font.preview_files.forEach(async (file) => {
-      await deleteFile(file, `${UPLOADS_DIRECTORY}previews/`);
-    });
-  }
-
-  return await previewFiles.reduce(async (obj, file) => {
-    const uploadedFile = await uploadFile(file, `${UPLOADS_DIRECTORY}previews/`, true);
-    obj.preview_files = obj.preview_files || [];
-    (await obj).preview_files.push(uploadedFile);
-    return obj;
-  }, {});
-}
-
-async function uploadFile (file, directory, useOriginalName) {
-  const name = useOriginalName ? file.originalname : getHashedName(file.originalname);
-  await fs.renameSync(file.path, path.resolve(directory, name));
-  return name;
-}
-
 async function uploadFileVercel (file, directory, hashName) {
   const name = hashName ? getHashedName(file.originalname) : file.originalname;
 
@@ -233,14 +149,6 @@ async function uploadFileVercel (file, directory, hashName) {
   });
 
   return response.pathname;
-}
-
-async function deleteFile (file, directory) {
-  const exists = await fs.existsSync(path.resolve(directory, file));
-
-  if (exists) {
-    await fs.unlinkSync(path.resolve(directory, file));
-  }
 }
 
 async function deleteFiles (font) {
@@ -257,37 +165,6 @@ async function deleteFiles (font) {
       }
     });
   });
-}
-
-async function clearFiles (font) {
-  Object.keys(FONT_FILE_FIELDS_LEGACY).forEach((key) => {
-    FONT_FILE_FIELDS_LEGACY[key].map(async (field) => {
-      if (Array.isArray(font[field])) {
-        font[field].forEach(async (file) => {
-          await deleteFile(file, `${UPLOADS_DIRECTORY}${key}/`);
-        });
-      } else {
-        if (font[field]) {
-          await deleteFile(font[field], `${UPLOADS_DIRECTORY}${key}/`);
-        }
-      }
-    });
-  });
-}
-
-async function createThumbnail (originalname, directory) {
-  const suffix = '-thumb';
-  const nameArray = originalname.split('.');
-  const name = `${nameArray[0]}${suffix}.${nameArray[1]}`;
-
-  await thumbnail.thumb({
-    source: directory + originalname,
-    destination: directory,
-    suffix: suffix,
-    width: 360
-  });
-
-  return name;
 }
 
 function getDirectory (mimetype, baseDir) {
