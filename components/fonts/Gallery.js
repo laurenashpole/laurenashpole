@@ -20,9 +20,9 @@ const Gallery = ({ font }) => {
         <Image key={`image${activeIndex}`} src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[activeIndex]}`} alt={`${font.name} Poster Image`} width={1500} height={1000} />
       </div>
 
-      {font.image_collection_thumbnails.length > 1 &&
+      {((font.images || {}).gallery || []).length > 1 &&
         <ul className="gallery__thumbs">
-          {font.image_collection_thumbnails.map((image, i) => {
+          {font.images.gallery.map((image, i) => {
             return(
               <li key={i} className="gallery__thumb">
                 <Button style="link" onClick={() => setActiveIndex(i)} attributes={{ type: 'button', 'data-ga-click': true, 'data-ga-category': 'font page', 'data-ga-text': `View poster image ${i + 1}` }}>
