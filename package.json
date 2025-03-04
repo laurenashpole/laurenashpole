@@ -10,6 +10,7 @@
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@paypal/react-paypal-js": "^7.4.2",
+    "@sendgrid/mail": "^8.1.4",
     "@styled-jsx/plugin-sass": "^4.1.0",
     "@vercel/blob": "^0.26.0",
     "bcrypt-nodejs": "^0.0.3",
