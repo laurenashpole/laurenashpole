@@ -15,5 +15,5 @@ export default async (req, res) => {
     html: `<p>Message from: ${req.body.email} (${req.body.name})</p><p>${req.body.message}</p>`,
   })
     .then(() => res.json({}))
-    .catch((err) => res.status(500).json({}));
+    .catch(() => res.status(500).json({}));
 };
