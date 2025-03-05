@@ -1,28 +1,32 @@
-import withMulter from '../../../../middleware/multer';
+import { handleUpload } from '@vercel/blob/client';
 import withPassport from '../../../../middleware/passport';
-import { create } from '../../../../utils/uploads';
 
-const handler = async (req, res) => {
+const handler = async (req, res, onComplete) => {
   if (!req.isAuthenticated()) {
     res.status(401).json({});
   }
 
   try {
-    await create(req);
-    res.json({ redirect: '/admin/uploads' });
-  } catch (err) {
-    res.status(500).json({ err: err.message });
-  }
-};
+    const response = await handleUpload({
+      body: req.body,
+      request: req,
+      onBeforeGenerateToken: async () => {
+        return {
+          addRandomSuffix: false,
+          allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml']
+        };
+      },
+      onUploadCompleted: async ({ blob, tokenPayload }) => {
+        onComplete && onComplete(blob, tokenPayload);
+      },
+    });
 
-export const config = {
-  api: {
-    bodyParser: false
+    res.status(200).json(response);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 };
 
 export default (req, res) => {
-  withPassport(req, res, (req, res) => {
-    withMulter(req, res, true, handler);
-  });
+  withPassport(req, res, handler);
 };

@@ -24,14 +24,28 @@ export default async () => {
     image_collection: [],
     image_collection_thumbnails: [],
     image_pinterest: String,
-    css_file: String,
     preview_css: String,
     preview_files: [],
     alternate_style: String,
     commercial_font_file: String,
     personal_font_file: String,
     commercial_file: getOptionsSchema(FONT_OPTIONS.commercial_file),
-    personal_file: getOptionsSchema(FONT_OPTIONS.personal_file)
+    personal_file: getOptionsSchema(FONT_OPTIONS.personal_file),
+    images: {
+      main: String,
+      list: String,
+      list_mobile: String,
+      gallery: [],
+      pinterest: String
+    },
+    font_files: {
+      commercial: String,
+      personal: String
+    },
+    previews: {
+      font_files: []
+    },
+    previews_css: String
   });
 
   try {

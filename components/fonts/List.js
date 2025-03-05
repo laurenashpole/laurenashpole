@@ -83,15 +83,15 @@ const List = ({ heading, fonts, tags, description }) => {
                       <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-text={`${font.name} details`} onClick={() => handleClick(font, i)}>
                         {view === 'grid' ? (
                           <>
-                            <Image key={`${font.name}Grid`} className="list__img" src={`/uploads/images/${font.image}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                            <Image key={`${font.name}Grid`} className="list__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
                             <div className="list__name">{font.name}</div>
                           </>
                         ) : (
                           <>
                             <div className="list__name">{font.name}</div>
                             <picture>
-                              <source media="(min-width: 768px)" srcSet={`/uploads/images/${font.image_horizontal}`} />
-                              <img src={`/uploads/images/${font.image_horizontal_mobile}`} alt={`${font.name} Sample Characters`} />
+                              <source media="(min-width: 768px)" srcSet={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.list}`} />
+                              <img src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.list_mobile}`} alt={`${font.name} Sample Characters`} />
                             </picture>
                           </>
                         )}

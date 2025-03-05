@@ -30,6 +30,10 @@ export async function remove (req) {
 }
 
 export async function addTaggedFont (id, fontId) {
+  if (!id || !fontId) {
+    return;
+  }
+
   const tag = await (await Tag()).findById(id);
   const tagJSON = JSON.parse(JSON.stringify(tag));
   const fonts = [...tagJSON.fonts, fontId];

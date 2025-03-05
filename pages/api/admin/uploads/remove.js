@@ -1,5 +1,5 @@
+import { del } from '@vercel/blob';
 import withPassport from '../../../../middleware/passport';
-import { remove } from '../../../../utils/uploads';
 
 const handler = async (req, res) => {
   if (!req.isAuthenticated()) {
@@ -7,7 +7,7 @@ const handler = async (req, res) => {
   }
 
   try {
-    await remove(req);
+    await del(req.body.id);
     res.json({});
   } catch (err) {
     res.status(500).json({ err: err.message });

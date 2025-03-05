@@ -94,7 +94,7 @@ export default css.global`
       text-align: left;
       white-space: nowrap;
       position: absolute;
-      top: calc(50% - 11.5rem);
+      top: calc(50% - 15rem);
       left: calc(100% - 2rem);
       opacity: 0;
       animation: slideIn 1s 1s forwards;
@@ -111,7 +111,7 @@ export default css.global`
       min-width: 22rem;
       border-radius: 4px;
       padding: 2rem 2rem 2rem 2.5rem;
-      top: calc(50% + 3.5rem);
+      top: calc(50% + 8rem);
       left: calc(100% + 6rem);
       animation-delay: 1.5s;
 
@@ -127,12 +127,11 @@ export default css.global`
     }
 
     .hero__pointer {
-      top: calc(50% - 12rem);
-      left: calc(100% - 6rem);
+      left: calc(100% - 16rem);
     }
 
     .hero__pointer + .hero__pointer {
-      top: calc(50% + 4rem);
+      left: calc(100% + 2rem);
     }
   }
 `;

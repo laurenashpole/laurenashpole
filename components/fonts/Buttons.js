@@ -16,13 +16,13 @@ const Buttons = ({ font }) => {
       return setShowModal(true);
     }
 
-    window.location = `/uploads/fonts/${font.personal_font_file}`;
+    window.location = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).personal}`;
   };
 
   const handleModalClose = (startDownload) => {
     if (startDownload) {
       window.localStorage.setItem('hasReferrer', true);
-      window.location = `/uploads/fonts/${font.personal_font_file}`;
+      window.location = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).personal}`;
     }
 
     downloadRef.current.focus();
@@ -36,7 +36,7 @@ const Buttons = ({ font }) => {
 
   return(
     <div className="buttons">
-      {font.personal_font_file &&
+      {(font.font_files || {}).personal &&
         <>
           <Button style="outline" onClick={handleModalOpen} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'mailingListModal', 'data-ga-click': true, 'data-ga-category': 'font page' }} ref={downloadRef}>
             Download <span>Free Personal Use</span>
@@ -54,7 +54,7 @@ const Buttons = ({ font }) => {
         </>
       }
 
-      {font.commercial_font_file &&
+      {(font.font_files || {}).commercial &&
         <Button style="primary" onClick={handleAdd} attributes={{ type: 'submit', 'data-ga-click': true, 'data-ga-category': 'font page' }}>
           Add To Cart <span>{font.sale_price && <span className="buttons__price">${font.sale_price}</span>}<span className="buttons__price">${font.price}</span> Commercial Use</span>
         </Button>
