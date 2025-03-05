@@ -17,7 +17,7 @@ const Gallery = ({ font }) => {
 
       <div className="gallery__main">
         <span className="gallery__pin">
-          <a data-pin-do="buttonPin" data-pin-tall="true" data-pin-round="true" href={`https://www.pinterest.com/pin/create/button/?url=https://laurenashpole.com/fonts/${font.slug}&media=${activeIndex === 0 && font.images.pinterest ? `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.pinterest}` : `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[activeIndex]}`}&description=Next%20stop%3A%20Pinterest`}>
+          <a data-pin-do="buttonPin" data-pin-tall="true" data-pin-round="true" href={`https://www.pinterest.com/pin/create/button/?url=https://laurenashpole.com/fonts/${font.slug}&media=${activeIndex === 0 && font.images.pinterest ? `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.pinterest}` : `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[activeIndex]}`}&description=${font.name}%20font%20poster`}>
             <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" alt="Pin it" />
           </a>
         </span>

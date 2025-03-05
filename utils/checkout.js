@@ -1,8 +1,8 @@
+import https from 'https';
 import paypal from '@paypal/checkout-server-sdk';
-import path from 'path';
-import fs from 'fs';
+import sgMail from '@sendgrid/mail';
 import { findByIds } from './fonts';
-import { getTransporter, getOrderTemplate } from './mailers';
+import { getOrderTemplate } from './mailers';
 
 export async function getOrder (orderId, sendFiles) {
   try {
@@ -27,31 +27,57 @@ export async function getOrder (orderId, sendFiles) {
 }
 
 async function fulfillOrder (order) {
-  const transporter = await getTransporter();
   const attachments = await Promise.all(getAttachments(order.fonts));
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  try {
-    await transporter.sendMail({
-      subject: 'Thank you for your order!',
-      html: getOrderTemplate(order),
-      to: order.payer.email_address,
-      attachments: attachments
+  sgMail.send({
+    to: order.payer.email_address,
+    from: process.env.EMAIL,
+    subject: 'Thank you for your order!',
+    html: getOrderTemplate(order),
+    attachments: attachments
+  })
+    .then(() => {})
+    .catch((err) => {
+      throw new Error(err);
     });
-
-    transporter.close();
-  } catch (err) {
-    throw new Error(err);
-  }
 }
 
 function getAttachments (fonts) {
-  return fonts.map((font) => {
+  return fonts.map(async (font) => {
+    if (!(font.font_files || {}).commercial) {
+      return null;
+    }
+
     const filename = font.font_files.commercial.replace('fonts/', '');
-    const path = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).commercial}`;
+    const file = await getFile(`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.font_files.commercial}`);
 
     return {
+      content: file.toString('base64'),
       filename,
-      path
+      type: 'application/zip',
+      disposition: 'attachment',
+      content_id: filename,
     };
+  });
+}
+
+function getFile (url) {
+  return new Promise ((resolve, reject) => {
+    https.get(url, (res) => {
+      let buffer = Buffer.from('');
+
+      res.on('data', (data) => {
+        buffer = Buffer.concat([buffer, data]);
+      });
+
+      res.on('end', () => {
+        resolve(buffer);
+      });
+
+      res.on('error', (err) => {
+        reject(err);
+      });
+    });
   });
 }
