@@ -1,8 +1,8 @@
+import https from 'https';
 import paypal from '@paypal/checkout-server-sdk';
+import sgMail from '@sendgrid/mail';
 import { findByIds } from './fonts';
 import { getOrderTemplate } from './mailers';
-import sgMail from '@sendgrid/mail';
-import https from 'https';
 
 export async function getOrder (orderId, sendFiles) {
   try {
@@ -71,11 +71,11 @@ function getFile (url) {
         buffer = Buffer.concat([buffer, data]);
       });
 
-      res.on('end', function() {
+      res.on('end', () => {
         resolve(buffer);
       });
 
-      res.on('error', function(err) {
+      res.on('error', (err) => {
         reject(err);
       });
     });
