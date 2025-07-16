@@ -1,3 +1,16 @@
+import nodemailer from 'nodemailer';
+
+export function getTransporter() {
+  return nodemailer.createTransport({
+    host: 'mail.smtp2go.com',
+    port: 2525,
+    auth: {
+      user: process.env.SMTP2GO_USERNAME,
+      pass: process.env.SMTP2GO_PASSWORD
+    }
+  });
+}
+
 export function getOrderTemplate (order) {
   return `
     <!doctype html>
