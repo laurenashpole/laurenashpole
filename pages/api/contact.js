@@ -1,13 +1,13 @@
-import sgMail from '@sendgrid/mail';
+import { getTransporter } from '../../utils/mailers';
 
-export default async (req, res) => {
+export default (req, res) => {
   if (!req.body || !req.body.email || !req.body.name || !req.body.message) {
     return res.status(422).json({});
   }
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const transporter = getTransporter();
 
-  sgMail.send({
+  transporter.sendMail({
     to: process.env.EMAIL,
     from: `"CONTACT FORM" <${process.env.EMAIL}>`,
     subject: req.body.subject || 'General Questions',
