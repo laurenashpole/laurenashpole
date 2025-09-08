@@ -1,29 +1,27 @@
 import PropTypes from 'prop-types';
-import { useInView } from 'react-intersection-observer';
 import ActiveLink from './ActiveLink';
 import styles from '../styles/Header.styles.js';
+import Container from './Container.js';
+import SrOnly from './SrOnly.js';
 
-const Header = ({ home, links, enableAnalytics }) => {
-  const { ref, inView } = useInView();
-
+const Header = ({ home, links, enableAnalytics, cart }) => {
   return (
-    <>
-      <span ref={ref} />
-      <header className="header">
-        <div className={`header__content ${inView ? '' : 'header__content--bg'}`}>
+    <header className="header">
+      <Container>
+        <div className="header__content">
           {home.external ? (
             <a className="header__logo" href={`https://${home.external.host}${home.path}`} data-ga-click={enableAnalytics} data-ga-category="nav">
-              <span>{home.label}</span>
+              <SrOnly>{home.label}</SrOnly>
             </a>
           ) : (
             <ActiveLink href={home.path} isExact={true}>
               <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
-                <span>{home.label}</span>
+                <SrOnly>{home.label}</SrOnly>
               </a>
             </ActiveLink>
           )}
 
-          <nav>
+          <nav className="header__nav">
             <ul className="header__list">
               {links.map((link, i) => {
                 return (
@@ -39,14 +37,16 @@ const Header = ({ home, links, enableAnalytics }) => {
                 );
               })}
             </ul>
+
+            {cart}
           </nav>
         </div>
-      </header>
+      </Container>
 
       <style jsx global>
         {styles}
       </style>
-    </>
+    </header>
   );
 };
 

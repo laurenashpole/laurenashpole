@@ -48,11 +48,11 @@ export const DIST_LINKS = [
     imgHeight: '88',
     alt: 'TheHungryJPEG'
   },
-  {
-    url: 'http://www.fonts.com/font/lauren-ashpole',
-    imgSrc: '/images/dist/fontscom-logo.svg',
-    imgWidth: '300',
-    imgHeight: '53',
-    alt: 'Fonts.com'
-  }
+  // {
+  //   url: 'http://www.fonts.com/font/lauren-ashpole',
+  //   imgSrc: '/images/dist/fontscom-logo.svg',
+  //   imgWidth: '300',
+  //   imgHeight: '53',
+  //   alt: 'Fonts.com'
+  // }
 ];

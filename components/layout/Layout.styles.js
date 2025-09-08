@@ -12,7 +12,7 @@ export default css.global`
 
   .layout__main {
     width: 100%;
-    padding: 4rem 1.5rem 0 1.5rem;
+    // padding: 4rem 1.5rem 0 1.5rem;
     position: relative;
     flex-grow: 1.5;
     display: flex;
@@ -20,32 +20,32 @@ export default css.global`
     justify-content: center;
     overflow: hidden;
 
-    &:after {
-      content: '';
-      background-image:
-        url(abstract-squiggle-thin($color-pink-encoded)),
-        url(abstract-lines($color-green-encoded)),
-        url(abstract-dots($color-orange-encoded)),
-        url(abstract-squiggle($color-blue-encoded)),
-        url(node-circle()),
-        url(node-square()),
-        url(nodes());
-      background-position:
-        -5rem 12.5rem,
-        -5rem 5rem,
-        calc(100% - 3rem) calc(100% - 15.5rem),
-        calc(100% + 3rem) calc(100% - 5rem);
-      background-size: 25rem, 40rem, 12.5rem, 45rem, 0, 0, 0;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-      min-height: 640px;
-      position: fixed;
-      top: 0;
-      left: 50%;
-      z-index: -2;
-      transform: translateX(-50%) scaleX(-1);
-    }
+    // &:after {
+    //   content: '';
+    //   background-image:
+    //     url(abstract-squiggle-thin($color-pink-encoded)),
+    //     url(abstract-lines($color-green-encoded)),
+    //     url(abstract-dots($color-orange-encoded)),
+    //     url(abstract-squiggle($color-blue-encoded)),
+    //     url(node-circle()),
+    //     url(node-square()),
+    //     url(nodes());
+    //   background-position:
+    //     -5rem 12.5rem,
+    //     -5rem 5rem,
+    //     calc(100% - 3rem) calc(100% - 15.5rem),
+    //     calc(100% + 3rem) calc(100% - 5rem);
+    //   background-size: 25rem, 40rem, 12.5rem, 45rem, 0, 0, 0;
+    //   background-repeat: no-repeat;
+    //   width: 100%;
+    //   height: 100%;
+    //   min-height: 640px;
+    //   position: fixed;
+    //   top: 0;
+    //   left: 50%;
+    //   z-index: -2;
+    //   transform: translateX(-50%) scaleX(-1);
+    // }
   }
 
   @media (min-width: 640px) {
@@ -56,9 +56,9 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .layout__main {
-      max-width: $width-desktop;
+      // max-width: $width-desktop-wide;
       margin: 0 auto;
-      padding: 8rem 3rem 3rem 3rem;
+      // padding: 8rem 3rem 3rem 3rem;
       overflow: unset;
 
       &:after {
@@ -78,7 +78,7 @@ export default css.global`
 
   @media (min-width: $break-desktop) {
     .layout__main {
-      padding: 12rem 3rem 7rem 3rem;
+      // padding: 12rem 3rem 7rem 3rem;
 
       &:after {
         max-width: $width-desktop-wide;

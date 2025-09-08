@@ -1,65 +1,81 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
+  @import 'keyframes.scss';
   @import 'variables.scss';
 
   .cart {
-    margin: -1.5rem 0.75rem 1.5rem 0.75rem;
-    position: sticky;
-    bottom: 1.5rem;
-    z-index: 2;
     pointer-events: none;
 
     button {
+      background: transparent;
       width: 7rem;
       height: 7rem;
-      margin-left: auto;
-      border-radius: 50%;
+      border-radius: 0;
+      border: 0;
+      border-left: 1px solid $color-gray-light;
       position: relative;
-      color: $color-purple;
+      color: $color-white;
+      font-size: 1.5rem;
       letter-spacing: 0;
       pointer-events: auto;
+      @include bg-animation($color-purple, $color-purple);
 
-      &:before {
-        content: '';
-        background: $color-white;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 2px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-      }
+      &:hover,
+      &:focus, {
+        .cart__icon {
+          &:before {
+            transition: background 0.15s linear 0.3s;
+            background: $color-white;
+          }
 
-      &:after {
-        content: '';
-        width: 1.5rem;
-        height: 1.5rem;
-        border: 2px solid $color-white;
-        border-radius: 50%;
-        position: absolute;
-        top: calc(50% - 2rem);
+          &:after {
+            transition: border-color 0.15s linear 0.3s;
+            border-color: $color-white;
+          }
+        }
       }
     }
   }
 
+  .cart__icon {
+    &:before {
+      content: '';
+      background: $color-purple;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 2px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &:after {
+      content: '';
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 2px solid $color-purple;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% - 2rem);
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
   .cart__count {
-    font-size: 1.5rem;
+    padding-bottom: 1px;
     position: relative;
     z-index: 1;
   }
 
   @media (min-width: $break-tablet) {
     .cart {
-      margin: -4rem 1.5rem 4rem 1.5rem;
-      bottom: 4rem;
-    }
-  }
-
-  @media (min-width: $break-desktop) {
-    .cart {
-      margin: -4rem 3rem 4rem 3rem;
+      button {
+        width: 8.5rem;
+        height: 8.5rem;
+      }
     }
   }
 `;

@@ -4,11 +4,12 @@ $font-family-headings: 'museo-sans-rounded', sans-serif;
 $font-size-root: 8;
 
 /* Breakpoints */
-$break-mobile: 540px;
+$break-mobile: 640px;
 $break-tablet: 768px;
 $break-desktop: 1024px;
 $break-desktop-large: 1400px;
 $break-desktop-x-large: 1600px;
+$break-container: 1138px;
 
 /* Widths */
 $width-desktop: 128rem;
@@ -22,19 +23,24 @@ $color-white-encoded: '%23ffffff';
 $color-gray-darkest: #a7a7a7;
 $color-gray-dark: #cdcdcd;
 $color-gray-light: #e7e7e7;
-$color-gray-lightest: #f4f4f4;
+$color-gray-lightest: #f7f7f7;
 
 $color-red: #d63037;
 $color-red-hover: #c02b31;
 $color-red-encoded: '%23d63037';
 
-$color-purple: #685f77;
-$color-purple-hover: #4a4355;
-$color-purple-encoded: '%23685f77';
+// $color-purple: #685f77;
+$color-purple: #594D6A;
+// $color-purple-hover: #4a4355;
+$color-purple-hover: #4F455F;
+// $color-purple-encoded: '%23685f77';
+$color-purple-encoded: '%23594D6A';
 
 $color-pink: #fbecec;
+$color-orange: #E47553;
 
 $color-green-encoded: '%23d8e8dd';
 $color-pink-encoded: '%23fbecec';
 $color-blue-encoded: '%23d8ecee';
-$color-orange-encoded: '%23efa48e';
+// $color-orange-encoded: '%23efa48e';
+$color-orange-encoded: '%23E47553';

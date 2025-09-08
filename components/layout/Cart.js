@@ -7,6 +7,7 @@ import Modal from '../shared/Modal';
 import Summary from '../shared/Summary';
 import Errors from '../shared/Errors';
 import styles from './Cart.styles.js';
+import SrOnly from '../../shared/components/SrOnly.js';
 
 const Cart = () => {
   const isMount = useRef(true);
@@ -74,7 +75,11 @@ const Cart = () => {
 
   return(
     <div className="cart">
-      <Button style="secondary" onClick={handleShow} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'cartModal', 'data-ga-click': true, 'data-ga-category': 'cart' }}><span className="cart__count" aria-hidden="true">{cart.count || 0}</span><span className="sr-only">View {cart.count} items in cart</span></Button>
+      <Button onClick={handleShow} attributes={{ type: 'button', 'aria-expanded': showModal, 'aria-controls': 'cartModal', 'data-ga-click': true, 'data-ga-category': 'cart' }}>
+        <span className="cart__icon" />
+        <span className="cart__count" aria-hidden="true">{cart.count || 0}</span>
+        <SrOnly>View {cart.count} items in cart</SrOnly>
+      </Button>
 
       <Modal name="cart" isActive={showModal} onClose={() => setShowModal(false)}>
         <h3 id="cartModalHeading">Cart</h3>

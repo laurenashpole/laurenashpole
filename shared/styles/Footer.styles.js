@@ -4,19 +4,22 @@ export default css.global`
   @import 'variables.scss';
 
   .footer {
-    background: $color-white;
+    // background: $color-white;
+    border-top: 1px solid $color-gray-light;
   }
 
   .footer__content {
-    padding: 1.5rem 0;
+    // padding: 1.5rem 0;
   }
 
   .footer__social {
+    border-bottom: 1px solid $color-gray-light;
     display: flex;
   }
 
   .footer__social-item {
     width: 25%;
+    min-height: 7rem;
     border-right: 1px solid $color-gray-light;
     display: flex;
     align-items: stretch;
@@ -59,21 +62,35 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
+    .footer > div {
+      min-height: 8.5rem;
+    }
+
     .footer__content {
-      max-width: $width-desktop;
-      margin: 0 auto;
-      padding: 0 3rem;
+      // max-width: $width-desktop;
+      // margin: 0 auto;
+      // padding: 0 3rem;
       display: flex;
     }
 
     .footer__social {
+      border-bottom: 0;
       border-right: 1px solid $color-gray-light;
     }
 
     .footer__social-item {
       width: 8.5rem;
       height: 8.5rem;
+    }
+
+    .footer__social-link {
+      color: $color-white;
       position: relative;
+
+      svg {
+        position: relative;
+        z-index: 1;
+      }
 
       &:before {
         content: " ";
@@ -93,16 +110,6 @@ export default css.global`
         width: 100%;
         height: 100%;
         border-radius: 0;
-      }
-    }
-
-    .footer__social-link {
-      color: $color-white;
-      z-index: 1;
-
-      &:focus,
-      &:hover {
-        color: $color-white;
       }
     }
   }

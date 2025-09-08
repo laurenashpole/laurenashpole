@@ -4,6 +4,14 @@ export default css.global`
   @import 'svgs.scss';
   @import 'variables.scss';
 
+  .list__header {
+    border-bottom: 1px solid $color-gray-light;
+
+    & > div {
+      padding: 5.25rem 0;
+    }
+  }
+
   .list__heading {
     text-align: center;
 
@@ -31,6 +39,15 @@ export default css.global`
   }
 
   .list__settings {
+    border-bottom: 1px solid $color-gray-light;
+
+    & > div {
+      min-height: 7rem;
+    }
+  }
+
+  .list__settings-options {
+    padding: 1.25rem;
     display: flex;
 
     form ~ button {
@@ -249,6 +266,12 @@ export default css.global`
 
     .list__heading + .list__tags {
       margin-top: 4rem;
+    }
+
+    .list__settings {
+      & > div {
+        min-height: 8.5rem;
+      }
     }
 
     .list__view {
