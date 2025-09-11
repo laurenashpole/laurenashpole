@@ -69,13 +69,13 @@ const List = ({ heading, fonts, tags, description }) => {
                 <Input label="Find by name" hideLabel={true} attributes={{ type: 'text', value: filter, placeholder: 'Find by name', onChange: (e) => setFilter(e.target.value) }} />
               </form>
 
-              {['grid', 'list'].map((option) => {
+              {/* {['grid', 'list'].map((option) => {
                 return (
                   <Button key={option} style="link" onClick={() => handleView(option)} attributes={{ type: 'button', disabled: view === option, 'data-ga-click': true, 'data-ga-category': 'font list', 'data-ga-text': `${option} view` }}>
                     <span className={`list__view list__view--${option}`} aria-label={`Switch to ${option} view`} />
                   </Button>
                 );
-              })}
+              })} */}
             </div>
           </Container>
         </div>
@@ -89,11 +89,15 @@ const List = ({ heading, fonts, tags, description }) => {
                     <li key={font._id} className="list__item">
                       <Link href={`/fonts/${font.slug}`}>
                         <a className="list__link" data-ga-click={true} data-ga-category="font list" data-ga-text={`${font.name} details`} onClick={() => handleClick(font, i)}>
+                          <div className="list__link-overlay" />
+
                           {view === 'grid' ? (
-                            <>
-                              <Image key={`${font.name}Grid`} className="list__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                            <div className="list__img">
+                              <Image src='/images/39-smooth-grid.svg' width={400} height={400} data-pin-nopin="true" />
+                
+                              {/* <Image key={`${font.name}Grid`} className="" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample Characters`} width={350} height={300} /> */}
                               <div className="list__name">{font.name}</div>
-                            </>
+                            </div>
                           ) : (
                             <>
                               <div className="list__name">{font.name}</div>

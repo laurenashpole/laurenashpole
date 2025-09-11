@@ -8,7 +8,7 @@ export default css.global`
     border-bottom: 1px solid $color-gray-light;
 
     & > div {
-      padding: 5.25rem 0;
+      padding: 5.25rem 3.5rem;
     }
   }
 
@@ -151,32 +151,34 @@ export default css.global`
   }
 
   .list__list--grid {
-    width: calc(100% + 3rem);
-    margin: -1.5rem;
+    // width: calc(100% + 3rem);
+    // margin: -1.5rem;
     text-align: center;
 
     .list__item {
-      background: linear-gradient(rgba($color-gray-lightest, 0.5), rgba($color-gray-lightest, 0.5)) no-repeat;
-      background-position: 1.5rem 1.5rem;
-      background-size: calc(100% - 3rem) calc(100% - 3rem);
-      padding: 4rem;
+      // background: linear-gradient($color-gray-lightest, $color-gray-lightest) no-repeat;
+      // background-position: 1.5rem 1.5rem;
+      // background-size: calc(100% - 3rem) calc(100% - 3rem);
+      // padding: 4rem;
+      padding: 1.5rem;
     }
 
-    .list__item:first-child {
-      padding-top: 4rem;
-    }
+    // .list__item:first-child {
+    //   padding-top: 4rem;
+    // }
 
-    .list__img {
-      transform: scale(0.95);
-      transition: transform 0.3s;
-    }
+    // .list__img {
+    //   width: 60%;
+    //   // transform: scale(0.95);
+    //   // transition: transform 0.3s;
+    // }
 
-    .list__link:hover,
-    .list__link:focus {
-      .list__img {
-        transform: scale(1);
-      }
-    }
+    // .list__link:hover,
+    // .list__link:focus {
+    //   .list__img {
+    //     transform: scale(1);
+    //   }
+    // }
 
     .list__name {
       margin: 1rem 0 0 0;
@@ -184,15 +186,16 @@ export default css.global`
       font-weight: 900;
       text-transform: none;
       letter-spacing: normal;
+      position: absolute;
     }
   }
 
   .list__item {
-    padding: 2.5rem 0 3rem 0;
+    // padding: 2.5rem 0 3rem 0;
     border-bottom: 1px solid $color-gray-light;
 
     &:first-child {
-      padding-top: 0.5rem;
+      // padding-top: 0.5rem;
     }
 
     &:last-child {
@@ -204,16 +207,58 @@ export default css.global`
     border: none;
     color: $color-black;
     display: block;
+    position: relative;
+
+    // background: $color-gray-lightest;
+    padding: calc(20% + 3rem) 20%;
 
     > div {
       margin: 0 auto;
     }
   }
 
+  .list__link-overlay {
+    --clipPath-progress: circle(0% at 50% 50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    // background-color: $color-pink;
+    background-color: $color-gray-lightest;
+    clip-path: var(--clipPath-progress);
+    z-index: 0;
+    transition: clip-path 0.6s ease-out;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      background: #fff;
+      width: 80%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      transform: scale(0.5);
+      transition: transform 0.6s ease-out;
+    }
+
+  }
+
   .list__link:hover,
   .list__link:focus {
     color: $color-black;
     text-decoration: none;
+
+    .list__link-overlay {
+      --clipPath-progress: circle(100% at 50% 50%);
+
+      &:before {
+        transform: scale(1);
+      }
+    }
   }
 
   .list__name {
@@ -239,12 +284,12 @@ export default css.global`
       .list__item {
         width: 50%;
         border-right: 1px solid $color-gray-light;
-        padding: 5rem;
+        // padding: 5rem;
       }
 
-      .list__item:first-child {
-        padding-top: 5rem;
-      }
+      // .list__item:first-child {
+      //   padding-top: 5rem;
+      // }
 
       .list__item:nth-child(2n + 2) {
         border-right: none;
@@ -316,7 +361,7 @@ export default css.global`
     }
 
     .list__item {
-      padding: 3.25rem 4rem 4rem 4rem;
+      // padding: 3.25rem 4rem 4rem 4rem;
     }
 
     .list__name {
