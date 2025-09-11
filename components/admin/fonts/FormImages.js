@@ -8,6 +8,7 @@ const FormImages = ({ font }) => {
       <section className="form__section">
         <h5 className="form__subheading">Images</h5>
         <Input label={`Main ${(font.images || {}).main ? `<span>(${font.images.main})</span>` : ''}`} attributes={{ type: 'file', name: 'main' }} />
+        <Input label={`Grid ${(font.images || {}).grid ? `<span>(${font.images.grid})</span>` : ''}`} attributes={{ type: 'file', name: 'grid' }} />
         <Input label={`List ${(font.images || {}).list ? `<span>(${font.images.list})</span>` : ''}`} attributes={{ type: 'file', name: 'list' }} />
         <Input label={`Mobile List ${(font.images || {}).list_mobile ? `<span>(${font.images.list_mobile})</span>` : ''}`} attributes={{ type: 'file', name: 'list_mobile' }} />
         <Input label="Gallery" attributes={{ type: 'file', name: 'gallery', multiple: true }} />

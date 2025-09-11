@@ -33,6 +33,7 @@ export default async () => {
     personal_file: getOptionsSchema(FONT_OPTIONS.personal_file),
     images: {
       main: String,
+      grid: String,
       list: String,
       list_mobile: String,
       gallery: [],

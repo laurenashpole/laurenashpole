@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import thumbnail from 'node-thumbnail';
 import { del, put } from '@vercel/blob';
 import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
 import { addTaggedFont, removeTaggedFont } from './tags';
@@ -69,7 +66,7 @@ function getFontFileOptions (params, font, type) {
 
 async function getFileParams (files, font) {
   const imageFiles = files.filter((file) => (
-    ['main', 'list', 'list_mobile', 'pinterest'].includes(file.fieldname)
+    ['main', 'grid', 'list', 'list_mobile', 'pinterest'].includes(file.fieldname)
   ));
 
   const galleryFiles = files.filter((file) => (
@@ -165,20 +162,6 @@ async function deleteFiles (font) {
       }
     });
   });
-}
-
-function getDirectory (mimetype, baseDir) {
-  let directory;
-
-  if (mimetype.indexOf('image') !== -1) {
-    directory = 'images';
-  }  else if (mimetype.indexOf('zip') !== -1) {
-    directory = 'fonts';
-  } else if (mimetype.indexOf('ttf') !== -1 || mimetype.indexOf('woff') !== -1) {
-    directory = 'previews';
-  }
-
-  return `${baseDir}${directory}/`;
 }
 
 function getHashedName (name) {
