@@ -181,12 +181,15 @@ export default css.global`
     // }
 
     .list__name {
-      margin: 1rem 0 0 0;
-      font-size: 3rem;
-      font-weight: 900;
-      text-transform: none;
-      letter-spacing: normal;
+    //   margin: 1rem 0 0 0;
+    //   font-size: 3rem;
+    //   font-weight: 900;
+    //   text-transform: none;
+    //   letter-spacing: normal;
       position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
@@ -262,11 +265,11 @@ export default css.global`
   }
 
   .list__name {
-    margin-bottom: 1rem;
-    font-size: 1.55rem;
-    font-weight: 600;
-    letter-spacing: 0.125em;
-    text-transform: uppercase;
+  //   margin-bottom: 1rem;
+  //   font-size: 1.55rem;
+  //   font-weight: 600;
+  //   letter-spacing: 0.125em;
+  //   text-transform: uppercase;
   }
 
   .list__empty {
@@ -364,16 +367,16 @@ export default css.global`
       // padding: 3.25rem 4rem 4rem 4rem;
     }
 
-    .list__name {
-      font-size: 1.75rem;
-    }
+    // .list__name {
+    //   font-size: 1.75rem;
+    // }
 
-    .list__list--grid {
-      .list__name {
-        margin-top: 2rem;
-        font-size: 3rem;
-      }
-    }
+    // .list__list--grid {
+    //   .list__name {
+    //     margin-top: 2rem;
+    //     font-size: 3rem;
+    //   }
+    // }
   }
 
   @media (min-width: $break-desktop) {

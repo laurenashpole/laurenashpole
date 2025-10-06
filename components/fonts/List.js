@@ -93,10 +93,13 @@ const List = ({ heading, fonts, tags, description }) => {
 
                           {view === 'grid' ? (
                             <div className="list__img">
-                              <Image src='/images/39-smooth-grid.svg' width={400} height={400} data-pin-nopin="true" />
-                
-                              {/* <Image key={`${font.name}Grid`} className="" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample Characters`} width={350} height={300} /> */}
-                              <div className="list__name">{font.name}</div>
+                              {font.images.grid ? (
+                                <Image key={`${font.name}Grid`} src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.grid}`} alt={`${font.name} Sample Characters`} width={400} height={400} />
+                              ) : (
+                                <Image key={`${font.name}Grid`} className="" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample Characters`} width={350} height={300} />
+                              )}
+
+                              <div className="label list__name">{font.name}</div>
                             </div>
                           ) : (
                             <>
