@@ -1,4 +1,4 @@
-import css from "styled-jsx/css";
+import css from 'styled-jsx/css';
 
 export default css.global`
   @import "svgs.scss";
@@ -148,6 +148,14 @@ export default css.global`
   }
 
   @media (min-width: $break-desktop) {
+    .hero {
+      &:after {
+        background-size: 56rem, 21rem, 67rem;
+        background-position: 8rem 5rem, calc(100% - 14rem) calc(100% - 26rem),
+          calc(100% - 8rem) calc(100% - 5rem);
+      }
+    }
+
     .hero {
       &:after {
         background-size: 56rem, 21rem, 67rem;

@@ -15,33 +15,39 @@ export default css.global`
     z-index: 3;
   }
 
-  .header > div {
-    min-height: 7rem;
-  }
-
   .header__content {
-    width: 100%;
+    min-height: 7rem;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
   }
 
   .header__logo {
-    // background: $color-gray-lightest;
     background: $color-red;
     border-right: 1px solid $color-gray-light;
     overflow: hidden;
+    transition: background 0.15s linear;
 
     &:before {
       content: " ";
       background: url(logo($color-white-encoded)) no-repeat;
-      background-size: 75%;
+      background-size: 65%;
       background-position: center;
       width: 7rem;
       height: 7rem;
       display: block;
       transform: rotate(-12.5deg) translateY(-0.25rem);
       backface-visibility: hidden;
+      transition: background-image 0.15s linear;
+    }
+
+    &:hover,
+    &:focus {
+      background: $color-white;
+
+      &:before {
+        background-image: url(logo($color-red-encoded));
+      }
     }
   }
 
@@ -126,6 +132,15 @@ export default css.global`
 
     .header__link[aria-current]:before {
       content: none;
+    }
+  }
+
+  @media (min-width: $break-container) {
+    .header__content {
+      width: $width-desktop-wide;
+      margin: 0 auto;
+      border-left: 1px solid $color-gray-light;
+      border-right: 1px solid $color-gray-light;
     }
   }
 `;

@@ -1,11 +1,11 @@
+import { findById, findByIds } from '../utils/fonts';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/home/Hero';
-import Recent from '../components/home/Recent';
 import About from '../components/home/About';
 import Distributors from '../components/home/Distributors';
 import Packages from '../components/home/Packages';
 import Container from '../shared/components/Container';
-import { findById, findByIds } from '../utils/fonts';
+import Recent from '../components/home/Recent';
 
 const Home = ({ font, fonts }) => {
   return (

@@ -4,12 +4,7 @@ export default css.global`
   @import 'variables.scss';
 
   .footer {
-    // background: $color-white;
     border-top: 1px solid $color-gray-light;
-  }
-
-  .footer__content {
-    // padding: 1.5rem 0;
   }
 
   .footer__social {
@@ -67,9 +62,6 @@ export default css.global`
     }
 
     .footer__content {
-      // max-width: $width-desktop;
-      // margin: 0 auto;
-      // padding: 0 3rem;
       display: flex;
     }
 
@@ -90,6 +82,11 @@ export default css.global`
       svg {
         position: relative;
         z-index: 1;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-white;
       }
 
       &:before {

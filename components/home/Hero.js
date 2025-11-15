@@ -16,7 +16,7 @@ const Hero = ({ font }) => {
           <Link href={`/fonts/${font.slug}`}>
             <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text={`${font.name} hero`}>
               <div className="label hero__badge hero__badge--small">
-                New
+                New<br />Font
               </div>
 
               <div className={`hero__letters font-${font.slug}`} aria-hidden="true">

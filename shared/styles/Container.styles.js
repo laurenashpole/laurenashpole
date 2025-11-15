@@ -10,11 +10,9 @@ export default css.global`
   @media (min-width: $break-container) {
     .container {
       width: 100%;
-      max-width: $width-desktop-wide;
+      max-width: calc(#{$width-desktop-wide} - 2px);
       min-height: 12.75rem;
       margin: 0 auto;
-      border-left: 1px solid $color-gray-light;
-      border-right: 1px solid $color-gray-light;
     }
   }
 `;
