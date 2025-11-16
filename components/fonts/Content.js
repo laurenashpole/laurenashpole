@@ -10,6 +10,7 @@ import Gallery from './Gallery';
 import Preview from './Preview';
 import Glyphs from './Glyphs';
 import styles from './Content.styles.js';
+import Container from '../../shared/components/Container.js';
 
 const Content = ({ font, tags }) => {
   const sectionRefs = useRef({});
@@ -28,6 +29,39 @@ const Content = ({ font, tags }) => {
   const handleInView = (inView, section) => {
     inView && setInViewSection(section);
   };
+
+  return (
+    <>
+      <Container>
+        <div className="content">
+          <div className={`content__sidebar font-${font.slug}`} aria-hidden="true">
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+          </div>
+
+          <div className="content__main">
+            <h1 className="content__heading">
+              {font.name}
+              {font.sale_price && <div className="content__heading-sale">
+                On Sale!
+              </div>}
+            </h1>
+
+            <Buttons font={font} />
+            <Gallery font={font} />
+            <Details font={font} tags={tags} />
+            <Preview font={font} />
+            <Glyphs font={font} />
+          </div>
+        </div>
+      </Container>
+
+      <style jsx global>
+        {styles}
+      </style>
+    </>
+  );
 
   return (
     <>

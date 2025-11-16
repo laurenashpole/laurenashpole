@@ -11,6 +11,7 @@ const Home = ({ font, fonts }) => {
   return (
     <Layout>
       <Hero font={font} />
+      <Container />
       <Recent fonts={fonts} />
       <Container />
       <About />

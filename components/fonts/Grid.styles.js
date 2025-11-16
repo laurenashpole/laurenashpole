@@ -26,7 +26,7 @@ export default css.global`
   }
 
   .grid__img {
-    border-radius: 3px;
+    border-radius: $border-radius;
     overflow: hidden;
     display: block;
 

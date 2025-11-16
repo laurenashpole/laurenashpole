@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import ActiveLink from './ActiveLink';
 import styles from '../styles/Header.styles.js';
-import Container from './Container.js';
 import SrOnly from './SrOnly.js';
 
 const Header = ({ home, links, enableAnalytics, cart }) => {

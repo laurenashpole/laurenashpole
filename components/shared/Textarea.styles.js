@@ -25,7 +25,7 @@ export default css.global`
     background: $color-gray-lightest;
     width: 100%;
     border: 1px solid $color-gray-light;
-    border-radius: 3px;
+    border-radius: $border-radius;
     padding: 1.25rem;
     outline: none;
     font-family: inherit;

@@ -42,7 +42,7 @@ const List = ({ heading, fonts, tags, description }) => {
                 type: 'button',
                 disabled: !filter,
                 'data-ga-click': true,
-                'data-ga-category': 'font list',
+                'data-ga-category': `${heading.toLowerCase()} list`,
                 'data-ga-text': 'Reset search term'
               }}
             >

@@ -8,7 +8,7 @@ import styles from './Grid.styles.js';
 const Grid = ({ fonts, heading, gaCategory, showDetails }) => {
   useEffect(() => {
     ga4Event('view_item_list', fonts, `${gaCategory} List`);
-  }, [fonts, heading]);
+  }, [fonts, gaCategory]);
 
   const handleClick = (font) => {
     ga4Event('select_item', [font], `${gaCategory} List`);
@@ -28,7 +28,7 @@ const Grid = ({ fonts, heading, gaCategory, showDetails }) => {
                     <a
                       className="grid__link"
                       data-ga-click={true}
-                      data-ga-category={`${heading ? `${gaCategory.toLowerCase()} ` : ''} list`}
+                      data-ga-category={`${gaCategory.toLowerCase()} list`}
                       data-ga-text={`${font.name} details`}
                       onClick={handleClick}
                     >

@@ -41,6 +41,55 @@ export default css.global`
   }
 
   @media (min-width: $break-desktop) {
+    .content {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .content__sidebar {
+      min-width: calc(8.5rem * 5);
+      height: calc(100vh - 8.5rem);
+      background-image: 
+        linear-gradient($color-gray-light 1px, transparent 1px),
+        linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
+      background-size: 8.5rem 8.5rem;
+      margin: -1px;
+      border-bottom: 1px solid $color-gray-light;
+      position: sticky;
+      top: 8.5rem;
+
+      color: $color-purple;
+      font-size: 16rem;
+      line-height: 0.85;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        display: block;
+      }
+
+      span:nth-of-type(1) {
+        transform: rotate(-10deg);
+      }
+
+      span:nth-of-type(2) {
+        transform: rotate(5deg) translateY(3rem);
+        font-size: 12rem;
+      }
+
+      span:nth-of-type(3) {
+        transform: rotate(-5deg) translateX(-3rem);
+      }
+    }
+
+    .content__main {
+      padding: 8.5rem;
+    }
+
     .content__heading {
       &:after {
         width: 5.5rem;
@@ -93,9 +142,9 @@ export default css.global`
     }
 
     .content__main {
-      width: 75%;
+    //   width: 75%;
       border-left: 1px solid $color-gray-light;
-      padding: 0 3rem 0 6rem;
+    //   padding: 0 3rem 0 6rem;
     }
   }
 `;

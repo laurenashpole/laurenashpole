@@ -24,6 +24,8 @@ export default css.global`
 
   .header__logo {
     background: $color-red;
+    width: 7rem;
+    height: 7rem;
     border-right: 1px solid $color-gray-light;
     overflow: hidden;
     transition: background 0.15s linear;
@@ -33,8 +35,8 @@ export default css.global`
       background: url(logo($color-white-encoded)) no-repeat;
       background-size: 65%;
       background-position: center;
-      width: 7rem;
-      height: 7rem;
+      width: 100%;
+      height: 100%;
       display: block;
       transform: rotate(-12.5deg) translateY(-0.25rem);
       backface-visibility: hidden;
@@ -101,7 +103,7 @@ export default css.global`
       min-height: 8.5rem;
     }
 
-    .header__logo:before {
+    .header__logo {
       width: 8.5rem;
       height: 8.5rem;
     }

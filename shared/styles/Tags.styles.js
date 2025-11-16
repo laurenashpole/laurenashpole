@@ -13,7 +13,7 @@ export default css.global`
   .tags__tag {
     background: $color-purple;
     border: none;
-    border-radius: 3px;
+    border-radius: $border-radius;
     margin: 0 0.35em 1em 0.35em;
     padding: 0.5em 0.75em;
     color: $color-white;

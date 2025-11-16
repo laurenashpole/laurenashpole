@@ -20,7 +20,7 @@ export default css.global`
     height: 2rem;
     margin-right: 1rem;
     border: 2px solid $color-white;
-    border-radius: 3px;
+    border-radius: $border-radius;
     outline: none;
     box-shadow: 0 0 0 1px $color-gray-dark;
     appearance: none;

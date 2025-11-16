@@ -13,7 +13,7 @@ const Gallery = ({ font }) => {
 
   return(
     <section className="gallery">
-      <h3>Gallery</h3>
+      {/* <h3>Gallery</h3> */}
 
       <div className="gallery__main">
         <span className="gallery__pin">

@@ -67,12 +67,15 @@ export default css.global`
 
     .footer__social {
       border-bottom: 0;
-      border-right: 1px solid $color-gray-light;
     }
 
     .footer__social-item {
       width: 8.5rem;
       height: 8.5rem;
+
+      &:last-child {
+        border-right: 1px solid $color-gray-light;
+      }
     }
 
     .footer__social-link {

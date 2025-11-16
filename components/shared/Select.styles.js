@@ -37,7 +37,7 @@ export default css.global`
     width: 100%;
     height: 7rem;
     border: 1px solid $color-gray-light;
-    border-radius: 3px;
+    border-radius: $border-radius;
     padding: 2.75rem 4rem 0.5rem 1.25rem;
     outline: none;
     color: $color-black;

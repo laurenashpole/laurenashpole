@@ -9,7 +9,7 @@ export default css.global`
     width: 100%;
     padding: 0 1.5rem;
     border: 2px solid transparent;
-    border-radius: 3px;
+    border-radius: $border-radius;
     outline: none;
     color: $color-white;
     font-family: inherit;

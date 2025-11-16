@@ -52,7 +52,7 @@ const Font = ({ font, tags }) => {
         <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
       </Head>
 
-      <HeroImage src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample`} />
+      {/* <HeroImage src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample`} /> */}
       <Content font={font} tags={tags} />
       <div id="modalRoot" />
     </Layout>
