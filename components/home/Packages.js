@@ -2,15 +2,14 @@ import Image from 'next/image';
 import { PACKAGES } from '../../constants/packages';
 import Container from '../../shared/components/Container.js';
 import styles from './Packages.styles.js';
+import VerticalHeading from '../shared/VerticalHeading.js';
 
 const Packages = () => {
   return(
     <>
       <div className="packages">
         <Container>
-          <div className="packages__heading">
-            <h3 className="label">Want code?</h3>
-          </div>
+          <VerticalHeading heading="Want code?" />
 
           <ul className="packages__list">
             {PACKAGES.map((link, i) => {

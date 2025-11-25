@@ -1,8 +1,8 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import "svgs.scss";
-  @import "variables.scss";
+  @import 'svgs.scss';
+  @import 'variables.scss';
 
   .hero {
     min-height: calc(7rem * 11);

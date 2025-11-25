@@ -32,30 +32,35 @@ const Content = ({ font, tags }) => {
 
   return (
     <>
-      <Container>
-        <div className="content">
-          <div className={`content__sidebar font-${font.slug}`} aria-hidden="true">
-            <span>A</span>
-            <span>B</span>
-            <span>C</span>
-          </div>
+      <div className="content">
+        <Container>
+          <div className="content__container">
+            <div className={`content__letters font-${font.slug}`} aria-hidden="true">
+              <span>A</span>
+              <span>B</span>
+              <span>C</span>
+            </div>
 
-          <div className="content__main">
-            <h1 className="content__heading">
-              {font.name}
-              {font.sale_price && <div className="content__heading-sale">
-                On Sale!
-              </div>}
-            </h1>
+            <div className="content__main">
+              <section>
+                <h1 className="content__heading">
+                  {font.name}
+                  {font.sale_price && <div className="content__heading-sale">
+                    On Sale!
+                  </div>}
+                </h1>
 
-            <Buttons font={font} />
-            <Gallery font={font} />
-            <Details font={font} tags={tags} />
-            <Preview font={font} />
-            <Glyphs font={font} />
+                <Gallery font={font} />
+                <Buttons font={font} />
+              </section>
+
+              <Details font={font} tags={tags} />
+              <Preview font={font} />
+              <Glyphs font={font} />
+            </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
 
       <style jsx global>
         {styles}

@@ -6,30 +6,14 @@ export default css.global`
   .packages {
     border-top: 1px solid $color-gray-light;
     border-bottom: 1px solid $color-gray-light;
-    position: relative;
     text-align: center;
 
     p {
       margin: 2.25rem 0 2.75rem 0;
     }
-  }
 
-  .packages__heading {
-    background: $color-gray-lightest;
-    width: 7rem;
-    border-right: 1px solid $color-gray-light;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-
-    h3 {
-      padding: 0 3rem;
-      position: absolute;
-      line-height: 7rem;
-      white-space: nowrap;
-      transform: translate3d(-100%, 0 , 0) rotate(-90deg);
-      transform-origin: top right;
+    & > div {
+      position: relative;
     }
   }
 
@@ -78,15 +62,6 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
-    .packages__heading {
-      width: 8.5rem;
-    }
-
-    .packages h3 {
-      padding: 0 4rem;
-      line-height: 8.5rem;
-    }
-
     .packages__list {
       display: flex;
     }

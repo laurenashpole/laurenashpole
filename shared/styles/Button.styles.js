@@ -10,7 +10,6 @@ export default css.global`
     padding: 0 1.5rem;
     border: 2px solid transparent;
     border-radius: $border-radius;
-    outline: none;
     color: $color-white;
     font-family: inherit;
     font-size: inherit;
@@ -24,10 +23,14 @@ export default css.global`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s linear;
+    transition: background 0.25s linear, color 0.25s linear, border-color 0.25s linear;
 
-    &:focus {
+    &:focus:not(:focus-visible) {
       animation: scale 0.2s;
+    }
+
+    &:not(:focus-visible) {
+      outline: none;
     }
 
     &[disabled] {
@@ -69,7 +72,9 @@ export default css.global`
 
   .btn--secondary:hover,
   .btn--secondary:focus {
-    background: $color-purple-hover;
+    background: transparent;
+    border-color: $color-purple;
+    color: $color-purple;
   }
 
   .btn--warning {

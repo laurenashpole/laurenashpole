@@ -4,8 +4,9 @@ export default css.global`
   @import 'variables.scss';
 
   .details {
-    border-bottom: 1px solid $color-gray-light;
-    padding: 2rem 0 4rem 0;
+    // border-bottom: 1px solid $color-gray-light;
+    // // padding: 2rem 0 4rem 0;
+    // padding-bottom: 5.25rem;
   }
 
   .details__inline {
@@ -40,7 +41,8 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .details {
-      padding: 2rem 0 6rem 0;
+      // padding: 2rem 0 6rem 0;
+      // padding-bottom: 8.5rem;
     }
 
     .details__inline {

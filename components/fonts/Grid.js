@@ -5,7 +5,7 @@ import Container from '../../shared/components/Container.js';
 import { ga4Event } from '../../utils/ga4.js';
 import styles from './Grid.styles.js';
 
-const Grid = ({ fonts, heading, gaCategory, showDetails }) => {
+const Grid = ({ fonts, gaCategory, showDetails }) => {
   useEffect(() => {
     ga4Event('view_item_list', fonts, `${gaCategory} List`);
   }, [fonts, gaCategory]);
@@ -18,8 +18,6 @@ const Grid = ({ fonts, heading, gaCategory, showDetails }) => {
     <>
       <div className="grid">
         <Container>
-          {heading && <h3 className="label grid__heading">{heading}</h3>}
-
           <ul className="grid__list">
             {fonts.map((font, i) => {
               return (

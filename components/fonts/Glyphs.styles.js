@@ -4,7 +4,7 @@ export default css.global`
   @import 'variables.scss';
 
   .glyphs {
-    padding: 4rem 0 2rem 0;
+    // padding: 4rem 0 2rem 0;
     text-align: left;
   }
 
@@ -21,20 +21,26 @@ export default css.global`
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    border-top: 1px solid $color-gray-light;
+    border-left: 1px solid $color-gray-light;
   }
 
   .glyphs__char {
     width: 20%;
     padding-top: 2.5rem;
-    border: 1px solid $color-white;
+    // border: 1px solid $color-white;
     font-size: 3rem;
     line-height: 7.5rem;
     overflow: hidden;
     position: relative;
+
+    border-bottom: 1px solid $color-gray-light;
+    border-right: 1px solid $color-gray-light;
   }
 
   .glyphs__key {
     background: $color-gray-lightest;
+    border-bottom: 1px solid $color-gray-light;
     position: absolute;
     top: 0;
     left: 0;
@@ -46,7 +52,7 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .glyphs {
-      padding: 6rem 0 3rem;
+      // padding: 6rem 0 3rem;
     }
 
     .glyphs__tabs {

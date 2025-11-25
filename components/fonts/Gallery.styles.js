@@ -4,14 +4,17 @@ export default css.global`
   @import 'variables.scss';
 
   .gallery {
-    border-bottom: 1px solid $color-gray-light;
-    padding: 4rem 0;
+    // border-bottom: 1px solid $color-gray-light;
+    // padding: 4rem 0;
+    margin-bottom: 5.25rem;
     text-align: left;
   }
 
   .gallery__main {
     position: relative;
     display: flex;
+    border-radius: $border-radius;
+    overflow:hidden;
   }
 
   .gallery__pin {
@@ -37,6 +40,11 @@ export default css.global`
     width: 18rem;
     margin: 0 0.5rem 0 0;
 
+    & span {
+      border-radius: $border-radius;
+      overflow: hidden;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -44,7 +52,8 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .gallery {
-      padding: 6rem 0;
+      margin-bottom: 8.5rem;
+      // padding: 6rem 0;
     }
 
     .gallery__thumb {

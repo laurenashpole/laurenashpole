@@ -7,14 +7,6 @@ export default css.global`
     margin-bottom: -1px;
   }
 
-  .grid__heading {
-    background: $color-gray-lightest;
-    margin: 0;
-    padding: 0 2rem;
-    border-bottom: 1px solid $color-gray-light;
-    line-height: 7rem;
-  }
-
   .grid__item {
     border-bottom: 1px solid $color-gray-light;
   }
@@ -96,11 +88,6 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
-    .grid__heading {
-      padding: 0 3.5rem;
-      line-height: 8.5rem;
-    }
-
     .grid__details {
       font-size: 1.75rem;
       line-height: 6rem;

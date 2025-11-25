@@ -7,12 +7,6 @@ import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/fonts/Form';
 
 const Edit = ({ isAuthenticated, font, tags }) => {
-  const parsedFont = {
-    ...font
-  };
-
-  console.log(parsedFont);
-
   return (
     <Admin isAuthenticated={isAuthenticated} title={`Edit ${font.name}`}>
       <Well>

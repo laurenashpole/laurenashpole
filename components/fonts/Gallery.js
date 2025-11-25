@@ -12,7 +12,7 @@ const Gallery = ({ font }) => {
   }
 
   return(
-    <section className="gallery">
+    <div className="gallery">
       {/* <h3>Gallery</h3> */}
 
       <div className="gallery__main">
@@ -39,7 +39,7 @@ const Gallery = ({ font }) => {
       <style jsx global>
         {styles}
       </style>
-    </section>
+    </div>
   );
 };
 
