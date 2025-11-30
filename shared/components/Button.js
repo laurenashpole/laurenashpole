@@ -4,7 +4,7 @@ import styles from '../styles/Button.styles.js';
 
 const Button = forwardRef(({ children, style, onClick, attributes }, ref) => {
   return (
-    <button className={`btn btn--${style}`} onClick={onClick} {...attributes} ref={ref}>
+    <button className={`btn${style === 'unstyled' ? '' : ` btn--default btn--${style}`}`} onClick={onClick} {...attributes} ref={ref}>
       {children}
 
       <style jsx global>

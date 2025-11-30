@@ -6,6 +6,25 @@ export default css.global`
 
   .btn {
     background: none;
+    border: none;
+    padding: 0;
+    appearance: none;
+
+    &[disabled] {
+      pointer-events: none;
+    }
+
+    * {
+      pointer-events: none;
+    }
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  .btn--default {
+    background: none;
     width: 100%;
     padding: 0 1.5rem;
     border: 2px solid transparent;
@@ -27,18 +46,6 @@ export default css.global`
 
     &:focus:not(:focus-visible) {
       animation: scale 0.2s;
-    }
-
-    &:not(:focus-visible) {
-      outline: none;
-    }
-
-    &[disabled] {
-      pointer-events: none;
-    }
-
-    * {
-      pointer-events: none;
     }
   }
 

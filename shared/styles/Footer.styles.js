@@ -32,6 +32,7 @@ export default css.global`
 
     &:focus,
     &:hover {
+      background: $color-gray-lightest;
       color: $color-purple-hover;
     }
   }

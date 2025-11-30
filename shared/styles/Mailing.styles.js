@@ -48,8 +48,6 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .mailing--inline {
-      padding: 1.25rem 0 0 1.25rem;
-
       .mailing__btn {
         padding: 0 0 0 1.25rem;
         font-size: 1.75rem;
