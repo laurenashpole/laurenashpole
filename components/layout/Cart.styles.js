@@ -65,7 +65,6 @@ export default css.global`
   }
 
   .cart__count {
-    // padding-bottom: 1px;
     position: relative;
     z-index: 1;
   }

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { PACKAGES } from '../../constants/packages';
 import Container from '../../shared/components/Container.js';
 import styles from './Packages.styles.js';

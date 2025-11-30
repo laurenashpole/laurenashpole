@@ -20,13 +20,9 @@ const Layout = ({ children, hideHeader, isAdmin, meta }) => {
       <main className="layout__main">{children}</main>
 
       {!isAdmin &&
-        <>
-          {/* <Cart /> */}
-
-          <Footer>
-            <Mailing location="footer" isInline={true} />
-          </Footer>
-        </>
+        <Footer>
+          <Mailing location="footer" isInline={true} />
+        </Footer>
       }
 
       <style jsx global>

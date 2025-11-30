@@ -5,6 +5,14 @@ export default css.global`
   @import 'variables.scss';
 
   .hero {
+    background-size: 7rem 7rem;
+    background-image: 
+      linear-gradient($color-gray-light 1px, transparent 1px);
+    margin-top: -1px;
+    border-bottom: 1px solid $color-gray-light;
+  }
+
+  .hero__container {
     min-height: calc(7rem * 11);
     display: flex;
     align-items: center;
@@ -103,6 +111,10 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .hero {
+      background-size: 8.5rem 8.5rem;
+    }
+
+    .hero__container {
       min-height: calc(8.5rem * 8);
 
       &:after {
@@ -148,7 +160,7 @@ export default css.global`
   }
 
   @media (min-width: $break-desktop) {
-    .hero {
+    .hero__container {
       &:after {
         background-size: 56rem, 21rem, 67rem;
         background-position: 8rem 5rem, calc(100% - 14rem) calc(100% - 26rem),
@@ -156,7 +168,7 @@ export default css.global`
       }
     }
 
-    .hero {
+    .hero__container {
       &:after {
         background-size: 56rem, 21rem, 67rem;
         background-position: 8rem 5rem, calc(100% - 14rem) calc(100% - 26rem),

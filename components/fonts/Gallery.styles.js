@@ -4,8 +4,6 @@ export default css.global`
   @import 'variables.scss';
 
   .gallery {
-    // border-bottom: 1px solid $color-gray-light;
-    // padding: 4rem 0;
     margin-bottom: 5.25rem;
     text-align: left;
   }
@@ -40,8 +38,9 @@ export default css.global`
     width: 18rem;
     margin: 0 0.5rem 0 0;
 
-    & span {
+    & button {
       border-radius: $border-radius;
+      display: flex;
       overflow: hidden;
     }
 
@@ -52,8 +51,7 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .gallery {
-      margin-bottom: 8.5rem;
-      // padding: 6rem 0;
+      margin-bottom: 6.375rem;
     }
 
     .gallery__thumb {
