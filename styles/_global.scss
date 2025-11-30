@@ -1,0 +1,122 @@
+@import './variables.scss';
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+html {
+  font: #{$font-size-root}px $font-family-default;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $color-black;
+  font-size: 2rem;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -ms-flex: 0 1 auto;
+}
+
+h1,
+h3,
+h4 {
+  margin: 0 0 3rem 0;
+  font-family: $font-family-headings;
+  font-weight: 900;
+}
+
+h1 a,
+h3 a,
+h4 a {
+  font-weight: inherit;
+}
+
+h4 {
+  margin: 2rem 0 1rem 0;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+a {
+  color: $color-purple;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  * {
+    pointer-events: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0,0,0,0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  position: absolute;
+}
+
+@media (min-width: $break-tablet) {
+  body {
+    font-size: 2.25rem;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: $break-desktop) {
+  p:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (min-width: $break-desktop-large) {
+  html {
+    font-size: #{$font-size-root + 0.5}px;
+  }
+}
+
+@media (min-width: $break-desktop-x-large) {
+  html {
+    font-size: #{$font-size-root + 1}px;
+  }
+}
