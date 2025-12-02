@@ -40,9 +40,9 @@ export default css.global`
         linear-gradient($color-gray-light 1px, transparent 1px),
         linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
       background-size: 8.5rem 8.5rem;
-      min-width: calc(8.5rem * 5);
+      width: calc(8.5rem * 5);
       height: calc(100vh - 8.5rem);
-      margin: -1px;
+      margin: -1px 0 -1px -1px;
       border-bottom: 1px solid $color-gray-light;
       position: sticky;
       top: 8.5rem;
@@ -91,6 +91,7 @@ export default css.global`
     }
 
     .content__main {
+      width: calc(100% - (8.5rem * 5));
       padding: 8.5rem;
       border-left: 1px solid $color-gray-light;
 

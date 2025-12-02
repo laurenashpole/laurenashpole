@@ -4,7 +4,7 @@ export default css.global`
   @import 'variables.scss';
 
   .gallery {
-    margin-bottom: 5.25rem;
+    margin-bottom: 3.5rem;
     text-align: left;
   }
 

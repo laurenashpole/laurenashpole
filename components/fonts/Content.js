@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ga4Event } from '../../utils/ga4';
+import Container from '../../shared/components/Container.js';
 import Buttons from './Buttons';
 import Details from './Details';
 import Gallery from './Gallery';
 import Preview from './Preview';
 import Glyphs from './Glyphs';
 import styles from './Content.styles.js';
-import Container from '../../shared/components/Container.js';
 
 const Content = ({ font, tags }) => {
   useEffect(() => {

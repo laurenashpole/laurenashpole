@@ -4,6 +4,10 @@ export default css.global`
   @import 'svgs.scss';
   @import 'variables.scss';
 
+  .list {
+    border-bottom: 1px solid $color-gray-light;
+  }
+
   .list__header {
     border-bottom: 1px solid $color-gray-light;
 

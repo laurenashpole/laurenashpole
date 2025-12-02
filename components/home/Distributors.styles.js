@@ -41,6 +41,7 @@ export default css.global`
   }
 
   .dist__link {
+    background: $color-gray-lightest;
     width: 100%;
     height: 100%;
     min-height: 18rem;
@@ -52,7 +53,7 @@ export default css.global`
 
     &:hover,
     &:focus {
-      background: $color-gray-lightest;
+      background: $color-white;
     }
   }
 

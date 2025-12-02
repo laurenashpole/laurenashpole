@@ -1,10 +1,10 @@
-import Well from '../../shared/components/Well';
 import Layout from '../../components/layout/Layout';
+import Page from '../../components/layout/Page';
 
 const EULA = () => {
   return(
     <Layout meta={{ title: 'End-User Licensing Agreement - Fonts', pathname: 'fonts/eula' }}>
-      <Well>
+      <Page>
         <h1>End-User Licensing Agreement</h1>
 
         <>
@@ -20,7 +20,7 @@ const EULA = () => {
 
           <p>If you experience any difficulties with the fonts, I will work with you to resolve any technical issues in the fonts. If, after we have worked to resolve any technical issues, you are still not satisfied with the software, I will be pleased to refund your money, which shall be the limit of my liability in this transaction. I grant the rights of use of these fonts to you in good faith, and request that you adhere to the terms of this agreement to the best of your ability, and in good faith.</p>
         </>
-      </Well>
+      </Page>
     </Layout>
   );
 };
