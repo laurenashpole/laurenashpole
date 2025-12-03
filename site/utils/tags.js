@@ -1,4 +1,4 @@
-import Tag from '../models/tag';
+import Tag from '../../models/tag';
 
 export async function findAll () {
   return await (await Tag()).find().sort({ name: 'asc' }).exec();

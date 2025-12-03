@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import { addItem, getCart, removeItem, createOrder, approveOrder } from '../../utils/cart';
-import { ga4Event } from '../../utils/ga4';
+import { addItem, getCart, removeItem, createOrder, approveOrder } from '../../site/utils/cart.js';
+import { ga4Event } from '../../site/utils/ga4.js';
 import Button from '../../shared/components/Button';
 import Modal from '../shared/Modal';
 import Summary from '../shared/Summary';

@@ -1,5 +1,5 @@
 import { connectToDatabase } from '../utils/mongoose';
-import { FONT_OPTIONS } from '../constants/fontOptions';
+import { FONT_OPTIONS } from '../site/constants/fontOptions';
 
 export default async () => {
   const client = await connectToDatabase();

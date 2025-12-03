@@ -1,7 +1,7 @@
 import { del, put } from '@vercel/blob';
 import { FONT_FILE_FIELDS } from '../constants/fontFileFields';
 import { addTaggedFont, removeTaggedFont } from './tags';
-import Font from '../models/font';
+import Font from '../../models/font';
 
 export async function findAll () {
   return await (await Font()).find().limit(100).sort({ name: 'asc' }).exec();
