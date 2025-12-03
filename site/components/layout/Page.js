@@ -1,5 +1,5 @@
 import styles from './Page.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 
 const Page = ({ children }) => {
   return(

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import styles from './Hero.styles.js';
 
 const Hero = ({ font }) => {

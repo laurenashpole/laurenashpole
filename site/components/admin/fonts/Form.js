@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { request } from '../../../shared/utils/request';
-import Button from '../../../shared/components/Button';
+import { request } from '../../../../shared/utils/request';
+import Button from '../../../../shared/components/Button';
 import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 import FormBasics from './FormBasics';

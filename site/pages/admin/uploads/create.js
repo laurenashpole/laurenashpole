@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { upload } from '@vercel/blob/client';
 import withPassport from '../../../middleware/passport';
-import Well from '../../../shared/components/Well';
-import Input from '../../../shared/components/Input';
-import Button from '../../../shared/components/Button';
+import Well from '../../../../shared/components/Well';
+import Input from '../../../../shared/components/Input';
+import Button from '../../../../shared/components/Button';
 import Admin from '../../../components/admin/layout/Admin';
 import Errors from '../../../components/shared/Errors';
 

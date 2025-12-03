@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { FONT_OPTIONS } from '../../../constants/fontOptions';
-import Input from '../../../shared/components/Input';
+import Input from '../../../../shared/components/Input';
 import Checkbox from '../../../components/shared/Checkbox';
 import styles from './Form.styles.js';
 

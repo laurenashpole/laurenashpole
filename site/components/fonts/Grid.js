@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import { ga4Event } from '../../utils/ga4.js';
 import styles from './Grid.styles.js';
 

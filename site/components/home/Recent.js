@@ -1,4 +1,4 @@
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import Grid from '../fonts/Grid.js';
 import VerticalHeading from '../shared/VerticalHeading.js';
 import styles from './Recent.styles.js';

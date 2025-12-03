@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { DIST_LINKS } from '../../constants/distLinks';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import styles from './Distributors.styles.js';
 
 const Distributors = () => {

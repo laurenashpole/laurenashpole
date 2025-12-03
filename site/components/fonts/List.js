@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../shared/components/Input';
-import Button from '../../shared/components/Button';
-import Tags from '../../shared/components/Tags';
+import Input from '../../../shared/components/Input';
+import Button from '../../../shared/components/Button';
+import Tags from '../../../shared/components/Tags';
 import styles from './List.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import Grid from './Grid.js';
 
 const List = ({ heading, fonts, tags, description }) => {

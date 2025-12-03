@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Well from '../../../shared/components/Well';
-import Button from '../../../shared/components/Button';
+import Well from '../../../../shared/components/Well';
+import Button from '../../../../shared/components/Button';
 import Delete from './Delete';
 import styles from './List.styles.js';
 

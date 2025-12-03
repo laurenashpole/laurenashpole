@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { request } from '../../../shared/utils/request';
-import Well from '../../../shared/components//Well';
-import Input from '../../../shared/components/Input';
-import Button from '../../../shared/components/Button';
+import { request } from '../../../../shared/utils/request';
+import Well from '../../../../shared/components//Well';
+import Input from '../../../../shared/components/Input';
+import Button from '../../../../shared/components/Button';
 import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';
 

@@ -2,8 +2,8 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ga4Event } from '../../utils/ga4';
 import { addItem } from '../../utils/cart';
-import Mailing from '../../shared/components/Mailing';
-import Button from '../../shared/components/Button';
+import Mailing from '../../../shared/components/Mailing';
+import Button from '../../../shared/components/Button';
 import Modal from '../shared/Modal';
 import styles from './Buttons.styles.js';
 

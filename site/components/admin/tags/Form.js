@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { request } from '../../../shared/utils/request';
-import Input from '../../../shared/components/Input';
-import Button from '../../../shared/components/Button';
+import { request } from '../../../../shared/utils/request';
+import Input from '../../../../shared/components/Input';
+import Button from '../../../../shared/components/Button';
 import Textarea from '../../../components/shared/Textarea';
 import Loader from '../../../components/shared/Loader';
 import Errors from '../../../components/shared/Errors';

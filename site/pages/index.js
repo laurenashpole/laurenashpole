@@ -4,7 +4,7 @@ import Hero from '../components/home/Hero';
 import About from '../components/home/About';
 import Distributors from '../components/home/Distributors';
 import Packages from '../components/home/Packages';
-import Container from '../shared/components/Container';
+import Container from '../../shared/components/Container';
 import Recent from '../components/home/Recent';
 
 const Home = ({ font, fonts }) => {

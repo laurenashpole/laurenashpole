@@ -1,5 +1,5 @@
 import { PACKAGES } from '../../constants/packages';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import styles from './Packages.styles.js';
 import VerticalHeading from '../shared/VerticalHeading.js';
 

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { getOrder } from '../../utils/checkout';
-import { request } from '../../shared/utils/request';
+import { request } from '../../../shared/utils/request';
 import { ga4Event } from '../../utils/ga4';
 import Layout from '../../components/layout/Layout';
 import Order from '../../components/checkout/Order';

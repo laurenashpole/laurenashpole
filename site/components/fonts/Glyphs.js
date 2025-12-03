@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FONT_GLYPHS } from '../../constants/fontGlyphs';
-import Button from '../../shared/components/Button';
+import Button from '../../../shared/components/Button';
 import styles from './Glyphs.styles.js';
 
 const TABS = ['Basic', 'Additional'];

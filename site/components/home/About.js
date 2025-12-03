@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 import styles from './About.styles.js';
 
 const About = () => {

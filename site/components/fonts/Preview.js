@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../shared/components/Input';
+import Input from '../../../shared/components/Input';
 import Select from '../../components/shared/Select';
 import styles from './Preview.styles.js';
 

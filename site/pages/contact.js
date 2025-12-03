@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { request } from '../shared/utils/request';
-import Input from '../shared/components/Input';
-import Button from '../shared/components/Button';
+import { request } from '../../shared/utils/request';
+import Input from '../../shared/components/Input';
+import Button from '../../shared/components/Button';
 import Layout from '../components/layout/Layout';
 import Select from '../components/shared/Select';
 import Textarea from '../components/shared/Textarea';

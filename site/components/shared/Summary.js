@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Button from '../../shared/components/Button';
+import Button from '../../../shared/components/Button';
 import styles from './Summary.styles.js';
 
 const Summary = ({ header, items, name, onAdd, onRemove, total }) => {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { request } from '../../../shared/utils/request';
-import Button from '../../../shared/components/Button';
+import { request } from '../../../../shared/utils/request';
+import Button from '../../../../shared/components/Button';
 
 const Delete = ({ id, name }) => {
   const [isProcessing, setIsProcessing] = useState(false);

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Input from '../../../shared/components/Input';
+import Input from '../../../../shared/components/Input';
 import Textarea from '../../../components/shared/Textarea';
 import styles from './Form.styles.js';
 
