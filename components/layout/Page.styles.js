@@ -14,6 +14,7 @@ export default css.global`
 
   @media (min-width: $break-desktop) {
     .page {
+      min-height: calc(100vh - (8.5rem * 2) - 2px);
       display: flex;
     }
 
