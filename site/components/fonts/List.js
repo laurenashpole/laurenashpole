@@ -15,8 +15,8 @@ const List = ({ heading, fonts, tags, description }) => {
   useEffect(() => {
     const filteredFonts = filter
       ? fonts.filter(
-        (font) => font.name.toUpperCase().indexOf(filter.toUpperCase()) > -1,
-      )
+          (font) => font.name.toUpperCase().indexOf(filter.toUpperCase()) > -1,
+        )
       : fonts;
     setFilteredFonts(filteredFonts);
   }, [filter, fonts]);

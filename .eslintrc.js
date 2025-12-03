@@ -20,14 +20,6 @@ module.exports = {
   },
   plugins: ['react', 'simple-import-sort'],
   rules: {
-    indent: [
-      'error',
-      2,
-      {
-        ignoredNodes: ['TemplateLiteral'],
-      },
-    ],
-    quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'import/no-anonymous-default-export': [
       'error',

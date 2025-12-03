@@ -14,14 +14,14 @@ const Details = ({ font, tags }) => {
   const distributorsLinks = [
     ...(distributors.slice(0, -1).length
       ? [
-        distributors
-          .slice(0, -1)
-          .map(
-            (dist) =>
+          distributors
+            .slice(0, -1)
+            .map(
+              (dist) =>
                 `<a href=${dist.url} target="_blank" rel="noopener noreferrer">${dist.name}</a>`,
-          )
-          .join(', '),
-      ]
+            )
+            .join(', '),
+        ]
       : []),
     ...distributors
       .slice(-1)

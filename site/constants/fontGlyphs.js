@@ -25,7 +25,7 @@ export const FONT_GLYPHS = {
       type: 'symbol',
     },
     {
-      glyph: '\'',
+      glyph: "'",
       type: 'symbol',
     },
     {

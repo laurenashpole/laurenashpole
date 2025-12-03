@@ -2,9 +2,9 @@ export function ga4Event(event, items = [], listName, customFields = {}) {
   if (window.dataLayer) {
     const list = listName
       ? {
-        item_list_id: listName.toLowerCase().replace(/ /g, '_'),
-        item_list_name: listName,
-      }
+          item_list_id: listName.toLowerCase().replace(/ /g, '_'),
+          item_list_name: listName,
+        }
       : {};
 
     window.dataLayer.push({
