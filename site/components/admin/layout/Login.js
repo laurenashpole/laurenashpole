@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { request } from '../../../../shared/utils/request';
+
 import Well from '../../../../shared/components//Well';
-import Input from '../../../../shared/components/Input';
 import Button from '../../../../shared/components/Button';
-import Loader from '../../../components/shared/Loader';
+import Input from '../../../../shared/components/Input';
+import { request } from '../../../../shared/utils/request';
 import Errors from '../../../components/shared/Errors';
+import Loader from '../../../components/shared/Loader';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -33,8 +34,8 @@ const Login = () => {
         endpoint: '/api/admin/login',
         body: JSON.stringify({
           username,
-          password
-        })
+          password,
+        }),
       });
 
       location.reload();
@@ -47,8 +48,8 @@ const Login = () => {
   const getActiveErrors = () => {
     const activeErrors = {};
 
-    username.length ? null : activeErrors.username = 'required';
-    password.length ? null : activeErrors.password = 'required';
+    username.length ? null : (activeErrors.username = 'required');
+    password.length ? null : (activeErrors.password = 'required');
 
     return activeErrors;
   };
@@ -60,10 +61,30 @@ const Login = () => {
 
         <form>
           {errors.general && <Errors errors={[errors.general]} />}
-          <Input label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`} hasError={!!errors.username} attributes={{ type: 'email', value: username, onChange: (e) => handleChange(e.target.value, setUsername) }} />
-          <Input label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`} hasError={!!errors.password} attributes={{ type: 'password', value: password, onChange: (e) => handleChange(e.target.value, setPassword) }} />
+          <Input
+            label={`Username ${errors.username ? '<span>(username required)</span>' : ''}`}
+            hasError={!!errors.username}
+            attributes={{
+              type: 'email',
+              value: username,
+              onChange: (e) => handleChange(e.target.value, setUsername),
+            }}
+          />
+          <Input
+            label={`Password ${errors.password ? '<span>(username password)</span>' : ''}`}
+            hasError={!!errors.password}
+            attributes={{
+              type: 'password',
+              value: password,
+              onChange: (e) => handleChange(e.target.value, setPassword),
+            }}
+          />
 
-          <Button style="primary" onClick={handleSubmit} attributes={{ type: 'submit', disabled: isProcessing }}>
+          <Button
+            style="primary"
+            onClick={handleSubmit}
+            attributes={{ type: 'submit', disabled: isProcessing }}
+          >
             {isProcessing ? <Loader /> : 'Submit'}
           </Button>
         </form>

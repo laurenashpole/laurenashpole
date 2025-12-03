@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Login from './Login';
+import PropTypes from 'prop-types';
+
 import Layout from '../../../components/layout/Layout';
+import Login from './Login';
 
 const Admin = ({ children, isAuthenticated, title }) => {
   return (
@@ -10,7 +11,11 @@ const Admin = ({ children, isAuthenticated, title }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <Layout isAdmin={true} hideHeader={!isAuthenticated} meta={{ title: `${title ? title + ' - ' : ''}Admin` }}>
+      <Layout
+        isAdmin={true}
+        hideHeader={!isAuthenticated}
+        meta={{ title: `${title ? title + ' - ' : ''}Admin` }}
+      >
         {isAuthenticated ? children : <Login />}
       </Layout>
     </>
@@ -20,7 +25,7 @@ const Admin = ({ children, isAuthenticated, title }) => {
 Admin.propTypes = {
   children: PropTypes.any,
   isAuthenticated: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 export default Admin;

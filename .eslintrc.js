@@ -1,46 +1,37 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'next',
     'next/core-web-vitals',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    'ecmaVersion': 12,
-    'sourceType': 'module'
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  'plugins': [
-    'react',
-    'simple-import-sort'
-  ],
-  'rules': {
-    'indent': [
+  plugins: ['react', 'simple-import-sort'],
+  rules: {
+    indent: [
       'error',
       2,
       {
-        'ignoredNodes': ['TemplateLiteral']
-      }
+        ignoredNodes: ['TemplateLiteral'],
+      },
     ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'always'
-    ],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'import/no-anonymous-default-export': [
       'error',
-      { 'allowArrowFunction': true }
+      { allowArrowFunction: true },
     ],
     'react/react-in-jsx-scope': 'off',
     '@next/next/no-img-element': 'off',
@@ -52,9 +43,9 @@ module.exports = {
       },
     ],
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
   },
   globals: {
-    'React': 'writable'
-  }
+    React: 'writable',
+  },
 };

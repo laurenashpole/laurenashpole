@@ -17,7 +17,9 @@ export default css.global`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: visibility 0.15s linear 0.15s, opacity 0.15s linear 0.15s;
+    transition:
+      visibility 0.15s linear 0.15s,
+      opacity 0.15s linear 0.15s;
 
     h3 {
       max-width: 42rem;
@@ -32,7 +34,9 @@ export default css.global`
   .modal--visible {
     opacity: 1;
     visibility: visible;
-    transition: visibility 0.15s linear, opacity 0.15s linear;
+    transition:
+      visibility 0.15s linear,
+      opacity 0.15s linear;
 
     .modal__content > * {
       opacity: 1;
@@ -43,7 +47,9 @@ export default css.global`
     .modal__content:after {
       width: 100%;
       height: 100%;
-      transition: width 0.15s ease-out 0.15s, height 0.15s ease-out 0.3s;
+      transition:
+        width 0.15s ease-out 0.15s,
+        height 0.15s ease-out 0.3s;
     }
 
     .modal__content:before {
@@ -75,7 +81,7 @@ export default css.global`
 
   .modal__content:before,
   .modal__content:after {
-    content: " ";
+    content: ' ';
     width: 0;
     height: 0;
     border: 2px solid transparent;

@@ -11,41 +11,41 @@ export const DIST_LINKS = [
     imgSrc: '/images/dist/myfonts.svg',
     imgWidth: '471',
     imgHeight: '234',
-    alt: 'MyFonts'
+    alt: 'MyFonts',
   },
   {
     url: 'https://www.creativefabrica.com/designer/laurenashpole/',
     imgSrc: '/images/dist/creative-fabrica.png',
     imgWidth: '300',
     imgHeight: '26',
-    alt: 'Creative Fabrica'
+    alt: 'Creative Fabrica',
   },
   {
     url: 'https://www.fontspring.com/foundry/lauren-ashpole',
     imgSrc: '/images/dist/fontspring.svg',
     imgWidth: '300',
     imgHeight: '66',
-    alt: 'Fontspring'
+    alt: 'Fontspring',
   },
   {
     url: 'https://www.etsy.com/shop/laurenashpole',
     imgSrc: '/images/dist/etsy.png',
     imgWidth: '300',
     imgHeight: '171',
-    alt: 'Etsy'
+    alt: 'Etsy',
   },
   {
     url: 'https://fontbundles.net/lauren-ashpole/rel=5NdFwA',
     imgSrc: '/images/dist/fontbundles.svg',
     imgWidth: '300',
     imgHeight: '43',
-    alt: 'Font Bundles'
+    alt: 'Font Bundles',
   },
   {
     url: 'https://thehungryjpeg.com/store/lauren-ashpole',
     imgSrc: '/images/dist/hungry-jpeg-logo.png',
     imgWidth: '300',
     imgHeight: '88',
-    alt: 'TheHungryJPEG'
-  }
+    alt: 'TheHungryJPEG',
+  },
 ];

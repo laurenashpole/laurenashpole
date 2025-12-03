@@ -1,16 +1,17 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { request } from '../../../../shared/utils/request';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import Button from '../../../../shared/components/Button';
-import Loader from '../../../components/shared/Loader';
+import { request } from '../../../../shared/utils/request';
 import Errors from '../../../components/shared/Errors';
+import Loader from '../../../components/shared/Loader';
+import styles from './Form.styles.js';
 import FormBasics from './FormBasics';
 import FormDistributors from './FormDistributors';
+import FormDownloads from './FormDownloads';
 import FormImages from './FormImages';
 import FormPreviews from './FormPreviews';
-import FormDownloads from './FormDownloads';
-import styles from './Form.styles.js';
 
 const Form = ({ font, tags, endpoint }) => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const Form = ({ font, tags, endpoint }) => {
     try {
       const response = await request({
         endpoint: endpoint,
-        body: new FormData(e.target)
+        body: new FormData(e.target),
       });
 
       router.push(response.redirect);
@@ -44,7 +45,10 @@ const Form = ({ font, tags, endpoint }) => {
       <FormPreviews font={font} />
       <FormDownloads font={font} />
 
-      <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>
+      <Button
+        style="primary"
+        attributes={{ type: 'submit', disabled: isProcessing }}
+      >
         {isProcessing ? <Loader /> : 'Submit'}
       </Button>
 
@@ -58,7 +62,7 @@ const Form = ({ font, tags, endpoint }) => {
 Form.propTypes = {
   font: PropTypes.object,
   tags: PropTypes.array,
-  endpoint: PropTypes.string
+  endpoint: PropTypes.string,
 };
 
 export default Form;

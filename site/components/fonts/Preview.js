@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import Input from '../../../shared/components/Input';
 import Select from '../../components/shared/Select';
 import styles from './Preview.styles.js';
@@ -14,11 +15,27 @@ const Preview = ({ font }) => {
 
       <form className="preview__form">
         <div className="preview__input">
-          <Input label="Preview text" hideLabel={true} attributes={{ type: 'text', placeholder: 'Enter your preview', value: text, onChange: (e) => setText(e.target.value) }} />
+          <Input
+            label="Preview text"
+            hideLabel={true}
+            attributes={{
+              type: 'text',
+              placeholder: 'Enter your preview',
+              value: text,
+              onChange: (e) => setText(e.target.value),
+            }}
+          />
         </div>
 
         <div className="preview__select">
-          <Select label="Preview font size" hideLabel={true} selectProps={{ value: size, onChange: (e) => setSize(e.target.value) }}>
+          <Select
+            label="Preview font size"
+            hideLabel={true}
+            selectProps={{
+              value: size,
+              onChange: (e) => setSize(e.target.value),
+            }}
+          >
             <option value="16">16px</option>
             <option value="24">24px</option>
             <option value="36">36px</option>
@@ -30,17 +47,25 @@ const Preview = ({ font }) => {
         </div>
       </form>
 
-      <div className={`preview__preview font-${font.slug}`} style={{fontSize: `${size}px`}}>
+      <div
+        className={`preview__preview font-${font.slug}`}
+        style={{ fontSize: `${size}px` }}
+      >
         {text}
       </div>
 
-      {font.alternate_style && font.alternate_style.split(', ').map((className) => {
-        return(
-          <div key={className} className={`preview__preview ${className}`} style={{fontSize: `${size}px`}}>
-            {text}
-          </div>
-        );
-      })}
+      {font.alternate_style &&
+        font.alternate_style.split(', ').map((className) => {
+          return (
+            <div
+              key={className}
+              className={`preview__preview ${className}`}
+              style={{ fontSize: `${size}px` }}
+            >
+              {text}
+            </div>
+          );
+        })}
 
       <style jsx global>
         {styles}
@@ -50,7 +75,7 @@ const Preview = ({ font }) => {
 };
 
 Preview.propTypes = {
-  font: PropTypes.object
+  font: PropTypes.object,
 };
 
 export default Preview;

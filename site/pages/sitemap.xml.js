@@ -1,22 +1,24 @@
 import { findActive as findAllFonts } from '../utils/fonts';
-import { findAll as findAllTags }  from '../utils/tags';
+import { findAll as findAllTags } from '../utils/tags';
 
 const Sitemap = () => {};
 
-export async function getServerSideProps ({ res }) {
+export async function getServerSideProps({ res }) {
   const fonts = await findAllFonts();
   const tags = await findAllTags();
   const date = new Date().toISOString().substring(0, 10);
 
   const getUrls = (items, path) => {
-    return items.map((item) => {
-      return `
+    return items
+      .map((item) => {
+        return `
         <url>
           <loc>${process.env.NEXT_PUBLIC_BASE_URL}${path}/${item.slug}</loc>
           <lastmod>${date}</lastmod>
         </url>
       `;
-    }).join('');
+      })
+      .join('');
   };
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -48,7 +50,7 @@ export async function getServerSideProps ({ res }) {
   res.end();
 
   return {
-    props: {}
+    props: {},
   };
 }
 

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { findAll } from '../../../utils/fonts';
-import withPassport from '../../../middleware/passport';
+
 import Admin from '../../../components/admin/layout/Admin';
 import List from '../../../components/admin/shared/List';
+import withPassport from '../../../middleware/passport';
+import { findAll } from '../../../utils/fonts';
 
 const Fonts = ({ isAuthenticated, fonts }) => {
   return (
@@ -12,24 +13,28 @@ const Fonts = ({ isAuthenticated, fonts }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
   const fonts = await (isAuthenticated ? findAll() : Promise.resolve([]));
 
   return {
     props: {
       isAuthenticated,
-      fonts: JSON.parse(JSON.stringify(fonts))
-    }
+      fonts: JSON.parse(JSON.stringify(fonts)),
+    },
   };
 }
 
 Fonts.propTypes = {
   isAuthenticated: PropTypes.bool,
-  fonts: PropTypes.array
+  fonts: PropTypes.array,
 };
 
 export default Fonts;

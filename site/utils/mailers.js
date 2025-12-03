@@ -6,12 +6,12 @@ export function getTransporter() {
     port: 2525,
     auth: {
       user: process.env.SMTP2GO_USERNAME,
-      pass: process.env.SMTP2GO_PASSWORD
-    }
+      pass: process.env.SMTP2GO_PASSWORD,
+    },
   });
 }
 
-export function getOrderTemplate (order) {
+export function getOrderTemplate(order) {
   return `
     <!doctype html>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -131,8 +131,9 @@ export function getOrderTemplate (order) {
                             <h1 style="display: block;margin: 0;padding: 0;color: #222222;font-family: Helvetica;font-size: 40px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;text-align: center;"><span style="font-family:helvetica neue,helvetica,arial,verdana,sans-serif">Thank you for your order!</span></h1>
                             <p style="text-align: center;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br>Your purchase was processed via PayPal with the order number ${order.orderId} and included the following fonts:<br><br></p>
                             <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-width: 564px !important;">
-                              ${order.items.map((item, i) => {
-                                return `
+                              ${order.items
+    .map((item, i) => {
+      return `
                                   <tr style="border-bottom: 1px solid #e7e7e7;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;font-size: 16px;line-height: 150%;${i === 0 ? 'border-top: 1px solid #e7e7e7;' : ''}">
                                     <td align="left" style="padding-top:10px; padding-bottom: 10px;">
                                       ${item.name}
@@ -142,7 +143,8 @@ export function getOrderTemplate (order) {
                                     </td>
                                   </tr>
                                 `;
-                              }).join('')}
+    })
+    .join('')}
                             </table>
                             <p style="text-align: center;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br>Don't forget to download your commercial zip file${order.fonts.length === 1 ? '' : 's'} if you're looking for web fonts or additional characters (if applicable). ${order.fonts.length === 1 ? 'It' : 'They'} should be attached to this email but if you don't see anything, or you run into any other issues, feel free to reply with any questions.
                               <br><br>Thanks again and happy designing!

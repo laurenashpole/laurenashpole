@@ -12,7 +12,7 @@ export default css.global`
     position: relative;
     display: flex;
     border-radius: $border-radius;
-    overflow:hidden;
+    overflow: hidden;
   }
 
   .gallery__pin {

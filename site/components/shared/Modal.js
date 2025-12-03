@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
+
 import Well from '../../../shared/components/Well';
 import styles from './Modal.styles.js';
 
@@ -75,7 +76,9 @@ const Modal = ({ children, name, isActive, onClose }) => {
   };
 
   const getFocusEls = () => {
-    const els = modalRef.current.querySelectorAll('[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    const els = modalRef.current.querySelectorAll(
+      '[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
     return [els[0], els[els.length - 1]];
   };
 
@@ -84,12 +87,20 @@ const Modal = ({ children, name, isActive, onClose }) => {
   }
 
   return createPortal(
-    <div className={`modal ${isVisible ? 'modal--visible' : ''}`} onClick={handleClick}>
-      <div className="modal__content" id={name ? `${name}Modal` : null} ref={modalRef} aria-hidden={!isVisible} aria-labelledby={name ? `${name}ModalHeading` : null} role="dialog">
+    <div
+      className={`modal ${isVisible ? 'modal--visible' : ''}`}
+      onClick={handleClick}
+    >
+      <div
+        className="modal__content"
+        id={name ? `${name}Modal` : null}
+        ref={modalRef}
+        aria-hidden={!isVisible}
+        aria-labelledby={name ? `${name}ModalHeading` : null}
+        role="dialog"
+      >
         <div className="modal__well">
-          <Well size="small">
-            {children}
-          </Well>
+          <Well size="small">{children}</Well>
         </div>
       </div>
 
@@ -97,7 +108,7 @@ const Modal = ({ children, name, isActive, onClose }) => {
         {styles}
       </style>
     </div>,
-    portalRef.current
+    portalRef.current,
   );
 };
 
@@ -105,7 +116,7 @@ Modal.propTypes = {
   children: PropTypes.any,
   name: PropTypes.string,
   isActive: PropTypes.bool,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 };
 
 export default Modal;

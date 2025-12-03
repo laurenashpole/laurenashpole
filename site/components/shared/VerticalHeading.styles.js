@@ -22,12 +22,12 @@ export default css.global`
     left: 0;
     line-height: calc(7rem - 1px);
     white-space: nowrap;
-    transform: translate3d(-100%, 0 , 0) rotate(-90deg);
+    transform: translate3d(-100%, 0, 0) rotate(-90deg);
     transform-origin: top right;
   }
 
   @media (min-width: $break-tablet) {
-    .vertical-heading  {
+    .vertical-heading {
       width: calc(8.5rem - 1px);
     }
 

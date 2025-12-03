@@ -4,7 +4,7 @@ import VerticalHeading from '../shared/VerticalHeading.js';
 import styles from './Recent.styles.js';
 
 const Recent = ({ fonts }) => {
-  return(
+  return (
     <>
       <div className="recent">
         <Container>

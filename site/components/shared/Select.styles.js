@@ -71,7 +71,7 @@ export default css.global`
 
   .select__caret:before,
   .select__caret:after {
-    content: " ";
+    content: ' ';
     background: $color-black;
     width: 10px;
     height: 2px;

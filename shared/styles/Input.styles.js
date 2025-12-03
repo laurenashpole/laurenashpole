@@ -70,7 +70,7 @@ export default css.global`
     }
   }
 
-  .input__input[type="file"] {
+  .input__input[type='file'] {
     padding-top: 3.25rem;
     font-size: 2rem;
 
@@ -103,7 +103,7 @@ export default css.global`
       }
     }
 
-    .input__input[type="file"] {
+    .input__input[type='file'] {
       padding-top: 3.5rem;
 
       &::-webkit-file-upload-button {

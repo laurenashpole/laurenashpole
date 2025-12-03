@@ -1,7 +1,7 @@
 import styles from './VerticalHeading.styles.js';
 
 const VerticalHeading = ({ heading }) => {
-  return(
+  return (
     <>
       <h3 className="vertical-heading">
         <span className="label vertical-heading__text">{heading}</span>

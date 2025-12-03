@@ -1,4 +1,5 @@
 import { del } from '@vercel/blob';
+
 import withPassport from '../../../../middleware/passport';
 
 const handler = async (req, res) => {

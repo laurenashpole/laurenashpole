@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { request } from '../../../../shared/utils/request';
-import Input from '../../../../shared/components/Input';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import Button from '../../../../shared/components/Button';
-import Textarea from '../../../components/shared/Textarea';
-import Loader from '../../../components/shared/Loader';
+import Input from '../../../../shared/components/Input';
+import { request } from '../../../../shared/utils/request';
 import Errors from '../../../components/shared/Errors';
+import Loader from '../../../components/shared/Loader';
+import Textarea from '../../../components/shared/Textarea';
 
 const Form = ({ tag, endpoint }) => {
   const router = useRouter();
@@ -25,8 +26,8 @@ const Form = ({ tag, endpoint }) => {
         body: JSON.stringify({
           ...(tag._id && { id: tag._id }),
           name,
-          description
-        })
+          description,
+        }),
       });
 
       router.push(response.redirect);
@@ -40,16 +41,36 @@ const Form = ({ tag, endpoint }) => {
     <form onSubmit={handleSubmit}>
       {error && <Errors errors={[error]} />}
       {tag._id && <input type="hidden" name="_id" value={tag._id} />}
-      <Input label="Name" attributes={{ type: 'text', value: name, onChange: (e) => setName(e.target.value) }} />
-      <Textarea label="Description" textareaProps={{ rows: '5', placeholder: 'Description', value: description, onChange: (e) => setDescription(e.target.value) }} />
-      <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>{isProcessing ? <Loader /> : 'Submit'}</Button>
+      <Input
+        label="Name"
+        attributes={{
+          type: 'text',
+          value: name,
+          onChange: (e) => setName(e.target.value),
+        }}
+      />
+      <Textarea
+        label="Description"
+        textareaProps={{
+          rows: '5',
+          placeholder: 'Description',
+          value: description,
+          onChange: (e) => setDescription(e.target.value),
+        }}
+      />
+      <Button
+        style="primary"
+        attributes={{ type: 'submit', disabled: isProcessing }}
+      >
+        {isProcessing ? <Loader /> : 'Submit'}
+      </Button>
     </form>
   );
 };
 
 Form.propTypes = {
   tag: PropTypes.object,
-  endpoint: PropTypes.string
+  endpoint: PropTypes.string,
 };
 
 export default Form;

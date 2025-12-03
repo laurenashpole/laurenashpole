@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ga4Event } from '../../utils/ga4';
+import { useEffect } from 'react';
+
 import Container from '../../../shared/components/Container.js';
+import { ga4Event } from '../../utils/ga4';
 import Buttons from './Buttons';
+import styles from './Content.styles.js';
 import Details from './Details';
 import Gallery from './Gallery';
-import Preview from './Preview';
 import Glyphs from './Glyphs';
-import styles from './Content.styles.js';
+import Preview from './Preview';
 
 const Content = ({ font, tags }) => {
   useEffect(() => {
@@ -19,7 +20,10 @@ const Content = ({ font, tags }) => {
       <div className="content">
         <Container>
           <div className="content__container">
-            <div className={`content__letters font-${font.slug}`} aria-hidden="true">
+            <div
+              className={`content__letters font-${font.slug}`}
+              aria-hidden="true"
+            >
               <span>A</span>
               <span>B</span>
               <span>C</span>
@@ -31,9 +35,7 @@ const Content = ({ font, tags }) => {
                   {font.name}
 
                   {font.sale_price && (
-                    <div className="label content__heading-sale">
-                      On Sale!
-                    </div>
+                    <div className="label content__heading-sale">On Sale!</div>
                   )}
                 </h1>
 
@@ -58,7 +60,7 @@ const Content = ({ font, tags }) => {
 
 Content.propTypes = {
   font: PropTypes.object,
-  tags: PropTypes.array
+  tags: PropTypes.array,
 };
 
 export default Content;

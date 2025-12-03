@@ -1,9 +1,11 @@
-export function ga4Event (event, items = [], listName, customFields = {}) {
+export function ga4Event(event, items = [], listName, customFields = {}) {
   if (window.dataLayer) {
-    const list = listName ? {
-      item_list_id: listName.toLowerCase().replace(/ /g, '_'),
-      item_list_name: listName
-    } : {};
+    const list = listName
+      ? {
+        item_list_id: listName.toLowerCase().replace(/ /g, '_'),
+        item_list_name: listName,
+      }
+      : {};
 
     window.dataLayer.push({
       event: event,
@@ -11,14 +13,16 @@ export function ga4Event (event, items = [], listName, customFields = {}) {
         ...list,
         items: items.map((item) => parseItem(item, list)),
         ...(customFields.value && { currency: 'USD' }),
-        ...customFields
-      }
+        ...customFields,
+      },
     });
   }
 }
 
-function parseItem (item, list) {
-  const price = item.unit_amount ? item.unit_amount.value || 0 : item.sale_price || item.price || 0;
+function parseItem(item, list) {
+  const price = item.unit_amount
+    ? item.unit_amount.value || 0
+    : item.sale_price || item.price || 0;
 
   return {
     item_id: item._id || item.sku,
@@ -26,6 +30,6 @@ function parseItem (item, list) {
     index: 0,
     ...list,
     price: price,
-    ...(item.qty && { quantity: item.qty })
-  }
-};
+    ...(item.qty && { quantity: item.qty }),
+  };
+}

@@ -36,7 +36,7 @@ export default css.global`
     }
 
     .content__letters {
-      background-image: 
+      background-image:
         linear-gradient($color-gray-light 1px, transparent 1px),
         linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
       background-size: 8.5rem 8.5rem;
@@ -73,11 +73,13 @@ export default css.global`
       }
 
       &:after {
-        content: "";
+        content: '';
         background-image:
           url(abstract-dots($color-green-encoded)),
           url(abstract-squiggle-thin($color-pink-encoded));
-        background-position: 2.5rem calc(50% - 7.5rem), center;
+        background-position:
+          2.5rem calc(50% - 7.5rem),
+          center;
         background-size: 16rem, 40rem;
         background-repeat: no-repeat;
         width: 100%;

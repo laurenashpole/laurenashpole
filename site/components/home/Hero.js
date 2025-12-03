@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
+
 import Container from '../../../shared/components/Container.js';
 import styles from './Hero.styles.js';
 
 const Hero = ({ font }) => {
-  return(
+  return (
     <>
       <Head>
         <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
@@ -14,12 +15,22 @@ const Hero = ({ font }) => {
         <Container>
           <div className="hero__container">
             <Link href={`/fonts/${font.slug}`}>
-              <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text={`${font.name} hero`}>
+              <a
+                className="hero__link"
+                data-ga-click={true}
+                data-ga-category="home"
+                data-ga-text={`${font.name} hero`}
+              >
                 <div className="label hero__badge hero__badge--small">
-                  New<br />Font
+                  New
+                  <br />
+                  Font
                 </div>
 
-                <div className={`hero__letters font-${font.slug}`} aria-hidden="true">
+                <div
+                  className={`hero__letters font-${font.slug}`}
+                  aria-hidden="true"
+                >
                   <span>A</span>
                   <span>B</span>
                   <span>C</span>

@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Script from 'next/script';
+import '../styles/global.scss';
+
 import { Analytics } from '@vercel/analytics/react';
 import { useRouter } from 'next/router';
-import '../styles/global.scss';
+import Script from 'next/script';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const App = ({ Component, pageProps }) => {
 
 App.propTypes = {
   Component: PropTypes.func,
-  pageProps: PropTypes.object
+  pageProps: PropTypes.object,
 };
 
 export default App;

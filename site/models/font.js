@@ -1,5 +1,5 @@
-import { connectToDatabase } from '../utils/mongoose';
 import { FONT_OPTIONS } from '../constants/fontOptions';
+import { connectToDatabase } from '../utils/mongoose';
 
 export default async () => {
   const client = await connectToDatabase();
@@ -8,7 +8,7 @@ export default async () => {
     active: Boolean,
     name: {
       type: String,
-      required: true
+      required: true,
     },
     slug: String,
     description: String,
@@ -36,16 +36,16 @@ export default async () => {
       list: String,
       list_mobile: String,
       gallery: [],
-      pinterest: String
+      pinterest: String,
     },
     font_files: {
       commercial: String,
-      personal: String
+      personal: String,
     },
     previews: {
-      font_files: []
+      font_files: [],
     },
-    previews_css: String
+    previews_css: String,
   });
 
   try {
@@ -55,31 +55,31 @@ export default async () => {
   }
 };
 
-function getOptionsSchema (options) {
+function getOptionsSchema(options) {
   return options.reduce((obj, option) => {
     obj[option.key] = {
       is_included: {
         type: Boolean,
-        default: false
+        default: false,
       },
       name: {
         type: String,
-        default: option.label
-      }
+        default: option.label,
+      },
     };
 
     return obj;
   }, {});
 }
 
-function getDistributorsSchema (options) {
+function getDistributorsSchema(options) {
   return options.reduce((obj, option) => {
     obj[option.key] = {
       url: String,
       name: {
         type: String,
-        default: option.label
-      }
+        default: option.label,
+      },
     };
 
     return obj;

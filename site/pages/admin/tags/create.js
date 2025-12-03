@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import withPassport from '../../../middleware/passport';
+
 import Well from '../../../../shared/components/Well';
 import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/tags/Form';
+import withPassport from '../../../middleware/passport';
 
 const Tags = ({ isAuthenticated }) => {
   return (
@@ -15,18 +16,22 @@ const Tags = ({ isAuthenticated }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
   return {
-    props: { isAuthenticated }
+    props: { isAuthenticated },
   };
 }
 
 Tags.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 export default Tags;

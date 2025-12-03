@@ -25,7 +25,7 @@ export default css.global`
     padding-top: 1rem;
 
     li + li {
-      margin-top: 0.5rem
+      margin-top: 0.5rem;
     }
   }
 

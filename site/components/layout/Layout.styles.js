@@ -18,9 +18,21 @@ export default css.global`
 
   @media (min-width: $break-container) {
     .layout {
-      background-image: 
-        linear-gradient(90deg, $color-gray-light, $color-gray-light 1px, transparent 1px, transparent),
-        linear-gradient(90deg, transparent, transparent calc(100% - 1px), $color-gray-light calc(100% - 1px), $color-gray-light);
+      background-image:
+        linear-gradient(
+          90deg,
+          $color-gray-light,
+          $color-gray-light 1px,
+          transparent 1px,
+          transparent
+        ),
+        linear-gradient(
+          90deg,
+          transparent,
+          transparent calc(100% - 1px),
+          $color-gray-light calc(100% - 1px),
+          $color-gray-light
+        );
       background-size: $width-desktop-wide;
       background-repeat: no-repeat;
       background-position: center;

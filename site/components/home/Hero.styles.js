@@ -5,8 +5,7 @@ export default css.global`
   @import 'variables.scss';
 
   .hero {
-    background-image: 
-      linear-gradient($color-gray-light 1px, transparent 1px);
+    background-image: linear-gradient($color-gray-light 1px, transparent 1px);
     background-size: 7rem 7rem;
     margin-top: -1px;
     border-bottom: 1px solid $color-gray-light;
@@ -20,12 +19,15 @@ export default css.global`
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       background-color: $color-gray-lightest;
-      background-image: url(abstract-lines($color-green-encoded)),
+      background-image:
+        url(abstract-lines($color-green-encoded)),
         url(abstract-dots($color-orange-encoded)),
         url(abstract-squiggle($color-blue-encoded));
-      background-position: -4rem 3rem, calc(100% - 4rem) calc(100% - 16rem),
+      background-position:
+        -4rem 3rem,
+        calc(100% - 4rem) calc(100% - 16rem),
         calc(100% + 4rem) calc(100% - 4rem);
       background-size: 42rem, 16rem, 50rem;
       background-repeat: no-repeat;
@@ -120,7 +122,9 @@ export default css.global`
 
       &:after {
         background-size: 50rem, 19rem, 60rem;
-        background-position: 5rem 6rem, calc(100% - 10rem) calc(100% - 25rem),
+        background-position:
+          5rem 6rem,
+          calc(100% - 10rem) calc(100% - 25rem),
           calc(100% - 5rem) calc(100% - 6rem);
       }
     }
@@ -164,7 +168,9 @@ export default css.global`
     .hero__container {
       &:after {
         background-size: 56rem, 21rem, 67rem;
-        background-position: 8rem 6rem, calc(100% - 14rem) calc(100% - 26rem),
+        background-position:
+          8rem 6rem,
+          calc(100% - 14rem) calc(100% - 26rem),
           calc(100% - 8rem) calc(100% - 6rem);
       }
     }

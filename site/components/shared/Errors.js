@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './Errors.styles.js';
 
 const Errors = ({ errors }) => {
@@ -8,7 +9,9 @@ const Errors = ({ errors }) => {
 
   return (
     <ul className="errors">
-      {errors.map((error, i) => <li key={i} dangerouslySetInnerHTML={{ __html: error }} />)}
+      {errors.map((error, i) => (
+        <li key={i} dangerouslySetInnerHTML={{ __html: error }} />
+      ))}
 
       <style jsx global>
         {styles}
@@ -18,7 +21,7 @@ const Errors = ({ errors }) => {
 };
 
 Errors.propTypes = {
-  errors: PropTypes.array
+  errors: PropTypes.array,
 };
 
 export default Errors;

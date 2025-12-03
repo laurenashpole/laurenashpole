@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Well from '../../../../shared/components/Well';
+import PropTypes from 'prop-types';
+
 import Button from '../../../../shared/components/Button';
+import Well from '../../../../shared/components/Well';
 import Delete from './Delete';
 import styles from './List.styles.js';
 
@@ -10,7 +11,9 @@ const List = ({ name, items }) => {
     <>
       <div className="list__create">
         <Link href={`/admin/${name}s/create`} passHref>
-          <Button style="primary" attributes={{ type: 'button' }}>+ Create a New {name}</Button>
+          <Button style="primary" attributes={{ type: 'button' }}>
+            + Create a New {name}
+          </Button>
         </Link>
       </div>
 
@@ -22,23 +25,27 @@ const List = ({ name, items }) => {
             return (
               <li key={item._id} className="list__item">
                 {item.url ? (
-                  <Link href={item.url}>
-                    {item.name}
-                  </Link>
-                ) : item.name}
+                  <Link href={item.url}>{item.name}</Link>
+                ) : (
+                  item.name
+                )}
 
                 <div className="list__btns">
-                  {item.slug &&
+                  {item.slug && (
                     <Link href={`/${name}s/${item.slug}`} passHref>
-                      <Button style="secondary" attributes={{ type: 'button' }}>Preview</Button>
+                      <Button style="secondary" attributes={{ type: 'button' }}>
+                        Preview
+                      </Button>
                     </Link>
-                  }
+                  )}
 
-                  {item.slug &&
+                  {item.slug && (
                     <Link href={`/admin/${name}s/${item.slug}`} passHref>
-                      <Button style="secondary" attributes={{ type: 'button' }}>Edit</Button>
+                      <Button style="secondary" attributes={{ type: 'button' }}>
+                        Edit
+                      </Button>
                     </Link>
-                  }
+                  )}
 
                   <Delete id={item._id} name={name} />
                 </div>
@@ -57,7 +64,7 @@ const List = ({ name, items }) => {
 
 List.propTypes = {
   name: PropTypes.string,
-  items: PropTypes.array
+  items: PropTypes.array,
 };
 
 export default List;

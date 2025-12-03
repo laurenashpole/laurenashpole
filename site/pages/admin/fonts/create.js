@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { findAll } from '../../../utils/tags';
-import withPassport from '../../../middleware/passport';
+
 import Well from '../../../../shared/components/Well';
-import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/fonts/Form';
+import Admin from '../../../components/admin/layout/Admin';
+import withPassport from '../../../middleware/passport';
+import { findAll } from '../../../utils/tags';
 
 const Create = ({ isAuthenticated, tags }) => {
   return (
@@ -16,24 +17,28 @@ const Create = ({ isAuthenticated, tags }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
   const tags = await (isAuthenticated ? findAll() : Promise.resolve([]));
 
   return {
     props: {
       isAuthenticated,
-      tags: JSON.parse(JSON.stringify(tags))
-    }
+      tags: JSON.parse(JSON.stringify(tags)),
+    },
   };
 }
 
 Create.propTypes = {
   isAuthenticated: PropTypes.bool,
-  tags: PropTypes.array
+  tags: PropTypes.array,
 };
 
 export default Create;

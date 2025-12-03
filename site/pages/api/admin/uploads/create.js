@@ -1,4 +1,5 @@
 import { handleUpload } from '@vercel/blob/client';
+
 import withPassport from '../../../../middleware/passport';
 
 const handler = async (req, res, onComplete) => {
@@ -13,7 +14,12 @@ const handler = async (req, res, onComplete) => {
       onBeforeGenerateToken: async () => {
         return {
           addRandomSuffix: false,
-          allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml']
+          allowedContentTypes: [
+            'image/jpeg',
+            'image/png',
+            'image/gif',
+            'image/svg+xml',
+          ],
         };
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {

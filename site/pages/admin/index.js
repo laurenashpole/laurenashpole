@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import withPassport from '../../middleware/passport';
+
 import Well from '../../../shared/components/Well';
-import Admin from '../../components/admin/layout/Admin';
 import List from '../../components/admin/home/List';
+import Admin from '../../components/admin/layout/Admin';
+import withPassport from '../../middleware/passport';
 
 const Home = ({ isAuthenticated }) => {
   return (
@@ -15,20 +16,24 @@ const Home = ({ isAuthenticated }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
   return {
     props: {
-      isAuthenticated
-    }
+      isAuthenticated,
+    },
   };
 }
 
 Home.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 export default Home;

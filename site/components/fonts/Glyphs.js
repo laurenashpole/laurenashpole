@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FONT_GLYPHS } from '../../constants/fontGlyphs';
+import { useRef, useState } from 'react';
+
 import Button from '../../../shared/components/Button';
+import { FONT_GLYPHS } from '../../constants/fontGlyphs';
 import styles from './Glyphs.styles.js';
 
 const TABS = ['Basic', 'Additional'];
@@ -33,35 +34,66 @@ const Glyphs = ({ font }) => {
     <section className="glyphs">
       <h3>Glyphs</h3>
 
-      {font.commercial_file.additional_chars.is_included &&
-        <ul className="glyphs__tabs" role="tablist" aria-label="Glyph sets" onKeyDown={handleKeydown}>
+      {font.commercial_file.additional_chars.is_included && (
+        <ul
+          className="glyphs__tabs"
+          role="tablist"
+          aria-label="Glyph sets"
+          onKeyDown={handleKeydown}
+        >
           {TABS.map((tab) => {
-            return(
+            return (
               <li key={`${tab}Tab`} className="glyphs__link">
-                <Button style="link" onClick={() => setActiveGlyphs(tab)} ref={tab === 'Basic' ? basicRef : additionalRef} attributes={{ type: 'button', role: 'tab', id: `${tab}Tab`, tabIndex: activeGlyphs === tab ? 0 : -1, 'aria-selected': activeGlyphs === tab, 'aria-controls': `${tab}Panel`, 'data-ga-click': true, 'data-ga-category': 'font page' }}>{tab} Characters</Button>
+                <Button
+                  style="link"
+                  onClick={() => setActiveGlyphs(tab)}
+                  ref={tab === 'Basic' ? basicRef : additionalRef}
+                  attributes={{
+                    type: 'button',
+                    role: 'tab',
+                    id: `${tab}Tab`,
+                    tabIndex: activeGlyphs === tab ? 0 : -1,
+                    'aria-selected': activeGlyphs === tab,
+                    'aria-controls': `${tab}Panel`,
+                    'data-ga-click': true,
+                    'data-ga-category': 'font page',
+                  }}
+                >
+                  {tab} Characters
+                </Button>
               </li>
             );
           })}
         </ul>
-      }
+      )}
 
       {TABS.map((tab) => {
-        return(
+        return (
           <div key={`${tab}Panel`} className={`font-${font.slug}`}>
-            {activeGlyphs === tab &&
-              <div role="tabpanel" id={`${tab}Panel`} tabIndex="0" aria-labelledby={`${tab}Tab`}>
+            {activeGlyphs === tab && (
+              <div
+                role="tabpanel"
+                id={`${tab}Panel`}
+                tabIndex="0"
+                aria-labelledby={`${tab}Tab`}
+              >
                 <ul className="glyphs__grid">
                   {FONT_GLYPHS[tab.toLowerCase()].map((char, i) => {
-                    return(
-                      <li key={i} className={`glyphs__char ${typeof char === 'object' ? 'is-' + char.type : 'is-additional'}`}>
-                        <span className="glyphs__key">{typeof char === 'object' ? char.glyph : char}</span>
+                    return (
+                      <li
+                        key={i}
+                        className={`glyphs__char ${typeof char === 'object' ? 'is-' + char.type : 'is-additional'}`}
+                      >
+                        <span className="glyphs__key">
+                          {typeof char === 'object' ? char.glyph : char}
+                        </span>
                         {typeof char === 'object' ? char.glyph : char}
                       </li>
                     );
                   })}
                 </ul>
               </div>
-            }
+            )}
           </div>
         );
       })}
@@ -74,7 +106,7 @@ const Glyphs = ({ font }) => {
 };
 
 Glyphs.propTypes = {
-  font: PropTypes.object
+  font: PropTypes.object,
 };
 
 export default Glyphs;

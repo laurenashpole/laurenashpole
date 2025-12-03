@@ -2,287 +2,380 @@ export const FONT_GLYPHS = {
   basic: [
     {
       glyph: '!',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '"',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '#',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '$',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '%',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '&',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '\'',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '(',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: ')',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '*',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '+',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: ',',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '-',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '.',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '/',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '0',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '1',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '2',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '3',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '4',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '5',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '6',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '7',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '8',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: '9',
-      type: 'number'
-    }, {
+      type: 'number',
+    },
+    {
       glyph: ':',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: ';',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '<',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '=',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '>',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '?',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '@',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: 'A',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'B',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'C',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'D',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'E',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'F',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'G',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'H',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'I',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'J',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'K',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'L',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'M',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'N',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'O',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'P',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'Q',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'R',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'S',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'T',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'U',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'V',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'W',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'X',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'Y',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: 'Z',
-      type: 'capital'
-    }, {
+      type: 'capital',
+    },
+    {
       glyph: '[',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '\\',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: ']',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '^',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '_',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '`',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: 'a',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'b',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'c',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'd',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'e',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'f',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'g',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'h',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'i',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'j',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'k',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'l',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'm',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'n',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'o',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'p',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'q',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'r',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 's',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 't',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'u',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'v',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'w',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'x',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'y',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: 'z',
-      type: 'lower'
-    }, {
+      type: 'lower',
+    },
+    {
       glyph: '{',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '|',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '}',
-      type: 'symbol'
-    }, {
+      type: 'symbol',
+    },
+    {
       glyph: '~',
-      type: 'symbol'
-    }
+      type: 'symbol',
+    },
   ],
   additional: [
     '¡',
@@ -394,6 +487,6 @@ export const FONT_GLYPHS = {
     '•',
     '–',
     '—',
-    '™'
-  ]
+    '™',
+  ],
 };

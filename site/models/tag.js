@@ -6,11 +6,11 @@ export default async () => {
   const TagSchema = new client.Schema({
     name: {
       type: String,
-      required: true
+      required: true,
     },
     slug: String,
     description: String,
-    fonts: [String]
+    fonts: [String],
   });
 
   try {

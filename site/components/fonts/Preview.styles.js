@@ -37,7 +37,7 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .preview__input {
-      input[name="text"] {
+      input[name='text'] {
         height: 7rem;
       }
     }
@@ -45,7 +45,7 @@ export default css.global`
     .preview__select {
       width: 15rem;
 
-      select[name="size"] {
+      select[name='size'] {
         height: 7rem;
       }
     }

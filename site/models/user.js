@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
+
 import { connectToDatabase } from '../utils/mongoose';
 
 export default async () => {
@@ -7,8 +8,8 @@ export default async () => {
   const UserSchema = new client.Schema({
     local: {
       username: String,
-      password: String
-    }
+      password: String,
+    },
   });
 
   UserSchema.methods.generateHash = function (password) {

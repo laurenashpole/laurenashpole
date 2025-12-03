@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './Checkbox.styles.js';
 
 const Checkbox = ({ label, attributes }) => {
@@ -18,7 +19,7 @@ const Checkbox = ({ label, attributes }) => {
 
 Checkbox.propTypes = {
   label: PropTypes.string,
-  attributes: PropTypes.object
+  attributes: PropTypes.object,
 };
 
 export default Checkbox;

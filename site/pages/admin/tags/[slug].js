@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { findBySlug } from '../../../utils/tags';
-import withPassport from '../../../middleware/passport';
+
 import Well from '../../../../shared/components/Well';
 import Admin from '../../../components/admin/layout/Admin';
 import Form from '../../../components/admin/tags/Form';
+import withPassport from '../../../middleware/passport';
+import { findBySlug } from '../../../utils/tags';
 
 const Edit = ({ isAuthenticated, tag }) => {
   return (
@@ -16,24 +17,30 @@ const Edit = ({ isAuthenticated, tag }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
-  const tag = await (isAuthenticated ? findBySlug(context.params.slug) : Promise.resolve({}));
+  const tag = await (isAuthenticated
+    ? findBySlug(context.params.slug)
+    : Promise.resolve({}));
 
   return {
     props: {
       isAuthenticated,
-      tag: JSON.parse(JSON.stringify(tag))
-    }
+      tag: JSON.parse(JSON.stringify(tag)),
+    },
   };
 }
 
 Edit.propTypes = {
   isAuthenticated: PropTypes.bool,
-  tag: PropTypes.object
+  tag: PropTypes.object,
 };
 
 export default Edit;

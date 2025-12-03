@@ -1,13 +1,14 @@
-import { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import { upload } from '@vercel/blob/client';
-import withPassport from '../../../middleware/passport';
-import Well from '../../../../shared/components/Well';
-import Input from '../../../../shared/components/Input';
+import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
+import { useRef, useState } from 'react';
+
 import Button from '../../../../shared/components/Button';
+import Input from '../../../../shared/components/Input';
+import Well from '../../../../shared/components/Well';
 import Admin from '../../../components/admin/layout/Admin';
 import Errors from '../../../components/shared/Errors';
+import withPassport from '../../../middleware/passport';
 
 const Uploads = ({ isAuthenticated }) => {
   const fileRef = useRef(null);
@@ -50,9 +51,16 @@ const Uploads = ({ isAuthenticated }) => {
 
         <form onSubmit={handleSubmit}>
           {error && <Errors errors={[error]} />}
-          <Input label="Upload" ref={fileRef} attributes={{ type: 'file', onChange: handleChange }} />
+          <Input
+            label="Upload"
+            ref={fileRef}
+            attributes={{ type: 'file', onChange: handleChange }}
+          />
 
-          <Button style="primary" attributes={{ type: 'submit', disabled: isProcessing }}>
+          <Button
+            style="primary"
+            attributes={{ type: 'submit', disabled: isProcessing }}
+          >
             Submit
           </Button>
         </form>
@@ -61,18 +69,22 @@ const Uploads = ({ isAuthenticated }) => {
   );
 };
 
-export async function getServerSideProps (context) {
-  const isAuthenticated = await withPassport(context.req, context.res, (req) => {
-    return req.isAuthenticated();
-  });
+export async function getServerSideProps(context) {
+  const isAuthenticated = await withPassport(
+    context.req,
+    context.res,
+    (req) => {
+      return req.isAuthenticated();
+    },
+  );
 
   return {
-    props: { isAuthenticated }
+    props: { isAuthenticated },
   };
 }
 
 Uploads.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 export default Uploads;

@@ -1,11 +1,21 @@
 import PropTypes from 'prop-types';
+
 import styles from './Select.styles.js';
 
 const Select = ({ children, label, hideLabel, selectProps }) => {
   return (
     <div className="select">
-      <label className={`select__label ${hideLabel ? 'select__label--hidden' : ''}`} htmlFor={label.replace(/ /g, '')}>{label}</label>
-      <select className="select__select" id={label.replace(/ /g, '')} {...selectProps}>
+      <label
+        className={`select__label ${hideLabel ? 'select__label--hidden' : ''}`}
+        htmlFor={label.replace(/ /g, '')}
+      >
+        {label}
+      </label>
+      <select
+        className="select__select"
+        id={label.replace(/ /g, '')}
+        {...selectProps}
+      >
         {children}
       </select>
       <span className="select__caret" />

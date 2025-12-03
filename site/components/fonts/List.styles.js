@@ -20,8 +20,11 @@ export default css.global`
     text-align: center;
 
     &:after {
-      content: "";
-      background: url(abstract-dots-hr($color-pink-encoded, $color-orange-encoded));
+      content: '';
+      background: url(abstract-dots-hr(
+        $color-pink-encoded,
+        $color-orange-encoded
+      ));
       background-repeat: no-repeat;
       width: 7rem;
       height: 3.5rem;
@@ -82,7 +85,7 @@ export default css.global`
 
       &:before,
       &:after {
-        content: " ";
+        content: ' ';
         background: $color-white;
         width: 2.5rem;
         height: 0.4rem;
@@ -102,7 +105,7 @@ export default css.global`
       width: 100%;
     }
 
-    input[type="text"] {
+    input[type='text'] {
       padding-left: 6rem;
     }
   }
@@ -146,7 +149,7 @@ export default css.global`
         }
       }
 
-      input[type="text"] {
+      input[type='text'] {
         padding-left: 7.5rem;
       }
     }

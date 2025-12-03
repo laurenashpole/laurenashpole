@@ -22,7 +22,7 @@ export default css.global`
       @include bg-animation($color-purple, $color-purple);
 
       &:hover,
-      &:focus, {
+      &:focus {
         .cart__icon {
           &:before {
             transition: background 0.15s linear 0.3s;

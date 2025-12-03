@@ -17,11 +17,11 @@ export default css.global`
     width: 50%;
     border-bottom: 1px solid $color-gray-light;
 
-    &:nth-child(2n+2) {
+    &:nth-child(2n + 2) {
       border-left: 1px solid $color-gray-light;
     }
 
-    &:nth-last-child(-n+2) {
+    &:nth-last-child(-n + 2) {
       border-bottom: none;
     }
   }
@@ -66,11 +66,11 @@ export default css.global`
       width: 25%;
       border-left: 1px solid $color-gray-light;
 
-      &:nth-child(4n+1) {
+      &:nth-child(4n + 1) {
         border-left: none;
       }
 
-      &:nth-last-child(-n+4) {
+      &:nth-last-child(-n + 4) {
         border-bottom: none;
       }
     }

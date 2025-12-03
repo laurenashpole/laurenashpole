@@ -59,7 +59,7 @@ export default css.global`
       }
 
       .well__section:last-child {
-        padding-bottom: 6rem
+        padding-bottom: 6rem;
       }
     }
 

@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+
 import styles from './List.styles.js';
 
 const List = ({ items }) => {
@@ -35,7 +36,7 @@ const List = ({ items }) => {
 };
 
 List.propTypes = {
-  items: PropTypes.array
+  items: PropTypes.array,
 };
 
 export default List;

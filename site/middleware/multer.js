@@ -4,7 +4,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 export default (req, res, requireAuth, done) => {
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (requireAuth && !req.isAuthenticated()) {
       reject(new Error());
     }

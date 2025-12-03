@@ -1,16 +1,14 @@
-import styles from './Page.styles.js';
 import Container from '../../../shared/components/Container.js';
+import styles from './Page.styles.js';
 
 const Page = ({ children }) => {
-  return(
+  return (
     <>
       <Container>
         <div className="page">
           <div className="page__aside" />
 
-          <div className="page__main">
-            {children}
-          </div>
+          <div className="page__main">{children}</div>
         </div>
       </Container>
 

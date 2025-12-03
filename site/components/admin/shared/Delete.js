@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { request } from '../../../../shared/utils/request';
+
 import Button from '../../../../shared/components/Button';
+import { request } from '../../../../shared/utils/request';
 
 const Delete = ({ id, name }) => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -18,7 +19,7 @@ const Delete = ({ id, name }) => {
     try {
       await request({
         endpoint: `/api/admin/${name}s/remove`,
-        body: JSON.stringify({ id })
+        body: JSON.stringify({ id }),
       });
 
       location.reload();
@@ -28,7 +29,11 @@ const Delete = ({ id, name }) => {
   };
 
   return (
-    <Button style="warning" onClick={handleClick} attributes={{ type: 'button', disabled: isProcessing }}>
+    <Button
+      style="warning"
+      onClick={handleClick}
+      attributes={{ type: 'button', disabled: isProcessing }}
+    >
       {isProcessing ? 'Deleting...' : 'Delete'}
     </Button>
   );
@@ -36,7 +41,7 @@ const Delete = ({ id, name }) => {
 
 Delete.propTypes = {
   id: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default Delete;

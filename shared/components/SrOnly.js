@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from '../styles/SrOnly.styles.js';
 
 const SrOnly = ({ children }) => {

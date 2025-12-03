@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
+
 import Container from '../../../shared/components/Container.js';
 import { ga4Event } from '../../utils/ga4.js';
 import styles from './Grid.styles.js';
@@ -14,7 +15,7 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
     ga4Event('select_item', [font], `${gaCategory} List`);
   };
 
-  return(
+  return (
     <>
       <div className="grid">
         <Container>
@@ -31,12 +32,22 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                       onClick={handleClick}
                     >
                       <span className="grid__img">
-                        <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`} alt={font.name} width={640} height={427} />
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`}
+                          alt={font.name}
+                          width={640}
+                          height={427}
+                        />
                       </span>
 
                       {font.images.gallery[1] && (
                         <span className="grid__img">
-                          <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[1]}`} alt="" width={640} height={427} />
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[1]}`}
+                            alt=""
+                            width={640}
+                            height={427}
+                          />
                         </span>
                       )}
                     </a>
@@ -45,7 +56,7 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                   {showDetails && (
                     <div className="label grid__details">
                       <h3 className="grid__name">{font.name}</h3>
-                      
+
                       <div className="grid__actions">
                         <button className="grid__try">Try</button>
                         <button className="grid__buy">Buy</button>

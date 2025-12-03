@@ -1,11 +1,13 @@
-import { cloneElement } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
+import { cloneElement } from 'react';
 
 const ActiveLink = ({ href, isExact, children }) => {
   const router = useRouter();
-  const isActive = isExact ? router.pathname === href : router.pathname.indexOf(href) !== -1;
+  const isActive = isExact
+    ? router.pathname === href
+    : router.pathname.indexOf(href) !== -1;
 
   return (
     <Link href={href}>
@@ -17,7 +19,7 @@ const ActiveLink = ({ href, isExact, children }) => {
 ActiveLink.propTypes = {
   href: PropTypes.string,
   isExact: PropTypes.bool,
-  children: PropTypes.any
+  children: PropTypes.any,
 };
 
 export default ActiveLink;

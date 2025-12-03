@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
+
+import Content from '../../components/fonts/Content';
+import Layout from '../../components/layout/Layout';
 import { findActive, findBySlug } from '../../utils/fonts';
 import { findByIds as findTagsByIds } from '../../utils/tags';
 import Custom404 from '../404';
-import Layout from '../../components/layout/Layout';
-import Content from '../../components/fonts/Content';
 
 const Font = ({ font, tags }) => {
   const { query } = useRouter();
@@ -20,7 +21,7 @@ const Font = ({ font, tags }) => {
     price: `$${font.price}`,
     'price:currency': 'USD',
     availability: 'instock',
-    image: `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`
+    image: `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`,
   };
 
   const structuredData = `
@@ -46,7 +47,15 @@ const Font = ({ font, tags }) => {
   `;
 
   return (
-    <Layout meta={{ title: `${font.name} - Fonts`, description: `Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`, pathname: `fonts/${font.slug}`, og, structuredData }}>
+    <Layout
+      meta={{
+        title: `${font.name} - Fonts`,
+        description: `Download the ${font.name} font free for personal use or buy a license for all your commercial use needs`,
+        pathname: `fonts/${font.slug}`,
+        og,
+        structuredData,
+      }}
+    >
       <Head>
         <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
       </Head>
@@ -57,33 +66,33 @@ const Font = ({ font, tags }) => {
   );
 };
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   const fonts = await findActive(3, { $natural: -1 });
 
   return {
     paths: fonts.map((font) => {
-      return { params: { slug: font.slug }};
+      return { params: { slug: font.slug } };
     }),
-    fallback: 'blocking'
+    fallback: 'blocking',
   };
 }
 
-export async function getStaticProps ({ params }) {
+export async function getStaticProps({ params }) {
   const font = await findBySlug(params.slug);
   const tags = await findTagsByIds(font.tags);
 
   return {
     props: {
       font: JSON.parse(JSON.stringify(font)),
-      tags: JSON.parse(JSON.stringify(tags))
+      tags: JSON.parse(JSON.stringify(tags)),
     },
-    revalidate: 604800
+    revalidate: 604800,
   };
 }
 
 Font.propTypes = {
   font: PropTypes.object,
-  tags: PropTypes.array
+  tags: PropTypes.array,
 };
 
 export default Font;
