@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import PublishDate from './PublishDate';
-import Details from './Details';
-import TextBlock from './TextBlock';
-import MediaBlock from './MediaBlock';
-import LinkBlock from './LinkBlock';
-import AnswerBlock from './AnswerBlock';
-import Affiliate from '../affiliate/Affiliate';
-import Comments from './Comments';
-import styles from './Post.styles.js';
+
 import Container from '../../../shared/components/Container.js';
+import Affiliate from '../affiliate/Affiliate';
+import AnswerBlock from './AnswerBlock';
+import Comments from './Comments';
+import Details from './Details';
+import LinkBlock from './LinkBlock';
+import MediaBlock from './MediaBlock';
+import styles from './Post.styles.js';
+import PublishDate from './PublishDate';
+import TextBlock from './TextBlock';
 
 const Post = ({ post, isPermalink, affiliate }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   const isTablet = useMediaQuery({
-    query: '(min-width: 768px)'
+    query: '(min-width: 768px)',
   });
 
   useEffect(() => {
@@ -29,12 +30,12 @@ const Post = ({ post, isPermalink, affiliate }) => {
       <Container>
         <div className="post__container">
           <div className="post__details">
-            {isMounted && isTablet &&
+            {isMounted && isTablet && (
               <>
                 <PublishDate date={post.date} />
                 <Details post={post} />
               </>
-            }
+            )}
           </div>
 
           <div className="post__content">
@@ -50,13 +51,15 @@ const Post = ({ post, isPermalink, affiliate }) => {
 
             {isMounted && !isTablet && <Details post={post} />}
 
-            {!isPermalink &&
+            {!isPermalink && (
               <footer className="post__footer" aria-label="Post footer">
                 <Link href={post.pathname}>
-                  <a data-ga-category="blog footer" data-ga-click="true">Permalink</a>
+                  <a data-ga-category="blog footer" data-ga-click="true">
+                    Permalink
+                  </a>
                 </Link>
               </footer>
-            }
+            )}
           </div>
         </div>
       </Container>
@@ -78,7 +81,7 @@ const Post = ({ post, isPermalink, affiliate }) => {
 Post.propTypes = {
   post: PropTypes.object,
   isPermalink: PropTypes.bool,
-  affiliate: PropTypes.object
+  affiliate: PropTypes.object,
 };
 
 export default Post;

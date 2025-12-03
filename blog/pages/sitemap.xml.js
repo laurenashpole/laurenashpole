@@ -1,9 +1,9 @@
-import { find } from '../utils/sanity';
 import { FEATURED_TAGS } from '../constants/featuredTags';
+import { find } from '../utils/sanity';
 
 const Sitemap = () => {};
 
-export async function getServerSideProps ({ res }) {
+export async function getServerSideProps({ res }) {
   const response = await find(null);
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -14,19 +14,25 @@ export async function getServerSideProps ({ res }) {
         <lastmod>${new Date().toISOString().substring(0, 10)}</lastmod>
       </url>
 
-      ${response.posts.map((post) => `
+      ${response.posts
+        .map(
+          (post) => `
         <url>
           <loc>${process.env.NEXT_PUBLIC_BASE_URL}${post.pathname}</loc>
           <lastmod>${new Date(post.date).toISOString().substring(0, 10)}</lastmod>
         </url>
-      `).join('')}
+      `,
+        )
+        .join('')}
 
-      ${FEATURED_TAGS.map((tag) => `
+      ${FEATURED_TAGS.map(
+        (tag) => `
         <url>
           <loc>${process.env.NEXT_PUBLIC_BASE_URL}/tagged/${tag.slug}</loc>
           <lastmod>${new Date().toISOString().substring(0, 10)}</lastmod>
         </url>
-      `).join('')}
+      `,
+      ).join('')}
     </urlset>
   `;
 
@@ -35,7 +41,7 @@ export async function getServerSideProps ({ res }) {
   res.end();
 
   return {
-    props: {}
+    props: {},
   };
 }
 

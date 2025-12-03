@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { find } from '../utils/sanity';
+
 import Layout from '../components/layout/Layout';
-import Welcome from '../components/posts/Welcome';
 import Posts from '../components/posts/Posts';
+import Welcome from '../components/posts/Welcome';
+import { find } from '../utils/sanity';
 
 const Index = ({ posts, pagination, affiliate }) => {
   return (
@@ -13,19 +14,19 @@ const Index = ({ posts, pagination, affiliate }) => {
   );
 };
 
-export async function getStaticProps () {
+export async function getStaticProps() {
   const response = await find();
 
   return {
     props: response,
-    revalidate: 3600
+    revalidate: 3600,
   };
 }
 
 Index.propTypes = {
   posts: PropTypes.array,
   pagination: PropTypes.object,
-  affiliate: PropTypes.object
+  affiliate: PropTypes.object,
 };
 
 export default Index;

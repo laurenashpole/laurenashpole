@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+
 import styles from './MediaBlock.styles.js';
 
 const MediaBlock = ({ post }) => {
   return (
     <div className="media">
-      {post.photos &&
+      {post.photos && (
         <div className="media__content media__content--img">
           {post.photos.map((photo, i) => {
             return (
@@ -15,13 +16,20 @@ const MediaBlock = ({ post }) => {
             );
           })}
         </div>
-      }
+      )}
 
-      {post.video_id && post.video_type === 'youtube' &&
+      {post.video_id && post.video_type === 'youtube' && (
         <div className="media__content media__content--video">
-          <iframe width="700" height="383" src={`https://www.youtube.com/embed/${post.video_id}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+          <iframe
+            width="700"
+            height="383"
+            src={`https://www.youtube.com/embed/${post.video_id}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
-      }
+      )}
 
       <div dangerouslySetInnerHTML={{ __html: post.caption }} />
 
@@ -33,7 +41,7 @@ const MediaBlock = ({ post }) => {
 };
 
 MediaBlock.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
 };
 
 export default MediaBlock;

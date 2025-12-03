@@ -19,7 +19,7 @@ export default css.global`
     text-align: left;
     text-transform: uppercase;
   }
-  
+
   @media (min-width: $break-tablet) {
     .well__section:first-child .comments__heading {
       margin: -1rem 0;
@@ -30,7 +30,7 @@ export default css.global`
     }
 
     .comments__aside {
-      background-image: 
+      background-image:
         linear-gradient($color-gray-light 1px, transparent 1px),
         linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
       background-size: 4.25rem 4.25rem;
@@ -47,7 +47,7 @@ export default css.global`
       padding: 5.25rem 3.75rem;
     }
   }
-  
+
   @media (min-width: $break-desktop) {
     .comments__aside {
       width: calc(8.5rem * 5);

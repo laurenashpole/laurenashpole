@@ -3,13 +3,13 @@ module.exports = {
     externalDir: true,
   },
   reactStrictMode: true,
-  async redirects () {
+  async redirects() {
     return [
       {
         source: '/post/:id/amp',
         destination: '/post/:id',
-        permanent: true
+        permanent: true,
       },
     ];
-  }
-}
+  },
+};

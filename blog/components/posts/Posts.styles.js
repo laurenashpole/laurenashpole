@@ -6,7 +6,7 @@ export default css.global`
 
   .posts__heading {
     text-align: center;
-  }  
+  }
 
   .posts__heading-text {
     margin: 0;

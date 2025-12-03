@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './LinkBlock.styles.js';
 
 const LinkBlock = ({ post }) => {
@@ -7,13 +8,18 @@ const LinkBlock = ({ post }) => {
   return (
     <div className="link">
       <h2>
-        <a className={`link__link ${podcast ? 'link__link--podcast' : ''}`} href={post.url}>
+        <a
+          className={`link__link ${podcast ? 'link__link--podcast' : ''}`}
+          href={post.url}
+        >
           {post.title}
         </a>
       </h2>
 
       {post.excerpt && <blockquote>{post.excerpt}...</blockquote>}
-      {post.description && <div dangerouslySetInnerHTML={{ __html: post.description }} />}
+      {post.description && (
+        <div dangerouslySetInnerHTML={{ __html: post.description }} />
+      )}
 
       <style jsx global>
         {styles}
@@ -23,7 +29,7 @@ const LinkBlock = ({ post }) => {
 };
 
 LinkBlock.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
 };
 
 export default LinkBlock;

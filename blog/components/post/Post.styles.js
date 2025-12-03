@@ -86,7 +86,7 @@ export default css.global`
     }
 
     .post__details {
-      background-image: 
+      background-image:
         linear-gradient($color-gray-light 1px, transparent 1px),
         linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
       background-size: 4.25rem 4.25rem;

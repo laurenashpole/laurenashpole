@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './PublishDate.styles.js';
 
 const PublishDate = ({ date }) => {
@@ -7,7 +8,7 @@ const PublishDate = ({ date }) => {
       {new Date(date).toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
-        year: 'numeric'
+        year: 'numeric',
       })}
 
       <style jsx global>
@@ -18,7 +19,7 @@ const PublishDate = ({ date }) => {
 };
 
 PublishDate.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.string,
 };
 
 export default PublishDate;

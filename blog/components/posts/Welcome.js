@@ -9,8 +9,16 @@ const Welcome = () => {
       <Container>
         <div className="welcome__container">
           <h1 className="welcome__heading">Welcome to the blog!</h1>
-          <p className="welcome__text">It&apos;s basically a reverse chronological record of my bookmarks with the occasional release announcement. Not sure where to start? Here are some of my most active tags:</p>
-          <Tags path={`${process.env.NEXT_PUBLIC_BASE_URL}/tagged`} source="blog header" tags={FEATURED_TAGS} />
+          <p className="welcome__text">
+            It&apos;s basically a reverse chronological record of my bookmarks
+            with the occasional release announcement. Not sure where to start?
+            Here are some of my most active tags:
+          </p>
+          <Tags
+            path={`${process.env.NEXT_PUBLIC_BASE_URL}/tagged`}
+            source="blog header"
+            tags={FEATURED_TAGS}
+          />
         </div>
       </Container>
 

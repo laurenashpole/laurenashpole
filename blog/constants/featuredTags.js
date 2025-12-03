@@ -5,5 +5,5 @@ export const FEATURED_TAGS = [
   { name: 'themes', slug: 'themes' },
   { name: 'code', slug: 'code' },
   { name: 'design', slug: 'design' },
-  { name: 'what i listen to at work', slug: 'what-i-listen-to-at-work' }
+  { name: 'what i listen to at work', slug: 'what-i-listen-to-at-work' },
 ];
