@@ -42,7 +42,10 @@ export default css.global`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s linear, color 0.25s linear, border-color 0.25s linear;
+    transition:
+      background 0.25s linear,
+      color 0.25s linear,
+      border-color 0.25s linear;
 
     &:focus:not(:focus-visible) {
       animation: scale 0.2s;

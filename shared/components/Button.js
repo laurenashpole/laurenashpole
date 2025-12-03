@@ -1,10 +1,16 @@
-import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
+
 import styles from '../styles/Button.styles.js';
 
 const Button = forwardRef(({ children, style, onClick, attributes }, ref) => {
   return (
-    <button className={`btn${style === 'unstyled' ? '' : ` btn--default btn--${style}`}`} onClick={onClick} {...attributes} ref={ref}>
+    <button
+      className={`btn${style === 'unstyled' ? '' : ` btn--default btn--${style}`}`}
+      onClick={onClick}
+      {...attributes}
+      ref={ref}
+    >
       {children}
 
       <style jsx global>
@@ -18,7 +24,7 @@ Button.propTypes = {
   children: PropTypes.any,
   style: PropTypes.string,
   onClick: PropTypes.func,
-  attributes: PropTypes.object
+  attributes: PropTypes.object,
 };
 
 Button.displayName = 'Button';

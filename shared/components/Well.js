@@ -1,5 +1,6 @@
-import { Children } from 'react';
 import PropTypes from 'prop-types';
+import { Children } from 'react';
+
 import styles from '../styles/Well.styles.js';
 
 const Well = ({ children, size, stickyChild }) => {
@@ -11,7 +12,12 @@ const Well = ({ children, size, stickyChild }) => {
         }
 
         return (
-          <div key={i} className={`well__section ${stickyChild === i ? 'well__section--sticky' : ''}`}>{child}</div>
+          <div
+            key={i}
+            className={`well__section ${stickyChild === i ? 'well__section--sticky' : ''}`}
+          >
+            {child}
+          </div>
         );
       })}
 
@@ -25,7 +31,7 @@ const Well = ({ children, size, stickyChild }) => {
 Well.propTypes = {
   children: PropTypes.any,
   size: PropTypes.string,
-  stickyChild: PropTypes.number
+  stickyChild: PropTypes.number,
 };
 
 export default Well;

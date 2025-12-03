@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import ActiveLink from './ActiveLink';
+
 import styles from '../styles/Header.styles.js';
+import ActiveLink from './ActiveLink';
 import SrOnly from './SrOnly.js';
 
 const Header = ({ home, links, enableAnalytics, cart }) => {
@@ -8,12 +9,21 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
     <header className="header">
       <div className="header__content">
         {home.external ? (
-          <a className="header__logo" href={`https://${home.external.host}${home.path}`} data-ga-click={enableAnalytics} data-ga-category="nav">
+          <a
+            className="header__logo"
+            href={`https://${home.external.host}${home.path}`}
+            data-ga-click={enableAnalytics}
+            data-ga-category="nav"
+          >
             <SrOnly>{home.label}</SrOnly>
           </a>
         ) : (
           <ActiveLink href={home.path} isExact={true}>
-            <a className="header__logo" data-ga-click={enableAnalytics} data-ga-category="nav">
+            <a
+              className="header__logo"
+              data-ga-click={enableAnalytics}
+              data-ga-category="nav"
+            >
               <SrOnly>{home.label}</SrOnly>
             </a>
           </ActiveLink>
@@ -25,10 +35,24 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
               return (
                 <li key={i} className="header__item">
                   {link.external ? (
-                    <a className="header__link" href={`https://${link.external.host}${link.path}`} data-ga-click={enableAnalytics} data-ga-category="nav" aria-current={link.external.isActive ? 'page' : null}>{link.label}</a>
+                    <a
+                      className="header__link"
+                      href={`https://${link.external.host}${link.path}`}
+                      data-ga-click={enableAnalytics}
+                      data-ga-category="nav"
+                      aria-current={link.external.isActive ? 'page' : null}
+                    >
+                      {link.label}
+                    </a>
                   ) : (
                     <ActiveLink href={link.path} isExact={link.isExact}>
-                      <a className="header__link" data-ga-click={enableAnalytics} data-ga-category="nav">{link.label}</a>
+                      <a
+                        className="header__link"
+                        data-ga-click={enableAnalytics}
+                        data-ga-category="nav"
+                      >
+                        {link.label}
+                      </a>
                     </ActiveLink>
                   )}
                 </li>
@@ -50,7 +74,7 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
 Header.propTypes = {
   home: PropTypes.object,
   links: PropTypes.array,
-  enableAnalytics: PropTypes.bool
+  enableAnalytics: PropTypes.bool,
 };
 
 export default Header;

@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+
 import styles from '../styles/Tags.styles.js';
 
 const Tags = ({ tags, path, source }) => {
@@ -9,7 +10,13 @@ const Tags = ({ tags, path, source }) => {
         return (
           <li key={tag._id || tag.slug}>
             <Link href={`${path || ''}/${tag.slug}`}>
-              <a className="tags__tag" data-ga-click={!!source} data-ga-category={source}>{tag.name}</a>
+              <a
+                className="tags__tag"
+                data-ga-click={!!source}
+                data-ga-category={source}
+              >
+                {tag.name}
+              </a>
             </Link>
           </li>
         );
@@ -25,7 +32,7 @@ const Tags = ({ tags, path, source }) => {
 Tags.propTypes = {
   tags: PropTypes.array,
   path: PropTypes.string,
-  source: PropTypes.string
+  source: PropTypes.string,
 };
 
 export default Tags;

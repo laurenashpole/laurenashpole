@@ -94,7 +94,7 @@ export default css.global`
       }
 
       &:before {
-        content: " ";
+        content: ' ';
         background: $color-purple;
         width: 6rem;
         height: 6rem;
@@ -102,7 +102,10 @@ export default css.global`
         position: absolute;
         top: 50%;
         left: 50%;
-        transition: width 0.25s ease-out, height 0.25s ease-out, border-radius 0.25s ease-out;
+        transition:
+          width 0.25s ease-out,
+          height 0.25s ease-out,
+          border-radius 0.25s ease-out;
         transform: translate3d(-50%, -50%, 0);
       }
 

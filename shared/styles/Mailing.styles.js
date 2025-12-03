@@ -12,7 +12,7 @@ export default css.global`
       width: 66.666%;
       padding: 0;
 
-      input[type="email"] {
+      input[type='email'] {
         text-align: left;
       }
     }
@@ -29,7 +29,7 @@ export default css.global`
   }
 
   .mailing__input {
-    input[type="email"] {
+    input[type='email'] {
       text-align: center;
     }
   }

@@ -1,15 +1,15 @@
 import 'whatwg-fetch';
 
-export async function request ({ method, body, endpoint }) {
+export async function request({ method, body, endpoint }) {
   const options = {
     credentials: 'include',
     method: method || 'POST',
-    body: body
+    body: body,
   };
 
   if (body && !(body instanceof FormData)) {
     options.headers = new Headers({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
   }
 

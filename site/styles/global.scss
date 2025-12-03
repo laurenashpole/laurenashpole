@@ -1,0 +1,39 @@
+@import '../../shared/styles/global.scss';
+
+h1 {
+  font-size: 3.25rem;
+}
+
+h3 {
+  font-size: 2.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.065em;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+@media (min-width: $break-tablet) {
+  h1 {
+    font-size: 3.75rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  .label {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: $break-desktop) {
+  h1 {
+    font-size: 4.25rem;
+  }
+}

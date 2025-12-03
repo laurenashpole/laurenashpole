@@ -1,53 +1,43 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'next',
-    'next/core-web-vitals'
+    'next/core-web-vitals',
+    'plugin:prettier/recommended',
   ],
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    'ecmaVersion': 12,
-    'sourceType': 'module'
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  'plugins': [
-    'react'
-  ],
-  'rules': {
-    'indent': [
-      'error',
-      2,
-      {
-        'ignoredNodes': ['TemplateLiteral']
-      }
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'always'
-    ],
+  plugins: ['react', 'simple-import-sort'],
+  rules: {
+    semi: ['error', 'always'],
     'import/no-anonymous-default-export': [
       'error',
-      { 'allowArrowFunction': true }
+      { allowArrowFunction: true },
     ],
     'react/react-in-jsx-scope': 'off',
-    '@next/next/no-img-element': 'off'
+    '@next/next/no-img-element': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        jsxSingleQuote: false,
+      },
+    ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
   globals: {
-    'React': 'writable'
-  }
+    React: 'writable',
+  },
 };

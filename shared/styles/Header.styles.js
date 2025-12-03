@@ -31,7 +31,7 @@ export default css.global`
     transition: background 0.15s linear;
 
     &:before {
-      content: " ";
+      content: ' ';
       background: url(logo($color-white-encoded)) no-repeat;
       background-size: 65%;
       background-position: center;
@@ -95,7 +95,7 @@ export default css.global`
   .header__link:hover:before,
   .header__link:focus:before,
   .header__link[aria-current]:before {
-    content: " ";
+    content: ' ';
   }
 
   @media (min-width: $break-tablet) {

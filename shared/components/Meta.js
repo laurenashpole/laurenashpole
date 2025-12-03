@@ -1,14 +1,21 @@
-import PropTypes from 'prop-types';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
-const Meta = ({ description, og, pathname, structuredData, title, twitter }) => {
+const Meta = ({
+  description,
+  og,
+  pathname,
+  structuredData,
+  title,
+  twitter,
+}) => {
   og = {
     type: 'website',
     site_name: 'Lauren Ashpole',
     title: title,
     description: description,
     url: `${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`,
-    ...(og || {})
+    ...(og || {}),
   };
 
   twitter = {
@@ -17,7 +24,7 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
     creator: '@laurenashpole',
     title: title,
     description: description,
-    ...(twitter || {})
+    ...(twitter || {}),
   };
 
   structuredData = [
@@ -27,26 +34,43 @@ const Meta = ({ description, og, pathname, structuredData, title, twitter }) => 
       "name": "Lauren Ashpole",
       "url": "https://laurenashpole.com"
     }`,
-    ...(structuredData ? [structuredData] : [])
+    ...(structuredData ? [structuredData] : []),
   ];
 
   return (
     <Head>
-      <meta name="description" content={description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.'} />
+      <meta
+        name="description"
+        content={
+          description ||
+          'Custom, handcrafted fonts and dingbats for your personal and commercial projects. Plus, code snippets and themes.'
+        }
+      />
 
       {Object.keys(og).map((prop) => (
         <meta key={`og${prop}`} property={`og:${prop}`} content={og[prop]} />
       ))}
 
       {Object.keys(twitter).map((prop) => (
-        <meta key={`twitter${prop}`} name={`twitter:${prop}`} content={twitter[prop]} />
+        <meta
+          key={`twitter${prop}`}
+          name={`twitter:${prop}`}
+          content={twitter[prop]}
+        />
       ))}
 
       {structuredData.map((data, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: data }} />
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
       ))}
 
-      <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`} />
+      <link
+        rel="canonical"
+        href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`}
+      />
     </Head>
   );
 };
@@ -57,7 +81,7 @@ Meta.propTypes = {
   pathname: PropTypes.string,
   structuredData: PropTypes.string,
   title: PropTypes.string,
-  twitter: PropTypes.object
+  twitter: PropTypes.object,
 };
 
 export default Meta;

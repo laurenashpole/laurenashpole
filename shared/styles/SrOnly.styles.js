@@ -8,7 +8,7 @@ export default css.global`
     padding: 0;
     overflow: hidden;
     white-space: nowrap;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
     position: absolute;
