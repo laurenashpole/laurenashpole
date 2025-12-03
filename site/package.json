@@ -27,10 +27,5 @@
     "superagent": "^6.1.0",
     "whatwg-fetch": "^3.4.1"
   },
-  "devDependencies": {
-    "eslint": "^7.24.0",
-    "eslint-config-next": "12",
-    "eslint-plugin-react": "^7.24.0"
-  },
   "license": "MIT"
 }

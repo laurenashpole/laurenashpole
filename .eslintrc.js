@@ -8,7 +8,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'next',
-    'next/core-web-vitals'
+    'next/core-web-vitals',
+    'plugin:prettier/recommended'
   ],
   'parserOptions': {
     'ecmaFeatures': {
@@ -18,7 +19,8 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
-    'react'
+    'react',
+    'simple-import-sort'
   ],
   'rules': {
     'indent': [
@@ -27,10 +29,6 @@ module.exports = {
       {
         'ignoredNodes': ['TemplateLiteral']
       }
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
     ],
     'quotes': [
       'error',
@@ -45,7 +43,16 @@ module.exports = {
       { 'allowArrowFunction': true }
     ],
     'react/react-in-jsx-scope': 'off',
-    '@next/next/no-img-element': 'off'
+    '@next/next/no-img-element': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        jsxSingleQuote: false,
+      },
+    ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error'
   },
   globals: {
     'React': 'writable'
