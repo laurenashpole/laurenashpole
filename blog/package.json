@@ -14,7 +14,7 @@
     "@vercel/analytics": "^1.5.0",
     "feed": "^4.2.2",
     "html-entities": "^2.4.0",
-    "next": "11.0.1",
+    "next": "14.2.32",
     "next-sanity": "^5.4.6",
     "playwright": "^1.22.2",
     "playwright-aws-lambda": "^0.8.0",
