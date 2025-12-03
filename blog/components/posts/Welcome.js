@@ -1,5 +1,5 @@
-import Container from '../../shared/components/Container';
-import Tags from '../../shared/components/Tags';
+import Container from '../../../shared/components/Container';
+import Tags from '../../../shared/components/Tags';
 import { FEATURED_TAGS } from '../../constants/featuredTags';
 import styles from './Welcome.styles.js';
 

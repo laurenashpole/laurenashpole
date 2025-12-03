@@ -4,7 +4,7 @@ import Post from '../post/Post';
 import Pagination from './Pagination';
 import Affiliate from '../affiliate/Affiliate';
 import styles from './Posts.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 
 const Posts = ({ posts, pagination, paginationPath, heading, affiliate }) => {
   return (

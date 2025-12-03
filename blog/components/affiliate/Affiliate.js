@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './Affiliate.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 
 const Affiliate = ({ affiliate, isPermalink }) => {
   if (!affiliate) {

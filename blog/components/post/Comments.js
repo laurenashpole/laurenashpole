@@ -1,6 +1,6 @@
 import { InView } from 'react-intersection-observer';
 import styles from './Comments.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 
 const Comments = () => {
   const handleInView = (inView) => {

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { HEADER } from '../../constants/header';
-import Meta from '../../shared/components/Meta';
-import Header from '../../shared/components/Header';
-import Footer from '../../shared/components/Footer';
-import Mailing from '../../shared/components/Mailing';
+import Meta from '../../../shared/components/Meta';
+import Header from '../../../shared/components/Header';
+import Footer from '../../../shared/components/Footer';
+import Mailing from '../../../shared/components/Mailing';
 import styles from './Layout.styles.js';
 
 const Layout = ({ children, meta }) => {

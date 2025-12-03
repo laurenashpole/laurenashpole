@@ -4,7 +4,7 @@
       "styled-jsx": {
         "plugins": [["@styled-jsx/plugin-sass", {
           "sassOptions": {
-            "includePaths": ["./styles"]
+            "includePaths": ["./styles", "../shared/styles"]
           }
         }]]
       }

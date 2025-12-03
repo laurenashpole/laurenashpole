@@ -11,7 +11,7 @@ import AnswerBlock from './AnswerBlock';
 import Affiliate from '../affiliate/Affiliate';
 import Comments from './Comments';
 import styles from './Post.styles.js';
-import Container from '../../shared/components/Container.js';
+import Container from '../../../shared/components/Container.js';
 
 const Post = ({ post, isPermalink, affiliate }) => {
   const [isMounted, setIsMounted] = useState(false);

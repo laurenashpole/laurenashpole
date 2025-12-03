@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Well from '../shared/components/Well';
+import Well from '../../shared/components/Well';
 import Layout from '../components/layout/Layout';
 
 const Custom404 = () => {
