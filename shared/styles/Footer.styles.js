@@ -4,19 +4,17 @@ export default css.global`
   @import 'variables.scss';
 
   .footer {
-    background: $color-white;
-  }
-
-  .footer__content {
-    padding: 1.5rem 0;
+    border-top: 1px solid $color-gray-light;
   }
 
   .footer__social {
+    border-bottom: 1px solid $color-gray-light;
     display: flex;
   }
 
   .footer__social-item {
     width: 25%;
+    min-height: 7rem;
     border-right: 1px solid $color-gray-light;
     display: flex;
     align-items: stretch;
@@ -34,6 +32,7 @@ export default css.global`
 
     &:focus,
     &:hover {
+      background: $color-gray-lightest;
       color: $color-purple-hover;
     }
   }
@@ -59,21 +58,40 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
+    .footer > div {
+      min-height: 8.5rem;
+    }
+
     .footer__content {
-      max-width: $width-desktop;
-      margin: 0 auto;
-      padding: 0 3rem;
       display: flex;
     }
 
     .footer__social {
-      border-right: 1px solid $color-gray-light;
+      border-bottom: 0;
     }
 
     .footer__social-item {
       width: 8.5rem;
       height: 8.5rem;
+
+      &:last-child {
+        border-right: 1px solid $color-gray-light;
+      }
+    }
+
+    .footer__social-link {
+      color: $color-white;
       position: relative;
+
+      svg {
+        position: relative;
+        z-index: 1;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-white;
+      }
 
       &:before {
         content: " ";
@@ -93,16 +111,6 @@ export default css.global`
         width: 100%;
         height: 100%;
         border-radius: 0;
-      }
-    }
-
-    .footer__social-link {
-      color: $color-white;
-      z-index: 1;
-
-      &:focus,
-      &:hover {
-        color: $color-white;
       }
     }
   }

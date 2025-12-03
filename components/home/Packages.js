@@ -1,26 +1,24 @@
-import Image from 'next/image';
 import { PACKAGES } from '../../constants/packages';
-import Well from '../../shared/components/Well';
+import Container from '../../shared/components/Container.js';
 import styles from './Packages.styles.js';
+import VerticalHeading from '../shared/VerticalHeading.js';
 
 const Packages = () => {
   return(
     <>
-      <Well size="large">
-        <div className="packages">
-          <h3>Looking for code?</h3>
+      <div className="packages">
+        <Container>
+          <VerticalHeading heading="Want code?" />
 
           <ul className="packages__list">
             {PACKAGES.map((link, i) => {
               return (
                 <li key={i} className="packages__item">
-                  <a href={link.urls.demo} data-ga-click={true} data-ga-category="home" data-ga-text={link.name.toLowerCase()}>
-                    <Image src={link.imgSrc} alt={link.name} width={600} height={305} data-pin-nopin="true" />
-                  </a>
+                  <h4 className="packages__name">
+                    {link.name}
+                  </h4>
 
-                  <p>
-                    <a href={link.urls.demo} data-ga-click={true} data-ga-category="home">{link.name}.</a> <span dangerouslySetInnerHTML={{ __html: link.desc }} />
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: link.desc }} />
 
                   <ul className="packages__icons">
                     <li>
@@ -30,8 +28,8 @@ const Packages = () => {
                     </li>
 
                     <li>
-                      <a href={link.urls.npm} data-ga-click={true} data-ga-category="home" data-ga-text={`${link.name.toLowerCase()} npm`} aria-label={`${link.name} on NPM`}>
-                        <svg className="packages__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><path d="M0 0v300h300V0H0zm249.7 249.7h-50.3V100.6h-50.3v149.1H50.3V50.3h199.4v199.4z" fill="currentColor"></path></svg>
+                      <a href={link.urls.demo} data-ga-click={true} data-ga-category="home" data-ga-text={`${link.name.toLowerCase()} npm`} aria-label={`${link.name} Demo Site`}>
+                        <svg className="packages__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M73.5 11.8c-1.6 0-3 .6-4.2 1.7L56.6 26.2c-1.1 1.1-1.7 2.5-1.7 4.2 0 1.7.7 3.2 2 4.4.1-.1.5-.5 1.1-1.2.6-.7 1.1-1.1 1.3-1.3s.6-.5 1.2-.9c.5-.4 1.1-.7 1.6-.8.5-.1 1.1-.2 1.7-.2 1.6 0 3 .6 4.2 1.7 1.1 1.1 1.7 2.5 1.7 4.2 0 .6-.1 1.2-.2 1.7s-.4 1-.8 1.6c-.4.5-.7.9-.9 1.2s-.8.6-1.4 1.2c-.7.6-1 1-1.2 1.1 1.3 1.3 2.8 2 4.5 2 1.6 0 3-.6 4.2-1.7l12.7-12.6c1.1-1.1 1.7-2.5 1.7-4.2 0-1.6-.5-3-1.6-4.2l-8.9-9c-1.3-1.1-2.7-1.6-4.3-1.6zm-43.2 43c-1.6 0-3 .6-4.2 1.7L13.5 69.2c-1.1 1.1-1.7 2.5-1.7 4.2 0 1.6.6 3 1.7 4.2l8.9 9c1.1 1.1 2.5 1.7 4.1 1.7 1.6 0 3-.6 4.2-1.7l12.7-12.7c1.1-1.1 1.7-2.5 1.7-4.2 0-1.7-.6-3.2-1.9-4.4-.1.1-.5.5-1.1 1.2-.6.7-1.1 1.1-1.3 1.3s-.6.5-1.2.9c-.6.3-1.1.6-1.6.7-.5.1-1.1.2-1.7.2-1.6 0-3-.6-4.2-1.7-1.1-1.1-1.7-2.5-1.7-4.2 0-.6.1-1.2.2-1.7s.4-1 .8-1.6c.4-.5.7-.9.9-1.2s.7-.7 1.3-1.3c.7-.6 1-1 1.2-1.1-1.3-1.3-2.8-2-4.5-2zM73.5 0c4.9 0 9 1.7 12.4 5.2l8.9 9c3.4 3.4 5.1 7.5 5.1 12.4s-1.7 9.1-5.2 12.5L82.1 51.8c-3.4 3.4-7.5 5.1-12.4 5.1-5 0-9.3-1.8-12.8-5.4l-5.4 5.4c3.6 3.5 5.4 7.8 5.4 12.7 0 4.9-1.7 9.1-5.1 12.5L39 94.9c-3.4 3.4-7.6 5.1-12.5 5.1s-9-1.7-12.4-5.2l-8.9-9C1.7 82.4 0 78.2 0 73.3s1.7-9.1 5.2-12.5l12.7-12.6c3.4-3.4 7.5-5.1 12.4-5.1 5 0 9.3 1.8 12.8 5.4l5.4-5.4c-3.6-3.5-5.4-7.8-5.4-12.7 0-4.9 1.7-9.1 5.1-12.5L61 5.1C64.5 1.7 68.6 0 73.5 0z" fill="currentColor" /></svg>
                       </a>
                     </li>
                   </ul>
@@ -39,8 +37,8 @@ const Packages = () => {
               );
             })}
           </ul>
-        </div>
-      </Well>
+        </Container>
+      </div>
 
       <style jsx global>
         {styles}

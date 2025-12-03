@@ -6,11 +6,29 @@ export default css.global`
 
   .btn {
     background: none;
+    border: none;
+    padding: 0;
+    appearance: none;
+
+    &[disabled] {
+      pointer-events: none;
+    }
+
+    * {
+      pointer-events: none;
+    }
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  .btn--default {
+    background: none;
     width: 100%;
     padding: 0 1.5rem;
     border: 2px solid transparent;
-    border-radius: 3px;
-    outline: none;
+    border-radius: $border-radius;
     color: $color-white;
     font-family: inherit;
     font-size: inherit;
@@ -24,18 +42,10 @@ export default css.global`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s linear;
+    transition: background 0.25s linear, color 0.25s linear, border-color 0.25s linear;
 
-    &:focus {
+    &:focus:not(:focus-visible) {
       animation: scale 0.2s;
-    }
-
-    &[disabled] {
-      pointer-events: none;
-    }
-
-    * {
-      pointer-events: none;
     }
   }
 
@@ -69,7 +79,9 @@ export default css.global`
 
   .btn--secondary:hover,
   .btn--secondary:focus {
-    background: $color-purple-hover;
+    background: transparent;
+    border-color: $color-purple;
+    color: $color-purple;
   }
 
   .btn--warning {

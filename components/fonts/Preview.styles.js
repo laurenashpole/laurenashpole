@@ -4,8 +4,6 @@ export default css.global`
   @import 'variables.scss';
 
   .preview {
-    border-bottom: 1px solid $color-gray-light;
-    padding: 4rem 0;
     text-align: left;
   }
 
@@ -39,7 +37,6 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .preview__input {
-
       input[name="text"] {
         height: 7rem;
       }
@@ -55,10 +52,6 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
-    .preview {
-      padding: 6rem 0;
-    }
-
     .preview__select {
       width: 20rem;
     }

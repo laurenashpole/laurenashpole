@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { request } from '../shared/utils/request';
-import Well from '../shared/components/Well';
 import Input from '../shared/components/Input';
 import Button from '../shared/components/Button';
 import Layout from '../components/layout/Layout';
@@ -8,6 +7,7 @@ import Select from '../components/shared/Select';
 import Textarea from '../components/shared/Textarea';
 import Errors from '../components/shared/Errors';
 import Loader from '../components/shared/Loader';
+import Page from '../components/layout/Page';
 
 const Contact = () => {
   const [email, setEmail] = useState('');
@@ -66,12 +66,12 @@ const Contact = () => {
   return(
     <Layout meta={{ title: 'Contact', pathname: 'contact' }}>
       {isComplete ? (
-        <Well size="medium">
+        <Page>
           <h1>Thanks for your message!</h1>
           <div>I&apos;ll get back to you as soon as I can.</div>
-        </Well>
+        </Page>
       ) : (
-        <Well size="medium">
+        <Page>
           <h1>Contact</h1>
 
           <form>
@@ -93,7 +93,7 @@ const Contact = () => {
               {isProcessing ? <Loader /> : 'Send Message'}
             </Button>
           </form>
-        </Well>
+        </Page>
       )}
     </Layout>
   );

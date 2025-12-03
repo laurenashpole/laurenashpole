@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import { getOrder } from '../../utils/checkout';
 import { request } from '../../shared/utils/request';
 import { ga4Event } from '../../utils/ga4';
-import Well from '../../shared/components/Well';
 import Layout from '../../components/layout/Layout';
 import Order from '../../components/checkout/Order';
+import Page from '../../components/layout/Page';
 
 const Confirm = ({ order }) => {
   const router = useRouter();
@@ -37,7 +37,7 @@ const Confirm = ({ order }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <Well size="medium">
+      <Page>
         <h1>
           {(order.error || !order.fonts) ? 'Oops, something went wrong!' : 'Thank you for ordering!'}
         </h1>
@@ -49,7 +49,7 @@ const Confirm = ({ order }) => {
             <Order order={order} />
           )}
         </div>
-      </Well>
+      </Page>
     </Layout>
   );
 };

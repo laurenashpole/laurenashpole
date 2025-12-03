@@ -5,8 +5,6 @@ import styles from './Details.styles.js';
 
 const Details = ({ font, tags }) => {
   const {
-    date_created,
-    date_modified,
     description,
     commercial_file,
     personal_file,
@@ -38,11 +36,6 @@ const Details = ({ font, tags }) => {
         </li>
       </ul>
 
-      <div>
-        Created: {date_created}
-        {date_modified && <span> / Modified: {date_modified}</span>}
-      </div>
-
       {description && <div className="details__desc" dangerouslySetInnerHTML={{__html: description}} />}
 
       {distributors && distributors.length > 0 &&
@@ -51,7 +44,7 @@ const Details = ({ font, tags }) => {
         </div>
       }
 
-      <div className="details__inline">
+      <div className="details__inline details__lists">
         {(font_files || {}).personal &&
           <ul className="details__list">
             <li>

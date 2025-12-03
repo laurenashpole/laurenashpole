@@ -16,17 +16,13 @@ const Layout = ({ children, hideHeader, isAdmin, meta }) => {
       </Head>
 
       {!isAdmin && <Meta {...(meta || {})} title={(meta || {}).title || 'Lauren Ashpole'} description={(meta || {}).description || 'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'} />}
-      {!hideHeader && <Header home={HEADER.home} links={HEADER[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} />}
+      {!hideHeader && <Header home={HEADER.home} links={HEADER[isAdmin ? 'admin' : 'default']} enableAnalytics={!isAdmin} cart={<Cart />} />}
       <main className="layout__main">{children}</main>
 
       {!isAdmin &&
-        <>
-          <Cart />
-
-          <Footer>
-            <Mailing location="footer" isInline={true} />
-          </Footer>
-        </>
+        <Footer>
+          <Mailing location="footer" isInline={true} />
+        </Footer>
       }
 
       <style jsx global>

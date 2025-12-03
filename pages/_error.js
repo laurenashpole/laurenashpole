@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import Well from '../shared/components/Well';
 import Layout from '../components/layout/Layout';
+import Page from '../components/layout/Page';
 
 const Error = ({ statusCode }) => {
   return (
     <Layout meta={{ title: 'Something went wrong!' }}>
-      <Well size="medium">
+      <Page>
         <h1>{statusCode && `${statusCode} - `}Something went wrong!</h1>
 
         <div>
@@ -15,7 +15,7 @@ const Error = ({ statusCode }) => {
 
           <p>If the issue persists, don&apos;t hesitate to <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} title={process.env.NEXT_PUBLIC_EMAIL}>contact me</a>.</p>
         </div>
-      </Well>
+      </Page>
     </Layout>
   );
 };

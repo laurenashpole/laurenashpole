@@ -3,8 +3,9 @@ import css from 'styled-jsx/css';
 export default css.global`
   @import 'variables.scss';
 
-  .dist h3 {
-    margin: 1rem 0 2rem 0;
+  .dist {
+    border-top: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-light;
   }
 
   .dist__list {
@@ -15,9 +16,6 @@ export default css.global`
   .dist__item {
     width: 50%;
     border-bottom: 1px solid $color-gray-light;
-    padding: 1.5rem 2.5rem;
-    display: flex;
-    align-items: center;
 
     &:nth-child(2n+2) {
       border-left: 1px solid $color-gray-light;
@@ -28,29 +26,45 @@ export default css.global`
     }
   }
 
-  .dist__link {
-    width: 100%;
-    max-width: 18.75rem;
-    min-height: 11.4rem;
-    margin: 0 auto;
+  .dist__item--heading {
+    background: $color-purple;
+    color: $color-white;
+  }
+
+  .dist__heading {
+    height: 100%;
+    margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .dist__link {
+    background: $color-gray-lightest;
+    width: 100%;
+    height: 100%;
+    min-height: 18rem;
+    padding: 2.5rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s linear;
+
+    &:hover,
+    &:focus {
+      background: $color-white;
+    }
+  }
+
+  .dist__img {
+    max-width: 18.75rem;
   }
 
   @media (min-width: $break-tablet) {
-    .dist h3 {
-      margin: 0 0 3rem 0;
-    }
-
-    .dist__heading br {
-      display: none;
-    }
-
     .dist__item {
       width: 25%;
       border-left: 1px solid $color-gray-light;
-      padding: 2.5rem;
-      position: relative;
 
       &:nth-child(4n+1) {
         border-left: none;
@@ -59,6 +73,10 @@ export default css.global`
       &:nth-last-child(-n+4) {
         border-bottom: none;
       }
+    }
+
+    .dist__link {
+      min-height: 21rem;
     }
   }
 `;

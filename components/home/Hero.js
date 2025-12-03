@@ -1,29 +1,43 @@
+import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
+import Container from '../../shared/components/Container.js';
 import styles from './Hero.styles.js';
 
-const Hero = () => {
+const Hero = ({ font }) => {
   return(
-    <div className="hero">
-      <Link href="/fonts/tuper-super">
-        <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text="Tuper Super hero">
-          <div className="hero__img hero__img--top">
-            <Image src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-tupersuper.svg`} alt="Hello!" width={484} height={155} priority={true} />
-          </div>
+    <>
+      <Head>
+        <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
+      </Head>
 
-          <div className="hero__img">
-            <Image className="hero__img" src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}misc/hero-tupersuper-2.svg`} alt="Have a font" width={622} height={99} priority={true} />
-          </div>
+      <div className="hero">
+        <Container>
+          <div className="hero__container">
+            <Link href={`/fonts/${font.slug}`}>
+              <a className="hero__link" data-ga-click={true} data-ga-category="home" data-ga-text={`${font.name} hero`}>
+                <div className="label hero__badge hero__badge--small">
+                  New<br />Font
+                </div>
 
-          <span className="hero__pointer">Like my newest <br />release Tuper Super.</span>
-          <span className="hero__pointer">Give it a try for free!</span>
-        </a>
-      </Link>
+                <div className={`hero__letters font-${font.slug}`} aria-hidden="true">
+                  <span>A</span>
+                  <span>B</span>
+                  <span>C</span>
+                </div>
+
+                <div className="label hero__badge hero__badge--large">
+                  {font.name}
+                </div>
+              </a>
+            </Link>
+          </div>
+        </Container>
+      </div>
 
       <style jsx global>
         {styles}
       </style>
-    </div>
+    </>
   );
 };
 

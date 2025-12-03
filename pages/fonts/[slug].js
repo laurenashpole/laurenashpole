@@ -5,7 +5,6 @@ import { findActive, findBySlug } from '../../utils/fonts';
 import { findByIds as findTagsByIds } from '../../utils/tags';
 import Custom404 from '../404';
 import Layout from '../../components/layout/Layout';
-import HeroImage from '../../components/fonts/HeroImage';
 import Content from '../../components/fonts/Content';
 
 const Font = ({ font, tags }) => {
@@ -52,7 +51,6 @@ const Font = ({ font, tags }) => {
         <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
       </Head>
 
-      <HeroImage src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.main}`} alt={`${font.name} Sample`} />
       <Content font={font} tags={tags} />
       <div id="modalRoot" />
     </Layout>

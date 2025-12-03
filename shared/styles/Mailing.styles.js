@@ -5,7 +5,7 @@ export default css.global`
 
   .mailing--inline {
     width: 100%;
-    padding: 1.5rem 1.5rem 0 1.5rem;
+    padding: 1.25rem;
     display: flex;
 
     .mailing__input {
@@ -29,8 +29,6 @@ export default css.global`
   }
 
   .mailing__input {
-    padding-bottom: 1.25rem;
-
     input[type="email"] {
       text-align: center;
     }
@@ -50,8 +48,6 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .mailing--inline {
-      padding: 1.25rem 0 0 1.25rem;
-
       .mailing__btn {
         padding: 0 0 0 1.25rem;
         font-size: 1.75rem;

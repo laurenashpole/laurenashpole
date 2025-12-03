@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import Well from '../../shared/components/Well';
 import Layout from '../../components/layout/Layout';
+import Page from '../../components/layout/Page';
 
 const Licensing = () => {
   return(
     <Layout meta={{ title: 'Licensing - Fonts', pathname: 'fonts/licensing' }}>
-      <Well>
+      <Page>
         <h1>Licensing</h1>
 
         <>
@@ -19,7 +19,7 @@ const Licensing = () => {
 
           <p>This might not be the most clear cut method of categorization so feel free to <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} title={process.env.NEXT_PUBLIC_EMAIL}>ask</a> if you have any questions about where your project falls on the list</p>
         </>
-      </Well>
+      </Page>
     </Layout>
   );
 };
