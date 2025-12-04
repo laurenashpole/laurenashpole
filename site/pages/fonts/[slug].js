@@ -9,7 +9,6 @@ import Custom404 from '../404';
 
 const Font = ({ font }) => {
   const { query } = useRouter();
-  console.log(font)
 
   if (!font.active && !query.preview) {
     return <Custom404 />;
