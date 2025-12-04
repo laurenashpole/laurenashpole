@@ -45,7 +45,7 @@ const Order = ({ order }) => {
           items={order.fonts.map((font) => {
             return {
               ...font,
-              downloadPath: font.downloads.commercial.file.url,
+              downloadPath: `${font.downloads.commercial.file.url}?dl=`,
             };
           })}
           name="confirm"

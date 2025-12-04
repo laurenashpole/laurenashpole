@@ -17,13 +17,13 @@ const Buttons = ({ font }) => {
       return setShowModal(true);
     }
 
-    window.location = font.downloads.personal.file.url;
+    window.location = `${font.downloads.personal.file.url}?dl=`;
   };
 
   const handleModalClose = (startDownload) => {
     if (startDownload) {
       window.localStorage.setItem('hasReferrer', true);
-      window.location = font.downloads.personal.file.url;
+      window.location = `${font.downloads.personal.file.url}?dl=`;
     }
 
     downloadRef.current.focus();
