@@ -8,7 +8,7 @@ const Details = ({ font }) => {
   const { description, distributors, downloads, tags } = font;
 
   const distributorsLinks = [
-    ...(distributors.slice(0, -1).length
+    ...((distributors || []).slice(0, -1).length
       ? [
           distributors
             .slice(0, -1)
@@ -19,7 +19,7 @@ const Details = ({ font }) => {
             .join(', '),
         ]
       : []),
-    ...distributors
+    ...(distributors || [])
       .slice(-1)
       .map(
         (dist) =>
