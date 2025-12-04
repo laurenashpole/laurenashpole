@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 import Content from '../../components/fonts/Content';
 import Layout from '../../components/layout/Layout';
-import { findActive, findBySlug } from '../../utils/fonts';
-import { findByIds as findTagsByIds } from '../../utils/tags';
+import { fetchFont, fetchFonts } from '../../utils/sanity';
 import Custom404 from '../404';
 
-const Font = ({ font, tags }) => {
+const Font = ({ font }) => {
   const { query } = useRouter();
+  console.log(font)
 
   if (!font.active && !query.preview) {
     return <Custom404 />;
@@ -21,7 +21,7 @@ const Font = ({ font, tags }) => {
     price: `$${font.price}`,
     'price:currency': 'USD',
     availability: 'instock',
-    image: `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`,
+    image: font.images.gallery[0].url,
   };
 
   const structuredData = `
@@ -30,7 +30,7 @@ const Font = ({ font, tags }) => {
       "@type": "Product",
       "name": "${font.name}",
       "sku": "${font._id}",
-      "image": "${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}",
+      "image": "${font.images.gallery[0].url}",
       ${font.description ? '"description": "' + font.description.replace(/<br\/>/g, '').replace(/\s+/g, ' ') + '",' : ''}
       "offers": {
         "@type": "Offer",
@@ -57,20 +57,20 @@ const Font = ({ font, tags }) => {
       }}
     >
       <Head>
-        <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
+        <style dangerouslySetInnerHTML={{ __html: font.previews.css }} />
       </Head>
 
-      <Content font={font} tags={tags} />
+      <Content font={font} />
       <div id="modalRoot" />
     </Layout>
   );
 };
 
 export async function getStaticPaths() {
-  const fonts = await findActive(3, { $natural: -1 });
+  const fonts = await fetchFonts();
 
   return {
-    paths: fonts.map((font) => {
+    paths: fonts.slice(0, 5).map((font) => {
       return { params: { slug: font.slug } };
     }),
     fallback: 'blocking',
@@ -78,13 +78,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const font = await findBySlug(params.slug);
-  const tags = await findTagsByIds(font.tags);
+  const font = await fetchFont(params.slug);
 
   return {
     props: {
       font: JSON.parse(JSON.stringify(font)),
-      tags: JSON.parse(JSON.stringify(tags)),
     },
     revalidate: 604800,
   };
@@ -92,7 +90,6 @@ export async function getStaticProps({ params }) {
 
 Font.propTypes = {
   font: PropTypes.object,
-  tags: PropTypes.array,
 };
 
 export default Font;

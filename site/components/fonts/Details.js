@@ -4,12 +4,8 @@ import PropTypes from 'prop-types';
 import Tags from '../../../shared/components/Tags';
 import styles from './Details.styles.js';
 
-const Details = ({ font, tags }) => {
-  const { description, commercial_file, personal_file, font_files } = font;
-
-  const distributors = Object.values(font.distributors).filter(
-    (dist) => dist.url,
-  );
+const Details = ({ font }) => {
+  const { description, distributors, downloads, tags } = font;
 
   const distributorsLinks = [
     ...(distributors.slice(0, -1).length
@@ -65,39 +61,27 @@ const Details = ({ font, tags }) => {
       )}
 
       <div className="details__inline details__lists">
-        {(font_files || {}).personal && (
+        {(downloads || {}).personal && (
           <ul className="details__list">
             <li>
               <h4>Personal Use Details</h4>
             </li>
 
-            {Object.keys(personal_file).map((detail) => {
-              return personal_file[detail].is_included ? (
-                <li key={personal_file[detail].name}>
-                  {personal_file[detail].name}
-                </li>
-              ) : (
-                ''
-              );
-            })}
+            {(downloads.personal.features || []).map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
           </ul>
         )}
 
-        {(font_files || {}).commercial && (
+        {(downloads || {}).commercial && (
           <ul className="details__list">
             <li>
               <h4>Commercial Use Details</h4>
             </li>
 
-            {Object.keys(commercial_file).map((detail) => {
-              return commercial_file[detail].is_included ? (
-                <li key={commercial_file[detail].name}>
-                  {commercial_file[detail].name}
-                </li>
-              ) : (
-                ''
-              );
-            })}
+            {(downloads.commercial.features || []).map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
           </ul>
         )}
       </div>

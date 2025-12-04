@@ -5,7 +5,10 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['bgljydntkoculytr.public.blob.vercel-storage.com'],
+    domains: [
+      'bgljydntkoculytr.public.blob.vercel-storage.com',
+      'cdn.sanity.io',
+    ],
   },
   async redirects() {
     return [

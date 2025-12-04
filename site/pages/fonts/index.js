@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 
 import List from '../../components/fonts/List';
 import Layout from '../../components/layout/Layout';
-import { findActive } from '../../utils/fonts';
-import { findAll as findAllTags } from '../../utils/tags';
+import { fetchFonts, fetchTags } from '../../utils/sanity';
 
 const Fonts = ({ fonts, tags }) => {
   return (
@@ -21,8 +20,8 @@ const Fonts = ({ fonts, tags }) => {
 };
 
 export async function getStaticProps() {
-  const fonts = await findActive();
-  const tags = await findAllTags();
+  const fonts = await fetchFonts();
+  const tags = await fetchTags();
 
   return {
     props: {

@@ -34,7 +34,9 @@ const Glyphs = ({ font }) => {
     <section className="glyphs">
       <h3>Glyphs</h3>
 
-      {font.commercial_file.additional_chars.is_included && (
+      {(((font.downloads || {}).commercial || {}).features || []).includes(
+        'Additional Characters',
+      ) && (
         <ul
           className="glyphs__tabs"
           role="tablist"

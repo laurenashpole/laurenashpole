@@ -33,7 +33,7 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                     >
                       <span className="grid__img">
                         <Image
-                          src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[0]}`}
+                          src={font.images.gallery[0].url}
                           alt={font.name}
                           width={640}
                           height={427}
@@ -43,7 +43,7 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                       {font.images.gallery[1] && (
                         <span className="grid__img">
                           <Image
-                            src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[1]}`}
+                            src={font.images.gallery[1].url}
                             alt=""
                             width={640}
                             height={427}

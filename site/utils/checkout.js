@@ -1,7 +1,7 @@
 import paypal from '@paypal/checkout-server-sdk';
 
-import { findByIds } from './fonts';
 import { getOrderTemplate, getTransporter } from './mailers';
+import { fetchFonts } from './sanity';
 
 export async function getOrder(orderId, sendFiles) {
   try {
@@ -17,7 +17,7 @@ export async function getOrder(orderId, sendFiles) {
     const response = (await client.execute(request)).result;
     const purchase = response.purchase_units[0] || {};
     const fonts = await ((purchase.items || []).length
-      ? findByIds(purchase.items.map((item) => item.sku))
+      ? fetchFonts(purchase.items.map((item) => item.sku))
       : Promise.resolve());
     const order = {
       ...purchase,
@@ -57,8 +57,8 @@ async function fulfillOrder(order) {
 
 function getAttachments(fonts) {
   return fonts.map((font) => {
-    const filename = font.font_files.commercial.replace('fonts/', '');
-    const path = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).commercial}`;
+    const filename = font.downloads.commercial.file.url.split('/').pop();
+    const path = font.downloads.commercial.file.url;
 
     return {
       filename,
