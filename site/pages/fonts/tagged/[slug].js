@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 
 import List from '../../../components/fonts/List';
 import Layout from '../../../components/layout/Layout';
-import { findByIds as findFontsByIds } from '../../../utils/fonts';
-import { findAll, findBySlug } from '../../../utils/tags';
+import { fetchTag, fetchTags } from '../../../utils/sanity';
 
-const Tag = ({ tag, fonts }) => {
+const Tag = ({ tag }) => {
   return (
     <Layout
       meta={{
@@ -18,7 +17,7 @@ const Tag = ({ tag, fonts }) => {
     >
       <List
         heading={`${tag.name} Fonts`}
-        fonts={fonts}
+        fonts={tag.fonts}
         tags={[]}
         description={tag.description}
       />
@@ -27,7 +26,7 @@ const Tag = ({ tag, fonts }) => {
 };
 
 export async function getStaticPaths() {
-  const tags = await findAll();
+  const tags = await fetchTags();
 
   return {
     paths: tags.map((tag) => {
@@ -38,13 +37,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const tag = await findBySlug(params.slug);
-  const fonts = await findFontsByIds(tag.fonts);
+  const tag = await fetchTag(params.slug);
 
   return {
     props: {
       tag: JSON.parse(JSON.stringify(tag)),
-      fonts: JSON.parse(JSON.stringify(fonts)),
     },
   };
 }

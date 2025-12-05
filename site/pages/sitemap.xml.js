@@ -1,11 +1,10 @@
-import { findActive as findAllFonts } from '../utils/fonts';
-import { findAll as findAllTags } from '../utils/tags';
+import { fetchFonts, fetchTags } from '../utils/sanity';
 
 const Sitemap = () => {};
 
 export async function getServerSideProps({ res }) {
-  const fonts = await findAllFonts();
-  const tags = await findAllTags();
+  const fonts = await fetchFonts();
+  const tags = await fetchTags();
   const date = new Date().toISOString().substring(0, 10);
 
   const getUrls = (items, path) => {

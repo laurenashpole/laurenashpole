@@ -17,13 +17,13 @@ const Buttons = ({ font }) => {
       return setShowModal(true);
     }
 
-    window.location = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).personal}`;
+    window.location = `${font.downloads.personal.file.url}?dl=`;
   };
 
   const handleModalClose = (startDownload) => {
     if (startDownload) {
       window.localStorage.setItem('hasReferrer', true);
-      window.location = `${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${(font.font_files || {}).personal}`;
+      window.location = `${font.downloads.personal.file.url}?dl=`;
     }
 
     downloadRef.current.focus();
@@ -37,7 +37,7 @@ const Buttons = ({ font }) => {
 
   return (
     <div className="buttons">
-      {(font.font_files || {}).personal && (
+      {(font.downloads || {}).personal && (
         <>
           <Button
             style="outline"
@@ -88,7 +88,7 @@ const Buttons = ({ font }) => {
         </>
       )}
 
-      {(font.font_files || {}).commercial && (
+      {(font.downloads || {}).commercial && (
         <Button
           style="primary"
           onClick={handleAdd}

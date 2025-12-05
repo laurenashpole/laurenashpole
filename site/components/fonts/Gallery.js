@@ -31,8 +31,10 @@ const Gallery = ({ font }) => {
 
         <Image
           key={`image${activeIndex}`}
-          src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${font.images.gallery[activeIndex]}`}
-          alt={`${font.name} Poster Image`}
+          src={font.images.gallery[activeIndex].url}
+          alt={
+            font.images.gallery[activeIndex].alt || `${font.name} Poster Image`
+          }
           width={1500}
           height={1000}
         />
@@ -53,7 +55,7 @@ const Gallery = ({ font }) => {
                 }}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_ASSET_BASE_URL}${image}`}
+                  src={image.url}
                   alt={`View poster image ${i + 1}`}
                   width={360}
                   height={240}

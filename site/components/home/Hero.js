@@ -8,7 +8,7 @@ const Hero = ({ font }) => {
   return (
     <>
       <Head>
-        <style dangerouslySetInnerHTML={{ __html: font.previews_css }} />
+        <style dangerouslySetInnerHTML={{ __html: font.previews.css }} />
       </Head>
 
       <div className="hero">

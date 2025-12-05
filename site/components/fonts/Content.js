@@ -10,7 +10,7 @@ import Gallery from './Gallery';
 import Glyphs from './Glyphs';
 import Preview from './Preview';
 
-const Content = ({ font, tags }) => {
+const Content = ({ font }) => {
   useEffect(() => {
     ga4Event('view_item', [font]);
   }, [font]);
@@ -43,7 +43,7 @@ const Content = ({ font, tags }) => {
                 <Buttons font={font} />
               </section>
 
-              <Details font={font} tags={tags} />
+              <Details font={font} />
               <Preview font={font} />
               <Glyphs font={font} />
             </div>

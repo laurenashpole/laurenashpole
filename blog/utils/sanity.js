@@ -1,14 +1,7 @@
 import { toHTML } from '@portabletext/to-html';
 import { decode } from 'html-entities';
-import { createClient } from 'next-sanity';
 import Prism from 'prismjs';
-
-const client = createClient({
-  projectId: process.env.SANITY_PROJECT,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: true,
-});
+import { sanityClient } from '../../shared/utils/sanityClient';
 
 function getQuery(limit, page, id, tag) {
   return `*[_type == 'post' && state == 'published'${id ? ` && _id == '${id}'` : ''} ${tag ? ` && '${tag}' in tags` : ''}] | order(date desc)${limit ? `[${limit * (page - 1)}...${limit * page}]` : ''} {
@@ -68,7 +61,7 @@ function getPreview(html) {
 }
 
 async function getPagination(limit, page) {
-  const totalPosts = await client.fetch(`count(*[_type == 'post'])`);
+  const totalPosts = await sanityClient(process.env.SANITY_PROJECT).fetch(`count(*[_type == 'post'])`);
   const lastPage = Math.ceil(totalPosts / limit);
 
   return {
@@ -78,7 +71,7 @@ async function getPagination(limit, page) {
 }
 
 async function getPosts(limit, page, id, tag) {
-  return (await client.fetch(getQuery(limit, page, id, tag))).map((post) => {
+  return (await sanityClient(process.env.SANITY_PROJECT).fetch(getQuery(limit, page, id, tag))).map((post) => {
     const html = getHtml(post.body);
 
     return {
@@ -90,7 +83,7 @@ async function getPosts(limit, page, id, tag) {
 }
 
 async function getAffiliate() {
-  const affiliates = await client.fetch(
+  const affiliates = await sanityClient(process.env.SANITY_PROJECT).fetch(
     `*[_type == 'affiliate' && is_active] {
       ...,
       banner {

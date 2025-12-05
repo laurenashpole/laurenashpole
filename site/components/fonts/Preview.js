@@ -54,8 +54,8 @@ const Preview = ({ font }) => {
         {text}
       </div>
 
-      {font.alternate_style &&
-        font.alternate_style.split(', ').map((className) => {
+      {font.previews.alternate_style &&
+        font.previews.alternate_style.split(', ').map((className) => {
           return (
             <div
               key={className}
