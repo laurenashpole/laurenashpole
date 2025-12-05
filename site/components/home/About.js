@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import Container from '../../../shared/components/Container.js';
 import styles from './About.styles.js';

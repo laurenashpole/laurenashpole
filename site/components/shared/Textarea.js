@@ -15,7 +15,6 @@ const Textarea = ({ label, hasError, textareaProps }) => {
         id={label.replace(/ /g, '')}
         {...textareaProps}
       />
-
       <style jsx global>
         {styles}
       </style>

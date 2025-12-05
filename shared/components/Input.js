@@ -19,7 +19,6 @@ const Input = forwardRef(({ label, hideLabel, hasError, attributes }, ref) => {
         {...attributes}
         ref={ref}
       />
-
       <style jsx global>
         {styles}
       </style>
