@@ -2,11 +2,19 @@ import { sanityClient } from '../../shared/utils/sanityClient';
 
 const FONT_PARTIAL = `
   _id,
+  name,
   "slug": slug.current,
   images {
     "gallery": gallery[] {
       "url": asset->url,
       alt
+    }
+  },
+  downloads {
+    commercial {
+      file {
+        "url": asset->url
+      }
     }
   }`;
 

@@ -19,6 +19,7 @@ export async function getOrder(orderId, sendFiles) {
     const fonts = await ((purchase.items || []).length
       ? fetchFonts(purchase.items.map((item) => item.sku))
       : Promise.resolve());
+
     const order = {
       ...purchase,
       orderId: orderId,
@@ -38,7 +39,7 @@ export async function getOrder(orderId, sendFiles) {
 
 async function fulfillOrder(order) {
   const transporter = getTransporter();
-  const attachments = await Promise.all(getAttachments(order.fonts));
+  const attachments = getAttachments(order.fonts);
 
   try {
     await transporter.sendMail({
@@ -58,7 +59,7 @@ async function fulfillOrder(order) {
 function getAttachments(fonts) {
   return fonts.map((font) => {
     const filename = font.downloads.commercial.file.url.split('/').pop();
-    const path = font.downloads.commercial.file.url;
+    const path = `${font.downloads.commercial.file.url}?dl=`;
 
     return {
       filename,
