@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import Container from '../../../shared/components/Container.js';
 import { DIST_LINKS } from '../../constants/distLinks';
@@ -35,7 +35,10 @@ const Distributors = () => {
                         width={link.imgWidth}
                         height={link.imgHeight}
                         data-pin-nopin="true"
-                      />
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto"
+                        }} />
                     </div>
                   </a>
                 </li>
@@ -44,7 +47,6 @@ const Distributors = () => {
           </ul>
         </Container>
       </div>
-
       <style jsx global>
         {styles}
       </style>

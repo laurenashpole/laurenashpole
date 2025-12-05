@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 import { useEffect } from 'react';
 
@@ -37,8 +37,12 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                         alt={font.name}
                         width={640}
                         height={427}
-                      />
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto"
+                        }} />
                     </span>
+
                     {font.images.gallery[1] && (
                       <span className="grid__img">
                         <Image
@@ -46,10 +50,14 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                           alt=""
                           width={640}
                           height={427}
-                        />
+                          style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                          }} />
                       </span>
                     )}
                   </Link>
+
                   {showDetails && (
                     <div className="label grid__details">
                       <h3 className="grid__name">{font.name}</h3>
