@@ -20,15 +20,4 @@ export const HEADER = {
       label: 'Contact',
     },
   ],
-  admin: [
-    {
-      path: '/admin',
-      label: 'Home',
-      isExact: true,
-    },
-    {
-      path: '/api/admin/logout',
-      label: 'Logout',
-    },
-  ],
 };

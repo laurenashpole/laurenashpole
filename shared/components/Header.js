@@ -18,14 +18,14 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
             <SrOnly>{home.label}</SrOnly>
           </a>
         ) : (
-          <ActiveLink href={home.path} isExact={true}>
-            <a
-              className="header__logo"
-              data-ga-click={enableAnalytics}
-              data-ga-category="nav"
-            >
-              <SrOnly>{home.label}</SrOnly>
-            </a>
+          <ActiveLink
+            href={home.path}
+            className="header__logo"
+            data-ga-click={enableAnalytics}
+            data-ga-category="nav"
+            isExact={true}
+          >
+            <SrOnly>{home.label}</SrOnly>
           </ActiveLink>
         )}
 
@@ -45,14 +45,14 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
                       {link.label}
                     </a>
                   ) : (
-                    <ActiveLink href={link.path} isExact={link.isExact}>
-                      <a
-                        className="header__link"
-                        data-ga-click={enableAnalytics}
-                        data-ga-category="nav"
-                      >
-                        {link.label}
-                      </a>
+                    <ActiveLink
+                      href={link.path}
+                      className="header__link"
+                      data-ga-click={enableAnalytics}
+                      data-ga-category="nav"
+                      isExact={link.isExact}
+                    >
+                      {link.label}
                     </ActiveLink>
                   )}
                 </li>
