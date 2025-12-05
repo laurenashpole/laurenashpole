@@ -10,14 +10,8 @@ const Custom404 = () => {
         <h1>404 - Page Not Found</h1>
         <p>
           Oh no! It looks like that post doesn&apos;t exist. Wanna check out{' '}
-          <Link href="/tagged/fonts">
-            <a>fonts</a>
-          </Link>{' '}
-          or{' '}
-          <Link href="/tagged/code">
-            <a>code</a>
-          </Link>{' '}
-          instead?
+          <Link href="/tagged/fonts">fonts</Link> or{' '}
+          <Link href="/tagged/code">code</Link> instead?
         </p>
       </Well>
     </Layout>

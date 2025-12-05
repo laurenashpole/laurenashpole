@@ -1,6 +1,7 @@
 import { toHTML } from '@portabletext/to-html';
 import { decode } from 'html-entities';
 import Prism from 'prismjs';
+
 import { sanityClient } from '../../shared/utils/sanityClient';
 
 function getQuery(limit, page, id, tag) {
@@ -61,7 +62,9 @@ function getPreview(html) {
 }
 
 async function getPagination(limit, page) {
-  const totalPosts = await sanityClient(process.env.SANITY_PROJECT).fetch(`count(*[_type == 'post'])`);
+  const totalPosts = await sanityClient(process.env.SANITY_PROJECT).fetch(
+    `count(*[_type == 'post'])`,
+  );
   const lastPage = Math.ceil(totalPosts / limit);
 
   return {
@@ -71,7 +74,11 @@ async function getPagination(limit, page) {
 }
 
 async function getPosts(limit, page, id, tag) {
-  return (await sanityClient(process.env.SANITY_PROJECT).fetch(getQuery(limit, page, id, tag))).map((post) => {
+  return (
+    await sanityClient(process.env.SANITY_PROJECT).fetch(
+      getQuery(limit, page, id, tag),
+    )
+  ).map((post) => {
     const html = getHtml(post.body);
 
     return {

@@ -9,19 +9,17 @@ const Tags = ({ tags, path, source }) => {
       {tags.map((tag) => {
         return (
           <li key={tag._id || tag.slug}>
-            <Link href={`${path || ''}/${tag.slug}`}>
-              <a
-                className="tags__tag"
-                data-ga-click={!!source}
-                data-ga-category={source}
-              >
-                {tag.name}
-              </a>
+            <Link
+              href={`${path || ''}/${tag.slug}`}
+              className="tags__tag"
+              data-ga-click={!!source}
+              data-ga-category={source}
+            >
+              {tag.name}
             </Link>
           </li>
         );
       })}
-
       <style jsx global>
         {styles}
       </style>

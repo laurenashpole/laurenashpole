@@ -8,26 +8,29 @@ const Details = ({ post }) => {
     <div className="details">
       <ul className="details__list">
         <li className="details__item details__item--em details__item--type">
-          <Link href={post.pathname}>
-            <a data-ga-category="blog details" data-ga-click="true">
-              {post.type}
-            </a>
+          <Link
+            href={post.pathname}
+            data-ga-category="blog details"
+            data-ga-click="true"
+          >
+            {post.type}
           </Link>
         </li>
 
         {(post.tags || []).map((tag, i) => {
           return (
             <li key={i} className="details__item">
-              <Link href={`/tagged/${tag.replace(/ /g, '-')}`}>
-                <a data-ga-category="blog details" data-ga-click="true">
-                  {tag}
-                </a>
+              <Link
+                href={`/tagged/${tag.replace(/ /g, '-')}`}
+                data-ga-category="blog details"
+                data-ga-click="true"
+              >
+                {tag}
               </Link>
             </li>
           );
         })}
       </ul>
-
       {post.reblogged_from_name && post.reblogged_from_url && (
         <ul className="details__list">
           <li className="details__item">
@@ -37,14 +40,15 @@ const Details = ({ post }) => {
           </li>
         </ul>
       )}
-
       <ul className="details__list">
         {post.note_count > 0 && (
           <li className="details__item details__item--em">
-            <Link href={post.pathname}>
-              <a data-ga-category="blog details" data-ga-click="true">
-                {post.note_count} Note{post.note_count !== 1 ? 's' : ''}
-              </a>
+            <Link
+              href={post.pathname}
+              data-ga-category="blog details"
+              data-ga-click="true"
+            >
+              {post.note_count}Note{post.note_count !== 1 ? 's' : ''}
             </Link>
           </li>
         )}
@@ -52,19 +56,15 @@ const Details = ({ post }) => {
         <li className="details__item">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}${post.pathname}#disqus_thread`}
+            className="dsq-comment-count disqus-comment-count"
+            data-disqus-url={`${process.env.NEXT_PUBLIC_BASE_URL}${post.pathname}`}
+            data-ga-category="blog details"
+            data-ga-click="true"
           >
-            <a
-              className="dsq-comment-count disqus-comment-count"
-              data-disqus-url={`${process.env.NEXT_PUBLIC_BASE_URL}${post.pathname}`}
-              data-ga-category="blog details"
-              data-ga-click="true"
-            >
-              Comments
-            </a>
+            Comments
           </Link>
         </li>
       </ul>
-
       <style jsx global>
         {styles}
       </style>
