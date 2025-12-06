@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 import Container from '../../../shared/components/Container.js';
 import styles from './About.styles.js';
@@ -57,9 +57,10 @@ const About = () => {
                   width={400}
                   height={210}
                   style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
+                />
               </div>
             </div>
           </div>

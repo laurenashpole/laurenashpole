@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { cloneElement } from 'react';
 
 const ActiveLink = ({ href, isExact, children, ...props }) => {
   const router = useRouter();

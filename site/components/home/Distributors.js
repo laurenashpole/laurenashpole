@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 import Container from '../../../shared/components/Container.js';
 import { DIST_LINKS } from '../../constants/distLinks';
@@ -36,9 +36,10 @@ const Distributors = () => {
                         height={link.imgHeight}
                         data-pin-nopin="true"
                         style={{
-                          maxWidth: "100%",
-                          height: "auto"
-                        }} />
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
+                      />
                     </div>
                   </a>
                 </li>
