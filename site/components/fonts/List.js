@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Button from '../../../shared/components/Button';
 import Container from '../../../shared/components/Container.js';
 import Input from '../../../shared/components/Input';
+import AbstractDotRule from '../../../shared/components/svgs/AbstractDotRule.js';
 import Tags from '../../../shared/components/Tags';
 import Grid from './Grid.js';
 import styles from './List.styles.js';
@@ -26,7 +27,11 @@ const List = ({ heading, fonts, tags, description }) => {
       <div className="list">
         <div className="list__header">
           <Container>
-            <h1 className="list__heading">{heading}</h1>
+            <div className="list__heading">
+              <h1 className="list__heading-text">{heading}</h1>
+
+              <AbstractDotRule />
+            </div>
 
             {tags.length > 0 && (
               <div className="list__tags">

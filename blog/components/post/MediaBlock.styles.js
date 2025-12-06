@@ -11,8 +11,13 @@ export default css.global`
 
   .media__content--video {
     margin-bottom: 3.75rem;
-    padding-bottom: 56.25%;
     position: relative;
+
+    &:after {
+      content: '';
+      padding-bottom: 56.25%;
+      display: block;
+    }
   }
 
   .media__content--video iframe {

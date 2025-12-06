@@ -2,6 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import Container from '../../../shared/components/Container.js';
+import AbstractDotGroup from '../../../shared/components/svgs/AbstractDotGroup';
+import AbstractLineGroup from '../../../shared/components/svgs/AbstractLineGroup';
+import AbstractSquiggle from '../../../shared/components/svgs/AbstractSquiggle';
 import styles from './Hero.styles.js';
 
 const Hero = ({ font }) => {
@@ -10,9 +13,22 @@ const Hero = ({ font }) => {
       <Head>
         <style dangerouslySetInnerHTML={{ __html: font.previews.css }} />
       </Head>
+
       <div className="hero">
         <Container>
           <div className="hero__container">
+            <span className="hero__shapes hero__shapes--line-group">
+              <AbstractLineGroup />
+            </span>
+
+            <span className="hero__shapes hero__shapes--squiggle">
+              <AbstractSquiggle />
+            </span>
+
+            <span className="hero__shapes hero__shapes--dot-group">
+              <AbstractDotGroup />
+            </span>
+
             <Link
               href={`/fonts/${font.slug}`}
               className="hero__link"
@@ -25,6 +41,7 @@ const Hero = ({ font }) => {
                 <br />
                 Font
               </div>
+
               <div
                 className={`hero__letters font-${font.slug}`}
                 aria-hidden="true"
@@ -33,6 +50,7 @@ const Hero = ({ font }) => {
                 <span>B</span>
                 <span>C</span>
               </div>
+
               <div className="label hero__badge hero__badge--large">
                 {font.name}
               </div>
@@ -40,6 +58,7 @@ const Hero = ({ font }) => {
           </div>
         </Container>
       </div>
+
       <style jsx global>
         {styles}
       </style>

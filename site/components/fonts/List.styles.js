@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'svgs.scss';
   @import 'variables.scss';
 
   .list {
@@ -19,18 +18,15 @@ export default css.global`
   .list__heading {
     text-align: center;
 
-    &:after {
-      content: '';
-      background: url(abstract-dots-hr(
-        $color-pink-encoded,
-        $color-orange-encoded
-      ));
-      background-repeat: no-repeat;
+    svg {
+      margin-top: 1rem;
       width: 7rem;
       height: 3.5rem;
-      margin: 1rem auto;
-      display: block;
     }
+  }
+
+  .list__heading-text {
+    margin: 0;
   }
 
   .list__heading + .list__tags {
@@ -115,10 +111,10 @@ export default css.global`
   }
 
   @media (min-width: $break-tablet) {
-    .list__heading:after {
+    .list__heading svg {
+      margin-top: 2rem;
       width: 8rem;
       height: 4rem;
-      margin: 2rem auto;
     }
 
     .list__heading + .list__tags {
@@ -156,7 +152,8 @@ export default css.global`
   }
 
   @media (min-width: $break-desktop) {
-    .list__heading:after {
+    .list__heading svg {
+      margin-top: 2rem;
       width: 10rem;
       height: 5rem;
     }

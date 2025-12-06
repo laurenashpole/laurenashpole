@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'svgs.scss';
   @import 'variables.scss';
 
   .hero {
@@ -12,33 +11,41 @@ export default css.global`
   }
 
   .hero__container {
+    background-color: $color-gray-lightest;
+    background-image: linear-gradient($color-gray-light 1px, transparent 1px);
+    background-size: 7rem 7rem;
     min-height: calc(7rem * 11);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+  }
 
-    &:after {
-      content: '';
-      background-color: $color-gray-lightest;
-      background-image:
-        url(abstract-lines($color-green-encoded)),
-        url(abstract-dots($color-orange-encoded)),
-        url(abstract-squiggle($color-blue-encoded));
-      background-position:
-        -4rem 3rem,
-        calc(100% - 4rem) calc(100% - 16rem),
-        calc(100% + 4rem) calc(100% - 4rem);
-      background-size: 42rem, 16rem, 50rem;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -2;
-      transform: scaleX(-1);
-    }
+  .hero__shapes {
+    position: absolute;
+    transform: scaleX(-1);
+  }
+
+  .hero__shapes--line-group {
+    width: 42rem;
+    right: -5rem;
+    top: 5rem;
+    color: $color-green;
+  }
+
+  .hero__shapes--squiggle {
+    width: 50rem;
+    left: -4rem;
+    bottom: 5rem;
+    color: $color-blue;
+  }
+
+  .hero__shapes--dot-group {
+    width: 16rem;
+    left: 4rem;
+    bottom: 17rem;
+    color: $color-orange;
   }
 
   .hero__letters {
@@ -119,14 +126,25 @@ export default css.global`
 
     .hero__container {
       min-height: calc(8.5rem * 9);
+      background-size: 8.5rem 8.5rem;
+    }
 
-      &:after {
-        background-size: 50rem, 19rem, 60rem;
-        background-position:
-          5rem 6rem,
-          calc(100% - 10rem) calc(100% - 25rem),
-          calc(100% - 5rem) calc(100% - 6rem);
-      }
+    .hero__shapes--line-group {
+      width: 50rem;
+      right: 5rem;
+      top: 5rem;
+    }
+
+    .hero__shapes--dot-group {
+      width: 19rem;
+      left: 10rem;
+      bottom: 24rem;
+    }
+
+    .hero__shapes--squiggle {
+      width: 60rem;
+      left: 5rem;
+      bottom: 5rem;
     }
 
     .hero__letters {
@@ -165,14 +183,22 @@ export default css.global`
   }
 
   @media (min-width: $break-desktop) {
-    .hero__container {
-      &:after {
-        background-size: 56rem, 21rem, 67rem;
-        background-position:
-          8rem 6rem,
-          calc(100% - 14rem) calc(100% - 26rem),
-          calc(100% - 8rem) calc(100% - 6rem);
-      }
+    .hero__shapes--line-group {
+      width: 56rem;
+      right: 8rem;
+      top: 6rem;
+    }
+
+    .hero__shapes--dot-group {
+      width: 21rem;
+      left: 14rem;
+      bottom: 25rem;
+    }
+
+    .hero__shapes--squiggle {
+      width: 67rem;
+      left: 8rem;
+      bottom: 5rem;
     }
 
     .hero__letters {

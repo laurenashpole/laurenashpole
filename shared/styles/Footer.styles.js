@@ -29,32 +29,13 @@ export default css.global`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2.625rem;
 
     &:focus,
     &:hover {
       background: $color-gray-lightest;
       color: $color-purple-hover;
     }
-  }
-
-  .footer__social-twitter {
-    width: 22px;
-    height: 18px;
-  }
-
-  .footer__social-pinterest {
-    width: 17px;
-    height: 21px;
-  }
-
-  .footer__social-github {
-    width: 22px;
-    height: 22px;
-  }
-
-  .footer__social-codepen {
-    width: 26px;
-    height: 26px;
   }
 
   @media (min-width: $break-tablet) {

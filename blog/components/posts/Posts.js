@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import Container from '../../../shared/components/Container.js';
+import AbstractLineRule from '../../../shared/components/svgs/AbstractLineRule.js';
 import Affiliate from '../affiliate/Affiliate';
 import Post from '../post/Post';
 import Pagination from './Pagination';
@@ -14,10 +15,10 @@ const Posts = ({ posts, pagination, paginationPath, heading, affiliate }) => {
         {heading && (
           <div className="posts__heading">
             <Container>
-              <h1
-                className="posts__heading-text"
-                dangerouslySetInnerHTML={{ __html: heading }}
-              />
+              <div className="posts__heading-text">
+                <h1 dangerouslySetInnerHTML={{ __html: heading }} />
+                <AbstractLineRule />
+              </div>
             </Container>
           </div>
         )}

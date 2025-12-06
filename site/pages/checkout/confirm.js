@@ -13,6 +13,27 @@ import { ga4Event } from '../../utils/ga4';
 const Confirm = ({ order }) => {
   const router = useRouter();
 
+  order = {
+    fonts: [
+      {
+        name: 'Horseshoes',
+        qty: 2,
+        price: 15,
+        downloads: {
+          commercial: {
+            file: {
+              url: '',
+            },
+          },
+        },
+      },
+    ],
+    total: 30,
+    payer: {
+      email_address: 'test@test.com',
+    },
+  };
+
   useEffect(() => {
     if (router.query.sendFiles && !order.error) {
       window.history.replaceState(null, null, `?orderId=${order.orderId}`);
