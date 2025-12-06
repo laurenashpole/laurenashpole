@@ -37,9 +37,12 @@ const Gallery = ({ font }) => {
           }
           width={1500}
           height={1000}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </div>
-
       <ul className="gallery__thumbs">
         {font.images.gallery.map((image, i) => {
           return (
@@ -59,13 +62,16 @@ const Gallery = ({ font }) => {
                   alt={`View poster image ${i + 1}`}
                   width={360}
                   height={240}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </Button>
             </li>
           );
         })}
       </ul>
-
       <style jsx global>
         {styles}
       </style>

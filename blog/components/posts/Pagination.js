@@ -16,14 +16,11 @@ const Pagination = ({ pagination, paginationPath }) => {
                   ? '/'
                   : `${paginationPath ? paginationPath : ''}/page/${pagination.prevPage}`
               }
+              rel="prev"
+              data-ga-category="blog pagination"
+              data-ga-click="true"
             >
-              <a
-                rel="prev"
-                data-ga-category="blog pagination"
-                data-ga-click="true"
-              >
-                Prev
-              </a>
+              Prev
             </Link>
           </li>
         )}
@@ -32,14 +29,11 @@ const Pagination = ({ pagination, paginationPath }) => {
           <li className="pagination__item pagination__item--next">
             <Link
               href={`${paginationPath ? paginationPath : ''}/page/${pagination.nextPage}`}
+              rel="next"
+              data-ga-category="blog pagination"
+              data-ga-click="true"
             >
-              <a
-                rel="next"
-                data-ga-category="blog pagination"
-                data-ga-click="true"
-              >
-                Next
-              </a>
+              Next
             </Link>
           </li>
         )}

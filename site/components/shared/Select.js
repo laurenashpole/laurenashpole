@@ -19,7 +19,6 @@ const Select = ({ children, label, hideLabel, selectProps }) => {
         {children}
       </select>
       <span className="select__caret" />
-
       <style jsx global>
         {styles}
       </style>

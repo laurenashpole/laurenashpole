@@ -9,40 +9,36 @@ import { HEADER } from '../../constants/header';
 import Cart from './Cart';
 import styles from './Layout.styles.js';
 
-const Layout = ({ children, hideHeader, isAdmin, meta }) => {
+const Layout = ({ children, meta }) => {
   return (
     <div className="layout">
       <Head>
         <title>
-          {(meta || {}).title ? meta.title + ' - ' : ''}Lauren Ashpole
+          {`${(meta || {}).title ? meta.title + ' - ' : ''}Lauren Ashpole`}
         </title>
       </Head>
 
-      {!isAdmin && (
-        <Meta
-          {...(meta || {})}
-          title={(meta || {}).title || 'Lauren Ashpole'}
-          description={
-            (meta || {}).description ||
-            'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'
-          }
-        />
-      )}
-      {!hideHeader && (
-        <Header
-          home={HEADER.home}
-          links={HEADER[isAdmin ? 'admin' : 'default']}
-          enableAnalytics={!isAdmin}
-          cart={<Cart />}
-        />
-      )}
+      <Meta
+        {...(meta || {})}
+        title={(meta || {}).title || 'Lauren Ashpole'}
+        description={
+          (meta || {}).description ||
+          'Custom, handcrafted fonts and dingbats for your personal and commercial projects.'
+        }
+      />
+
+      <Header
+        home={HEADER.home}
+        links={HEADER.default}
+        enableAnalytics
+        cart={<Cart />}
+      />
+
       <main className="layout__main">{children}</main>
 
-      {!isAdmin && (
-        <Footer>
-          <Mailing location="footer" isInline={true} />
-        </Footer>
-      )}
+      <Footer>
+        <Mailing location="footer" isInline={true} />
+      </Footer>
 
       <style jsx global>
         {styles}
@@ -53,8 +49,6 @@ const Layout = ({ children, hideHeader, isAdmin, meta }) => {
 
 Layout.propTypes = {
   children: PropTypes.any,
-  hideHeader: PropTypes.bool,
-  isAdmin: PropTypes.bool,
   meta: PropTypes.object,
 };
 

@@ -30,28 +30,21 @@ const Details = ({ font }) => {
   return (
     <section className="details">
       <h3>Details</h3>
-
       <ul className="details__inline">
         <li className="details__link">
-          <Link href="/fonts/licensing">
-            <a>Licensing Info</a>
-          </Link>
+          <Link href="/fonts/licensing">Licensing Info</Link>
         </li>
 
         <li className="details__link">
-          <Link href="/fonts/eula">
-            <a>View EULA</a>
-          </Link>
+          <Link href="/fonts/eula">View EULA</Link>
         </li>
       </ul>
-
       {description && (
         <div
           className="details__desc"
           dangerouslySetInnerHTML={{ __html: description }}
         />
       )}
-
       {distributors && distributors.length > 0 && (
         <div className="details__desc">
           Have another marketplace you prefer to get your licensing from? This
@@ -59,7 +52,6 @@ const Details = ({ font }) => {
           <span dangerouslySetInnerHTML={{ __html: distributorsLinks }} />.
         </div>
       )}
-
       <div className="details__inline details__lists">
         {(downloads || {}).personal && (
           <ul className="details__list">
@@ -85,14 +77,12 @@ const Details = ({ font }) => {
           </ul>
         )}
       </div>
-
       {tags && tags.length > 0 && (
         <div className="details__inline">
           <span className="details__tag-heading">Tagged:</span>
           <Tags tags={tags} path="/fonts/tagged" source="font page" />
         </div>
       )}
-
       <style jsx global>
         {styles}
       </style>

@@ -23,34 +23,41 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
             {fonts.map((font, i) => {
               return (
                 <li key={i} className="grid__item">
-                  <Link href={`/fonts/${font.slug}`}>
-                    <a
-                      className="grid__link"
-                      data-ga-click={true}
-                      data-ga-category={`${gaCategory.toLowerCase()} list`}
-                      data-ga-text={`${font.name} details`}
-                      onClick={handleClick}
-                    >
+                  <Link
+                    href={`/fonts/${font.slug}`}
+                    className="grid__link"
+                    data-ga-click={true}
+                    data-ga-category={`${gaCategory.toLowerCase()} list`}
+                    data-ga-text={`${font.name} details`}
+                    onClick={handleClick}
+                  >
+                    <span className="grid__img">
+                      <Image
+                        src={font.images.gallery[0].url}
+                        alt={font.name}
+                        width={640}
+                        height={427}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
+                      />
+                    </span>
+
+                    {font.images.gallery[1] && (
                       <span className="grid__img">
                         <Image
-                          src={font.images.gallery[0].url}
-                          alt={font.name}
+                          src={font.images.gallery[1].url}
+                          alt=""
                           width={640}
                           height={427}
+                          style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                          }}
                         />
                       </span>
-
-                      {font.images.gallery[1] && (
-                        <span className="grid__img">
-                          <Image
-                            src={font.images.gallery[1].url}
-                            alt=""
-                            width={640}
-                            height={427}
-                          />
-                        </span>
-                      )}
-                    </a>
+                    )}
                   </Link>
 
                   {showDetails && (

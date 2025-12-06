@@ -56,13 +56,16 @@ const About = () => {
                   alt="A preview of my next font!"
                   width={400}
                   height={210}
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                  }}
                 />
               </div>
             </div>
           </div>
         </Container>
       </div>
-
       <style jsx global>
         {styles}
       </style>

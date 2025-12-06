@@ -9,6 +9,8 @@ export default css.global`
 
   .grid__item {
     border-bottom: 1px solid $color-gray-light;
+    display: flex;
+    align-items: center;
   }
 
   .grid__link {

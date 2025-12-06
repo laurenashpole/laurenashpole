@@ -53,24 +53,24 @@ const Post = ({ post, isPermalink, affiliate }) => {
 
             {!isPermalink && (
               <footer className="post__footer" aria-label="Post footer">
-                <Link href={post.pathname}>
-                  <a data-ga-category="blog footer" data-ga-click="true">
-                    Permalink
-                  </a>
+                <Link
+                  href={post.pathname}
+                  data-ga-category="blog footer"
+                  data-ga-click="true"
+                >
+                  Permalink
                 </Link>
               </footer>
             )}
           </div>
         </div>
       </Container>
-
       {isPermalink && (
         <>
           <Affiliate affiliate={affiliate} isPermalink />
           <Comments />
         </>
       )}
-
       <style jsx global>
         {styles}
       </style>

@@ -18,16 +18,20 @@ const Order = ({ order }) => {
           page. They will also be emailed as attachments to{' '}
           {order.payer.email_address}. If you have any questions about your
           purchase, visit the{' '}
-          <Link href="/fonts/licensing">
-            <a data-ga-click="true" data-ga-category="confirm">
-              licensing details
-            </a>
+          <Link
+            href="/fonts/licensing"
+            data-ga-click="true"
+            data-ga-category="confirm"
+          >
+            licensing details
           </Link>{' '}
           or the{' '}
-          <Link href="/fonts/eula">
-            <a data-ga-click="true" data-ga-category="confirm">
-              EULA
-            </a>
+          <Link
+            href="/fonts/eula"
+            data-ga-click="true"
+            data-ga-category="confirm"
+          >
+            EULA
           </Link>{' '}
           or email me at{' '}
           <a
@@ -38,7 +42,6 @@ const Order = ({ order }) => {
           </a>
         </p>
       </div>
-
       <div className="order__summary">
         <Summary
           header="Downloads"
@@ -51,7 +54,6 @@ const Order = ({ order }) => {
           name="confirm"
         />
       </div>
-
       <style jsx global>
         {styles}
       </style>

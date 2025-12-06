@@ -40,6 +40,7 @@ const Meta = ({
   return (
     <Head>
       <meta
+        key="description"
         name="description"
         content={
           description ||
@@ -68,6 +69,7 @@ const Meta = ({
       ))}
 
       <link
+        key="canonical"
         rel="canonical"
         href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname || ''}`}
       />

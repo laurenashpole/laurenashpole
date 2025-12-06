@@ -35,6 +35,10 @@ const Distributors = () => {
                         width={link.imgWidth}
                         height={link.imgHeight}
                         data-pin-nopin="true"
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                     </div>
                   </a>
@@ -44,7 +48,6 @@ const Distributors = () => {
           </ul>
         </Container>
       </div>
-
       <style jsx global>
         {styles}
       </style>

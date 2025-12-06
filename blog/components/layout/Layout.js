@@ -13,7 +13,7 @@ const Layout = ({ children, meta }) => {
     <div className="layout">
       <Head>
         <title>
-          {(meta || {}).title ? meta.title + ' - ' : ''}Blog - Lauren Ashpole
+          {`${(meta || {}).title ? meta.title + ' - ' : ''}Blog - Lauren Ashpole`}
         </title>
       </Head>
 

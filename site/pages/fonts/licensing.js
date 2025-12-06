@@ -39,11 +39,9 @@ const Licensing = () => {
             you’ll eventually sell. That’s fine. As long as you follow the five
             computer rule the price is the same if you print ten books or
             10,000. Prices can be found on the individual font pages. Click{' '}
-            <Link href="/fonts/eula">
-              <a>here</a>
-            </Link>{' '}
-            to view the EULA. If you’re a large company and you’ll definitely be
-            installing the font on a lot of computers there’s the...
+            <Link href="/fonts/eula">here</Link> to view the EULA. If you’re a
+            large company and you’ll definitely be installing the font on a lot
+            of computers there’s the...
           </p>
 
           <p>
