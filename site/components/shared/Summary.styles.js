@@ -64,11 +64,8 @@ export default css.global`
   }
 
   .summary__download {
-    // height: 22px;
-    // width: auto;
     margin-left: 2rem;
     color: $color-purple;
-    // display: block;
     font-size: 3.5rem;
     line-height: 0.75;
 
