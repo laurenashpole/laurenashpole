@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { FaHeadphones } from 'react-icons/fa6';
+import { GrLink } from 'react-icons/gr';
 
 import styles from './LinkBlock.styles.js';
 
@@ -12,6 +14,10 @@ const LinkBlock = ({ post }) => {
           className={`link__link ${podcast ? 'link__link--podcast' : ''}`}
           href={post.url}
         >
+          <span className="link__link-icon">
+            {podcast ? <FaHeadphones /> : <GrLink />}
+          </span>
+
           {post.title}
         </a>
       </h2>

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import Container from '../../../shared/components/Container.js';
+import Container from '../../../shared/components/Container';
+import AbstractDotGroup from '../../../shared/components/svgs/AbstractDotGroup';
+import AbstractSquiggleThin from '../../../shared/components/svgs/AbstractSquiggleThin';
 import { ga4Event } from '../../utils/ga4';
 import Buttons from './Buttons';
-import styles from './Content.styles.js';
+import styles from './Content.styles';
 import Details from './Details';
 import Gallery from './Gallery';
 import Glyphs from './Glyphs';
@@ -27,6 +29,14 @@ const Content = ({ font }) => {
               <span>A</span>
               <span>B</span>
               <span>C</span>
+
+              <span className="content__shapes content__shapes--squiggle">
+                <AbstractSquiggleThin />
+              </span>
+
+              <span className="content__shapes content__shapes--dot-group">
+                <AbstractDotGroup />
+              </span>
             </div>
 
             <div className="content__main">

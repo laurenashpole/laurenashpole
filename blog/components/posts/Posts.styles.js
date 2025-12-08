@@ -2,7 +2,6 @@ import css from 'styled-jsx/css';
 
 export default css.global`
   @import 'variables.scss';
-  @import 'svgs.scss';
 
   .posts__heading {
     text-align: center;
@@ -11,14 +10,17 @@ export default css.global`
   .posts__heading-text {
     margin: 0;
     padding: 5.25rem 3.5rem;
+    color: $color-orange;
 
-    &:after {
-      content: '';
-      background: url(abstract-line-hr($color-orange-encoded)) no-repeat;
+    h1 {
+      margin: 0;
+      color: $color-black;
+    }
+
+    svg {
+      margin-top: 2.625rem;
       width: 4rem;
       height: 2rem;
-      margin: 2.625rem auto 0 auto;
-      display: block;
     }
   }
 
@@ -26,10 +28,10 @@ export default css.global`
     .posts__heading-text {
       padding: 6rem;
 
-      &:after {
+      svg {
         width: 4.75rem;
         height: 2.25rem;
-        margin: 3rem auto 0 auto;
+        margin-top: 3rem;
       }
     }
   }
@@ -38,10 +40,10 @@ export default css.global`
     .posts__heading-text {
       padding: 8.5rem;
 
-      &:after {
+      svg {
+        margin-top: 4.25rem;
         width: 5.5rem;
         height: 2.5rem;
-        margin: 4.25rem auto 0 auto;
       }
     }
   }

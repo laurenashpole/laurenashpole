@@ -37,6 +37,7 @@ export default css.global`
   .packages__icons {
     display: flex;
     justify-content: center;
+    font-size: 4rem;
 
     li + li {
       margin-left: 1.5rem;
@@ -53,12 +54,6 @@ export default css.global`
         color: $color-red;
       }
     }
-  }
-
-  .packages__icon {
-    width: 3.5rem;
-    height: 3.5rem;
-    display: block;
   }
 
   @media (min-width: $break-tablet) {

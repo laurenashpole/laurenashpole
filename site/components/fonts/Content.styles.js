@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'svgs.scss';
   @import 'variables.scss';
 
   .content__letters {
@@ -71,25 +70,26 @@ export default css.global`
       span:nth-of-type(3) {
         transform: rotate(-5deg) translateX(-3rem);
       }
+    }
 
-      &:after {
-        content: '';
-        background-image:
-          url(abstract-dots($color-green-encoded)),
-          url(abstract-squiggle-thin($color-pink-encoded));
-        background-position:
-          2.5rem calc(50% - 7.5rem),
-          center;
-        background-size: 16rem, 40rem;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        z-index: -2;
-        transform: translateX(calc(-50% + 4rem));
-      }
+    .content__shapes {
+      position: absolute;
+      z-index: -1;
+    }
+
+    .content__shapes--squiggle {
+      width: 40rem;
+      top: 50%;
+      left: calc(50% + 4rem);
+      transform: translate3d(-50%, -50%, 0);
+      color: $color-pink;
+    }
+
+    .content__shapes--dot-group {
+      width: 16rem;
+      left: 6.5rem;
+      top: calc(50% - 14rem);
+      color: $color-green;
     }
 
     .content__main {

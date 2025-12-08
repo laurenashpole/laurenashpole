@@ -46,6 +46,7 @@ export default css.global`
   .summary__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .summary__row--btns {
@@ -63,11 +64,10 @@ export default css.global`
   }
 
   .summary__download {
-    height: 22px;
-    width: auto;
     margin-left: 2rem;
     color: $color-purple;
-    display: block;
+    font-size: 3.5rem;
+    line-height: 0.75;
 
     a:hover &,
     a:focus & {

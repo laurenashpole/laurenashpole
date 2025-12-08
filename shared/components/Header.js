@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import styles from '../styles/Header.styles.js';
 import ActiveLink from './ActiveLink';
-import SrOnly from './SrOnly.js';
+import Logo from './svgs/Logo.js';
 
 const Header = ({ home, links, enableAnalytics, cart }) => {
   return (
@@ -14,8 +14,9 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
             href={`https://${home.external.host}${home.path}`}
             data-ga-click={enableAnalytics}
             data-ga-category="nav"
+            aria-label={home.label}
           >
-            <SrOnly>{home.label}</SrOnly>
+            <Logo />
           </a>
         ) : (
           <ActiveLink
@@ -24,8 +25,9 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
             data-ga-click={enableAnalytics}
             data-ga-category="nav"
             isExact={true}
+            aria-label={home.label}
           >
-            <SrOnly>{home.label}</SrOnly>
+            <Logo />
           </ActiveLink>
         )}
 

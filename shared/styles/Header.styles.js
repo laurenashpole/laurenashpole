@@ -2,7 +2,6 @@ import css from 'styled-jsx/css';
 
 export default css.global`
   @import 'keyframes.scss';
-  @import 'svgs.scss';
   @import 'variables.scss';
 
   .header {
@@ -28,28 +27,23 @@ export default css.global`
     height: 7rem;
     border-right: 1px solid $color-gray-light;
     overflow: hidden;
-    transition: background 0.15s linear;
+    transition:
+      background 0.15s linear,
+      color 0.15s linear;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &:before {
-      content: ' ';
-      background: url(logo($color-white-encoded)) no-repeat;
-      background-size: 65%;
-      background-position: center;
-      width: 100%;
-      height: 100%;
-      display: block;
+    svg {
+      width: 65%;
       transform: rotate(-12.5deg) translateY(-0.25rem);
-      backface-visibility: hidden;
-      transition: background-image 0.15s linear;
     }
 
     &:hover,
     &:focus {
       background: $color-white;
-
-      &:before {
-        background-image: url(logo($color-red-encoded));
-      }
+      color: $color-red;
     }
   }
 
