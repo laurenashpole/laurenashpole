@@ -5,7 +5,6 @@ import Container from '../../../shared/components/Container.js';
 import AbstractDotGroup from '../../../shared/components/svgs/AbstractDotGroup';
 import AbstractLineGroup from '../../../shared/components/svgs/AbstractLineGroup';
 import AbstractSquiggle from '../../../shared/components/svgs/AbstractSquiggle';
-// import styles from './Hero.styles.js';
 import styles from './Hero.module.css';
 
 const Hero = ({ font }) => {

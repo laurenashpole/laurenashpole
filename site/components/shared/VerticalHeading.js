@@ -1,16 +1,10 @@
-import styles from './VerticalHeading.styles.js';
+import styles from './VerticalHeading.module.css';
 
 const VerticalHeading = ({ heading }) => {
   return (
-    <>
-      <h3 className="vertical-heading">
-        <span className="label vertical-heading__text">{heading}</span>
-      </h3>
-
-      <style jsx global>
-        {styles}
-      </style>
-    </>
+    <h3 className={styles.heading}>
+      <span className={`${styles.text} label`}>{heading}</span>
+    </h3>
   );
 };
 
