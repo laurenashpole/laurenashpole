@@ -11,7 +11,7 @@ export default css.global`
   .gallery__main {
     position: relative;
     display: flex;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     overflow: hidden;
   }
 
@@ -39,7 +39,7 @@ export default css.global`
     margin: 0 0.5rem 0 0;
 
     & button {
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
       display: flex;
       overflow: hidden;
     }

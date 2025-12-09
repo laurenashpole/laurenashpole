@@ -4,8 +4,8 @@ export default css.global`
   @import 'variables.scss';
 
   .recent {
-    border-top: 1px solid $color-gray-light;
-    border-bottom: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
+    border-bottom: 1px solid var(--color-gray-light);
 
     & > div {
       padding-left: 7rem;

@@ -31,7 +31,7 @@ export default css.global`
     word-break: break-word;
 
     & + .preview__preview {
-      border-top: 1px solid $color-gray-light;
+      border-top: 1px solid var(--color-gray-light);
     }
   }
 

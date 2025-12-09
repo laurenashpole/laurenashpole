@@ -4,18 +4,18 @@ export default css.global`
   @import 'variables.scss';
 
   .footer {
-    border-top: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
   }
 
   .footer__social {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
     display: flex;
   }
 
   .footer__social-item {
     width: 25%;
     min-height: 7rem;
-    border-right: 1px solid $color-gray-light;
+    border-right: 1px solid var(--color-gray-light);
     display: flex;
     align-items: stretch;
 
@@ -33,8 +33,7 @@ export default css.global`
 
     &:focus,
     &:hover {
-      background: $color-gray-lightest;
-      color: $color-purple-hover;
+      background: var(--color-gray-lightest);
     }
   }
 
@@ -56,12 +55,12 @@ export default css.global`
       height: 8.5rem;
 
       &:last-child {
-        border-right: 1px solid $color-gray-light;
+        border-right: 1px solid var(--color-gray-light);
       }
     }
 
     .footer__social-link {
-      color: $color-white;
+      color: var(--color-white);
       position: relative;
 
       svg {
@@ -71,12 +70,12 @@ export default css.global`
 
       &:hover,
       &:focus {
-        color: $color-white;
+        color: var(--color-white);
       }
 
       &:before {
         content: ' ';
-        background: $color-purple;
+        background: var(--color-secondary);
         width: 6rem;
         height: 6rem;
         border-radius: 50%;

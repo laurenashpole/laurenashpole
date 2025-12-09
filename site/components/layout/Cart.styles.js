@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'keyframes.scss';
   @import 'variables.scss';
 
   .cart {
@@ -13,27 +12,16 @@ export default css.global`
       height: 7rem;
       border-radius: 0;
       border: 0;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
       position: relative;
-      color: $color-white;
+      color: var(--color-white);
       font-size: 1.5rem;
       letter-spacing: 0;
       pointer-events: auto;
-      @include bg-animation($color-purple, $color-purple);
 
       &:hover,
       &:focus {
-        .cart__icon {
-          &:before {
-            transition: background 0.15s linear 0.3s;
-            background: $color-white;
-          }
-
-          &:after {
-            transition: border-color 0.15s linear 0.3s;
-            border-color: $color-white;
-          }
-        }
+        background: var(--color-gray-lightest);
       }
     }
   }
@@ -41,7 +29,7 @@ export default css.global`
   .cart__icon {
     &:before {
       content: '';
-      background: $color-purple;
+      background: var(--color-secondary);
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 2px;
@@ -55,7 +43,7 @@ export default css.global`
       content: '';
       width: 1.5rem;
       height: 1.5rem;
-      border: 2px solid $color-purple;
+      border: 2px solid var(--color-secondary);
       border-radius: 50%;
       position: absolute;
       top: calc(50% - 2rem);
@@ -74,7 +62,31 @@ export default css.global`
       button {
         width: 8.5rem;
         height: 8.5rem;
+
+        &:hover,
+        &:focus {
+          .cart__icon {
+            &:before {
+              transition: background 0.15s linear 0.3s;
+              background: var(--color-white);
+            }
+
+            &:after {
+              transition: border-color 0.15s linear 0.3s;
+              border-color: var(--color-white);
+            }
+          }
+
+          .cart__count {
+            color: var(--color-secondary);
+            transition: color 0.15s linear 0.3s;
+          }
+        }
       }
+    }
+
+    .cart__count {
+      transition: none;
     }
   }
 `;

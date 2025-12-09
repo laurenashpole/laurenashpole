@@ -5,7 +5,7 @@ export default css.global`
 
   .date {
     margin-bottom: 2.625rem;
-    color: $color-gray-darkest;
+    color: var(--color-gray-darkest);
     font-size: 1.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -20,7 +20,7 @@ export default css.global`
 
   @media (min-width: $break-tablet) {
     .date {
-      color: $color-purple;
+      color: var(--color-secondary);
       text-align: right;
 
       &:after {

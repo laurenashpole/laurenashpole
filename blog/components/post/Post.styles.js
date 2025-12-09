@@ -4,8 +4,8 @@ export default css.global`
   @import 'variables.scss';
 
   .post:not(.post--permalink) {
-    border-bottom: 1px solid $color-gray-light;
-    border-top: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
+    border-top: 1px solid var(--color-gray-light);
 
     & + .post {
       margin-top: 7rem;
@@ -70,7 +70,7 @@ export default css.global`
     letter-spacing: 0.075em;
 
     a {
-      color: $color-red;
+      color: var(--color-primary);
     }
   }
 
@@ -87,11 +87,11 @@ export default css.global`
 
     .post__details {
       background-image:
-        linear-gradient($color-gray-light 1px, transparent 1px),
-        linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
+        linear-gradient(var(--color-gray-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-gray-light) 1px, transparent 1px);
       background-size: 4.25rem 4.25rem;
       width: calc(8.5rem * 3.5);
-      border-right: 1px solid $color-gray-light;
+      border-right: 1px solid var(--color-gray-light);
       margin: -1px 0 -1px -1px;
       padding: 5.25rem 3.75rem 0 0;
       flex-shrink: 0;

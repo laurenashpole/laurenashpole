@@ -5,7 +5,7 @@ export default css.global`
 
   .errors {
     margin-bottom: 2rem;
-    color: $color-red;
+    color: var(--color-error);
     font-size: 2rem;
     text-align: center;
   }

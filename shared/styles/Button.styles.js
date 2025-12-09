@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'keyframes.scss';
   @import 'variables.scss';
 
   .btn {
@@ -28,8 +27,8 @@ export default css.global`
     width: 100%;
     padding: 0 1.5rem;
     border: 2px solid transparent;
-    border-radius: $border-radius;
-    color: $color-white;
+    border-radius: var(--border-radius);
+    color: var(--color-white);
     font-family: inherit;
     font-size: inherit;
     font-weight: 700;
@@ -53,48 +52,44 @@ export default css.global`
   }
 
   .btn--primary {
-    background: $color-red;
+    background: var(--color-primary);
     height: 7rem;
   }
 
   .btn--primary:hover,
   .btn--primary:focus {
-    background: $color-red-hover;
+    background: var(--color-primary-dark);
   }
 
   .btn--outline {
-    border-color: $color-red;
+    border-color: var(--color-primary);
     height: 7rem;
-    color: $color-red;
+    color: var(--color-primary);
   }
 
   .btn--outline:hover,
   .btn--outline:focus {
-    border-color: $color-red-hover;
-    color: $color-red-hover;
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
     text-decoration: none;
   }
 
   .btn--secondary {
-    background: $color-purple;
+    background: var(--color-secondary);
     height: 5.5rem;
   }
 
   .btn--secondary:hover,
   .btn--secondary:focus {
     background: transparent;
-    border-color: $color-purple;
-    color: $color-purple;
-  }
-
-  .btn--warning {
-    background: $color-gray-darkest;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
   }
 
   .btn--link {
     padding: 0;
     border: none;
-    color: $color-purple;
+    color: var(--color-secondary);
     text-transform: none;
     letter-spacing: 0;
     line-height: inherit;

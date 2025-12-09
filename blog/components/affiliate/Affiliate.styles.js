@@ -4,11 +4,11 @@ export default css.global`
   @import 'variables.scss';
 
   .affiliate--permalink {
-    border-top: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
   }
 
   .affiliate__container {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     padding: 3.5rem 2.625rem;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ export default css.global`
 
   .affiliate__text {
     padding-top: 1rem;
-    color: $color-gray-darkest;
+    color: var(--color-gray-darkest);
     font-size: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;

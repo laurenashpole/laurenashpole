@@ -20,8 +20,8 @@ export default css.global`
       background-image:
         linear-gradient(
           90deg,
-          $color-gray-light,
-          $color-gray-light 1px,
+          var(--color-gray-light),
+          var(--color-gray-light) 1px,
           transparent 1px,
           transparent
         ),
@@ -29,10 +29,10 @@ export default css.global`
           90deg,
           transparent,
           transparent calc(100% - 1px),
-          $color-gray-light calc(100% - 1px),
-          $color-gray-light
+          var(--color-gray-light) calc(100% - 1px),
+          var(--color-gray-light)
         );
-      background-size: $width-desktop-wide;
+      background-size: var(--width-max);
       background-repeat: no-repeat;
       background-position: center;
     }

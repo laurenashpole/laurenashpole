@@ -22,10 +22,10 @@ export default css.global`
   }
 
   .textarea__textarea {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     width: 100%;
-    border: 1px solid $color-gray-light;
-    border-radius: $border-radius;
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--border-radius);
     padding: 1.25rem;
     outline: none;
     font-family: inherit;
@@ -37,11 +37,11 @@ export default css.global`
     appearance: none;
 
     &:focus {
-      border-color: $color-gray-dark;
+      border-color: var(--color-gray-dark);
     }
 
     .textarea--error & {
-      border-color: $color-red;
+      border-color: var(--color-error);
     }
   }
 `;

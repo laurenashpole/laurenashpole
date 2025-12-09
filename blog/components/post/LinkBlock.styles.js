@@ -14,7 +14,7 @@ export default css.global`
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: $color-purple;
+    color: var(--color-secondary);
     font-size: 4.25rem;
     line-height: 0.75;
   }

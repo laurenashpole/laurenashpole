@@ -4,8 +4,8 @@ export default css.global`
   @import 'variables.scss';
 
   .dist {
-    border-top: 1px solid $color-gray-light;
-    border-bottom: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
   .dist__list {
@@ -15,10 +15,10 @@ export default css.global`
 
   .dist__item {
     width: 50%;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
 
     &:nth-child(2n + 2) {
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
     }
 
     &:nth-last-child(-n + 2) {
@@ -27,8 +27,8 @@ export default css.global`
   }
 
   .dist__item--heading {
-    background: $color-purple;
-    color: $color-white;
+    background: var(--color-secondary);
+    color: var(--color-white);
   }
 
   .dist__heading {
@@ -41,7 +41,7 @@ export default css.global`
   }
 
   .dist__link {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     width: 100%;
     height: 100%;
     min-height: 18rem;
@@ -53,7 +53,7 @@ export default css.global`
 
     &:hover,
     &:focus {
-      background: $color-white;
+      background: var(--color-white);
     }
   }
 
@@ -64,7 +64,7 @@ export default css.global`
   @media (min-width: $break-tablet) {
     .dist__item {
       width: 25%;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
 
       &:nth-child(4n + 1) {
         border-left: none;

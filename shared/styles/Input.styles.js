@@ -13,11 +13,11 @@ export default css.global`
 
   .input--error {
     span {
-      color: $color-red;
+      color: var(--color-error);
     }
 
     .input__input {
-      border-color: $color-red;
+      border-color: var(--color-error);
     }
   }
 
@@ -47,11 +47,11 @@ export default css.global`
   }
 
   .input__input {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     width: 100%;
     height: 7rem;
-    border: 1px solid $color-gray-light;
-    border-radius: $border-radius;
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--border-radius);
     padding: 2.75rem 1.25rem 0.5rem 1.25rem;
     outline: none;
     font-family: inherit;
@@ -61,7 +61,7 @@ export default css.global`
     appearance: none;
 
     &:focus {
-      border-color: $color-gray-dark;
+      border-color: var(--color-gray-dark);
     }
 
     .input__label--hidden + & {
@@ -73,25 +73,6 @@ export default css.global`
   .input__input[type='file'] {
     padding-top: 3.25rem;
     font-size: 2rem;
-
-    &::-webkit-file-upload-button {
-      background: $color-purple;
-      border: none;
-      border-radius: $border-radius;
-      color: $color-white;
-      font-family: inherit;
-      font-size: 1.25rem;
-      font-weight: 700;
-      line-height: calc(2.75rem - 2px);
-      text-transform: uppercase;
-      letter-spacing: 0.125em;
-      transform: translateY(-2px);
-      cursor: pointer;
-    }
-
-    &::-webkit-file-upload-button:hover {
-      background: $color-purple-hover;
-    }
   }
 
   @media (min-width: $break-tablet) {
@@ -105,11 +86,6 @@ export default css.global`
 
     .input__input[type='file'] {
       padding-top: 3.5rem;
-
-      &::-webkit-file-upload-button {
-        font-size: 1.5rem;
-        line-height: calc(3rem - 2px);
-      }
     }
   }
 `;

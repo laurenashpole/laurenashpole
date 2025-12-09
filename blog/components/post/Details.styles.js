@@ -19,7 +19,7 @@ export default css.global`
 
   .details__item {
     margin-right: 1.5rem;
-    color: $color-gray-darkest;
+    color: var(--color-gray-darkest);
 
     a {
       color: inherit;
@@ -27,7 +27,7 @@ export default css.global`
 
       &:focus,
       &:hover {
-        color: $color-purple-hover;
+        color: var(--color-secondary-dark);
       }
     }
   }
@@ -41,7 +41,7 @@ export default css.global`
   }
 
   .details__item--type {
-    color: $color-purple;
+    color: var(--color-secondary);
   }
 
   @media (min-width: $break-tablet) {

@@ -8,19 +8,19 @@ export default css.global`
   }
 
   .grid__item {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
     display: flex;
     align-items: center;
   }
 
   .grid__link {
-    border: 1.25rem solid $color-white;
+    border: 1.25rem solid var(--color-white);
     position: relative;
     display: block;
   }
 
   .grid__img {
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     overflow: hidden;
     display: block;
 
@@ -41,7 +41,7 @@ export default css.global`
   }
 
   .grid__details {
-    border-top: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
@@ -65,7 +65,7 @@ export default css.global`
   .grid__actions button {
     background: none;
     border: none;
-    border-left: 1px solid $color-gray-light;
+    border-left: 1px solid var(--color-gray-light);
     padding: 0 2rem;
     appearance: none;
     font: inherit;
@@ -85,7 +85,7 @@ export default css.global`
     }
 
     .grid__item {
-      border-right: 1px solid $color-gray-light;
+      border-right: 1px solid var(--color-gray-light);
     }
   }
 

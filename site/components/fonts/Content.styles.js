@@ -12,7 +12,7 @@ export default css.global`
 
     & > section + section {
       margin-top: 5.25rem;
-      border-top: 1px solid $color-gray-light;
+      border-top: 1px solid var(--color-gray-light);
       padding-top: 5.25rem;
     }
   }
@@ -24,7 +24,7 @@ export default css.global`
 
   .content__heading-sale {
     margin-top: 1.25rem;
-    color: $color-red;
+    color: var(--color-primary);
     font-size: 2rem;
   }
 
@@ -36,20 +36,20 @@ export default css.global`
 
     .content__letters {
       background-image:
-        linear-gradient($color-gray-light 1px, transparent 1px),
-        linear-gradient(90deg, $color-gray-light 1px, transparent 1px);
+        linear-gradient(var(--color-gray-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-gray-light) 1px, transparent 1px);
       background-size: 8.5rem 8.5rem;
       width: calc(8.5rem * 5);
       height: calc(100vh - 8.5rem);
       margin: -1px 0 -1px -1px;
-      border-bottom: 1px solid $color-gray-light;
+      border-bottom: 1px solid var(--color-gray-light);
       position: sticky;
       top: 8.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: $color-purple;
+      color: var(--color-secondary);
       font-size: 15rem;
       font-display: block;
       text-align: center;
@@ -82,20 +82,19 @@ export default css.global`
       top: 50%;
       left: calc(50% + 4rem);
       transform: translate3d(-50%, -50%, 0);
-      color: $color-pink;
+      color: var(--color-accent-pink);
     }
 
     .content__shapes--dot-group {
       width: 16rem;
       left: 6.5rem;
       top: calc(50% - 14rem);
-      color: $color-green;
-    }
+      color: var(--color-accent-green);
 
     .content__main {
       width: calc(100% - (8.5rem * 5));
       padding: 8.5rem;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
 
       & > section + section {
         margin-top: 8.5rem;

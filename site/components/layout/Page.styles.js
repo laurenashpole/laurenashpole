@@ -22,14 +22,14 @@ export default css.global`
       width: calc(8.5rem * 4);
       min-height: calc(100vh - (8.5rem * 2));
       margin: -1px 0 -1px -1px;
-      border-bottom: 1px solid $color-gray-light;
+      border-bottom: 1px solid var(--color-gray-light);
       display: block;
     }
 
     .page__main {
       width: calc(100% - (8.5rem * 4));
       padding: 8.5rem;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
     }
   }
 `;

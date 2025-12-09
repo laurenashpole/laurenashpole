@@ -1,13 +1,12 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'keyframes.scss';
   @import 'variables.scss';
 
   .header {
-    background: $color-white;
+    background: var(--color-white);
     width: 100%;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
     position: sticky;
     top: 0;
     left: 0;
@@ -22,15 +21,15 @@ export default css.global`
   }
 
   .header__logo {
-    background: $color-red;
+    background: var(--color-primary);
     width: 7rem;
     height: 7rem;
-    border-right: 1px solid $color-gray-light;
+    border-right: 1px solid var(--color-gray-light);
     overflow: hidden;
     transition:
       background 0.15s linear,
       color 0.15s linear;
-    color: $color-white;
+    color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,8 +41,8 @@ export default css.global`
 
     &:hover,
     &:focus {
-      background: $color-white;
-      color: $color-red;
+      background: var(--color-white);
+      color: var(--color-primary);
     }
   }
 
@@ -65,19 +64,19 @@ export default css.global`
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
-    color: $color-black;
+    color: var(--color-black);
     position: relative;
 
     &:hover,
     &:focus {
-      color: $color-black;
+      color: var(--color-black);
       text-decoration: none;
     }
   }
 
   .header__link:before {
     content: none;
-    border-top: 3px solid $color-purple;
+    border-top: 3px solid var(--color-secondary);
     border-radius: 0 0 1px 1px;
     position: absolute;
     left: 1.5rem;
@@ -108,7 +107,7 @@ export default css.global`
     }
 
     .header__item {
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
     }
 
     .header__link {
@@ -118,12 +117,57 @@ export default css.global`
       align-items: center;
       justify-content: center;
       position: relative;
-      transition: background 0.15s linear 0.1s;
-      @include bg-animation($color-purple, $color-white);
+    }
+
+    .header a:not(.header__logo),
+    .header button {
+      &:not([aria-current]):hover,
+      &:not([aria-current]):focus {
+        background: var(--color-secondary);
+        transition: background 0.15s linear 0.3s, color 0.15s linear 0.3s;
+        color: var(--color-white);
+      }
+
+      &:before,
+      &:after {
+        content: " ";
+        width: 0;
+        height: 0;
+        border: 2px solid transparent;
+        position: absolute;
+      }
+
+      &:before {
+        top: 0;
+        left: 0;
+        right: auto;
+      }
+
+      &:after {
+        bottom: 0;
+        right: 0;
+      }
+
+      &:not([aria-current]):hover:before,
+      &:not([aria-current]):hover:after {
+        width: 100%;
+        height: 100%;
+        transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+      }
+
+      &:not([aria-current]):hover:before {
+        border-top-color: var(--color-secondary);
+        border-right-color: var(--color-secondary);
+      }
+
+      &:not([aria-current]):hover:after {
+        border-bottom-color: var(--color-secondary);
+        border-left-color: var(--color-secondary);
+      }
     }
 
     .header__link[aria-current] {
-      background: $color-gray-lightest;
+      background: var(--color-gray-lightest);
     }
 
     .header__link[aria-current]:before {
@@ -133,10 +177,10 @@ export default css.global`
 
   @media (min-width: $break-container) {
     .header__content {
-      width: $width-desktop-wide;
+      width: var(--width-max);
       margin: 0 auto;
-      border-left: 1px solid $color-gray-light;
-      border-right: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
+      border-right: 1px solid var(--color-gray-light);
     }
   }
 `;

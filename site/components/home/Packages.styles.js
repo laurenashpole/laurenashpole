@@ -4,8 +4,8 @@ export default css.global`
   @import 'variables.scss';
 
   .packages {
-    border-top: 1px solid $color-gray-light;
-    border-bottom: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
+    border-bottom: 1px solid var(--color-gray-light);
     text-align: center;
 
     p {
@@ -26,7 +26,7 @@ export default css.global`
   }
 
   .packages__item + .packages__item {
-    border-top: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
   }
 
   .packages__name {
@@ -45,13 +45,13 @@ export default css.global`
 
     a {
       padding: 0 0.75rem 0.5rem 0.75rem;
-      color: $color-gray-darkest;
+      color: var(--color-gray-darkest);
       display: block;
       transition: color 0.25s linear;
 
       &:hover,
       &:focus {
-        color: $color-red;
+        color: var(--color-primary);
       }
     }
   }
@@ -68,7 +68,7 @@ export default css.global`
 
     .packages__item + .packages__item {
       border: none;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
     }
 
     .packages__name {

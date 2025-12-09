@@ -4,7 +4,6 @@ export default css.global`
   @import 'variables.scss';
 
   .modal {
-    background: rgba($color-black, 0.75);
     width: 100%;
     height: 100%;
     padding: 1.5rem;
@@ -18,8 +17,8 @@ export default css.global`
     align-items: center;
     justify-content: center;
     transition:
-      visibility 0.15s linear 0.15s,
-      opacity 0.15s linear 0.15s;
+    visibility 0.15s linear 0.15s,
+    opacity 0.15s linear 0.15s;
 
     h3 {
       max-width: 42rem;
@@ -29,14 +28,26 @@ export default css.global`
     p {
       padding: 0 3rem;
     }
+
+    &:after {
+      content: '';
+      background: var(--color-black);
+      opacity: 0.75;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
   }
 
   .modal--visible {
     opacity: 1;
     visibility: visible;
     transition:
-      visibility 0.15s linear,
-      opacity 0.15s linear;
+    visibility 0.15s linear,
+    opacity 0.15s linear;
 
     .modal__content > * {
       opacity: 1;
@@ -53,13 +64,13 @@ export default css.global`
     }
 
     .modal__content:before {
-      border-top-color: $color-white;
-      border-right-color: $color-white;
+      border-top-color: var(--color-white);
+      border-right-color: var(--color-white);
     }
 
     .modal__content:after {
-      border-bottom-color: $color-white;
-      border-left-color: $color-white;
+      border-bottom-color: var(--color-white);
+      border-left-color: var(--color-white);
     }
   }
 
@@ -100,7 +111,7 @@ export default css.global`
   }
 
   .modal__well {
-    background: $color-white;
+    background: var(--color-white);
     max-height: 90vh;
     overflow-y: auto;
   }

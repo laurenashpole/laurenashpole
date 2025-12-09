@@ -4,10 +4,10 @@ export default css.global`
   @import 'variables.scss';
 
   .vertical-heading {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     width: calc(7rem - 1px);
     margin: 0;
-    border-right: 1px solid $color-gray-light;
+    border-right: 1px solid var(--color-gray-light);
     position: absolute;
     left: 0;
     top: 0;

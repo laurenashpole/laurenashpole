@@ -19,15 +19,15 @@ export default css.global`
     width: 2rem;
     height: 2rem;
     margin-right: 1rem;
-    border: 2px solid $color-white;
-    border-radius: $border-radius;
+    border: 2px solid var(--color-white);
+    border-radius: var(--border-radius);
     outline: none;
-    box-shadow: 0 0 0 1px $color-gray-dark;
+    box-shadow: 0 0 0 1px var(--color-gray-dark);
     appearance: none;
     transition: background 0.1s;
 
     &:checked {
-      background: $color-purple;
+      background: var(--color-secondary);
     }
   }
 `;

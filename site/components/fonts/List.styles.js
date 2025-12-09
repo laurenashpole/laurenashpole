@@ -4,11 +4,11 @@ export default css.global`
   @import 'variables.scss';
 
   .list {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
   .list__header {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
 
     & > div {
       padding: 5.25rem 3.5rem;
@@ -42,7 +42,7 @@ export default css.global`
   }
 
   .list__filter {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
 
     & > div {
       min-height: 7rem;
@@ -69,7 +69,7 @@ export default css.global`
       }
 
       &:disabled {
-        background: $color-gray-dark;
+        background: var(--color-gray-dark);
       }
     }
 
@@ -82,7 +82,7 @@ export default css.global`
       &:before,
       &:after {
         content: ' ';
-        background: $color-white;
+        background: var(--color-white);
         width: 2.5rem;
         height: 0.4rem;
         border-radius: 1px;

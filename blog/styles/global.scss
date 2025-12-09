@@ -10,7 +10,7 @@ h2 {
   font-weight:  900;
 
   a {
-    color: $color-black;
+    color: var(--color-black);
     font-weight: inherit;
   }
 }
@@ -26,7 +26,7 @@ figure {
 
 blockquote {
   margin: 0 0 2.5rem 0;
-  border-left: 1px solid $color-gray-light;
+  border-left: 1px solid var(--color-gray-light);
   padding: 1.25rem 2.5rem;
 }
 
@@ -46,7 +46,7 @@ pre:not(:last-child) {
 hr {
   margin: 4rem 0;
   border: none;
-  border-top: 1px solid $color-gray-light;
+  border-top: 1px solid var(--color-gray-light);
 }
 
 @media (min-width: $break-tablet) {

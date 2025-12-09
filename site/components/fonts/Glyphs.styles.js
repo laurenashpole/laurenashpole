@@ -20,14 +20,14 @@ export default css.global`
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    border-top: 1px solid $color-gray-light;
-    border-left: 1px solid $color-gray-light;
+    border-top: 1px solid var(--color-gray-light);
+    border-left: 1px solid var(--color-gray-light);
   }
 
   .glyphs__char {
     width: 20%;
-    border-bottom: 1px solid $color-gray-light;
-    border-right: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
+    border-right: 1px solid var(--color-gray-light);
     padding-top: 2.5rem;
     font-size: 3rem;
     line-height: 8.5rem;
@@ -36,14 +36,14 @@ export default css.global`
   }
 
   .glyphs__key {
-    background: $color-gray-lightest;
-    border-bottom: 1px solid $color-gray-light;
+    background: var(--color-gray-lightest);
+    border-bottom: 1px solid var(--color-gray-light);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     font-size: 1.5rem;
-    font-family: $font-family-default;
+    font-family: var(--font-family-default);
     line-height: 2.5rem;
   }
 

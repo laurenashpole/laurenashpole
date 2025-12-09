@@ -4,14 +4,14 @@ export default css.global`
   @import 'variables.scss';
 
   .summary--card {
-    border: 1px solid $color-gray-light;
+    border: 1px solid var(--color-gray-light);
     border-radius: 6px;
   }
 
   .summary__item {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
 
     &:last-child {
       margin: 0;
@@ -65,13 +65,13 @@ export default css.global`
 
   .summary__download {
     margin-left: 2rem;
-    color: $color-purple;
+    color: var(--color-secondary);
     font-size: 3.5rem;
     line-height: 0.75;
 
     a:hover &,
     a:focus & {
-      color: $color-purple-hover;
+      color: var(--color-secondary-dark);
     }
   }
 

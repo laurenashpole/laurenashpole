@@ -1,7 +1,6 @@
 import css from 'styled-jsx/css';
 
 export default css.global`
-  @import 'keyframes.scss';
   @import 'variables.scss';
 
   .loader {
@@ -14,7 +13,7 @@ export default css.global`
   .loader,
   .loader:before,
   .loader:after {
-    background: $color-pink;
+    background: var(--color-accent-pink);
     width: 1rem;
     height: 1rem;
     border-radius: 2px;

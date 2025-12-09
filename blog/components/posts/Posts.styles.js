@@ -10,11 +10,11 @@ export default css.global`
   .posts__heading-text {
     margin: 0;
     padding: 5.25rem 3.5rem;
-    color: $color-orange;
+    color: var(--color-accent-orange);
 
     h1 {
       margin: 0;
-      color: $color-black;
+      color: var(--color-black);
     }
 
     svg {

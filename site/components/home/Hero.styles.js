@@ -4,15 +4,15 @@ export default css.global`
   @import 'variables.scss';
 
   .hero {
-    background-image: linear-gradient($color-gray-light 1px, transparent 1px);
+    background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
     background-size: 7rem 7rem;
     margin-top: -1px;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
   .hero__container {
-    background-color: $color-gray-lightest;
-    background-image: linear-gradient($color-gray-light 1px, transparent 1px);
+    background-color: var(--color-gray-lightest);
+    background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
     background-size: 7rem 7rem;
     min-height: calc(7rem * 11);
     display: flex;
@@ -31,25 +31,25 @@ export default css.global`
     width: 42rem;
     right: -5rem;
     top: 5rem;
-    color: $color-green;
+    color: var(--color-accent-green);
   }
 
   .hero__shapes--squiggle {
     width: 50rem;
     left: -4rem;
     bottom: 5rem;
-    color: $color-blue;
+    color: var(--color-accent-blue);
   }
 
   .hero__shapes--dot-group {
     width: 16rem;
     left: 4rem;
     bottom: 17rem;
-    color: $color-orange;
+    color: var(--color-accent-orange);
   }
 
   .hero__letters {
-    color: $color-purple;
+    color: var(--color-secondary);
     font-size: 32rem;
     line-height: 0.85;
     text-align: center;
@@ -96,12 +96,12 @@ export default css.global`
     justify-content: center;
     position: absolute;
     z-index: 1;
-    color: $color-white;
+    color: var(--color-white);
     text-align: center;
   }
 
   .hero__badge--small {
-    background: $color-red;
+    background: var(--color-primary);
     width: 10rem;
     height: 10rem;
     transform: rotate(-15deg);
@@ -111,7 +111,7 @@ export default css.global`
   }
 
   .hero__badge--large {
-    background: $color-orange;
+    background: var(--color-accent-orange);
     width: 16rem;
     height: 16rem;
     transform: rotate(10deg);

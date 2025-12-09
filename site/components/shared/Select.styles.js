@@ -33,14 +33,14 @@ export default css.global`
   }
 
   .select__select {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     width: 100%;
     height: 7rem;
-    border: 1px solid $color-gray-light;
-    border-radius: $border-radius;
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--border-radius);
     padding: 2.75rem 4rem 0.5rem 1.25rem;
     outline: none;
-    color: $color-black;
+    color: var(--color-black);
     font-family: inherit;
     font-size: inherit;
     line-height: normal;
@@ -48,7 +48,7 @@ export default css.global`
     appearance: none;
 
     &:focus {
-      border-color: $color-gray-dark;
+      border-color: var(--color-gray-dark);
     }
 
     .select__label--hidden + & {
@@ -72,7 +72,7 @@ export default css.global`
   .select__caret:before,
   .select__caret:after {
     content: ' ';
-    background: $color-black;
+    background: var(--color-black);
     width: 10px;
     height: 2px;
     margin-right: -2px;

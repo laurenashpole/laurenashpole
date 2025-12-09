@@ -10,7 +10,7 @@ export default css.global`
   @media (min-width: $break-container) {
     .container {
       width: 100%;
-      max-width: calc(#{$width-desktop-wide} - 2px);
+      max-width: calc(var(--width-max) - 2px);
       min-height: calc(8.5rem * 1.5);
       margin: 0 auto;
     }

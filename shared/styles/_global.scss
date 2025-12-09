@@ -7,7 +7,7 @@ body,
 }
 
 html {
-  font: #{$font-size-root}px $font-family-default;
+  font: var(--font-size-root) var(--font-family-default);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: $color-black;
+  color: var(--color-black);
   font-size: 2rem;
 }
 
@@ -28,7 +28,7 @@ h1,
 h3,
 h4 {
   margin: 0 0 3rem 0;
-  font-family: $font-family-headings;
+  font-family: var(--font-family-headings);
   font-weight: 900;
 }
 
@@ -60,7 +60,7 @@ p:not(:last-child) {
 }
 
 a {
-  color: $color-purple;
+  color: var(--color-secondary);
   font-weight: 700;
   text-decoration: none;
 
@@ -111,12 +111,12 @@ img {
 
 @media (min-width: $break-desktop-large) {
   html {
-    font-size: #{$font-size-root + 0.5}px;
+    font-size: calc(var(--font-size-root) + 0.5px);
   }
 }
 
 @media (min-width: $break-desktop-x-large) {
   html {
-    font-size: #{$font-size-root + 1}px;
+    font-size: calc(var(--font-size-root) + 1px);
   }
 }

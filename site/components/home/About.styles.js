@@ -4,8 +4,8 @@ export default css.global`
   @import 'variables.scss';
 
   .about {
-    border-bottom: 1px solid $color-gray-light;
-    border-top: 1px solid $color-gray-light;
+    border-bottom: 1px solid var(--color-gray-light);
+    border-top: 1px solid var(--color-gray-light);
     text-align: center;
   }
 
@@ -14,8 +14,8 @@ export default css.global`
   }
 
   .about__upcoming {
-    background: $color-gray-lightest;
-    border-top: 1px solid $color-gray-light;
+    background: var(--color-gray-lightest);
+    border-top: 1px solid var(--color-gray-light);
     padding: 5.25rem 3.5rem;
   }
 
@@ -44,7 +44,7 @@ export default css.global`
     .about__upcoming {
       width: calc(15rem * 3 + 8.5rem + 3px);
       border: none;
-      border-left: 1px solid $color-gray-light;
+      border-left: 1px solid var(--color-gray-light);
       padding: 6rem 4rem;
 
       p {

@@ -7,7 +7,7 @@ export default css.global`
     width: 100%;
     max-width: 72rem;
     margin: 0 auto;
-    background: $color-white;
+    background: var(--color-white);
     border-radius: 6px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -21,7 +21,7 @@ export default css.global`
     padding: 2rem;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-gray-light;
+      border-bottom: 1px solid var(--color-gray-light);
     }
 
     h1:last-child,
@@ -72,7 +72,7 @@ export default css.global`
     }
 
     .well__section--sticky {
-      background: $color-white;
+      background: var(--color-white);
       padding: 2rem 4rem;
       position: sticky;
       top: 0;

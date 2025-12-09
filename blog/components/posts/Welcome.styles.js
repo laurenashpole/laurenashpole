@@ -17,7 +17,7 @@ export default css.global`
   }
 
   .welcome__container {
-    background: $color-gray-lightest;
+    background: var(--color-gray-lightest);
     padding: 5.25rem 3.5rem;
   }
 
