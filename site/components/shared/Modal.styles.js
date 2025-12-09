@@ -17,8 +17,8 @@ export default css.global`
     align-items: center;
     justify-content: center;
     transition:
-    visibility 0.15s linear 0.15s,
-    opacity 0.15s linear 0.15s;
+      visibility 0.15s linear 0.15s,
+      opacity 0.15s linear 0.15s;
 
     h3 {
       max-width: 42rem;
@@ -46,8 +46,8 @@ export default css.global`
     opacity: 1;
     visibility: visible;
     transition:
-    visibility 0.15s linear,
-    opacity 0.15s linear;
+      visibility 0.15s linear,
+      opacity 0.15s linear;
 
     .modal__content > * {
       opacity: 1;

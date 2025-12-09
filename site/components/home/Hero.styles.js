@@ -4,7 +4,10 @@ export default css.global`
   @import 'variables.scss';
 
   .hero {
-    background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
+    background-image: linear-gradient(
+      var(--color-gray-light) 1px,
+      transparent 1px
+    );
     background-size: 7rem 7rem;
     margin-top: -1px;
     border-bottom: 1px solid var(--color-gray-light);
@@ -12,7 +15,10 @@ export default css.global`
 
   .hero__container {
     background-color: var(--color-gray-lightest);
-    background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
+    background-image: linear-gradient(
+      var(--color-gray-light) 1px,
+      transparent 1px
+    );
     background-size: 7rem 7rem;
     min-height: calc(7rem * 11);
     display: flex;

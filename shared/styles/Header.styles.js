@@ -124,13 +124,15 @@ export default css.global`
       &:not([aria-current]):hover,
       &:not([aria-current]):focus {
         background: var(--color-secondary);
-        transition: background 0.15s linear 0.3s, color 0.15s linear 0.3s;
+        transition:
+          background 0.15s linear 0.3s,
+          color 0.15s linear 0.3s;
         color: var(--color-white);
       }
 
       &:before,
       &:after {
-        content: " ";
+        content: ' ';
         width: 0;
         height: 0;
         border: 2px solid transparent;
@@ -152,7 +154,9 @@ export default css.global`
       &:not([aria-current]):hover:after {
         width: 100%;
         height: 100%;
-        transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+        transition:
+          width 0.15s ease-out,
+          height 0.15s ease-out 0.15s;
       }
 
       &:not([aria-current]):hover:before {
