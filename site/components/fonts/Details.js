@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import Tags from '../../../shared/components/Tags';
-import styles from './Details.styles.js';
+import styles from './Details.module.css';
 
 const Details = ({ font }) => {
   const { description, distributors, downloads, tags } = font;
@@ -28,33 +28,37 @@ const Details = ({ font }) => {
   ].join(' and ');
 
   return (
-    <section className="details">
+    <section>
       <h3>Details</h3>
-      <ul className="details__inline">
-        <li className="details__link">
+
+      <ul className={styles.inline}>
+        <li className={styles.link}>
           <Link href="/fonts/licensing">Licensing Info</Link>
         </li>
 
-        <li className="details__link">
+        <li className={styles.link}>
           <Link href="/fonts/eula">View EULA</Link>
         </li>
       </ul>
+
       {description && (
         <div
-          className="details__desc"
+          className={styles.desc}
           dangerouslySetInnerHTML={{ __html: description }}
         />
       )}
+
       {distributors && distributors.length > 0 && (
-        <div className="details__desc">
+        <div className={styles.desc}>
           Have another marketplace you prefer to get your licensing from? This
           font is also available at{' '}
           <span dangerouslySetInnerHTML={{ __html: distributorsLinks }} />.
         </div>
       )}
-      <div className="details__inline details__lists">
-        {(downloads || {}).personal && (
-          <ul className="details__list">
+
+      <div className={`${styles.lists} ${styles.inline}`}>
+        {(downloads.personal.file || {}).url && (
+          <ul className={styles.list}>
             <li>
               <h4>Personal Use Details</h4>
             </li>
@@ -65,8 +69,8 @@ const Details = ({ font }) => {
           </ul>
         )}
 
-        {(downloads || {}).commercial && (
-          <ul className="details__list">
+        {(downloads.commercial.file || {}).url && (
+          <ul className={styles.list}>
             <li>
               <h4>Commercial Use Details</h4>
             </li>
@@ -77,15 +81,13 @@ const Details = ({ font }) => {
           </ul>
         )}
       </div>
+
       {tags && tags.length > 0 && (
-        <div className="details__inline">
-          <span className="details__tag-heading">Tagged:</span>
+        <div className={styles.inline}>
+          <span className={styles.tagHeading}>Tagged:</span>
           <Tags tags={tags} path="/fonts/tagged" source="font page" />
         </div>
       )}
-      <style jsx global>
-        {styles}
-      </style>
     </section>
   );
 };

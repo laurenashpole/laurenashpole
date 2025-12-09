@@ -6,11 +6,11 @@ import AbstractDotGroup from '../../../shared/components/svgs/AbstractDotGroup';
 import AbstractSquiggleThin from '../../../shared/components/svgs/AbstractSquiggleThin';
 import { ga4Event } from '../../utils/ga4';
 import Buttons from './Buttons';
-import styles from './Content.styles';
 import Details from './Details';
 import Gallery from './Gallery';
 import Glyphs from './Glyphs';
 import Preview from './Preview';
+import styles from './Content.module.css';
 
 const Content = ({ font }) => {
   useEffect(() => {
@@ -18,53 +18,45 @@ const Content = ({ font }) => {
   }, [font]);
 
   return (
-    <>
-      <div className="content">
-        <Container>
-          <div className="content__container">
-            <div
-              className={`content__letters font-${font.slug}`}
-              aria-hidden="true"
-            >
-              <span>A</span>
-              <span>B</span>
-              <span>C</span>
+    <Container>
+      <div className={styles.content}>
+        <aside
+          className={`${styles.aside} font-${font.slug}`}
+          aria-hidden="true"
+        >
+          <span>A</span>
+          <span>B</span>
+          <span>C</span>
 
-              <span className="content__shapes content__shapes--squiggle">
-                <AbstractSquiggleThin />
-              </span>
+          <span className={`${styles.shapes} ${styles.shapesSquiggle}`}>
+            <AbstractSquiggleThin />
+          </span>
 
-              <span className="content__shapes content__shapes--dot-group">
-                <AbstractDotGroup />
-              </span>
+          <span className={`${styles.shapes} ${styles.shapesDotGroup}`}>
+            <AbstractDotGroup />
+          </span>
+        </aside>
+
+        <div className={styles.main}>
+          <section>
+            <div className={styles.heading}>
+              <h1>{font.name}</h1>
+
+              {font.sale_price && (
+                <div className={`${styles.sale} label`}>On Sale!</div>
+              )}
             </div>
 
-            <div className="content__main">
-              <section>
-                <h1 className="content__heading">
-                  {font.name}
+            <Gallery font={font} />
+            <Buttons font={font} />
+          </section>
 
-                  {font.sale_price && (
-                    <div className="label content__heading-sale">On Sale!</div>
-                  )}
-                </h1>
-
-                <Gallery font={font} />
-                <Buttons font={font} />
-              </section>
-
-              <Details font={font} />
-              <Preview font={font} />
-              <Glyphs font={font} />
-            </div>
-          </div>
-        </Container>
+          <Details font={font} />
+          <Preview font={font} />
+          <Glyphs font={font} />
+        </div>
       </div>
-
-      <style jsx global>
-        {styles}
-      </style>
-    </>
+    </Container>
   );
 };
 

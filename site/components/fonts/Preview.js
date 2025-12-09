@@ -3,18 +3,18 @@ import { useState } from 'react';
 
 import Input from '../../../shared/components/Input';
 import Select from '../../components/shared/Select';
-import styles from './Preview.styles.js';
+import styles from './Preview.module.css';
 
 const Preview = ({ font }) => {
   const [text, setText] = useState('Enter your preview text');
   const [size, setSize] = useState('48');
 
   return (
-    <section className="preview">
+    <section>
       <h3>Preview</h3>
 
-      <form className="preview__form">
-        <div className="preview__input">
+      <form className={styles.form}>
+        <div className={styles.input}>
           <Input
             label="Preview text"
             hideLabel={true}
@@ -27,7 +27,7 @@ const Preview = ({ font }) => {
           />
         </div>
 
-        <div className="preview__select">
+        <div className={styles.select}>
           <Select
             label="Preview font size"
             hideLabel={true}
@@ -48,7 +48,7 @@ const Preview = ({ font }) => {
       </form>
 
       <div
-        className={`preview__preview font-${font.slug}`}
+        className={`${styles.preview} font-${font.slug}`}
         style={{ fontSize: `${size}px` }}
       >
         {text}
@@ -59,17 +59,13 @@ const Preview = ({ font }) => {
           return (
             <div
               key={className}
-              className={`preview__preview ${className}`}
+              className={`${styles.preview} ${className}`}
               style={{ fontSize: `${size}px` }}
             >
               {text}
             </div>
           );
         })}
-
-      <style jsx global>
-        {styles}
-      </style>
     </section>
   );
 };

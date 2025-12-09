@@ -1,0 +1,99 @@
+@value breakMobile, breakTablet from '../../../shared/styles/_breakpoints.css';
+
+
+.container {
+  margin-bottom: -1px;
+}
+
+.item {
+  border-bottom: 1px solid var(--color-gray-light);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.link {
+  border: 1.25rem solid var(--color-white);
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.img {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: block;
+}
+
+.img > span {
+  vertical-align: top;
+}
+
+.img + .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.link:hover .img + .img {
+  opacity: 1;
+}
+
+/* TODO: Update label options */
+.details {
+  border-top: 1px solid var(--color-gray-light);
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  line-height: 5.5rem;
+}
+
+.name {
+  margin: 0;
+  padding: 0 2rem;
+  font: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  border-left: 1px solid var(--color-gray-light);
+  padding: 0 2rem;
+  appearance: none;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+@media breakMobile {
+  .list {
+    width: calc(100% + 1px);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 33.333%;
+  }
+
+  .item {
+    border-right: 1px solid var(--color-gray-light);
+  }
+}
+
+@media breakTablet {
+  .details {
+    font-size: 1.75rem;
+    line-height: 6rem;
+  }
+}

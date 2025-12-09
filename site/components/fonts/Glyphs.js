@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 
 import Button from '../../../shared/components/Button';
 import { FONT_GLYPHS } from '../../constants/fontGlyphs';
-import styles from './Glyphs.styles.js';
+import styles from './Glyphs.module.css';
 
 const TABS = ['Basic', 'Additional'];
 
@@ -31,21 +31,21 @@ const Glyphs = ({ font }) => {
   };
 
   return (
-    <section className="glyphs">
+    <section>
       <h3>Glyphs</h3>
 
       {(((font.downloads || {}).commercial || {}).features || []).includes(
         'Additional Characters (Latin-1)',
       ) && (
         <ul
-          className="glyphs__tabs"
+          className={styles.tabs}
           role="tablist"
           aria-label="Glyph sets"
           onKeyDown={handleKeydown}
         >
           {TABS.map((tab) => {
             return (
-              <li key={`${tab}Tab`} className="glyphs__link">
+              <li key={`${tab}Tab`} className={styles.tab}>
                 <Button
                   style="link"
                   onClick={() => setActiveGlyphs(tab)}
@@ -79,14 +79,14 @@ const Glyphs = ({ font }) => {
                 tabIndex="0"
                 aria-labelledby={`${tab}Tab`}
               >
-                <ul className="glyphs__grid">
+                <ul className={styles.grid}>
                   {FONT_GLYPHS[tab.toLowerCase()].map((char, i) => {
                     return (
                       <li
                         key={i}
-                        className={`glyphs__char ${typeof char === 'object' ? 'is-' + char.type : 'is-additional'}`}
+                        className={`${styles.char} ${typeof char === 'object' ? 'is-' + char.type : 'is-additional'}`}
                       >
-                        <span className="glyphs__key">
+                        <span className={styles.key}>
                           {typeof char === 'object' ? char.glyph : char}
                         </span>
                         {typeof char === 'object' ? char.glyph : char}
@@ -99,10 +99,6 @@ const Glyphs = ({ font }) => {
           </div>
         );
       })}
-
-      <style jsx global>
-        {styles}
-      </style>
     </section>
   );
 };

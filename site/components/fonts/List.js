@@ -7,7 +7,7 @@ import Input from '../../../shared/components/Input';
 import AbstractDotRule from '../../../shared/components/svgs/AbstractDotRule.js';
 import Tags from '../../../shared/components/Tags';
 import Grid from './Grid.js';
-import styles from './List.styles.js';
+import styles from './List.module.css';
 
 const List = ({ heading, fonts, tags, description }) => {
   const [filter, setFilter] = useState('');
@@ -24,28 +24,27 @@ const List = ({ heading, fonts, tags, description }) => {
 
   return (
     <>
-      <div className="list">
-        <div className="list__header">
+      <div className={styles.container}>
+        <div className={styles.header}>
           <Container>
-            <div className="list__heading">
-              <h1 className="list__heading-text">{heading}</h1>
-
+            <div className={styles.heading}>
+              <h1>{heading}</h1>
               <AbstractDotRule />
             </div>
 
             {tags.length > 0 && (
-              <div className="list__tags">
+              <div className={styles.tags}>
                 <Tags tags={tags} path="/fonts/tagged" source="font list" />
               </div>
             )}
 
-            {description && <h2 className="list__desc">{description}</h2>}
+            {description && <h2 className={styles.desc}>{description}</h2>}
           </Container>
         </div>
 
-        <div className="list__filter">
+        <div className={styles.filter}>
           <Container>
-            <form className="list__filter-form">
+            <form className={styles.filterForm}>
               <Button
                 style="secondary"
                 onClick={() => setFilter('')}
@@ -78,7 +77,7 @@ const List = ({ heading, fonts, tags, description }) => {
           <Grid fonts={filteredFonts} gaCategory={heading} />
         ) : (
           <Container>
-            <div className="list__empty">
+            <div className={styles.empty}>
               No results for &quot;{filter}&quot;.
             </div>
           </Container>
@@ -86,10 +85,6 @@ const List = ({ heading, fonts, tags, description }) => {
       </div>
 
       <Container />
-
-      <style jsx global>
-        {styles}
-      </style>
     </>
   );
 };

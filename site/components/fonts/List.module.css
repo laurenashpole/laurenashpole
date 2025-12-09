@@ -1,0 +1,145 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.header {
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.header > div {
+  padding: calc(var(--spacing-base) * 0.75) calc(var(--spacing-base) * 0.5);
+}
+
+.heading {
+  text-align: center;
+}
+
+.heading svg {
+  margin-top: 1rem;
+  width: 7rem;
+  height: 3.5rem;
+}
+
+.heading h1 {
+  margin: 0;
+}
+
+.heading + .tags {
+  margin-top: calc(var(--spacing-base) * 0.5);
+}
+
+.desc {
+  max-width: 72rem;
+  margin: calc(var(--spacing-base) * 0.5) auto calc(var(--spacing-base) * 0.25) auto;
+  padding: 0 calc(var(--spacing-base) * 0.25);
+  font: inherit;
+  text-align: center;
+}
+
+.filter {
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.filter > div {
+  min-height: var(--spacing-base);
+}
+
+.filterForm {
+  padding: 1.25rem;
+  position: relative;
+}
+
+.filterForm .input {
+  width: 100%;
+}
+
+.filterForm input[type='text'] {
+  padding-left: 6rem;
+}
+
+.filterForm button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  position: absolute;
+  left: calc(2rem + 1px);
+  top: 50%;
+  z-index: 1;
+  transform: translate3d(0, -50%, 0);
+}
+
+.filterForm button:focus {
+  animation: none;
+}
+
+.filterForm button:disabled {
+  background: var(--color-gray-dark);
+}
+
+.filterForm span {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.filterForm span:before,
+.filterForm span:after {
+  content: ' ';
+  background: var(--color-white);
+  width: 2.5rem;
+  height: 0.4rem;
+  border-radius: 1px;
+  margin: 1rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.filterForm span:after {
+  transform: rotate(90deg);
+}
+
+.empty {
+  padding: var(--spacing-base) calc(var(--spacing-base) * 0.5);
+}
+
+@media breakTablet {
+  .heading svg {
+    margin-top: 2rem;
+    width: 8rem;
+    height: 4rem;
+  }
+
+  .filterForm button {
+    width: 4.5rem;
+    height: 4.5rem;
+    left: calc(2.25rem + 1px);
+  }
+
+  .filterForm span {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .filterForm span:before,
+  .filterForm span:after {
+    width: 2.75rem;
+    margin: 1.155rem 0;
+  }
+
+  .filterForm input[type='text'] {
+    padding-left: 7.5rem;
+  }
+}
+
+@media breakDesktop {
+  .heading svg {
+    margin-top: 2rem;
+    width: 10rem;
+    height: 5rem;
+  }
+}
