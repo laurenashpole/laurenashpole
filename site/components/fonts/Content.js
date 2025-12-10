@@ -6,11 +6,11 @@ import AbstractDotGroup from '../../../shared/components/svgs/AbstractDotGroup';
 import AbstractSquiggleThin from '../../../shared/components/svgs/AbstractSquiggleThin';
 import { ga4Event } from '../../utils/ga4';
 import Buttons from './Buttons';
+import styles from './Content.module.css';
 import Details from './Details';
 import Gallery from './Gallery';
 import Glyphs from './Glyphs';
 import Preview from './Preview';
-import styles from './Content.module.css';
 
 const Content = ({ font }) => {
   useEffect(() => {

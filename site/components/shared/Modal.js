@@ -98,9 +98,7 @@ const Modal = ({ children, name, isActive, onClose }) => {
         aria-labelledby={name ? `${name}ModalHeading` : null}
         role="dialog"
       >
-        <div className={styles.content}>
-          {children}
-        </div>
+        <div className={styles.content}>{children}</div>
       </div>
     </div>,
     portalRef.current,

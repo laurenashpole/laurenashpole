@@ -60,7 +60,9 @@ const Buttons = ({ font }) => {
             onClose={handleModalClose}
           >
             <h3 id="mailingListModalHeading">
-              Can I email you<br />about new fonts?
+              Can I email you
+              <br />
+              about new fonts?
             </h3>
 
             <div>
@@ -103,7 +105,6 @@ const Buttons = ({ font }) => {
             {font.sale_price && (
               <span className={styles.price}>${font.sale_price}</span>
             )}
-
             <span className={styles.price}>${font.price}</span> Commercial Use
           </span>
         </Button>

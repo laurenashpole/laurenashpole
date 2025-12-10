@@ -3,7 +3,7 @@
 }
 
 .container:not(:last-child) {
-  margin-bottom: 2rem;
+  margin-bottom: calc(var(--spacing-base) * 0.25);
 }
 
 .label {

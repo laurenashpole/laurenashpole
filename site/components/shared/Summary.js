@@ -36,9 +36,7 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                     </span>
                   )}
 
-                  <span className={styles.price}>
-                    ${item.price * item.qty}
-                  </span>
+                  <span className={styles.price}>${item.price * item.qty}</span>
                 </div>
               )}
             </div>
@@ -72,11 +70,9 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                     }}
                   >
                     <span aria-hidden="true">-</span>
-                    <SrOnly>Decrease {item.name} quantity</SrOnly>                      
+                    <SrOnly>Decrease {item.name} quantity</SrOnly>
                   </Button>
-
                   {item.qty} LICENSE{item.qty !== 1 && 'S'}
-
                   <Button
                     style="link"
                     onClick={() => onAdd(item)}
@@ -87,9 +83,7 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                     }}
                   >
                     <span aria-hidden="true">+</span>
-                    <SrOnly>
-                      Increase {item.name} quantity
-                    </SrOnly>
+                    <SrOnly>Increase {item.name} quantity</SrOnly>
                   </Button>
                 </div>
               </div>

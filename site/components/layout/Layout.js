@@ -30,7 +30,6 @@ const Layout = ({ children, meta }) => {
       <Header
         home={HEADER.home}
         links={HEADER.default}
-        enableAnalytics
         cart={<Cart />}
       />
 
