@@ -2,16 +2,17 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import Summary from '../shared/Summary';
-import styles from './Order.styles.js';
+import styles from './Order.module.css';
 
 const Order = ({ order }) => {
   return (
-    <div className="order">
+    <div className={styles.container}>
       <div>
         <p>
           Your purchase was processed via PayPal with the order number{' '}
           {order.orderId}.
         </p>
+
         <p>
           If you want web fonts and additional characters (where applicable),
           don&apos;t forget to download the commercial files before leaving this
@@ -42,7 +43,8 @@ const Order = ({ order }) => {
           </a>
         </p>
       </div>
-      <div className="order__summary">
+
+      <div className={styles.summary}>
         <Summary
           header="Downloads"
           items={order.fonts.map((font) => {
@@ -54,9 +56,6 @@ const Order = ({ order }) => {
           name="confirm"
         />
       </div>
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

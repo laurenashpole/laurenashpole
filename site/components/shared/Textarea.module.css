@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+}
+
+.container:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.label {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.textarea {
+  background: var(--color-gray-lightest);
+  width: 100%;
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: normal;
+  display: block;
+  resize: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.error .textarea {
+  border-color: var(--color-error);
+}
+
+.textarea:focus {
+  border-color: var(--color-gray-dark);
+}

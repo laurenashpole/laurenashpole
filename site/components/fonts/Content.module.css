@@ -113,7 +113,7 @@
 
   .main {
     width: calc(100% - (var(--spacing-base) * 5));
-    padding: var(--spacing-base);
+    padding: calc(var(--spacing-base) - 2px);
   }
 
   .main > section + section {

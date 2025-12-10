@@ -2,24 +2,25 @@ import PropTypes from 'prop-types';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 import Button from '../../../shared/components/Button';
-import styles from './Summary.styles.js';
+import SrOnly from '../../../shared/components/SrOnly';
+import styles from './Summary.module.css';
 
 const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
   return (
-    <ul className={`summary ${total ? '' : 'summary--card'}`}>
+    <ul className={total ? '' : styles.card}>
       {header && (
-        <li className="summary__item summary__item--header">{header}</li>
+        <li className={`${styles.header} ${styles.item}`}>{header}</li>
       )}
 
       {(items || []).map((item, i) => {
         return (
-          <li key={i} className="summary__item">
-            <div className="summary__row">
+          <li key={i} className={styles.item}>
+            <div className={styles.row}>
               <span>{item.name}</span>
 
               {item.downloadPath ? (
                 <a
-                  className="summary__download"
+                  className={styles.download}
                   href={item.downloadPath}
                   aria-label={`Download ${item.name}`}
                   data-ga-click="true"
@@ -30,11 +31,12 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
               ) : (
                 <div>
                   {item.sale_price && (
-                    <span className="summary__item-price">
+                    <span className={styles.price}>
                       ${item.sale_price * item.qty}
                     </span>
                   )}
-                  <span className="summary__item-price">
+
+                  <span className={styles.price}>
                     ${item.price * item.qty}
                   </span>
                 </div>
@@ -42,7 +44,7 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
             </div>
 
             {(onRemove || onAdd) && (
-              <div className="summary__row summary__row--btns">
+              <div className={`${styles.buttons} ${styles.row}`}>
                 <Button
                   style="link"
                   onClick={() => onRemove(item, item.qty)}
@@ -53,13 +55,13 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                   }}
                 >
                   REMOVE
-                  <span className="sr-only">
+                  <SrOnly>
                     {' '}
                     {item.name} from {name}
-                  </span>
+                  </SrOnly>
                 </Button>
 
-                <div className="summary__qty">
+                <div className={styles.qty}>
                   <Button
                     style="link"
                     onClick={() => onRemove(item, 1)}
@@ -70,11 +72,11 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                     }}
                   >
                     <span aria-hidden="true">-</span>
-                    <span className="sr-only">
-                      Decrease {item.name} quantity
-                    </span>
+                    <SrOnly>Decrease {item.name} quantity</SrOnly>                      
                   </Button>
+
                   {item.qty} LICENSE{item.qty !== 1 && 'S'}
+
                   <Button
                     style="link"
                     onClick={() => onAdd(item)}
@@ -85,9 +87,9 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
                     }}
                   >
                     <span aria-hidden="true">+</span>
-                    <span className="sr-only">
+                    <SrOnly>
                       Increase {item.name} quantity
-                    </span>
+                    </SrOnly>
                   </Button>
                 </div>
               </div>
@@ -97,15 +99,11 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
       })}
 
       {total && (
-        <li className="summary__item summary__item--total summary__row">
+        <li className={`${styles.total} ${styles.item} ${styles.row}`}>
           <span>Total</span>
           <span>${total}</span>
         </li>
       )}
-
-      <style jsx global>
-        {styles}
-      </style>
     </ul>
   );
 };

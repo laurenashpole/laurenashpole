@@ -1,0 +1,19 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  margin-top: 2.5rem;
+}
+
+@media breakTablet {
+  .container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .summary {
+    width: 40%;
+    margin-top: 0;
+    padding-left: 4.5rem;
+    flex-shrink: 0;
+  }
+}

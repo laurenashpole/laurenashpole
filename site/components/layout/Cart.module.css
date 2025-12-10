@@ -1,0 +1,77 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  pointer-events: none;
+}
+
+.container button {
+  background: transparent;
+  width: var(--spacing-base);
+  height: var(--spacing-base);
+  border-radius: 0;
+  border: 0;
+  border-left: 1px solid var(--color-gray-light);
+  position: relative;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  pointer-events: auto;
+}
+
+.container button:hover,
+.container button:focus {
+  background: var(--color-gray-lightest);
+}
+
+.icon:before {
+  content: '';
+  background: var(--color-secondary);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.icon:after {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 2rem);
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.count {
+  position: relative;
+  z-index: 1;
+}
+
+@media breakTablet {
+  .container button:hover .icon:before,
+  .container button:focus .icon:before {
+    background: var(--color-white);
+    transition: background 0.15s linear 0.3s;
+  }
+
+  .container button:hover .icon:after,
+  .container button:focus .icon:after {
+    border-color: var(--color-white);
+    transition: border-color 0.15s linear 0.3s;
+  }
+
+  .container button:hover .count,
+  .container button:focus .count {
+    color: var(--color-secondary);
+    transition: color 0.15s linear 0.3s;
+  }
+
+  .count {
+    transition: none;
+  }
+}

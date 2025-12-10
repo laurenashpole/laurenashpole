@@ -60,10 +60,10 @@ const Buttons = ({ font }) => {
             onClose={handleModalClose}
           >
             <h3 id="mailingListModalHeading">
-              Can I email you about new fonts?
+              Can I email you<br />about new fonts?
             </h3>
 
-            <>
+            <div>
               <p>
                 I promise you&apos;ll only hear from me when I have something
                 you can try.
@@ -83,7 +83,7 @@ const Buttons = ({ font }) => {
               >
                 Nope, just download the font.
               </Button>
-            </>
+            </div>
           </Modal>
         </>
       )}
