@@ -1,0 +1,37 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.link {
+  padding-left: 6rem;
+  display: inline-block;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-secondary);
+  font-size: 4.25rem;
+  line-height: 0.75;
+}
+
+@media breakTablet {
+  .link {
+    padding-left: 7.5rem;
+  }
+
+  .icon {
+    font-size: 5rem;
+  }
+}
+
+@media breakDesktop {
+  .link {
+    padding-left: 10.5rem;
+  }
+
+  .icon {
+    font-size: 6.75rem;
+  }
+}

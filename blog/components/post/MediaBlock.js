@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-import styles from './MediaBlock.styles.js';
+import styles from './MediaBlock.module.css';
 
 const MediaBlock = ({ post }) => {
   return (
-    <div className="media">
+    <div>
       {post.photos && (
-        <div className="media__content media__content--img">
+        <div className={`${styles.content} ${styles.img}`}>
           {post.photos.map((photo, i) => {
             return (
               <div key={i}>
@@ -19,7 +19,7 @@ const MediaBlock = ({ post }) => {
       )}
 
       {post.video_id && post.video_type === 'youtube' && (
-        <div className="media__content media__content--video">
+        <div className={`${styles.content} ${styles.video}`}>
           <iframe
             width="700"
             height="383"
@@ -32,10 +32,6 @@ const MediaBlock = ({ post }) => {
       )}
 
       <div dangerouslySetInnerHTML={{ __html: post.caption }} />
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

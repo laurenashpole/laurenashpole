@@ -10,9 +10,9 @@ import Comments from './Comments';
 import Details from './Details';
 import LinkBlock from './LinkBlock';
 import MediaBlock from './MediaBlock';
-import styles from './Post.styles.js';
 import PublishDate from './PublishDate';
 import TextBlock from './TextBlock';
+import styles from './Post.module.css';
 
 const Post = ({ post, isPermalink, affiliate }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,10 +26,10 @@ const Post = ({ post, isPermalink, affiliate }) => {
   }, []);
 
   return (
-    <article className={`post ${isPermalink ? 'post--permalink' : ''}`}>
+    <article className={`${styles.container} ${isPermalink ? styles.permalink : ''}`}>
       <Container>
-        <div className="post__container">
-          <div className="post__details">
+        <div className={styles.content}>
+          <div className={styles.details}>
             {isMounted && isTablet && (
               <>
                 <PublishDate date={post.date} />
@@ -38,10 +38,10 @@ const Post = ({ post, isPermalink, affiliate }) => {
             )}
           </div>
 
-          <div className="post__content">
+          <div className={styles.main}>
             {isMounted && !isTablet && <PublishDate date={post.date} />}
 
-            <div className="post__body">
+            <div className={styles.body}>
               {post.type === 'text' && <TextBlock post={post} />}
               {post.type === 'photo' && <MediaBlock post={post} />}
               {post.type === 'video' && <MediaBlock post={post} />}
@@ -52,7 +52,7 @@ const Post = ({ post, isPermalink, affiliate }) => {
             {isMounted && !isTablet && <Details post={post} />}
 
             {!isPermalink && (
-              <footer className="post__footer" aria-label="Post footer">
+              <footer className={styles.footer} aria-label="Post footer">
                 <Link
                   href={post.pathname}
                   data-ga-category="blog footer"
@@ -65,15 +65,13 @@ const Post = ({ post, isPermalink, affiliate }) => {
           </div>
         </div>
       </Container>
+
       {isPermalink && (
         <>
           <Affiliate affiliate={affiliate} isPermalink />
           <Comments />
         </>
       )}
-      <style jsx global>
-        {styles}
-      </style>
     </article>
   );
 };

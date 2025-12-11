@@ -2,14 +2,14 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import Container from '../../../shared/components/Container.js';
-import styles from './Pagination.styles.js';
+import styles from './Pagination.module.css';
 
 const Pagination = ({ pagination, paginationPath }) => {
   return (
     <Container>
-      <ul className="pagination">
+      <ul className={styles.container}>
         {pagination.prevPage && (
-          <li className="pagination__item pagination__item--prev">
+          <li className={styles.prev}>
             <Link
               href={
                 pagination.prevPage === 2
@@ -26,7 +26,7 @@ const Pagination = ({ pagination, paginationPath }) => {
         )}
 
         {pagination.nextPage && (
-          <li className="pagination__item pagination__item--next">
+          <li className={styles.next}>
             <Link
               href={`${paginationPath ? paginationPath : ''}/page/${pagination.nextPage}`}
               rel="next"
@@ -37,10 +37,6 @@ const Pagination = ({ pagination, paginationPath }) => {
             </Link>
           </li>
         )}
-
-        <style jsx global>
-          {styles}
-        </style>
       </ul>
     </Container>
   );
