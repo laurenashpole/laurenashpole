@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-import styles from '../styles/Tags.styles.js';
+import styles from '../styles/Tags.module.css';
 
 const Tags = ({ tags, path, source }) => {
   return (
-    <ul className="tags">
+    <ul className={styles.container}>
       {tags.map((tag) => {
         return (
           <li key={tag._id || tag.slug}>
             <Link
               href={`${path || ''}/${tag.slug}`}
-              className="tags__tag"
+              className={styles.tag}
               data-ga-click={!!source}
               data-ga-category={source}
             >
@@ -20,9 +20,6 @@ const Tags = ({ tags, path, source }) => {
           </li>
         );
       })}
-      <style jsx global>
-        {styles}
-      </style>
     </ul>
   );
 };

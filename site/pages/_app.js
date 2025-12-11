@@ -1,4 +1,3 @@
-import '../styles/global.scss';
 import '../../shared/styles/_global.css';
 import '../../shared/styles/_keyframes.css';
 

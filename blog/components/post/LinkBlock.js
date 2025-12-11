@@ -10,10 +10,7 @@ const LinkBlock = ({ post }) => {
   return (
     <div>
       <h2>
-        <a
-          className={styles.link}
-          href={post.url}
-        >
+        <a className={styles.link} href={post.url}>
           <span className={styles.icon}>
             {podcast ? <FaHeadphones /> : <GrLink />}
           </span>

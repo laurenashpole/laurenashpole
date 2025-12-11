@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 
-import styles from '../styles/SrOnly.styles.js';
+import styles from '../styles/SrOnly.module.css';
 
 const SrOnly = ({ children }) => {
-  return (
-    <span className="sr-only">
-      {children}
-
-      <style jsx global>
-        {styles}
-      </style>
-    </span>
-  );
+  return <span className={styles.container}>{children}</span>;
 };
 
 SrOnly.propTypes = {

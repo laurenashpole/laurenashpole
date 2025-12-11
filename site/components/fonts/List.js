@@ -38,7 +38,7 @@ const List = ({ heading, fonts, tags, description }) => {
               </div>
             )}
 
-            {description && <h2 className={styles.desc}>{description}</h2>}
+            {description && <p className={styles.desc}>{description}</p>}
           </Container>
         </div>
 

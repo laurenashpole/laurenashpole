@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
-import styles from '../styles/Header.styles.js';
+import styles from '../styles/Header.module.css';
 import ActiveLink from './ActiveLink';
 import Logo from './svgs/Logo.js';
 
-const Header = ({ home, links, enableAnalytics, cart }) => {
+const Header = ({ home, links, cart }) => {
   return (
-    <header className="header">
-      <div className="header__content">
+    <header className={styles.container}>
+      <div className={styles.content}>
         {home.external ? (
           <a
-            className="header__logo"
+            className={styles.logo}
             href={`https://${home.external.host}${home.path}`}
-            data-ga-click={enableAnalytics}
+            data-ga-click="true"
             data-ga-category="nav"
             aria-label={home.label}
           >
@@ -21,8 +21,8 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
         ) : (
           <ActiveLink
             href={home.path}
-            className="header__logo"
-            data-ga-click={enableAnalytics}
+            className={styles.logo}
+            data-ga-click="true"
             data-ga-category="nav"
             isExact={true}
             aria-label={home.label}
@@ -31,16 +31,16 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
           </ActiveLink>
         )}
 
-        <nav className="header__nav">
-          <ul className="header__list">
+        <nav className={styles.nav}>
+          <ul className={styles.list}>
             {links.map((link, i) => {
               return (
-                <li key={i} className="header__item">
+                <li key={i} className={styles.item}>
                   {link.external ? (
                     <a
-                      className="header__link"
+                      className={styles.link}
                       href={`https://${link.external.host}${link.path}`}
-                      data-ga-click={enableAnalytics}
+                      data-ga-click="true"
                       data-ga-category="nav"
                       aria-current={link.external.isActive ? 'page' : null}
                     >
@@ -49,8 +49,8 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
                   ) : (
                     <ActiveLink
                       href={link.path}
-                      className="header__link"
-                      data-ga-click={enableAnalytics}
+                      className={styles.link}
+                      data-ga-click="true"
                       data-ga-category="nav"
                       isExact={link.isExact}
                     >
@@ -65,10 +65,6 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
           {cart}
         </nav>
       </div>
-
-      <style jsx global>
-        {styles}
-      </style>
     </header>
   );
 };
@@ -76,7 +72,6 @@ const Header = ({ home, links, enableAnalytics, cart }) => {
 Header.propTypes = {
   home: PropTypes.object,
   links: PropTypes.array,
-  enableAnalytics: PropTypes.bool,
 };
 
 export default Header;

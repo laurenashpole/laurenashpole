@@ -27,11 +27,7 @@ const Layout = ({ children, meta }) => {
         }
       />
 
-      <Header
-        home={HEADER.home}
-        links={HEADER.default}
-        cart={<Cart />}
-      />
+      <Header home={HEADER.home} links={HEADER.default} cart={<Cart />} />
 
       <main className={styles.main}>{children}</main>
 

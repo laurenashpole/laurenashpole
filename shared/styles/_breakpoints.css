@@ -1,0 +1,4 @@
+@value breakMobile: (min-width: 640px);
+@value breakTablet: (min-width: 768px);
+@value breakDesktop: (min-width: 1138px);
+@value breakDesktopL: (min-width: 1400px);

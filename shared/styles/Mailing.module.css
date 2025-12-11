@@ -1,0 +1,62 @@
+@value breakTablet from './_breakpoints.css';
+
+.inline {
+  width: 100%;
+  padding: 1.25rem;
+  display: flex;
+}
+
+.inline .input {
+  width: 66.666%;
+  padding: 0;
+}
+
+.inline .input input[type='email'] {
+  background: var(--color-white);
+  text-align: left;
+}
+
+.inline .button {
+  width: 33.333%;
+  padding: 0 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.inline .button br {
+  display: inline;
+}
+
+.input input[type='email'] {
+  text-align: center;
+}
+
+.button {
+  padding-bottom: 2rem;
+}
+
+.button br {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media breakTablet {
+  .inline .button {
+    padding: 0 0 0 1.25rem;
+    font-size: 1.75rem;
+  }
+
+  .inline .button br {
+    display: none;
+  }
+
+  .input {
+    padding-bottom: 1.5rem;
+  }
+
+  .button {
+    padding-bottom: 2.5rem;
+  }
+}

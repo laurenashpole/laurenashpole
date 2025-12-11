@@ -36,38 +36,41 @@ const Glyphs = ({ font }) => {
 
       {(((font.downloads || {}).commercial || {}).features || []).includes(
         'Additional Characters (Latin-1)',
-      ) && (
-        <ul
-          className={styles.tabs}
-          role="tablist"
-          aria-label="Glyph sets"
-          onKeyDown={handleKeydown}
-        >
-          {TABS.map((tab) => {
-            return (
-              <li key={`${tab}Tab`} className={styles.tab}>
-                <Button
-                  style="link"
-                  onClick={() => setActiveGlyphs(tab)}
-                  ref={tab === 'Basic' ? basicRef : additionalRef}
-                  attributes={{
-                    type: 'button',
-                    role: 'tab',
-                    id: `${tab}Tab`,
-                    tabIndex: activeGlyphs === tab ? 0 : -1,
-                    'aria-selected': activeGlyphs === tab,
-                    'aria-controls': `${tab}Panel`,
-                    'data-ga-click': true,
-                    'data-ga-category': 'font page',
-                  }}
-                >
-                  {tab} Characters
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      ) ||
+        ((((font.downloads || {}).commercial || {}).features || []).includes(
+          'Additional Characters',
+        ) && (
+          <ul
+            className={styles.tabs}
+            role="tablist"
+            aria-label="Glyph sets"
+            onKeyDown={handleKeydown}
+          >
+            {TABS.map((tab) => {
+              return (
+                <li key={`${tab}Tab`} className={styles.tab}>
+                  <Button
+                    style="link"
+                    onClick={() => setActiveGlyphs(tab)}
+                    ref={tab === 'Basic' ? basicRef : additionalRef}
+                    attributes={{
+                      type: 'button',
+                      role: 'tab',
+                      id: `${tab}Tab`,
+                      tabIndex: activeGlyphs === tab ? 0 : -1,
+                      'aria-selected': activeGlyphs === tab,
+                      'aria-controls': `${tab}Panel`,
+                      'data-ga-click': true,
+                      'data-ga-category': 'font page',
+                    }}
+                  >
+                    {tab} Characters
+                  </Button>
+                </li>
+              );
+            })}
+          </ul>
+        ))}
 
       {TABS.map((tab) => {
         return (

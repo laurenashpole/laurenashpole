@@ -10,9 +10,9 @@ import Comments from './Comments';
 import Details from './Details';
 import LinkBlock from './LinkBlock';
 import MediaBlock from './MediaBlock';
+import styles from './Post.module.css';
 import PublishDate from './PublishDate';
 import TextBlock from './TextBlock';
-import styles from './Post.module.css';
 
 const Post = ({ post, isPermalink, affiliate }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,7 +26,9 @@ const Post = ({ post, isPermalink, affiliate }) => {
   }, []);
 
   return (
-    <article className={`${styles.container} ${isPermalink ? styles.permalink : ''}`}>
+    <article
+      className={`${styles.container} ${isPermalink ? styles.permalink : ''}`}
+    >
       <Container>
         <div className={styles.content}>
           <div className={styles.details}>
