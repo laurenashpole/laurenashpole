@@ -1,6 +1,5 @@
 @value breakTablet from '../../../shared/styles/_breakpoints.css';
 
-
 .container {
   border-top: 1px solid var(--color-gray-light);
   border-bottom: 1px solid var(--color-gray-light);

@@ -1,6 +1,5 @@
 @value breakMobile, breakTablet from '../../../shared/styles/_breakpoints.css';
 
-
 .container {
   margin-bottom: -1px;
 }
