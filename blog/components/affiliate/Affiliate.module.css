@@ -1,0 +1,50 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.permalink {
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.desktop {
+  display: none;
+}
+
+.content {
+  background: var(--color-gray-lightest);
+  padding: calc(var(--spacing-base) * 0.5) calc(var(--spacing-base) * 0.375);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bannerMobile {
+  max-width: 300px;
+  min-height: 250px;
+}
+
+.label {
+  padding-top: 1rem;
+  color: var(--color-gray-darkest);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+@media breakDesktop {
+  .content {
+    padding: var(--spacing-base);
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
+  }
+
+  .bannerDesktop {
+    max-width: 728px;
+    min-height: 90px;
+  }
+}

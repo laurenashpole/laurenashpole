@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import styles from '../styles/Mailing.styles.js';
+import styles from '../styles/Mailing.module.css';
 import { request } from '../utils/request';
 import Button from './Button';
 import Input from './Input';
@@ -40,8 +40,8 @@ const Mailing = ({ location, isInline, onSignup }) => {
   };
 
   return (
-    <form className={`mailing ${isInline ? 'mailing--inline' : ''}`}>
-      <div className="mailing__input">
+    <form className={`${styles.container} ${isInline ? styles.inline : ''}`}>
+      <div className={styles.input}>
         <Input
           label="Mailing List Email"
           hideLabel={true}
@@ -55,7 +55,7 @@ const Mailing = ({ location, isInline, onSignup }) => {
       </div>
 
       <input
-        className="mailing__hidden"
+        className={styles.hidden}
         type="text"
         tabIndex="-1"
         onChange={(e) => setHidden(e.target.value)}
@@ -63,7 +63,7 @@ const Mailing = ({ location, isInline, onSignup }) => {
         aria-hidden="true"
       />
 
-      <div className="mailing__btn">
+      <div className={styles.button}>
         <Button
           style="secondary"
           onClick={handleSubmit}
@@ -77,10 +77,6 @@ const Mailing = ({ location, isInline, onSignup }) => {
           <span dangerouslySetInnerHTML={{ __html: buttonText }} />
         </Button>
       </div>
-
-      <style jsx global>
-        {styles}
-      </style>
     </form>
   );
 };

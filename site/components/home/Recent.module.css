@@ -1,0 +1,9 @@
+.container {
+  border-top: 1px solid var(--color-gray-light);
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.container > div {
+  padding-left: var(--spacing-base);
+  position: relative;
+}

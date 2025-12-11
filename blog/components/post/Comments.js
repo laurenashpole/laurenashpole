@@ -1,7 +1,7 @@
 import { InView } from 'react-intersection-observer';
 
 import Container from '../../../shared/components/Container.js';
-import styles from './Comments.styles.js';
+import styles from './Comments.module.css';
 
 const Comments = () => {
   const handleInView = (inView) => {
@@ -14,36 +14,30 @@ const Comments = () => {
   };
 
   return (
-    <>
-      <div className="comments">
-        <Container>
-          <div className="comments__content">
-            <div className="comments__aside" />
+    <div className={styles.container}>
+      <Container>
+        <div className={styles.content}>
+          <div className={styles.aside} />
 
-            <div className="comments__main">
-              <InView threshold={1} triggerOnce={true} onChange={handleInView}>
-                <h3 className="comments__heading">Comments</h3>
-              </InView>
+          <div className={styles.main}>
+            <InView threshold={1} triggerOnce={true} onChange={handleInView}>
+              <h2>Comments</h2>
+            </InView>
 
-              <>
-                <div id="disqus_thread" />
+            <>
+              <div id="disqus_thread" />
 
-                <noscript>
-                  Please enable JavaScript to view the{' '}
-                  <a href="//disqus.com/?ref_noscript">
-                    comments powered by Disqus.
-                  </a>
-                </noscript>
-              </>
-            </div>
+              <noscript>
+                Please enable JavaScript to view the{' '}
+                <a href="//disqus.com/?ref_noscript">
+                  comments powered by Disqus.
+                </a>
+              </noscript>
+            </>
           </div>
-        </Container>
-      </div>
-
-      <style jsx global>
-        {styles}
-      </style>
-    </>
+        </div>
+      </Container>
+    </div>
   );
 };
 

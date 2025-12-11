@@ -1,0 +1,74 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  border-top: 1px solid var(--color-gray-light);
+  border-bottom: 1px solid var(--color-gray-light);
+  text-align: center;
+}
+
+.container p {
+  margin: 2.25rem 0 2.75rem 0;
+}
+
+.container > div {
+  position: relative;
+}
+
+.list {
+  padding-left: var(--spacing-base);
+}
+
+.item {
+  padding: calc(var(--spacing-base) * 0.5);
+}
+
+.item + .item {
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.name {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.icons li + li {
+  margin-left: 1.5rem;
+}
+
+.icons a {
+  padding: 0 0.75rem 0.5rem 0.75rem;
+  color: var(--color-gray-darkest);
+  display: block;
+  transition: color 0.25s linear
+}
+
+.icons a:hover,
+.icons a:focus {
+  color: var(--color-primary);
+}
+
+@media breakTablet {
+  .list {
+    display: flex;
+  }
+
+  .item {
+    width: 50%;
+    padding: var(--spacing-base) calc(var(--spacing-base) * 0.5);
+  }
+
+  .item + .item {
+    border: none;
+    border-left: 1px solid var(--color-gray-light);
+  }
+
+  .name {
+    font-size: 2.75rem;
+  }
+}

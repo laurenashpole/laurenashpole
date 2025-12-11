@@ -1,0 +1,17 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.more {
+  margin-top: calc(var(--spacing-base) * 0.375);
+}
+
+@media breakTablet {
+  .more {
+    margin-top: calc(var(--spacing-base) * 0.5);
+  }
+}
+
+@media breakDesktop {
+  .more {
+    margin-top: calc(var(--spacing-base) * 0.75);
+  }
+}

@@ -1,0 +1,148 @@
+:root {
+  --border-radius: 0.375rem;
+  --color-black: #363636;
+  --color-white: #fff;
+  --color-error: #d63037;
+  --color-gray-darkest: #a7a7a7;
+  --color-gray-dark: #cdcdcd;
+  --color-gray-light: #dfdfdf;
+  --color-gray-lightest: #f9f9f9;
+  --color-primary: #d63037;
+  --color-primary-dark: #c02b31;
+  --color-secondary: #594d6a;
+  --color-secondary-dark: #4f455f;
+  --color-accent-pink: #fbecec;
+  --color-accent-orange: #e47553;
+  --color-accent-blue: #d8ecee;
+  --color-accent-green: #d8e8dd;
+  --font-family-default: 'museo-sans-rounded', sans-serif;
+  --font-family-headings: 'museo-sans-rounded', sans-serif;
+  --font-size-root: 8px;
+  --spacing-base: 7rem;
+  --width-max: 142rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-base: 8.5rem;
+  }
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+html {
+  font: var(--font-size-root) var(--font-family-default);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color-black);
+  font-size: 2rem;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-family-headings);
+  font-weight: 900;
+}
+
+h1 {
+  margin-bottom: calc(var(--spacing-base) * 0.375);
+  font-size: 3.75rem;
+  line-height: 1.4;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: calc(var(--spacing-base) * 0.375);
+}
+
+a {
+  color: var(--color-secondary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+a * {
+  pointer-events: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* TODO: Move to a component */
+.label {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 2.25rem;
+  }
+
+  h1 {
+    margin-bottom: calc(var(--spacing-base) * 0.5);
+    font-size: 4.5rem;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: calc(var(--spacing-base) * 0.5);
+  }
+
+  .label {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1138px) {
+  h1 {
+    font-size: 5.25rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: calc(var(--font-size-root) + 0.5px);
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: calc(var(--font-size-root) + 1px);
+  }
+}

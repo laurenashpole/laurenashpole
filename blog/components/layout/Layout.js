@@ -6,11 +6,11 @@ import Header from '../../../shared/components/Header';
 import Mailing from '../../../shared/components/Mailing';
 import Meta from '../../../shared/components/Meta';
 import { HEADER } from '../../constants/header';
-import styles from './Layout.styles.js';
+import styles from './Layout.module.css';
 
 const Layout = ({ children, meta }) => {
   return (
-    <div className="layout">
+    <div className={styles.container}>
       <Head>
         <title>
           {`${(meta || {}).title ? meta.title + ' - ' : ''}Blog - Lauren Ashpole`}
@@ -25,16 +25,12 @@ const Layout = ({ children, meta }) => {
           'The latest font releases and recommendations. Plus code snippets, bookmarks, and project updates.'
         }
       />
-      <Header enableAnalytics={true} {...HEADER} />
-      <main className="layout__main">{children}</main>
+      <Header {...HEADER} />
+      <main className={styles.main}>{children}</main>
 
       <Footer>
         <Mailing location="footer" isInline={true} />
       </Footer>
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

@@ -1,0 +1,47 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.aside {
+  display: none;
+}
+
+.main {
+  padding: calc(var(--spacing-base) * 0.5) calc(var(--spacing-base) * 0.375);
+}
+
+@media breakTablet {
+  .content {
+    display: flex;
+  }
+
+  .aside {
+    background-image:
+      linear-gradient(var(--color-gray-light) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-gray-light) 1px, transparent 1px);
+    background-size: calc(var(--spacing-base) * 0.5) calc(var(--spacing-base) * 0.5);
+    width: calc(var(--spacing-base) * 3.5);
+    border-right: 1px solid var(--color-gray-light);
+    margin: -1px 0 -1px -1px;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .main {
+    width: calc(100% - (var(--spacing-base) * 3.5));
+    padding: calc(var(--spacing-base) * 0.75);
+  }
+}
+
+@media breakDesktop {
+  .aside {
+    width: calc(var(--spacing-base) * 5);
+  }
+
+  .main {
+    width: calc(100% - (var(--spacing-base) * 5));
+    padding: var(--spacing-base);
+  }
+}

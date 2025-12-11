@@ -1,4 +1,4 @@
-import '../styles/global.scss';
+import '../../shared/styles/_global.css';
 
 import { Analytics } from '@vercel/analytics/react';
 import { useRouter } from 'next/router';

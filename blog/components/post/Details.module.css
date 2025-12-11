@@ -1,0 +1,61 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  line-height: 2.5rem;
+}
+
+.list + .list {
+  margin-top: 0.75rem;
+}
+
+.item {
+  margin-right: 1.5rem;
+  color: var(--color-gray-darkest);
+}
+
+.item a {
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.item a:focus,
+.item a:hover {
+  color: var(--color-secondary-dark);
+}
+
+.itemEm:after {
+  content: "\2014";
+  margin-left: 1.5rem;
+  color: inherit;
+}
+
+.itemType {
+  color: var(--color-secondary);
+}
+
+@media breakTablet {
+  .list {
+    display: block;
+    font-size: 1.75rem;
+    text-align: right;
+    line-height: 2.75rem;
+  }
+
+  .list + .list {
+    margin-top: calc(var(--spacing-base) * 0.375);
+  }
+
+  .item {
+    margin: 0;
+  }
+
+  .itemEm:after {
+    content: none;
+  }
+}

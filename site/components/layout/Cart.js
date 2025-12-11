@@ -14,7 +14,7 @@ import { ga4Event } from '../../utils/ga4.js';
 import Errors from '../shared/Errors';
 import Modal from '../shared/Modal';
 import Summary from '../shared/Summary';
-import styles from './Cart.styles.js';
+import styles from './Cart.module.css';
 
 const Cart = () => {
   const isMount = useRef(true);
@@ -85,7 +85,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart">
+    <div className={styles.container}>
       <Button
         onClick={handleShow}
         attributes={{
@@ -96,8 +96,8 @@ const Cart = () => {
           'data-ga-category': 'cart',
         }}
       >
-        <span className="cart__icon" />
-        <span className="cart__count" aria-hidden="true">
+        <span className={styles.icon} />
+        <span className={styles.count} aria-hidden="true">
           {cart.count || 0}
         </span>
         <SrOnly>View {cart.count} items in cart</SrOnly>
@@ -162,10 +162,6 @@ const Cart = () => {
           </div>
         )}
       </Modal>
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

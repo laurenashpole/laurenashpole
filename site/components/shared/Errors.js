@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styles from './Errors.styles.js';
+import styles from './Errors.module.css';
 
 const Errors = ({ errors }) => {
   if (!errors.length) {
@@ -8,14 +8,10 @@ const Errors = ({ errors }) => {
   }
 
   return (
-    <ul className="errors">
+    <ul className={styles.container}>
       {errors.map((error, i) => (
         <li key={i} dangerouslySetInnerHTML={{ __html: error }} />
       ))}
-
-      <style jsx global>
-        {styles}
-      </style>
     </ul>
   );
 };

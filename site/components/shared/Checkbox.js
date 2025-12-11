@@ -1,18 +1,14 @@
 import PropTypes from 'prop-types';
 
-import styles from './Checkbox.styles.js';
+import styles from './Checkbox.module.css';
 
 const Checkbox = ({ label, attributes }) => {
   return (
-    <div className="checkbox">
-      <label className="checkbox__label">
-        <input className="checkbox__input" type="checkbox" {...attributes} />
+    <div className={styles.container}>
+      <label className={styles.label}>
+        <input className={styles.input} type="checkbox" {...attributes} />
         {label}
       </label>
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

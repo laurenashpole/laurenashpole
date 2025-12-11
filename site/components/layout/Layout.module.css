@@ -1,0 +1,36 @@
+@value breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+  flex-grow: 1.5;
+}
+
+@media breakDesktop {
+  .container {
+    background-image:
+      linear-gradient(
+        90deg,
+        var(--color-gray-light),
+        var(--color-gray-light) 1px,
+        transparent 1px,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent,
+        transparent calc(100% - 1px),
+        var(--color-gray-light) calc(100% - 1px),
+        var(--color-gray-light)
+      );
+    background-size: var(--width-max);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

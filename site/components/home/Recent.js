@@ -1,22 +1,16 @@
 import Container from '../../../shared/components/Container.js';
 import Grid from '../fonts/Grid.js';
 import VerticalHeading from '../shared/VerticalHeading.js';
-import styles from './Recent.styles.js';
+import styles from './Recent.module.css';
 
 const Recent = ({ fonts }) => {
   return (
-    <>
-      <div className="recent">
-        <Container>
-          <VerticalHeading heading="Recent" />
-          <Grid fonts={fonts} gaCategory="Recent Fonts" />
-        </Container>
-      </div>
-
-      <style jsx global>
-        {styles}
-      </style>
-    </>
+    <div className={styles.container}>
+      <Container>
+        <VerticalHeading heading="Recent" />
+        <Grid fonts={fonts} gaCategory="Recent Fonts" />
+      </Container>
+    </div>
   );
 };
 

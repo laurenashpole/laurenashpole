@@ -1,0 +1,50 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container a,
+.container button {
+  flex-direction: column;
+}
+
+.container a span,
+.container button span {
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+  line-height: normal;
+  width: 100%;
+}
+
+.container button[disabled] span {
+  font-size: 0;
+}
+
+.container a + button,
+.container button + button {
+  margin-top: 1rem;
+}
+
+.price + .price {
+  margin-left: 4px;
+  text-decoration: line-through;
+}
+
+@media breakTablet {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container a,
+  .container button {
+    max-width: 50%;
+  }
+
+  .container a span,
+  .container button span {
+    margin-top: 0.5rem;
+  }
+
+  .container a + button,
+  .container button + button {
+    margin: 0 0 0 1.5rem;
+  }
+}

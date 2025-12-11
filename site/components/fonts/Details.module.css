@@ -1,0 +1,48 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link + .link {
+  padding-left: calc(var(--spacing-base) * 0.5);
+}
+
+.desc {
+  padding-top: calc(var(--spacing-base) * 0.5);
+}
+
+.lists {
+  padding: calc(var(--spacing-base) * 0.5) 0;
+}
+
+.list {
+  width: 100%;
+}
+
+.list + .list {
+  padding-top: calc(var(--spacing-base) * 0.5);
+}
+
+.list h4 {
+  margin: 0 0 0.75rem 0;
+}
+
+.list li + li {
+  margin-top: 0.5rem;
+}
+
+.tagHeading {
+  padding: 0.5rem 0.5rem 0 0;
+}
+
+@media breakTablet {
+  .list {
+    width: 50%;
+  }
+
+  .list + .list {
+    padding: 0;
+  }
+}

@@ -1,12 +1,13 @@
-import styles from './Loader.styles.js';
+import styles from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <div className="loader" aria-live="polite" aria-busy="true" role="status">
-      <style jsx global>
-        {styles}
-      </style>
-    </div>
+    <div
+      className={styles.container}
+      aria-live="polite"
+      aria-busy="true"
+      role="status"
+    />
   );
 };
 

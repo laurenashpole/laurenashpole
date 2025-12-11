@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 
-import styles from '../styles/Container.styles.js';
+import styles from '../styles/Container.module.css';
 
 const Container = ({ children }) => {
-  return (
-    <div className="container">
-      {children}
-
-      <style jsx global>
-        {styles}
-      </style>
-    </div>
-  );
+  return <div className={styles.container}>{children}</div>;
 };
 
 Container.propTypes = {

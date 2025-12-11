@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import Button from '../../../shared/components/Button';
-import styles from './Gallery.styles.js';
+import styles from './Gallery.module.css';
 
 const Gallery = ({ font }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,9 +13,9 @@ const Gallery = ({ font }) => {
   }
 
   return (
-    <div className="gallery">
-      <div className="gallery__main">
-        <span className="gallery__pin">
+    <div className={styles.container}>
+      <div className={styles.main}>
+        <span className={styles.pin}>
           <a
             data-pin-do="buttonPin"
             data-pin-tall="true"
@@ -43,10 +43,11 @@ const Gallery = ({ font }) => {
           }}
         />
       </div>
-      <ul className="gallery__thumbs">
+
+      <ul className={styles.thumbs}>
         {font.images.gallery.map((image, i) => {
           return (
-            <li key={i} className="gallery__thumb">
+            <li key={i} className={styles.thumb}>
               <Button
                 style="unstyled"
                 onClick={() => setActiveIndex(i)}
@@ -72,9 +73,6 @@ const Gallery = ({ font }) => {
           );
         })}
       </ul>
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

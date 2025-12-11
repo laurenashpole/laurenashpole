@@ -1,0 +1,13 @@
+@value breakDesktop from './_breakpoints.css';
+
+.container {
+  min-height: calc(var(--spacing-base) * 1.5);
+}
+
+@media breakDesktop {
+  .container {
+    width: 100%;
+    max-width: calc(var(--width-max) - 2px);
+    margin: 0 auto;
+  }
+}

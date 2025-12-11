@@ -1,0 +1,29 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  margin-bottom: calc(var(--spacing-base) * 0.375);
+  color: var(--color-gray-darkest);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+.container:after {
+  content: "\2014";
+  margin-left: 1.5rem;
+  color: inherit;
+}
+
+@media breakTablet {
+  .container {
+    color: var(--color-secondary);
+    font-size: 1.75rem;
+    text-align: right;
+    line-height: 2.75rem;
+  }
+
+  .container:after {
+    content: none;
+  }
+}

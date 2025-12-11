@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import Container from '../../../shared/components/Container.js';
 import { ga4Event } from '../../utils/ga4.js';
-import styles from './Grid.styles.js';
+import styles from './Grid.module.css';
 
 const Grid = ({ fonts, gaCategory, showDetails }) => {
   useEffect(() => {
@@ -16,25 +16,38 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
   };
 
   return (
-    <>
-      <div className="grid">
-        <Container>
-          <ul className="grid__list">
-            {fonts.map((font, i) => {
-              return (
-                <li key={i} className="grid__item">
-                  <Link
-                    href={`/fonts/${font.slug}`}
-                    className="grid__link"
-                    data-ga-click={true}
-                    data-ga-category={`${gaCategory.toLowerCase()} list`}
-                    data-ga-text={`${font.name} details`}
-                    onClick={handleClick}
-                  >
-                    <span className="grid__img">
+    <div className={styles.container}>
+      <Container>
+        <ul className={styles.list}>
+          {fonts.map((font, i) => {
+            return (
+              <li key={i} className={styles.item}>
+                <Link
+                  href={`/fonts/${font.slug}`}
+                  className={styles.link}
+                  data-ga-click={true}
+                  data-ga-category={`${gaCategory.toLowerCase()} list`}
+                  data-ga-text={`${font.name} details`}
+                  onClick={handleClick}
+                >
+                  <span className={styles.img}>
+                    <Image
+                      src={font.images.gallery[0].url}
+                      alt={font.name}
+                      width={640}
+                      height={427}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
+                    />
+                  </span>
+
+                  {font.images.gallery[1] && (
+                    <span className={styles.img}>
                       <Image
-                        src={font.images.gallery[0].url}
-                        alt={font.name}
+                        src={font.images.gallery[1].url}
+                        alt=""
                         width={640}
                         height={427}
                         style={{
@@ -43,44 +56,25 @@ const Grid = ({ fonts, gaCategory, showDetails }) => {
                         }}
                       />
                     </span>
-
-                    {font.images.gallery[1] && (
-                      <span className="grid__img">
-                        <Image
-                          src={font.images.gallery[1].url}
-                          alt=""
-                          width={640}
-                          height={427}
-                          style={{
-                            maxWidth: '100%',
-                            height: 'auto',
-                          }}
-                        />
-                      </span>
-                    )}
-                  </Link>
-
-                  {showDetails && (
-                    <div className="label grid__details">
-                      <h3 className="grid__name">{font.name}</h3>
-
-                      <div className="grid__actions">
-                        <button className="grid__try">Try</button>
-                        <button className="grid__buy">Buy</button>
-                      </div>
-                    </div>
                   )}
-                </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </div>
+                </Link>
 
-      <style jsx global>
-        {styles}
-      </style>
-    </>
+                {showDetails && (
+                  <div className={`${styles.details} label`}>
+                    <h3 className={styles.name}>{font.name}</h3>
+
+                    <div className={styles.actions}>
+                      <button className={styles.try}>Try</button>
+                      <button className={styles.buy}>Buy</button>
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </Container>
+    </div>
   );
 };
 

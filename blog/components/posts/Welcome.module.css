@@ -1,0 +1,58 @@
+@value breakTablet from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  text-align: center;
+}
+
+.content {
+  background: var(--color-gray-lightest);
+  padding: calc(var(--spacing-base) * 0.75) calc(var(--spacing-base) * 0.5);
+}
+
+.heading {
+  margin-bottom: calc(var(--spacing-base) * 0.25);
+}
+
+p.desc {
+  max-width: 64rem;
+  margin: 0 auto calc(var(--spacing-base) * 0.5) auto;
+  font-size: 2.15rem;
+}
+
+.tags {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.tags li:last-child {
+  display: none;
+}
+
+@media breakTablet {
+  .content {
+    padding: calc(var(--spacing-base) * 0.75);
+  }
+
+  .heading {
+    margin-bottom: calc(var(--spacing-base) * 0.375);
+  }
+
+  p.desc {
+    margin-bottom: calc(var(--spacing-base) * 0.625);
+    font-size: 2.25rem;
+  }
+
+  .tags {
+    max-width: 75rem;
+  }
+
+  .tags li:last-child {
+    display: block;
+  }
+}
+
+@media breakDesktop {
+  .content {
+    padding: var(--spacing-base);
+  }
+}

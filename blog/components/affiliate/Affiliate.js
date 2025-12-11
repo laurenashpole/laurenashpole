@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import Container from '../../../shared/components/Container.js';
-import styles from './Affiliate.styles.js';
+import styles from './Affiliate.module.css';
 
 const Affiliate = ({ affiliate, isPermalink }) => {
   if (!affiliate) {
@@ -13,11 +13,11 @@ const Affiliate = ({ affiliate, isPermalink }) => {
       {((affiliate.banner && affiliate.banner.mobile) ||
         (affiliate.snippet && affiliate.snippet.mobile)) && (
         <div
-          className={`affiliate affiliate--mobile ${isPermalink ? 'affiliate--permalink' : ''}`}
+          className={`${styles.container} ${styles.mobile} ${isPermalink ? styles.permalink : ''}`}
         >
           <Container>
-            <div className="affiliate__container">
-              <div className="affiliate__banner--mobile">
+            <div className={styles.content}>
+              <div className={styles.bannerMobile}>
                 {affiliate.banner && (
                   <a href={affiliate.banner.url}>
                     <img
@@ -36,7 +36,7 @@ const Affiliate = ({ affiliate, isPermalink }) => {
                 )}
               </div>
 
-              <div className="affiliate__text">Advertisement</div>
+              <div className={styles.label}>Advertisement</div>
             </div>
           </Container>
         </div>
@@ -45,11 +45,11 @@ const Affiliate = ({ affiliate, isPermalink }) => {
       {((affiliate.banner && affiliate.banner.desktop) ||
         (affiliate.snippet && affiliate.snippet.desktop)) && (
         <div
-          className={`affiliate affiliate--desktop ${isPermalink ? 'affiliate--permalink' : ''}`}
+          className={`${styles.container} ${styles.desktop} ${isPermalink ? styles.permalink : ''}`}
         >
           <Container>
-            <div className="affiliate__container">
-              <div className="affiliate__banner--desktop">
+            <div className={styles.content}>
+              <div className={styles.bannerDesktop}>
                 {affiliate.banner && (
                   <a href={affiliate.banner.url}>
                     <img
@@ -68,15 +68,11 @@ const Affiliate = ({ affiliate, isPermalink }) => {
                 )}
               </div>
 
-              <div className="affiliate__text">Advertisement</div>
+              <div className={styles.label}>Advertisement</div>
             </div>
           </Container>
         </div>
       )}
-
-      <style jsx global>
-        {styles}
-      </style>
     </>
   );
 };

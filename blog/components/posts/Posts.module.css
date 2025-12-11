@@ -1,0 +1,46 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.header {
+  text-align: center;
+}
+
+.heading {
+  margin: 0;
+  padding: calc(var(--spacing-base) * 0.75) calc(var(--spacing-base) * 0.5);
+  color: var(--color-accent-orange);
+}
+
+.heading h1 {
+  margin: 0;
+  color: var(--color-black);
+}
+
+.heading svg {
+  margin-top: 2.625rem;
+  width: 4rem;
+  height: 2rem;
+}
+
+@media breakTablet {
+  .heading {
+    padding: calc(var(--spacing-base) * 0.75);
+  }
+
+  .heading svg {
+    width: 4.75rem;
+    height: 2.25rem;
+    margin-top: 3rem;
+  }
+}
+
+@media breakDesktop {
+  .heading {
+    padding: var(--spacing-base);
+  }
+
+  .heading svg {
+    margin-top: 4.25rem;
+    width: 5.5rem;
+    height: 2.5rem;
+  }
+}

@@ -1,23 +1,21 @@
 import PropTypes from 'prop-types';
 
-import styles from './Textarea.styles.js';
+import styles from './Textarea.module.css';
 
 const Textarea = ({ label, hasError, textareaProps }) => {
   return (
-    <div className={`textarea ${hasError ? 'textarea--error' : ''}`}>
+    <div className={`${styles.container} ${hasError ? styles.error : ''}`}>
       <label
-        className="textarea__label"
+        className={styles.label}
         htmlFor={label.replace(/ /g, '')}
         dangerouslySetInnerHTML={{ __html: label }}
       />
+
       <textarea
-        className="textarea__textarea"
+        className={styles.textarea}
         id={label.replace(/ /g, '')}
         {...textareaProps}
       />
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

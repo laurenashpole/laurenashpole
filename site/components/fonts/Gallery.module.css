@@ -1,0 +1,59 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  margin-bottom: calc(var(--spacing-base) * 0.5);
+}
+
+.main {
+  position: relative;
+  display: flex;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.pin {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 1;
+}
+
+.pin a {
+  border: none;
+}
+
+.thumbs {
+  padding-top: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+}
+
+.thumb {
+  width: 18rem;
+  margin: 0 0.5rem 0 0;
+}
+
+.thumb button {
+  border-radius: var(--border-radius);
+  display: flex;
+  overflow: hidden;
+}
+
+.thumb:last-child {
+  margin-right: 0;
+}
+
+@media breakTablet {
+  .thumb {
+    width: calc(20% - (1rem * 0.8));
+    margin: 0 1rem 0 0;
+  }
+}
+
+@media breakDesktop {
+  .container {
+    margin-bottom: calc(var(--spacing-base) * 0.75);
+  }
+}

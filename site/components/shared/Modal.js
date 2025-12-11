@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import Well from '../../../shared/components/Well';
-import styles from './Modal.styles.js';
+import styles from './Modal.module.css';
 
 const Modal = ({ children, name, isActive, onClose }) => {
   const modalRef = useRef(null);
@@ -88,25 +87,19 @@ const Modal = ({ children, name, isActive, onClose }) => {
 
   return createPortal(
     <div
-      className={`modal ${isVisible ? 'modal--visible' : ''}`}
+      className={`${styles.container} ${isVisible ? styles.visible : ''}`}
       onClick={handleClick}
     >
       <div
-        className="modal__content"
+        className={styles.modal}
         id={name ? `${name}Modal` : null}
         ref={modalRef}
         aria-hidden={!isVisible}
         aria-labelledby={name ? `${name}ModalHeading` : null}
         role="dialog"
       >
-        <div className="modal__well">
-          <Well size="small">{children}</Well>
-        </div>
+        <div className={styles.content}>{children}</div>
       </div>
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>,
     portalRef.current,
   );

@@ -1,0 +1,214 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
+  background-size: var(--spacing-base) var(--spacing-base);
+  margin-top: -1px;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.content {
+  background-color: var(--color-gray-lightest);
+  background-image: linear-gradient(var(--color-gray-light) 1px, transparent 1px);
+  background-size: var(--spacing-base) var(--spacing-base);
+  min-height: calc(var(--spacing-base) * 11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.shapes {
+  position: absolute;
+  transform: scaleX(-1);
+}
+
+.shapesLineGroup {
+  width: 42rem;
+  right: -5rem;
+  top: 5rem;
+  color: var(--color-accent-green);
+}
+
+.shapesSquiggle {
+  width: 50rem;
+  left: -4rem;
+  bottom: 5rem;
+  color: var(--color-accent-blue);
+}
+
+.shapesDotGroup {
+  width: 16rem;
+  left: 4rem;
+  bottom: 17rem;
+  color: var(--color-accent-orange);
+}
+
+.link {
+  margin-bottom: var(--spacing-base);
+  padding: calc(var(--spacing-base) * 0.5);
+  position: relative;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: none;
+}
+
+.letters {
+  color: var(--color-secondary);
+  font-size: 32rem;
+  line-height: 0.85;
+}
+
+.letters span {
+  display: inline-block;
+}
+
+.letters span:last-of-type {
+  display: block;
+}
+
+.letters span:nth-of-type(1) {
+  transform: rotate(-10deg);
+}
+
+.letters span:nth-of-type(2) {
+  transform: rotate(5deg) translateY(3rem);
+}
+
+.letters span:nth-of-type(3) {
+  transform: rotate(-5deg) translateX(-3rem);
+}
+
+.badge {
+  padding: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  color: var(--color-white);
+}
+
+.badgeSmall {
+  background: var(--color-primary);
+  width: 10rem;
+  height: 10rem;
+  transform: rotate(-15deg);
+  top: calc(50% - 24rem);
+  left: calc(50% - 21rem);
+  font-size: 1.75rem;
+}
+
+.badgeLarge {
+  background: var(--color-accent-orange);
+  width: 16rem;
+  height: 16rem;
+  transform: rotate(10deg);
+  right: calc(50% - 20rem);
+  bottom: calc(50% - 32rem);
+}
+
+@media breakTablet {
+  .content {
+    min-height: calc(var(--spacing-base) * 9);
+  }
+
+  .shapesLineGroup {
+    width: 50rem;
+    right: 5rem;
+    top: 5rem;
+  }
+
+  .shapesSquiggle {
+    width: 60rem;
+    left: 5rem;
+    bottom: 5rem;
+  }
+
+  .shapesDotGroup {
+    width: 19rem;
+    left: 10rem;
+    bottom: 24rem;
+  }
+
+  .letters {
+    font-size: 40rem;
+  }
+
+  .letters span:last-of-type {
+    display: inline-block;
+  }
+
+  .letters span:nth-of-type(1) {
+    transform: rotate(-12deg);
+  }
+
+  .letters span:nth-of-type(2) {
+    transform: rotate(5deg) translateY(5%);
+  }
+
+  .letters span:nth-of-type(3) {
+    transform: rotate(10deg) translateY(-2.5%);
+  }
+
+  .badgeSmall {
+    width: 11rem;
+    height: 11rem;
+    left: calc(50% - 24rem);
+    font-size: 2rem;
+  }
+
+  .badgeLarge {
+    width: 18rem;
+    height: 18rem;
+    bottom: calc(50% - 28rem);
+    right: calc(50% - 27rem);
+  }
+}
+
+@media breakDesktop {
+  .shapesLineGroup {
+    width: 56rem;
+    right: 8rem;
+    top: 6rem;
+  }
+
+  .shapesSquiggle {
+    width: 67rem;
+    left: 8rem;
+    bottom: 5rem;
+  }
+
+  .shapesDotGroup {
+    width: 21rem;
+    left: 14rem;
+    bottom: 25rem;
+  }
+
+  .letters {
+    font-size: 52rem;
+  }
+
+  .badgeSmall {
+    width: 13rem;
+    height: 13rem;
+    font-size: 2.25rem;
+    top: calc(50% - 25rem);
+    left: calc(50% - 54rem);
+  }
+
+  .badgeLarge {
+    width: 20rem;
+    height: 20rem;
+    bottom: calc(50% - 31rem);
+    right: calc(50% - 56rem);
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+@value breakTablet, breakDesktop from '../../../shared/styles/_breakpoints.css';
+
+.container {
+  padding: calc(var(--spacing-base) * 0.625) calc(var(--spacing-base) * 0.375);
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+.next {
+  margin-left: auto;
+}
+
+@media breakDesktop {
+  .container {
+    padding: calc(var(--spacing-base) * 0.75) var(--spacing-base);
+  }
+}

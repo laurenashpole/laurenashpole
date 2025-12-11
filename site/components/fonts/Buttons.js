@@ -6,7 +6,7 @@ import Mailing from '../../../shared/components/Mailing';
 import { addItem } from '../../utils/cart';
 import { ga4Event } from '../../utils/ga4';
 import Modal from '../shared/Modal';
-import styles from './Buttons.styles.js';
+import styles from './Buttons.module.css';
 
 const Buttons = ({ font }) => {
   const downloadRef = useRef(null);
@@ -36,8 +36,8 @@ const Buttons = ({ font }) => {
   };
 
   return (
-    <div className="buttons">
-      {(font.downloads || {}).personal && (
+    <div className={styles.container}>
+      {(font.downloads.personal.file || {}).url && (
         <>
           <Button
             style="outline"
@@ -60,10 +60,12 @@ const Buttons = ({ font }) => {
             onClose={handleModalClose}
           >
             <h3 id="mailingListModalHeading">
-              Can I email you about new fonts?
+              Can I email you
+              <br />
+              about new fonts?
             </h3>
 
-            <>
+            <div>
               <p>
                 I promise you&apos;ll only hear from me when I have something
                 you can try.
@@ -83,12 +85,12 @@ const Buttons = ({ font }) => {
               >
                 Nope, just download the font.
               </Button>
-            </>
+            </div>
           </Modal>
         </>
       )}
 
-      {(font.downloads || {}).commercial && (
+      {(font.downloads.commercial.file || {}).url && (
         <Button
           style="primary"
           onClick={handleAdd}
@@ -101,16 +103,12 @@ const Buttons = ({ font }) => {
           Add To Cart{' '}
           <span>
             {font.sale_price && (
-              <span className="buttons__price">${font.sale_price}</span>
+              <span className={styles.price}>${font.sale_price}</span>
             )}
-            <span className="buttons__price">${font.price}</span> Commercial Use
+            <span className={styles.price}>${font.price}</span> Commercial Use
           </span>
         </Button>
       )}
-
-      <style jsx global>
-        {styles}
-      </style>
     </div>
   );
 };

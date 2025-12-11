@@ -6,16 +6,16 @@ import AbstractLineRule from '../../../shared/components/svgs/AbstractLineRule.j
 import Affiliate from '../affiliate/Affiliate';
 import Post from '../post/Post';
 import Pagination from './Pagination';
-import styles from './Posts.styles.js';
+import styles from './Posts.module.css';
 
 const Posts = ({ posts, pagination, paginationPath, heading, affiliate }) => {
   return (
     <>
       <div>
         {heading && (
-          <div className="posts__heading">
+          <div className={styles.header}>
             <Container>
-              <div className="posts__heading-text">
+              <div className={styles.heading}>
                 <h1 dangerouslySetInnerHTML={{ __html: heading }} />
                 <AbstractLineRule />
               </div>
@@ -34,10 +34,6 @@ const Posts = ({ posts, pagination, paginationPath, heading, affiliate }) => {
       {pagination && (
         <Pagination pagination={pagination} paginationPath={paginationPath} />
       )}
-
-      <style jsx global>
-        {styles}
-      </style>
     </>
   );
 };
