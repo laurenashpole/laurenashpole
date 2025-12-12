@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import styles from '../styles/Input.module.css';
@@ -23,13 +22,6 @@ const Input = forwardRef(({ label, hideLabel, hasError, attributes }, ref) => {
     </div>
   );
 });
-
-Input.propTypes = {
-  label: PropTypes.string,
-  hideLabel: PropTypes.bool,
-  hasError: PropTypes.bool,
-  attributes: PropTypes.object,
-};
 
 Input.displayName = 'Input';
 

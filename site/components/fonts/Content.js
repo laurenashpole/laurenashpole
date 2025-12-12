@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 import Container from '../../../shared/components/Container';
@@ -58,11 +57,6 @@ const Content = ({ font }) => {
       </div>
     </Container>
   );
-};
-
-Content.propTypes = {
-  font: PropTypes.object,
-  tags: PropTypes.array,
 };
 
 export default Content;

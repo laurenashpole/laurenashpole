@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
@@ -76,12 +75,6 @@ const Post = ({ post, isPermalink, affiliate }) => {
       )}
     </article>
   );
-};
-
-Post.propTypes = {
-  post: PropTypes.object,
-  isPermalink: PropTypes.bool,
-  affiliate: PropTypes.object,
 };
 
 export default Post;

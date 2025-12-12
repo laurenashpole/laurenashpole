@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import styles from './Details.module.css';
 
@@ -69,10 +68,6 @@ const Details = ({ post }) => {
       </ul>
     </div>
   );
-};
-
-Details.propTypes = {
-  post: PropTypes.object,
 };
 
 export default Details;

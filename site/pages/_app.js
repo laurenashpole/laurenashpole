@@ -3,7 +3,6 @@ import '../../shared/styles/_global.css';
 import { Analytics } from '@vercel/analytics/react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 const App = ({ Component, pageProps }) => {
@@ -22,11 +21,6 @@ const App = ({ Component, pageProps }) => {
       <Script src="//assets.pinterest.com/js/pinit.js" />
     </>
   );
-};
-
-App.propTypes = {
-  Component: PropTypes.func,
-  pageProps: PropTypes.object,
 };
 
 export default App;

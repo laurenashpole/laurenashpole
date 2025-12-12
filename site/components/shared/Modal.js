@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -103,13 +102,6 @@ const Modal = ({ children, name, isActive, onClose }) => {
     </div>,
     portalRef.current,
   );
-};
-
-Modal.propTypes = {
-  children: PropTypes.any,
-  name: PropTypes.string,
-  isActive: PropTypes.bool,
-  onClose: PropTypes.func,
 };
 
 export default Modal;

@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from '../styles/Header.module.css';
 import ActiveLink from './ActiveLink';
 import Logo from './svgs/Logo.js';
@@ -67,11 +65,6 @@ const Header = ({ home, links, cart }) => {
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  home: PropTypes.object,
-  links: PropTypes.array,
 };
 
 export default Header;

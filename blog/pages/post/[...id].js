@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Layout from '../../components/layout/Layout';
 import Post from '../../components/post/Post';
 import { find } from '../../utils/sanity';
@@ -88,10 +86,5 @@ export async function getStaticProps({ params }) {
     revalidate: 3600,
   };
 }
-
-Show.propTypes = {
-  post: PropTypes.object,
-  affiliate: PropTypes.object,
-};
 
 export default Show;

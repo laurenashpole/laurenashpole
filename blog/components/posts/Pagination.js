@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import Container from '../../../shared/components/Container.js';
 import styles from './Pagination.module.css';
@@ -40,11 +39,6 @@ const Pagination = ({ pagination, paginationPath }) => {
       </ul>
     </Container>
   );
-};
-
-Pagination.propTypes = {
-  posts: PropTypes.array,
-  pagination: PropTypes.object,
 };
 
 export default Pagination;
