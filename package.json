@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "eslint": "^7.24.0",
-    "eslint-config-next": "13",
+    "eslint-config-next": "^14.2.33",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-simple-import-sort": "^12.1.1",
