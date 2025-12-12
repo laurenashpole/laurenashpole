@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import Summary from '../shared/Summary';
 import styles from './Order.module.css';
@@ -58,10 +57,6 @@ const Order = ({ order }) => {
       </div>
     </div>
   );
-};
-
-Order.propTypes = {
-  order: PropTypes.object,
 };
 
 export default Order;

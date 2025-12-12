@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import Button from '../../../shared/components/Button';
@@ -75,10 +74,6 @@ const Gallery = ({ font }) => {
       </ul>
     </div>
   );
-};
-
-Gallery.propTypes = {
-  font: PropTypes.object,
 };
 
 export default Gallery;

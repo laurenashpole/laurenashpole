@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from './Errors.module.css';
 
 const Errors = ({ errors }) => {
@@ -14,10 +12,6 @@ const Errors = ({ errors }) => {
       ))}
     </ul>
   );
-};
-
-Errors.propTypes = {
-  errors: PropTypes.array,
 };
 
 export default Errors;

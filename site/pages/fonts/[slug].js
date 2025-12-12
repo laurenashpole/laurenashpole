@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 
 import Content from '../../components/fonts/Content';
 import Layout from '../../components/layout/Layout';
@@ -86,9 +85,5 @@ export async function getStaticProps({ params }) {
     revalidate: 604800,
   };
 }
-
-Font.propTypes = {
-  font: PropTypes.object,
-};
 
 export default Font;

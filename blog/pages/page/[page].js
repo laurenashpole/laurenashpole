@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Layout from '../../components/layout/Layout';
 import Posts from '../../components/posts/Posts';
 import { find } from '../../utils/sanity';
@@ -41,12 +39,5 @@ export async function getStaticProps({ params }) {
     revalidate: 3600,
   };
 }
-
-Index.propTypes = {
-  posts: PropTypes.array,
-  pagination: PropTypes.object,
-  page: PropTypes.string,
-  affiliate: PropTypes.object,
-};
 
 export default Index;

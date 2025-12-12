@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
 import Button from '../../../shared/components/Button';
@@ -100,14 +99,6 @@ const Summary = ({ header, items, name, onAdd, onRemove, total }) => {
       )}
     </ul>
   );
-};
-
-Summary.propTypes = {
-  header: PropTypes.string,
-  items: PropTypes.array,
-  name: PropTypes.string,
-  onAdd: PropTypes.func,
-  onRemove: PropTypes.func,
 };
 
 export default Summary;

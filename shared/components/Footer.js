@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { FaBluesky, FaCodepen, FaGithub, FaPinterestP } from 'react-icons/fa6';
 
 import styles from '../styles/Footer.module.css';
@@ -65,10 +64,6 @@ const Footer = ({ children }) => {
       </div>
     </footer>
   );
-};
-
-Footer.propTypes = {
-  children: PropTypes.any,
 };
 
 export default Footer;

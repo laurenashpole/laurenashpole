@@ -1,7 +1,6 @@
 import 'prismjs/themes/prism.css';
 
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import styles from './TextBlock.module.css';
 
@@ -25,10 +24,6 @@ const TextBlock = ({ post }) => {
       )}
     </div>
   );
-};
-
-TextBlock.propTypes = {
-  post: PropTypes.object,
 };
 
 export default TextBlock;

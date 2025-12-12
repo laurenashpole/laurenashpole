@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import List from '../../components/fonts/List';
 import Layout from '../../components/layout/Layout';
 import { fetchFonts, fetchTags } from '../../utils/sanity';
@@ -30,10 +28,5 @@ export async function getStaticProps() {
     },
   };
 }
-
-Fonts.propTypes = {
-  fonts: PropTypes.array,
-  tags: PropTypes.array,
-};
 
 export default Fonts;

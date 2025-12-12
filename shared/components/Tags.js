@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import styles from '../styles/Tags.module.css';
 
@@ -22,12 +21,6 @@ const Tags = ({ tags, path, source }) => {
       })}
     </ul>
   );
-};
-
-Tags.propTypes = {
-  tags: PropTypes.array,
-  path: PropTypes.string,
-  source: PropTypes.string,
 };
 
 export default Tags;

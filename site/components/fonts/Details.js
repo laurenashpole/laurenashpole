@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
 import Tags from '../../../shared/components/Tags';
 import styles from './Details.module.css';
@@ -90,11 +89,6 @@ const Details = ({ font }) => {
       )}
     </section>
   );
-};
-
-Details.propTypes = {
-  font: PropTypes.object,
-  tags: PropTypes.array,
 };
 
 export default Details;

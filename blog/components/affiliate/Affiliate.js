@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Container from '../../../shared/components/Container.js';
 import styles from './Affiliate.module.css';
 
@@ -75,11 +73,6 @@ const Affiliate = ({ affiliate, isPermalink }) => {
       )}
     </>
   );
-};
-
-Affiliate.propTypes = {
-  affiliate: PropTypes.object,
-  isPermalink: PropTypes.bool,
 };
 
 export default Affiliate;

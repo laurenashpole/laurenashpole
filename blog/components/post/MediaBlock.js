@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from './MediaBlock.module.css';
 
 const MediaBlock = ({ post }) => {
@@ -34,10 +32,6 @@ const MediaBlock = ({ post }) => {
       <div dangerouslySetInnerHTML={{ __html: post.caption }} />
     </div>
   );
-};
-
-MediaBlock.propTypes = {
-  post: PropTypes.object,
 };
 
 export default MediaBlock;
