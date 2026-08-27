@@ -12,6 +12,19 @@
   padding: calc(var(--spacing-base) * 0.5) calc(var(--spacing-base) * 0.375);
 }
 
+.heading {
+  margin-bottom: calc(var(--spacing-base) * 0.5);
+}
+
+.text {
+  margin-bottom: calc(var(--spacing-base) * 0.475);
+}
+
+.list {
+  border-top: 1px solid var(--color-gray-light);
+  padding-top: calc(var(--spacing-base) * 0.25);
+}
+
 @media breakTablet {
   .content {
     display: flex;
