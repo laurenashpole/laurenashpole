@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from './Select.module.css';
 
 const Select = ({ children, label, hideLabel, selectProps }) => {
@@ -23,13 +21,6 @@ const Select = ({ children, label, hideLabel, selectProps }) => {
       <span className={styles.caret} />
     </div>
   );
-};
-
-Select.propTypes = {
-  children: PropTypes.any,
-  label: PropTypes.string,
-  hideLabel: PropTypes.bool,
-  selectProps: PropTypes.object,
 };
 
 export default Select;

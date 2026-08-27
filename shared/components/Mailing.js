@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import styles from '../styles/Mailing.module.css';
@@ -79,12 +78,6 @@ const Mailing = ({ location, isInline, onSignup }) => {
       </div>
     </form>
   );
-};
-
-Mailing.propTypes = {
-  location: PropTypes.string,
-  isInline: PropTypes.bool,
-  onSignup: PropTypes.func,
 };
 
 export default Mailing;

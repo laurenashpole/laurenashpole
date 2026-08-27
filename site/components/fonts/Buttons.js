@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 
 import Button from '../../../shared/components/Button';
@@ -111,10 +110,6 @@ const Buttons = ({ font }) => {
       )}
     </div>
   );
-};
-
-Buttons.propTypes = {
-  font: PropTypes.object,
 };
 
 export default Buttons;

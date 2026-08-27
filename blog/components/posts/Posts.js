@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import Container from '../../../shared/components/Container.js';
@@ -36,13 +35,6 @@ const Posts = ({ posts, pagination, paginationPath, heading, affiliate }) => {
       )}
     </>
   );
-};
-
-Posts.propTypes = {
-  posts: PropTypes.array,
-  pagination: PropTypes.object,
-  paginationPath: PropTypes.string,
-  affiliate: PropTypes.object,
 };
 
 export default Posts;

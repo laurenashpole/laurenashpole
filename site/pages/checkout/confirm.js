@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
 import { request } from '../../../shared/utils/request';
@@ -80,9 +79,5 @@ export async function getServerSideProps({ query }) {
     },
   };
 }
-
-Confirm.propTypes = {
-  order: PropTypes.object,
-};
 
 export default Confirm;

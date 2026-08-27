@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 
 const Meta = ({
   description,
@@ -75,15 +74,6 @@ const Meta = ({
       />
     </Head>
   );
-};
-
-Meta.propTypes = {
-  description: PropTypes.string,
-  og: PropTypes.object,
-  pathname: PropTypes.string,
-  structuredData: PropTypes.string,
-  title: PropTypes.string,
-  twitter: PropTypes.object,
 };
 
 export default Meta;

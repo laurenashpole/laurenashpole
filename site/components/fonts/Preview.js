@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import Input from '../../../shared/components/Input';
@@ -68,10 +67,6 @@ const Preview = ({ font }) => {
         })}
     </section>
   );
-};
-
-Preview.propTypes = {
-  font: PropTypes.object,
 };
 
 export default Preview;

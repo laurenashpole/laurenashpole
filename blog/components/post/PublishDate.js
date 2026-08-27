@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from './PublishDate.module.css';
 
 const PublishDate = ({ date }) => {
@@ -12,10 +10,6 @@ const PublishDate = ({ date }) => {
       })}
     </div>
   );
-};
-
-PublishDate.propTypes = {
-  date: PropTypes.string,
 };
 
 export default PublishDate;

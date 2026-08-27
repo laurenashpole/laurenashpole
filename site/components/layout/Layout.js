@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 
 import Footer from '../../../shared/components/Footer';
 import Header from '../../../shared/components/Header';
@@ -36,11 +35,6 @@ const Layout = ({ children, meta }) => {
       </Footer>
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.any,
-  meta: PropTypes.object,
 };
 
 export default Layout;

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 
 const ActiveLink = ({ href, isExact, children, ...props }) => {
   const router = useRouter();
@@ -13,12 +12,6 @@ const ActiveLink = ({ href, isExact, children, ...props }) => {
       {children}
     </Link>
   );
-};
-
-ActiveLink.propTypes = {
-  href: PropTypes.string,
-  isExact: PropTypes.bool,
-  children: PropTypes.any,
 };
 
 export default ActiveLink;

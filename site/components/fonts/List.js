@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import Button from '../../../shared/components/Button';
@@ -87,13 +86,6 @@ const List = ({ heading, fonts, tags, description }) => {
       <Container />
     </>
   );
-};
-
-List.propTypes = {
-  heading: PropTypes.string,
-  fonts: PropTypes.array,
-  tags: PropTypes.array,
-  description: PropTypes.string,
 };
 
 export default List;

@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import styles from './Checkbox.module.css';
 
 const Checkbox = ({ label, attributes }) => {
@@ -11,11 +9,6 @@ const Checkbox = ({ label, attributes }) => {
       </label>
     </div>
   );
-};
-
-Checkbox.propTypes = {
-  label: PropTypes.string,
-  attributes: PropTypes.object,
 };
 
 export default Checkbox;

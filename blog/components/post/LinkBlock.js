@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { FaHeadphones } from 'react-icons/fa6';
 import { GrLink } from 'react-icons/gr';
 
@@ -26,10 +25,6 @@ const LinkBlock = ({ post }) => {
       )}
     </div>
   );
-};
-
-LinkBlock.propTypes = {
-  post: PropTypes.object,
 };
 
 export default LinkBlock;
