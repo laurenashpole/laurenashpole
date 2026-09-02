@@ -44,7 +44,7 @@ const TextBlock = ({ post, isPermalink }) => {
             >
               Beehiiv
             </a>
-            . To get next month&aposs by email, sign up below.
+            . To get next month&apos;s by email, sign up below.
           </p>
 
           <div
