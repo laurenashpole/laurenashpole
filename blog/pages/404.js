@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import Layout from '../components/layout/Layout';
 import Page from '../../shared/components/Page';
+import Layout from '../components/layout/Layout';
 
 const Custom404 = () => {
   return (

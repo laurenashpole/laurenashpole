@@ -1,5 +1,5 @@
-import Container from './Container.js';
 import styles from '../styles/Page.module.css';
+import Container from './Container.js';
 
 const Page = ({ children, hasAside }) => {
   return (
