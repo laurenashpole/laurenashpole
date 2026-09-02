@@ -4,9 +4,17 @@
   margin-top: calc(var(--spacing-base) * 0.375);
 }
 
+.affiliate {
+  font-size: 1.85rem;
+}
+
 @media breakTablet {
   .more {
     margin-top: calc(var(--spacing-base) * 0.5);
+  }
+
+  .affiliate {
+    line-height: 1.65;
   }
 }
 

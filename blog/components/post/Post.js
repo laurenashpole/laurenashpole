@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import Container from '../../../shared/components/Container.js';
 import Affiliate from '../affiliate/Affiliate';
@@ -14,43 +12,35 @@ import PublishDate from './PublishDate';
 import TextBlock from './TextBlock';
 
 const Post = ({ post, isPermalink, affiliate }) => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  const isTablet = useMediaQuery({
-    query: '(min-width: 768px)',
-  });
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <article
       className={`${styles.container} ${isPermalink ? styles.permalink : ''}`}
     >
       <Container>
         <div className={styles.content}>
-          <div className={styles.details}>
-            {isMounted && isTablet && (
-              <>
-                <PublishDate date={post.date} />
-                <Details post={post} />
-              </>
-            )}
+          <div className={`${styles.details} ${styles.tablet}`}>
+            <PublishDate date={post.date} />
+            <Details post={post} />
           </div>
 
           <div className={styles.main}>
-            {isMounted && !isTablet && <PublishDate date={post.date} />}
+            <div className={styles.mobile}>
+              <PublishDate date={post.date} />
+            </div>
 
             <div className={styles.body}>
-              {post.type === 'text' && <TextBlock post={post} />}
+              {post.type === 'text' && (
+                <TextBlock post={post} isPermalink={isPermalink} />
+              )}
               {post.type === 'photo' && <MediaBlock post={post} />}
               {post.type === 'video' && <MediaBlock post={post} />}
               {post.type === 'link' && <LinkBlock post={post} />}
               {post.type === 'answer' && <AnswerBlock post={post} />}
             </div>
 
-            {isMounted && !isTablet && <Details post={post} />}
+            <div className={styles.mobile}>
+              <Details post={post} />
+            </div>
 
             {!isPermalink && (
               <footer className={styles.footer} aria-label="Post footer">
@@ -70,7 +60,7 @@ const Post = ({ post, isPermalink, affiliate }) => {
       {isPermalink && (
         <>
           <Affiliate affiliate={affiliate} isPermalink />
-          <Comments />
+          <Comments id={post.bluesky_id} />
         </>
       )}
     </article>
