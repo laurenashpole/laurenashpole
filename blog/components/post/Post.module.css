@@ -1,5 +1,9 @@
 @value breakTablet, breakDesktop, breakDesktopL from '../../../shared/styles/_breakpoints.css';
 
+.tablet {
+  display: none;
+}
+
 .container:not(.permalink) {
   border-bottom: 1px solid var(--color-gray-light);
   border-top: 1px solid var(--color-gray-light);
@@ -111,6 +115,14 @@
 }
 
 @media breakTablet {
+  .mobile {
+    display: none;
+  }
+
+  .tablet {
+    display: block;
+  }
+
   .content {
     display: flex;
   }
