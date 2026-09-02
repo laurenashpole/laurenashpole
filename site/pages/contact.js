@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import Button from '../../shared/components/Button';
 import Input from '../../shared/components/Input';
+import Page from '../../shared/components/Page';
 import { request } from '../../shared/utils/request';
 import Layout from '../components/layout/Layout';
-import Page from '../components/layout/Page';
 import Errors from '../components/shared/Errors';
 import Loader from '../components/shared/Loader';
 import Select from '../components/shared/Select';
@@ -71,12 +71,12 @@ const Contact = () => {
   return (
     <Layout meta={{ title: 'Contact', pathname: 'contact' }}>
       {isComplete ? (
-        <Page>
+        <Page hasAside>
           <h1>Thanks for your message!</h1>
           <div>I&apos;ll get back to you as soon as I can.</div>
         </Page>
       ) : (
-        <Page>
+        <Page hasAside>
           <h1>Contact</h1>
 
           <form>

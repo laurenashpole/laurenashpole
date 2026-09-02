@@ -1,5 +1,5 @@
+import Page from '../../../shared/components/Page';
 import Layout from '../../components/layout/Layout';
-import Page from '../../components/layout/Page';
 
 const EULA = () => {
   return (
@@ -9,7 +9,7 @@ const EULA = () => {
         pathname: 'fonts/eula',
       }}
     >
-      <Page>
+      <Page hasAside>
         <h1>End-User Licensing Agreement</h1>
 
         <>

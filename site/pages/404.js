@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
+import Page from '../../shared/components/Page';
 import Layout from '../components/layout/Layout';
-import Page from '../components/layout/Page';
 
 const Custom404 = () => {
   return (
     <Layout meta={{ title: '404 - Page Not Found' }}>
-      <Page>
+      <Page hasAside>
         <h1>404 - Page Not Found</h1>
         <p>
           It looks like this page doesn&apos;t exist. If you&apos;re looking for

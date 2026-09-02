@@ -1,4 +1,4 @@
-@value breakDesktop from '../../../shared/styles/_breakpoints.css';
+@value breakDesktop from './_breakpoints.css';
 
 .aside {
   display: none;
@@ -26,6 +26,9 @@
   .main {
     width: calc(100% - (var(--spacing-base) * 4));
     padding: var(--spacing-base);
+  }
+
+  .aside + .main {
     border-left: 1px solid var(--color-gray-light);
   }
 }

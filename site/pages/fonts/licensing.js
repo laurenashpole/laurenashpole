@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
+import Page from '../../../shared/components/Page';
 import Layout from '../../components/layout/Layout';
-import Page from '../../components/layout/Page';
 
 const Licensing = () => {
   return (
     <Layout meta={{ title: 'Licensing - Fonts', pathname: 'fonts/licensing' }}>
-      <Page>
+      <Page hasAside>
         <h1>Licensing</h1>
 
         <>

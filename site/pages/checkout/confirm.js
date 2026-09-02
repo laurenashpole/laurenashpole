@@ -2,10 +2,10 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+import Page from '../../../shared/components/Page';
 import { request } from '../../../shared/utils/request';
 import Order from '../../components/checkout/Order';
 import Layout from '../../components/layout/Layout';
-import Page from '../../components/layout/Page';
 import { getOrder } from '../../utils/checkout';
 import { ga4Event } from '../../utils/ga4';
 
@@ -40,7 +40,7 @@ const Confirm = ({ order }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <Page>
+      <Page hasAside>
         <h1>
           {order.error || !order.fonts
             ? 'Oops, something went wrong!'

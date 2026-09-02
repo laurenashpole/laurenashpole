@@ -1,10 +1,10 @@
+import Page from '../../shared/components/Page';
 import Layout from '../components/layout/Layout';
-import Page from '../components/layout/Page';
 
 const Error = ({ statusCode }) => {
   return (
     <Layout meta={{ title: 'Something went wrong!' }}>
-      <Page>
+      <Page hasAside>
         <h1>{statusCode && `${statusCode} - `}Something went wrong!</h1>
 
         <div>
